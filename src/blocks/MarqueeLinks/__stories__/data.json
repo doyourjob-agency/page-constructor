@@ -1,0 +1,22 @@
+{
+  "default": {
+    "content": {
+      "type": "marquee-links-block",
+      "speed": 10,
+      "items": [
+        {
+          "src": "/story-assets/marquee-links-block-1.svg",
+          "url": "https://example.com"
+        },
+        {
+          "src": "/story-assets/marquee-links-block-2.svg",
+          "url": "https://example.com"
+        },
+        {
+          "src": "/story-assets/marquee-links-block-3.svg",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  }
+}
