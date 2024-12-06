@@ -1,0 +1,13 @@
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}marquee-links-block';
+
+#{$block} {
+    .rfm-child img {
+        margin: 0 57px;
+    }
+    .rfm-overlay::after,
+    .rfm-overlay::before {
+        --gradient-color: var(--g-color-base-background);
+    }
+}
