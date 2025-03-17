@@ -392,12 +392,12 @@ export const config: BlocksConfig = {
     ],
     [BlockType.FormBlock]: [
         {
-            fields: ['textContent'],
+            fields: ['textContent', 'textFormContent'],
             transformer: yfmTransformer,
             parser: parseContentLayout,
         },
         {
-            fields: ['textContent'],
+            fields: ['textContent', 'textFormContent'],
             transformer: typografTransformer,
             parser: parseContentLayoutTitle,
         },

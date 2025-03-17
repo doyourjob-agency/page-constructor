@@ -22,7 +22,14 @@ const b = block('form-block');
 const colSizes = {[GridColumnSize.Lg]: 6, [GridColumnSize.All]: 12};
 
 const FormBlock: React.FC<FormBlockProps> = (props) => {
-    const {formData, title, textContent, direction = FormBlockDirection.Center, background} = props;
+    const {
+        formData,
+        title,
+        textContent,
+        textFormContent,
+        direction = FormBlockDirection.Center,
+        background,
+    } = props;
     const [contentLoaded, setContentLoaded] = useState(false);
     const isMobile = useContext(MobileContext);
     const theme = useTheme();
@@ -39,16 +46,14 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         setContentLoaded(true);
     }, []);
 
-    if (!formData) {
-        return null;
-    }
-
     let formType;
 
-    if (isYandexDataForm(formData)) {
-        formType = FormBlockDataTypes.YANDEX;
-    } else if (isHubspotDataForm(formData)) {
-        formType = FormBlockDataTypes.HUBSPOT;
+    if (formData) {
+        if (isYandexDataForm(formData)) {
+            formType = FormBlockDataTypes.YANDEX;
+        } else if (isHubspotDataForm(formData)) {
+            formType = FormBlockDataTypes.HUBSPOT;
+        }
     }
 
     return (
@@ -106,11 +111,20 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                                         colSizes={{all: 12}}
                                     />
                                 )}
-                                <InnerForm
-                                    className={b('form')}
-                                    formData={formData}
-                                    onContentLoad={onContentLoad}
+                                <Content
+                                    {...textFormContent}
+                                    theme="default"
+                                    centered={direction === FormBlockDirection.Center}
+                                    colSizes={{all: 12}}
+                                    className={b('content')}
                                 />
+                                {formData && (
+                                    <InnerForm
+                                        className={b('form')}
+                                        formData={formData}
+                                        onContentLoad={onContentLoad}
+                                    />
+                                )}
                             </div>
                         </div>
                     </Col>

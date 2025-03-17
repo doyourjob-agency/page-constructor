@@ -11,7 +11,7 @@ const FormBlockContentProps = omit(ContentBase, ['size', 'centered', 'colSizes']
 export const FormBlock = {
     'form-block': {
         additionalProperties: false,
-        required: ['formData'],
+        required: [],
         properties: {
             ...BlockBaseProps,
             title: {
@@ -36,6 +36,10 @@ export const FormBlock = {
                 ],
             },
             textContent: {
+                additionalProperties: false,
+                properties: FormBlockContentProps,
+            },
+            textFormContent: {
                 additionalProperties: false,
                 properties: FormBlockContentProps,
             },

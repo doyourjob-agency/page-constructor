@@ -459,9 +459,10 @@ export interface FormBlockHubspotData {
 export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
 
 export interface FormBlockProps {
-    formData: FormBlockData;
+    formData?: FormBlockData;
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
+    textFormContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
     background?: ThemeSupporting<BackgroundImageProps>;
 }
