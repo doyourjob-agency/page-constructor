@@ -454,9 +454,9 @@ unpredictable css rules order in build */
     @media (min-width: map-get($gridBreakpoints, 'sm')) {
         @at-root {
             //fix for hidden slider cards box-shadow overflow
-            .slick-slide:not(.slick-active) #{$class} {
-                box-shadow: none;
-            }
+            // .slick-slide:not(.slick-active) #{$class} {
+            //     box-shadow: none;
+            // }
 
             //fix for new slider hidden cards
             .swiper-slide:not(.swiper-slide-visible) #{$class} {

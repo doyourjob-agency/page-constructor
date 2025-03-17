@@ -17,6 +17,8 @@ The slider supports two types of content: loadable and from a config. Loadable c
 
 `arrows? bool` — A flag that indicates whether to show navigation arrows.
 
+`infinite? bool` — A flag that indicating whether to use infinite scrolling.
+
 `title: Title`: Title.
 
 `description?: string`: Description.
@@ -37,17 +39,6 @@ Default values:
 - `events` — Events.
 - `blog` — Blog posts.
 
-`children: Block[]` — You can add child blocks to the slider that will be displayed as its cards. You can also add a component with nested child blocks to the slider. To make each nested child block displayed in a separate card, a child must have the items field which is the nested child.
-
-The following blocks are currently supported:
-
-- `Quote` — Quote
-- [`BasicCard` — Basic card](?path=/story/components-cards-basiccard--default&viewMode=docs)
-- [`Banner` — Banner](?path=/story/блоки-banner--default&viewMode=docs)
-- <s>Price Detailed</s> (Deprecated, use PriceCard instead)
-- [`BackgroundCard` — Background card](?path=/story/components-cards-backgroundcard--default&viewMode=docs)
-- [`LayoutItem` — `Media` + `Content` components in one card-like view](?path=/story/components-cards-layoutitem--default&viewMode=docs)
-- [`MediaCard` — Card with an image](?path=/story/блоки-media--default&viewMode=docs)
-- [`PriceCard` — Price card](?path=/story/components-cards-pricecard--default&viewMode=docs)
+`children: (Block | Card)[]` — You can add child blocks to the slider that will be displayed as its cards. You can also add a component with nested child blocks to the slider. To make each nested child block displayed in a separate card, a child must have the items field which is the nested child.
 
 </StoryTemplate>

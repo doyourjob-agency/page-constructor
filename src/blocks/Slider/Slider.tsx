@@ -76,6 +76,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         arrows = true,
         adaptive,
         autoplay: autoplaySpeed,
+        infinite = false,
         dots = true,
         dotsClassName,
         disclaimer,
@@ -170,11 +171,17 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
     useEffect(() => {
         if (hasFocus && autoplayTimeId.current) {
-            clearTimeout(autoplayTimeId.current);
+            if (infinite && slider) {
+                slider.slickPause();
+            } else {
+                clearTimeout(autoplayTimeId.current);
+            }
+        } else if (infinite && slider) {
+            slider.slickPlay();
         } else {
             scrollLastSlide(currentIndex);
         }
-    }, [currentIndex, hasFocus, scrollLastSlide]);
+    }, [currentIndex, hasFocus, infinite, slider, scrollLastSlide]);
 
     useEffect(() => {
         onResize();
@@ -224,7 +231,11 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             }
 
             if (!hasFocus) {
-                scrollLastSlide(current);
+                if (infinite && slider) {
+                    slider.slickPlay();
+                } else {
+                    scrollLastSlide(current);
+                }
             }
 
             if (isUserInteractionRef.current) {
@@ -244,7 +255,15 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
 
             isUserInteractionRef.current = false;
         },
-        [handleAfterChange, hasFocus, scrollLastSlide, sliderId, slidesCountByBreakpoint],
+        [
+            handleAfterChange,
+            hasFocus,
+            scrollLastSlide,
+            infinite,
+            slider,
+            sliderId,
+            slidesCountByBreakpoint,
+        ],
     );
 
     const handleDotClick = (index: number) => {
@@ -396,7 +415,7 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
             className: slick(null, className),
             arrows,
             variableWidth,
-            infinite: false,
+            infinite,
             speed: 1000,
             adaptiveHeight: adaptive,
             autoplay: isAutoplayEnabled,
@@ -483,7 +502,9 @@ function discloseAllNestedChildren(
 
         return (
             <div key={id} id={id}>
-                {child}
+                {React.cloneElement(child, {
+                    data: Object.assign({resetPaddings: true}, child.props.data),
+                })}
             </div>
         );
     };

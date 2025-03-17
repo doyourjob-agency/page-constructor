@@ -125,6 +125,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemBaseProps;
     description?: string;
     autoplay?: number;
+    infinite?: boolean;
     //for server transforms
     randomOrder?: boolean;
     adaptive?: boolean;

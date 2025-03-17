@@ -155,6 +155,13 @@
       "autoplay": 1000
     }
   },
+  "autoPlayWithInfinite": {
+    "content": {
+      "type": "slider-block",
+      "autoplay": 1000,
+      "infinite": true
+    }
+  },
   "withoutArrows": {
     "content": {
       "type": "slider-block",
