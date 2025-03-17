@@ -83,6 +83,7 @@ export interface BlockBaseProps {
         top?: IndentValue;
         bottom?: IndentValue;
     };
+    backgroundFull?: string;
     qa?: string;
 }
 

@@ -521,6 +521,9 @@ export const BlockBaseProps = {
             bottom: dividerEnum,
         },
     },
+    backgroundFull: {
+        type: 'string',
+    },
 };
 
 export const TitleProps = {
