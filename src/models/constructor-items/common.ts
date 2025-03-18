@@ -69,6 +69,7 @@ export enum QuoteType {
 // types
 export type TextTheme = 'light' | 'dark';
 export type TextSize = 'xs' | 's' | 'm' | 'l';
+export type TitleTextSize = TextSize | 'xl';
 export type DividerSize = '0' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 export type HeaderWidth = 's' | 'm' | 'l';
 export type HeaderImageSize = 's' | 'm';
@@ -376,7 +377,7 @@ export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
 
 export interface TitleItemBaseProps {
     text: string;
-    textSize?: TextSize;
+    textSize?: TitleTextSize;
     url?: string;
     urlTitle?: string;
     custom?: string | ReactNode;

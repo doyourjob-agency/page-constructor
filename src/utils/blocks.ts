@@ -1,7 +1,7 @@
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
 
-import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TextSize} from '../models';
+import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TitleTextSize} from '../models';
 
 const BLOCK_ELEMENTS = [
     'div',
@@ -44,8 +44,9 @@ const BLOCK_ELEMENTS_REGEX = `<(${BLOCK_ELEMENTS.join('|')})[^>]*>`;
 
 const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button', 'animate'];
 
-export function getHeaderTag(size: TextSize) {
+export function getHeaderTag(size: TitleTextSize) {
     switch (size) {
+        case 'xl':
         case 'l':
             return 'h1';
         case 's':

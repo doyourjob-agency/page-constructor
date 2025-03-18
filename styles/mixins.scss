@@ -4,8 +4,8 @@
 //common
 
 @mixin text-size($name) {
-    font-size: var(--g-text-#{$name}-font-size);
-    line-height: var(--g-text-#{$name}-line-height);
+    font-size: var(--g-text-#{$name}-font-size, var(--pc-text-#{$name}-font-size));
+    line-height: var(--g-text-#{$name}-line-height, var(--pc-text-#{$name}-line-height));
 }
 
 @mixin focusable($offset: 0, $mode: 'outline') {
@@ -397,6 +397,14 @@
     color: var(--pc-text-header-color);
     @extend %heading-margin-reset;
     @include text-accent();
+}
+
+@mixin heading0 {
+    @include heading(display-5);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        @include text-size(display-3);
+    }
 }
 
 @mixin heading1 {

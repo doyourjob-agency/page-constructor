@@ -25,6 +25,17 @@ const SizesTemplate: StoryFn<TitleProps & ClassNameProps> = (args) => {
                     {...args}
                     title={
                         {
+                            ...data.sizes.xl,
+                            ...titleItemObjectProps,
+                        } as TitleItemProps
+                    }
+                />
+            </div>
+            <div style={{paddingBottom: '64px'}}>
+                <Title
+                    {...args}
+                    title={
+                        {
                             ...data.sizes.l,
                             ...titleItemObjectProps,
                         } as TitleItemProps

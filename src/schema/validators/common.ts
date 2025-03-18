@@ -537,7 +537,7 @@ export const TitleProps = {
         },
         textSize: {
             type: 'string',
-            enum: textSize,
+            enum: [textSize, 'xl'],
         },
         url: {
             type: 'string',

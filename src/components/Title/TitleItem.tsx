@@ -3,7 +3,7 @@ import React, {Fragment, ReactNode, useContext} from 'react';
 import {HTML, ToggleArrow} from '../';
 import {LocationContext} from '../../context/locationContext';
 import {MobileContext} from '../../context/mobileContext';
-import {QAProps, TextSize, TitleItemProps} from '../../models';
+import {QAProps, TitleItemProps, TitleTextSize} from '../../models';
 import {block, getHeaderTag, getLinkProps} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
@@ -11,7 +11,7 @@ import './TitleItem.scss';
 
 const b = block('title-item');
 
-export function getArrowSize(size: TextSize, isMobile: boolean) {
+export function getArrowSize(size: TitleTextSize, isMobile: boolean) {
     switch (size) {
         case 'xs':
             return 13;
@@ -20,6 +20,8 @@ export function getArrowSize(size: TextSize, isMobile: boolean) {
         case 'm':
             return isMobile ? 22 : 24;
         case 'l':
+            return isMobile ? 26 : 38;
+        case 'xl':
             return isMobile ? 26 : 38;
         default:
             return 20;

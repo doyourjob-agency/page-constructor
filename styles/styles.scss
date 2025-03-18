@@ -3,3 +3,8 @@
 @import './mixins.scss';
 @import './variables.scss';
 @import './yfm.scss';
+
+.g-root {
+    --pc-text-display-5-font-size: 64px;
+    --pc-text-display-5-line-height: 68px;
+}

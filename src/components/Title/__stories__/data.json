@@ -45,6 +45,10 @@
     "l": {
       "text": "Size L",
       "textSize": "l"
+    },
+    "xl": {
+      "text": "Size XL",
+      "textSize": "xl"
     }
   }
 }
