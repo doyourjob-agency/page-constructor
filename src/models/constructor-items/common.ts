@@ -465,6 +465,7 @@ export interface AuthorProps extends QAProps {
 export interface TitleProps {
     title?: TitleItemProps | string;
     subtitle?: string;
+    subtitleBold?: boolean;
 }
 
 export interface YandexFormProps extends AnalyticsEventsBase {

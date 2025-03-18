@@ -35,6 +35,10 @@ const DefaultTemplate: StoryFn<MediaBlockModel> = (args) => (
                 },
                 {
                     ...args,
+                    subtitleLinks: data.common.links as LinkProps[],
+                },
+                {
+                    ...args,
                     links: data.common.links as LinkProps[],
                 },
                 {
@@ -201,6 +205,7 @@ export const Iframe = IframeTemplate.bind({});
 const DefaultArgs = {
     ...data.default.content,
     title: data.common.title,
+    subtitle: data.common.title,
     description: yfmTransform(data.common.description),
 };
 

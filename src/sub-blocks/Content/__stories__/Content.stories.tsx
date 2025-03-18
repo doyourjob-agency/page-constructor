@@ -99,6 +99,8 @@ const ThemeTemplate: StoryFn<ContentBlockProps & ClassNameProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithSubtitle = DefaultTemplate.bind({});
+export const WithSubtitleLinks = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Centered = DefaultTemplate.bind({});
 export const Theme = ThemeTemplate.bind({});
@@ -110,6 +112,16 @@ const defaultArgs = {
 
 Default.args = {
     ...defaultArgs,
+} as ContentBlockProps;
+
+WithSubtitle.args = {
+    ...defaultArgs,
+    ...data.withSubtitle.content,
+} as ContentBlockProps;
+
+WithSubtitleLinks.args = {
+    ...defaultArgs,
+    ...data.withSubtitleLinks.content,
 } as ContentBlockProps;
 
 Size.args = {

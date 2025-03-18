@@ -1,5 +1,9 @@
 `type: "title"`
 
+`subtitleBold?: boolean`
+
+`subtitle?: text`
+
 `title:`
 
 - `text: string` - Title text

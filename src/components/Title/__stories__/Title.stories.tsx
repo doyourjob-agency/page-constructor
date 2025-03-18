@@ -74,6 +74,7 @@ const DefaultArgs = {
 };
 
 export const Default = DefaultTemplate.bind({});
+export const SubtitleBold = DefaultTemplate.bind({});
 export const TitleLink = DefaultTemplate.bind({});
 export const CustomTitle = DefaultTemplate.bind({});
 export const Sizes = SizesTemplate.bind({});
@@ -82,6 +83,10 @@ export const TitleWithoutDescription = SizesTemplate.bind({});
 
 Default.args = {
     ...DefaultArgs,
+} as TitleProps;
+SubtitleBold.args = {
+    ...DefaultArgs,
+    subtitleBold: data.subtitleBold.content.subtitleBold,
 } as TitleProps;
 TitleLink.args = {
     ...DefaultArgs,

@@ -412,11 +412,13 @@ export interface ContentListProps {
 
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
+    subtitle?: string;
     titleId?: string;
     text?: string;
     textId?: string;
     additionalInfo?: string;
     links?: LinkProps[];
+    subtitleLinks?: LinkProps[];
     buttons?: ButtonProps[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;

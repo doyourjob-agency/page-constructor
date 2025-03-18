@@ -28,6 +28,8 @@ export type ContentProps = ContentBlockProps & ClassNameProps & QAProps;
 const Content = (props: ContentProps) => {
     const {
         title,
+        subtitle,
+        subtitleLinks,
         titleId: titleIdFromProps,
         text,
         textId,
@@ -65,8 +67,20 @@ const Content = (props: ContentProps) => {
                 <Title
                     className={b('title')}
                     title={titleProps}
+                    subtitle={subtitle}
+                    subtitleBold={true}
                     colSizes={{all: 12}}
                     id={titleId}
+                />
+            )}
+            {subtitleLinks && (
+                <Links
+                    className={b('subtitle-links', {size})}
+                    size={size}
+                    links={subtitleLinks}
+                    titleId={titleId}
+                    qa={qaAttributes.links}
+                    linkQa={qaAttributes.link}
                 />
             )}
             {text && (

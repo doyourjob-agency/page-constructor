@@ -14,6 +14,8 @@ const MediaContent = (props: MediaContentProps) => {
     const {
         title,
         description,
+        subtitle,
+        subtitleLinks,
         button,
         links,
         buttons = [],
@@ -27,6 +29,8 @@ const MediaContent = (props: MediaContentProps) => {
             <Content
                 title={title}
                 text={description}
+                subtitle={subtitle}
+                subtitleLinks={subtitleLinks}
                 links={links}
                 theme="default"
                 buttons={allButtons}
