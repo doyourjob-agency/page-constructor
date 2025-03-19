@@ -19,6 +19,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         text,
         border,
         background,
+        backgroundPosition = 'left',
         paddingBottom,
         backgroundColor,
         additionalInfo,
@@ -40,7 +41,11 @@ const BackgroundCard = (props: BackgroundCardProps) => {
 
     return (
         <CardBase
-            className={b({padding: paddingBottom, theme: cardTheme})}
+            className={b({
+                padding: paddingBottom,
+                theme: cardTheme,
+                bgPosition: backgroundPosition,
+            })}
             contentClassName={b('content')}
             url={url}
             border={borderType}

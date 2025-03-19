@@ -4,6 +4,8 @@
 
 `background?: ImageObjectProps` — Card background image
 
+`backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom'` - Card background image position
+
 `paddingBottom?: 's' | 'm' | 'l' | 'xl'` — Space between the text and the bottom of the card.
 
 `title?: Title | string` — Card title
