@@ -16,6 +16,9 @@ import './LayoutItem.scss';
 const b = block('layout-item');
 
 const LayoutItem = ({
+    title,
+    afterTitle,
+    rightSpace = true,
     content: {links, ...content},
     metaInfo,
     media,
@@ -44,9 +47,9 @@ const LayoutItem = ({
             return null;
         }
         const themedMedia = getThemedValue(media, theme);
-        const {title} = content;
+
         const mediaWithMicrodata = mergeVideoMicrodata(themedMedia, {
-            name: typeof title === 'string' ? title : title?.text,
+            name: typeof content.title === 'string' ? content.title : content.title?.text,
             description: content.text,
         });
 
@@ -74,7 +77,21 @@ const LayoutItem = ({
         );
     };
     return (
-        <div className={b(null, className)}>
+        <div className={b({right: rightSpace}, className)}>
+            {(title || afterTitle) && (
+                <div className={b('wrap')}>
+                    {title && (
+                        <span className={b('title', {size: title?.size || 'm'})}>
+                            {title?.text}
+                        </span>
+                    )}
+                    {afterTitle && (
+                        <span className={b('afterTitle', {size: afterTitle?.size || 'm'})}>
+                            {afterTitle?.text}
+                        </span>
+                    )}
+                </div>
+            )}
             {renderMedia()}
             {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
             <div className={b('content', {'no-media': !media})}>

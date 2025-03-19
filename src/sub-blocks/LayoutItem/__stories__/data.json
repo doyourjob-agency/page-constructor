@@ -29,6 +29,9 @@
   },
   "default": {
     "content": {
+      "title": {"text": "Title", "size": "m"},
+      "afterTitle": {"text": "After title", "size": "m"},
+      "rightSpace": true,
       "content": {
         "title": "Lorem&nbsp;ipsum",
         "text": "Dolor sit *amet*"

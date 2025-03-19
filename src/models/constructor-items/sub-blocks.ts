@@ -21,6 +21,7 @@ import {
     TextTheme,
     Themable,
     ThemedImage,
+    TitleTextSize,
 } from './common';
 
 export enum SubBlockType {
@@ -183,6 +184,15 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
+    title?: {
+        text?: string;
+        size?: TitleTextSize;
+    };
+    afterTitle?: {
+        text?: string;
+        size?: TitleTextSize;
+    };
+    rightSpace?: boolean;
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];
