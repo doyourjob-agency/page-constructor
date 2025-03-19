@@ -43,6 +43,7 @@ export enum SubBlockType {
     Card = 'card',
     PriceCard = 'price-card',
     ImageCard = 'image-card',
+    ContentLayoutCard = 'content-layout-card',
 }
 
 export enum IconPosition {
