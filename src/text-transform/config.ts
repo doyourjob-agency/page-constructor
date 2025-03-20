@@ -161,6 +161,12 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [SubBlockType.Card]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
     [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],

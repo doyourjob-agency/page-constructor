@@ -18,6 +18,7 @@ import {
     MediaProps,
     MediaView,
     PriceDetailedProps,
+    ServiceLabelProps,
     TextTheme,
     Themable,
     ThemedImage,
@@ -38,13 +39,10 @@ export enum SubBlockType {
     BasicCard = 'basic-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
-    /**
-     * @deprecated Will be removed, use BasicCard instead
-     */
-    Card = 'card',
     PriceCard = 'price-card',
     ImageCard = 'image-card',
     ContentLayoutCard = 'content-layout-card',
+    Card = 'card',
 }
 
 export enum IconPosition {
@@ -155,6 +153,15 @@ export interface BasicCardProps
     icon?: ThemeSupporting<ImageProps>;
     target?: string;
     iconPosition?: IconPosition;
+}
+
+export interface CardProps extends CardBaseProps {
+    header: {
+        image: string;
+        title: string;
+    };
+    text?: string;
+    service?: ServiceLabelProps;
 }
 
 export interface BannerCardProps {

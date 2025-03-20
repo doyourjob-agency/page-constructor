@@ -490,3 +490,8 @@ export interface WithBorder {
      */
     disableShadow?: boolean;
 }
+
+export interface ServiceLabelProps {
+    slug: string;
+    name: string;
+}

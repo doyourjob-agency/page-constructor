@@ -13,6 +13,7 @@ import {DocsDecorator} from './decorators/docs';
 
 import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
+import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
 
 import '../styles/styles.scss';
 
@@ -33,7 +34,11 @@ const withContextProvider: Decorator = (Story, context) => {
         <GlobalThemeController>
             <ThemeProvider theme={theme}>
                 <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                    <Story {...context} />
+                    <ServicesContext.Provider
+                        value={context.args.servicesContext as ServicesContextProps}
+                    >
+                        <Story {...context} />
+                    </ServicesContext.Provider>
                 </MobileProvider>
             </ThemeProvider>
         </GlobalThemeController>
