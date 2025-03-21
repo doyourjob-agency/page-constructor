@@ -311,6 +311,9 @@ export interface TableProps {
 export interface TableBlockProps {
     title: string;
     table: TableProps;
+    description?: string;
+    links?: LinkProps[];
+    buttons?: ButtonProps[];
 }
 
 export interface TabsBlockItem

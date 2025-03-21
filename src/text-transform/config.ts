@@ -307,6 +307,10 @@ export const config: BlocksConfig = {
     ],
     [BlockType.TableBlock]: [
         {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
             fields: ['table'],
             transformer: yfmTransformer,
             parser: parseTableBlock,
