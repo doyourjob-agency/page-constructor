@@ -1,11 +1,12 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useCallback, useContext, useMemo, useRef, useState} from 'react';
 
 import {BackgroundImage, Title} from '../../components';
 import InnerForm from '../../components/InnerForm/InnerForm';
+import {FormListContext} from '../../context/formListContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, GridAlignItems, GridColumnSize, Row} from '../../grid';
-import type {FormBlockProps} from '../../models';
+import type {BackgroundImageProps, FormBlockProps} from '../../models';
 import {
     FormBlockDataTypes,
     FormBlockDirection,
@@ -13,7 +14,7 @@ import {
     isYandexDataForm,
 } from '../../models';
 import {Content} from '../../sub-blocks';
-import {block, getThemedValue} from '../../utils';
+import {ThemeSupporting, block, getThemedValue} from '../../utils';
 
 import './Form.scss';
 
@@ -29,12 +30,27 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         textFormContent,
         direction = FormBlockDirection.Center,
         background,
+        image,
+        backgroundColor,
+        slug,
     } = props;
     const [contentLoaded, setContentLoaded] = useState(false);
     const isMobile = useContext(MobileContext);
     const theme = useTheme();
 
-    const themedBackground = getThemedValue(background, theme) || undefined;
+    const bg: ThemeSupporting<BackgroundImageProps> | undefined = useMemo(() => {
+        if (image || backgroundColor) {
+            return {
+                src: image,
+                style: {
+                    backgroundColor,
+                },
+            };
+        }
+        return background;
+    }, [image, backgroundColor, background]);
+
+    const themedBackground = getThemedValue(bg, theme) || undefined;
 
     const withBackground = Boolean(
         themedBackground &&
@@ -46,12 +62,34 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         setContentLoaded(true);
     }, []);
 
+    const refForm = useRef<HTMLDivElement | null>(null);
+    const formList = useContext(FormListContext);
+    const form = useMemo(
+        () => formList.items.find((item) => item.slug === slug),
+        [slug, formList.items],
+    );
+    const data = useMemo(() => {
+        if (form) {
+            return {
+                hubspot: {
+                    ...form,
+                    onSubmit: () =>
+                        refForm.current
+                            ?.querySelector('.pc-form-block__form-wrapper')
+                            ?.scrollIntoView(),
+                },
+            };
+        }
+        return formData;
+    }, [form, formData]);
+    const innerTitle = useMemo(() => form?.title || title || undefined, [form, title]);
+
     let formType;
 
-    if (formData) {
-        if (isYandexDataForm(formData)) {
+    if (data) {
+        if (isYandexDataForm(data)) {
             formType = FormBlockDataTypes.YANDEX;
-        } else if (isHubspotDataForm(formData)) {
+        } else if (isHubspotDataForm(data)) {
             formType = FormBlockDataTypes.HUBSPOT;
         }
     }
@@ -101,10 +139,10 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                                     hidden: !contentLoaded,
                                 })}
                             >
-                                {title && (
+                                {innerTitle && (
                                     <Title
                                         title={{
-                                            text: title,
+                                            text: innerTitle,
                                             textSize: 's',
                                         }}
                                         className={b('title', {mobile: isMobile})}
@@ -118,10 +156,10 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                                     colSizes={{all: 12}}
                                     className={b('content')}
                                 />
-                                {formData && (
+                                {data && (
                                     <InnerForm
                                         className={b('form')}
-                                        formData={formData}
+                                        formData={data}
                                         onContentLoad={onContentLoad}
                                     />
                                 )}

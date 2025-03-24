@@ -1,8 +1,8 @@
 import omit from 'lodash/omit';
 
-import {ImageProps} from '../../components/Image/schema';
+import {ImageBaseObjectProps, ImageDeviceProps, ImageProps} from '../../components/Image/schema';
 import {YandexFormProps} from '../../components/YandexForm/schema';
-import {BlockBaseProps, withTheme} from '../../schema/validators/common';
+import {BlockBaseProps, BorderProps, withTheme} from '../../schema/validators/common';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 import {HubspotFormProps} from '../../sub-blocks/HubspotForm/schema';
 
@@ -15,6 +15,9 @@ export const FormBlock = {
         properties: {
             ...BlockBaseProps,
             title: {
+                type: 'string',
+            },
+            slug: {
                 type: 'string',
             },
             formData: {
@@ -49,6 +52,20 @@ export const FormBlock = {
             image: ImageProps,
             backgroundColor: {
                 type: 'string',
+            },
+            background: {
+                anyOf: [
+                    {
+                        ...ImageBaseObjectProps,
+                        properties: {...ImageBaseObjectProps.properties, border: BorderProps},
+                        optionName: 'options',
+                    },
+                    {
+                        ...ImageDeviceProps,
+                        properties: {...ImageDeviceProps.properties, border: BorderProps},
+                        optionName: 'device options',
+                    },
+                ],
             },
         },
     },

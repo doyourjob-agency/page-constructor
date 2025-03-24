@@ -472,6 +472,9 @@ export interface FormBlockProps {
     textFormContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
     background?: ThemeSupporting<BackgroundImageProps>;
+    backgroundColor?: string;
+    image?: string;
+    slug?: string;
 }
 
 //block models

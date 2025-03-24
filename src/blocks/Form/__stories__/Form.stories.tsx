@@ -3,7 +3,7 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 import {v4 as uuidv4} from 'uuid';
 
-import {yfmTransform} from '../../../../.storybook/utils';
+import {argFormListContext, yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {
     FormBlockDirection,
@@ -28,10 +28,12 @@ export default {
             ...data.default.textFormContent,
             text: yfmTransform(data.default.textFormContent.text),
         },
+        ...argFormListContext.args,
     },
     argTypes: {
         type: {control: false},
         direction: {options: FormBlockDirection, control: {type: 'select'}},
+        ...argFormListContext.argTypes,
     },
 } as Meta;
 
