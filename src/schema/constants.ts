@@ -14,13 +14,14 @@ import {
     IconsBlock,
     InfoBlock,
     MapBlock,
-    MarqueeLinks,
+    MarqueeLinksBlock,
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
     ShareBlock,
     SliderBlock,
     SliderNewBlock,
+    SolutionsBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
@@ -59,7 +60,8 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FilterBlock,
     ...FormBlock,
     ...SliderNewBlock,
-    ...MarqueeLinks,
+    ...MarqueeLinksBlock,
+    ...SolutionsBlock,
 };
 
 export const cardSchemas = {
@@ -103,6 +105,7 @@ export const constructorBlockSchemaNames = [
     'share-block',
     'filter-block',
     'form-block',
+    'solutions-block',
 ];
 
 export const constructorCardSchemaNames = [

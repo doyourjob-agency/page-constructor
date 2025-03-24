@@ -61,7 +61,8 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
-    MarqueeLinks = 'marquee-links-block',
+    MarqueeLinksBlock = 'marquee-links-block',
+    SolutionsBlock = 'solutions-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -555,8 +556,12 @@ export type FormBlockModel = {
 } & FormBlockProps;
 
 export type MarqueeLinksBlockModel = {
-    type: BlockType.MarqueeLinks;
+    type: BlockType.MarqueeLinksBlock;
 } & MarqueeLinksBlockProps;
+
+export type SolutionsBlockModel = {
+    type: BlockType.SolutionsBlock;
+};
 
 // unstable block models
 export type SliderNewBlockModel = {

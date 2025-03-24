@@ -14,9 +14,10 @@ import {DocsDecorator} from './decorators/docs';
 import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
+import {FormListContext, FormListContextProps} from '../src/context/formListContext';
+import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 
 import '../styles/styles.scss';
-import {FormListContext, FormListContextProps} from '../src/context/formListContext';
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
@@ -41,7 +42,11 @@ const withContextProvider: Decorator = (Story, context) => {
                         <FormListContext.Provider
                             value={context.args.formListContext as FormListContextProps}
                         >
-                            <Story {...context} />
+                            <SolutionsContext.Provider
+                                value={context.args.solutionsContext as SolutionsContextProps}
+                            >
+                                <Story {...context} />
+                            </SolutionsContext.Provider>
                         </FormListContext.Provider>
                     </ServicesContext.Provider>
                 </MobileProvider>

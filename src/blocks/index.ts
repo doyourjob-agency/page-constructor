@@ -17,4 +17,5 @@ export {default as ContentLayoutBlock} from './ContentLayout/ContentLayout';
 export {default as ShareBlock} from './Share/Share';
 export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FormBlock} from './Form/Form';
-export {default as MarqueeLinks} from './MarqueeLinks/MarqueeLinks';
+export {default as MarqueeLinksBlock} from './MarqueeLinks/MarqueeLinks';
+export {default as SolutionsBlock} from './Solutions/Solutions';

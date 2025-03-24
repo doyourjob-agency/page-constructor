@@ -1,6 +1,7 @@
 import yfm from '@diplodoc/transform';
 import argsServicesContext from './args/argsServicesContext.json';
 import argsFormListContext from './args/argsFormListContext.json';
+import argsSolutionsContext from './args/argsSolutionsContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -31,5 +32,20 @@ export const argFormListContext = {
     },
     args: {
         formListContext: argsFormListContext,
+    },
+};
+
+export const argSolutionsContext = {
+    argTypes: {
+        solutionsContext: {
+            name: 'SolutionsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        solutionsContext: argsSolutionsContext,
     },
 };

@@ -14,7 +14,7 @@ export const MarqueeLink = {
     },
 };
 
-export const MarqueeLinks = {
+export const MarqueeLinksBlock = {
     'marquee-links-block': {
         additionalProperties: false,
         required: ['items'],

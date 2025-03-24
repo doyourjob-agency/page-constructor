@@ -11,12 +11,13 @@ import {
     IconsBlock,
     InfoBlock,
     MapBlock,
-    MarqueeLinks,
+    MarqueeLinksBlock,
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
     ShareBlock,
     SliderBlock,
+    SolutionsBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
@@ -65,7 +66,8 @@ export const blockMap = {
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
     [BlockType.FormBlock]: FormBlock,
-    [BlockType.MarqueeLinks]: MarqueeLinks,
+    [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
+    [BlockType.SolutionsBlock]: SolutionsBlock,
     // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,
 };
