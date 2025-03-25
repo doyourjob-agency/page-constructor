@@ -65,7 +65,7 @@
           "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
           "docUrl": "/docs/compute/",
           "pricesUrl": "/docs/compute/pricing",
-          "tag": null,
+          "tag": "new",
           "consoleUrl": "https://console.nebius.ai/link/compute",
           "description": "Virtual machines and block storage",
           "url": "/services/compute"
@@ -77,7 +77,7 @@
           "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5136)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m8.84.23 3.631 2.252c.453.281.728.776.728 1.309V4h.45a1.4 1.4 0 0 1 1.365 1.088l.944 4.13a2.1 2.1 0 0 1-.392 1.762l-3.294 4.213a2.1 2.1 0 0 1-1.655.807H5.384a2.1 2.1 0 0 1-1.655-.807L.434 10.98a2.1 2.1 0 0 1-.393-1.76L.98 5.09A1.4 1.4 0 0 1 2.345 4h.459v-.204c0-.535.278-1.033.735-1.313L7.223.225A1.54 1.54 0 0 1 8.84.23Zm3.493 10.64L8.98 12.932a1.82 1.82 0 0 1-1.9.005L3.678 10.87a1.82 1.82 0 0 1-.874-1.556V4.005l4.389 2.707a1.54 1.54 0 0 0 1.617 0l4.39-2.707V9.32a1.82 1.82 0 0 1-.867 1.55Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
           "docUrl": "/docs/managed-kubernetes/",
           "pricesUrl": "/docs/managed-kubernetes/pricing",
-          "tag": null,
+          "tag": "preview",
           "consoleUrl": "https://console.nebius.ai/link/managed-kubernetes",
           "description": "Managed Kubernetes® clusters",
           "url": "/services/managed-kubernetes"

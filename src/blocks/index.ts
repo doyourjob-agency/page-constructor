@@ -19,3 +19,4 @@ export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FormBlock} from './Form/Form';
 export {default as MarqueeLinksBlock} from './MarqueeLinks/MarqueeLinks';
 export {default as SolutionsBlock} from './Solutions/Solutions';
+export {default as ServicesBlock} from './Services/Services';

@@ -63,6 +63,7 @@ export enum BlockType {
     FormBlock = 'form-block',
     MarqueeLinksBlock = 'marquee-links-block',
     SolutionsBlock = 'solutions-block',
+    ServicesBlock = 'services-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -340,6 +341,11 @@ export interface TabsBlockProps extends Animatable {
     contentSize?: ContentSize;
 }
 
+export interface ServicesBlockProps {
+    title?: string;
+    serviceLinkType?: 'doc' | 'price';
+}
+
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
@@ -563,6 +569,10 @@ export type SolutionsBlockModel = {
     type: BlockType.SolutionsBlock;
 };
 
+export type ServicesBlockModel = {
+    type: BlockType.ServicesBlock;
+} & ServicesBlockProps;
+
 // unstable block models
 export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
@@ -588,7 +598,9 @@ type BlockModels =
     | ShareBLockModel
     | FilterBlockModel
     | FormBlockModel
-    | MarqueeLinksBlockModel;
+    | MarqueeLinksBlockModel
+    | SolutionsBlockModel
+    | ServicesBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Service = {
+export type DefaultService = {
     id: number;
     name: string;
     slug: string;
@@ -13,14 +13,17 @@ type Service = {
     url?: string | null;
 };
 
-type ServicesCategory = {
+export interface ServiceCategory {
     name: string;
     slug: string;
-    services: Service[];
-};
+}
+
+export interface ServiceCategoryWithServices extends ServiceCategory {
+    services: DefaultService[];
+}
 
 export interface ServicesContextProps {
-    dataByCategories: ServicesCategory[];
+    dataByCategories: ServiceCategoryWithServices[];
     icons: Record<string, string>;
 }
 

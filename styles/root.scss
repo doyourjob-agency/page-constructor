@@ -9,13 +9,16 @@
 .g-root {
     @include pc-colors-social;
 
-    --g-text-accent-font-weight: 500;
+    --g-text-accent-font-weight: 600;
 
     --pc-text-display-5-font-size: 64px;
     --pc-text-display-5-line-height: 68px;
 
     --pc-first-block-indent: 48px;
     --pc-first-block-mobile-indent: 32px;
+
+    --pc-color-service-tag-yellow: #fff1b8;
+    --pc-color-service-tag-blue: #d6e9fd;
 
     // cross-browser transparent color
     --pc-transparent: rgba(255, 255, 255, 0);
