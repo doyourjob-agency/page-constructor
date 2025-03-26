@@ -3,6 +3,7 @@ import {
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
+    EventsFeedBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
@@ -71,6 +72,8 @@ export const blockMap = {
     [BlockType.FormBlock]: FormBlock,
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
+    [BlockType.EventsFeedBlock]: EventsFeedBlock,
+
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,

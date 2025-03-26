@@ -67,6 +67,7 @@ export enum BlockType {
     ServicesBlock = 'services-block',
     QuotesBlock = 'quotes-block',
     LinkTableBlock = 'link-table-block',
+    EventsFeedBlock = 'events-feed-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -349,6 +350,11 @@ export interface ServicesBlockProps {
     serviceLinkType?: 'doc' | 'price';
 }
 
+export interface EventsFeedBlockProps {
+    image?: string;
+    title?: string;
+}
+
 export interface LinkTableBlockProps {
     title: TitleItemBaseProps;
     items: LinkProps[][];
@@ -608,6 +614,10 @@ export type ServicesBlockModel = {
     type: BlockType.ServicesBlock;
 } & ServicesBlockProps;
 
+export type EventsFeedBlockModel = {
+    type: BlockType.EventsFeedBlock;
+} & EventsFeedBlockProps;
+
 // unstable block models
 export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
@@ -637,7 +647,8 @@ type BlockModels =
     | SolutionsBlockModel
     | ServicesBlockModel
     | QuotesBlockModel
-    | LinkTableBlockModel;
+    | LinkTableBlockModel
+    | EventsFeedBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

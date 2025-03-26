@@ -16,6 +16,8 @@ import {GlobalThemeController} from './theme/utils/global-theme-controller';
 import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
+import {RouterContext, RouterContextProps} from '../src/context/routerContext';
+import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
 
 import '../styles/styles.scss';
 
@@ -45,7 +47,15 @@ const withContextProvider: Decorator = (Story, context) => {
                             <SolutionsContext.Provider
                                 value={context.args.solutionsContext as SolutionsContextProps}
                             >
-                                <Story {...context} />
+                                <RouterContext.Provider
+                                    value={context.args.routerContext as RouterContextProps}
+                                >
+                                    <EventsContext.Provider
+                                        value={context.args.eventsContext as EventsContextProps}
+                                    >
+                                        <Story {...context} />
+                                    </EventsContext.Provider>
+                                </RouterContext.Provider>
                             </SolutionsContext.Provider>
                         </FormListContext.Provider>
                     </ServicesContext.Provider>

@@ -6,6 +6,7 @@ import {
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
+    EventsFeedBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
@@ -68,6 +69,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ServicesBlock,
     ...QuotesBlock,
     ...LinkTableBlock,
+    ...EventsFeedBlock,
 };
 
 export const cardSchemas = {
@@ -115,6 +117,7 @@ export const constructorBlockSchemaNames = [
     'services-block',
     'quotes-block',
     'link-table-block',
+    'events-feed-block',
 ];
 
 export const constructorCardSchemaNames = [
