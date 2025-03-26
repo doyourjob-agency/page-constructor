@@ -1,0 +1,103 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}quotes-block';
+
+#{$block} {
+    position: relative;
+
+    & .pc-SliderBlock_only-arrows {
+        padding: 0;
+    }
+
+    & .pc-slick-origin .slick-list {
+        overflow: initial;
+    }
+
+    & .slick-list {
+        padding-top: 0;
+    }
+
+    & .slick-slide.slick-slide:not(.slick-current) {
+        opacity: 0.3;
+    }
+
+    & .slick-prev.slick-prev {
+        right: initial;
+        left: calc((100vw - var(--quotes-block-width)) / -2);
+
+        margin-right: initial;
+    }
+
+    & .slick-next.slick-next {
+        right: calc((100vw - var(--quotes-block-width)) / -2);
+        left: initial;
+    }
+
+    & .slick-next,
+    & .slick-prev {
+        top: 0;
+
+        width: auto;
+        height: 100%;
+
+        cursor: initial;
+
+        & > button {
+            width: calc(((100vw - var(--quotes-block-width)) / 2) + 64px);
+            height: 100%;
+
+            opacity: 0;
+            border-radius: 0;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                width: calc(((100vw - var(--quotes-block-width)) / 2) + 20px);
+            }
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        z-index: -1;
+        top: -48px;
+        bottom: -48px;
+        left: 50%;
+
+        width: 100vw;
+
+        background-color: #fff;
+        background-size: cover;
+
+        transform: translateX(-50%);
+    }
+
+    &_theme_dark {
+        & #{$block}__bg {
+            background-color: #052b42;
+        }
+
+        & .pc-SliderBlock__dot {
+            background-color: rgba(255, 255, 255, 15%);
+        }
+
+        & .pc-SliderBlock__dot:hover,
+        & .pc-SliderBlock__dot_active {
+            background-color: rgba(255, 255, 255, 30%);
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        & .pc-SliderBlock:not(.pc-SliderBlock_one-slide) {
+            overflow-x: initial;
+
+            width: 100%;
+            margin: 0 auto;
+        }
+        & .pc-SliderBlock:not(.pc-SliderBlock_one-slide) .slick-track {
+            padding-left: 0;
+        }
+        & .pc-SliderBlock:not(.pc-SliderBlock_one-slide) .slick-list {
+            margin-left: 0;
+        }
+    }
+}

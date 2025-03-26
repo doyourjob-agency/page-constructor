@@ -18,6 +18,7 @@ import {
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
+    QuotesBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -64,6 +65,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...MarqueeLinksBlock,
     ...SolutionsBlock,
     ...ServicesBlock,
+    ...QuotesBlock,
 };
 
 export const cardSchemas = {
@@ -109,6 +111,7 @@ export const constructorBlockSchemaNames = [
     'form-block',
     'solutions-block',
     'services-block',
+    'quotes-block',
 ];
 
 export const constructorCardSchemaNames = [

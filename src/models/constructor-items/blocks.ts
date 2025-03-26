@@ -31,6 +31,7 @@ import {
     MediaView,
     TextSize,
     TextTheme,
+    Themable,
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
@@ -64,6 +65,7 @@ export enum BlockType {
     MarqueeLinksBlock = 'marquee-links-block',
     SolutionsBlock = 'solutions-block',
     ServicesBlock = 'services-block',
+    QuotesBlock = 'quotes-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -346,6 +348,25 @@ export interface ServicesBlockProps {
     serviceLinkType?: 'doc' | 'price';
 }
 
+export interface QuotesItem {
+    avatar?: string;
+    logo?: string;
+    name?: string;
+    description?: string;
+    quote: string;
+    style?: 'normal' | 'long' | 'short';
+    buttonText?: string;
+    buttonUrl?: string;
+}
+
+export interface QuotesItemProps extends Themable, QuotesItem {}
+
+export interface QuotesBlockProps extends Themable {
+    items: QuotesItem[];
+    background?: string;
+    backgroundColor?: string;
+}
+
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
@@ -569,6 +590,10 @@ export type SolutionsBlockModel = {
     type: BlockType.SolutionsBlock;
 };
 
+export type QuotesBlockModel = {
+    type: BlockType.QuotesBlock;
+} & QuotesBlockProps;
+
 export type ServicesBlockModel = {
     type: BlockType.ServicesBlock;
 } & ServicesBlockProps;
@@ -600,7 +625,8 @@ type BlockModels =
     | FormBlockModel
     | MarqueeLinksBlockModel
     | SolutionsBlockModel
-    | ServicesBlockModel;
+    | ServicesBlockModel
+    | QuotesBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

@@ -21,3 +21,4 @@ export * from '../../blocks/SliderNew/schema';
 export * from '../../blocks/MarqueeLinks/schema';
 export * from '../../blocks/Solutions/schema';
 export * from '../../blocks/Services/schema';
+export * from '../../blocks/Quotes/schema';

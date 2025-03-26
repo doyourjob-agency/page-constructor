@@ -15,6 +15,7 @@ import {
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
+    QuotesBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -70,6 +71,7 @@ export const blockMap = {
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
+    [BlockType.QuotesBlock]: QuotesBlock,
     // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,
 };

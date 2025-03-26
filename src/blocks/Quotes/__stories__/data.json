@@ -1,0 +1,48 @@
+{
+  "default": {
+    "content": {
+      "type": "quotes-block",
+      "items": [
+        {
+          "avatar": "/story-assets/quote-avatar.png",
+          "logo": "/story-assets/quote-logo.svg",
+          "name": "Carl Tilbury",
+          "description": "Senior Director, Business Development and Strategy at Genesis",
+          "quote": "“We are grateful to be working with Nebius for our GPU infrastructure needs. Nebius' team is responsive, they clearly communicate capacity / availability, and technical set up has been straightforward. We consider them a strategic partner who can accelerate our state-of-the-art AI research at Genesis Therapeutics.”",
+          "buttonText": "Read the story",
+          "buttonUrl": "#"
+        },
+        {
+          "avatar": "/story-assets/quote-avatar.png",
+          "logo": "/story-assets/quote-logo.svg",
+          "name": "Carl Tilbury",
+          "description": "Senior Director, Business Development and Strategy at Genesis",
+          "quote": "“We are grateful to be working with Nebius for our GPU infrastructure needs. Nebius' team is responsive, they clearly communicate capacity / availability, and technical set up has been straightforward. We consider them a strategic partner who can accelerate our state-of-the-art AI research at Genesis Therapeutics.”",
+          "style": "long",
+          "buttonText": "Read the story",
+          "buttonUrl": "#"
+        },
+        {
+          "avatar": "/story-assets/quote-avatar.png",
+          "logo": "/story-assets/quote-logo.svg",
+          "name": "Carl Tilbury",
+          "description": "Senior Director, Business Development and Strategy at Genesis",
+          "quote": "“We are grateful to be working with Nebius for our GPU infrastructure needs. Nebius' team is responsive, they clearly communicate capacity / availability, and technical set up has been straightforward. We consider them a strategic partner who can accelerate our state-of-the-art AI research at Genesis Therapeutics.”",
+          "style": "short",
+          "buttonText": "Read the story",
+          "buttonUrl": "#"
+        }
+      ]
+    }
+  },
+  "lightTheme": {
+    "content": {
+      "theme": "light"
+    }
+  },
+  "darkTheme": {
+    "content": {
+      "theme": "dark"
+    }
+  }
+}
