@@ -13,6 +13,7 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     InfoBlock,
+    LinkTableBlock,
     MapBlock,
     MarqueeLinksBlock,
     MediaBlock,
@@ -66,6 +67,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...SolutionsBlock,
     ...ServicesBlock,
     ...QuotesBlock,
+    ...LinkTableBlock,
 };
 
 export const cardSchemas = {
@@ -112,6 +114,7 @@ export const constructorBlockSchemaNames = [
     'solutions-block',
     'services-block',
     'quotes-block',
+    'link-table-block',
 ];
 
 export const constructorCardSchemaNames = [

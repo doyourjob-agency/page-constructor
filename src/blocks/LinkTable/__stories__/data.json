@@ -1,0 +1,41 @@
+{
+  "default": {
+    "content": {
+      "type": "link-table-block",
+      "title": {
+        "text": "Documentation",
+        "textSize": "l"
+      },
+      "items": [
+        [
+          {
+            "url": "/docs/overview/",
+            "text": "Nebius platform overview"
+          },
+          {
+            "url": "/docs/overview/concepts/quotas-limits",
+            "text": "Quotas and limits"
+          },
+          {
+            "url": "/docs/security/",
+            "text": "Platform security"
+          }
+        ],
+        [
+          {
+            "url": "/docs/getting-started/",
+            "text": "Getting started"
+          },
+          {
+            "url": "/docs/support/",
+            "text": "About technical support"
+          },
+          {
+            "url": "/docs/cli/",
+            "text": "Command line interface"
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -10,6 +10,7 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     InfoBlock,
+    LinkTableBlock,
     MapBlock,
     MarqueeLinksBlock,
     MediaBlock,
@@ -70,6 +71,7 @@ export const blockMap = {
     [BlockType.FormBlock]: FormBlock,
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
+    [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,
     // unstable
