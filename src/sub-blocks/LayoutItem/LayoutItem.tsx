@@ -18,7 +18,7 @@ const b = block('layout-item');
 const LayoutItem = ({
     title,
     afterTitle,
-    rightSpace = true,
+    rightSpace,
     content: {links, ...content},
     metaInfo,
     media,
