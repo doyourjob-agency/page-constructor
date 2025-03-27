@@ -9,30 +9,30 @@
       "items": [
         [
           {
-            "url": "/docs/overview/",
-            "text": "Nebius platform overview"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           },
           {
-            "url": "/docs/overview/concepts/quotas-limits",
-            "text": "Quotas and limits"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           },
           {
-            "url": "/docs/security/",
-            "text": "Platform security"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           }
         ],
         [
           {
-            "url": "/docs/getting-started/",
-            "text": "Getting started"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           },
           {
-            "url": "/docs/support/",
-            "text": "About technical support"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           },
           {
-            "url": "/docs/cli/",
-            "text": "Command line interface"
+            "url": "#",
+            "text": "Lorem Ipsum is"
           }
         ]
       ]

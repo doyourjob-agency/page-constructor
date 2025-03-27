@@ -1,242 +1,226 @@
 {
   "dataByCategories": [
     {
-      "name": "Featured",
-      "slug": "featured",
+      "name": "Group 1",
+      "slug": "group-1",
       "services": [
         {
           "id": 19,
-          "name": "Nebius AI Cloud",
-          "slug": "ai-compute",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
+          "name": "Test 1",
+          "slug": "test-1",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Top-tier GPU infrastructure to train, fine-tune and inference your AI models",
-          "url": "/services/ai-compute"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-1"
         },
         {
           "id": 22,
-          "name": "Reserved GPU Clusters",
-          "slug": "ai-compute-reserved-gpu-clusters",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
+          "name": "Test 2",
+          "slug": "test-2",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Top-tier GPU clusters for large-scale training and inference of your AI models",
-          "url": "/services/ai-compute-reserved-gpu-clusters"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-2"
         },
         {
           "id": 23,
-          "name": "On Demand GPUs",
-          "slug": "ai-compute-on-demand-gpus",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
+          "name": "Test 3",
+          "slug": "test-3",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Instant on demand access to scalable GPU infrastructure",
-          "url": "/services/ai-compute-on-demand-gpus"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-3"
         },
         {
           "id": 21,
-          "name": "Nebius AI Studio",
-          "slug": "ai-studio",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_959_637)\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.96429 0C6.72165 0 5.71429 1.00736 5.71429 2.25C5.71429 2.58177 5.7861 2.89678 5.91502 3.18031C4.69192 3.71014 3.71014 4.69192 3.18031 5.91502C2.89678 5.7861 2.58178 5.71429 2.25 5.71429C1.00736 5.71429 0 6.72165 0 7.96429C0 9.20693 1.00736 10.2143 2.25 10.2143C2.57184 10.2143 2.8779 10.1467 3.15476 10.025C3.67451 11.2671 4.65801 12.2671 5.8888 12.8082C5.7764 13.076 5.71429 13.37 5.71429 13.6786C5.71429 14.9212 6.72165 15.9286 7.96429 15.9286C9.20693 15.9286 10.2143 14.9212 10.2143 13.6786C10.2143 13.38 10.1561 13.0951 10.0506 12.8344C11.3012 12.3033 12.3033 11.3012 12.8344 10.0506C13.0951 10.1561 13.38 10.2143 13.6786 10.2143C14.9212 10.2143 15.9286 9.20693 15.9286 7.96429C15.9286 6.72164 14.9212 5.71429 13.6786 5.71429C13.37 5.71429 13.076 5.7764 12.8082 5.8888C12.2671 4.65801 11.2671 3.67451 10.025 3.15476C10.1467 2.8779 10.2143 2.57184 10.2143 2.25C10.2143 1.00736 9.20693 0 7.96429 0ZM12.8082 5.8888C11.9978 6.22906 11.4286 7.0302 11.4286 7.96429C11.4286 8.9084 12.0101 9.7167 12.8344 10.0506C13.102 9.4206 13.25 8.72758 13.25 8C13.25 7.249 13.0923 6.53483 12.8082 5.8888ZM10.0506 12.8344C9.4206 13.102 8.72758 13.25 8 13.25C7.249 13.25 6.53483 13.0923 5.8888 12.8082C6.22906 11.9978 7.0302 11.4286 7.96429 11.4286C8.9084 11.4286 9.71671 12.0101 10.0506 12.8344ZM3.15476 10.025C2.89403 9.40184 2.75 8.71774 2.75 8C2.75 7.25915 2.90346 6.55414 3.18031 5.91502C3.95874 6.26897 4.5 7.05342 4.5 7.96429C4.5 8.88508 3.94688 9.67669 3.15476 10.025ZM10.025 3.15476C9.67669 3.94688 8.88509 4.5 7.96429 4.5C7.05342 4.5 6.26897 3.95874 5.91502 3.18031C6.55414 2.90346 7.25915 2.75 8 2.75C8.71774 2.75 9.40184 2.89403 10.025 3.15476ZM5.71429 8C5.71429 6.73764 6.73764 5.71429 8 5.71429C9.26237 5.71429 10.2857 6.73764 10.2857 8C10.2857 9.26236 9.26237 10.2857 8 10.2857C6.73764 10.2857 5.71429 9.26237 5.71429 8ZM2.25 0C1.00736 0 0 1.00736 0 2.25C0 3.49264 1.00736 4.5 2.25 4.5C3.49264 4.5 4.5 3.49264 4.5 2.25C4.5 1.00736 3.49264 0 2.25 0ZM11.5 2.25C11.5 1.00736 12.5074 0 13.75 0C14.9926 0 16 1.00736 16 2.25C16 3.49264 14.9926 4.5 13.75 4.5C12.5074 4.5 11.5 3.49264 11.5 2.25ZM2.25 11.5C1.00736 11.5 0 12.5074 0 13.75C0 14.9926 1.00736 16 2.25 16C3.49264 16 4.5 14.9926 4.5 13.75C4.5 12.5074 3.49264 11.5 2.25 11.5ZM11.5 13.75C11.5 12.5074 12.5074 11.5 13.75 11.5C14.9926 11.5 16 12.5074 16 13.75C16 14.9926 14.9926 16 13.75 16C12.5074 16 11.5 14.9926 11.5 13.75Z\" fill=\"#currentColor\"></path>\n</g>\n<defs>\n\n<rect width=\"16\" height=\"16\" fill=\"currentColor\"></rect>\n\n</defs>\n</svg>",
+          "name": "Test 14",
+          "slug": "test-14",
           "docUrl": null,
           "pricesUrl": null,
           "tag": "new",
           "consoleUrl": null,
-          "description": "Leading open-source models available for inference on our top-tier production-ready infrastructure",
-          "url": "/services/ai-studio"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-14"
         }
       ]
     },
     {
-      "name": "AI Cloud Services",
-      "slug": "ai-cloud",
+      "name": "Group 2",
+      "slug": "group-2",
       "services": [
         {
           "id": 2,
-          "name": "Compute Cloud",
-          "slug": "compute",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
+          "name": "Test 4",
+          "slug": "test-4",
           "docUrl": "/docs/compute/",
           "pricesUrl": "/docs/compute/pricing",
           "tag": "new",
-          "consoleUrl": "https://console.nebius.ai/link/compute",
-          "description": "Virtual machines and block storage",
-          "url": "/services/compute"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-4"
         },
         {
           "id": 8,
-          "name": "Managed Service for Kubernetes®",
-          "slug": "managed-kubernetes",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5136)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m8.84.23 3.631 2.252c.453.281.728.776.728 1.309V4h.45a1.4 1.4 0 0 1 1.365 1.088l.944 4.13a2.1 2.1 0 0 1-.392 1.762l-3.294 4.213a2.1 2.1 0 0 1-1.655.807H5.384a2.1 2.1 0 0 1-1.655-.807L.434 10.98a2.1 2.1 0 0 1-.393-1.76L.98 5.09A1.4 1.4 0 0 1 2.345 4h.459v-.204c0-.535.278-1.033.735-1.313L7.223.225A1.54 1.54 0 0 1 8.84.23Zm3.493 10.64L8.98 12.932a1.82 1.82 0 0 1-1.9.005L3.678 10.87a1.82 1.82 0 0 1-.874-1.556V4.005l4.389 2.707a1.54 1.54 0 0 0 1.617 0l4.39-2.707V9.32a1.82 1.82 0 0 1-.867 1.55Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
+          "name": "Test 5",
+          "slug": "test-5",
           "docUrl": "/docs/managed-kubernetes/",
           "pricesUrl": "/docs/managed-kubernetes/pricing",
           "tag": "preview",
-          "consoleUrl": "https://console.nebius.ai/link/managed-kubernetes",
-          "description": "Managed Kubernetes® clusters",
-          "url": "/services/managed-kubernetes"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-5"
         },
         {
           "id": 14,
-          "name": "Object Storage",
-          "slug": "storage",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 3a2 2 0 0 1 2-2h6a4 4 0 0 1 4 4v6a2 2 0 0 1-2 2h-1V6a2 2 0 0 0-2-2H3V3Zm0 1H2a2 2 0 0 0-2 2v6a4 4 0 0 0 4 4h6a2 2 0 0 0 2-2v-1H5a2 2 0 0 1-2-2V4Zm2 5a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2H5Z\" fill=\"currentColor\"></path>\n</svg>",
+          "name": "Test 6",
+          "slug": "test-6",
           "docUrl": "/docs/storage/",
           "pricesUrl": "/docs/storage/pricing",
           "tag": null,
-          "consoleUrl": "https://console.nebius.ai/link/storage",
-          "description": "Scalable data storage",
-          "url": "/services/storage"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-6"
         },
         {
           "id": 3,
-          "name": "Container Registry",
-          "slug": "container-registry",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2H3V2Zm7 2v3a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4h4Zm0 0V2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2h-3ZM0 6a2 2 0 0 1 2-2v7a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 1 2 2v5a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V6Zm3 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Zm7-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2Z\" fill=\"currentColor\"></path>\n</svg>",
+          "name": "Test 7",
+          "slug": "test-7",
           "docUrl": "/docs/container-registry/",
           "pricesUrl": "/docs/container-registry/pricing",
           "tag": null,
-          "consoleUrl": "https://console.nebius.ai/link/container-registry",
-          "description": "Docker image management",
-          "url": "/services/container-registry"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-7"
         },
         {
           "id": 12,
-          "name": "Managed Service for PostgreSQL",
-          "slug": "managed-postgresql",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13.078 16v-.545c0-.607-.264-1.183-.724-1.578l-1.73-1.487c.19-.324.301-.707.301-1.134V5.708c0-.838-.252-1.657-.724-2.35-1.43-2.1-3.944-2.875-6.162-2.274C4.317.46 4.939 0 5.703 0h5.054A5.245 5.245 0 0 1 16 5.248V16h-2.922ZM4.038 1.084a5.603 5.603 0 0 0-2.941 1.948l-.526.665A2.648 2.648 0 0 0 .89 7.319l6.32 5.61c1.122.997 2.75.597 3.415-.54L9.008 11V7.026c0-2.69-2.32-4.793-4.995-4.525a1.806 1.806 0 0 1 .026-1.416ZM13.004 9a1 1 0 1 0 0-1.999 1 1 0 0 0 0 1.999Z\" fill=\"currentColor\"></path>\n</svg>",
-          "docUrl": "/docs/managed-postgresql",
+          "name": "Test 8",
+          "slug": "test-8",
+          "docUrl": "/docs/test-8",
           "pricesUrl": "/docs/managed-postgresql/pricing",
           "tag": null,
-          "consoleUrl": "https://console.nebius.ai/link/managed-postgresql/",
-          "description": "PostgreSQL database management",
-          "url": "/services/managed-postgresql"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-8"
         },
         {
           "id": 6,
-          "name": "Managed Service for Apache Spark™",
-          "slug": "managed-spark",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_914_310)\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.10595 0.949692C7.3874 0.0835005 8.61283 0.0835015 8.89429 0.949693L10.3496 5.42847H5.65063L7.10595 0.949692ZM15.058 5.42859C15.9688 5.42859 16.3475 6.59415 15.6106 7.12946L11.801 9.89679L12.5729 7.78582C12.7215 7.37947 12.5736 6.92418 12.2146 6.68274L10.3496 5.42859H15.058ZM11.8093 15.4268C12.5462 15.9622 13.5376 15.2418 13.2562 14.3756L11.801 9.89722L8.00012 12.659L11.8093 15.4268ZM0.941993 5.42859H5.65064L8.6053 7.78425C8.97327 8.07763 9.13075 8.56222 9.00554 9.01587L8.00013 12.6585L4.19056 15.4266C3.45376 15.962 2.46233 15.2417 2.74371 14.3755L3.93479 10.7088C4.09209 10.2246 3.91971 9.69419 3.50781 9.39494L0.389386 7.12943C-0.347483 6.5941 0.0311939 5.42859 0.941993 5.42859Z\" fill=\"currentColor\"></path>\n</g>\n<defs>\n\n<rect width=\"16\" height=\"16\" fill=\"currentColor\"></rect>\n\n</defs>\n</svg>",
-          "docUrl": "/services/managed-spark",
-          "pricesUrl": "/services/managed-spark",
+          "name": "Test 9™",
+          "slug": "test-9",
+          "docUrl": "/services/test-9",
+          "pricesUrl": "/services/test-9",
           "tag": null,
-          "consoleUrl": "https://console.nebius.ai/link//managed-spark",
-          "description": "Apache Spark™ data processing",
-          "url": "/services/managed-spark"
+          "consoleUrl": "#",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-9"
         },
         {
           "id": 20,
-          "name": "Soperator",
-          "slug": "soperator",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 1C5.44772 1 5 1.44771 5 2V4H3C2.44772 4 2 4.44772 2 5V7H1C0.447715 7 0 7.44772 0 8V14C0 14.5523 0.447715 15 1 15H2C2.55228 15 3 14.5523 3 14V13H5C5.55228 13 6 12.5523 6 12H10C10 12.5523 10.4477 13 11 13H13V14C13 14.5523 13.4477 15 14 15H15C15.5523 15 16 14.5523 16 14V8C16 7.44772 15.5523 7 15 7H14V5C14 4.44772 13.5523 4 13 4H11V2C11 1.44772 10.5523 1 10 1H6ZM11 4V12H10V5C10 4.44772 10.4477 4 11 4ZM14 7C13.4477 7 13 7.44772 13 8V13C13.5523 13 14 12.5523 14 12V7ZM6 12H5V4C5.55228 4 6 4.44772 6 5V12ZM3 13V8C3 7.44772 2.55228 7 2 7V12C2 12.5523 2.44772 13 3 13Z\" fill=\"#currentColor\"></path>\n</svg>",
+          "name": "Test 11",
+          "slug": "test-11",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Slurm-based workload manager",
-          "url": "/services/soperator"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-11"
         },
         {
           "id": 18,
-          "name": "JupyterHub with PyTorch and CUDA",
-          "slug": "third-party-applications/jupyter-hub",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 1C5.44772 1 5 1.44771 5 2V4H3C2.44772 4 2 4.44772 2 5V7H1C0.447715 7 0 7.44772 0 8V14C0 14.5523 0.447715 15 1 15H2C2.55228 15 3 14.5523 3 14V13H5C5.55228 13 6 12.5523 6 12H10C10 12.5523 10.4477 13 11 13H13V14C13 14.5523 13.4477 15 14 15H15C15.5523 15 16 14.5523 16 14V8C16 7.44772 15.5523 7 15 7H14V5C14 4.44772 13.5523 4 13 4H11V2C11 1.44772 10.5523 1 10 1H6ZM11 4V12H10V5C10 4.44772 10.4477 4 11 4ZM14 7C13.4477 7 13 7.44772 13 8V13C13.5523 13 14 12.5523 14 12V7ZM6 12H5V4C5.55228 4 6 4.44772 6 5V12ZM3 13V8C3 7.44772 2.55228 7 2 7V12C2 12.5523 2.44772 13 3 13Z\" fill=\"#currentColor\"></path>\n</svg>",
+          "name": "Test 13",
+          "slug": "test-13",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "JupyterHub with PyTorch and CUDA® is your all-in-one product for multi-user Jupyter environments, deep learning and GPU acceleration. Deploy on Kubernetes for seamless scalability and resource management.",
-          "url": "/third-party-applications/jupyter-hub"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/test-13"
         }
       ]
     },
     {
-      "name": "AI Studio Services",
-      "slug": "ai-studio",
+      "name": "Group 3",
+      "slug": "group-3",
       "services": [
         {
           "id": 5,
-          "name": "Inference Service",
-          "slug": "studio-inference-service",
-          "icon": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/bf2de568-0a2e-44ae-8148-4a1c9ee2379e/processing-new.svg?cache-buster=2025-03-05T12:36:31.667Z",
-          "docUrl": "https://docs.nebius.ai/studio/inference/",
-          "pricesUrl": "https://nebius.ai/services/studio-inference-service#prices",
-          "tag": null,
+          "name": "Test 12",
+          "slug": "test-12",
+          "docUrl": "#",
+          "pricesUrl": "#",
+          "tag": "preview",
           "consoleUrl": null,
-          "description": "Access and run powerful AI models",
-          "url": "/services/studio-inference-service"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-12"
         },
         {
           "id": 32,
-          "name": "AI image generation",
-          "slug": "studio-text-to-image",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 3C3 1.34315 4.34315 0 6 0H13C14.6569 0 16 1.34315 16 3V10C16 11.6569 14.6569 13 13 13L10 13V9C10 7.34315 8.65685 6 7 6H3V3ZM12.0879 1.2675C12.3679 2.6375 13.3879 3.6575 14.7579 3.9375C14.8479 3.9575 14.8479 4.0675 14.7579 4.0875C13.3879 4.3675 12.3679 5.3875 12.0879 6.7575C12.0679 6.8475 11.9579 6.8475 11.9379 6.7575C11.6579 5.3875 10.6379 4.3675 9.26794 4.0875C9.17794 4.0675 9.17794 3.9575 9.26794 3.9375C10.6379 3.6575 11.6679 2.6275 11.9379 1.2675C11.9579 1.1775 12.0679 1.1775 12.0879 1.2675ZM0 9C0 7.89543 0.895431 7 2 7L7 7C8.10457 7 9 7.89543 9 9L9 14C9 15.1046 8.10457 16 7 16L2 16C0.89543 16 0 15.1046 0 14V9ZM5.5 13C5.77614 13 6 13.2239 6 13.5C6 13.7761 5.77614 14 5.5 14H1.5C1.22386 14 1 13.7761 1 13.5C1 13.2239 1.22386 13 1.5 13H5.5ZM8 11.5C8 11.2239 7.77614 11 7.5 11H1.5C1.22386 11 1 11.2239 1 11.5C1 11.7761 1.22386 12 1.5 12H7.5C7.77614 12 8 11.7761 8 11.5ZM7.5 9C7.77614 9 8 9.22386 8 9.5C8 9.77614 7.77614 10 7.5 10H1.5C1.22386 10 1 9.77614 1 9.5C1 9.22386 1.22386 9 1.5 9H7.5Z\" fill=\"#052B42\"/>\n</svg>\n",
+          "name": "Test 17",
+          "slug": "test-17",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Access best-in-class image generation models",
-          "url": "/services/studio-text-to-image"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-17"
         },
         {
           "id": 31,
-          "name": "Fine-tuning service",
-          "slug": "studio-fine-tuning",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 3C0 1.34315 1.34315 0 3 0H13C14.6569 0 16 1.34315 16 3V13C16 14.6569 14.6569 16 13 16H3C1.34315 16 0 14.6569 0 13V3ZM2.5 6C1.94772 6 1.5 6.44772 1.5 7L1.5 9C1.5 9.55229 1.94772 10 2.5 10H3V13.5C3 13.7761 3.22386 14 3.5 14C3.77614 14 4 13.7761 4 13.5L4 10H4.5C5.05228 10 5.5 9.55228 5.5 9L5.5 7C5.5 6.44771 5.05228 6 4.5 6L2.5 6ZM12.5 14C12.7761 14 13 13.7761 13 13.5V11.0247C13 9.94133 12.6793 8.83919 12.1212 8.02335C12.0834 7.96808 12 7.99565 12 8.06262V13.5C12 13.7761 12.2239 14 12.5 14ZM12.5875 2.0675C12.8675 3.4375 13.8875 4.4575 15.2575 4.7375C15.3475 4.7575 15.3475 4.8675 15.2575 4.8875C13.8875 5.1675 12.8675 6.1875 12.5875 7.5575C12.5675 7.6475 12.4575 7.6475 12.4375 7.5575C12.1575 6.1875 11.1375 5.1675 9.76745 4.8875C9.67745 4.8675 9.67745 4.7575 9.76745 4.7375C11.1375 4.4575 12.1675 3.4275 12.4375 2.0675C12.4575 1.9775 12.5675 1.9775 12.5875 2.0675ZM6 11C6 10.4477 6.44772 10 7 10H9C9.55228 10 10 10.4477 10 11V13C10 13.5523 9.55228 14 9 14L8 14L7 14C6.44772 14 6 13.5523 6 13V11ZM7.5 2.5C7.5 2.22386 7.72386 2 8 2C8.27614 2 8.5 2.22386 8.5 2.5L8.5 9L7.5 9L7.5 2.5ZM3.5 2C3.22386 2 3 2.22386 3 2.5V5H4L4 2.5C4 2.22386 3.77614 2 3.5 2Z\" fill=\"#052B42\"/>\n</svg>\n",
+          "name": "Test 19",
+          "slug": "test-19",
           "docUrl": null,
           "pricesUrl": null,
           "tag": null,
           "consoleUrl": null,
-          "description": "Fine-tune AI models at scale",
-          "url": "/services/studio-fine-tuning"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/services/test-19"
         }
       ]
     },
     {
-      "name": "Third Party Solutions",
-      "slug": "third-party-solutions",
+      "name": "Group 4",
+      "slug": "group-4",
       "services": [
         {
           "id": 18,
-          "name": "JupyterHub with PyTorch and CUDA",
-          "slug": "third-party-applications/jupyter-hub",
-          "icon": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 1C5.44772 1 5 1.44771 5 2V4H3C2.44772 4 2 4.44772 2 5V7H1C0.447715 7 0 7.44772 0 8V14C0 14.5523 0.447715 15 1 15H2C2.55228 15 3 14.5523 3 14V13H5C5.55228 13 6 12.5523 6 12H10C10 12.5523 10.4477 13 11 13H13V14C13 14.5523 13.4477 15 14 15H15C15.5523 15 16 14.5523 16 14V8C16 7.44772 15.5523 7 15 7H14V5C14 4.44772 13.5523 4 13 4H11V2C11 1.44772 10.5523 1 10 1H6ZM11 4V12H10V5C10 4.44772 10.4477 4 11 4ZM14 7C13.4477 7 13 7.44772 13 8V13C13.5523 13 14 12.5523 14 12V7ZM6 12H5V4C5.55228 4 6 4.44772 6 5V12ZM3 13V8C3 7.44772 2.55228 7 2 7V12C2 12.5523 2.44772 13 3 13Z\" fill=\"#currentColor\"></path>\n</svg>",
+          "name": "Test 13",
+          "slug": "test-13",
           "docUrl": null,
           "pricesUrl": null,
-          "tag": null,
+          "tag": "new",
           "consoleUrl": null,
-          "description": "JupyterHub with PyTorch and CUDA® is your all-in-one product for multi-user Jupyter environments, deep learning and GPU acceleration. Deploy on Kubernetes for seamless scalability and resource management.",
-          "url": "/third-party-applications/jupyter-hub"
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "url": "/test-13"
         }
       ]
     }
   ],
   "icons": {
-    "ai-compute": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
-    "ai-compute-reserved-gpu-clusters": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
-    "ai-compute-on-demand-gpus": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
-    "compute": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5213)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M5.518 3V.986a.986.986 0 0 1 1.97 0V3h-1.97Zm.001 0h-.521a2 2 0 0 0-2 2v.037H.986a.986.986 0 1 0 0 1.971h2.012v1.49H.986a.986.986 0 1 0 0 1.97h2.043a3.003 3.003 0 0 0 1.97 2.4v2.146a.986.986 0 0 0 1.972 0v-1.976h2v1.976a.986.986 0 0 0 1.97 0v-1.976H11a2 2 0 0 0 2-2v-.562H7.52a2 2 0 0 1-2-2V3Zm9.495 2.001h-1.996v1.971h1.996a.986.986 0 0 0 0-1.971Zm0 3.496H13v1.971h2.014a.986.986 0 1 0 0-1.97ZM9.025 3V.986a.986.986 0 0 1 1.972 0V3H9.025Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
-    "managed-kubernetes": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <g clip-path=\"url(#clip0_165_5136)\">\n        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"m8.84.23 3.631 2.252c.453.281.728.776.728 1.309V4h.45a1.4 1.4 0 0 1 1.365 1.088l.944 4.13a2.1 2.1 0 0 1-.392 1.762l-3.294 4.213a2.1 2.1 0 0 1-1.655.807H5.384a2.1 2.1 0 0 1-1.655-.807L.434 10.98a2.1 2.1 0 0 1-.393-1.76L.98 5.09A1.4 1.4 0 0 1 2.345 4h.459v-.204c0-.535.278-1.033.735-1.313L7.223.225A1.54 1.54 0 0 1 8.84.23Zm3.493 10.64L8.98 12.932a1.82 1.82 0 0 1-1.9.005L3.678 10.87a1.82 1.82 0 0 1-.874-1.556V4.005l4.389 2.707a1.54 1.54 0 0 0 1.617 0l4.39-2.707V9.32a1.82 1.82 0 0 1-.867 1.55Z\" fill=\"currentColor\"></path>\n    </g>\n    <defs>\n        \n            <path fill=\"#fff\" d=\"M0 0h16v16H0z\"></path>\n        \n    </defs>\n</svg>",
-    "storage": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 3a2 2 0 0 1 2-2h6a4 4 0 0 1 4 4v6a2 2 0 0 1-2 2h-1V6a2 2 0 0 0-2-2H3V3Zm0 1H2a2 2 0 0 0-2 2v6a4 4 0 0 0 4 4h6a2 2 0 0 0 2-2v-1H5a2 2 0 0 1-2-2V4Zm2 5a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2H5Z\" fill=\"currentColor\"></path>\n</svg>",
-    "container-registry": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2H3V2Zm7 2v3a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4h4Zm0 0V2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2h-3ZM0 6a2 2 0 0 1 2-2v7a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 1 2 2v5a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V6Zm3 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Zm7-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2Z\" fill=\"currentColor\"></path>\n</svg>",
-    "managed-postgresql": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13.078 16v-.545c0-.607-.264-1.183-.724-1.578l-1.73-1.487c.19-.324.301-.707.301-1.134V5.708c0-.838-.252-1.657-.724-2.35-1.43-2.1-3.944-2.875-6.162-2.274C4.317.46 4.939 0 5.703 0h5.054A5.245 5.245 0 0 1 16 5.248V16h-2.922ZM4.038 1.084a5.603 5.603 0 0 0-2.941 1.948l-.526.665A2.648 2.648 0 0 0 .89 7.319l6.32 5.61c1.122.997 2.75.597 3.415-.54L9.008 11V7.026c0-2.69-2.32-4.793-4.995-4.525a1.806 1.806 0 0 1 .026-1.416ZM13.004 9a1 1 0 1 0 0-1.999 1 1 0 0 0 0 1.999Z\" fill=\"currentColor\"></path>\n</svg>",
-    "managed-spark": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_914_310)\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.10595 0.949692C7.3874 0.0835005 8.61283 0.0835015 8.89429 0.949693L10.3496 5.42847H5.65063L7.10595 0.949692ZM15.058 5.42859C15.9688 5.42859 16.3475 6.59415 15.6106 7.12946L11.801 9.89679L12.5729 7.78582C12.7215 7.37947 12.5736 6.92418 12.2146 6.68274L10.3496 5.42859H15.058ZM11.8093 15.4268C12.5462 15.9622 13.5376 15.2418 13.2562 14.3756L11.801 9.89722L8.00012 12.659L11.8093 15.4268ZM0.941993 5.42859H5.65064L8.6053 7.78425C8.97327 8.07763 9.13075 8.56222 9.00554 9.01587L8.00013 12.6585L4.19056 15.4266C3.45376 15.962 2.46233 15.2417 2.74371 14.3755L3.93479 10.7088C4.09209 10.2246 3.91971 9.69419 3.50781 9.39494L0.389386 7.12943C-0.347483 6.5941 0.0311939 5.42859 0.941993 5.42859Z\" fill=\"currentColor\"></path>\n</g>\n<defs>\n\n<rect width=\"16\" height=\"16\" fill=\"currentColor\"></rect>\n\n</defs>\n</svg>",
-    "managed-mlflow": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.5 1L11 5L8 5L6 5C5.44772 5 5 5.44772 5 6L5 11L5 15C2.79086 15 1 13.2091 1 11V5C1 2.79086 2.79086 1 5 1H7.5ZM5 11L8 11H10C10.5523 11 11 10.5523 11 10V8L11 5L11 1C13.2091 1 15 2.79086 15 5V11C15 13.2091 13.2091 15 11 15H8.5L5 11Z\" fill=\"#currentColor\"></path>\n</svg>",
-    "soperator": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 1C5.44772 1 5 1.44771 5 2V4H3C2.44772 4 2 4.44772 2 5V7H1C0.447715 7 0 7.44772 0 8V14C0 14.5523 0.447715 15 1 15H2C2.55228 15 3 14.5523 3 14V13H5C5.55228 13 6 12.5523 6 12H10C10 12.5523 10.4477 13 11 13H13V14C13 14.5523 13.4477 15 14 15H15C15.5523 15 16 14.5523 16 14V8C16 7.44772 15.5523 7 15 7H14V5C14 4.44772 13.5523 4 13 4H11V2C11 1.44772 10.5523 1 10 1H6ZM11 4V12H10V5C10 4.44772 10.4477 4 11 4ZM14 7C13.4477 7 13 7.44772 13 8V13C13.5523 13 14 12.5523 14 12V7ZM6 12H5V4C5.55228 4 6 4.44772 6 5V12ZM3 13V8C3 7.44772 2.55228 7 2 7V12C2 12.5523 2.44772 13 3 13Z\" fill=\"#currentColor\"></path>\n</svg>",
-    "studio-inference-service": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/bf2de568-0a2e-44ae-8148-4a1c9ee2379e/processing-new.svg?cache-buster=2025-03-05T12:36:31.667Z",
-    "third-party-applications/jupyter-hub": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 1C5.44772 1 5 1.44771 5 2V4H3C2.44772 4 2 4.44772 2 5V7H1C0.447715 7 0 7.44772 0 8V14C0 14.5523 0.447715 15 1 15H2C2.55228 15 3 14.5523 3 14V13H5C5.55228 13 6 12.5523 6 12H10C10 12.5523 10.4477 13 11 13H13V14C13 14.5523 13.4477 15 14 15H15C15.5523 15 16 14.5523 16 14V8C16 7.44772 15.5523 7 15 7H14V5C14 4.44772 13.5523 4 13 4H11V2C11 1.44772 10.5523 1 10 1H6ZM11 4V12H10V5C10 4.44772 10.4477 4 11 4ZM14 7C13.4477 7 13 7.44772 13 8V13C13.5523 13 14 12.5523 14 12V7ZM6 12H5V4C5.55228 4 6 4.44772 6 5V12ZM3 13V8C3 7.44772 2.55228 7 2 7V12C2 12.5523 2.44772 13 3 13Z\" fill=\"#currentColor\"></path>\n</svg>",
-    "ai-studio": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_959_637)\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.96429 0C6.72165 0 5.71429 1.00736 5.71429 2.25C5.71429 2.58177 5.7861 2.89678 5.91502 3.18031C4.69192 3.71014 3.71014 4.69192 3.18031 5.91502C2.89678 5.7861 2.58178 5.71429 2.25 5.71429C1.00736 5.71429 0 6.72165 0 7.96429C0 9.20693 1.00736 10.2143 2.25 10.2143C2.57184 10.2143 2.8779 10.1467 3.15476 10.025C3.67451 11.2671 4.65801 12.2671 5.8888 12.8082C5.7764 13.076 5.71429 13.37 5.71429 13.6786C5.71429 14.9212 6.72165 15.9286 7.96429 15.9286C9.20693 15.9286 10.2143 14.9212 10.2143 13.6786C10.2143 13.38 10.1561 13.0951 10.0506 12.8344C11.3012 12.3033 12.3033 11.3012 12.8344 10.0506C13.0951 10.1561 13.38 10.2143 13.6786 10.2143C14.9212 10.2143 15.9286 9.20693 15.9286 7.96429C15.9286 6.72164 14.9212 5.71429 13.6786 5.71429C13.37 5.71429 13.076 5.7764 12.8082 5.8888C12.2671 4.65801 11.2671 3.67451 10.025 3.15476C10.1467 2.8779 10.2143 2.57184 10.2143 2.25C10.2143 1.00736 9.20693 0 7.96429 0ZM12.8082 5.8888C11.9978 6.22906 11.4286 7.0302 11.4286 7.96429C11.4286 8.9084 12.0101 9.7167 12.8344 10.0506C13.102 9.4206 13.25 8.72758 13.25 8C13.25 7.249 13.0923 6.53483 12.8082 5.8888ZM10.0506 12.8344C9.4206 13.102 8.72758 13.25 8 13.25C7.249 13.25 6.53483 13.0923 5.8888 12.8082C6.22906 11.9978 7.0302 11.4286 7.96429 11.4286C8.9084 11.4286 9.71671 12.0101 10.0506 12.8344ZM3.15476 10.025C2.89403 9.40184 2.75 8.71774 2.75 8C2.75 7.25915 2.90346 6.55414 3.18031 5.91502C3.95874 6.26897 4.5 7.05342 4.5 7.96429C4.5 8.88508 3.94688 9.67669 3.15476 10.025ZM10.025 3.15476C9.67669 3.94688 8.88509 4.5 7.96429 4.5C7.05342 4.5 6.26897 3.95874 5.91502 3.18031C6.55414 2.90346 7.25915 2.75 8 2.75C8.71774 2.75 9.40184 2.89403 10.025 3.15476ZM5.71429 8C5.71429 6.73764 6.73764 5.71429 8 5.71429C9.26237 5.71429 10.2857 6.73764 10.2857 8C10.2857 9.26236 9.26237 10.2857 8 10.2857C6.73764 10.2857 5.71429 9.26237 5.71429 8ZM2.25 0C1.00736 0 0 1.00736 0 2.25C0 3.49264 1.00736 4.5 2.25 4.5C3.49264 4.5 4.5 3.49264 4.5 2.25C4.5 1.00736 3.49264 0 2.25 0ZM11.5 2.25C11.5 1.00736 12.5074 0 13.75 0C14.9926 0 16 1.00736 16 2.25C16 3.49264 14.9926 4.5 13.75 4.5C12.5074 4.5 11.5 3.49264 11.5 2.25ZM2.25 11.5C1.00736 11.5 0 12.5074 0 13.75C0 14.9926 1.00736 16 2.25 16C3.49264 16 4.5 14.9926 4.5 13.75C4.5 12.5074 3.49264 11.5 2.25 11.5ZM11.5 13.75C11.5 12.5074 12.5074 11.5 13.75 11.5C14.9926 11.5 16 12.5074 16 13.75C16 14.9926 14.9926 16 13.75 16C12.5074 16 11.5 14.9926 11.5 13.75Z\" fill=\"#currentColor\"></path>\n</g>\n<defs>\n\n<rect width=\"16\" height=\"16\" fill=\"currentColor\"></rect>\n\n</defs>\n</svg>",
-    "third-party-applications/weights-biases-launch-agent": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_6499_4159)\">\n<rect width=\"16\" height=\"16\" transform=\"matrix(-1 0 0 1 16 0)\" fill=\"white\"/>\n<rect width=\"16\" height=\"16\" rx=\"1.77778\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.4444 1.33334L9.55556 3.77779L6.88889 14.4445V4.22223H2L6.88889 14.4445H10.8889L14.4444 1.33334Z\" fill=\"#D8D8D8\"/>\n<path d=\"M1.77783 4H6.66672V14.2222L1.77783 4Z\" fill=\"#EBB431\"/>\n<path d=\"M9.33341 3.55556L14.2223 1.11111L10.6667 14.2222H6.66675L9.33341 3.55556Z\" fill=\"#63A1FC\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_6499_4159\">\n<rect width=\"16\" height=\"16\" fill=\"white\" transform=\"matrix(-1 0 0 1 16 0)\"/>\n</clipPath>\n</defs>\n</svg>",
-    "third-party-applications/vllm": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_6499_4159)\">\n<rect width=\"16\" height=\"16\" transform=\"matrix(-1 0 0 1 16 0)\" fill=\"white\"/>\n<rect width=\"16\" height=\"16\" rx=\"1.77778\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.4444 1.33334L9.55556 3.77779L6.88889 14.4445V4.22223H2L6.88889 14.4445H10.8889L14.4444 1.33334Z\" fill=\"#D8D8D8\"/>\n<path d=\"M1.77783 4H6.66672V14.2222L1.77783 4Z\" fill=\"#EBB431\"/>\n<path d=\"M9.33341 3.55556L14.2223 1.11111L10.6667 14.2222H6.66675L9.33341 3.55556Z\" fill=\"#63A1FC\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_6499_4159\">\n<rect width=\"16\" height=\"16\" fill=\"white\" transform=\"matrix(-1 0 0 1 16 0)\"/>\n</clipPath>\n</defs>\n</svg>",
-    "studio-text-to-image": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 3C3 1.34315 4.34315 0 6 0H13C14.6569 0 16 1.34315 16 3V10C16 11.6569 14.6569 13 13 13L10 13V9C10 7.34315 8.65685 6 7 6H3V3ZM12.0879 1.2675C12.3679 2.6375 13.3879 3.6575 14.7579 3.9375C14.8479 3.9575 14.8479 4.0675 14.7579 4.0875C13.3879 4.3675 12.3679 5.3875 12.0879 6.7575C12.0679 6.8475 11.9579 6.8475 11.9379 6.7575C11.6579 5.3875 10.6379 4.3675 9.26794 4.0875C9.17794 4.0675 9.17794 3.9575 9.26794 3.9375C10.6379 3.6575 11.6679 2.6275 11.9379 1.2675C11.9579 1.1775 12.0679 1.1775 12.0879 1.2675ZM0 9C0 7.89543 0.895431 7 2 7L7 7C8.10457 7 9 7.89543 9 9L9 14C9 15.1046 8.10457 16 7 16L2 16C0.89543 16 0 15.1046 0 14V9ZM5.5 13C5.77614 13 6 13.2239 6 13.5C6 13.7761 5.77614 14 5.5 14H1.5C1.22386 14 1 13.7761 1 13.5C1 13.2239 1.22386 13 1.5 13H5.5ZM8 11.5C8 11.2239 7.77614 11 7.5 11H1.5C1.22386 11 1 11.2239 1 11.5C1 11.7761 1.22386 12 1.5 12H7.5C7.77614 12 8 11.7761 8 11.5ZM7.5 9C7.77614 9 8 9.22386 8 9.5C8 9.77614 7.77614 10 7.5 10H1.5C1.22386 10 1 9.77614 1 9.5C1 9.22386 1.22386 9 1.5 9H7.5Z\" fill=\"#052B42\"/>\n</svg>\n",
-    "serverless-gpus": null,
-    "studio-fine-tuning": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 3C0 1.34315 1.34315 0 3 0H13C14.6569 0 16 1.34315 16 3V13C16 14.6569 14.6569 16 13 16H3C1.34315 16 0 14.6569 0 13V3ZM2.5 6C1.94772 6 1.5 6.44772 1.5 7L1.5 9C1.5 9.55229 1.94772 10 2.5 10H3V13.5C3 13.7761 3.22386 14 3.5 14C3.77614 14 4 13.7761 4 13.5L4 10H4.5C5.05228 10 5.5 9.55228 5.5 9L5.5 7C5.5 6.44771 5.05228 6 4.5 6L2.5 6ZM12.5 14C12.7761 14 13 13.7761 13 13.5V11.0247C13 9.94133 12.6793 8.83919 12.1212 8.02335C12.0834 7.96808 12 7.99565 12 8.06262V13.5C12 13.7761 12.2239 14 12.5 14ZM12.5875 2.0675C12.8675 3.4375 13.8875 4.4575 15.2575 4.7375C15.3475 4.7575 15.3475 4.8675 15.2575 4.8875C13.8875 5.1675 12.8675 6.1875 12.5875 7.5575C12.5675 7.6475 12.4575 7.6475 12.4375 7.5575C12.1575 6.1875 11.1375 5.1675 9.76745 4.8875C9.67745 4.8675 9.67745 4.7575 9.76745 4.7375C11.1375 4.4575 12.1675 3.4275 12.4375 2.0675C12.4575 1.9775 12.5675 1.9775 12.5875 2.0675ZM6 11C6 10.4477 6.44772 10 7 10H9C9.55228 10 10 10.4477 10 11V13C10 13.5523 9.55228 14 9 14L8 14L7 14C6.44772 14 6 13.5523 6 13V11ZM7.5 2.5C7.5 2.22386 7.72386 2 8 2C8.27614 2 8.5 2.22386 8.5 2.5L8.5 9L7.5 9L7.5 2.5ZM3.5 2C3.22386 2 3 2.22386 3 2.5V5H4L4 2.5C4 2.22386 3.77614 2 3.5 2Z\" fill=\"#052B42\"/>\n</svg>\n",
-    "third-party-applications/ray-cluster": "<svg width=\"15\" height=\"15\" viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_6291_3605)\">\n<path d=\"M9.69132 7.85049C9.34336 7.74976 9.12359 7.9329 8.93129 8.31749C8.6108 8.94016 8.02476 9.22403 7.33799 9.19656C6.65122 9.16909 6.09265 8.84859 5.79962 8.21677C5.67143 7.94206 5.52492 7.85049 5.22274 7.84133C4.70995 7.83217 4.3162 7.85049 4.02318 8.42737C3.67522 9.1233 2.77784 9.36138 2.02697 9.1233C1.25779 8.87606 0.745 8.15267 0.781628 7.34686C0.790784 6.57768 1.30357 5.90006 2.04528 5.6803C2.81447 5.44222 3.64775 5.7444 4.08728 6.41285C4.20632 6.58683 4.20632 6.88901 4.41693 6.92564C4.77405 6.98058 5.14948 6.94395 5.51576 6.94395C5.68058 6.94395 5.68974 6.79744 5.73553 6.68756C6.05602 5.97332 6.62375 5.60704 7.38377 5.59788C8.13464 5.58873 8.70237 5.955 9.01371 6.64177C9.13275 6.89817 9.27926 6.97142 9.53565 6.94395C9.62722 6.9348 9.71879 6.95311 9.81036 6.94395C10.0668 6.89817 10.3964 7.09962 10.5521 6.69672C10.7077 6.29381 10.3415 6.19308 10.1766 6.00995C9.70963 5.488 9.17853 5.021 8.70237 4.51737C8.47345 4.26097 8.28115 4.17856 7.92403 4.28844C6.8893 4.62725 5.92782 4.05036 5.6348 2.98816C5.38756 2.06331 6.02855 1.03773 6.98087 0.827125C7.96066 0.598202 8.93129 1.21172 9.16022 2.18235C9.16937 2.20982 9.16937 2.22814 9.17853 2.25561C9.24263 2.56694 9.24263 2.88743 9.10528 3.15298C8.94961 3.44601 9.03202 3.61083 9.24263 3.81228C9.85614 4.40748 10.4605 5.00268 11.0557 5.6162C11.2205 5.78102 11.3304 5.80849 11.5593 5.72608C12.3926 5.41475 13.1984 5.67114 13.7021 6.36707C14.1416 6.99889 14.1233 7.84133 13.6654 8.464C13.171 9.1233 12.3651 9.37054 11.5502 9.0592C11.3396 8.97679 11.2297 9.00426 11.0832 9.15993C10.4697 9.79176 9.83783 10.4144 9.206 11.0279C9.04118 11.1928 8.97708 11.321 9.0778 11.5682C9.3983 12.3649 9.10528 13.2714 8.37272 13.7292C7.64932 14.1871 6.70616 14.0772 6.1018 13.4637C5.51576 12.8776 5.42419 11.9803 5.87288 11.2386C6.32157 10.5243 7.20063 10.2313 7.98813 10.5243C8.26284 10.625 8.41851 10.5701 8.61996 10.3686C9.17853 9.79176 9.75542 9.23318 10.3231 8.6563C10.4697 8.50979 10.6986 8.40906 10.5612 8.08857C10.433 7.78639 10.2133 7.85964 9.9935 7.85049C9.92024 7.85049 9.83783 7.85049 9.69132 7.85049ZM7.38377 3.50095C7.8874 3.51011 8.29031 3.1072 8.29947 2.60357C8.29947 2.59441 8.29947 2.58526 8.29947 2.5761C8.27199 2.06331 7.83246 1.67872 7.32883 1.71535C6.87098 1.74282 6.50471 2.09994 6.47724 2.55778C6.45892 3.06142 6.84351 3.48263 7.34714 3.50095C7.3563 3.50095 7.37462 3.50095 7.38377 3.50095ZM7.40209 6.48611C6.90761 6.47695 6.49555 6.8707 6.47724 7.37433C6.47724 7.39264 6.47724 7.4018 6.47724 7.42011C6.49555 7.91459 6.8893 8.30833 7.38377 8.33581C7.85078 8.34496 8.29031 7.90543 8.30862 7.43843C8.32694 6.9348 7.94235 6.52273 7.43871 6.49526C7.42956 6.48611 7.41124 6.48611 7.40209 6.48611ZM11.3121 7.42011C11.3213 7.91459 11.7242 8.30833 12.2095 8.32665C12.7223 8.30833 13.1252 7.88712 13.1252 7.37433C13.1069 6.87985 12.7039 6.48611 12.2095 6.48611C11.7242 6.47695 11.3121 6.8707 11.3029 7.35601C11.3121 7.38349 11.3121 7.4018 11.3121 7.42011ZM2.56723 6.48611C2.07275 6.49526 1.66985 6.88901 1.65154 7.38348C1.64238 7.85049 2.1277 8.33581 2.58554 8.32665C3.09833 8.30833 3.50124 7.87796 3.48292 7.36517C3.47376 6.8707 3.07086 6.47695 2.57639 6.48611H2.56723ZM7.3563 13.1066C7.89656 13.1249 8.29947 12.7494 8.30862 12.2275C8.35441 11.7239 7.97897 11.2752 7.47534 11.2386C6.97171 11.1928 6.52302 11.5682 6.48639 12.0718C6.48639 12.1176 6.48639 12.1542 6.48639 12.2C6.46808 12.6853 6.85267 13.0974 7.33799 13.1157C7.33799 13.1066 7.34715 13.1066 7.3563 13.1066Z\" fill=\"url(#paint0_linear_6291_3605)\"/>\n</g>\n<defs>\n<linearGradient id=\"paint0_linear_6291_3605\" x1=\"3.70872\" y1=\"11.0865\" x2=\"11.079\" y2=\"3.71624\" gradientUnits=\"userSpaceOnUse\">\n<stop offset=\"0.3\" stop-color=\"#1976D2\"/>\n<stop offset=\"0.9\" stop-color=\"#0091EA\"/>\n</linearGradient>\n<clipPath id=\"clip0_6291_3605\">\n<rect x=\"0.398438\" y=\"0.399414\" width=\"14\" height=\"14\" rx=\"4\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>\n"
+    "test-1": "<svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16 27C22.0751 27 27 22.0751 27 16C27 9.92487 22.0751 5 16 5C9.92487 5 5 9.92487 5 16C5 22.0751 9.92487 27 16 27ZM16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30Z\" fill=\"#262626\"/></svg>",
+    "test-2": "/story-assets/icon_2_light.svg",
+    "test-3": "/story-assets/icon_2_light.svg",
+    "test-4": "/story-assets/icon_2_light.svg",
+    "test-5": "/story-assets/icon_2_light.svg",
+    "test-6": "/story-assets/icon_2_light.svg",
+    "test-7": "/story-assets/icon_2_light.svg",
+    "test-8": "/story-assets/icon_2_light.svg",
+    "test-9": "/story-assets/icon_2_light.svg",
+    "test-10": "/story-assets/icon_2_light.svg",
+    "test-11": "/story-assets/icon_2_light.svg",
+    "test-12": "/story-assets/icon_2_light.svg",
+    "test-13": "/story-assets/icon_2_light.svg",
+    "test-14": "/story-assets/icon_2_light.svg",
+    "test-15": "/story-assets/icon_2_light.svg",
+    "test-16": "/story-assets/icon_2_light.svg",
+    "test-17": "/story-assets/icon_2_light.svg",
+    "test-18": null,
+    "test-19": "/story-assets/icon_2_light.svg",
+    "test-20": "/story-assets/icon_2_light.svg"
   }
 }

@@ -4,7 +4,6 @@ export type DefaultService = {
     id: number;
     name: string;
     slug: string;
-    icon?: string | null;
     docUrl?: string | null;
     pricesUrl?: string | null;
     tag?: string | null;

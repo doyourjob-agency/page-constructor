@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 
-import {Icon, Link} from '@gravity-ui/uikit';
+import {Link} from '@gravity-ui/uikit';
 
-import {CardBase, HTML, Image} from '../../../components';
+import {CardBase, HTML} from '../../../components';
 import ServiceIcon from '../../../components/ServiceIcon/ServiceIcon';
 import {DefaultService, ServicesContext} from '../../../context/servicesContext';
 import {Col} from '../../../grid';
@@ -43,11 +43,7 @@ export const ServiceElement = ({service, showCards, serviceLinkType}: ServiceEle
                                 <div className={b('logo-tag')}>
                                     {data && (
                                         <div className={b('logo')} aria-hidden="true">
-                                            {/^(http(s?):\/\/)/.test(data) ? (
-                                                <Image src={data} alt="" />
-                                            ) : (
-                                                <Icon data={data} />
-                                            )}
+                                            <ServiceIcon name={service.slug} />
                                         </div>
                                     )}
                                     <ServiceTag tag={service.tag} />

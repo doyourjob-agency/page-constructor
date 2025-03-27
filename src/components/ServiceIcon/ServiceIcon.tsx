@@ -14,7 +14,7 @@ const ServiceIcon = ({name, size}: ServiceIconProps) => {
     const {icons} = useContext(ServicesContext);
     const data = name ? icons[name] : '';
     if (!data) return null;
-    if (/^(http(s?):\/\/)/.test(data)) {
+    if (data.startsWith('/') || /^(http(s?):\/\/)/.test(data)) {
         return <Image src={data} alt="" />;
     }
     return <Icon data={data} size={size} />;

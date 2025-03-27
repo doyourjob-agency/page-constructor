@@ -1,46 +1,46 @@
 {
   "items": [
     {
-      "description": "<p>Collect your data, store, label, and visualize it&nbsp;using Nebius AI&nbsp;and Toloka sets of&nbsp;tools and services.</p>",
-      "name": "Data processing",
-      "slug": "data-processing",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/87cd9d41-4403-4970-b2aa-94705fb9a821/icon-data-processing.svg?cache-buster=2024-12-12T16:39:36.552Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-1",
+      "image": "/story-assets/icon_1_light.svg"
     },
     {
-      "description": "<p>Get the best efficiency for your model training.</p>",
-      "name": "Model training",
-      "slug": "model-training",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/6149d972-d2b7-405c-9e8e-55b90baeb385/icon-model-training.svg?cache-buster=2024-12-12T16:39:45.925Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-2",
+      "image": "/story-assets/icon_2_light.svg"
     },
     {
-      "description": "<p>Run inference on&nbsp;Nebius AI&nbsp;cloud infrastructure for real-time or&nbsp;on-demand predictions, decision-making, or&nbsp;any other intended purpose.</p>",
-      "name": "ML Inference",
-      "slug": "inference",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/c766d6d8-8ca0-4cf5-b714-982d42c65c3b/icon-inference.svg?cache-buster=2024-12-12T16:39:54.237Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-3",
+      "image": "/story-assets/icon_3_light.svg"
     },
     {
-      "description": "<p>Harness the power of&nbsp;Nebius AI&nbsp;cloud infrastructure to&nbsp;refine your machine learning models.</p>",
-      "name": "Model fine-tuning",
-      "slug": "fine-tuning",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/b045ca37-cdf2-44a3-9177-0bf2da9236d7/icon-fine-tuning.svg?cache-buster=2024-12-12T16:40:00.473Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-4",
+      "image": "/story-assets/icon_4_light.svg"
     },
     {
-      "description": "<p>Use our professional services to&nbsp;build a&nbsp;custom AI&nbsp;solution that perfectly meets your business needs</p>",
-      "name": "Generative AI services",
-      "slug": "generative-ai-services",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/031eeecf-2239-45c0-a1a3-8a0e743f5a98/icon-fine-tuning.svg?cache-buster=2024-12-12T16:40:07.786Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-5",
+      "image": "/story-assets/icon_1_light.svg"
     },
     {
-      "description": "<p>Manage and control the production of&nbsp;RAG solutions effectively</p>",
-      "name": "Retrieval-augmented generation",
-      "slug": "rag",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/6134d7e8-1daf-491b-8c9c-17abbc260262/rag.svg?cache-buster=2024-12-12T16:40:15.826Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-6",
+      "image": "/story-assets/icon_2_light.svg"
     },
     {
-      "description": "<p>test</p>",
-      "name": "test",
-      "slug": "test",
-      "image": "https://ca-cms-ne-dev.gentlemushroom-de3ba710.northeurope.azurecontainerapps.io/assets/336536f8-0511-404f-a702-0565c38c58b7/16+.svg?cache-buster=2024-11-26T12:10:14.953Z"
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-7",
+      "image": "/story-assets/icon_3_light.svg"
     }
   ]
 }
