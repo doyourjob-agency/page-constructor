@@ -3,6 +3,7 @@ export * from './context/theme';
 export * from './context/analyticsContext';
 
 export * from './context/servicesContext';
+export * from './context/solutionsContext';
 export * from './context/formListContext';
 export * from './context/routerContext';
 export * from './context/eventsContext';
