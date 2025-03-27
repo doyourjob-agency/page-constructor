@@ -263,6 +263,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
+    smallMedia?: boolean;
     mediaOnly?: boolean;
     mediaOnlyColSizes?: GridColumnSizesType;
 }

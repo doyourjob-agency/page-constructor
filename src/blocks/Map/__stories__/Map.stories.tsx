@@ -18,6 +18,7 @@ export default {
     component: MapBlock,
     args: {
         largeMedia: false,
+        smallMedia: false,
         mediaOnly: false,
         size: 'l',
     },
