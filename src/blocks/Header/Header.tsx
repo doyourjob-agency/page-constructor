@@ -1,17 +1,27 @@
 import React, {useContext} from 'react';
 
-import {useUniqId} from '@gravity-ui/uikit';
+import {ArrowLeft} from '@gravity-ui/icons';
+import {Button as ButtonKit, Icon, useUniqId} from '@gravity-ui/uikit';
 
 import {Button, HTML, Media, RouterLink} from '../../components';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {MobileContext} from '../../context/mobileContext';
+import {PageHelperContext} from '../../context/pageHelperContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {
+    ClassNameProps,
+    HeaderBlockBackground,
+    HeaderBlockProps,
+    HeaderBreadCrumbsProps,
+    TextTheme,
+} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
+import HeaderTags from './HeaderTags/HeaderTags';
+import {i18n} from './i18n';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -62,9 +72,47 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
+const BackButton = ({isSolutionPage, theme}: {isSolutionPage?: boolean; theme: TextTheme}) => {
+    if (!isSolutionPage) return null;
+    return (
+        <Row>
+            <Col>
+                <ButtonKit
+                    href="/solutions"
+                    size="l"
+                    view="flat-secondary"
+                    className={b('back-link', {theme})}
+                >
+                    <Icon data={ArrowLeft} size={20} />
+                    {i18n('all_solutions')}
+                </ButtonKit>
+            </Col>
+        </Row>
+    );
+};
+
+const Breadcrumbs = ({
+    breadcrumbs,
+    theme,
+}: {
+    breadcrumbs?: HeaderBreadCrumbsProps;
+    theme: TextTheme;
+}) => {
+    if (!breadcrumbs) return null;
+    return (
+        <Row className={b('breadcrumbs')}>
+            <Col>
+                <HeaderBreadcrumbs {...breadcrumbs} theme={theme} />
+            </Col>
+        </Row>
+    );
+};
+
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
+        topTags,
+        bottomTags,
         overtitle,
         description,
         buttons,
@@ -84,6 +132,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
     } = props;
     const isMobile = useContext(MobileContext);
+    const {isSolutionPage, headerBlockTag} = useContext(PageHelperContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
@@ -115,13 +164,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
             <Grid containerClass={b('container-fluid')}>
-                {breadcrumbs && (
-                    <Row className={b('breadcrumbs')}>
-                        <Col>
-                            <HeaderBreadcrumbs {...breadcrumbs} theme={textTheme} />
-                        </Col>
-                    </Row>
-                )}
+                <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
+                <BackButton
+                    isSolutionPage={isSolutionPage && verticalOffset !== '0' && !breadcrumbs}
+                    theme={textTheme}
+                />
                 <Row>
                     <Col reset className={b('content-wrapper')}>
                         <Row>
@@ -132,13 +179,22 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
+                                <HeaderTags
+                                    theme={textTheme}
+                                    tags={topTags}
+                                    className={b('tags', {top: true})}
+                                />
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
                                             <HTML>{overtitle}</HTML>
                                         </div>
                                     )}
-                                    <h1 className={b('title')} id={titleId}>
+                                    <h1
+                                        className={b('title')}
+                                        id={titleId}
+                                        data-tag={headerBlockTag}
+                                    >
                                         {status}
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
@@ -173,6 +229,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     )}
                                     {children}
                                 </Col>
+                                <HeaderTags
+                                    theme={textTheme}
+                                    tags={bottomTags}
+                                    className={b('tags', {bottom: true})}
+                                />
                             </Col>
                         </Row>
                         {hasRightSideImage && (

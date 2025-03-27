@@ -18,6 +18,7 @@ import {FormListContext, FormListContextProps} from '../src/context/formListCont
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 import {RouterContext, RouterContextProps} from '../src/context/routerContext';
 import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
+import {PageHelperContext, PageHelperContextProps} from '../src/context/pageHelperContext';
 
 import '../styles/styles.scss';
 
@@ -53,7 +54,14 @@ const withContextProvider: Decorator = (Story, context) => {
                                     <EventsContext.Provider
                                         value={context.args.eventsContext as EventsContextProps}
                                     >
-                                        <Story {...context} />
+                                        <PageHelperContext.Provider
+                                            value={
+                                                context.args
+                                                    .pageHelperContext as PageHelperContextProps
+                                            }
+                                        >
+                                            <Story {...context} />
+                                        </PageHelperContext.Provider>
                                     </EventsContext.Provider>
                                 </RouterContext.Provider>
                             </SolutionsContext.Provider>

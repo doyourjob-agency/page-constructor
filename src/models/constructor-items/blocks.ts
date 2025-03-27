@@ -171,8 +171,17 @@ export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, P
 
 export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;
 
+export type HeaderTag = {
+    text: string;
+    url?: string;
+    icon?: 'map' | 'clock';
+    target?: string;
+};
+
 export interface HeaderBlockProps {
     title: string;
+    topTags?: HeaderTag[];
+    bottomTags?: HeaderTag[];
     overtitle?: string;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
