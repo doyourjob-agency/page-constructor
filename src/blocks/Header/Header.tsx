@@ -118,7 +118,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         buttons,
         image,
         video,
-        width = 'm',
+        width = 's',
         imageSize,
         offset = 'default',
         background,

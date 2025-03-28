@@ -11,7 +11,7 @@ import {i18n} from './i18n';
 
 import './Card.scss';
 
-const b = block('basic-card');
+const b = block('card');
 
 const Card = ({header, text, service, ...props}: CardProps) => {
     return (

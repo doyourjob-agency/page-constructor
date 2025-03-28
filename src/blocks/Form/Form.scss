@@ -14,6 +14,11 @@ $largeBorderRadius: 32px;
     border-radius: $largeBorderRadius;
     position: relative;
 
+    & .hs-dependent-field .hs-fieldtype-select > label {
+        width: 200px;
+        padding-right: 5px;
+    }
+
     &__title {
         margin: 0 0 $indentSM $textPadding;
 
@@ -58,6 +63,10 @@ $largeBorderRadius: 32px;
                 }
             }
         }
+    }
+
+    &__form-col {
+        align-self: center;
     }
 
     &:not(#{$root}_with-background) {
