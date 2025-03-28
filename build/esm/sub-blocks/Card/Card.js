@@ -6,7 +6,7 @@ import ServiceLabel from '../../components/ServiceLabel/ServiceLabel';
 import { block } from '../../utils';
 import { i18n } from './i18n';
 import './Card.css';
-const b = block('basic-card');
+const b = block('card');
 const Card = (_a) => {
     var { header, text, service } = _a, props = __rest(_a, ["header", "text", "service"]);
     return (React.createElement(CardBase, Object.assign({}, props),

@@ -39,7 +39,7 @@ const Breadcrumbs = ({ breadcrumbs, theme, }) => {
             React.createElement(HeaderBreadcrumbs, Object.assign({}, breadcrumbs, { theme: theme })))));
 };
 export const HeaderBlock = (props) => {
-    const { title, topTags, bottomTags, overtitle, description, buttons, image, video, width = 'm', imageSize, offset = 'default', background, theme: textTheme = 'light', verticalOffset = 'm', className, breadcrumbs, status, renderTitle, children, mediaView = 'full', } = props;
+    const { title, topTags, bottomTags, overtitle, description, buttons, image, video, width = 's', imageSize, offset = 'default', background, theme: textTheme = 'light', verticalOffset = 'm', className, breadcrumbs, status, renderTitle, children, mediaView = 'full', } = props;
     const isMobile = useContext(MobileContext);
     const { isSolutionPage, headerBlockTag } = useContext(PageHelperContext);
     const theme = useTheme();

@@ -26,7 +26,7 @@ const PriceCard = (props) => {
                         react_1.default.createElement(components_1.ContentList, { list: list.map((item) => ({
                                 icon: Check_1.default,
                                 text: item,
-                            })), size: "l" }))) : null),
+                            })), size: "s" }))) : null),
                 react_1.default.createElement(components_1.Buttons, { className: b('buttons'), buttons: buttons, size: "s" }),
                 react_1.default.createElement(components_1.Links, { className: b('links'), links: links, size: "s" })))));
 };

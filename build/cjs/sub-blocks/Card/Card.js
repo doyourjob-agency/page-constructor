@@ -7,7 +7,7 @@ const components_1 = require("../../components");
 const ServiceLabel_1 = tslib_1.__importDefault(require("../../components/ServiceLabel/ServiceLabel"));
 const utils_1 = require("../../utils");
 const i18n_1 = require("./i18n");
-const b = (0, utils_1.block)('basic-card');
+const b = (0, utils_1.block)('card');
 const Card = (_a) => {
     var { header, text, service } = _a, props = tslib_1.__rest(_a, ["header", "text", "service"]);
     return (react_1.default.createElement(components_1.CardBase, Object.assign({}, props),
