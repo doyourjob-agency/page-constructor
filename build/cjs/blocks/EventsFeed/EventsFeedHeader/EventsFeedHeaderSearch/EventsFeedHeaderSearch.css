@@ -1,0 +1,45 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-events-feed-header-search {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: var(--g-text-body-1-font-size);
+  line-height: var(--g-text-body-1-line-height);
+  transition: width 0.3s;
+}
+.pc-events-feed-header-search__input-icon {
+  display: flex;
+  padding-right: 7px;
+  font: inherit;
+  cursor: pointer;
+  color: var(--g-color-text-hint);
+  border: none;
+  background: none;
+}
+.pc-events-feed-header-search__suggest {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border: 1px solid var(--g-color-base-background);
+  border-radius: var(--bc-text-input-border-radius);
+  background-color: var(--g-color-base-background);
+}
+.pc-events-feed-header-search__suggest:hover, .pc-events-feed-header-search__suggest:focus {
+  border: 1px solid var(--g-color-base-generic-hover);
+}
+.pc-events-feed-header-search__control.pc-events-feed-header-search__control {
+  padding-right: 32px;
+  padding-left: 12px;
+}
+
+.pc-events-feed-header-search_size_s {
+  --bc-text-input-border-radius: var(--g-border-radius-l);
+  width: 352px;
+  max-width: 100%;
+  height: 36px;
+}
+.pc-events-feed-header-search_size_m {
+  --bc-text-input-border-radius: var(--g-border-radius-xl);
+}
