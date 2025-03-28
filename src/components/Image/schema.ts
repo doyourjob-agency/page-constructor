@@ -1,7 +1,7 @@
 import {filteredItem} from '../../schema/validators/utils';
 
 export const imageUrlPattern =
-    '^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$';
+    '^(files\\.[^:\\s]+|((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?)$';
 
 const ImageBase = {
     alt: {

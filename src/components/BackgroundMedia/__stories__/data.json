@@ -9,7 +9,8 @@
         ],
         "loop": {
           "start": 0
-        }
+        },
+        "autoplay": true
       },
       "image": "/story-assets/header-bg-video_light.png"
     }

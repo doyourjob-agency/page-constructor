@@ -13,6 +13,12 @@ import {DocsDecorator} from './decorators/docs';
 
 import {Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
+import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
+import {FormListContext, FormListContextProps} from '../src/context/formListContext';
+import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
+import {RouterContext, RouterContextProps} from '../src/context/routerContext';
+import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
+import {PageHelperContext, PageHelperContextProps} from '../src/context/pageHelperContext';
 
 import '../styles/styles.scss';
 
@@ -33,7 +39,34 @@ const withContextProvider: Decorator = (Story, context) => {
         <GlobalThemeController>
             <ThemeProvider theme={theme}>
                 <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                    <Story {...context} />
+                    <ServicesContext.Provider
+                        value={context.args.servicesContext as ServicesContextProps}
+                    >
+                        <FormListContext.Provider
+                            value={context.args.formListContext as FormListContextProps}
+                        >
+                            <SolutionsContext.Provider
+                                value={context.args.solutionsContext as SolutionsContextProps}
+                            >
+                                <RouterContext.Provider
+                                    value={context.args.routerContext as RouterContextProps}
+                                >
+                                    <EventsContext.Provider
+                                        value={context.args.eventsContext as EventsContextProps}
+                                    >
+                                        <PageHelperContext.Provider
+                                            value={
+                                                context.args
+                                                    .pageHelperContext as PageHelperContextProps
+                                            }
+                                        >
+                                            <Story {...context} />
+                                        </PageHelperContext.Provider>
+                                    </EventsContext.Provider>
+                                </RouterContext.Provider>
+                            </SolutionsContext.Provider>
+                        </FormListContext.Provider>
+                    </ServicesContext.Provider>
                 </MobileProvider>
             </ThemeProvider>
         </GlobalThemeController>

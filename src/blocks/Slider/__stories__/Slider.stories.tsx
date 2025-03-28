@@ -20,6 +20,7 @@ export default {
     argTypes: {
         description: {control: 'text'},
         autoplay: {control: 'number'},
+        infinite: {control: 'boolean'},
         adaptive: {control: 'boolean'},
         randomOrder: {control: 'boolean'},
     },
@@ -66,6 +67,7 @@ export const Default = DefaultTemplate.bind({});
 export const QuoteCards = DefaultTemplate.bind({});
 export const Banners = DefaultTemplate.bind({});
 export const AutoPlay = DefaultTemplate.bind({});
+export const AutoPlayWithInfinite = DefaultTemplate.bind({});
 export const WithoutArrows = DefaultTemplate.bind({});
 export const WithoutDots = DefaultTemplate.bind({});
 export const SlidesToShow = SlidesToShowTemplate.bind({});
@@ -76,6 +78,10 @@ Banners.args = data.banners.content as SliderBlockModel;
 AutoPlay.args = {
     ...data.default.content,
     ...data.autoPlay.content,
+} as SliderBlockModel;
+AutoPlayWithInfinite.args = {
+    ...data.default.content,
+    ...data.autoPlayWithInfinite.content,
 } as SliderBlockModel;
 WithoutArrows.args = {
     ...data.default.content,

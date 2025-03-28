@@ -31,6 +31,7 @@ import {
     MediaView,
     TextSize,
     TextTheme,
+    Themable,
     ThemedImage,
     ThemedMediaProps,
     ThemedMediaVideoProps,
@@ -61,7 +62,12 @@ export enum BlockType {
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
     FormBlock = 'form-block',
-    MarqueeLinks = 'marquee-links-block',
+    MarqueeLinksBlock = 'marquee-links-block',
+    SolutionsBlock = 'solutions-block',
+    ServicesBlock = 'services-block',
+    QuotesBlock = 'quotes-block',
+    LinkTableBlock = 'link-table-block',
+    EventsFeedBlock = 'events-feed-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
 }
@@ -83,6 +89,7 @@ export interface BlockBaseProps {
         top?: IndentValue;
         bottom?: IndentValue;
     };
+    backgroundFull?: string;
     qa?: string;
 }
 
@@ -125,6 +132,7 @@ export interface SliderProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemBaseProps;
     description?: string;
     autoplay?: number;
+    infinite?: boolean;
     //for server transforms
     randomOrder?: boolean;
     adaptive?: boolean;
@@ -163,8 +171,17 @@ export interface HeaderBlockBackground extends Partial<HeaderBackgroundProps>, P
 
 export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>;
 
+export type HeaderTag = {
+    text: string;
+    url?: string;
+    icon?: 'map' | 'clock';
+    target?: string;
+};
+
 export interface HeaderBlockProps {
     title: string;
+    topTags?: HeaderTag[];
+    bottomTags?: HeaderTag[];
     overtitle?: string;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
@@ -246,6 +263,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     direction?: MediaDirection;
     mobileDirection?: MediaDirection;
     largeMedia?: boolean;
+    smallMedia?: boolean;
     mediaOnly?: boolean;
     mediaOnlyColSizes?: GridColumnSizesType;
 }
@@ -309,6 +327,9 @@ export interface TableProps {
 export interface TableBlockProps {
     title: string;
     table: TableProps;
+    description?: string;
+    links?: LinkProps[];
+    buttons?: ButtonProps[];
 }
 
 export interface TabsBlockItem
@@ -332,6 +353,40 @@ export interface TabsBlockProps extends Animatable {
     direction?: MediaDirection;
     items: TabsBlockItem[];
     contentSize?: ContentSize;
+}
+
+export interface ServicesBlockProps {
+    title?: string;
+    serviceLinkType?: 'doc' | 'price';
+}
+
+export interface EventsFeedBlockProps {
+    image?: string;
+    title?: string;
+}
+
+export interface LinkTableBlockProps {
+    title: TitleItemBaseProps;
+    items: LinkProps[][];
+}
+
+export interface QuotesItem {
+    avatar?: string;
+    logo?: string;
+    name?: string;
+    description?: string;
+    quote: string;
+    style?: 'normal' | 'long' | 'short';
+    buttonText?: string;
+    buttonUrl?: string;
+}
+
+export interface QuotesItemProps extends Themable, QuotesItem {}
+
+export interface QuotesBlockProps extends Themable {
+    items: QuotesItem[];
+    background?: string;
+    backgroundColor?: string;
 }
 
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
@@ -410,11 +465,13 @@ export interface ContentListProps {
 
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
+    subtitle?: string;
     titleId?: string;
     text?: string;
     textId?: string;
     additionalInfo?: string;
     links?: LinkProps[];
+    subtitleLinks?: LinkProps[];
     buttons?: ButtonProps[];
     size?: ContentSize;
     colSizes?: GridColumnSizesType;
@@ -459,11 +516,15 @@ export interface FormBlockHubspotData {
 export type FormBlockData = FormBlockYandexData | FormBlockHubspotData;
 
 export interface FormBlockProps {
-    formData: FormBlockData;
+    formData?: FormBlockData;
     title?: string;
     textContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
+    textFormContent?: Omit<ContentBlockProps, 'centered' | 'colSizes' | 'size'>;
     direction?: FormBlockDirection;
     background?: ThemeSupporting<BackgroundImageProps>;
+    backgroundColor?: string;
+    image?: string;
+    slug?: string;
 }
 
 //block models
@@ -544,8 +605,28 @@ export type FormBlockModel = {
 } & FormBlockProps;
 
 export type MarqueeLinksBlockModel = {
-    type: BlockType.MarqueeLinks;
+    type: BlockType.MarqueeLinksBlock;
 } & MarqueeLinksBlockProps;
+
+export type SolutionsBlockModel = {
+    type: BlockType.SolutionsBlock;
+};
+
+export type QuotesBlockModel = {
+    type: BlockType.QuotesBlock;
+} & QuotesBlockProps;
+
+export type LinkTableBlockModel = {
+    type: BlockType.LinkTableBlock;
+} & LinkTableBlockProps;
+
+export type ServicesBlockModel = {
+    type: BlockType.ServicesBlock;
+} & ServicesBlockProps;
+
+export type EventsFeedBlockModel = {
+    type: BlockType.EventsFeedBlock;
+} & EventsFeedBlockProps;
 
 // unstable block models
 export type SliderNewBlockModel = {
@@ -572,7 +653,12 @@ type BlockModels =
     | ShareBLockModel
     | FilterBlockModel
     | FormBlockModel
-    | MarqueeLinksBlockModel;
+    | MarqueeLinksBlockModel
+    | SolutionsBlockModel
+    | ServicesBlockModel
+    | QuotesBlockModel
+    | LinkTableBlockModel
+    | EventsFeedBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

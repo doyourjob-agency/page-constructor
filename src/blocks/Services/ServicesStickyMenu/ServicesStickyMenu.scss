@@ -1,0 +1,54 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}services-sticky-menu';
+
+#{$block} {
+    position: sticky;
+    top: calc(var(--header-menu-height, 0px) + $indentM);
+
+    padding-left: $indentM;
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        & {
+            display: none;
+        }
+    }
+
+    &__title {
+        @include heading5;
+        margin-bottom: $indentS;
+        padding-left: $indentXXXS;
+    }
+
+    &__link {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+        padding: $indentXXXS;
+
+        color: var(--g-color-text-primary);
+        &:hover,
+        &:active {
+            color: var(--g-color-text-primary);
+            background-color: var(--g-color-base-simple-hover);
+        }
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__elem {
+        @include text-size(body-2);
+        margin-bottom: 4px;
+
+        list-style: none;
+
+        border-radius: 6px;
+
+        &_active {
+            background-color: var(--g-color-base-selection);
+        }
+    }
+}

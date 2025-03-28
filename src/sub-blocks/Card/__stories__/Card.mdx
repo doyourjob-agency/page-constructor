@@ -1,0 +1,23 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as CardStories from './Card.stories.tsx';
+
+<Meta of={CardStories} />
+<StoryTemplate>
+## Parameters
+
+`type: card`
+
+`header: Object`
+
+-   `image: string` — Card image
+-   `title: string` — Card title
+
+`service: ServiceLabel` — Card service (see [ServiceLabel](/docs/components-servicelabel--docs))
+
+`text?: string` — Card text.
+
+`border?: 'shadow' | 'line' | 'none` — Select border of the card.
+
+</StoryTemplate>

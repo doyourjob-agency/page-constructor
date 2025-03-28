@@ -57,6 +57,9 @@ export const SliderProps = {
     arrows: {
         type: 'boolean',
     },
+    infinite: {
+        type: 'boolean',
+    },
     randomOrder: {
         type: 'boolean',
     },

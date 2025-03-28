@@ -1,0 +1,137 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}quotes-item';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    padding: 64px;
+
+    color: var(--pc-text-header-color);
+    border-radius: 24px;
+    background-color: #fff;
+
+    &_theme_dark {
+        color: var(--g-color-text-light-primary);
+        background-color: #385465;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        padding: 20px;
+    }
+
+    &__header {
+        display: flex;
+    }
+
+    &__author {
+        display: flex;
+        flex: 1;
+
+        &-avatar {
+            width: 80px;
+            height: 80px;
+            margin-right: 24px;
+
+            border-radius: 18px;
+            object-fit: cover;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                margin-right: 12px;
+            }
+        }
+
+        &-wrap {
+            max-width: 340px;
+        }
+
+        &-title {
+            margin-bottom: 8px;
+
+            font-family: var(--g-text-header-font-family);
+            font-size: 20px;
+            font-weight: var(--g-text-header-font-weight);
+            line-height: 24px;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                margin-bottom: 2px;
+
+                font-size: 15px;
+            }
+        }
+
+        &-text {
+            font-family: var(--g-text-body-font-family);
+            font-size: 17px;
+            font-weight: var(--g-text-body-font-weight);
+            line-height: 24px;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 15px;
+                line-height: 18px;
+            }
+        }
+    }
+
+    &__logo {
+        @include add-specificity(&) {
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                display: none;
+            }
+        }
+    }
+
+    &__body {
+        max-width: 960px;
+        margin: 48px 0 0;
+
+        font-family: var(--g-text-body-font-family);
+        font-weight: var(--g-text-display-font-weight);
+
+        &_style_normal {
+            font-size: 32px;
+            line-height: 40px;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 24px;
+                line-height: 28px;
+            }
+        }
+
+        &_style_short {
+            font-size: 48px;
+            line-height: 53px;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 32px;
+                line-height: 30px;
+            }
+        }
+
+        &_style_long {
+            font-size: 24px;
+            line-height: 28px;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-top: 40px;
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+        padding-top: 48px;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-top: 40px;
+        }
+    }
+}

@@ -12,6 +12,69 @@ $block: '.#{$ns}block-base';
 
     @include indents(&);
 
+    position: relative;
+    z-index: 1;
+
+    &__background-full {
+        position: absolute;
+        background-size: cover;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        bottom: 0;
+        transform: translateX(-50%);
+        z-index: -1;
+        &_top {
+            &_0 {
+                top: 0;
+            }
+
+            &_xs {
+                top: -$indentXS;
+            }
+
+            &_s {
+                top: -$indentSM;
+            }
+
+            &_m {
+                top: -$indentM;
+            }
+
+            &_l {
+                top: -$indentL;
+            }
+
+            &_xl {
+                top: -$indentXL;
+            }
+        }
+    }
+
+    @include add-specificity(&) {
+        & #{$block}__background-full {
+            top: -$indentL;
+        }
+
+        &:first-child {
+            & #{$block}__background-full {
+                top: calc(var(--pc-first-block-indent, #{$indentXXL}) * -1);
+            }
+        }
+
+        @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
+            & #{$block}__background-full {
+                top: -$indentM;
+            }
+
+            &:first-child {
+                & #{$block}__background-full {
+                    top: calc(var(--pc-first-block-mobile-indent, #{$indentXL}) * -1);
+                }
+            }
+        }
+    }
+
     @include add-specificity(&) {
         @media only screen and (max-width: map-get($gridBreakpoints, 'sm')) {
             margin-top: $indentM;

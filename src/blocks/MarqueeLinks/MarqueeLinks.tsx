@@ -19,15 +19,14 @@ export const MarqueeLinksBlock = ({
     items,
 }: MarqueeLinksBlockProps) => {
     const renderItem = useCallback((item: MarqueeLinksItem) => {
-        const imageComponent = <Image src={item.src} alt="" />;
         if (item.url) {
             return (
                 <Link key={item.src} href={item.url} extraProps={{tabIndex: -1}}>
-                    {imageComponent}
+                    <Image src={item.src} alt="" />
                 </Link>
             );
         }
-        return imageComponent;
+        return <Image src={item.src} key={item.src} alt="" />;
     }, []);
 
     if (!items.length) return null;

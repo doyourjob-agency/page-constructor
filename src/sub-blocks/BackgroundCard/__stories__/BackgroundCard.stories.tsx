@@ -30,6 +30,10 @@ export default {
         backgroundColor: {
             control: {type: 'color'},
         },
+        backgroundPosition: {
+            control: {type: 'radio'},
+            options: ['left', 'right', 'center', 'top', 'bottom'],
+        },
         paddingBottom: {
             control: {type: 'radio', labels: {undefined: 'default'}},
             options: [undefined, 's', 'm', 'l', 'xl'],
@@ -156,6 +160,7 @@ const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
+export const WithBackgroundPosition = DefaultTemplate.bind({});
 export const Paddings = PaddingsTemplate.bind({});
 export const CardThemes = CardThemesTemplate.bind([]);
 export const BorderLine = DefaultTemplate.bind({});
@@ -175,6 +180,12 @@ Default.args = {
 WithBackgroundImage.args = {
     ...DefaultArgs,
     ...data.withBackgroundImage.content,
+} as BackgroundCardProps;
+
+WithBackgroundPosition.args = {
+    ...DefaultArgs,
+    ...data.withBackgroundImage.content,
+    ...data.withBackgroundPosition.content,
 } as BackgroundCardProps;
 
 Paddings.args = {

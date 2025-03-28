@@ -3,6 +3,31 @@
     "content": {
       "type": "table-block",
       "title": "Lorem ipsum dolor sit amet",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": [
+        {
+          "text": "Go",
+          "url": "#",
+          "arrow": true,
+          "theme": "normal"
+        }
+      ],
+      "buttons": [
+        {
+          "url": "https://example.com",
+          "text": "Link to some website",
+          "arrow": true,
+          "theme": "normal",
+          "size": "l"
+        },
+        {
+          "url": "https://example.com",
+          "text": "Link to another website",
+          "arrow": true,
+          "theme": "normal",
+          "size": "l"
+        }
+      ],
       "table": {
         "content": [
           ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
@@ -10,7 +35,12 @@
           ["Lorem 2", "0", "0", "1"],
           ["Lorem 3", "0", "0", "1"],
           ["Lorem 4", "0", "1", "1"],
-          ["Lorem 5", "1", "1", "1"]
+          ["Lorem 5", "1", "1", "1"],
+          ["Lorem 6", "1", "1", "1"],
+          ["Lorem 7", "1", "1", "1"],
+          ["Lorem 8", "1", "1", "1"],
+          ["Lorem 9", "1", "1", "1"],
+          ["Lorem 10", "1", "1", "1"]
         ],
         "legend": ["ipsum 1", "ipsum 2"],
         "justify": ["start", "center", "center", "center"]
@@ -21,6 +51,7 @@
     "content": {
       "type": "table-block",
       "title": "Lorem ipsum dolor sit amet",
+      "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "table": {
         "content": [
           ["Lorem", "ipsum dolor sit", "amet", "minim"],

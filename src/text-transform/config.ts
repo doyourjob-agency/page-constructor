@@ -161,6 +161,12 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [SubBlockType.Card]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
     [SubBlockType.BackgroundCard]: [
         {
             fields: ['text', 'additionalInfo'],
@@ -301,6 +307,10 @@ export const config: BlocksConfig = {
     ],
     [BlockType.TableBlock]: [
         {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
             fields: ['table'],
             transformer: yfmTransformer,
             parser: parseTableBlock,
@@ -392,12 +402,12 @@ export const config: BlocksConfig = {
     ],
     [BlockType.FormBlock]: [
         {
-            fields: ['textContent'],
+            fields: ['textContent', 'textFormContent'],
             transformer: yfmTransformer,
             parser: parseContentLayout,
         },
         {
-            fields: ['textContent'],
+            fields: ['textContent', 'textFormContent'],
             transformer: typografTransformer,
             parser: parseContentLayoutTitle,
         },

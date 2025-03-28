@@ -115,5 +115,22 @@
     "s": {
       "title": "Size S"
     }
+  },
+  "withSubtitle": {
+    "content": {
+      "subtitle": "Lorem ipsum"
+    }
+  },
+  "withSubtitleLinks": {
+    "content": {
+      "subtitleLinks": [
+        {
+          "url": "#",
+          "text": "Link",
+          "theme": "normal",
+          "arrow": true
+        }
+      ]
+    }
   }
 }

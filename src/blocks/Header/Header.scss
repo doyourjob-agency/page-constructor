@@ -79,6 +79,19 @@ $backgroundWidth: 1440px;
         a {
             @include link();
         }
+
+        &::before {
+            position: absolute;
+            top: -24px;
+            left: 0;
+
+            font-size: var(--g-text-body-1-font-size);
+            line-height: var(--g-text-body-1-line-height);
+            content: attr(data-tag);
+            text-transform: uppercase;
+
+            color: var(--g-color-text-info);
+        }
     }
 
     &__description {
@@ -213,6 +226,30 @@ $backgroundWidth: 1440px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+
+    &__tags {
+        z-index: 10;
+
+        &_top {
+            margin-bottom: 32px;
+        }
+
+        &_bottom {
+            margin-top: 22px;
+        }
+    }
+
+    &__back-link {
+        @include add-specificity(&) {
+            position: absolute;
+            z-index: 50;
+            top: 24px;
+        }
+
+        &_theme_dark {
+            color: var(--g-color-text-light-primary);
         }
     }
 

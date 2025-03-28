@@ -1,0 +1,20 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}services-tag';
+
+#{$block} {
+    @include label();
+
+    &_small {
+        @include label($size: s);
+    }
+
+    &_yellow {
+        background-color: var(--pc-color-service-tag-yellow);
+    }
+
+    &_blue {
+        background-color: var(--pc-color-service-tag-blue);
+    }
+}

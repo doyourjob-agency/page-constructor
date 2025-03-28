@@ -1,0 +1,18 @@
+{
+  "default": {
+    "content": {
+      "type": "services-block",
+      "title": "Services"
+    }
+  },
+  "typeDoc": {
+    "content": {
+      "serviceLinkType": "doc"
+    }
+  },
+  "typePrice": {
+    "content": {
+      "serviceLinkType": "price"
+    }
+  }
+}

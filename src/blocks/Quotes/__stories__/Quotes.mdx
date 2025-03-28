@@ -1,0 +1,31 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as QuotesStories from './Quotes.stories.tsx';
+
+<Meta of={QuotesStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'quotes-block'`
+
+`theme?: 'light' | 'dark` — Theme.
+`background?: string` — Background image.
+`backgroundColor?: string` — Background color.
+
+`items?: QuotesItem[]` — List of items.
+
+---
+
+`QuotesItem:`
+
+-   `quote: string`
+-   `avatar?: string`
+-   `logo?: string`
+-   `name?: string`
+-   `description?: string`
+-   `style?: 'normal' | 'long' | 'short'`
+-   `buttonText?: string`
+-   `buttonUrl?: string`
+
+</StoryTemplate>

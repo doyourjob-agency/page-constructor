@@ -4,7 +4,7 @@
 
 .yfm_constructor {
     $block: &;
-    font-family: var(--g-font-family-sans);
+    font-family: var(--g-font-family-sans, var(--yfm-font-family-sans));
     color: var(--g-color-text-primary);
 
     code,

@@ -10,6 +10,7 @@ import {
     Default,
     Paddings,
     WithBackgroundImage,
+    WithBackgroundPosition,
     WithUrl,
 } from './helpers';
 
@@ -26,6 +27,16 @@ test.describe('BackgroundCard', () => {
         defaultDelay,
     }) => {
         await mount(<WithBackgroundImage />);
+        await defaultDelay();
+        await expectScreenshot({skipTheme: 'dark'});
+    });
+
+    test('render stories <WithBackgroundPosition>', async ({
+        mount,
+        expectScreenshot,
+        defaultDelay,
+    }) => {
+        await mount(<WithBackgroundPosition />);
         await defaultDelay();
         await expectScreenshot({skipTheme: 'dark'});
     });

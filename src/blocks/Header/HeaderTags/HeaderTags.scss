@@ -1,0 +1,28 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-tags';
+
+#{$block} {
+    &_theme_dark {
+        #{$block}__tag {
+            color: var(--g-color-text-light-primary);
+        }
+
+        #{$block}__tag {
+            --_--border-color: var(--g-color-text-light-primary);
+        }
+    }
+
+    &__tag {
+        margin-top: 10px;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &_disable {
+            pointer-events: none;
+        }
+    }
+}

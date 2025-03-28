@@ -41,6 +41,9 @@ export const ContentBase = {
             },
         ],
     },
+    subtitle: {
+        type: 'string',
+    },
     text: {
         type: 'string',
         contentType: 'yfm',
@@ -55,6 +58,7 @@ export const ContentBase = {
         enum: contentSizes,
     },
     links: filteredArray(LinkProps),
+    subtitleLinks: filteredArray(LinkProps),
     buttons: filteredArray(ButtonBlock),
     theme: {
         type: 'string',

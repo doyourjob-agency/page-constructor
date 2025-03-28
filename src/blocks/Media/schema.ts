@@ -39,6 +39,9 @@ export const MediaBlockBaseProps = {
     largeMedia: {
         type: 'boolean',
     },
+    smallMedia: {
+        type: 'boolean',
+    },
     mediaOnly: {
         type: 'boolean',
     },

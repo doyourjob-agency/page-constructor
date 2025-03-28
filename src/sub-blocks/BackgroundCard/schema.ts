@@ -26,6 +26,10 @@ export const BackgroundCard = {
             backgroundColor: {
                 type: 'string',
             },
+            backgroundPosition: {
+                type: 'string',
+                enum: ['left', 'right', 'center', 'top', 'bottom'],
+            },
             paddingBottom: {
                 type: 'string',
                 enum: ['s', 'm', 'l', 'xl'],

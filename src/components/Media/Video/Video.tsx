@@ -61,7 +61,8 @@ const Video = (props: VideoAllProps) => {
 
                         if (videoRef && videoRef.currentTime === endTime) {
                             videoRef.currentTime = start;
-                            videoRef.play().catch(() => setHasVideoFallback(true));
+                            // videoRef.play().catch(() => setHasVideoFallback(true));
+                            videoRef.play();
                         }
                     },
                     {passive: true},
@@ -69,10 +70,26 @@ const Video = (props: VideoAllProps) => {
             }
 
             if (playVideo) {
-                ref.current.play().catch(() => setHasVideoFallback(true));
+                // ref.current.play().catch(() => setHasVideoFallback(true));
+                ref.current.play();
             }
         }
     }, [playVideo, video, setHasVideoFallback]);
+
+    useEffect(() => {
+        const handle = (event: PageTransitionEvent) => {
+            if (event.persisted) {
+                ref.current?.load?.();
+                if (video.autoplay) {
+                    ref.current?.play?.();
+                }
+            }
+        };
+        window.addEventListener('pageshow', handle);
+        return () => {
+            window.removeEventListener('pageshow', handle);
+        };
+    }, [video.autoplay]);
 
     const reactPlayerBlock = useMemo(() => {
         const {
@@ -123,10 +140,10 @@ const Video = (props: VideoAllProps) => {
     ]);
 
     const defaultVideoBlock = useMemo(() => {
-        return video.src.length && !hasVideoFallback ? (
+        return video.src.length ? (
             <div
                 className={b('wrap', videoClassName)}
-                style={{height}}
+                style={{height, display: hasVideoFallback ? 'none' : 'block'}}
                 data-qa={qaAttributes.default}
             >
                 <DefaultVideo ref={ref} video={video} qa={qaAttributes.source} />

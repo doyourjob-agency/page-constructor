@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {TableBlockModel} from '../../../models';
 import Table from '../Table';
@@ -19,8 +20,14 @@ const DefaultTemplate: StoryFn<TableBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content as TableBlockModel;
+Default.args = {
+    ...data.default.content,
+    description: yfmTransform(data.default.content.description),
+} as TableBlockModel;
 
 export const Tick = DefaultTemplate.bind({});
 
-Tick.args = data.tick.content as TableBlockModel;
+Tick.args = {
+    ...data.tick.content,
+    description: yfmTransform(data.tick.content.description),
+} as TableBlockModel;

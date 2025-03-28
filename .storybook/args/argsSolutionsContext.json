@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-1",
+      "image": "/story-assets/icon_1_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-2",
+      "image": "/story-assets/icon_2_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-3",
+      "image": "/story-assets/icon_3_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-4",
+      "image": "/story-assets/icon_4_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-5",
+      "image": "/story-assets/icon_1_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-6",
+      "image": "/story-assets/icon_2_light.svg"
+    },
+    {
+      "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+      "name": "Lorem Ipsum is",
+      "slug": "test-7",
+      "image": "/story-assets/icon_3_light.svg"
+    }
+  ]
+}

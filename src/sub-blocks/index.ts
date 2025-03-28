@@ -10,3 +10,5 @@ export {default as Content} from './Content/Content';
 export {default as HubspotForm} from './HubspotForm';
 export {default as PriceCard} from './PriceCard/PriceCard';
 export {default as ImageCard} from './ImageCard/ImageCard';
+export {default as ContentLayoutCard} from './ContentLayoutCard/ContentLayoutCard';
+export {default as Card} from './Card/Card';

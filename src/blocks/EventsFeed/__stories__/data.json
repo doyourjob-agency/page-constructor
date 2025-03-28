@@ -1,0 +1,9 @@
+{
+  "default": {
+    "content": {
+      "type": "events-feed-block",
+      "title": "Events",
+      "image": "/story-assets/img-bg_nopadding_4-12_light.png"
+    }
+  }
+}

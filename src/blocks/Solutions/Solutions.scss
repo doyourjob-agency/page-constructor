@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}solutions-block';
+
+#{$block} {
+    margin-top: calc(var(--pc-first-block-indent) * -1);
+    margin-bottom: var(--pc-first-block-indent);
+
+    &__card {
+        margin-top: $indentXS;
+    }
+
+    &__icon {
+        width: $indentM;
+        height: $indentM;
+        margin-bottom: $indentXXS;
+
+        background-size: cover;
+    }
+
+    &__title {
+        @include heading4;
+
+        margin-bottom: $indentXXXS;
+    }
+}

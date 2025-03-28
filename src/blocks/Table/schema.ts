@@ -1,4 +1,11 @@
-import {BaseProps, BlockBaseProps, JustifyProps} from '../../schema/validators/common';
+import {
+    BaseProps,
+    BlockBaseProps,
+    ButtonBlock,
+    JustifyProps,
+    LinkProps,
+} from '../../schema/validators/common';
+import {filteredArray} from '../../schema/validators/utils';
 
 export const TableBlock = {
     'table-block': {
@@ -10,6 +17,11 @@ export const TableBlock = {
                 type: 'string',
                 contentType: 'text',
             },
+            description: {
+                type: 'string',
+            },
+            links: filteredArray(LinkProps),
+            buttons: filteredArray(ButtonBlock),
             table: {
                 additionalProperties: false,
                 required: ['content'],

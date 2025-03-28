@@ -2,9 +2,30 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}table-block';
+$table: '.#{$ns}table';
+$blockScrollbar: '.#{$ns}table-scrollbar';
 
 #{$block} {
     $class: &;
+
+    &__lhs {
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            position: sticky;
+            top: calc(var(--header-height) + 0px);
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-bottom: $indentM;
+        }
+    }
+
+    &__description {
+        margin: $indentXXS $indentM 0 0;
+    }
+
+    &__bottomObject {
+        margin-top: $indentSM;
+    }
 
     &__title {
         @include heading2();
@@ -18,10 +39,71 @@ $block: '.#{$ns}table-block';
         margin-top: 0;
     }
 
+    & #{$table} {
+        position: relative;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            margin-right: -$indentSM;
+            margin-left: -$indentSM;
+            padding-bottom: $indentXXS;
+
+            #{$table}__table {
+                scrollbar-width: none;
+                #{$table}::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            & #{$table}__cell:first-child {
+                min-width: 60%;
+            }
+
+            & #{$table}__row {
+                padding: 0 $indentSM;
+                &::after {
+                    padding-right: $indentSM;
+
+                    content: '';
+                }
+            }
+            & #{$table}__legend {
+                padding: 0 $indentSM;
+            }
+        }
+    }
+
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
         &__title {
             margin-right: 0;
             padding-bottom: $indentM;
+        }
+    }
+}
+
+#{$blockScrollbar} {
+    position: absolute;
+    right: $indentSM;
+    bottom: 0;
+    left: $indentSM;
+
+    display: none;
+    overflow: hidden;
+
+    height: 5px;
+
+    border-radius: 2px;
+    background-color: var(--g-color-private-black-150);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        display: block;
+
+        & > div {
+            height: 100%;
+
+            border-radius: 2px;
+            background-color: var(--g-color-private-black-400);
+
+            transition: transform ease 50ms;
         }
     }
 }

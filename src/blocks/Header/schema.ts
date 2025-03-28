@@ -103,6 +103,34 @@ export const HeaderProperties = {
     status: {
         type: 'string',
     },
+    topTags: {
+        type: 'array',
+        items: {
+            type: 'object',
+            additionalProperties: false,
+            required: ['text'],
+            properties: {
+                text: {type: 'string'},
+                url: {type: 'string'},
+                icon: {type: 'string', enum: ['map', 'clock']},
+                target: {type: 'string'},
+            },
+        },
+    },
+    bottomTags: {
+        type: 'array',
+        items: {
+            type: 'object',
+            additionalProperties: false,
+            required: ['text'],
+            properties: {
+                text: {type: 'string'},
+                url: {type: 'string'},
+                icon: {type: 'string', enum: ['map', 'clock']},
+                target: {type: 'string'},
+            },
+        },
+    },
 };
 
 export const HeaderBlock = {
