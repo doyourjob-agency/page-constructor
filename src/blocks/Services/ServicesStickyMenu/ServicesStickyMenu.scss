@@ -41,10 +41,9 @@ $block: '.#{$ns}services-sticky-menu';
 
     &__elem {
         @include text-size(body-2);
-        margin-bottom: 4px;
-
         @include reset-list-style();
 
+        margin-bottom: 4px;
         border-radius: 6px;
 
         &_active {

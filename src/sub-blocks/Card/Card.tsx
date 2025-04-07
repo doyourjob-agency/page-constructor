@@ -22,7 +22,10 @@ const Card = ({header, text, service, ...props}: CardProps) => {
                 </h3>
             </CardBase.Header>
             <CardBase.Content>
-                <YFMWrapper content={text || ''} modifiers={{constructor: true}} />
+                <YFMWrapper
+                    content={text || ''}
+                    modifiers={{constructor: true, constructor_list_style: true}}
+                />
                 {service && (
                     <div className={b('service')}>
                         <span className={b('phrase')}>{i18n('phrase')}</span>

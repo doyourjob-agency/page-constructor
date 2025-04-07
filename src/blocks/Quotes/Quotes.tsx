@@ -48,7 +48,7 @@ export const QuotesBlock = ({
 
     return (
         <div ref={divRef} className={b({theme})}>
-            <SliderBlock slidesToShow={1} lazyLoad="ondemand" adaptive={false}>
+            <SliderBlock slidesToShow={1} lazyLoad="progressive" adaptive={false}>
                 {items.map((item, index) => (
                     <QuotesItem key={index} theme={theme} {...item} />
                 ))}
