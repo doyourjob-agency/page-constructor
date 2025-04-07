@@ -85,8 +85,8 @@ $backgroundWidth: 1440px;
             top: -24px;
             left: 0;
 
-            font-size: var(--g-text-body-1-font-size);
-            line-height: var(--g-text-body-1-line-height);
+            @include text-size(body-1);
+
             content: attr(data-tag);
             text-transform: uppercase;
 
@@ -147,12 +147,6 @@ $backgroundWidth: 1440px;
         height: 100%;
         object-fit: cover;
         border-radius: $borderRadius;
-    }
-
-    &__breadcrumbs {
-        position: absolute;
-        top: $indentXS;
-        z-index: 11;
     }
 
     &__background-media {
@@ -238,18 +232,6 @@ $backgroundWidth: 1440px;
 
         &_bottom {
             margin-top: 22px;
-        }
-    }
-
-    &__back-link {
-        @include add-specificity(&) {
-            position: absolute;
-            z-index: 50;
-            top: 24px;
-        }
-
-        &_theme_dark {
-            color: var(--g-color-text-light-primary);
         }
     }
 

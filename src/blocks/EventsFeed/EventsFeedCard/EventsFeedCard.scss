@@ -4,8 +4,6 @@
 $block: '.#{$ns}events-feed-card';
 
 #{$block} {
-    $linesToShow: 5;
-
     display: flex;
     flex-direction: column;
 

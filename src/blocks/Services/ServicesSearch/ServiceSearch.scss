@@ -15,8 +15,7 @@ $block: '.#{$ns}services-search';
     height: 36px;
     margin: 16px 0 32px;
 
-    font-size: var(--g-text-body-1-font-size);
-    line-height: var(--g-text-body-1-line-height);
+    @include text-size(body-1);
 
     transition: width 0.3s;
 

@@ -13,15 +13,13 @@ $block: '.#{$ns}layout-item';
     }
 
     &__wrap {
-        display: flex;
-        flex-direction: column;
         margin-bottom: $indentXS;
     }
 
     &__title,
     &__afterTitle {
+        display: block;
         color: var(--pc-text-header-color);
-        font-family: var(--g-font-family-sans);
         font-weight: 700;
 
         &_size {

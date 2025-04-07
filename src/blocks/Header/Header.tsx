@@ -1,27 +1,20 @@
 import React, {useContext} from 'react';
 
-import {ArrowLeft} from '@gravity-ui/icons';
-import {Button as ButtonKit, Icon, useUniqId} from '@gravity-ui/uikit';
+import {useUniqId} from '@gravity-ui/uikit';
 
 import {Button, HTML, Media, RouterLink} from '../../components';
-import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {MobileContext} from '../../context/mobileContext';
 import {PageHelperContext} from '../../context/pageHelperContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {
-    ClassNameProps,
-    HeaderBlockBackground,
-    HeaderBlockProps,
-    HeaderBreadCrumbsProps,
-    TextTheme,
-} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
+import BackButton from './BackButton/BackButton';
+import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import HeaderTags from './HeaderTags/HeaderTags';
-import {i18n} from './i18n';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -72,42 +65,6 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
-const BackButton = ({isSolutionPage, theme}: {isSolutionPage?: boolean; theme: TextTheme}) => {
-    if (!isSolutionPage) return null;
-    return (
-        <Row>
-            <Col>
-                <ButtonKit
-                    href="/solutions"
-                    size="l"
-                    view="flat-secondary"
-                    className={b('back-link', {theme})}
-                >
-                    <Icon data={ArrowLeft} size={20} />
-                    {i18n('all_solutions')}
-                </ButtonKit>
-            </Col>
-        </Row>
-    );
-};
-
-const Breadcrumbs = ({
-    breadcrumbs,
-    theme,
-}: {
-    breadcrumbs?: HeaderBreadCrumbsProps;
-    theme: TextTheme;
-}) => {
-    if (!breadcrumbs) return null;
-    return (
-        <Row className={b('breadcrumbs')}>
-            <Col>
-                <HeaderBreadcrumbs {...breadcrumbs} theme={theme} />
-            </Col>
-        </Row>
-    );
-};
-
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
@@ -132,7 +89,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
     } = props;
     const isMobile = useContext(MobileContext);
-    const {isSolutionPage, headerBlockTag} = useContext(PageHelperContext);
+    const {backButton, headerBlockTag} = useContext(PageHelperContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
@@ -166,7 +123,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
                 <BackButton
-                    isSolutionPage={isSolutionPage && verticalOffset !== '0' && !breadcrumbs}
+                    backButton={verticalOffset !== '0' && !breadcrumbs ? backButton : undefined}
                     theme={textTheme}
                 />
                 <Row>

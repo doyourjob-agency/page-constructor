@@ -15,9 +15,9 @@ const ServiceIcon = ({name, size}: ServiceIconProps) => {
     const data = name ? icons[name] : '';
     if (!data) return null;
     if (data.startsWith('/') || /^(http(s?):\/\/)/.test(data)) {
-        return <Image src={data} alt="" />;
+        return <Image src={data} alt="" aria-hidden="true" />;
     }
-    return <Icon data={data} size={size} />;
+    return <Icon data={data} size={size} aria-hidden="true" />;
 };
 
 export default ServiceIcon;

@@ -3,7 +3,7 @@ import {BaseProps, LinkProps, TitleProps} from './../../schema/validators/common
 export const LinkTableBlock = {
     'link-table-block': {
         additionalProperties: false,
-        required: [],
+        required: ['items'],
         properties: {
             ...BaseProps,
             title: TitleProps,

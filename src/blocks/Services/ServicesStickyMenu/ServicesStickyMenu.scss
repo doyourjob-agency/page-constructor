@@ -43,7 +43,7 @@ $block: '.#{$ns}services-sticky-menu';
         @include text-size(body-2);
         margin-bottom: 4px;
 
-        list-style: none;
+        @include reset-list-style();
 
         border-radius: 6px;
 

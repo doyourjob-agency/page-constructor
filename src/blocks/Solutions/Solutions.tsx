@@ -25,7 +25,12 @@ export const SolutionsBlock = () => {
                         {/* @ts-ignore */}
                         <CardBase url={`/solutions/${card.slug}`}>
                             <CardBase.Content>
-                                <Image className={b('icon')} src={card.image} alt="solution-icon" />
+                                <Image
+                                    className={b('icon')}
+                                    src={card.image}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
                                 <h5 className={b('title')}>
                                     <span>{card.name}</span>
                                 </h5>

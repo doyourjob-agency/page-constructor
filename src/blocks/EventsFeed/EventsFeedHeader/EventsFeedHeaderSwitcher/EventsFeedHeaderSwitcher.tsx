@@ -2,9 +2,9 @@ import React, {LegacyRef, useMemo} from 'react';
 
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
+import {CloseIcon} from '../../../../icons/CloseIcon';
+import {DropdownArrowIcon} from '../../../../icons/DropdownArrowIcon';
 import {block} from '../../../../utils';
-import {CloseIcon} from '../CloseIcon';
-import {DropdownArrowIcon} from '../DropdownArrowIcon';
 import {SelectItem} from '../EventsFeedHeaderControls/EventsFeedHeaderControls';
 
 import './EventsFeedHeaderSwitcher.scss';

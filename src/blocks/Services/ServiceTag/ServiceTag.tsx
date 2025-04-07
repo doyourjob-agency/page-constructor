@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {block} from '../../../utils';
+import {block, capitalize} from '../../../utils';
 
 import './ServiceTag.scss';
 
@@ -13,14 +13,8 @@ type ServiceTagProps = {
 
 export const ServiceTag = ({tag, small}: ServiceTagProps) => {
     if (!tag) return null;
-    const capitalize = (str: string) => {
-        return str[0].toUpperCase() + str.substring(1);
-    };
-    return (
-        <span className={b({yellow: tag === 'new', blue: tag !== 'new', small})}>
-            {capitalize(tag)}
-        </span>
-    );
+    const isNew = tag === 'new';
+    return <span className={b({yellow: isNew, blue: !isNew, small})}>{capitalize(tag)}</span>;
 };
 
 export default ServiceTag;

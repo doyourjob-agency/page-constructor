@@ -1,0 +1,18 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-block-back-button';
+
+#{$block} {
+    &__back-link {
+        @include add-specificity(&) {
+            position: absolute;
+            z-index: 50;
+            top: 24px;
+        }
+
+        &_theme_dark {
+            color: var(--g-color-text-light-primary);
+        }
+    }
+}

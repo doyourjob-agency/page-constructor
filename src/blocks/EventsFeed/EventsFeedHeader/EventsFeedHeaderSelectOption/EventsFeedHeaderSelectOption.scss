@@ -6,6 +6,5 @@ $block: '.#{$ns}events-feed-header-select-option';
 #{$block} {
     display: flex;
 
-    font-size: var(--g-text-body-2-font-size);
-    line-height: var(--g-text-body-2-line-height);
+    @include text-size(body-2);
 }

@@ -59,7 +59,7 @@ $block: '.#{$ns}services-mobile-menu';
     }
 
     &__elem {
-        list-style: none;
+        @include reset-list-style();
     }
 
     &__link {
@@ -85,7 +85,7 @@ $block: '.#{$ns}services-mobile-menu';
         background-color: var(--g-color-base-background);
         box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
 
-        transition: height, 0.3s;
+        transition: height 0.3s;
 
         &_zero-height {
             height: 0;

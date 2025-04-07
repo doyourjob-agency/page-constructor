@@ -51,7 +51,6 @@ $block: '.#{$ns}quotes-item';
         &-title {
             margin-bottom: 8px;
 
-            font-family: var(--g-text-header-font-family);
             font-size: 20px;
             font-weight: var(--g-text-header-font-weight);
             line-height: 24px;
@@ -64,7 +63,6 @@ $block: '.#{$ns}quotes-item';
         }
 
         &-text {
-            font-family: var(--g-text-body-font-family);
             font-size: 17px;
             font-weight: var(--g-text-body-font-weight);
             line-height: 24px;
@@ -88,7 +86,6 @@ $block: '.#{$ns}quotes-item';
         max-width: 960px;
         margin: 48px 0 0;
 
-        font-family: var(--g-text-body-font-family);
         font-weight: var(--g-text-display-font-weight);
 
         &_style_normal {

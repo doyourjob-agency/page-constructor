@@ -15,8 +15,9 @@ $block: '.#{$ns}events-feed-header-switcher';
     padding: 0;
 
     font-family: inherit;
-    font-size: var(--g-text-body-2-font-size);
-    line-height: 42px;
+
+    @include text-size(body-2);
+
     text-align: initial;
 
     border: 1px solid var(--g-color-base-background);
@@ -58,6 +59,7 @@ $block: '.#{$ns}events-feed-header-switcher';
             display: inline-block;
             overflow: hidden;
             flex-grow: 1;
+            line-height: 42px;
 
             padding: 0 12px;
 
@@ -71,8 +73,7 @@ $block: '.#{$ns}events-feed-header-switcher';
             height: 20px;
             padding: 0 6px;
 
-            font-size: var(--g-text-body-1-font-size);
-            line-height: var(--g-text-body-1-line-height);
+            @include text-size(body-1);
 
             border-radius: 4px;
             background-color: var(--g-color-base-selection);

@@ -7,7 +7,7 @@ import {Anchor} from '../../components';
 import {EventsContext} from '../../context/eventsContext';
 import {RouterContext} from '../../context/routerContext';
 import {EventsFeedBlockProps} from '../../models';
-import {Query, block} from '../../utils';
+import {Query, block, convertParsedUrlQueryToQuery, updateQueryCallback} from '../../utils';
 
 import EventsFeedCard from './EventsFeedCard/EventsFeedCard';
 import EventsFeedHeader from './EventsFeedHeader/EventsFeedHeader';
@@ -35,42 +35,6 @@ const online = [
         value: 'false',
     },
 ];
-
-export function updateQueryCallback(query: Query) {
-    const url = new URL(window?.location.href);
-
-    Object.keys(query).forEach((key) => {
-        const value = query[key];
-        if (value === undefined) return;
-        if (!value) {
-            url.searchParams.delete(key);
-            return;
-        }
-        url.searchParams.set(key, String(value));
-    });
-
-    window.history.replaceState(window.history.state, '', url);
-}
-
-export function convertParsedUrlQueryToQuery(parsedUrlQuery: {
-    [key: string]: string | string[] | undefined;
-}): Query {
-    const query: Query = {};
-
-    Object.keys(parsedUrlQuery).forEach((key) => {
-        const value = parsedUrlQuery[key];
-
-        if (Array.isArray(value)) {
-            query[key] = value.join(',') ?? null;
-        } else if (value === undefined) {
-            query[key] = null;
-        } else {
-            query[key] = value;
-        }
-    });
-
-    return query;
-}
 
 export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => {
     // const hasUpdated = useRef(false);

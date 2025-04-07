@@ -25,21 +25,12 @@ $block: '.#{$ns}events-feed-header-controls';
         padding-top: 112px;
         padding-bottom: 96px;
 
-        font-size: var(--g-text-display-4-font-size);
-        line-height: var(--g-text-display-4-line-height);
+        @include text-size(display-4);
     }
 
-    &__search {
-        width: 100%;
-        max-width: 100%;
-    }
-
+    &__search,
     &__select {
         width: 100%;
-
-        &:hover {
-            width: 100%;
-        }
     }
 
     &__popup {
@@ -92,8 +83,7 @@ $block: '.#{$ns}events-feed-header-controls';
     &__popup-filter {
         padding: 4px 12px;
 
-        font-size: var(--g-text-body-2-font-size);
-        line-height: var(--g-text-body-2-line-height);
+        @include text-size(body-2);
 
         border: none;
         border-bottom: 1px solid var(--g-color-line-generic);
@@ -109,7 +99,7 @@ $block: '.#{$ns}events-feed-header-controls';
         margin-bottom: 12px;
         margin-left: 8px;
 
-        @media (min-width: 577px) {
+        @media (min-width: map-get($gridBreakpoints, 'sm')) {
             max-width: 240px;
         }
     }

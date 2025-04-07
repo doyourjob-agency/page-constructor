@@ -3,10 +3,10 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {Icon, TextInput} from '@gravity-ui/uikit';
 import lodashDebounce from 'lodash/debounce';
 
+import {CloseIcon} from '../../../../icons/CloseIcon';
+import {SearchIcon} from '../../../../icons/SearchIcon';
 import {block} from '../../../../utils';
 import {i18n} from '../../i18n';
-import {CloseIcon} from '../CloseIcon';
-import {SearchIcon} from '../SearchIcon';
 
 import './EventsFeedHeaderSearch.scss';
 

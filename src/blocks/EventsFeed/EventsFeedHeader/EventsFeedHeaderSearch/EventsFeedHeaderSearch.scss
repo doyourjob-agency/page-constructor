@@ -10,8 +10,7 @@ $block: '.#{$ns}events-feed-header-search';
     justify-content: flex-end;
     align-items: center;
 
-    font-size: var(--g-text-body-1-font-size);
-    line-height: var(--g-text-body-1-line-height);
+    @include text-size(body-1);
 
     transition: width 0.3s;
 
