@@ -4,7 +4,7 @@ import { CardBase, HTML } from '../../../components';
 import ServiceIcon from '../../../components/ServiceIcon/ServiceIcon';
 import { ServicesContext } from '../../../context/servicesContext';
 import { Col } from '../../../grid';
-import { block } from '../../../utils';
+import { block, replaceTrademark } from '../../../utils';
 import ServiceTag from '../ServiceTag/ServiceTag';
 import { i18n } from '../i18n';
 import './ServiceElement.css';
@@ -16,8 +16,7 @@ export const ServiceElement = ({ service, showCards, serviceLinkType }) => {
     useEffect(() => setNotPrerender(true), []);
     if (!service)
         return null;
-    const description = service.description || '';
-    // const description = replaceStringTrademark(service.description || '');
+    const description = replaceTrademark(service.description || '');
     return (React.createElement(Col, { key: service === null || service === void 0 ? void 0 : service.id, sizes: { all: 12, sm: 6, lg: 4 }, className: b({ card: showCards }) }, showCards ? (React.createElement(CardBase, { className: b('card') },
         React.createElement(CardBase.Content, null,
             React.createElement("a", { href: service.url || undefined, className: b('card-link'), "aria-label": service.name }),

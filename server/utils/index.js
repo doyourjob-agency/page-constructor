@@ -24,5 +24,6 @@ __exportStar(require("./url"), exports);
 __exportStar(require("./theme"), exports);
 __exportStar(require("./query"), exports);
 __exportStar(require("./capitalize"), exports);
+__exportStar(require("./trademark"), exports);
 var hubspot_1 = require("./hubspot");
 Object.defineProperty(exports, "isHubspotEventData", { enumerable: true, get: function () { return hubspot_1.isHubspotEventData; } });

@@ -14,6 +14,7 @@ const grid_1 = require("../../grid");
 const utils_2 = require("../../utils");
 const BackButton_1 = tslib_1.__importDefault(require("./BackButton/BackButton"));
 const Breadcrumbs_1 = tslib_1.__importDefault(require("./Breadcrumbs/Breadcrumbs"));
+const HeaderTag_1 = tslib_1.__importDefault(require("./HeaderTag/HeaderTag"));
 const HeaderTags_1 = tslib_1.__importDefault(require("./HeaderTags/HeaderTags"));
 const utils_3 = require("./utils");
 const b = (0, utils_2.block)('header-block');
@@ -64,7 +65,8 @@ const HeaderBlock = (props) => {
                             react_1.default.createElement(grid_1.Col, { sizes: titleSizes, className: b('content-inner') },
                                 overtitle && (react_1.default.createElement("div", { className: b('overtitle') },
                                     react_1.default.createElement(components_1.HTML, null, overtitle))),
-                                react_1.default.createElement("h1", { className: b('title'), id: titleId, "data-tag": headerBlockTag },
+                                react_1.default.createElement("h1", { className: b('title'), id: titleId },
+                                    react_1.default.createElement(HeaderTag_1.default, { tag: headerBlockTag }),
                                     status,
                                     renderTitle ? renderTitle(title) : react_1.default.createElement(components_1.HTML, null, title)),
                                 description && (react_1.default.createElement("div", { className: b('description', { theme: textTheme }) },

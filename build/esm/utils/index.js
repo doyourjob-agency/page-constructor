@@ -7,4 +7,5 @@ export * from './url';
 export * from './theme';
 export * from './query';
 export * from './capitalize';
+export * from './trademark';
 export { isHubspotEventData } from './hubspot';

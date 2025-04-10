@@ -19,8 +19,7 @@ const ServiceElement = ({ service, showCards, serviceLinkType }) => {
     (0, react_1.useEffect)(() => setNotPrerender(true), []);
     if (!service)
         return null;
-    const description = service.description || '';
-    // const description = replaceStringTrademark(service.description || '');
+    const description = (0, utils_1.replaceTrademark)(service.description || '');
     return (react_1.default.createElement(grid_1.Col, { key: service === null || service === void 0 ? void 0 : service.id, sizes: { all: 12, sm: 6, lg: 4 }, className: b({ card: showCards }) }, showCards ? (react_1.default.createElement(components_1.CardBase, { className: b('card') },
         react_1.default.createElement(components_1.CardBase.Content, null,
             react_1.default.createElement("a", { href: service.url || undefined, className: b('card-link'), "aria-label": service.name }),

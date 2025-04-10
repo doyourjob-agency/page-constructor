@@ -10,6 +10,7 @@ import { Col, Grid, Row } from '../../grid';
 import { block, getThemedValue } from '../../utils';
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
 import { getImageSize, getTitleSizes, titleWithImageSizes } from './utils';
 import './Header.css';
@@ -61,7 +62,8 @@ export const HeaderBlock = (props) => {
                             React.createElement(Col, { sizes: titleSizes, className: b('content-inner') },
                                 overtitle && (React.createElement("div", { className: b('overtitle') },
                                     React.createElement(HTML, null, overtitle))),
-                                React.createElement("h1", { className: b('title'), id: titleId, "data-tag": headerBlockTag },
+                                React.createElement("h1", { className: b('title'), id: titleId },
+                                    React.createElement(HeaderTag, { tag: headerBlockTag }),
                                     status,
                                     renderTitle ? renderTitle(title) : React.createElement(HTML, null, title)),
                                 description && (React.createElement("div", { className: b('description', { theme: textTheme }) },
