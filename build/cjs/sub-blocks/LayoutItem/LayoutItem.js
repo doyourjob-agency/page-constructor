@@ -11,7 +11,7 @@ const Content_1 = tslib_1.__importDefault(require("../Content/Content"));
 const utils_2 = require("./utils");
 const b = (0, utils_1.block)('layout-item');
 const LayoutItem = (_a) => {
-    var { title, afterTitle, rightSpace } = _a, _b = _a.content, { links } = _b, content = tslib_1.__rest(_b, ["links"]), { metaInfo, media, border, fullscreen, icon, className, analyticsEvents, controlPosition = 'content' } = _a;
+    var { title, afterTitle, rightSpace = false } = _a, _b = _a.content, { links } = _b, content = tslib_1.__rest(_b, ["links"]), { metaInfo, media, border, fullscreen, icon, className, analyticsEvents, controlPosition = 'content' } = _a;
     const normalizedLinks = (0, react_1.useMemo)(() => (0, utils_2.getLayoutItemLinks)(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = (0, theme_1.useTheme)();

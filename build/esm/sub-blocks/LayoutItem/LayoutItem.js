@@ -10,7 +10,7 @@ import { getLayoutItemLinks, hasFullscreen, showFullscreenIcon } from './utils';
 import './LayoutItem.css';
 const b = block('layout-item');
 const LayoutItem = (_a) => {
-    var { title, afterTitle, rightSpace } = _a, _b = _a.content, { links } = _b, content = __rest(_b, ["links"]), { metaInfo, media, border, fullscreen, icon, className, analyticsEvents, controlPosition = 'content' } = _a;
+    var { title, afterTitle, rightSpace = false } = _a, _b = _a.content, { links } = _b, content = __rest(_b, ["links"]), { metaInfo, media, border, fullscreen, icon, className, analyticsEvents, controlPosition = 'content' } = _a;
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
     const theme = useTheme();
