@@ -3,10 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HeaderBlock = void 0;
 const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importStar(require("react"));
-const icons_1 = require("@gravity-ui/icons");
 const uikit_1 = require("@gravity-ui/uikit");
 const components_1 = require("../../components");
-const HeaderBreadcrumbs_1 = tslib_1.__importDefault(require("../../components/HeaderBreadcrumbs/HeaderBreadcrumbs"));
 const utils_1 = require("../../components/Media/Image/utils");
 const YFMWrapper_1 = tslib_1.__importDefault(require("../../components/YFMWrapper/YFMWrapper"));
 const mobileContext_1 = require("../../context/mobileContext");
@@ -14,8 +12,9 @@ const pageHelperContext_1 = require("../../context/pageHelperContext");
 const theme_1 = require("../../context/theme");
 const grid_1 = require("../../grid");
 const utils_2 = require("../../utils");
+const BackButton_1 = tslib_1.__importDefault(require("./BackButton/BackButton"));
+const Breadcrumbs_1 = tslib_1.__importDefault(require("./Breadcrumbs/Breadcrumbs"));
 const HeaderTags_1 = tslib_1.__importDefault(require("./HeaderTags/HeaderTags"));
-const i18n_1 = require("./i18n");
 const utils_3 = require("./utils");
 const b = (0, utils_2.block)('header-block');
 const Background = ({ background, isMobile }) => {
@@ -25,26 +24,10 @@ const Background = ({ background, isMobile }) => {
     return (react_1.default.createElement("div", { className: b('background', { media: true, 'full-width-media': fullWidthMedia }), style: { backgroundColor: color } }, renderMedia && (react_1.default.createElement(components_1.Media, Object.assign({}, background, { className: b('background-media'), imageClassName: b('image'), videoClassName: b('video'), isBackground: true, parallax: false, video: isMobile ? undefined : video, image: imageObject })))));
 };
 const FullWidthBackground = ({ background }) => (react_1.default.createElement("div", { className: b('background', { ['full-width']: true }), style: { backgroundColor: background === null || background === void 0 ? void 0 : background.color } }));
-const BackButton = ({ isSolutionPage, theme }) => {
-    if (!isSolutionPage)
-        return null;
-    return (react_1.default.createElement(grid_1.Row, null,
-        react_1.default.createElement(grid_1.Col, null,
-            react_1.default.createElement(uikit_1.Button, { href: "/solutions", size: "l", view: "flat-secondary", className: b('back-link', { theme }) },
-                react_1.default.createElement(uikit_1.Icon, { data: icons_1.ArrowLeft, size: 20 }),
-                (0, i18n_1.i18n)('all_solutions')))));
-};
-const Breadcrumbs = ({ breadcrumbs, theme, }) => {
-    if (!breadcrumbs)
-        return null;
-    return (react_1.default.createElement(grid_1.Row, { className: b('breadcrumbs') },
-        react_1.default.createElement(grid_1.Col, null,
-            react_1.default.createElement(HeaderBreadcrumbs_1.default, Object.assign({}, breadcrumbs, { theme: theme })))));
-};
 const HeaderBlock = (props) => {
     const { title, topTags, bottomTags, overtitle, description, buttons, image, video, width = 's', imageSize, offset = 'default', background, theme: textTheme = 'light', verticalOffset = 'm', className, breadcrumbs, status, renderTitle, children, mediaView = 'full', } = props;
     const isMobile = (0, react_1.useContext)(mobileContext_1.MobileContext);
-    const { isSolutionPage, headerBlockTag } = (0, react_1.useContext)(pageHelperContext_1.PageHelperContext);
+    const { backButton, headerBlockTag } = (0, react_1.useContext)(pageHelperContext_1.PageHelperContext);
     const theme = (0, theme_1.useTheme)();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || (0, utils_3.getImageSize)(width);
@@ -67,8 +50,8 @@ const HeaderBlock = (props) => {
         backgroundThemed && fullWidth && react_1.default.createElement(FullWidthBackground, { background: backgroundThemed }),
         backgroundThemed && react_1.default.createElement(Background, { background: backgroundThemed, isMobile: isMobile }),
         react_1.default.createElement(grid_1.Grid, { containerClass: b('container-fluid') },
-            react_1.default.createElement(Breadcrumbs, { breadcrumbs: breadcrumbs, theme: textTheme }),
-            react_1.default.createElement(BackButton, { isSolutionPage: isSolutionPage && verticalOffset !== '0' && !breadcrumbs, theme: textTheme }),
+            react_1.default.createElement(Breadcrumbs_1.default, { breadcrumbs: breadcrumbs, theme: textTheme }),
+            react_1.default.createElement(BackButton_1.default, { backButton: verticalOffset !== '0' && !breadcrumbs ? backButton : undefined, theme: textTheme }),
             react_1.default.createElement(grid_1.Row, null,
                 react_1.default.createElement(grid_1.Col, { reset: true, className: b('content-wrapper') },
                     react_1.default.createElement(grid_1.Row, null,

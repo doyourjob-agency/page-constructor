@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsFeedBlock = exports.convertParsedUrlQueryToQuery = exports.updateQueryCallback = void 0;
+exports.EventsFeedBlock = void 0;
 const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importStar(require("react"));
 const groupBy_1 = tslib_1.__importDefault(require("lodash/groupBy"));
@@ -30,45 +30,12 @@ const online = [
         value: 'false',
     },
 ];
-function updateQueryCallback(query) {
-    const url = new URL(window === null || window === void 0 ? void 0 : window.location.href);
-    Object.keys(query).forEach((key) => {
-        const value = query[key];
-        if (value === undefined)
-            return;
-        if (!value) {
-            url.searchParams.delete(key);
-            return;
-        }
-        url.searchParams.set(key, String(value));
-    });
-    window.history.replaceState(window.history.state, '', url);
-}
-exports.updateQueryCallback = updateQueryCallback;
-function convertParsedUrlQueryToQuery(parsedUrlQuery) {
-    const query = {};
-    Object.keys(parsedUrlQuery).forEach((key) => {
-        var _a;
-        const value = parsedUrlQuery[key];
-        if (Array.isArray(value)) {
-            query[key] = (_a = value.join(',')) !== null && _a !== void 0 ? _a : null;
-        }
-        else if (value === undefined) {
-            query[key] = null;
-        }
-        else {
-            query[key] = value;
-        }
-    });
-    return query;
-}
-exports.convertParsedUrlQueryToQuery = convertParsedUrlQueryToQuery;
 const EventsFeedBlock = ({ image, title }) => {
     // const hasUpdated = useRef(false);
     const [isHandleLoad, setIsHandleLoad] = (0, react_1.useState)(false);
     const { query } = (0, react_1.useContext)(routerContext_1.RouterContext);
     const { events } = (0, react_1.useContext)(eventsContext_1.EventsContext);
-    const [tempQuery, setTempQuery] = (0, react_1.useState)(convertParsedUrlQueryToQuery(query));
+    const [tempQuery, setTempQuery] = (0, react_1.useState)((0, utils_1.convertParsedUrlQueryToQuery)(query));
     const types = [...new Set(events.map((item) => item.type))]
         .sort((a, c) => (a > c ? 1 : -1))
         .map((item) => ({
@@ -116,13 +83,13 @@ const EventsFeedBlock = ({ image, title }) => {
     // }, [router]);
     (0, react_1.useEffect)(() => {
         if (!isHandleLoad) {
-            setTempQuery(convertParsedUrlQueryToQuery(query));
+            setTempQuery((0, utils_1.convertParsedUrlQueryToQuery)(query));
         }
     }, [query, isHandleLoad]);
     const handleLoadData = (0, react_1.useCallback)((q) => {
         setIsHandleLoad(true);
         setTempQuery((prev) => (Object.assign(Object.assign({}, prev), q)));
-        updateQueryCallback(q);
+        (0, utils_1.updateQueryCallback)(q);
     }, []);
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(EventsFeedHeader_1.default, { image: image, title: title, online: online, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),

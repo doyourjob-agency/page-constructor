@@ -16,17 +16,10 @@ unpredictable css rules order in build */
 .pc-events-feed-header-controls__title {
   padding-top: 112px;
   padding-bottom: 96px;
-  font-size: var(--g-text-display-4-font-size);
-  line-height: var(--g-text-display-4-line-height);
+  font-size: var(--g-text-display-4-font-size, var(--pc-text-display-4-font-size));
+  line-height: var(--g-text-display-4-line-height, var(--pc-text-display-4-line-height));
 }
-.pc-events-feed-header-controls__search {
-  width: 100%;
-  max-width: 100%;
-}
-.pc-events-feed-header-controls__select {
-  width: 100%;
-}
-.pc-events-feed-header-controls__select:hover {
+.pc-events-feed-header-controls__search, .pc-events-feed-header-controls__select {
   width: 100%;
 }
 .pc-events-feed-header-controls__popup {
@@ -64,8 +57,8 @@ unpredictable css rules order in build */
 }
 .pc-events-feed-header-controls__popup-filter {
   padding: 4px 12px;
-  font-size: var(--g-text-body-2-font-size);
-  line-height: var(--g-text-body-2-line-height);
+  font-size: var(--g-text-body-2-font-size, var(--pc-text-body-2-font-size));
+  line-height: var(--g-text-body-2-line-height, var(--pc-text-body-2-line-height));
   border: none;
   border-bottom: 1px solid var(--g-color-line-generic);
   border-bottom-right-radius: 0;

@@ -9,5 +9,7 @@ tslib_1.__exportStar(require("./url"), exports);
 tslib_1.__exportStar(require("./cn"), exports);
 tslib_1.__exportStar(require("./url"), exports);
 tslib_1.__exportStar(require("./theme"), exports);
+tslib_1.__exportStar(require("./query"), exports);
+tslib_1.__exportStar(require("./capitalize"), exports);
 var hubspot_1 = require("./hubspot");
 Object.defineProperty(exports, "isHubspotEventData", { enumerable: true, get: function () { return hubspot_1.isHubspotEventData; } });

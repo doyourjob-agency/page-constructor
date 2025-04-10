@@ -16,7 +16,7 @@ export const SolutionsBlock = () => {
         React.createElement(Row, { className: b('cards') }, items.map((card) => (React.createElement(Col, { key: card.slug, className: b('card'), sizes: colSizes },
             React.createElement(CardBase, { url: `/solutions/${card.slug}` },
                 React.createElement(CardBase.Content, null,
-                    React.createElement(Image, { className: b('icon'), src: card.image, alt: "solution-icon" }),
+                    React.createElement(Image, { className: b('icon'), src: card.image, alt: "", "aria-hidden": "true" }),
                     React.createElement("h5", { className: b('title') },
                         React.createElement("span", null, card.name)),
                     React.createElement(HTML, null, card.description)))))))));

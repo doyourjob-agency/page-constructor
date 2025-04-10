@@ -8,10 +8,8 @@ const b = (0, utils_1.block)('services-tag');
 const ServiceTag = ({ tag, small }) => {
     if (!tag)
         return null;
-    const capitalize = (str) => {
-        return str[0].toUpperCase() + str.substring(1);
-    };
-    return (react_1.default.createElement("span", { className: b({ yellow: tag === 'new', blue: tag !== 'new', small }) }, capitalize(tag)));
+    const isNew = tag === 'new';
+    return react_1.default.createElement("span", { className: b({ yellow: isNew, blue: !isNew, small }) }, (0, utils_1.capitalize)(tag));
 };
 exports.ServiceTag = ServiceTag;
 exports.default = exports.ServiceTag;

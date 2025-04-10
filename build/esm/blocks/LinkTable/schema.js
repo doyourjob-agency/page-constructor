@@ -2,7 +2,7 @@ import { BaseProps, LinkProps, TitleProps } from './../../schema/validators/comm
 export const LinkTableBlock = {
     'link-table-block': {
         additionalProperties: false,
-        required: [],
+        required: ['items'],
         properties: Object.assign(Object.assign({}, BaseProps), { title: TitleProps, items: {
                 type: 'array',
                 items: {

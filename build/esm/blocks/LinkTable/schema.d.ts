@@ -1,7 +1,7 @@
 export declare const LinkTableBlock: {
     'link-table-block': {
         additionalProperties: boolean;
-        required: never[];
+        required: string[];
         properties: {
             title: {
                 type: string;

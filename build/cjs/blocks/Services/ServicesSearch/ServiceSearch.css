@@ -9,8 +9,8 @@ unpredictable css rules order in build */
   max-width: 100%;
   height: 36px;
   margin: 16px 0 32px;
-  font-size: var(--g-text-body-1-font-size);
-  line-height: var(--g-text-body-1-line-height);
+  font-size: var(--g-text-body-1-font-size, var(--pc-text-body-1-font-size));
+  line-height: var(--g-text-body-1-line-height, var(--pc-text-body-1-line-height));
   transition: width 0.3s;
 }
 .pc-services-search__suggest-container {

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { Icon, useUniqId } from '@gravity-ui/uikit';
+import { CloseIcon } from '../../../../icons/CloseIcon';
+import { DropdownArrowIcon } from '../../../../icons/DropdownArrowIcon';
 import { block } from '../../../../utils';
-import { CloseIcon } from '../CloseIcon';
-import { DropdownArrowIcon } from '../DropdownArrowIcon';
 import './EventsFeedHeaderSwitcher.css';
 const b = block('events-feed-header-switcher');
 const ICON_SIZE = 12;

@@ -40,6 +40,8 @@ unpredictable css rules order in build */
   font-size: var(--g-text-body-2-font-size, var(--pc-text-body-2-font-size));
   line-height: var(--g-text-body-2-line-height, var(--pc-text-body-2-line-height));
   margin-bottom: 4px;
+  margin: 0;
+  padding: 0;
   list-style: none;
   border-radius: 6px;
 }

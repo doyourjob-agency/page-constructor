@@ -19,7 +19,7 @@ const SolutionsBlock = () => {
         react_1.default.createElement(grid_1.Row, { className: b('cards') }, items.map((card) => (react_1.default.createElement(grid_1.Col, { key: card.slug, className: b('card'), sizes: colSizes },
             react_1.default.createElement(components_1.CardBase, { url: `/solutions/${card.slug}` },
                 react_1.default.createElement(components_1.CardBase.Content, null,
-                    react_1.default.createElement(components_1.Image, { className: b('icon'), src: card.image, alt: "solution-icon" }),
+                    react_1.default.createElement(components_1.Image, { className: b('icon'), src: card.image, alt: "", "aria-hidden": "true" }),
                     react_1.default.createElement("h5", { className: b('title') },
                         react_1.default.createElement("span", null, card.name)),
                     react_1.default.createElement(components_1.HTML, null, card.description)))))))));

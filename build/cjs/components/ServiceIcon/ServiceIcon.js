@@ -11,8 +11,8 @@ const ServiceIcon = ({ name, size }) => {
     if (!data)
         return null;
     if (data.startsWith('/') || /^(http(s?):\/\/)/.test(data)) {
-        return react_1.default.createElement(Image_1.default, { src: data, alt: "" });
+        return react_1.default.createElement(Image_1.default, { src: data, alt: "", "aria-hidden": "true" });
     }
-    return react_1.default.createElement(uikit_1.Icon, { data: data, size: size });
+    return react_1.default.createElement(uikit_1.Icon, { data: data, size: size, "aria-hidden": "true" });
 };
 exports.default = ServiceIcon;

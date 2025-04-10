@@ -54,6 +54,8 @@ unpredictable css rules order in build */
   transform: rotate(180deg) translateY(4px);
 }
 .pc-services-mobile-menu__elem {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 .pc-services-mobile-menu__link {
@@ -74,7 +76,7 @@ unpredictable css rules order in build */
   border-bottom-left-radius: 24px;
   background-color: var(--g-color-base-background);
   box-shadow: 0 2px 8px var(--pc-color-sfx-shadow), 0 4px 24px var(--pc-color-sfx-shadow);
-  transition: height, 0.3s;
+  transition: height 0.3s;
 }
 .pc-services-mobile-menu__list-container_zero-height {
   height: 0;

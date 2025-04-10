@@ -9,13 +9,11 @@ unpredictable css rules order in build */
   padding-right: 24px;
 }
 .pc-layout-item__wrap {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 16px;
 }
 .pc-layout-item__title, .pc-layout-item__afterTitle {
+  display: block;
   color: var(--pc-text-header-color);
-  font-family: var(--g-font-family-sans);
   font-weight: 700;
 }
 .pc-layout-item__title_size_xl, .pc-layout-item__afterTitle_size_xl {

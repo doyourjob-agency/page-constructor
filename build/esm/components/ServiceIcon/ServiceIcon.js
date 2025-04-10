@@ -8,8 +8,8 @@ const ServiceIcon = ({ name, size }) => {
     if (!data)
         return null;
     if (data.startsWith('/') || /^(http(s?):\/\/)/.test(data)) {
-        return React.createElement(Image, { src: data, alt: "" });
+        return React.createElement(Image, { src: data, alt: "", "aria-hidden": "true" });
     }
-    return React.createElement(Icon, { data: data, size: size });
+    return React.createElement(Icon, { data: data, size: size, "aria-hidden": "true" });
 };
 export default ServiceIcon;
