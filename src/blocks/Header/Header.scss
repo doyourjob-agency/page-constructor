@@ -79,19 +79,6 @@ $backgroundWidth: 1440px;
         a {
             @include link();
         }
-
-        &::before {
-            position: absolute;
-            top: -24px;
-            left: 0;
-
-            @include text-size(body-1);
-
-            content: attr(data-tag);
-            text-transform: uppercase;
-
-            color: var(--g-color-text-info);
-        }
     }
 
     &__description {

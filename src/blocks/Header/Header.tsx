@@ -14,6 +14,7 @@ import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
@@ -147,11 +148,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                             <HTML>{overtitle}</HTML>
                                         </div>
                                     )}
-                                    <h1
-                                        className={b('title')}
-                                        id={titleId}
-                                        data-tag={headerBlockTag}
-                                    >
+                                    <h1 className={b('title')} id={titleId}>
+                                        <HeaderTag tag={headerBlockTag} />
                                         {status}
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>

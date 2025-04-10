@@ -6,7 +6,7 @@ import {CardBase, HTML} from '../../../components';
 import ServiceIcon from '../../../components/ServiceIcon/ServiceIcon';
 import {DefaultService, ServicesContext} from '../../../context/servicesContext';
 import {Col} from '../../../grid';
-import {block} from '../../../utils';
+import {block, replaceTrademark} from '../../../utils';
 import ServiceTag from '../ServiceTag/ServiceTag';
 import {i18n} from '../i18n';
 
@@ -26,8 +26,7 @@ export const ServiceElement = ({service, showCards, serviceLinkType}: ServiceEle
     const data = service?.slug ? icons[service.slug] : '';
     useEffect(() => setNotPrerender(true), []);
     if (!service) return null;
-    const description = service.description || '';
-    // const description = replaceStringTrademark(service.description || '');
+    const description = replaceTrademark(service.description || '');
     return (
         <Col key={service?.id} sizes={{all: 12, sm: 6, lg: 4}} className={b({card: showCards})}>
             {showCards ? (
