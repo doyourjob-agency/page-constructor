@@ -1,0 +1,131 @@
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import groupBy from 'lodash/groupBy';
+import { CardLayoutBlock } from '..';
+import { Anchor } from '../../components';
+import { EventsContext } from '../../context/eventsContext';
+import { RouterContext } from '../../context/routerContext';
+import { block } from '../../utils';
+import EventsFeedCard from './EventsFeedCard/EventsFeedCard';
+import EventsFeedHeader from './EventsFeedHeader/EventsFeedHeader';
+import { i18n } from './i18n';
+import './EventsFeed.css';
+const b = block('events-feed-block');
+const colSizes = {
+    sm: 12,
+    md: 6,
+    lg: 6,
+    xl: 4,
+    all: 12,
+};
+const online = [
+    {
+        content: i18n('online'),
+        value: 'true',
+    },
+    {
+        content: i18n('offline'),
+        value: 'false',
+    },
+];
+export function updateQueryCallback(query) {
+    const url = new URL(window === null || window === void 0 ? void 0 : window.location.href);
+    Object.keys(query).forEach((key) => {
+        const value = query[key];
+        if (value === undefined)
+            return;
+        if (!value) {
+            url.searchParams.delete(key);
+            return;
+        }
+        url.searchParams.set(key, String(value));
+    });
+    window.history.replaceState(window.history.state, '', url);
+}
+export function convertParsedUrlQueryToQuery(parsedUrlQuery) {
+    const query = {};
+    Object.keys(parsedUrlQuery).forEach((key) => {
+        var _a;
+        const value = parsedUrlQuery[key];
+        if (Array.isArray(value)) {
+            query[key] = (_a = value.join(',')) !== null && _a !== void 0 ? _a : null;
+        }
+        else if (value === undefined) {
+            query[key] = null;
+        }
+        else {
+            query[key] = value;
+        }
+    });
+    return query;
+}
+export const EventsFeedBlock = ({ image, title }) => {
+    // const hasUpdated = useRef(false);
+    const [isHandleLoad, setIsHandleLoad] = useState(false);
+    const { query } = useContext(RouterContext);
+    const { events } = useContext(EventsContext);
+    const [tempQuery, setTempQuery] = useState(convertParsedUrlQueryToQuery(query));
+    const types = [...new Set(events.map((item) => item.type))]
+        .sort((a, c) => (a > c ? 1 : -1))
+        .map((item) => ({
+        content: item,
+        value: item,
+    }));
+    const eventsFiltered = useMemo(() => (events === null || events === void 0 ? void 0 : events.filter((item) => (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search) ||
+        `${item.title} ${item.description}`
+            .toLocaleLowerCase()
+            .includes(tempQuery.search.toLocaleLowerCase())) &&
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online) || tempQuery.online === String(item.online)) &&
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types) || tempQuery.types.split(',').includes(item.type)))) || [], [events, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types]);
+    const { upcoming = [], recent = [] } = useMemo(() => {
+        const { u = [], r = [] } = groupBy(eventsFiltered, (event) => {
+            const now = new Date();
+            if (event.date) {
+                const eventDate = new Date(event.date);
+                return now.getTime() < eventDate.getTime() ? 'u' : 'r';
+            }
+            return 'upcoming';
+        });
+        return {
+            upcoming: u.sort((a, c) => new Date(a.dateStart).getTime() < new Date(c.dateStart).getTime() ? -1 : 1),
+            recent: r.sort((a, c) => new Date(a.dateStart).getTime() < new Date(c.dateStart).getTime() ? 1 : -1),
+        };
+    }, [eventsFiltered]);
+    // useEffect(() => {
+    //     const handleRouteChangeStart = () => {
+    //         if (hasUpdated.current) return;
+    //         const currentParams = new URLSearchParams(window.location.search);
+    //         router.replace(
+    //             {
+    //                 pathname: router.pathname,
+    //                 query: Object.fromEntries(currentParams),
+    //             },
+    //             undefined,
+    //             {shallow: true},
+    //         );
+    //         hasUpdated.current = true;
+    //     };
+    //     router.events.on('routeChangeStart', handleRouteChangeStart);
+    //     return () => {
+    //         router.events.off('routeChangeStart', handleRouteChangeStart);
+    //     };
+    // }, [router]);
+    useEffect(() => {
+        if (!isHandleLoad) {
+            setTempQuery(convertParsedUrlQueryToQuery(query));
+        }
+    }, [query, isHandleLoad]);
+    const handleLoadData = useCallback((q) => {
+        setIsHandleLoad(true);
+        setTempQuery((prev) => (Object.assign(Object.assign({}, prev), q)));
+        updateQueryCallback(q);
+    }, []);
+    return (React.createElement("div", null,
+        React.createElement(EventsFeedHeader, { image: image, title: title, online: online, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),
+        React.createElement("div", { className: b('wrap') },
+            React.createElement(Anchor, { id: "upcoming" }),
+            React.createElement(CardLayoutBlock, { colSizes: colSizes }, upcoming.map((item) => (React.createElement(EventsFeedCard, Object.assign({ key: item.slug }, item)))))),
+        Boolean(recent.length) && (React.createElement("div", { className: b('wrap') },
+            React.createElement(Anchor, { id: "recent" }),
+            React.createElement(CardLayoutBlock, { title: i18n('recent_events'), colSizes: colSizes }, recent.map((item) => (React.createElement(EventsFeedCard, Object.assign({ key: item.slug }, item)))))))));
+};
+export default EventsFeedBlock;

@@ -1,0 +1,24 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-marquee-links-block_left {
+  text-align: left;
+}
+.pc-marquee-links-block_right {
+  text-align: right;
+}
+.pc-marquee-links-block_center {
+  text-align: center;
+}
+.pc-marquee-links-block__items .rfm-child img {
+  margin: 0 57px;
+}
+.pc-marquee-links-block__items .rfm-overlay::after,
+.pc-marquee-links-block__items .rfm-overlay::before {
+  --gradient-color: var(--g-color-base-background);
+}
+.pc-marquee-links-block__header {
+  margin-bottom: 16px;
+}
+.pc-marquee-links-block__description {
+  margin-bottom: 24px;
+}

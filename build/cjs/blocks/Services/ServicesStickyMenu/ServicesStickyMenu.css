@@ -1,0 +1,48 @@
+.pc-services-sticky-menu__title {
+  margin: 0;
+}
+
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-services-sticky-menu {
+  position: sticky;
+  top: calc(var(--header-menu-height, 0px) + 32px);
+  padding-left: 32px;
+}
+@media (max-width: 769px) {
+  .pc-services-sticky-menu {
+    display: none;
+  }
+}
+.pc-services-sticky-menu__title {
+  font-size: var(--g-text-body-3-font-size, var(--pc-text-body-3-font-size));
+  line-height: var(--g-text-body-3-line-height, var(--pc-text-body-3-line-height));
+  color: var(--pc-text-header-color);
+  font-weight: var(--g-text-accent-font-weight);
+  margin-bottom: 20px;
+  padding-left: 8px;
+}
+.pc-services-sticky-menu__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  color: var(--g-color-text-primary);
+}
+.pc-services-sticky-menu__link:hover, .pc-services-sticky-menu__link:active {
+  color: var(--g-color-text-primary);
+  background-color: var(--g-color-base-simple-hover);
+}
+.pc-services-sticky-menu__list {
+  padding: 0;
+}
+.pc-services-sticky-menu__elem {
+  font-size: var(--g-text-body-2-font-size, var(--pc-text-body-2-font-size));
+  line-height: var(--g-text-body-2-line-height, var(--pc-text-body-2-line-height));
+  margin-bottom: 4px;
+  list-style: none;
+  border-radius: 6px;
+}
+.pc-services-sticky-menu__elem_active {
+  background-color: var(--g-color-base-selection);
+}

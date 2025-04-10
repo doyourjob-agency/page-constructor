@@ -1,0 +1,7 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-events-feed-header-select-option {
+  display: flex;
+  font-size: var(--g-text-body-2-font-size);
+  line-height: var(--g-text-body-2-line-height);
+}

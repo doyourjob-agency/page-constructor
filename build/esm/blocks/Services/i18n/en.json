@@ -1,0 +1,10 @@
+{
+  "search": "Search by services",
+  "found": "services found",
+  "foundOne": "1 service found",
+  "nofoundTitle": "Nothing was found",
+  "nofoundSubtitle": "Please check the spelling or try another keyword.",
+  "menuTitle": "Service group",
+  "doc": "Documentation",
+  "price": "Prices"
+}
