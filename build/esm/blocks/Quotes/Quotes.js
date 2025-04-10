@@ -32,7 +32,7 @@ export const QuotesBlock = ({ theme: localTheme, items, background, backgroundCo
         return undefined;
     }, [background, backgroundColor]);
     return (React.createElement("div", { ref: divRef, className: b({ theme }) },
-        React.createElement(SliderBlock, { slidesToShow: 1, lazyLoad: "ondemand", adaptive: false }, items.map((item, index) => (React.createElement(QuotesItem, Object.assign({ key: index, theme: theme }, item))))),
+        React.createElement(SliderBlock, { slidesToShow: 1, lazyLoad: "progressive", adaptive: false }, items.map((item, index) => (React.createElement(QuotesItem, Object.assign({ key: index, theme: theme }, item))))),
         React.createElement("div", { className: b('bg'), style: backgroundStyle })));
 };
 export default QuotesBlock;

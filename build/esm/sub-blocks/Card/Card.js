@@ -14,7 +14,7 @@ const Card = (_a) => {
             React.createElement("h3", { className: b('title') },
                 React.createElement(HTML, null, header.title))),
         React.createElement(CardBase.Content, null,
-            React.createElement(YFMWrapper, { content: text || '', modifiers: { constructor: true } }),
+            React.createElement(YFMWrapper, { content: text || '', modifiers: { constructor: true, constructor_list_style: true } }),
             service && (React.createElement("div", { className: b('service') },
                 React.createElement("span", { className: b('phrase') }, i18n('phrase')),
                 React.createElement(Link, { href: `/services/${service.slug}` },

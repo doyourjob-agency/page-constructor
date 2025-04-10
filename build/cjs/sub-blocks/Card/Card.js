@@ -15,7 +15,7 @@ const Card = (_a) => {
             react_1.default.createElement("h3", { className: b('title') },
                 react_1.default.createElement(components_1.HTML, null, header.title))),
         react_1.default.createElement(components_1.CardBase.Content, null,
-            react_1.default.createElement(components_1.YFMWrapper, { content: text || '', modifiers: { constructor: true } }),
+            react_1.default.createElement(components_1.YFMWrapper, { content: text || '', modifiers: { constructor: true, constructor_list_style: true } }),
             service && (react_1.default.createElement("div", { className: b('service') },
                 react_1.default.createElement("span", { className: b('phrase') }, (0, i18n_1.i18n)('phrase')),
                 react_1.default.createElement(uikit_1.Link, { href: `/services/${service.slug}` },
