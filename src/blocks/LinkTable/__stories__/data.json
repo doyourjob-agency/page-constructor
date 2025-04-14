@@ -1,0 +1,41 @@
+{
+  "default": {
+    "content": {
+      "type": "link-table-block",
+      "title": {
+        "text": "Documentation",
+        "textSize": "l"
+      },
+      "items": [
+        [
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          },
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          },
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          }
+        ],
+        [
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          },
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          },
+          {
+            "url": "#",
+            "text": "Lorem Ipsum is"
+          }
+        ]
+      ]
+    }
+  }
+}

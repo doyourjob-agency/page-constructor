@@ -104,6 +104,11 @@
       }
     }
   },
+  "withBackgroundPosition": {
+    "content": {
+      "backgroundPosition": "center"
+    }
+  },
   "borderLine": {
     "content": {
       "border": "line"

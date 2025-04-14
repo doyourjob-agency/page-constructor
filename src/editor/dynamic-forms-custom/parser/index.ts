@@ -267,7 +267,6 @@ class FormSpecParser {
 
     private init(schema: Schema) {
         this.schema = schema;
-
         if (schema.definitions) {
             this.definitions = Object.entries(schema.definitions).reduce(
                 (result, [childType, childSpec]) => {

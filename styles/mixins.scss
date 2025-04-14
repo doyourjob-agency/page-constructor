@@ -4,8 +4,8 @@
 //common
 
 @mixin text-size($name) {
-    font-size: var(--g-text-#{$name}-font-size);
-    line-height: var(--g-text-#{$name}-line-height);
+    font-size: var(--g-text-#{$name}-font-size, var(--pc-text-#{$name}-font-size));
+    line-height: var(--g-text-#{$name}-line-height, var(--pc-text-#{$name}-line-height));
 }
 
 @mixin focusable($offset: 0, $mode: 'outline') {
@@ -399,6 +399,14 @@
     @include text-accent();
 }
 
+@mixin heading0 {
+    @include heading(display-5);
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        @include text-size(display-3);
+    }
+}
+
 @mixin heading1 {
     @include heading(display-4);
 
@@ -454,9 +462,9 @@ unpredictable css rules order in build */
     @media (min-width: map-get($gridBreakpoints, 'sm')) {
         @at-root {
             //fix for hidden slider cards box-shadow overflow
-            .slick-slide:not(.slick-active) #{$class} {
-                box-shadow: none;
-            }
+            // .slick-slide:not(.slick-active) #{$class} {
+            //     box-shadow: none;
+            // }
 
             //fix for new slider hidden cards
             .swiper-slide:not(.swiper-slide-visible) #{$class} {

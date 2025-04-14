@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}card';
+
+#{$block} {
+    &__header {
+        height: 136px;
+    }
+
+    &__title {
+        @include heading4;
+    }
+
+    &__service {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-top: $indentS;
+        padding-top: $indentXS;
+
+        border-top: 1px solid var(--g-color-line-generic);
+    }
+
+    &__phrase {
+        margin-right: $indent4XS;
+    }
+}

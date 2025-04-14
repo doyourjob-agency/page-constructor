@@ -3,15 +3,19 @@ import React, {useContext} from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {Button, HTML, Media, RouterLink} from '../../components';
-import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs/HeaderBreadcrumbs';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {MobileContext} from '../../context/mobileContext';
+import {PageHelperContext} from '../../context/pageHelperContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
+import BackButton from './BackButton/BackButton';
+import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderTag from './HeaderTag/HeaderTag';
+import HeaderTags from './HeaderTags/HeaderTags';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -65,12 +69,14 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
+        topTags,
+        bottomTags,
         overtitle,
         description,
         buttons,
         image,
         video,
-        width = 'm',
+        width = 's',
         imageSize,
         offset = 'default',
         background,
@@ -84,6 +90,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
     } = props;
     const isMobile = useContext(MobileContext);
+    const {backButton, headerBlockTag} = useContext(PageHelperContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
@@ -115,13 +122,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
             <Grid containerClass={b('container-fluid')}>
-                {breadcrumbs && (
-                    <Row className={b('breadcrumbs')}>
-                        <Col>
-                            <HeaderBreadcrumbs {...breadcrumbs} theme={textTheme} />
-                        </Col>
-                    </Row>
-                )}
+                <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
+                <BackButton
+                    backButton={verticalOffset !== '0' && !breadcrumbs ? backButton : undefined}
+                    theme={textTheme}
+                />
                 <Row>
                     <Col reset className={b('content-wrapper')}>
                         <Row>
@@ -132,6 +137,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     'vertical-offset': curVerticalOffset,
                                 })}
                             >
+                                <HeaderTags
+                                    theme={textTheme}
+                                    tags={topTags}
+                                    className={b('tags', {top: true})}
+                                />
                                 <Col sizes={titleSizes} className={b('content-inner')}>
                                     {overtitle && (
                                         <div className={b('overtitle')}>
@@ -139,6 +149,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         </div>
                                     )}
                                     <h1 className={b('title')} id={titleId}>
+                                        <HeaderTag tag={headerBlockTag} />
                                         {status}
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>
@@ -173,6 +184,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     )}
                                     {children}
                                 </Col>
+                                <HeaderTags
+                                    theme={textTheme}
+                                    tags={bottomTags}
+                                    className={b('tags', {bottom: true})}
+                                />
                             </Col>
                         </Row>
                         {hasRightSideImage && (

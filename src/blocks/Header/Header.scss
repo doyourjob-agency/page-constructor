@@ -136,12 +136,6 @@ $backgroundWidth: 1440px;
         border-radius: $borderRadius;
     }
 
-    &__breadcrumbs {
-        position: absolute;
-        top: $indentXS;
-        z-index: 11;
-    }
-
     &__background-media {
         height: 100%;
 
@@ -213,6 +207,18 @@ $backgroundWidth: 1440px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+    }
+
+    &__tags {
+        z-index: 10;
+
+        &_top {
+            margin-bottom: 32px;
+        }
+
+        &_bottom {
+            margin-top: 22px;
         }
     }
 

@@ -19,6 +19,28 @@ $block: '.#{$ns}background-card';
     position: relative;
     @include theme();
 
+    &_bgPosition {
+        &_left #{$block}__image img {
+            object-position: left;
+        }
+
+        &_right #{$block}__image img {
+            object-position: right;
+        }
+
+        &_center #{$block}__image img {
+            object-position: center;
+        }
+
+        &_top #{$block}__image img {
+            object-position: top;
+        }
+
+        &_bottom #{$block}__image img {
+            object-position: bottom;
+        }
+    }
+
     &_padding {
         &_s {
             padding-bottom: 80px;
@@ -56,7 +78,6 @@ $block: '.#{$ns}background-card';
 
         img {
             object-fit: cover;
-            object-position: left;
         }
     }
 }

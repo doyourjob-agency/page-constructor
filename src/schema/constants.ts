@@ -6,6 +6,7 @@ import {
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
+    EventsFeedBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
@@ -13,20 +14,26 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     InfoBlock,
+    LinkTableBlock,
     MapBlock,
-    MarqueeLinks,
+    MarqueeLinksBlock,
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
+    QuotesBlock,
+    ServicesBlock,
     ShareBlock,
     SliderBlock,
     SliderNewBlock,
+    SolutionsBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
 import {
     BackgroundCard,
     BasicCard,
+    Card,
+    ContentLayoutCard,
     Divider,
     ImageCard,
     MediaCardBlock,
@@ -57,7 +64,12 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FilterBlock,
     ...FormBlock,
     ...SliderNewBlock,
-    ...MarqueeLinks,
+    ...MarqueeLinksBlock,
+    ...SolutionsBlock,
+    ...ServicesBlock,
+    ...QuotesBlock,
+    ...LinkTableBlock,
+    ...EventsFeedBlock,
 };
 
 export const cardSchemas = {
@@ -69,6 +81,8 @@ export const cardSchemas = {
     ...BasicCard,
     ...PriceCardBlock,
     ...ImageCard,
+    ...ContentLayoutCard,
+    ...Card,
 };
 
 export const constructorBlockSchemaNames = [
@@ -99,6 +113,11 @@ export const constructorBlockSchemaNames = [
     'share-block',
     'filter-block',
     'form-block',
+    'solutions-block',
+    'services-block',
+    'quotes-block',
+    'link-table-block',
+    'events-feed-block',
 ];
 
 export const constructorCardSchemaNames = [
@@ -112,4 +131,6 @@ export const constructorCardSchemaNames = [
     'layout-item',
     'price-card',
     'image-card',
+    'content-layout-card',
+    'card',
 ];

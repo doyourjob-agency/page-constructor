@@ -23,6 +23,7 @@ export const MediaBase = (props: MediaBaseProps) => {
     const {
         children,
         largeMedia,
+        smallMedia,
         direction = 'content-media',
         mobileDirection = 'content-media',
         animated,
@@ -34,14 +35,28 @@ export const MediaBase = (props: MediaBaseProps) => {
     const {title, description} = mediaContentProps;
 
     const mediaSizes = useMemo(() => {
+        let md = 6;
+        if (smallMedia) {
+            md = 4;
+        }
+        if (largeMedia) {
+            md = 8;
+        }
         return mediaOnly
             ? {[GridColumnSize.All]: 12}
-            : {[GridColumnSize.Md]: largeMedia ? 8 : 6, [GridColumnSize.All]: 12};
-    }, [mediaOnly, largeMedia]);
+            : {[GridColumnSize.Md]: md, [GridColumnSize.All]: 12};
+    }, [mediaOnly, largeMedia, smallMedia]);
 
     const contentSizes = useMemo(() => {
-        return {[GridColumnSize.Md]: largeMedia ? 4 : 6, [GridColumnSize.All]: 12};
-    }, [largeMedia]);
+        let md = 6;
+        if (smallMedia) {
+            md = 8;
+        }
+        if (largeMedia) {
+            md = 4;
+        }
+        return {[GridColumnSize.Md]: md, [GridColumnSize.All]: 12};
+    }, [largeMedia, smallMedia]);
 
     const mediaContent = !mediaOnly && <MediaContent {...mediaContentProps} />;
     const card = children.type === Card ? children?.props.children : null;

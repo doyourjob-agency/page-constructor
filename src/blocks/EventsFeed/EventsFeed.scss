@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}events-feed-block';
+
+#{$block} {
+    &__wrap {
+        margin-top: 48px;
+        padding-bottom: 48px;
+    }
+}

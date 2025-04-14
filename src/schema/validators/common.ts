@@ -11,6 +11,7 @@ import {AnalyticsEventSchema} from './event';
 
 export const mediaDirection = ['media-content', 'content-media'];
 export const textSize = ['s', 'm', 'l'];
+export const titleTextSize = ['xs', 's', 'm', 'l', 'xl'];
 export const containerSizesArray = ['sm', 'md', 'lg', 'xl', 'all'];
 export const sliderSizesArray = ['sm', 'md', 'lg', 'xl'];
 export const contentSizes = ['s', 'l'];
@@ -521,6 +522,9 @@ export const BlockBaseProps = {
             bottom: dividerEnum,
         },
     },
+    backgroundFull: {
+        type: 'string',
+    },
 };
 
 export const TitleProps = {
@@ -534,7 +538,7 @@ export const TitleProps = {
         },
         textSize: {
             type: 'string',
-            enum: textSize,
+            enum: titleTextSize,
         },
         url: {
             type: 'string',

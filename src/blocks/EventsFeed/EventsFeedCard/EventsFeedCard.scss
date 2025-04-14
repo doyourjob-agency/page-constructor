@@ -1,0 +1,54 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}events-feed-card';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 400px;
+
+    &__header {
+        margin: 0;
+
+        border-radius: 0;
+
+        & div {
+            padding: 0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__title {
+        @include heading4();
+        margin-bottom: $indentXXXS;
+    }
+
+    &__description {
+        word-wrap: break-word;
+
+        color: var(--g-color-text-primary);
+    }
+
+    &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        margin-top: $indentSM;
+    }
+
+    &__info {
+        @include text-size(body-3);
+
+        margin-right: $indentXXXS;
+    }
+
+    &__place {
+        @include text-size(body-3);
+    }
+}

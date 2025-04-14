@@ -9,13 +9,18 @@ import './AddonYaml.css';
 const ADDON_ID = 'yamladdon';
 const PANEL_ID = `${ADDON_ID}/panel`;
 
+function removeContextKeys(obj) {
+    if (!obj) return obj;
+    return Object.fromEntries(Object.entries(obj).filter(([key]) => !key.includes('Context')));
+}
+
 const YamlPanel = () => {
     const [params] = useArgs();
     const [globals] = useGlobals();
 
     const content = useMemo(
         () =>
-            yaml.dump([params], {
+            yaml.dump([removeContextKeys(params)], {
                 flowLevel: -1,
                 lineWidth: -1,
                 forceQuotes: true,

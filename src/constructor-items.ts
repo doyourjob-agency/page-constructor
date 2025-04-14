@@ -3,6 +3,7 @@ import {
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
+    EventsFeedBlock,
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
@@ -10,13 +11,17 @@ import {
     HeaderSliderBlock,
     IconsBlock,
     InfoBlock,
+    LinkTableBlock,
     MapBlock,
-    MarqueeLinks,
+    MarqueeLinksBlock,
     MediaBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
+    QuotesBlock,
+    ServicesBlock,
     ShareBlock,
     SliderBlock,
+    SolutionsBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
@@ -33,7 +38,9 @@ import {
     BackgroundCard,
     BannerCard,
     BasicCard,
+    Card,
     Content,
+    ContentLayoutCard,
     Divider,
     ImageCard,
     LayoutItem,
@@ -63,7 +70,13 @@ export const blockMap = {
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
     [BlockType.FormBlock]: FormBlock,
-    [BlockType.MarqueeLinks]: MarqueeLinks,
+    [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
+    [BlockType.SolutionsBlock]: SolutionsBlock,
+    [BlockType.EventsFeedBlock]: EventsFeedBlock,
+
+    [BlockType.LinkTableBlock]: LinkTableBlock,
+    [BlockType.ServicesBlock]: ServicesBlock,
+    [BlockType.QuotesBlock]: QuotesBlock,
     // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,
 };
@@ -80,6 +93,8 @@ export const subBlockMap = {
     [SubBlockType.Quote]: Quote,
     [SubBlockType.PriceCard]: PriceCard,
     [SubBlockType.ImageCard]: ImageCard,
+    [SubBlockType.ContentLayoutCard]: ContentLayoutCard,
+    [SubBlockType.Card]: Card,
 };
 
 export const navItemMap = {

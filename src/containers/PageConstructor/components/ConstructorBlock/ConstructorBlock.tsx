@@ -22,7 +22,7 @@ export const ConstructorBlock = ({
 }: React.PropsWithChildren<ConstructorBlockProps>) => {
     const {type} = data;
     const blockBaseProps = useMemo(
-        () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent']),
+        () => pick(data, ['anchor', 'visible', 'resetPaddings', 'indent', 'backgroundFull']),
         [data],
     );
 

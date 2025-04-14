@@ -18,9 +18,11 @@ import {
     MediaProps,
     MediaView,
     PriceDetailedProps,
+    ServiceLabelProps,
     TextTheme,
     Themable,
     ThemedImage,
+    TitleTextSize,
 } from './common';
 
 export enum SubBlockType {
@@ -37,12 +39,10 @@ export enum SubBlockType {
     BasicCard = 'basic-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
-    /**
-     * @deprecated Will be removed, use BasicCard instead
-     */
-    Card = 'card',
     PriceCard = 'price-card',
     ImageCard = 'image-card',
+    ContentLayoutCard = 'content-layout-card',
+    Card = 'card',
 }
 
 export enum IconPosition {
@@ -138,6 +138,7 @@ export interface BackgroundCardProps
     url?: string;
     urlTitle?: string;
     background?: ThemeSupporting<ImageObjectProps>;
+    backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom';
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
 }
@@ -152,6 +153,15 @@ export interface BasicCardProps
     icon?: ThemeSupporting<ImageProps>;
     target?: string;
     iconPosition?: IconPosition;
+}
+
+export interface CardProps extends CardBaseProps {
+    header: {
+        image: string;
+        title: string;
+    };
+    text?: string;
+    service?: ServiceLabelProps;
 }
 
 export interface BannerCardProps {
@@ -181,6 +191,15 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
+    title?: {
+        text?: string;
+        size?: TitleTextSize;
+    };
+    afterTitle?: {
+        text?: string;
+        size?: TitleTextSize;
+    };
+    rightSpace?: boolean;
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: ThemeSupporting<MediaProps>;
     metaInfo?: string[];

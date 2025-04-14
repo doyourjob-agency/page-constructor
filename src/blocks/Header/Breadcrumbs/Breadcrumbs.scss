@@ -1,0 +1,10 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-block-breadcrumbs';
+
+#{$block} {
+    position: absolute;
+    top: $indentXS;
+    z-index: 11;
+}

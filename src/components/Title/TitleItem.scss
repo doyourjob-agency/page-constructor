@@ -26,6 +26,11 @@ $block: '.#{$ns}title-item';
         margin-top: $indentXXL;
     }
 
+    &_size_xl {
+        @include heading0();
+        margin-top: $indentXXL;
+    }
+
     &__arrow {
         margin-top: 9px;
 

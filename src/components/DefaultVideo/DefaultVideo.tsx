@@ -71,12 +71,15 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
 
         return (
             <Fragment>
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
                 <video
                     disablePictureInPicture
                     playsInline
                     // @ts-ignore
                     // eslint-disable-next-line react/no-unknown-property
                     pip="false"
+                    autoPlay={video.autoplay}
+                    loop={Boolean(video.loop)}
                     className={b()}
                     ref={videoRef}
                     preload="metadata"
@@ -84,12 +87,13 @@ export const DefaultVideo = React.forwardRef<DefaultVideoRefType, DefaultVideoPr
                     aria-label={video.ariaLabel}
                     onClick={onClick}
                 >
-                    {getVideoTypesWithPriority(video.src).map(({src, type}, index) => (
-                        <source key={index} src={src} type={type} data-qa={qa} />
-                    ))}
-                    <track default kind="captions" />
+                    {getVideoTypesWithPriority(video.src)
+                        .filter(({type}) => Boolean(type))
+                        .map(({src, type}, index) => (
+                            <source key={index} src={src} type={type} data-qa={qa} />
+                        ))}
+                    {!video.autoplay && <track default kind="captions" />}
                 </video>
-
                 {controls === MediaVideoControlsType.Custom && (
                     <CustomBarControls
                         className={customBarControlsClassName}

@@ -11,6 +11,10 @@ $block: '.#{$ns}title';
 
         margin-top: $indentXXS;
 
+        &_bold {
+            font-weight: bold;
+        }
+
         &_titleSize_s,
         &_titleSize_xs {
             margin-top: $indentXXXS;

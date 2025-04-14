@@ -63,6 +63,22 @@
           "theme": "outlined",
           "url": "https://example.com"
         }
+      ],
+      "topTags": [
+        {
+          "text": "Test",
+          "url": "#",
+          "icon": "clock",
+          "target": "_blank"
+        }
+      ],
+      "bottomTags": [
+        {
+          "text": "Test",
+          "url": "#",
+          "icon": "map",
+          "target": "_blank"
+        }
       ]
     }
   },

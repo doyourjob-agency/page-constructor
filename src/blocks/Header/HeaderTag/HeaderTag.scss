@@ -1,0 +1,16 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-block-tag';
+
+#{$block} {
+    position: absolute;
+    top: -24px;
+    left: 0;
+
+    @include text-size(body-1);
+
+    text-transform: uppercase;
+
+    color: var(--g-color-text-info);
+}

@@ -104,8 +104,8 @@ Youtube.args = {...DefaultArgs, ...data.youtube.content} as LayoutItemProps;
 WithIcon.args = {
     ...DefaultArgs,
     media: undefined,
-    icon: data.withIcon.iconTop as LayoutItemProps['icon'],
-};
+    icon: data.withIcon.iconTop,
+} as LayoutItemProps;
 
 ControlPosition.argTypes = {
     content: {table: {disable: true}},

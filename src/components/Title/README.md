@@ -1,10 +1,14 @@
 `type: "title"`
 
+`subtitleBold?: boolean`
+
+`subtitle?: text`
+
 `title:`
 
 - `text: string` - Title text
 
-- `textSize?: 's' | 'm' | 'l'` — Title font size
+- `textSize?: 's' | 'm' | 'l' | 'xl'` — Title font size
 
 - `url?: string` — URL for a redirect on clicking the title, an arrow is automatically added at the end.
 
@@ -19,3 +23,5 @@
 `textSize m - top: l`
 
 `textSize l - top: xl`
+
+`textSize xl - top: xl`
