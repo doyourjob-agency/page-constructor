@@ -12,7 +12,17 @@ const b = block('block-base');
 export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChildren & QAProps;
 
 const BlockBase = (props: BlockBaseFullProps) => {
-    const {anchor, indent, backgroundFull, visible, children, className, resetPaddings, qa} = props;
+    const {
+        anchor,
+        indent,
+        backgroundFull,
+        visible,
+        hidden,
+        children,
+        className,
+        resetPaddings,
+        qa,
+    } = props;
 
     const {top, bottom} =
         indent || (resetPaddings ? {top: '0', bottom: '0'} : {top: 'l', bottom: 'l'});
@@ -25,6 +35,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
                 {['reset-paddings']: resetPaddings, indentTop: top, indentBottom: bottom},
                 className,
             )}
+            hidden={hidden}
             visible={visible}
             reset={true}
             qa={qa}

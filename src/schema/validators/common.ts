@@ -508,6 +508,10 @@ export const BlockBaseProps = {
         type: 'string',
         enum: containerSizesArray,
     },
+    hidden: {
+        type: 'string',
+        enum: containerSizesArray,
+    },
     resetPaddings: {
         type: 'boolean',
     },
