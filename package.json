@@ -1,11 +1,11 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "5.31.1",
+  "version": "5.31.3",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gravity-ui/page-constructor"
+    "url": "https://github.com/doyourjob-agency/page-constructor"
   },
   "exports": {
     ".": {

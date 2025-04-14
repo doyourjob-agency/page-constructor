@@ -7,7 +7,7 @@ export * from './context/solutionsContext';
 export * from './context/formListContext';
 export * from './context/routerContext';
 export * from './context/eventsContext';
-export * from './context/pageHelperContext';
+export * from './context/headerContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {argPageHelperContext, yfmTransform} from '../../../../.storybook/utils';
+import {argHeaderContext, yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {ButtonProps, HeaderBlockModel, HeaderBlockProps} from '../../../models';
 import Header from '../Header';
@@ -21,7 +21,7 @@ export default {
     title: 'Blocks/Header',
     component: Header,
     args: {
-        ...argPageHelperContext.args,
+        ...argHeaderContext.args,
         image: undefined,
         video: undefined,
         background: undefined,
@@ -31,7 +31,7 @@ export default {
         verticalOffset: 'm',
     },
     argTypes: {
-        ...argPageHelperContext.argTypes,
+        ...argHeaderContext.argTypes,
         overtitle: {control: 'text'},
     },
 } as Meta;

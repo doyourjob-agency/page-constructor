@@ -5,8 +5,8 @@ import {useUniqId} from '@gravity-ui/uikit';
 import {Button, HTML, Media, RouterLink} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
+import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
-import {PageHelperContext} from '../../context/pageHelperContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
@@ -90,7 +90,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
     } = props;
     const isMobile = useContext(MobileContext);
-    const {backButton, headerBlockTag} = useContext(PageHelperContext);
+    const {backButton, blockTag} = useContext(HeaderContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
     const curImageSize = imageSize || getImageSize(width);
@@ -149,7 +149,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         </div>
                                     )}
                                     <h1 className={b('title')} id={titleId}>
-                                        <HeaderTag tag={headerBlockTag} />
+                                        <HeaderTag tag={blockTag} />
                                         {status}
                                         {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
                                     </h1>

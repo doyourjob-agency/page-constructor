@@ -4,7 +4,7 @@ import argsFormListContext from './args/argsFormListContext.json';
 import argsSolutionsContext from './args/argsSolutionsContext.json';
 import argsRouterContext from './args/argsRouterContext.json';
 import argsEventsContext from './args/argsEventsContext.json';
-import argsPageHelperContext from './args/argsPageHelperContext.json';
+import argsHeaderContext from './args/argsHeaderContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -83,10 +83,10 @@ export const argEventsContext = {
     },
 };
 
-export const argPageHelperContext = {
+export const argHeaderContext = {
     argTypes: {
-        pageHelperContext: {
-            name: 'PageHelperContext',
+        headerContext: {
+            name: 'HeaderContext',
             control: 'object',
             table: {
                 category: 'Context',
@@ -94,6 +94,6 @@ export const argPageHelperContext = {
         },
     },
     args: {
-        pageHelperContext: argsPageHelperContext,
+        headerContext: argsHeaderContext,
     },
 };

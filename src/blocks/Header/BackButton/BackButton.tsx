@@ -3,7 +3,7 @@ import React from 'react';
 import {ArrowLeft} from '@gravity-ui/icons';
 import {Button, Icon} from '@gravity-ui/uikit';
 
-import {PageHelperContextProps} from '../../../context/pageHelperContext';
+import {HeaderContextProps} from '../../../context/headerContext';
 import {Col, Row} from '../../../grid';
 import {TextTheme} from '../../../models';
 import {block} from '../../../utils';
@@ -16,7 +16,7 @@ export const BackButton = ({
     backButton,
     theme,
 }: {
-    backButton: PageHelperContextProps['backButton'];
+    backButton: HeaderContextProps['backButton'];
     theme: TextTheme;
 }) => {
     if (!backButton) return null;
