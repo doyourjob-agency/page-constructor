@@ -1,0 +1,99 @@
+.pc-table-block__title {
+  margin: 0;
+}
+
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+@media (min-width: 769px) {
+  .pc-table-block__lhs {
+    position: sticky;
+    top: calc(var(--header-height) + 0px);
+  }
+}
+@media (max-width: 769px) {
+  .pc-table-block__lhs {
+    margin-bottom: 32px;
+  }
+}
+.pc-table-block__description {
+  margin: 12px 32px 0 0;
+}
+.pc-table-block__bottomObject {
+  margin-top: 24px;
+}
+.pc-table-block__title {
+  font-size: var(--g-text-display-2-font-size, var(--pc-text-display-2-font-size));
+  line-height: var(--g-text-display-2-line-height, var(--pc-text-display-2-line-height));
+  color: var(--pc-text-header-color);
+  font-weight: var(--g-text-accent-font-weight);
+  top: calc(var(--header-height) + 0px);
+  position: sticky;
+  margin-right: 32px;
+}
+@media (max-width: 576px) {
+  .pc-table-block__title {
+    font-size: var(--g-text-display-1-font-size, var(--pc-text-display-1-font-size));
+    line-height: var(--g-text-display-1-line-height, var(--pc-text-display-1-line-height));
+  }
+}
+.pc-table-block__table {
+  margin-top: 0;
+}
+.pc-table-block .pc-table {
+  position: relative;
+}
+@media (max-width: 577px) {
+  .pc-table-block .pc-table {
+    margin-right: -24px;
+    margin-left: -24px;
+    padding-bottom: 12px;
+  }
+  .pc-table-block .pc-table .pc-table__table {
+    scrollbar-width: none;
+  }
+  .pc-table-block .pc-table .pc-table__table .pc-table::-webkit-scrollbar {
+    display: none;
+  }
+  .pc-table-block .pc-table .pc-table__cell:first-child {
+    min-width: 60%;
+  }
+  .pc-table-block .pc-table .pc-table__row {
+    padding: 0 24px;
+  }
+  .pc-table-block .pc-table .pc-table__row::after {
+    padding-right: 24px;
+    content: "";
+  }
+  .pc-table-block .pc-table .pc-table__legend {
+    padding: 0 24px;
+  }
+}
+@media (max-width: 1081px) {
+  .pc-table-block__title {
+    margin-right: 0;
+    padding-bottom: 32px;
+  }
+}
+
+.pc-table-scrollbar {
+  position: absolute;
+  right: 24px;
+  bottom: 0;
+  left: 24px;
+  display: none;
+  overflow: hidden;
+  height: 5px;
+  border-radius: 2px;
+  background-color: var(--g-color-private-black-150);
+}
+@media (max-width: 577px) {
+  .pc-table-scrollbar {
+    display: block;
+  }
+  .pc-table-scrollbar > div {
+    height: 100%;
+    border-radius: 2px;
+    background-color: var(--g-color-private-black-400);
+    transition: transform ease 50ms;
+  }
+}

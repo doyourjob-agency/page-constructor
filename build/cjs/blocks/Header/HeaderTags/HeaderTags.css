@@ -1,0 +1,17 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-header-tags_theme_dark .pc-header-tags__tag {
+  color: var(--g-color-text-light-primary);
+}
+.pc-header-tags_theme_dark .pc-header-tags__tag {
+  --_--border-color: var(--g-color-text-light-primary);
+}
+.pc-header-tags__tag {
+  margin-top: 10px;
+}
+.pc-header-tags__tag:not(:last-child) {
+  margin-right: 10px;
+}
+.pc-header-tags__tag_disable {
+  pointer-events: none;
+}

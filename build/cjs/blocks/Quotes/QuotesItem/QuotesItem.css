@@ -1,0 +1,120 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-quotes-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 64px;
+  color: var(--pc-text-header-color);
+  border-radius: 24px;
+  background-color: #fff;
+}
+.pc-quotes-item_theme_dark {
+  color: var(--g-color-text-light-primary);
+  background-color: #385465;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item {
+    padding: 20px;
+  }
+}
+.pc-quotes-item__header {
+  display: flex;
+}
+.pc-quotes-item__author {
+  display: flex;
+  flex: 1;
+}
+.pc-quotes-item__author-avatar {
+  width: 80px;
+  height: 80px;
+  margin-right: 24px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__author-avatar {
+    margin-right: 12px;
+  }
+}
+.pc-quotes-item__author-wrap {
+  max-width: 340px;
+}
+.pc-quotes-item__author-title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: var(--g-text-header-font-weight);
+  line-height: 24px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__author-title {
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+}
+.pc-quotes-item__author-text {
+  font-size: 17px;
+  font-weight: var(--g-text-body-font-weight);
+  line-height: 24px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__author-text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__logo.pc-quotes-item__logo {
+    display: none;
+  }
+}
+
+.pc-quotes-item__body {
+  max-width: 960px;
+  margin: 48px 0 0;
+  font-weight: var(--g-text-display-font-weight);
+}
+.pc-quotes-item__body_style_normal {
+  font-size: 32px;
+  line-height: 40px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__body_style_normal {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.pc-quotes-item__body_style_short {
+  font-size: 48px;
+  line-height: 53px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__body_style_short {
+    font-size: 32px;
+    line-height: 30px;
+  }
+}
+.pc-quotes-item__body_style_long {
+  font-size: 24px;
+  line-height: 28px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__body_style_long {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__body {
+    margin-top: 40px;
+  }
+}
+.pc-quotes-item__footer {
+  margin-top: auto;
+  padding-top: 48px;
+}
+@media (max-width: 769px) {
+  .pc-quotes-item__footer {
+    margin-top: 40px;
+  }
+}
