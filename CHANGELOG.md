@@ -1,5 +1,57 @@
 # Changelog
 
+## [5.31.5](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.3-main...v5.31.4-main) (2025-04-14)
+
+### Features
+
+* **BlockBase:** The hidden and visible fields have been deprecated. Added a new implementation of functionality for managing display on different screens - visibility
+
+
+## [5.31.4](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.3-main...v5.31.4-main) (2025-04-14)
+
+
+### Features
+
+* **BlockBase:** Added support field hidden
+
+## [5.31.3](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.1-main...v5.31.3-main) (2025-04-10)
+
+
+### Features
+
+* **MarqueeLinks:** Add block
+* **Form:** Added textFormContent and formData can now be empty. Added an alternative way to specify background image and color. Added the ability to use data from context for formData by slug
+* **FormListContext:** Add context
+* **Slider:** Added infinite and resetPaddings is applied by default for slides
+* **Image:** Added support for the files.image format to the component scheme
+* **BlockBase:** Added support for block background - backgroundFull
+* **Media:** Added subtitle and subtitleLinks. Added smallMedia field
+* **Title:** Added support for size xl
+* **BackgroundCard:** Added support for image position - backgroundPosition
+* **ContentLayoutCard:** Add card
+* **LayoutItem:** Add card
+* **Card:** Add card
+* **ServiceIcon:** Add component
+* **ServiceLabel:** Add component
+* **ServicesContext:** Add context
+* **Table:** Added section with description links and buttons as well as display of progress on mobile
+* **Solutions:** Add block
+* **SolutionsContext:** Add context
+* **Services:** Add block
+* **Quotes:** Add block
+* **LinkTable:** Add block
+* **EventsFeed:** Add block
+* **EventsContext:** Add context
+* **RouterContext:** Add context
+* **HeaderContext:** Add context
+* **Header:** Added back button and tags at top and bottom as well as label above title. Width as default 's'
+
+
+### Bug Fixes
+
+* **BackgroundMedia:** Fixed autoplay of video in the background
+* **Media:** Fix video microdata script
+* **ContentList:** Fix margins
 
 ## [5.31.1](https://github.com/gravity-ui/page-constructor/compare/v5.31.0...v5.31.1) (2024-12-05)
 
