@@ -2,7 +2,7 @@ import React, {PropsWithChildren} from 'react';
 
 import {Col} from '../../grid';
 import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
-import {block} from '../../utils';
+import {block, getBlockVisibilityClasses} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
 import './BlockBase.scss';
@@ -14,6 +14,7 @@ export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChil
 const BlockBase = (props: BlockBaseFullProps) => {
     const {
         anchor,
+        visibility,
         indent,
         backgroundFull,
         visible,
@@ -28,11 +29,17 @@ const BlockBase = (props: BlockBaseFullProps) => {
         indent || (resetPaddings ? {top: '0', bottom: '0'} : {top: 'l', bottom: 'l'});
 
     const isBackgroundUrl = /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(backgroundFull || '');
+    const visibilityClasses = getBlockVisibilityClasses(visibility);
 
     return (
         <Col
             className={b(
-                {['reset-paddings']: resetPaddings, indentTop: top, indentBottom: bottom},
+                {
+                    ['reset-paddings']: resetPaddings,
+                    indentTop: top,
+                    indentBottom: bottom,
+                    ...visibilityClasses,
+                },
                 className,
             )}
             hidden={hidden}

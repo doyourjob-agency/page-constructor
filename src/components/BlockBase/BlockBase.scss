@@ -12,6 +12,8 @@ $block: '.#{$ns}block-base';
 
     @include indents(&);
 
+    @include visibility-classes();
+
     position: relative;
     z-index: 1;
 

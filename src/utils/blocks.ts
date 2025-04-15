@@ -1,7 +1,13 @@
 import camelCase from 'lodash/camelCase';
 import flatten from 'lodash/flatten';
 
-import {ConstructorBlock, CustomConfig, PCShareSocialNetwork, TitleTextSize} from '../models';
+import {
+    ConstructorBlock,
+    CustomConfig,
+    PCShareSocialNetwork,
+    TitleTextSize,
+    VisibilityProp,
+} from '../models';
 
 const BLOCK_ELEMENTS = [
     'div',
@@ -149,4 +155,28 @@ export const getQaAttrubutes = (qa?: string, ...customKeys: (string | Array<stri
     }
 
     return attributes;
+};
+
+export const getBlockVisibilityClasses = (visibility?: VisibilityProp): Record<string, boolean> => {
+    if (!visibility) return {};
+
+    let visibleBreakpoints = [];
+
+    if (visibility === 'mobile') {
+        visibleBreakpoints = ['xs', 'sm'];
+    } else if (visibility === 'desktop') {
+        visibleBreakpoints = ['md', 'lg', 'xl', 'xxl'];
+    } else {
+        visibleBreakpoints = Object.entries(visibility)
+            .filter(([, val]) => val)
+            .map(([bp]) => bp);
+    }
+
+    return visibleBreakpoints.reduce<Record<string, boolean>>(
+        (acc, bp) => ({
+            ...acc,
+            [`visible-${bp}`]: true,
+        }),
+        {hidden: true},
+    );
 };

@@ -79,10 +79,20 @@ export interface Childable {
     children?: SubBlock[];
 }
 
+export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+
+export type VisibilityPreset = 'mobile' | 'desktop';
+export type VisibilityMap = Partial<Record<Breakpoint, boolean>>;
+
+export type VisibilityProp = VisibilityPreset | VisibilityMap;
+
 //block props
 export interface BlockBaseProps {
     anchor?: AnchorProps;
+    visibility?: VisibilityProp;
+    /** @deprecated */
     visible?: GridColumnSize;
+    /** @deprecated */
     hidden?: GridColumnSize;
     /** @deprecated */
     resetPaddings?: boolean;

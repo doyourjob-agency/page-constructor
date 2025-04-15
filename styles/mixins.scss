@@ -645,3 +645,47 @@ unpredictable css rules order in build */
         }
     }
 }
+
+@mixin visibility-classes() {
+    @include add-specificity(&) {
+        &_hidden {
+            display: none;
+        }
+
+        // Преобразуем map в список ключей
+        $keys: map-keys($gridBreakpoints);
+        $length: length($keys);
+
+        @for $i from 1 through $length {
+            $current-key: nth($keys, $i);
+            $current-min: map-get($gridBreakpoints, $current-key);
+
+            @if $i < $length {
+                $next-key: nth($keys, $i + 1);
+                $next-min: map-get($gridBreakpoints, $next-key);
+                $current-max: ($next-min - 1px);
+
+                @media (min-width: $current-min) and (max-width: $current-max) {
+                    &_visible-#{$current-key} {
+                        display: block;
+                    }
+                }
+            } @else {
+                // Последний (до бесконечности)
+                @media (min-width: $current-min) {
+                    &_visible-#{$current-key} {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        // XS (0 до первого брейкпоинта)
+        $first-min: map-get($gridBreakpoints, nth($keys, 1));
+        @media (max-width: ($first-min - 1px)) {
+            &_visible-xs {
+                display: block;
+            }
+        }
+    }
+}

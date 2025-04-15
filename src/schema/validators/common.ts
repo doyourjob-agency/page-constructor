@@ -504,6 +504,38 @@ export const AnchorProps = {
 export const BlockBaseProps = {
     ...BaseProps,
     anchor: AnchorProps,
+    visibility: {
+        oneOf: [
+            {
+                type: 'string',
+                enum: ['mobile', 'desktop'],
+            },
+            {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    xs: {
+                        type: 'boolean',
+                    },
+                    sm: {
+                        type: 'boolean',
+                    },
+                    md: {
+                        type: 'boolean',
+                    },
+                    lg: {
+                        type: 'boolean',
+                    },
+                    xl: {
+                        type: 'boolean',
+                    },
+                    xxl: {
+                        type: 'boolean',
+                    },
+                },
+            },
+        ],
+    },
     visible: {
         type: 'string',
         enum: containerSizesArray,

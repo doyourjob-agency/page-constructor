@@ -27,6 +27,7 @@ export const ConstructorBlock = ({
                 'anchor',
                 'visible',
                 'hidden',
+                'visibility',
                 'resetPaddings',
                 'indent',
                 'backgroundFull',
