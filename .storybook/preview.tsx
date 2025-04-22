@@ -108,6 +108,7 @@ const preview: Preview = {
         options: {
             storySort: {
                 order: [
+                    'Changelog',
                     'Documentation',
                     'Blocks',
                     'Components',
