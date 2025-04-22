@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import {argHeaderContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor/PageConstructor';
 import {HeaderSliderBlockModel, HeaderSliderBlockProps} from '../../../models';
 import HeaderSlider from '../HeaderSlider';
@@ -12,12 +13,14 @@ export default {
     title: 'Blocks/HeaderSlider',
     component: HeaderSlider,
     args: {
+        ...argHeaderContext.args,
         dots: true,
         disclaimer: undefined,
         randomOrder: false,
         adaptive: true,
     },
     argTypes: {
+        ...argHeaderContext.argTypes,
         autoplay: {control: 'number'},
     },
 } as Meta;
