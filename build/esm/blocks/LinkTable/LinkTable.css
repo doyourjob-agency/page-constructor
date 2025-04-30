@@ -1,0 +1,5 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-link-table-block__links {
+  padding-top: 16px;
+}

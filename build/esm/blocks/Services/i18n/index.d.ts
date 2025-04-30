@@ -1,0 +1,1 @@
+export declare const i18n: (key: "search" | "price" | "doc" | "found" | "foundOne" | "nofoundTitle" | "nofoundSubtitle" | "menuTitle", params?: import("@gravity-ui/i18n").Params | undefined) => string;
