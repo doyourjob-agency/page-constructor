@@ -8,6 +8,7 @@ export type EventData = {
     dateStart: string;
     image?: string;
     info?: string;
+    country?: string;
     place?: string;
     type: string;
     online?: boolean;
