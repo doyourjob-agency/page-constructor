@@ -32,13 +32,13 @@ const LayoutItem = (_a) => {
             return (React.createElement(Media, Object.assign({}, mediaWithMicrodata, fullscreenMediaProps, { className: b('media', { border }, mediaClassName), analyticsEvents: analyticsEvents })));
         })) : (React.createElement(Media, Object.assign({}, themedMedia, { className: b('media', { border }), analyticsEvents: analyticsEvents })));
     };
-    return (React.createElement("div", { className: b({ right: rightSpace }, className) },
-        (title || afterTitle) && (React.createElement("div", { className: b('wrap') },
+    return (React.createElement("div", { className: b(null, className) },
+        (title || afterTitle) && (React.createElement("div", { className: b('wrap', { right: rightSpace }) },
             title && (React.createElement("span", { className: b('title', { size: (title === null || title === void 0 ? void 0 : title.size) || 'm' }) }, title === null || title === void 0 ? void 0 : title.text)),
             afterTitle && (React.createElement("span", { className: b('afterTitle', { size: (afterTitle === null || afterTitle === void 0 ? void 0 : afterTitle.size) || 'm' }) }, afterTitle === null || afterTitle === void 0 ? void 0 : afterTitle.text)))),
         renderMedia(),
-        metaInfo && React.createElement(MetaInfo, { items: metaInfo, className: b('meta-info') }),
-        React.createElement("div", { className: b('content', { 'no-media': !media }) },
+        metaInfo && (React.createElement(MetaInfo, { items: metaInfo, className: b('meta-info', { right: rightSpace }) })),
+        React.createElement("div", { className: b('content', { 'no-media': !media, right: rightSpace }) },
             React.createElement(IconWrapper, { icon: themedIcon, className: b('wrapper') },
                 React.createElement(Content, Object.assign({}, contentProps, { titleId: titleId }))))));
 };

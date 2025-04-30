@@ -44,10 +44,7 @@ const FormBlock = (props) => {
     const data = (0, react_1.useMemo)(() => {
         if (form) {
             return {
-                hubspot: Object.assign(Object.assign({}, form), { onSubmit: () => {
-                        var _a, _b;
-                        return (_b = (_a = refForm.current) === null || _a === void 0 ? void 0 : _a.querySelector('.pc-form-block__form-wrapper')) === null || _b === void 0 ? void 0 : _b.scrollIntoView();
-                    } }),
+                hubspot: Object.assign(Object.assign({}, form), { onSubmit: () => { var _a; return (_a = refForm.current) === null || _a === void 0 ? void 0 : _a.scrollIntoView(); } }),
             };
         }
         return formData;
@@ -76,7 +73,7 @@ const FormBlock = (props) => {
                 react_1.default.createElement(grid_1.Col, { sizes: colSizes, className: b('content-col') }, textContent && (react_1.default.createElement("div", { className: b('content-wrapper') },
                     react_1.default.createElement(sub_blocks_1.Content, Object.assign({ theme: "default" }, textContent, { centered: direction === models_1.FormBlockDirection.Center, colSizes: { all: 12 }, className: b('content') }))))),
                 react_1.default.createElement(grid_1.Col, { sizes: colSizes, className: b('form-col') },
-                    react_1.default.createElement("div", { className: b('form-wrapper') },
+                    react_1.default.createElement("div", { className: b('form-wrapper'), ref: refForm },
                         react_1.default.createElement("div", { className: b('full-form', {
                                 hidden: !contentLoaded,
                             }) },
