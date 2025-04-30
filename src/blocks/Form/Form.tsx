@@ -73,10 +73,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
             return {
                 hubspot: {
                     ...form,
-                    onSubmit: () =>
-                        refForm.current
-                            ?.querySelector('.pc-form-block__form-wrapper')
-                            ?.scrollIntoView(),
+                    onSubmit: () => refForm.current?.scrollIntoView(),
                 },
             };
         }
@@ -133,7 +130,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                         )}
                     </Col>
                     <Col sizes={colSizes} className={b('form-col')}>
-                        <div className={b('form-wrapper')}>
+                        <div className={b('form-wrapper')} ref={refForm}>
                             <div
                                 className={b('full-form', {
                                     hidden: !contentLoaded,
