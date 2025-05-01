@@ -1,6 +1,13 @@
 # Changelog
 
-## [5.31.5](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.3-main...v5.31.4-main) (2025-04-14)
+## [5.31.6](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.5-main...v5.31.6-main) (2025-04-14)
+
+### Features
+
+* **EventsFeed:** Refactor, remove online filter and add countries filter
+
+
+## [5.31.5](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.4-main...v5.31.5-main) (2025-04-14)
 
 ### Features
 
