@@ -18,7 +18,7 @@ interface EventsFeedHeaderProps extends EventsFeedHeaderControlsProps {
 
 export const EventsFeedHeader = ({
     title,
-    online,
+    countries,
     types,
     image,
     handleLoadData,
@@ -29,7 +29,7 @@ export const EventsFeedHeader = ({
             {image && <BackgroundImage src={image} className={b('background')} />}
             <EventsFeedHeaderControls
                 title={title}
-                online={online}
+                countries={countries}
                 types={types}
                 handleLoadData={handleLoadData}
                 queryParams={queryParams}

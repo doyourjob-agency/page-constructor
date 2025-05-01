@@ -23,7 +23,7 @@ export type SelectItem = {
 export type EventsFeedHeaderControlsProps = {
     title?: string;
     handleLoadData: (query: Query) => void;
-    online?: SelectItem[];
+    countries?: SelectItem[];
     types?: SelectItem[];
     queryParams: Query;
 };
@@ -31,13 +31,17 @@ export type EventsFeedHeaderControlsProps = {
 export const EventsFeedHeaderControls = ({
     title,
     handleLoadData,
-    online = [],
+    countries = [],
     types = [],
     queryParams,
 }: EventsFeedHeaderControlsProps) => {
     const isMobile = useContext(MobileContext);
 
-    const {search: searchInitial, online: onlineInitial, types: typesInitial} = queryParams || {};
+    const {
+        search: searchInitial,
+        countries: countriesInitial,
+        types: typesInitial,
+    } = queryParams || {};
 
     const [search, setSearch] = useState<string>((searchInitial as string) || '');
 
@@ -47,12 +51,10 @@ export const EventsFeedHeaderControls = ({
         handleLoadData({search: searchValue});
     };
 
-    const handleOnlineSelect = (selected: string[]) => {
-        const isEmptyTag = selected.some((item) => item === 'empty');
+    const handleCountriesSelect = (selected: string[]) => {
+        const countriesAsString = selected.join(',');
 
-        handleLoadData({
-            online: isEmptyTag ? '' : selected[0],
-        });
+        handleLoadData({countries: countriesAsString});
     };
 
     const handleTypesSelect = (selected: string[]) => {
@@ -61,9 +63,9 @@ export const EventsFeedHeaderControls = ({
         handleLoadData({types: servicesAsString});
     };
 
-    const onlineItems = useMemo(
-        () => [{value: 'empty', content: i18n('all_status')} as unknown as SelectItem, ...online],
-        [online],
+    const countriesItems = useMemo(
+        () => (countriesInitial ? [...(countriesInitial as string).split(',')] : []),
+        [countriesInitial],
     );
 
     const typesItems = useMemo(
@@ -87,25 +89,6 @@ export const EventsFeedHeaderControls = ({
                     <Select
                         className={b('select')}
                         size="xl"
-                        options={onlineItems}
-                        defaultValue={[onlineInitial] as string[]}
-                        value={[onlineInitial] as string[]}
-                        onUpdate={handleOnlineSelect}
-                        popupClassName={b('popup', {mobile: isMobile})}
-                        renderControl={renderSwitcher({
-                            initial: [onlineInitial],
-                            list: onlineItems,
-                            defaultLabel: i18n('all_status'),
-                        })}
-                        disablePortal
-                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                        renderOption={renderOption}
-                    />
-                </div>
-                <div className={b('filter-item')}>
-                    <Select
-                        className={b('select')}
-                        size="xl"
                         options={types}
                         defaultValue={[]}
                         value={typesItems}
@@ -115,6 +98,29 @@ export const EventsFeedHeaderControls = ({
                             initial: typesItems,
                             list: types,
                             defaultLabel: i18n('all_types'),
+                        })}
+                        disablePortal
+                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
+                        renderOption={renderOption}
+                        renderFilter={renderFilter}
+                        multiple
+                        filterable
+                        hasClear
+                    />
+                </div>
+                <div className={b('filter-item')}>
+                    <Select
+                        className={b('select')}
+                        size="xl"
+                        options={countries}
+                        defaultValue={[]}
+                        value={countriesItems}
+                        onUpdate={handleCountriesSelect}
+                        popupClassName={b('popup', {mobile: isMobile})}
+                        renderControl={renderSwitcher({
+                            initial: countriesItems,
+                            list: countries,
+                            defaultLabel: i18n('all_countries'),
                         })}
                         disablePortal
                         virtualizationThreshold={VIRTUALIZATION_THRESHOLD}

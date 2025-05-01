@@ -25,27 +25,24 @@ const colSizes = {
     all: 12,
 };
 
-const online = [
-    {
-        content: i18n('online'),
-        value: 'true',
-    },
-    {
-        content: i18n('offline'),
-        value: 'false',
-    },
-];
-
 export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => {
-    // const hasUpdated = useRef(false);
     const [isHandleLoad, setIsHandleLoad] = useState(false);
     const {query} = useContext(RouterContext);
     const {events} = useContext(EventsContext);
-    const [tempQuery, setTempQuery] = useState<{search?: string; online?: string; types?: string}>(
-        convertParsedUrlQueryToQuery(query),
-    );
+    const [tempQuery, setTempQuery] = useState<{
+        search?: string;
+        countries?: string;
+        types?: string;
+    }>(convertParsedUrlQueryToQuery(query));
     const types = [...new Set(events.map((item) => item.type))]
         .sort((a, c) => (a > c ? 1 : -1))
+        .map((item) => ({
+            content: item,
+            value: item,
+        }));
+    const countries = [...new Set(events.map((item) => item.country || ''))]
+        .sort((a, c) => (a > c ? 1 : -1))
+        .filter(Boolean)
         .map((item) => ({
             content: item,
             value: item,
@@ -58,10 +55,11 @@ export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => {
                         `${item.title} ${item.description}`
                             .toLocaleLowerCase()
                             .includes(tempQuery.search.toLocaleLowerCase())) &&
-                    (!tempQuery?.online || tempQuery.online === String(item.online)) &&
+                    (!tempQuery?.countries ||
+                        (item.country && tempQuery.countries.split(',').includes(item.country))) &&
                     (!tempQuery?.types || tempQuery.types.split(',').includes(item.type)),
             ) || [],
-        [events, tempQuery?.search, tempQuery?.online, tempQuery?.types],
+        [events, tempQuery?.search, tempQuery?.countries, tempQuery?.types],
     );
 
     const {upcoming = [], recent = []} = useMemo(() => {
@@ -83,29 +81,6 @@ export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => {
         };
     }, [eventsFiltered]);
 
-    // useEffect(() => {
-    //     const handleRouteChangeStart = () => {
-    //         if (hasUpdated.current) return;
-    //         const currentParams = new URLSearchParams(window.location.search);
-
-    //         router.replace(
-    //             {
-    //                 pathname: router.pathname,
-    //                 query: Object.fromEntries(currentParams),
-    //             },
-    //             undefined,
-    //             {shallow: true},
-    //         );
-    //         hasUpdated.current = true;
-    //     };
-
-    //     router.events.on('routeChangeStart', handleRouteChangeStart);
-
-    //     return () => {
-    //         router.events.off('routeChangeStart', handleRouteChangeStart);
-    //     };
-    // }, [router]);
-
     useEffect(() => {
         if (!isHandleLoad) {
             setTempQuery(convertParsedUrlQueryToQuery(query));
@@ -123,7 +98,7 @@ export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => {
             <EventsFeedHeader
                 image={image}
                 title={title}
-                online={online}
+                countries={countries}
                 types={types}
                 handleLoadData={handleLoadData}
                 queryParams={tempQuery}
