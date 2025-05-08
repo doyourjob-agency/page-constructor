@@ -18,7 +18,7 @@ const b = block('layout-item');
 const LayoutItem = ({
     title,
     afterTitle,
-    rightSpace = false,
+    rightSpace = true,
     content: {links, ...content},
     metaInfo,
     media,
@@ -77,9 +77,9 @@ const LayoutItem = ({
         );
     };
     return (
-        <div className={b({right: rightSpace}, className)}>
+        <div className={b(null, className)}>
             {(title || afterTitle) && (
-                <div className={b('wrap')}>
+                <div className={b('wrap', {right: rightSpace})}>
                     {title && (
                         <span className={b('title', {size: title?.size || 'm'})}>
                             {title?.text}
@@ -93,8 +93,10 @@ const LayoutItem = ({
                 </div>
             )}
             {renderMedia()}
-            {metaInfo && <MetaInfo items={metaInfo} className={b('meta-info')} />}
-            <div className={b('content', {'no-media': !media})}>
+            {metaInfo && (
+                <MetaInfo items={metaInfo} className={b('meta-info', {right: rightSpace})} />
+            )}
+            <div className={b('content', {'no-media': !media, right: rightSpace})}>
                 <IconWrapper icon={themedIcon} className={b('wrapper')}>
                     <Content {...contentProps} titleId={titleId} />
                 </IconWrapper>
