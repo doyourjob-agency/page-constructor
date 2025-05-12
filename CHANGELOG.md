@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.7](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.6-main...v5.31.7-main) (2025-04-14)
+
+### Features
+
+* **LayoutItem:** rightSpace default true
+
+
 ## [5.31.6](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.5-main...v5.31.6-main) (2025-04-14)
 
 ### Features
