@@ -33,13 +33,13 @@ const LayoutItem = (_a) => {
             return (react_1.default.createElement(components_1.Media, Object.assign({}, mediaWithMicrodata, fullscreenMediaProps, { className: b('media', { border }, mediaClassName), analyticsEvents: analyticsEvents })));
         })) : (react_1.default.createElement(components_1.Media, Object.assign({}, themedMedia, { className: b('media', { border }), analyticsEvents: analyticsEvents })));
     };
-    return (react_1.default.createElement("div", { className: b({ right: rightSpace }, className) },
-        (title || afterTitle) && (react_1.default.createElement("div", { className: b('wrap') },
+    return (react_1.default.createElement("div", { className: b(null, className) },
+        (title || afterTitle) && (react_1.default.createElement("div", { className: b('wrap', { right: rightSpace }) },
             title && (react_1.default.createElement("span", { className: b('title', { size: (title === null || title === void 0 ? void 0 : title.size) || 'm' }) }, title === null || title === void 0 ? void 0 : title.text)),
             afterTitle && (react_1.default.createElement("span", { className: b('afterTitle', { size: (afterTitle === null || afterTitle === void 0 ? void 0 : afterTitle.size) || 'm' }) }, afterTitle === null || afterTitle === void 0 ? void 0 : afterTitle.text)))),
         renderMedia(),
-        metaInfo && react_1.default.createElement(components_1.MetaInfo, { items: metaInfo, className: b('meta-info') }),
-        react_1.default.createElement("div", { className: b('content', { 'no-media': !media }) },
+        metaInfo && (react_1.default.createElement(components_1.MetaInfo, { items: metaInfo, className: b('meta-info', { right: rightSpace }) })),
+        react_1.default.createElement("div", { className: b('content', { 'no-media': !media, right: rightSpace }) },
             react_1.default.createElement(components_1.IconWrapper, { icon: themedIcon, className: b('wrapper') },
                 react_1.default.createElement(Content_1.default, Object.assign({}, contentProps, { titleId: titleId }))))));
 };

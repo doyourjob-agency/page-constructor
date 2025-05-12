@@ -42,10 +42,7 @@ const FormBlock = (props) => {
     const data = useMemo(() => {
         if (form) {
             return {
-                hubspot: Object.assign(Object.assign({}, form), { onSubmit: () => {
-                        var _a, _b;
-                        return (_b = (_a = refForm.current) === null || _a === void 0 ? void 0 : _a.querySelector('.pc-form-block__form-wrapper')) === null || _b === void 0 ? void 0 : _b.scrollIntoView();
-                    } }),
+                hubspot: Object.assign(Object.assign({}, form), { onSubmit: () => { var _a; return (_a = refForm.current) === null || _a === void 0 ? void 0 : _a.scrollIntoView(); } }),
             };
         }
         return formData;
@@ -74,7 +71,7 @@ const FormBlock = (props) => {
                 React.createElement(Col, { sizes: colSizes, className: b('content-col') }, textContent && (React.createElement("div", { className: b('content-wrapper') },
                     React.createElement(Content, Object.assign({ theme: "default" }, textContent, { centered: direction === FormBlockDirection.Center, colSizes: { all: 12 }, className: b('content') }))))),
                 React.createElement(Col, { sizes: colSizes, className: b('form-col') },
-                    React.createElement("div", { className: b('form-wrapper') },
+                    React.createElement("div", { className: b('form-wrapper'), ref: refForm },
                         React.createElement("div", { className: b('full-form', {
                                 hidden: !contentLoaded,
                             }) },
