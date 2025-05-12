@@ -8,12 +8,12 @@ $block: '.#{$ns}layout-item';
     flex-direction: column;
     height: 100%;
 
-    &_right {
-        padding-right: 24px;
-    }
-
     &__wrap {
         margin-bottom: $indentXS;
+
+        &_right {
+            padding-right: $indentSM;
+        }
     }
 
     &__title,
@@ -64,6 +64,10 @@ $block: '.#{$ns}layout-item';
 
     &__meta-info {
         margin: $indentXS 0 -#{$indentXXXS} 0;
+
+        &_right {
+            padding-right: $indentSM;
+        }
     }
 
     &__content {
@@ -71,6 +75,11 @@ $block: '.#{$ns}layout-item';
 
         flex: auto;
         margin: $indentXS $indentXS 0 0;
+
+        &_right {
+            margin-right: 0;
+            padding-right: $indentSM;
+        }
 
         &_no-media {
             margin: 0;
