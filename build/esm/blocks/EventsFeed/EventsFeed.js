@@ -17,18 +17,7 @@ const colSizes = {
     xl: 4,
     all: 12,
 };
-const online = [
-    {
-        content: i18n('online'),
-        value: 'true',
-    },
-    {
-        content: i18n('offline'),
-        value: 'false',
-    },
-];
 export const EventsFeedBlock = ({ image, title }) => {
-    // const hasUpdated = useRef(false);
     const [isHandleLoad, setIsHandleLoad] = useState(false);
     const { query } = useContext(RouterContext);
     const { events } = useContext(EventsContext);
@@ -39,12 +28,20 @@ export const EventsFeedBlock = ({ image, title }) => {
         content: item,
         value: item,
     }));
+    const countries = [...new Set(events.map((item) => item.country || ''))]
+        .sort((a, c) => (a > c ? 1 : -1))
+        .filter(Boolean)
+        .map((item) => ({
+        content: item,
+        value: item,
+    }));
     const eventsFiltered = useMemo(() => (events === null || events === void 0 ? void 0 : events.filter((item) => (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search) ||
         `${item.title} ${item.description}`
             .toLocaleLowerCase()
             .includes(tempQuery.search.toLocaleLowerCase())) &&
-        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online) || tempQuery.online === String(item.online)) &&
-        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types) || tempQuery.types.split(',').includes(item.type)))) || [], [events, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types]);
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.countries) ||
+            (item.country && tempQuery.countries.split(',').includes(item.country))) &&
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types) || tempQuery.types.split(',').includes(item.type)))) || [], [events, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.countries, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types]);
     const { upcoming = [], recent = [] } = useMemo(() => {
         const { u = [], r = [] } = groupBy(eventsFiltered, (event) => {
             const now = new Date();
@@ -59,25 +56,6 @@ export const EventsFeedBlock = ({ image, title }) => {
             recent: r.sort((a, c) => new Date(a.dateStart).getTime() < new Date(c.dateStart).getTime() ? 1 : -1),
         };
     }, [eventsFiltered]);
-    // useEffect(() => {
-    //     const handleRouteChangeStart = () => {
-    //         if (hasUpdated.current) return;
-    //         const currentParams = new URLSearchParams(window.location.search);
-    //         router.replace(
-    //             {
-    //                 pathname: router.pathname,
-    //                 query: Object.fromEntries(currentParams),
-    //             },
-    //             undefined,
-    //             {shallow: true},
-    //         );
-    //         hasUpdated.current = true;
-    //     };
-    //     router.events.on('routeChangeStart', handleRouteChangeStart);
-    //     return () => {
-    //         router.events.off('routeChangeStart', handleRouteChangeStart);
-    //     };
-    // }, [router]);
     useEffect(() => {
         if (!isHandleLoad) {
             setTempQuery(convertParsedUrlQueryToQuery(query));
@@ -89,7 +67,7 @@ export const EventsFeedBlock = ({ image, title }) => {
         updateQueryCallback(q);
     }, []);
     return (React.createElement("div", null,
-        React.createElement(EventsFeedHeader, { image: image, title: title, online: online, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),
+        React.createElement(EventsFeedHeader, { image: image, title: title, countries: countries, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),
         React.createElement("div", { className: b('wrap') },
             React.createElement(Anchor, { id: "upcoming" }),
             React.createElement(CardLayoutBlock, { colSizes: colSizes }, upcoming.map((item) => (React.createElement(EventsFeedCard, Object.assign({ key: item.slug }, item)))))),

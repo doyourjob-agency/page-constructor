@@ -20,18 +20,7 @@ const colSizes = {
     xl: 4,
     all: 12,
 };
-const online = [
-    {
-        content: (0, i18n_1.i18n)('online'),
-        value: 'true',
-    },
-    {
-        content: (0, i18n_1.i18n)('offline'),
-        value: 'false',
-    },
-];
 const EventsFeedBlock = ({ image, title }) => {
-    // const hasUpdated = useRef(false);
     const [isHandleLoad, setIsHandleLoad] = (0, react_1.useState)(false);
     const { query } = (0, react_1.useContext)(routerContext_1.RouterContext);
     const { events } = (0, react_1.useContext)(eventsContext_1.EventsContext);
@@ -42,12 +31,20 @@ const EventsFeedBlock = ({ image, title }) => {
         content: item,
         value: item,
     }));
+    const countries = [...new Set(events.map((item) => item.country || ''))]
+        .sort((a, c) => (a > c ? 1 : -1))
+        .filter(Boolean)
+        .map((item) => ({
+        content: item,
+        value: item,
+    }));
     const eventsFiltered = (0, react_1.useMemo)(() => (events === null || events === void 0 ? void 0 : events.filter((item) => (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search) ||
         `${item.title} ${item.description}`
             .toLocaleLowerCase()
             .includes(tempQuery.search.toLocaleLowerCase())) &&
-        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online) || tempQuery.online === String(item.online)) &&
-        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types) || tempQuery.types.split(',').includes(item.type)))) || [], [events, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.online, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types]);
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.countries) ||
+            (item.country && tempQuery.countries.split(',').includes(item.country))) &&
+        (!(tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types) || tempQuery.types.split(',').includes(item.type)))) || [], [events, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.search, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.countries, tempQuery === null || tempQuery === void 0 ? void 0 : tempQuery.types]);
     const { upcoming = [], recent = [] } = (0, react_1.useMemo)(() => {
         const { u = [], r = [] } = (0, groupBy_1.default)(eventsFiltered, (event) => {
             const now = new Date();
@@ -62,25 +59,6 @@ const EventsFeedBlock = ({ image, title }) => {
             recent: r.sort((a, c) => new Date(a.dateStart).getTime() < new Date(c.dateStart).getTime() ? 1 : -1),
         };
     }, [eventsFiltered]);
-    // useEffect(() => {
-    //     const handleRouteChangeStart = () => {
-    //         if (hasUpdated.current) return;
-    //         const currentParams = new URLSearchParams(window.location.search);
-    //         router.replace(
-    //             {
-    //                 pathname: router.pathname,
-    //                 query: Object.fromEntries(currentParams),
-    //             },
-    //             undefined,
-    //             {shallow: true},
-    //         );
-    //         hasUpdated.current = true;
-    //     };
-    //     router.events.on('routeChangeStart', handleRouteChangeStart);
-    //     return () => {
-    //         router.events.off('routeChangeStart', handleRouteChangeStart);
-    //     };
-    // }, [router]);
     (0, react_1.useEffect)(() => {
         if (!isHandleLoad) {
             setTempQuery((0, utils_1.convertParsedUrlQueryToQuery)(query));
@@ -92,7 +70,7 @@ const EventsFeedBlock = ({ image, title }) => {
         (0, utils_1.updateQueryCallback)(q);
     }, []);
     return (react_1.default.createElement("div", null,
-        react_1.default.createElement(EventsFeedHeader_1.default, { image: image, title: title, online: online, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),
+        react_1.default.createElement(EventsFeedHeader_1.default, { image: image, title: title, countries: countries, types: types, handleLoadData: handleLoadData, queryParams: tempQuery }),
         react_1.default.createElement("div", { className: b('wrap') },
             react_1.default.createElement(components_1.Anchor, { id: "upcoming" }),
             react_1.default.createElement(__1.CardLayoutBlock, { colSizes: colSizes }, upcoming.map((item) => (react_1.default.createElement(EventsFeedCard_1.default, Object.assign({ key: item.slug }, item)))))),

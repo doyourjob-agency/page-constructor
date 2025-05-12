@@ -2,5 +2,5 @@ import { EventsFeedHeaderControlsProps } from './EventsFeedHeaderControls/Events
 interface EventsFeedHeaderProps extends EventsFeedHeaderControlsProps {
     image?: string;
 }
-export declare const EventsFeedHeader: ({ title, online, types, image, handleLoadData, queryParams, }: EventsFeedHeaderProps) => JSX.Element;
+export declare const EventsFeedHeader: ({ title, countries, types, image, handleLoadData, queryParams, }: EventsFeedHeaderProps) => JSX.Element;
 export default EventsFeedHeader;

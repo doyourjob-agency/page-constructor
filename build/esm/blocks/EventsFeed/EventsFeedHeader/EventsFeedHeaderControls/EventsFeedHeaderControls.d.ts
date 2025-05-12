@@ -7,9 +7,9 @@ export type SelectItem = {
 export type EventsFeedHeaderControlsProps = {
     title?: string;
     handleLoadData: (query: Query) => void;
-    online?: SelectItem[];
+    countries?: SelectItem[];
     types?: SelectItem[];
     queryParams: Query;
 };
-export declare const EventsFeedHeaderControls: ({ title, handleLoadData, online, types, queryParams, }: EventsFeedHeaderControlsProps) => JSX.Element;
+export declare const EventsFeedHeaderControls: ({ title, handleLoadData, countries, types, queryParams, }: EventsFeedHeaderControlsProps) => JSX.Element;
 export default EventsFeedHeaderControls;
