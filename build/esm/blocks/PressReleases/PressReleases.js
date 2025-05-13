@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { CardLayoutBlock } from '..';
 import { PressReleasesContext } from '../../context/pressReleasesContext';
 import { BasicCard } from '../../sub-blocks';
@@ -10,15 +10,17 @@ const colSizes = {
 };
 export const PressReleasesBlock = ({ title }) => {
     const { pressReleases, page, pageSize, onLoadMore } = useContext(PressReleasesContext);
+    const blockRef = useRef(null);
     const totalPages = Math.ceil(pressReleases.length / pageSize);
     const visibleCount = page * pageSize;
     const itemsToShow = pressReleases.slice(0, visibleCount);
     useEffect(() => {
         const handleScroll = () => {
-            const scrollY = window.scrollY;
+            if (!blockRef.current)
+                return;
+            const rect = blockRef.current.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
-            const fullHeight = document.documentElement.scrollHeight;
-            const nearBottom = scrollY + viewportHeight >= fullHeight;
+            const nearBottom = rect.bottom - viewportHeight < 200;
             if (nearBottom && page < totalPages) {
                 onLoadMore();
             }
@@ -26,6 +28,7 @@ export const PressReleasesBlock = ({ title }) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [page, totalPages, onLoadMore]);
-    return (React.createElement(CardLayoutBlock, { title: title, colSizes: colSizes }, itemsToShow.map((item) => (React.createElement(BasicCard, { key: item.url, title: item.title, text: item.date, url: item.url, border: "line" })))));
+    return (React.createElement("div", { ref: blockRef },
+        React.createElement(CardLayoutBlock, { title: title, colSizes: colSizes }, itemsToShow.map((item) => (React.createElement(BasicCard, { key: item.url, title: item.title, text: item.date, url: item.url, border: "line" }))))));
 };
 export default PressReleasesBlock;
