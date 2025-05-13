@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 
 import {CardLayoutBlock} from '..';
 import {PressReleasesContext} from '../../context/pressReleasesContext';
@@ -14,7 +14,7 @@ const colSizes = {
 
 export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
     const {pressReleases, page, pageSize, onLoadMore} = useContext(PressReleasesContext);
-
+    const blockRef = useRef<HTMLDivElement>(null);
     const totalPages = Math.ceil(pressReleases.length / pageSize);
 
     const visibleCount = page * pageSize;
@@ -22,11 +22,12 @@ export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const viewportHeight = window.innerHeight;
-            const fullHeight = document.documentElement.scrollHeight;
+            if (!blockRef.current) return;
 
-            const nearBottom = scrollY + viewportHeight >= fullHeight;
+            const rect = blockRef.current.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const nearBottom = rect.bottom - viewportHeight < 200;
 
             if (nearBottom && page < totalPages) {
                 onLoadMore();
@@ -38,17 +39,19 @@ export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
     }, [page, totalPages, onLoadMore]);
 
     return (
-        <CardLayoutBlock title={title} colSizes={colSizes}>
-            {itemsToShow.map((item) => (
-                <BasicCard
-                    key={item.url}
-                    title={item.title}
-                    text={item.date}
-                    url={item.url}
-                    border="line"
-                />
-            ))}
-        </CardLayoutBlock>
+        <div ref={blockRef}>
+            <CardLayoutBlock title={title} colSizes={colSizes}>
+                {itemsToShow.map((item) => (
+                    <BasicCard
+                        key={item.url}
+                        title={item.title}
+                        text={item.date}
+                        url={item.url}
+                        border="line"
+                    />
+                ))}
+            </CardLayoutBlock>
+        </div>
     );
 };
 
