@@ -22,7 +22,7 @@ const PressReleasesBlock = ({ title }) => {
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
             const fullHeight = document.documentElement.scrollHeight;
-            const nearBottom = scrollY + viewportHeight >= fullHeight - 200;
+            const nearBottom = scrollY + viewportHeight >= fullHeight;
             if (nearBottom && page < totalPages) {
                 onLoadMore();
             }
