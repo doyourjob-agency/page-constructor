@@ -1,0 +1,8 @@
+{
+  "default": {
+    "content": {
+      "type": "press-releases-block",
+      "title": "Latest press releases"
+    }
+  }
+}

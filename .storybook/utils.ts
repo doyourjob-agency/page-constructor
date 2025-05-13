@@ -4,6 +4,7 @@ import argsFormListContext from './args/argsFormListContext.json';
 import argsSolutionsContext from './args/argsSolutionsContext.json';
 import argsRouterContext from './args/argsRouterContext.json';
 import argsEventsContext from './args/argsEventsContext.json';
+import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
@@ -80,6 +81,21 @@ export const argEventsContext = {
     },
     args: {
         eventsContext: argsEventsContext,
+    },
+};
+
+export const argPressReleasesContext = {
+    argTypes: {
+        pressReleasesContext: {
+            name: 'Press Releases Context',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        pressReleasesContext: argsPressReleasesContext,
     },
 };
 

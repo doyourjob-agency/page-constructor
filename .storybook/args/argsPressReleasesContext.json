@@ -1,0 +1,21 @@
+{
+  "pressReleases": [
+    {
+      "title": "Title 1",
+      "date": "Augus 12, 2025",
+      "url": "#"
+    },
+    {
+      "title": "Title 2",
+      "date": "Augus 11, 2025",
+      "url": "#"
+    },
+    {
+      "title": "Title 3",
+      "date": "Augus 10, 2025",
+      "url": "#"
+    }
+  ],
+  "page": 1,
+  "pageSize": 10
+}

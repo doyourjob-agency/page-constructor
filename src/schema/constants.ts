@@ -18,6 +18,7 @@ import {
     MapBlock,
     MarqueeLinksBlock,
     MediaBlock,
+    PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
     QuotesBlock,
@@ -70,6 +71,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...QuotesBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...PressReleasesBlock,
 };
 
 export const cardSchemas = {
