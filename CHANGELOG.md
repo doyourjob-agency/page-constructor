@@ -1,6 +1,14 @@
 # Changelog
 
-## [5.31.7](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.6-main...v5.31.7-main) (2025-04-14)
+## [5.31.8](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.7-main...v5.31.8-main) (2025-05-13)
+
+### Features
+
+* **PressRelease:** Add block
+* **PressReleaseContext:** Add context
+
+
+## [5.31.7](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.6-main...v5.31.7-main) (2025-05-12)
 
 ### Features
 
