@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.31.9](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.8-main...v5.31.9-main) (2025-05-13)
+
+### Features
+
+* **yfmTransformer:** add allowHTML options
+
 ## [5.31.8](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.7-main...v5.31.8-main) (2025-05-13)
 
 ### Features
