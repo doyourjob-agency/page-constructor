@@ -39,12 +39,13 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
 export function yfmTransformer(
     lang: Lang,
     content: string,
-    options: {plugins?: MarkdownItPluginCb[]} = {},
+    options: {allowHTML?: boolean; plugins?: MarkdownItPluginCb[]} = {},
 ) {
-    const {plugins = []} = options;
+    const {plugins = [], allowHTML} = options;
     const {html} = fullTransform(content, {
         lang,
         plugins: [...defaultPlugins, ...plugins],
+        allowHTML,
     });
 
     return html;
