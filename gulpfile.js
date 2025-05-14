@@ -25,6 +25,7 @@ function compileTs(modules = false) {
     });
 
     return src([
+        'types/**/*.d.ts',
         'src/**/*.{ts,tsx}',
         '!src/stories/**/*',
         '!src/**/__stories__/**/*',
@@ -55,6 +56,7 @@ task('compile-to-cjs', () => {
 task('copy-js-declarations', () => {
     return src([
         'src/**/*.d.ts',
+        'types/**/*.d.ts',
         '!src/stories/**/*.d.ts',
         '!src/**/__stories__/**/*.d.ts',
         '!src/**/__tests__/**/*.d.ts',
