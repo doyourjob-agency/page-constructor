@@ -1,6 +1,6 @@
 {
   "name": "@gravity-ui/page-constructor",
-  "version": "5.31.9",
+  "version": "5.31.10",
   "description": "Gravity UI Page Constructor",
   "license": "MIT",
   "repository": {
@@ -101,6 +101,7 @@
     "github-buttons": "2.23.0",
     "js-yaml-source-map": "^0.2.2",
     "lodash": "^4.17.21",
+    "markdown-it-mark": "^4.0.0",
     "monaco-editor": "^0.38.0",
     "react-fast-marquee": "^1.6.5",
     "react-final-form": "^6.5.9",
@@ -153,6 +154,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/json-schema": "^7.0.12",
     "@types/lodash": "^4.14.176",
+    "@types/markdown-it": "^14.1.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-slick": "^0.23.7",

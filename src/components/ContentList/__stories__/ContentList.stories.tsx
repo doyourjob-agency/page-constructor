@@ -2,16 +2,16 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
 import {ContentItemProps, ContentListProps} from '../../../models';
+import {yfmTransformer} from '../../../text-transform';
 import ContentList from '../ContentList';
 
 import data from './data.json';
 
 const transformListItem = (item: ContentItemProps) => ({
     ...item,
-    text: item?.text && yfmTransform(item.text),
-    title: item?.title && yfmTransform(item.title),
+    text: item?.text && yfmTransformer('en', item.text),
+    title: item?.title && yfmTransformer('en', item.title),
 });
 
 export default {

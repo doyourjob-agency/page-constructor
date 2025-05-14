@@ -9,8 +9,9 @@
     "importHelpers": true,
     "paths": {
       "widget": ["../widget"]
-    }
+    },
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
 
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts"]
 }

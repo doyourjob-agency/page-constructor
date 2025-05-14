@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.10](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.9-main...v5.31.10-main) (2025-05-14)
+
+### Features
+
+* **yfmTransformer:** add markdown-it-mark plugin and custom span support, remove allowHTML option
+
+
 ## [5.31.9](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.8-main...v5.31.9-main) (2025-05-13)
 
 ### Features

@@ -1,6 +1,8 @@
 import defaultPlugins from '@diplodoc/transform/lib/plugins';
 import {MarkdownItPluginCb} from '@diplodoc/transform/lib/plugins/typings';
+import mark from 'markdown-it-mark';
 
+import customSpanPlugin from './markdownItCustomSpan';
 import {Lang} from './types';
 import {fullTransform, typografToHTML} from './utils';
 
@@ -39,13 +41,12 @@ export const createItemsParser = (fields: string[]) => (transformer: Transformer
 export function yfmTransformer(
     lang: Lang,
     content: string,
-    options: {allowHTML?: boolean; plugins?: MarkdownItPluginCb[]} = {},
+    options: {plugins?: MarkdownItPluginCb[]} = {},
 ) {
-    const {plugins = [], allowHTML} = options;
+    const {plugins = []} = options;
     const {html} = fullTransform(content, {
         lang,
-        plugins: [...defaultPlugins, ...plugins],
-        allowHTML,
+        plugins: [...defaultPlugins, mark, customSpanPlugin, ...plugins],
     });
 
     return html;
