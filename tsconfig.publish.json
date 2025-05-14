@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "paths": {}
+    "paths": {},
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
+  "include": ["types/**/*.d.ts"],
   "exclude": ["src/stories"]
 }
