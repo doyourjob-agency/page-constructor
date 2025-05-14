@@ -9,7 +9,8 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./node_modules/*"]
-    }
+    },
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
-  "include": ["src/configure.ts"]
+  "include": ["src/configure.ts", "types/**/*.d.ts"]
 }
