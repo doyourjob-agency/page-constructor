@@ -16,26 +16,15 @@ interface EventsFeedHeaderProps extends EventsFeedHeaderControlsProps {
     image?: string;
 }
 
-export const EventsFeedHeader = ({
-    title,
-    countries,
-    types,
-    image,
-    handleLoadData,
-    queryParams,
-}: EventsFeedHeaderProps) => (
-    <div className={b()}>
-        <Grid className={b('content')}>
-            {image && <BackgroundImage src={image} className={b('background')} />}
-            <EventsFeedHeaderControls
-                title={title}
-                countries={countries}
-                types={types}
-                handleLoadData={handleLoadData}
-                queryParams={queryParams}
-            />
-        </Grid>
-    </div>
-);
+export const EventsFeedHeader = ({title, image}: EventsFeedHeaderProps) => {
+    return (
+        <div className={b()}>
+            <Grid className={b('content')}>
+                {image && <BackgroundImage src={image} className={b('background')} />}
+                <EventsFeedHeaderControls title={title} />
+            </Grid>
+        </div>
+    );
+};
 
-export default EventsFeedHeader;
+export default React.memo(EventsFeedHeader);

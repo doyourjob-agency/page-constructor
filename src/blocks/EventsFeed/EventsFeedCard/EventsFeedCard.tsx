@@ -43,4 +43,4 @@ export const EventsFeedCard = ({
     </CardBase>
 );
 
-export default EventsFeedCard;
+export default React.memo(EventsFeedCard);

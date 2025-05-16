@@ -39,6 +39,7 @@ export {default as UnpublishedLabel} from './UnpublishedLabel/UnpublishedLabel';
 export {default as VideoBlock} from './VideoBlock/VideoBlock';
 export {default as YFMWrapper} from './YFMWrapper/YFMWrapper';
 export {default as YandexForm} from './YandexForm/YandexForm';
+export {default as InfiniteScroll} from './InfiniteScroll/InfiniteScroll';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

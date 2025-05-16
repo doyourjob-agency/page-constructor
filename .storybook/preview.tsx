@@ -17,7 +17,16 @@ import {ServicesContext, ServicesContextProps} from '../src/context/servicesCont
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 import {RouterContext, RouterContextProps} from '../src/context/routerContext';
-import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
+import {
+    EventsHeaderFilterContext,
+    EventsHeaderFilterContextProps,
+    EventsHeaderFiltersContext,
+    EventsHeaderFiltersContextProps,
+    EventsRecentContext,
+    EventsRecentContextProps,
+    EventsUpcomingContext,
+    EventsUpcomingContextProps,
+} from '../src/context/eventsContext';
 import {PressReleasesContext, PressReleasesContextProps} from '../src/context/pressReleasesContext';
 import {HeaderContext, HeaderContextProps} from '../src/context/headerContext';
 
@@ -52,24 +61,49 @@ const withContextProvider: Decorator = (Story, context) => {
                                 <RouterContext.Provider
                                     value={context.args.routerContext as RouterContextProps}
                                 >
-                                    <EventsContext.Provider
-                                        value={context.args.eventsContext as EventsContextProps}
+                                    <EventsHeaderFiltersContext.Provider
+                                        value={
+                                            context.args
+                                                .eventsHeaderFiltersContext as EventsHeaderFiltersContextProps
+                                        }
                                     >
-                                        <PressReleasesContext.Provider
+                                        <EventsHeaderFilterContext.Provider
                                             value={
                                                 context.args
-                                                    .pressReleasesContext as PressReleasesContextProps
+                                                    .eventsHeaderFilterContext as EventsHeaderFilterContextProps
                                             }
                                         >
-                                            <HeaderContext.Provider
+                                            <EventsUpcomingContext.Provider
                                                 value={
-                                                    context.args.headerContext as HeaderContextProps
+                                                    context.args
+                                                        .eventsUpcomingContext as EventsUpcomingContextProps
                                                 }
                                             >
-                                                <Story {...context} />
-                                            </HeaderContext.Provider>
-                                        </PressReleasesContext.Provider>
-                                    </EventsContext.Provider>
+                                                <EventsRecentContext.Provider
+                                                    value={
+                                                        context.args
+                                                            .eventsRecentContext as EventsRecentContextProps
+                                                    }
+                                                >
+                                                    <PressReleasesContext.Provider
+                                                        value={
+                                                            context.args
+                                                                .pressReleasesContext as PressReleasesContextProps
+                                                        }
+                                                    >
+                                                        <HeaderContext.Provider
+                                                            value={
+                                                                context.args
+                                                                    .headerContext as HeaderContextProps
+                                                            }
+                                                        >
+                                                            <Story {...context} />
+                                                        </HeaderContext.Provider>
+                                                    </PressReleasesContext.Provider>
+                                                </EventsRecentContext.Provider>
+                                            </EventsUpcomingContext.Provider>
+                                        </EventsHeaderFilterContext.Provider>
+                                    </EventsHeaderFiltersContext.Provider>
                                 </RouterContext.Provider>
                             </SolutionsContext.Provider>
                         </FormListContext.Provider>

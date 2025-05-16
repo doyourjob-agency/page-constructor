@@ -1,9 +1,5 @@
 {
-  "all_countries": "Все страны",
   "search": "Поиск",
-  "all_types": "Все типы",
-  "online": "В сети",
-  "offline": "Оффлайн",
   "recent_events": "Последние события",
   "clear": "Очистить"
 }

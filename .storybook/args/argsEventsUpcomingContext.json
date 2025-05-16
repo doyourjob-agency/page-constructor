@@ -1,0 +1,30 @@
+{
+  "upcoming": [
+    {
+      "slug": "test-1",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2030-10-25T23:59:59Z",
+      "online": false,
+      "type": "Conference",
+      "info": "Oct 24-25, 2030",
+      "dateStart": "2030-10-24T00:00:00Z",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "India"
+    },
+    {
+      "slug": "test-2",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2030-01-18T23:59:59Z",
+      "online": false,
+      "type": "Hackathon",
+      "info": "Jan 17-18, 2030",
+      "dateStart": "2030-01-17T00:00:00Z",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "UK"
+    }
+  ]
+}

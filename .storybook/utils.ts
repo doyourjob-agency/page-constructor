@@ -3,7 +3,10 @@ import argsServicesContext from './args/argsServicesContext.json';
 import argsFormListContext from './args/argsFormListContext.json';
 import argsSolutionsContext from './args/argsSolutionsContext.json';
 import argsRouterContext from './args/argsRouterContext.json';
-import argsEventsContext from './args/argsEventsContext.json';
+import argsEventsHeaderFiltersContext from './args/argsEventsHeaderFiltersContext.json';
+import argsEventsHeaderFilterContext from './args/argsEventsHeaderFilterContext.json';
+import argsEventsUpcomingContext from './args/argsEventsUpcomingContext.json';
+import argsEventsRecentContext from './args/argsEventsRecentContext.json';
 import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 
@@ -71,8 +74,29 @@ export const argRouterContext = {
 
 export const argEventsContext = {
     argTypes: {
-        eventsContext: {
-            name: 'EventsContext',
+        eventsHeaderFiltersContext: {
+            name: 'EventsHeaderFiltersContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+        eventsHeaderFilterContext: {
+            name: 'EventsHeaderFilterContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+        eventsUpcomingContext: {
+            name: 'EventsUpcomingContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+        eventsRecentContext: {
+            name: 'EventsRecentContext',
             control: 'object',
             table: {
                 category: 'Context',
@@ -80,7 +104,10 @@ export const argEventsContext = {
         },
     },
     args: {
-        eventsContext: argsEventsContext,
+        eventsHeaderFiltersContext: argsEventsHeaderFiltersContext,
+        eventsHeaderFilterContext: argsEventsHeaderFilterContext,
+        eventsUpcomingContext: argsEventsUpcomingContext,
+        eventsRecentContext: argsEventsRecentContext,
     },
 };
 
