@@ -1,7 +1,0 @@
-/* use this for style redefinitions to awoid problems with
-unpredictable css rules order in build */
-.pc-header-block-breadcrumbs {
-  position: absolute;
-  top: 16px;
-  z-index: 11;
-}

@@ -1,6 +1,0 @@
-/* use this for style redefinitions to awoid problems with
-unpredictable css rules order in build */
-.pc-events-feed-upcoming {
-  margin-top: 48px;
-  padding-bottom: 48px;
-}

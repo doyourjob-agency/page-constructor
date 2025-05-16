@@ -1,1 +1,0 @@
-export declare const i18n: (key: "constructor-share" | "facebook-title" | "twitter-title" | "linkedin-title" | "vk-title" | "telegram-title" | "facebook-label" | "twitter-label" | "linkedin-label" | "vk-label" | "telegram-label", params?: import("@gravity-ui/i18n").Params | undefined) => string;
