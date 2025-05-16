@@ -33,6 +33,9 @@ export interface EventsHeaderContextProps {
         label?: string;
         items?: EventsOption[];
     }[];
+}
+
+export interface EventsHeaderFunctionsContextProps {
     onChangeFilter?: (filter: EventsFilter) => void;
 }
 
@@ -50,6 +53,9 @@ export interface EventsRecentContextProps {
 export const EventsHeaderContext = React.createContext<EventsHeaderContextProps>({
     filter: {},
     filters: [],
+});
+
+export const EventsHeaderFunctionsContext = React.createContext<EventsHeaderFunctionsContextProps>({
     onChangeFilter: () => {},
 });
 
