@@ -88,23 +88,39 @@ const FilterSelect = ({
 };
 
 const Filter = ({
+    name,
     type,
     value,
-    onChange,
     label,
     items,
 }: {
+    name: string;
     type: string;
     value: string;
-    onChange: (value: string) => void;
     label?: string;
     items?: EventsOption[];
 }) => {
+    const {onChangeFilter} = useContext(EventsHeaderFunctionsContext);
+
+    const handleChangeFilter = useCallback(
+        (data: string) => {
+            onChangeFilter?.({[name]: data});
+        },
+        [name, onChangeFilter],
+    );
+
     switch (type) {
         case 'input':
-            return <FilterInput label={label} value={value} onChange={onChange} />;
+            return <FilterInput label={label} value={value} onChange={handleChangeFilter} />;
         case 'select':
-            return <FilterSelect label={label} items={items} value={value} onChange={onChange} />;
+            return (
+                <FilterSelect
+                    label={label}
+                    items={items}
+                    value={value}
+                    onChange={handleChangeFilter}
+                />
+            );
         default:
             return null;
     }
@@ -119,14 +135,6 @@ export type EventsFeedHeaderControlsProps = {
 export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
     const {filter} = useContext(EventsHeaderFilterContext);
     const {filters} = useContext(EventsHeaderFiltersContext);
-    const {onChangeFilter} = useContext(EventsHeaderFunctionsContext);
-
-    const handleChangeFilter = useCallback(
-        (name: string) => (value: string) => {
-            onChangeFilter?.({[name]: value});
-        },
-        [onChangeFilter],
-    );
 
     return (
         <div className={b()}>
@@ -135,9 +143,9 @@ export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps)
                 {filters.map((item) => (
                     <FilterMemo
                         key={item.name}
+                        name={item.name}
                         type={item.type}
                         value={filter[item.name]}
-                        onChange={handleChangeFilter(item.name)}
                         label={item.label}
                         items={item.items}
                     />
