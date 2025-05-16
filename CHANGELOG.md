@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.11](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.10-main...v5.31.11-main) (2025-05-16)
+
+### Features
+
+* **EventsFeed:** Refactor, fix rerenders and add infinity scroll
+
+
 ## [5.31.10](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.9-main...v5.31.10-main) (2025-05-14)
 
 ### Features
