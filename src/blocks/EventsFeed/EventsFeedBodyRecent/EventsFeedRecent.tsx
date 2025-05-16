@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {Anchor, InfiniteScroll} from '../../../components';
-import {EventsContext} from '../../../context/eventsContext';
+import {EventsRecentContext} from '../../../context/eventsContext';
 import {block} from '../../../utils';
 
 import EventsFeedCard from './../EventsFeedCard/EventsFeedCard';
@@ -21,7 +21,7 @@ const colSizes = {
 };
 
 export const EventsFeedRecent = () => {
-    const {recent, page, pageSize, onLoadMore} = useContext(EventsContext);
+    const {recent, page, pageSize, onLoadMore} = useContext(EventsRecentContext);
     const itemsToShow = recent.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(recent.length / pageSize);
 

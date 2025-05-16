@@ -25,9 +25,7 @@ export type EventsOption = {
     value: string;
 };
 
-export interface EventsContextProps {
-    upcoming: EventData[];
-    recent: EventData[];
+export interface EventsHeaderContextProps {
     filter: Record<string, string>;
     filters: {
         type: 'select' | 'input';
@@ -35,19 +33,33 @@ export interface EventsContextProps {
         label?: string;
         items?: EventsOption[];
     }[];
-    page: number;
-    pageSize: number;
-    onLoadMore?: () => void;
     onChangeFilter?: (filter: EventsFilter) => void;
 }
 
-export const EventsContext = React.createContext<EventsContextProps>({
-    upcoming: [],
-    recent: [],
+export interface EventsUpcomingContextProps {
+    upcoming: EventData[];
+}
+
+export interface EventsRecentContextProps {
+    recent: EventData[];
+    page: number;
+    pageSize: number;
+    onLoadMore?: () => void;
+}
+
+export const EventsHeaderContext = React.createContext<EventsHeaderContextProps>({
     filter: {},
     filters: [],
+    onChangeFilter: () => {},
+});
+
+export const EventsUpcomingContext = React.createContext<EventsUpcomingContextProps>({
+    upcoming: [],
+});
+
+export const EventsRecentContext = React.createContext<EventsRecentContextProps>({
+    recent: [],
     page: 1,
     pageSize: 6,
     onLoadMore: () => {},
-    onChangeFilter: () => {},
 });

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {Anchor} from '../../../components';
-import {EventsContext} from '../../../context/eventsContext';
+import {EventsUpcomingContext} from '../../../context/eventsContext';
 import {block} from '../../../utils';
 
 import EventsFeedCard from './../EventsFeedCard/EventsFeedCard';
@@ -20,7 +20,7 @@ const colSizes = {
 };
 
 export const EventsFeedUpcoming = () => {
-    const {upcoming} = useContext(EventsContext);
+    const {upcoming} = useContext(EventsUpcomingContext);
 
     return (
         <div className={b()}>

@@ -2,7 +2,7 @@ import React, {useCallback, useContext, useEffect, useMemo, useState} from 'reac
 
 import {Select} from '@gravity-ui/uikit';
 
-import {EventsContext, EventsOption} from '../../../../context/eventsContext';
+import {EventsHeaderContext, EventsOption} from '../../../../context/eventsContext';
 import {MobileContext} from '../../../../context/mobileContext';
 import {block} from '../../../../utils';
 import {EventsFeedHeaderSearch} from '../EventsFeedHeaderSearch/EventsFeedHeaderSearch';
@@ -16,7 +16,7 @@ const b = block('events-feed-header-controls');
 const VIRTUALIZATION_THRESHOLD = 1000;
 
 const FilterInput = ({name, label}: {name: string; label?: string}) => {
-    const {filter, onChangeFilter} = useContext(EventsContext);
+    const {filter, onChangeFilter} = useContext(EventsHeaderContext);
 
     const initialValue = useMemo(() => filter[name] || '', [filter, name]);
 
@@ -58,7 +58,7 @@ const FilterSelect = ({
     label?: string;
     items?: EventsOption[];
 }) => {
-    const {filter, onChangeFilter} = useContext(EventsContext);
+    const {filter, onChangeFilter} = useContext(EventsHeaderContext);
     const isMobile = useContext(MobileContext);
 
     const initialValue = useMemo(() => filter[name] || '', [filter, name]);
@@ -127,7 +127,7 @@ export type EventsFeedHeaderControlsProps = {
 };
 
 export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
-    const {filters} = useContext(EventsContext);
+    const {filters} = useContext(EventsHeaderContext);
 
     return (
         <div className={b()}>

@@ -1,0 +1,52 @@
+{
+  "filter": {},
+  "filters": [
+    {
+      "type": "input",
+      "name": "search",
+      "label": "Search"
+    },
+    {
+      "type": "select",
+      "name": "countries",
+      "label": "All countries",
+      "items": [
+        {
+          "value": "test",
+          "content": "Test"
+        },
+        {
+          "value": "uk",
+          "content": "UK"
+        },
+        {
+          "value": "france",
+          "content": "France"
+        },
+        {
+          "value": "usa",
+          "content": "USA"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "types",
+      "label": "All types",
+      "items": [
+        {
+          "value": "conference",
+          "content": "Conference"
+        },
+        {
+          "value": "hackathon",
+          "content": "Hackathon"
+        },
+        {
+          "value": "webinar",
+          "content": "Webinar"
+        }
+      ]
+    }
+  ]
+}

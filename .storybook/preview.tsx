@@ -17,7 +17,14 @@ import {ServicesContext, ServicesContextProps} from '../src/context/servicesCont
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 import {RouterContext, RouterContextProps} from '../src/context/routerContext';
-import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
+import {
+    EventsHeaderContext,
+    EventsHeaderContextProps,
+    EventsRecentContext,
+    EventsRecentContextProps,
+    EventsUpcomingContext,
+    EventsUpcomingContextProps,
+} from '../src/context/eventsContext';
 import {PressReleasesContext, PressReleasesContextProps} from '../src/context/pressReleasesContext';
 import {HeaderContext, HeaderContextProps} from '../src/context/headerContext';
 
@@ -52,24 +59,42 @@ const withContextProvider: Decorator = (Story, context) => {
                                 <RouterContext.Provider
                                     value={context.args.routerContext as RouterContextProps}
                                 >
-                                    <EventsContext.Provider
-                                        value={context.args.eventsContext as EventsContextProps}
+                                    <EventsHeaderContext.Provider
+                                        value={
+                                            context.args
+                                                .eventsHeaderContext as EventsHeaderContextProps
+                                        }
                                     >
-                                        <PressReleasesContext.Provider
+                                        <EventsUpcomingContext.Provider
                                             value={
                                                 context.args
-                                                    .pressReleasesContext as PressReleasesContextProps
+                                                    .eventsUpcomingContext as EventsUpcomingContextProps
                                             }
                                         >
-                                            <HeaderContext.Provider
+                                            <EventsRecentContext.Provider
                                                 value={
-                                                    context.args.headerContext as HeaderContextProps
+                                                    context.args
+                                                        .eventsRecentContext as EventsRecentContextProps
                                                 }
                                             >
-                                                <Story {...context} />
-                                            </HeaderContext.Provider>
-                                        </PressReleasesContext.Provider>
-                                    </EventsContext.Provider>
+                                                <PressReleasesContext.Provider
+                                                    value={
+                                                        context.args
+                                                            .pressReleasesContext as PressReleasesContextProps
+                                                    }
+                                                >
+                                                    <HeaderContext.Provider
+                                                        value={
+                                                            context.args
+                                                                .headerContext as HeaderContextProps
+                                                        }
+                                                    >
+                                                        <Story {...context} />
+                                                    </HeaderContext.Provider>
+                                                </PressReleasesContext.Provider>
+                                            </EventsRecentContext.Provider>
+                                        </EventsUpcomingContext.Provider>
+                                    </EventsHeaderContext.Provider>
                                 </RouterContext.Provider>
                             </SolutionsContext.Provider>
                         </FormListContext.Provider>

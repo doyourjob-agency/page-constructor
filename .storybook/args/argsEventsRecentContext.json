@@ -1,0 +1,58 @@
+{
+  "recent": [
+    {
+      "slug": "test-3",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2030-02-10T23:59:59Z",
+      "online": false,
+      "type": "Conference",
+      "info": "Feb 8-10, 2030",
+      "dateStart": "2030-02-08T00:00:00Z",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "France"
+    },
+    {
+      "slug": "test-4",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2024-02-13T23:59:59+01:00",
+      "online": true,
+      "type": "Webinar",
+      "info": "Feb 13, 2024",
+      "dateStart": "2024-02-13T00:00:00+01:00",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "Online"
+    },
+    {
+      "slug": "test-5",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2024-03-21T23:59:59Z",
+      "online": false,
+      "type": "Conference",
+      "info": "Mar 18-21, 2024",
+      "dateStart": "2024-03-18T00:00:00Z",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "USA"
+    },
+    {
+      "slug": "test-6",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "2024-03-28T23:59:59Z",
+      "online": true,
+      "type": "Webinar",
+      "info": "Mar 28, 2024",
+      "dateStart": "2024-03-28T00:00:00Z",
+      "image": "/story-assets/img_6-12_light.png",
+      "country": "Test",
+      "place": "Online"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}
