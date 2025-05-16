@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 
 import {Select} from '@gravity-ui/uikit';
 
@@ -45,6 +45,12 @@ export const EventsFeedHeaderControls = ({
     } = queryParams || {};
 
     const [search, setSearch] = useState<string>((searchInitial as string) || '');
+
+    useEffect(() => {
+        if (searchInitial) {
+            setSearch((prev) => (prev ? prev : (searchInitial as string) || ''));
+        }
+    }, [searchInitial]);
 
     const handleSearch = (searchValue: string) => {
         setSearch(searchValue);
