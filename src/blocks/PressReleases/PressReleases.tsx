@@ -1,6 +1,7 @@
-import React, {useContext, useEffect, useRef} from 'react';
+import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '..';
+import {InfiniteScroll} from '../../components';
 import {PressReleasesContext} from '../../context/pressReleasesContext';
 import {PressReleasesBlockProps} from '../../models';
 import {BasicCard} from '../../sub-blocks';
@@ -14,32 +15,11 @@ const colSizes = {
 
 export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
     const {pressReleases, page, pageSize, onLoadMore} = useContext(PressReleasesContext);
-    const blockRef = useRef<HTMLDivElement>(null);
-    const totalPages = Math.ceil(pressReleases.length / pageSize);
-
-    const visibleCount = page * pageSize;
-    const itemsToShow = pressReleases.slice(0, visibleCount);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!blockRef.current) return;
-
-            const rect = blockRef.current.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-
-            const nearBottom = rect.bottom - viewportHeight < 200;
-
-            if (nearBottom && page < totalPages) {
-                onLoadMore();
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [page, totalPages, onLoadMore]);
+    const itemsToShow = pressReleases.slice(0, page * pageSize);
+    const hasMore = page < Math.ceil(pressReleases.length / pageSize);
 
     return (
-        <div ref={blockRef}>
+        <div>
             <CardLayoutBlock title={title} colSizes={colSizes}>
                 {itemsToShow.map((item) => (
                     <BasicCard
@@ -51,6 +31,7 @@ export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
                     />
                 ))}
             </CardLayoutBlock>
+            <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
         </div>
     );
 };
