@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useMemo} from 'react';
 
 import {Select} from '@gravity-ui/uikit';
 
@@ -15,64 +15,45 @@ const b = block('events-feed-header-controls');
 
 const VIRTUALIZATION_THRESHOLD = 1000;
 
-const FilterInput = ({name, label}: {name: string; label?: string}) => {
-    const {filter, onChangeFilter} = useContext(EventsHeaderContext);
-
-    const initialValue = useMemo(() => filter[name] || '', [filter, name]);
-
-    const [value, setValue] = useState<string>(initialValue);
-
-    useEffect(() => {
-        if (initialValue) {
-            setValue((prev) => (prev ? prev : initialValue));
-        }
-    }, [initialValue]);
-
-    const handleSubmit = useCallback(
-        (searchValue: string) => {
-            setValue(searchValue);
-
-            onChangeFilter?.({[name]: searchValue});
-        },
-        [name, onChangeFilter],
-    );
-
-    return (
-        <div className={b('filter-item')}>
-            <EventsFeedHeaderSearch
-                className={b('filter-input')}
-                placeholder={label}
-                initialValue={value}
-                onSubmit={handleSubmit}
-            />
-        </div>
-    );
-};
+const FilterInput = ({
+    value,
+    onChange,
+    label,
+}: {
+    value: string;
+    onChange: (value: string) => void;
+    label?: string;
+}) => (
+    <div className={b('filter-item')}>
+        <EventsFeedHeaderSearch
+            className={b('filter-input')}
+            placeholder={label}
+            initialValue={value}
+            onSubmit={onChange}
+        />
+    </div>
+);
 
 const FilterSelect = ({
-    name,
     label,
+    value,
+    onChange,
     items = [],
 }: {
-    name: string;
+    value: string;
+    onChange: (value: string) => void;
     label?: string;
     items?: EventsOption[];
 }) => {
-    const {filter, onChangeFilter} = useContext(EventsHeaderContext);
     const isMobile = useContext(MobileContext);
 
-    const initialValue = useMemo(() => filter[name] || '', [filter, name]);
+    const handleUpdate = (selected: string[]) => {
+        const asString = selected.join(',');
 
-    const handleUpdate = useCallback(
-        (selected: string[]) => {
-            const asString = selected.join(',');
+        onChange(asString);
+    };
 
-            onChangeFilter?.({[name]: asString});
-        },
-        [name, onChangeFilter],
-    );
-
-    const value = useMemo(() => (initialValue ? [...initialValue.split(',')] : []), [initialValue]);
+    const valueLocal = useMemo(() => (value ? [...value.split(',')] : []), [value]);
 
     return (
         <div className={b('filter-item')}>
@@ -81,11 +62,11 @@ const FilterSelect = ({
                 size="xl"
                 options={items}
                 defaultValue={[]}
-                value={value}
+                value={valueLocal}
                 onUpdate={handleUpdate}
                 popupClassName={b('popup', {mobile: isMobile})}
                 renderControl={renderSwitcher({
-                    initial: value,
+                    initial: valueLocal,
                     list: items,
                     defaultLabel: label || '',
                 })}
@@ -103,43 +84,55 @@ const FilterSelect = ({
 
 const Filter = ({
     type,
-    name,
+    value,
+    onChange,
     label,
     items,
 }: {
     type: string;
-    name: string;
+    value: string;
+    onChange: (value: string) => void;
     label?: string;
     items?: EventsOption[];
 }) => {
     switch (type) {
         case 'input':
-            return <FilterInput name={name} label={label} />;
+            return <FilterInput label={label} value={value} onChange={onChange} />;
         case 'select':
-            return <FilterSelect name={name} label={label} items={items} />;
+            return <FilterSelect label={label} items={items} value={value} onChange={onChange} />;
         default:
             return null;
     }
 };
+
+const FilterMemo = React.memo(Filter);
 
 export type EventsFeedHeaderControlsProps = {
     title?: string;
 };
 
 export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
-    const {filters} = useContext(EventsHeaderContext);
+    const {filter, onChangeFilter, filters} = useContext(EventsHeaderContext);
+
+    const handleChangeFilter = useCallback(
+        (name: string) => (value: string) => {
+            onChangeFilter?.({[name]: value});
+        },
+        [onChangeFilter],
+    );
 
     return (
         <div className={b()}>
             <h1 className={b('title')}>{title}</h1>
             <div className={b('filters')}>
-                {filters.map((filter) => (
-                    <Filter
-                        key={filter.name}
-                        type={filter.type}
-                        name={filter.name}
-                        label={filter.label}
-                        items={filter.items}
+                {filters.map((item) => (
+                    <FilterMemo
+                        key={item.name}
+                        type={item.type}
+                        value={filter[item.name]}
+                        onChange={handleChangeFilter(item.name)}
+                        label={item.label}
+                        items={item.items}
                     />
                 ))}
             </div>

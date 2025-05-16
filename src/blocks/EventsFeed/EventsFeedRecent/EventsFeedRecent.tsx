@@ -4,9 +4,8 @@ import {CardLayoutBlock} from '../..';
 import {Anchor, InfiniteScroll} from '../../../components';
 import {EventsRecentContext} from '../../../context/eventsContext';
 import {block} from '../../../utils';
-
-import EventsFeedCard from './../EventsFeedCard/EventsFeedCard';
-import {i18n} from './../i18n';
+import EventsFeedCard from '../EventsFeedCard/EventsFeedCard';
+import {i18n} from '../i18n';
 
 import './EventsFeedRecent.scss';
 

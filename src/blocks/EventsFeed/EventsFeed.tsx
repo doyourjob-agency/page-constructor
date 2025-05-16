@@ -2,8 +2,8 @@ import React from 'react';
 
 import {EventsFeedBlockProps} from '../../models';
 
-import EventsFeedRecent from './EventsFeedBodyRecent/EventsFeedRecent';
 import EventsFeedHeader from './EventsFeedHeader/EventsFeedHeader';
+import EventsFeedRecent from './EventsFeedRecent/EventsFeedRecent';
 import EventsFeedUpcoming from './EventsFeedUpcoming/EventsFeedUpcoming';
 
 export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => (
