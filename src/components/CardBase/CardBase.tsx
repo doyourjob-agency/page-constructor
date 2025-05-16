@@ -5,6 +5,8 @@ import React, {
     PropsWithChildren,
     ReactElement,
     isValidElement,
+    useCallback,
+    useMemo,
 } from 'react';
 
 import {Link} from '@gravity-ui/uikit';
@@ -64,62 +66,92 @@ export const Layout = (props: CardBasePropsType) => {
         qa,
         extraProps = {},
     } = props;
+
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
-    let header, content, footer, image, headerClass, footerClass;
-    const qaAttributes = getQaAttrubutes(qa, 'header', 'footer', 'body', 'content');
 
-    function handleChild(child: ReactElement) {
-        switch (child.type) {
-            case Header:
-                header = child.props.children;
-                image = child.props.image;
-                headerClass = child.props.className;
-                break;
-            case Content:
-                content = child.props.children;
-                break;
-            case Footer:
-                footer = child.props.children;
-                footerClass = child.props.className;
-                break;
-        }
-    }
-
-    Children.toArray(children).forEach((child) => {
-        if (isValidElement(child)) {
-            handleChild(child);
-        }
-    });
-
-    const cardContent = (
-        <Fragment>
-            {(header || image) && (
-                <BackgroundImage
-                    className={b('header', headerClass)}
-                    {...(typeof image === 'string' ? {src: image} : image)}
-                    qa={qaAttributes.header}
-                >
-                    <div className={b('header-content')}>{header}</div>
-                </BackgroundImage>
-            )}
-            <div className={b('body', bodyClassName)} data-qa={qaAttributes.body}>
-                <div className={b('content', contentClassName)} data-qa={qaAttributes.content}>
-                    {content}
-                </div>
-                {footer && (
-                    <div className={b('footer', footerClass)} data-qa={qaAttributes.footer}>
-                        {footer}
-                    </div>
-                )}
-            </div>
-        </Fragment>
+    const qaAttributes = useMemo(
+        () => getQaAttrubutes(qa, 'header', 'footer', 'body', 'content'),
+        [qa],
     );
 
-    const fullClassName = b({border}, className);
+    const {header, content, footer, image, headerClass, footerClass} = useMemo(() => {
+        let _header, _content, _footer, _image, _headerClass, _footerClass;
 
-    const onClick = () => {
+        function handleChild(child: ReactElement) {
+            switch (child.type) {
+                case Header:
+                    _header = child.props.children;
+                    _image = child.props.image;
+                    _headerClass = child.props.className;
+                    break;
+                case Content:
+                    _content = child.props.children;
+                    break;
+                case Footer:
+                    _footer = child.props.children;
+                    _footerClass = child.props.className;
+                    break;
+            }
+        }
+
+        Children.toArray(children).forEach((child) => {
+            if (isValidElement(child)) {
+                handleChild(child);
+            }
+        });
+
+        return {
+            header: _header,
+            content: _content,
+            footer: _footer,
+            image: _image,
+            headerClass: _headerClass,
+            footerClass: _footerClass,
+        };
+    }, [children]);
+
+    const cardContent = useMemo(
+        () => (
+            <Fragment>
+                {(header || image) && (
+                    <BackgroundImage
+                        className={b('header', headerClass)}
+                        {...(typeof image === 'string' ? {src: image} : image)}
+                        qa={qaAttributes.header}
+                    >
+                        <div className={b('header-content')}>{header}</div>
+                    </BackgroundImage>
+                )}
+                <div className={b('body', bodyClassName)} data-qa={qaAttributes.body}>
+                    <div className={b('content', contentClassName)} data-qa={qaAttributes.content}>
+                        {content}
+                    </div>
+                    {footer && (
+                        <div className={b('footer', footerClass)} data-qa={qaAttributes.footer}>
+                            {footer}
+                        </div>
+                    )}
+                </div>
+            </Fragment>
+        ),
+        [
+            header,
+            content,
+            image,
+            headerClass,
+            bodyClassName,
+            contentClassName,
+            footer,
+            footerClass,
+            qaAttributes,
+        ],
+    );
+
+    const fullClassName = useMemo(() => b({border}, className), [border, className]);
+
+    const onClick = useCallback(() => {
         handleAnalytics(analyticsEvents);
-    };
+    }, [handleAnalytics, analyticsEvents]);
 
     return url ? (
         <RouterLink href={url}>
