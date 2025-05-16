@@ -3,7 +3,8 @@ import React, {useCallback, useContext, useMemo} from 'react';
 import {Select} from '@gravity-ui/uikit';
 
 import {
-    EventsHeaderContext,
+    EventsHeaderFilterContext,
+    EventsHeaderFiltersContext,
     EventsHeaderFunctionsContext,
     EventsOption,
 } from '../../../../context/eventsContext';
@@ -116,7 +117,8 @@ export type EventsFeedHeaderControlsProps = {
 };
 
 export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
-    const {filter, filters} = useContext(EventsHeaderContext);
+    const {filter} = useContext(EventsHeaderFilterContext);
+    const {filters} = useContext(EventsHeaderFiltersContext);
     const {onChangeFilter} = useContext(EventsHeaderFunctionsContext);
 
     const handleChangeFilter = useCallback(

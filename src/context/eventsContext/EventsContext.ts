@@ -25,8 +25,11 @@ export type EventsOption = {
     value: string;
 };
 
-export interface EventsHeaderContextProps {
+export interface EventsHeaderFilterContextProps {
     filter: Record<string, string>;
+}
+
+export interface EventsHeaderFiltersContextProps {
     filters: {
         type: 'select' | 'input';
         name: string;
@@ -50,8 +53,11 @@ export interface EventsRecentContextProps {
     onLoadMore?: () => void;
 }
 
-export const EventsHeaderContext = React.createContext<EventsHeaderContextProps>({
+export const EventsHeaderFilterContext = React.createContext<EventsHeaderFilterContextProps>({
     filter: {},
+});
+
+export const EventsHeaderFiltersContext = React.createContext<EventsHeaderFiltersContextProps>({
     filters: [],
 });
 
