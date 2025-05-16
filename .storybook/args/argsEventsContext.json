@@ -1,5 +1,5 @@
 {
-  "events": [
+  "upcoming": [
     {
       "slug": "test-1",
       "title": "Lorem Ipsum is",
@@ -25,7 +25,9 @@
       "image": "/story-assets/img_6-12_light.png",
       "country": "Test",
       "place": "UK"
-    },
+    }
+  ],
+  "recent": [
     {
       "slug": "test-3",
       "title": "Lorem Ipsum is",
@@ -78,5 +80,40 @@
       "country": "Test",
       "place": "Online"
     }
-  ]
+  ],
+  "types": [
+    {
+      "value": "conference",
+      "content": "Conference"
+    },
+    {
+      "value": "hackathon",
+      "content": "Hackathon"
+    },
+    {
+      "value": "webinar",
+      "content": "Webinar"
+    }
+  ],
+  "countries": [
+    {
+      "value": "test",
+      "content": "Test"
+    },
+    {
+      "value": "uk",
+      "content": "UK"
+    },
+    {
+      "value": "france",
+      "content": "France"
+    },
+    {
+      "value": "usa",
+      "content": "USA"
+    }
+  ],
+  "filter": {},
+  "page": 1,
+  "pageSize": 3
 }

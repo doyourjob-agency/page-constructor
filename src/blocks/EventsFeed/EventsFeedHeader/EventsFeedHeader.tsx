@@ -21,7 +21,7 @@ export const EventsFeedHeader = ({
     countries,
     types,
     image,
-    handleLoadData,
+    onChangeFilter,
     queryParams,
 }: EventsFeedHeaderProps) => (
     <div className={b()}>
@@ -31,7 +31,7 @@ export const EventsFeedHeader = ({
                 title={title}
                 countries={countries}
                 types={types}
-                handleLoadData={handleLoadData}
+                onChangeFilter={onChangeFilter}
                 queryParams={queryParams}
             />
         </Grid>

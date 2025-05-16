@@ -14,8 +14,37 @@ export type EventData = {
     online?: boolean;
 };
 
+export type EventsFilter = {
+    search?: string;
+    countries?: string;
+    types?: string;
+};
+
+type EventsOption = {
+    content: string;
+    value: string;
+};
+
 export interface EventsContextProps {
-    events: EventData[];
+    upcoming: EventData[];
+    recent: EventData[];
+    types: EventsOption[];
+    countries: EventsOption[];
+    filter: EventsFilter;
+    page: number;
+    pageSize: number;
+    onLoadMore?: () => void;
+    onChangeFilter?: (filter: EventsFilter) => void;
 }
 
-export const EventsContext = React.createContext<EventsContextProps>({events: []});
+export const EventsContext = React.createContext<EventsContextProps>({
+    upcoming: [],
+    recent: [],
+    types: [],
+    countries: [],
+    filter: {},
+    page: 1,
+    pageSize: 6,
+    onLoadMore: () => {},
+    onChangeFilter: () => {},
+});

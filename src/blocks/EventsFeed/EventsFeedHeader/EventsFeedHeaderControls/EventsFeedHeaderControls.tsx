@@ -2,6 +2,7 @@ import React, {useContext, useMemo, useState} from 'react';
 
 import {Select} from '@gravity-ui/uikit';
 
+import {EventsFilter} from '../../../../context/eventsContext';
 import {MobileContext} from '../../../../context/mobileContext';
 import {Query, block} from '../../../../utils';
 import {i18n} from '../../i18n';
@@ -22,7 +23,7 @@ export type SelectItem = {
 
 export type EventsFeedHeaderControlsProps = {
     title?: string;
-    handleLoadData: (query: Query) => void;
+    onChangeFilter?: (filter: EventsFilter) => void;
     countries?: SelectItem[];
     types?: SelectItem[];
     queryParams: Query;
@@ -30,7 +31,7 @@ export type EventsFeedHeaderControlsProps = {
 
 export const EventsFeedHeaderControls = ({
     title,
-    handleLoadData,
+    onChangeFilter,
     countries = [],
     types = [],
     queryParams,
@@ -48,19 +49,19 @@ export const EventsFeedHeaderControls = ({
     const handleSearch = (searchValue: string) => {
         setSearch(searchValue);
 
-        handleLoadData({search: searchValue});
+        onChangeFilter?.({search: searchValue});
     };
 
     const handleCountriesSelect = (selected: string[]) => {
         const countriesAsString = selected.join(',');
 
-        handleLoadData({countries: countriesAsString});
+        onChangeFilter?.({countries: countriesAsString});
     };
 
     const handleTypesSelect = (selected: string[]) => {
         const servicesAsString = selected.join(',');
 
-        handleLoadData({types: servicesAsString});
+        onChangeFilter?.({types: servicesAsString});
     };
 
     const countriesItems = useMemo(
