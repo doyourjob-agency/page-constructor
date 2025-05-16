@@ -27,4 +27,4 @@ export const EventsFeedHeader = ({title, image}: EventsFeedHeaderProps) => {
     );
 };
 
-export default EventsFeedHeader;
+export default React.memo(EventsFeedHeader);

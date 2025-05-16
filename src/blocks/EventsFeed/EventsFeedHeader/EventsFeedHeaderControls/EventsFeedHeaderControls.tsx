@@ -147,4 +147,4 @@ export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps)
     );
 };
 
-export default EventsFeedHeaderControls;
+export default React.memo(EventsFeedHeaderControls);

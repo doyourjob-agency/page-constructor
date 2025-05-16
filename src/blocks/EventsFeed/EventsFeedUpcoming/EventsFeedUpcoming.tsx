@@ -34,4 +34,4 @@ export const EventsFeedUpcoming = () => {
     );
 };
 
-export default EventsFeedUpcoming;
+export default React.memo(EventsFeedUpcoming);

@@ -42,4 +42,4 @@ export const EventsFeedRecent = () => {
     );
 };
 
-export default EventsFeedRecent;
+export default React.memo(EventsFeedRecent);
