@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 
 import {Select} from '@gravity-ui/uikit';
 
-import {EventsFilter} from '../../../../context/eventsContext';
+import {EventsContext, EventsOption} from '../../../../context/eventsContext';
 import {MobileContext} from '../../../../context/mobileContext';
-import {Query, block} from '../../../../utils';
-import {i18n} from '../../i18n';
+import {block} from '../../../../utils';
 import {EventsFeedHeaderSearch} from '../EventsFeedHeaderSearch/EventsFeedHeaderSearch';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
@@ -16,128 +15,133 @@ const b = block('events-feed-header-controls');
 
 const VIRTUALIZATION_THRESHOLD = 1000;
 
-export type SelectItem = {
-    content: string;
-    value: string;
+const FilterInput = ({name, label}: {name: string; label?: string}) => {
+    const {filter, onChangeFilter} = useContext(EventsContext);
+
+    const initialValue = useMemo(() => filter[name] || '', [filter, name]);
+
+    const [value, setValue] = useState<string>(initialValue);
+
+    useEffect(() => {
+        if (initialValue) {
+            setValue((prev) => (prev ? prev : initialValue));
+        }
+    }, [initialValue]);
+
+    const handleSubmit = useCallback(
+        (searchValue: string) => {
+            setValue(searchValue);
+
+            onChangeFilter?.({[name]: searchValue});
+        },
+        [name, onChangeFilter],
+    );
+
+    return (
+        <div className={b('filter-item')}>
+            <EventsFeedHeaderSearch
+                className={b('filter-input')}
+                placeholder={label}
+                initialValue={value}
+                onSubmit={handleSubmit}
+            />
+        </div>
+    );
+};
+
+const FilterSelect = ({
+    name,
+    label,
+    items = [],
+}: {
+    name: string;
+    label?: string;
+    items?: EventsOption[];
+}) => {
+    const {filter, onChangeFilter} = useContext(EventsContext);
+    const isMobile = useContext(MobileContext);
+
+    const initialValue = useMemo(() => filter[name] || '', [filter, name]);
+
+    const handleUpdate = useCallback(
+        (selected: string[]) => {
+            const asString = selected.join(',');
+
+            onChangeFilter?.({[name]: asString});
+        },
+        [name, onChangeFilter],
+    );
+
+    const value = useMemo(() => (initialValue ? [...initialValue.split(',')] : []), [initialValue]);
+
+    return (
+        <div className={b('filter-item')}>
+            <Select
+                className={b('filter-select')}
+                size="xl"
+                options={items}
+                defaultValue={[]}
+                value={value}
+                onUpdate={handleUpdate}
+                popupClassName={b('popup', {mobile: isMobile})}
+                renderControl={renderSwitcher({
+                    initial: value,
+                    list: items,
+                    defaultLabel: label || '',
+                })}
+                disablePortal
+                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
+                renderOption={renderOption}
+                renderFilter={renderFilter}
+                multiple
+                filterable
+                hasClear
+            />
+        </div>
+    );
+};
+
+const Filter = ({
+    type,
+    name,
+    label,
+    items,
+}: {
+    type: string;
+    name: string;
+    label?: string;
+    items?: EventsOption[];
+}) => {
+    switch (type) {
+        case 'input':
+            return <FilterInput name={name} label={label} />;
+        case 'select':
+            return <FilterSelect name={name} label={label} items={items} />;
+        default:
+            return null;
+    }
 };
 
 export type EventsFeedHeaderControlsProps = {
     title?: string;
-    onChangeFilter?: (filter: EventsFilter) => void;
-    countries?: SelectItem[];
-    types?: SelectItem[];
-    queryParams: Query;
 };
 
-export const EventsFeedHeaderControls = ({
-    title,
-    onChangeFilter,
-    countries = [],
-    types = [],
-    queryParams,
-}: EventsFeedHeaderControlsProps) => {
-    const isMobile = useContext(MobileContext);
-
-    const {
-        search: searchInitial,
-        countries: countriesInitial,
-        types: typesInitial,
-    } = queryParams || {};
-
-    const [search, setSearch] = useState<string>((searchInitial as string) || '');
-
-    useEffect(() => {
-        if (searchInitial) {
-            setSearch((prev) => (prev ? prev : (searchInitial as string) || ''));
-        }
-    }, [searchInitial]);
-
-    const handleSearch = (searchValue: string) => {
-        setSearch(searchValue);
-
-        onChangeFilter?.({search: searchValue});
-    };
-
-    const handleCountriesSelect = (selected: string[]) => {
-        const countriesAsString = selected.join(',');
-
-        onChangeFilter?.({countries: countriesAsString});
-    };
-
-    const handleTypesSelect = (selected: string[]) => {
-        const servicesAsString = selected.join(',');
-
-        onChangeFilter?.({types: servicesAsString});
-    };
-
-    const countriesItems = useMemo(
-        () => (countriesInitial ? [...(countriesInitial as string).split(',')] : []),
-        [countriesInitial],
-    );
-
-    const typesItems = useMemo(
-        () => (typesInitial ? [...(typesInitial as string).split(',')] : []),
-        [typesInitial],
-    );
+export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
+    const {filters} = useContext(EventsContext);
 
     return (
         <div className={b()}>
             <h1 className={b('title')}>{title}</h1>
             <div className={b('filters')}>
-                <div className={b('filter-item')}>
-                    <EventsFeedHeaderSearch
-                        className={b('search')}
-                        placeholder={i18n('search')}
-                        initialValue={search}
-                        onSubmit={handleSearch}
+                {filters.map((filter) => (
+                    <Filter
+                        key={filter.name}
+                        type={filter.type}
+                        name={filter.name}
+                        label={filter.label}
+                        items={filter.items}
                     />
-                </div>
-                <div className={b('filter-item')}>
-                    <Select
-                        className={b('select')}
-                        size="xl"
-                        options={types}
-                        defaultValue={[]}
-                        value={typesItems}
-                        onUpdate={handleTypesSelect}
-                        popupClassName={b('popup', {mobile: isMobile})}
-                        renderControl={renderSwitcher({
-                            initial: typesItems,
-                            list: types,
-                            defaultLabel: i18n('all_types'),
-                        })}
-                        disablePortal
-                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                        renderOption={renderOption}
-                        renderFilter={renderFilter}
-                        multiple
-                        filterable
-                        hasClear
-                    />
-                </div>
-                <div className={b('filter-item')}>
-                    <Select
-                        className={b('select')}
-                        size="xl"
-                        options={countries}
-                        defaultValue={[]}
-                        value={countriesItems}
-                        onUpdate={handleCountriesSelect}
-                        popupClassName={b('popup', {mobile: isMobile})}
-                        renderControl={renderSwitcher({
-                            initial: countriesItems,
-                            list: countries,
-                            defaultLabel: i18n('all_countries'),
-                        })}
-                        disablePortal
-                        virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                        renderOption={renderOption}
-                        renderFilter={renderFilter}
-                        multiple
-                        filterable
-                        hasClear
-                    />
-                </div>
+                ))}
             </div>
         </div>
     );

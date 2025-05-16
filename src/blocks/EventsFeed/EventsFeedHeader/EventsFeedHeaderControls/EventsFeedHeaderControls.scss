@@ -28,8 +28,8 @@ $block: '.#{$ns}events-feed-header-controls';
         @include text-size(display-4);
     }
 
-    &__search,
-    &__select {
+    &__filter-input,
+    &__filter-select {
         width: 100%;
     }
 

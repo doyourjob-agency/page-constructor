@@ -2,10 +2,10 @@ import React, {LegacyRef, useMemo} from 'react';
 
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
+import {EventsOption} from '../../../../context/eventsContext';
 import {CloseIcon} from '../../../../icons/CloseIcon';
 import {DropdownArrowIcon} from '../../../../icons/DropdownArrowIcon';
 import {block} from '../../../../utils';
-import {SelectItem} from '../EventsFeedHeaderControls/EventsFeedHeaderControls';
 
 import './EventsFeedHeaderSwitcher.scss';
 
@@ -16,7 +16,7 @@ type RenderControlParameters = Partial<Parameters<Required<SelectProps>['renderC
 export type EventsFeedHeaderSwitcherProps = {
     initial: (string | number | null)[];
     defaultLabel: string;
-    list: SelectItem[];
+    list: EventsOption[];
     controlRef: RenderControlParameters['ref'];
 } & Omit<RenderControlParameters, 'ref'>;
 

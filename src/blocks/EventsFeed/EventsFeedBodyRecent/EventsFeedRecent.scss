@@ -1,0 +1,9 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}events-feed-recent';
+
+#{$block} {
+    margin-top: 48px;
+    padding-bottom: 48px;
+}

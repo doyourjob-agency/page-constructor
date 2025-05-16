@@ -20,7 +20,7 @@ export type EventsFilter = {
     types?: string;
 };
 
-type EventsOption = {
+export type EventsOption = {
     content: string;
     value: string;
 };
@@ -28,9 +28,13 @@ type EventsOption = {
 export interface EventsContextProps {
     upcoming: EventData[];
     recent: EventData[];
-    types: EventsOption[];
-    countries: EventsOption[];
-    filter: EventsFilter;
+    filter: Record<string, string>;
+    filters: {
+        type: 'select' | 'input';
+        name: string;
+        label?: string;
+        items?: EventsOption[];
+    }[];
     page: number;
     pageSize: number;
     onLoadMore?: () => void;
@@ -40,9 +44,8 @@ export interface EventsContextProps {
 export const EventsContext = React.createContext<EventsContextProps>({
     upcoming: [],
     recent: [],
-    types: [],
-    countries: [],
     filter: {},
+    filters: [],
     page: 1,
     pageSize: 6,
     onLoadMore: () => {},
