@@ -27,12 +27,16 @@ const FilterSelect = ({ label, value, onChange, items = [], }) => {
                 defaultLabel: label || '',
             }), disablePortal: true, virtualizationThreshold: VIRTUALIZATION_THRESHOLD, renderOption: customRenders_1.renderOption, renderFilter: customRenders_1.renderFilter, multiple: true, filterable: true, hasClear: true })));
 };
-const Filter = ({ type, value, onChange, label, items, }) => {
+const Filter = ({ name, type, value, label, items, }) => {
+    const { onChangeFilter } = (0, react_1.useContext)(eventsContext_1.EventsHeaderFunctionsContext);
+    const handleChangeFilter = (0, react_1.useCallback)((data) => {
+        onChangeFilter === null || onChangeFilter === void 0 ? void 0 : onChangeFilter({ [name]: data });
+    }, [name, onChangeFilter]);
     switch (type) {
         case 'input':
-            return react_1.default.createElement(FilterInput, { label: label, value: value, onChange: onChange });
+            return react_1.default.createElement(FilterInput, { label: label, value: value, onChange: handleChangeFilter });
         case 'select':
-            return react_1.default.createElement(FilterSelect, { label: label, items: items, value: value, onChange: onChange });
+            return (react_1.default.createElement(FilterSelect, { label: label, items: items, value: value, onChange: handleChangeFilter }));
         default:
             return null;
     }
@@ -41,13 +45,9 @@ const FilterMemo = react_1.default.memo(Filter);
 const EventsFeedHeaderControls = ({ title }) => {
     const { filter } = (0, react_1.useContext)(eventsContext_1.EventsHeaderFilterContext);
     const { filters } = (0, react_1.useContext)(eventsContext_1.EventsHeaderFiltersContext);
-    const { onChangeFilter } = (0, react_1.useContext)(eventsContext_1.EventsHeaderFunctionsContext);
-    const handleChangeFilter = (0, react_1.useCallback)((name) => (value) => {
-        onChangeFilter === null || onChangeFilter === void 0 ? void 0 : onChangeFilter({ [name]: value });
-    }, [onChangeFilter]);
     return (react_1.default.createElement("div", { className: b() },
         react_1.default.createElement("h1", { className: b('title') }, title),
-        react_1.default.createElement("div", { className: b('filters') }, filters.map((item) => (react_1.default.createElement(FilterMemo, { key: item.name, type: item.type, value: filter[item.name], onChange: handleChangeFilter(item.name), label: item.label, items: item.items }))))));
+        react_1.default.createElement("div", { className: b('filters') }, filters.map((item) => (react_1.default.createElement(FilterMemo, { key: item.name, name: item.name, type: item.type, value: filter[item.name], label: item.label, items: item.items }))))));
 };
 exports.EventsFeedHeaderControls = EventsFeedHeaderControls;
 exports.default = react_1.default.memo(exports.EventsFeedHeaderControls);

@@ -24,12 +24,16 @@ const FilterSelect = ({ label, value, onChange, items = [], }) => {
                 defaultLabel: label || '',
             }), disablePortal: true, virtualizationThreshold: VIRTUALIZATION_THRESHOLD, renderOption: renderOption, renderFilter: renderFilter, multiple: true, filterable: true, hasClear: true })));
 };
-const Filter = ({ type, value, onChange, label, items, }) => {
+const Filter = ({ name, type, value, label, items, }) => {
+    const { onChangeFilter } = useContext(EventsHeaderFunctionsContext);
+    const handleChangeFilter = useCallback((data) => {
+        onChangeFilter === null || onChangeFilter === void 0 ? void 0 : onChangeFilter({ [name]: data });
+    }, [name, onChangeFilter]);
     switch (type) {
         case 'input':
-            return React.createElement(FilterInput, { label: label, value: value, onChange: onChange });
+            return React.createElement(FilterInput, { label: label, value: value, onChange: handleChangeFilter });
         case 'select':
-            return React.createElement(FilterSelect, { label: label, items: items, value: value, onChange: onChange });
+            return (React.createElement(FilterSelect, { label: label, items: items, value: value, onChange: handleChangeFilter }));
         default:
             return null;
     }
@@ -38,12 +42,8 @@ const FilterMemo = React.memo(Filter);
 export const EventsFeedHeaderControls = ({ title }) => {
     const { filter } = useContext(EventsHeaderFilterContext);
     const { filters } = useContext(EventsHeaderFiltersContext);
-    const { onChangeFilter } = useContext(EventsHeaderFunctionsContext);
-    const handleChangeFilter = useCallback((name) => (value) => {
-        onChangeFilter === null || onChangeFilter === void 0 ? void 0 : onChangeFilter({ [name]: value });
-    }, [onChangeFilter]);
     return (React.createElement("div", { className: b() },
         React.createElement("h1", { className: b('title') }, title),
-        React.createElement("div", { className: b('filters') }, filters.map((item) => (React.createElement(FilterMemo, { key: item.name, type: item.type, value: filter[item.name], onChange: handleChangeFilter(item.name), label: item.label, items: item.items }))))));
+        React.createElement("div", { className: b('filters') }, filters.map((item) => (React.createElement(FilterMemo, { key: item.name, name: item.name, type: item.type, value: filter[item.name], label: item.label, items: item.items }))))));
 };
 export default React.memo(EventsFeedHeaderControls);
