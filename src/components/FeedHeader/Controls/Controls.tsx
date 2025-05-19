@@ -3,20 +3,20 @@ import React, {useCallback, useContext, useMemo} from 'react';
 import {Select} from '@gravity-ui/uikit';
 
 import {
-    EventsHeaderFilterContext,
-    EventsHeaderFiltersContext,
-    EventsHeaderFunctionsContext,
-    EventsOption,
-} from '../../../../context/eventsContext';
-import {MobileContext} from '../../../../context/mobileContext';
-import {block} from '../../../../utils';
-import {EventsFeedHeaderSearch} from '../EventsFeedHeaderSearch/EventsFeedHeaderSearch';
+    FeedHeaderFilterContext,
+    FeedHeaderFiltersContext,
+    FeedHeaderFunctionsContext,
+    FeedHeaderOption,
+} from '../../../context/feedHeaderContext';
+import {MobileContext} from '../../../context/mobileContext';
+import {block} from '../../../utils';
+import {Search} from '../Search/Search';
 
 import {renderFilter, renderOption, renderSwitcher} from './customRenders';
 
-import './EventsFeedHeaderControls.scss';
+import './Controls.scss';
 
-const b = block('events-feed-header-controls');
+const b = block('feed-header-controls');
 
 const VIRTUALIZATION_THRESHOLD = 1000;
 
@@ -30,7 +30,7 @@ const FilterInput = ({
     label?: string;
 }) => (
     <div className={b('filter-item')}>
-        <EventsFeedHeaderSearch
+        <Search
             className={b('filter-input')}
             placeholder={label}
             initialValue={value}
@@ -39,7 +39,7 @@ const FilterInput = ({
     </div>
 );
 
-const FilterSelect = ({
+const FilterMultipleSelect = ({
     label,
     value,
     onChange,
@@ -48,7 +48,7 @@ const FilterSelect = ({
     value: string;
     onChange: (value: string) => void;
     label?: string;
-    items?: EventsOption[];
+    items?: FeedHeaderOption[];
 }) => {
     const isMobile = useContext(MobileContext);
 
@@ -87,20 +87,65 @@ const FilterSelect = ({
     );
 };
 
+const FilterSelect = ({
+    label,
+    value,
+    onChange,
+    items = [],
+}: {
+    value: string;
+    onChange: (value: string) => void;
+    label?: string;
+    items?: FeedHeaderOption[];
+}) => {
+    const isMobile = useContext(MobileContext);
+
+    const handleUpdate = (selected: string[]) => {
+        const isEmpty = selected.some((tag) => tag === 'empty');
+
+        onChange(isEmpty ? '' : selected[0]);
+    };
+
+    const valueLocal = useMemo(() => (value ? [value] : []), [value]);
+
+    return (
+        <div className={b('filter-item')}>
+            <Select
+                className={b('filter-select')}
+                size="xl"
+                options={items}
+                defaultValue={[]}
+                value={valueLocal}
+                onUpdate={handleUpdate}
+                popupClassName={b('popup', {mobile: isMobile})}
+                renderControl={renderSwitcher({
+                    initial: valueLocal,
+                    list: items,
+                    defaultLabel: label || '',
+                })}
+                disablePortal
+                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
+                renderOption={renderOption}
+            />
+        </div>
+    );
+};
+
 const Filter = ({
     name,
     type,
-    value,
     label,
     items,
 }: {
     name: string;
     type: string;
-    value: string;
     label?: string;
-    items?: EventsOption[];
+    items?: FeedHeaderOption[];
 }) => {
-    const {onChangeFilter} = useContext(EventsHeaderFunctionsContext);
+    const {onChangeFilter} = useContext(FeedHeaderFunctionsContext);
+    const {filter} = useContext(FeedHeaderFilterContext);
+
+    const value = useMemo(() => filter[name], [filter, name]);
 
     const handleChangeFilter = useCallback(
         (data: string) => {
@@ -112,6 +157,15 @@ const Filter = ({
     switch (type) {
         case 'input':
             return <FilterInput label={label} value={value} onChange={handleChangeFilter} />;
+        case 'multiple-select':
+            return (
+                <FilterMultipleSelect
+                    label={label}
+                    items={items}
+                    value={value}
+                    onChange={handleChangeFilter}
+                />
+            );
         case 'select':
             return (
                 <FilterSelect
@@ -128,13 +182,12 @@ const Filter = ({
 
 const FilterMemo = React.memo(Filter);
 
-export type EventsFeedHeaderControlsProps = {
+export type ControlsProps = {
     title?: string;
 };
 
-export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps) => {
-    const {filter} = useContext(EventsHeaderFilterContext);
-    const {filters} = useContext(EventsHeaderFiltersContext);
+export const Controls = ({title}: ControlsProps) => {
+    const {filters} = useContext(FeedHeaderFiltersContext);
 
     return (
         <div className={b()}>
@@ -145,7 +198,6 @@ export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps)
                         key={item.name}
                         name={item.name}
                         type={item.type}
-                        value={filter[item.name]}
                         label={item.label}
                         items={item.items}
                     />
@@ -155,4 +207,4 @@ export const EventsFeedHeaderControls = ({title}: EventsFeedHeaderControlsProps)
     );
 };
 
-export default React.memo(EventsFeedHeaderControls);
+export default React.memo(Controls);

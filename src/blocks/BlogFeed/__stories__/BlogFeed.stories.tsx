@@ -2,27 +2,27 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {argEventsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
+import {argBlogPostsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {EventsFeedBlockModel} from '../../../models';
-import EventsFeed from '../EventsFeed';
+import {BlogFeedBlockModel} from '../../../models';
+import BlogFeed from '../BlogFeed';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/EventsFeed',
-    component: EventsFeed,
+    title: 'Blocks/BlogFeed',
+    component: BlogFeed,
     args: {
         ...argFeedHeaderContext.args,
-        ...argEventsContext.args,
+        ...argBlogPostsContext.args,
     },
     argTypes: {
         ...argFeedHeaderContext.argTypes,
-        ...argEventsContext.argTypes,
+        ...argBlogPostsContext.argTypes,
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<EventsFeedBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<BlogFeedBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
@@ -32,4 +32,4 @@ const DefaultArgs = {
     ...data.default.content,
 };
 
-Default.args = DefaultArgs as EventsFeedBlockModel;
+Default.args = DefaultArgs as BlogFeedBlockModel;

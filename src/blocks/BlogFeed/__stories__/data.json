@@ -1,0 +1,9 @@
+{
+  "default": {
+    "content": {
+      "type": "blog-feed-block",
+      "title": "Blog",
+      "image": "/story-assets/img-bg_nopadding_4-12_light.png"
+    }
+  }
+}

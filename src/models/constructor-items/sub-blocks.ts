@@ -43,6 +43,7 @@ export enum SubBlockType {
     ImageCard = 'image-card',
     ContentLayoutCard = 'content-layout-card',
     Card = 'card',
+    PostCard = 'post-card',
 }
 
 export enum IconPosition {
@@ -223,6 +224,34 @@ export interface ImageCardProps
     target?: string;
 }
 
+export enum PostCardSize {
+    SMALL = 's',
+    MEDIUM = 'm',
+}
+
+export enum PostCardTitleHeadingLevel {
+    H2 = 'h2',
+    H3 = 'h3',
+}
+
+interface PostCardParams {
+    fullWidth?: boolean;
+    showTag?: boolean;
+    size?: PostCardSize;
+    titleHeadingLevel?: PostCardTitleHeadingLevel;
+}
+
+export interface PostCardProps extends PostCardParams {
+    date: string;
+    description?: string;
+    image: string;
+    readingTime?: number;
+    slug: string;
+    tag?: string;
+    title: string;
+    url: string;
+}
+
 // sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
@@ -269,6 +298,10 @@ export type ImageCardModel = {
     type: SubBlockType.ImageCard;
 } & ImageCardProps;
 
+export type PostCardModel = {
+    type: SubBlockType.PostCard;
+} & PostCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -280,6 +313,7 @@ export type SubBlockModels =
     | BasicCardModel
     | PriceCardModel
     | LayoutItemModel
-    | ImageCardModel;
+    | ImageCardModel
+    | PostCardModel;
 
 export type SubBlock = SubBlockModels;

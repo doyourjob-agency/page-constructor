@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {a11yHiddenSvgProps} from '../utils/svg';
+
 export const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -7,7 +9,7 @@ export const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => (
         height="10"
         viewBox="0 0 10 10"
         fill="currentColor"
-        {...{'aria-hidden': true}}
+        {...a11yHiddenSvgProps}
         {...props}
     >
         <path
