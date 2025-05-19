@@ -134,18 +134,17 @@ const FilterSelect = ({
 const Filter = ({
     name,
     type,
+    value,
     label,
     items,
 }: {
     name: string;
     type: string;
+    value: string;
     label?: string;
     items?: FeedHeaderOption[];
 }) => {
     const {onChangeFilter} = useContext(FeedHeaderFunctionsContext);
-    const {filter} = useContext(FeedHeaderFilterContext);
-
-    const value = useMemo(() => filter[name], [filter, name]);
 
     const handleChangeFilter = useCallback(
         (data: string) => {
@@ -188,6 +187,7 @@ export type ControlsProps = {
 
 export const Controls = ({title}: ControlsProps) => {
     const {filters} = useContext(FeedHeaderFiltersContext);
+    const {filter} = useContext(FeedHeaderFilterContext);
 
     return (
         <div className={b()}>
@@ -197,6 +197,7 @@ export const Controls = ({title}: ControlsProps) => {
                     <FilterMemo
                         key={item.name}
                         name={item.name}
+                        value={filter[item.name]}
                         type={item.type}
                         label={item.label}
                         items={item.items}
