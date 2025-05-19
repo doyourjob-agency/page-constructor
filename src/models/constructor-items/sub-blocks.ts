@@ -137,6 +137,7 @@ export interface BackgroundCardProps
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     url?: string;
     urlTitle?: string;
+    target?: string;
     background?: ThemeSupporting<ImageObjectProps>;
     backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom';
     paddingBottom?: 's' | 'm' | 'l' | 'xl';

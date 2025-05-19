@@ -15,6 +15,7 @@ const b = block('background-card');
 const BackgroundCard = (props: BackgroundCardProps) => {
     const {
         url,
+        target,
         title,
         text,
         border,
@@ -48,6 +49,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
             })}
             contentClassName={b('content')}
             url={url}
+            target={target}
             border={borderType}
             analyticsEvents={analyticsEvents}
             urlTitle={urlTitle}

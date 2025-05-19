@@ -22,6 +22,10 @@ export const BackgroundCard = {
             urlTitle: {
                 type: 'string',
             },
+            target: {
+                type: 'string',
+                enum: ['_blank', '_parent', '_top', '_self'],
+            },
             background: withTheme(ImageObjectProps),
             backgroundColor: {
                 type: 'string',
