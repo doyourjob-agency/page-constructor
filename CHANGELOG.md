@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.13](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.12-main...v5.31.13-main) (2025-05-19)
+
+### Features
+
+* **BackgroundCard:** Add target props
+
+
 ## [5.31.12](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.11-main...v5.31.12-main) (2025-05-16)
 
 ### Features
