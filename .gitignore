@@ -7,13 +7,13 @@
 node_modules
 
 # Generated content
-# /build
+/build
 /storybook-static
-# /server
+/server
 /configure
 /styles/**/*.css
 /coverage
-# /widget
+/widget
 /schema
 
 *.tgz
