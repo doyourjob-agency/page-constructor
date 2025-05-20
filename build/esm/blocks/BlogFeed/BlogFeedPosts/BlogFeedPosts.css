@@ -1,0 +1,6 @@
+/* use this for style redefinitions to awoid problems with
+unpredictable css rules order in build */
+.pc-blog-feed-posts__wrap {
+  padding-top: 24px;
+  scroll-margin: 48px;
+}
