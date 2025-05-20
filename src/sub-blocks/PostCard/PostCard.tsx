@@ -3,7 +3,6 @@ import React from 'react';
 import {Icon, useUniqId} from '@gravity-ui/uikit';
 
 import {CardBase, HTML, YFMWrapper} from '../../components';
-import {useAriaAttributes} from '../../hooks/useAriaAttributes';
 import {TimeIcon} from '../../icons/TimeIcon';
 import {PostCardProps, PostCardSize, PostCardTitleHeadingLevel} from '../../models';
 import {block} from '../../utils/cn';
@@ -31,30 +30,19 @@ const PostCard = ({
 }: PostCardProps) => {
     const titleId = useUniqId();
     const descriptionId = useUniqId();
-    const dateId = useUniqId();
-    const tagId = useUniqId();
-    const readingTimeId = useUniqId();
     const isTagVisible = showTag && tags?.[0]?.name;
-    const ariaAttributes = useAriaAttributes({
-        labelIds: [isTagVisible && tagId, title && titleId],
-        descriptionIds: [
-            description && descriptionId,
-            date && dateId,
-            readingTime && readingTimeId,
-        ],
-    });
 
     return (
-        <CardBase url={url} className={b('card', {fullWidth})} extraProps={ariaAttributes}>
-            <CardBase.Header image={image} className={b('header', {fullWidth})}>
+        <CardBase url={url} className={b('card', {fullWidth})}>
+            <CardBase.Header
+                image={image}
+                imageExtraProps={{'aria-hidden': 'true'}}
+                className={b('header', {fullWidth})}
+            >
                 <div className={b('image-container')} data-qa="blog-suggest-header" />
             </CardBase.Header>
             <CardBase.Content>
-                {isTagVisible && (
-                    <div id={tagId} className={b('tag', {size})}>
-                        {tags[0].name}
-                    </div>
-                )}
+                {isTagVisible && <div className={b('tag', {size})}>{tags[0].name}</div>}
                 {title &&
                     React.createElement(
                         titleHeadingLevel,

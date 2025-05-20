@@ -3,9 +3,8 @@ import React, {useContext} from 'react';
 import {CardLayoutBlock} from '../..';
 import {Anchor} from '../../../components';
 import {EventsUpcomingContext} from '../../../context/eventsContext';
+import {FeedCard} from '../../../sub-blocks';
 import {block} from '../../../utils';
-
-import EventsFeedCard from './../EventsFeedCard/EventsFeedCard';
 
 import './EventsFeedUpcoming.scss';
 
@@ -27,7 +26,7 @@ export const EventsFeedUpcoming = () => {
             <Anchor id="upcoming" />
             <CardLayoutBlock colSizes={colSizes}>
                 {upcoming.map((item) => (
-                    <EventsFeedCard key={item.slug} {...item} />
+                    <FeedCard key={item.slug} {...item} />
                 ))}
             </CardLayoutBlock>
         </div>

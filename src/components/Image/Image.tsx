@@ -20,6 +20,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     onClick?: MouseEventHandler;
     onLoad?: ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
+    extraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 
 export interface DeviceSpecificFragmentProps extends QAProps {
@@ -68,6 +69,7 @@ const Image = (props: ImageProps) => {
         qa,
         fetchPriority,
         loading,
+        extraProps,
     } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
 
@@ -124,6 +126,7 @@ const Image = (props: ImageProps) => {
                 style={style}
                 fetchPriority={fetchPriority}
                 loading={loading}
+                {...extraProps}
                 onClick={onClick}
                 onError={() => setImgLoadingError(true)}
                 onLoad={onLoad}

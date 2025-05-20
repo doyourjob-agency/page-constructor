@@ -40,6 +40,7 @@ export type CardBasePropsType = PropsWithChildren<CardBaseProps>;
 export interface CardHeaderBaseProps {
     className?: string;
     image?: ImageProps | null;
+    imageExtraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 
 export interface CardFooterBaseProps {
@@ -74,41 +75,44 @@ export const Layout = (props: CardBasePropsType) => {
         [qa],
     );
 
-    const {header, content, footer, image, headerClass, footerClass} = useMemo(() => {
-        let _header, _content, _footer, _image, _headerClass, _footerClass;
+    const {header, content, footer, image, imageExtraProps, headerClass, footerClass} =
+        useMemo(() => {
+            let _header, _content, _footer, _image, _imageExtraProps, _headerClass, _footerClass;
 
-        function handleChild(child: ReactElement) {
-            switch (child.type) {
-                case Header:
-                    _header = child.props.children;
-                    _image = child.props.image;
-                    _headerClass = child.props.className;
-                    break;
-                case Content:
-                    _content = child.props.children;
-                    break;
-                case Footer:
-                    _footer = child.props.children;
-                    _footerClass = child.props.className;
-                    break;
+            function handleChild(child: ReactElement) {
+                switch (child.type) {
+                    case Header:
+                        _header = child.props.children;
+                        _image = child.props.image;
+                        _imageExtraProps = child.props.imageExtraProps;
+                        _headerClass = child.props.className;
+                        break;
+                    case Content:
+                        _content = child.props.children;
+                        break;
+                    case Footer:
+                        _footer = child.props.children;
+                        _footerClass = child.props.className;
+                        break;
+                }
             }
-        }
 
-        Children.toArray(children).forEach((child) => {
-            if (isValidElement(child)) {
-                handleChild(child);
-            }
-        });
+            Children.toArray(children).forEach((child) => {
+                if (isValidElement(child)) {
+                    handleChild(child);
+                }
+            });
 
-        return {
-            header: _header,
-            content: _content,
-            footer: _footer,
-            image: _image,
-            headerClass: _headerClass,
-            footerClass: _footerClass,
-        };
-    }, [children]);
+            return {
+                header: _header,
+                content: _content,
+                footer: _footer,
+                image: _image,
+                imageExtraProps: _imageExtraProps,
+                headerClass: _headerClass,
+                footerClass: _footerClass,
+            };
+        }, [children]);
 
     const cardContent = useMemo(
         () => (
@@ -117,6 +121,7 @@ export const Layout = (props: CardBasePropsType) => {
                     <BackgroundImage
                         className={b('header', headerClass)}
                         {...(typeof image === 'string' ? {src: image} : image)}
+                        extraProps={imageExtraProps}
                         qa={qaAttributes.header}
                     >
                         <div className={b('header-content')}>{header}</div>
@@ -138,6 +143,7 @@ export const Layout = (props: CardBasePropsType) => {
             header,
             content,
             image,
+            imageExtraProps,
             headerClass,
             bodyClassName,
             contentClassName,

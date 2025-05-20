@@ -3,8 +3,8 @@ import React, {useContext} from 'react';
 import {CardLayoutBlock} from '../..';
 import {Anchor, InfiniteScroll} from '../../../components';
 import {EventsRecentContext} from '../../../context/eventsContext';
+import {FeedCard} from '../../../sub-blocks';
 import {block} from '../../../utils';
-import EventsFeedCard from '../EventsFeedCard/EventsFeedCard';
 import {i18n} from '../i18n';
 
 import './EventsFeedRecent.scss';
@@ -33,7 +33,7 @@ export const EventsFeedRecent = () => {
             <Anchor id="recent" />
             <CardLayoutBlock title={i18n('recent_events')} colSizes={colSizes}>
                 {itemsToShow.map((item) => (
-                    <EventsFeedCard key={item.slug} {...item} />
+                    <FeedCard key={item.slug} {...item} />
                 ))}
             </CardLayoutBlock>
             <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
