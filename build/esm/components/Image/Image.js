@@ -12,7 +12,7 @@ const DeviceSpecificFragment = ({ disableWebp, src, breakpoint, qa, }) => (React
     React.createElement("source", { srcSet: src, media: `(max-width: ${breakpoint}px)`, "data-qa": qa })));
 const Image = (props) => {
     const projectSettings = useContext(ProjectSettingsContext);
-    const { src: imageSrc, alt, disableCompress, tablet, desktop, mobile, style, className, onClick, onLoad, containerClassName, qa, fetchPriority, loading, } = props;
+    const { src: imageSrc, alt, disableCompress, tablet, desktop, mobile, style, className, onClick, onLoad, containerClassName, qa, fetchPriority, loading, extraProps, } = props;
     const [imgLoadingError, setImgLoadingError] = useState(false);
     const src = imageSrc || desktop;
     if (!src) {
@@ -27,6 +27,6 @@ const Image = (props) => {
         mobile && (React.createElement(DeviceSpecificFragment, { src: mobile, disableWebp: disableWebp, breakpoint: BREAKPOINTS.sm, qa: qaAttributes.mobileSource })),
         tablet && (React.createElement(DeviceSpecificFragment, { src: tablet, disableWebp: disableWebp, breakpoint: BREAKPOINTS.md, qa: qaAttributes.tabletSource })),
         src && !disableWebp && (React.createElement("source", { srcSet: checkWebP(src), type: "image/webp", "data-qa": qaAttributes.desktopSourceCompressed })),
-        React.createElement(ImageBase, { className: className, alt: alt, src: src, style: style, fetchPriority: fetchPriority, loading: loading, onClick: onClick, onError: () => setImgLoadingError(true), onLoad: onLoad })));
+        React.createElement(ImageBase, Object.assign({ className: className, alt: alt, src: src, style: style, fetchPriority: fetchPriority, loading: loading }, extraProps, { onClick: onClick, onError: () => setImgLoadingError(true), onLoad: onLoad }))));
 };
 export default Image;

@@ -5,4 +5,4 @@ export interface GridColumnProps extends GridColumnClassParams, Refable<HTMLDivE
     style?: CSSProperties;
     children?: React.ReactNode;
 }
-export declare const Col: React.ForwardRefExoticComponent<Pick<React.PropsWithChildren<GridColumnProps>, "style" | "children" | "hidden" | "sizes" | "className" | "role" | "qa" | "offsets" | "orders" | "visible" | "alignSelf" | "justifyContent" | "reset"> & React.RefAttributes<HTMLDivElement>>;
+export declare const Col: React.ForwardRefExoticComponent<Pick<React.PropsWithChildren<GridColumnProps>, "style" | "children" | "hidden" | "sizes" | "className" | "role" | "qa" | "visible" | "reset" | "offsets" | "orders" | "alignSelf" | "justifyContent"> & React.RefAttributes<HTMLDivElement>>;

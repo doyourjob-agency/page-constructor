@@ -116,6 +116,7 @@ export interface BackgroundImageProps extends React.HTMLProps<HTMLDivElement>, P
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
+    extraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 export interface MediaVideoProps extends AnalyticsEventsBase {
     src: string[];

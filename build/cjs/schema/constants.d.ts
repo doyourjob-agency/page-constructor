@@ -1,6 +1,36 @@
 import { BlockType } from '../models';
 export declare const blockSchemas: Record<BlockType, object>;
 export declare const cardSchemas: {
+    'feed-card': {
+        additionalProperties: boolean;
+        required: never[];
+        properties: {
+            url: {
+                type: string;
+            };
+            image: {
+                type: string;
+            };
+            type: {
+                type: string;
+            };
+            title: {
+                type: string;
+            };
+            description: {
+                type: string;
+            };
+            info: {
+                type: string;
+            };
+            place: {
+                type: string;
+            };
+            when: {
+                type: string;
+            };
+        };
+    };
     'post-card': {
         additionalProperties: boolean;
         required: never[];
@@ -427,7 +457,7 @@ export declare const cardSchemas: {
                     type: string;
                     enum: string[];
                     additionalProperties?: undefined;
-                    properties?: undefined; /** @deprecated */
+                    properties?: undefined;
                 } | {
                     type: string;
                     additionalProperties: boolean;
@@ -703,7 +733,7 @@ export declare const cardSchemas: {
                                 optionName: string;
                                 additionalProperties?: undefined;
                                 required?: undefined;
-                                properties?: undefined; /** @deprecated */
+                                properties?: undefined;
                             } | {
                                 type: string;
                                 additionalProperties: boolean;
@@ -1711,7 +1741,7 @@ export declare const cardSchemas: {
                             optionName: string;
                             additionalProperties?: undefined;
                             required?: undefined;
-                            properties?: undefined; /** @deprecated */
+                            properties?: undefined;
                         } | {
                             type: string;
                             additionalProperties: boolean;

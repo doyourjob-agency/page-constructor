@@ -4,7 +4,6 @@ const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importDefault(require("react"));
 const uikit_1 = require("@gravity-ui/uikit");
 const components_1 = require("../../components");
-const useAriaAttributes_1 = require("../../hooks/useAriaAttributes");
 const TimeIcon_1 = require("../../icons/TimeIcon");
 const models_1 = require("../../models");
 const cn_1 = require("../../utils/cn");
@@ -15,23 +14,12 @@ const PostCard = ({ title, date, readingTime, image, description, tags, url, ful
     var _a;
     const titleId = (0, uikit_1.useUniqId)();
     const descriptionId = (0, uikit_1.useUniqId)();
-    const dateId = (0, uikit_1.useUniqId)();
-    const tagId = (0, uikit_1.useUniqId)();
-    const readingTimeId = (0, uikit_1.useUniqId)();
     const isTagVisible = showTag && ((_a = tags === null || tags === void 0 ? void 0 : tags[0]) === null || _a === void 0 ? void 0 : _a.name);
-    const ariaAttributes = (0, useAriaAttributes_1.useAriaAttributes)({
-        labelIds: [isTagVisible && tagId, title && titleId],
-        descriptionIds: [
-            description && descriptionId,
-            date && dateId,
-            readingTime && readingTimeId,
-        ],
-    });
-    return (react_1.default.createElement(components_1.CardBase, { url: url, className: b('card', { fullWidth }), extraProps: ariaAttributes },
-        react_1.default.createElement(components_1.CardBase.Header, { image: image, className: b('header', { fullWidth }) },
+    return (react_1.default.createElement(components_1.CardBase, { url: url, className: b('card', { fullWidth }) },
+        react_1.default.createElement(components_1.CardBase.Header, { image: image, imageExtraProps: { 'aria-hidden': 'true' }, className: b('header', { fullWidth }) },
             react_1.default.createElement("div", { className: b('image-container'), "data-qa": "blog-suggest-header" })),
         react_1.default.createElement(components_1.CardBase.Content, null,
-            isTagVisible && (react_1.default.createElement("div", { id: tagId, className: b('tag', { size }) }, tags[0].name)),
+            isTagVisible && react_1.default.createElement("div", { className: b('tag', { size }) }, tags[0].name),
             title &&
                 react_1.default.createElement(titleHeadingLevel, { className: b('title', { size }) }, react_1.default.createElement("span", null,
                     react_1.default.createElement(components_1.HTML, { id: titleId }, title))),

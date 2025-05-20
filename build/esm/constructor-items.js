@@ -3,7 +3,7 @@ import { SliderNewBlock } from './blocks/unstable';
 import { BlockType, NavigationItemType, SubBlockType } from './models';
 import { GithubButton, NavigationButton, NavigationDropdown, NavigationLink, } from './navigation/components/NavigationItem';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
-import { BackgroundCard, BannerCard, BasicCard, Card, Content, ContentLayoutCard, Divider, ImageCard, LayoutItem, MediaCard, PostCard, PriceCard, PriceDetailed, Quote, } from './sub-blocks';
+import { BackgroundCard, BannerCard, BasicCard, Card, Content, ContentLayoutCard, Divider, FeedCard, ImageCard, LayoutItem, MediaCard, PostCard, PriceCard, PriceDetailed, Quote, } from './sub-blocks';
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
@@ -50,6 +50,7 @@ export const subBlockMap = {
     [SubBlockType.ContentLayoutCard]: ContentLayoutCard,
     [SubBlockType.Card]: Card,
     [SubBlockType.PostCard]: PostCard,
+    [SubBlockType.FeedCard]: FeedCard,
 };
 export const navItemMap = {
     [NavigationItemType.Button]: NavigationButton,

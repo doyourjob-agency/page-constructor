@@ -1,4 +1,4 @@
-import { CSSProperties, MouseEventHandler, ReactEventHandler } from 'react';
+import React, { CSSProperties, MouseEventHandler, ReactEventHandler } from 'react';
 import { ImageDeviceProps, ImageObjectProps, QAProps } from '../../models';
 export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDeviceProps>, QAProps {
     style?: CSSProperties;
@@ -6,6 +6,7 @@ export interface ImageProps extends Partial<ImageObjectProps>, Partial<ImageDevi
     onClick?: MouseEventHandler;
     onLoad?: ReactEventHandler<HTMLDivElement>;
     containerClassName?: string;
+    extraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 export interface DeviceSpecificFragmentProps extends QAProps {
     disableWebp: boolean;

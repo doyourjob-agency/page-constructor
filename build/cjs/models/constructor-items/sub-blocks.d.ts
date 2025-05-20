@@ -22,7 +22,8 @@ export declare enum SubBlockType {
     ImageCard = "image-card",
     ContentLayoutCard = "content-layout-card",
     Card = "card",
-    PostCard = "post-card"
+    PostCard = "post-card",
+    FeedCard = "feed-card"
 }
 export declare enum IconPosition {
     Top = "top",
@@ -197,6 +198,15 @@ export interface PostCardProps extends PostCardParams {
     title: string;
     url: string;
 }
+export interface FeedCardProps {
+    url?: string;
+    type?: string;
+    image?: string;
+    title?: string;
+    description?: string;
+    info?: string;
+    place?: string;
+}
 export type DividerModel = {
     type: SubBlockType.Divider;
 } & DividerProps;
@@ -234,6 +244,9 @@ export type ImageCardModel = {
 export type PostCardModel = {
     type: SubBlockType.PostCard;
 } & PostCardProps;
-export type SubBlockModels = DividerModel | QuoteModel | PriceDetailedModel | MediaCardModel | BackgroundCardModel | HubspotFormModel | BannerCardModel | BasicCardModel | PriceCardModel | LayoutItemModel | ImageCardModel | PostCardModel;
+export type FeedCardModel = {
+    type: SubBlockType.FeedCard;
+} & FeedCardProps;
+export type SubBlockModels = DividerModel | QuoteModel | PriceDetailedModel | MediaCardModel | BackgroundCardModel | HubspotFormModel | BannerCardModel | BasicCardModel | PriceCardModel | LayoutItemModel | ImageCardModel | PostCardModel | FeedCardModel;
 export type SubBlock = SubBlockModels;
 export {};

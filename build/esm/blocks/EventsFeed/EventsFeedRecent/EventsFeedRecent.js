@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { CardLayoutBlock } from '../..';
 import { Anchor, InfiniteScroll } from '../../../components';
 import { EventsRecentContext } from '../../../context/eventsContext';
+import { FeedCard } from '../../../sub-blocks';
 import { block } from '../../../utils';
-import EventsFeedCard from '../EventsFeedCard/EventsFeedCard';
 import { i18n } from '../i18n';
 import './EventsFeedRecent.css';
 const b = block('events-feed-recent');
@@ -23,7 +23,7 @@ export const EventsFeedRecent = () => {
     }
     return (React.createElement("div", { className: b() },
         React.createElement(Anchor, { id: "recent" }),
-        React.createElement(CardLayoutBlock, { title: i18n('recent_events'), colSizes: colSizes }, itemsToShow.map((item) => (React.createElement(EventsFeedCard, Object.assign({ key: item.slug }, item))))),
+        React.createElement(CardLayoutBlock, { title: i18n('recent_events'), colSizes: colSizes }, itemsToShow.map((item) => (React.createElement(FeedCard, Object.assign({ key: item.slug }, item))))),
         React.createElement(InfiniteScroll, { hasMore: hasMore, onNext: onLoadMore })));
 };
 export default React.memo(EventsFeedRecent);

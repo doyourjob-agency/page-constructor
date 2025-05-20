@@ -1,7 +1,7 @@
 import { BannerBlock, BannerCard, BlogFeedBlock, CardLayoutBlock, CompaniesBlock, ContentLayoutBlock, EventsFeedBlock, ExtendedFeaturesBlock, FilterBlock, FormBlock, HeaderBlock, HeaderSliderBlock, IconsBlock, InfoBlock, LinkTableBlock, MapBlock, MarqueeLinksBlock, MediaBlock, PressReleasesBlock, PromoFeaturesBlock, QuestionsBlock, QuotesBlock, ServicesBlock, ShareBlock, SliderBlock, SliderNewBlock, SolutionsBlock, TableBlock, TabsBlock, } from './validators/blocks';
-import { BackgroundCard, BasicCard, Card, ContentLayoutCard, Divider, ImageCard, MediaCardBlock, PostCard, PriceCardBlock, PriceDetailedBlock, Quote, } from './validators/sub-blocks';
+import { BackgroundCard, BasicCard, Card, ContentLayoutCard, Divider, FeedCard, ImageCard, MediaCardBlock, PostCard, PriceCardBlock, PriceDetailedBlock, Quote, } from './validators/sub-blocks';
 export const blockSchemas = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, Divider), ExtendedFeaturesBlock), PromoFeaturesBlock), SliderBlock), QuestionsBlock), HeaderBlock), BannerBlock), CompaniesBlock), MediaBlock), MapBlock), InfoBlock), TableBlock), TabsBlock), HeaderSliderBlock), IconsBlock), CardLayoutBlock), ContentLayoutBlock), ShareBlock), FilterBlock), FormBlock), SliderNewBlock), MarqueeLinksBlock), SolutionsBlock), ServicesBlock), QuotesBlock), LinkTableBlock), EventsFeedBlock), BlogFeedBlock), PressReleasesBlock);
-export const cardSchemas = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, MediaCardBlock), BannerCard), PriceDetailedBlock), BackgroundCard), Quote), BasicCard), PriceCardBlock), ImageCard), ContentLayoutCard), Card), PostCard);
+export const cardSchemas = Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, MediaCardBlock), BannerCard), PriceDetailedBlock), BackgroundCard), Quote), BasicCard), PriceCardBlock), ImageCard), ContentLayoutCard), Card), PostCard), FeedCard);
 export const constructorBlockSchemaNames = [
     'divider',
     'quote',
@@ -51,4 +51,5 @@ export const constructorCardSchemaNames = [
     'content-layout-card',
     'card',
     'post-card',
+    'feed-card',
 ];

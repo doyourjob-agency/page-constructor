@@ -14,6 +14,7 @@ export type CardBasePropsType = PropsWithChildren<CardBaseProps>;
 export interface CardHeaderBaseProps {
     className?: string;
     image?: ImageProps | null;
+    imageExtraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 export interface CardFooterBaseProps {
     className?: string;

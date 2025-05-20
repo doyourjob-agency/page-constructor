@@ -17,13 +17,14 @@ const Layout = (props) => {
     const { className, bodyClassName, analyticsEvents, contentClassName, children, url, target, border = 'shadow', urlTitle, qa, extraProps = {}, } = props;
     const handleAnalytics = (0, hooks_1.useAnalytics)(models_1.DefaultEventNames.CardBase, url);
     const qaAttributes = (0, react_1.useMemo)(() => (0, utils_1.getQaAttrubutes)(qa, 'header', 'footer', 'body', 'content'), [qa]);
-    const { header, content, footer, image, headerClass, footerClass } = (0, react_1.useMemo)(() => {
-        let _header, _content, _footer, _image, _headerClass, _footerClass;
+    const { header, content, footer, image, imageExtraProps, headerClass, footerClass } = (0, react_1.useMemo)(() => {
+        let _header, _content, _footer, _image, _imageExtraProps, _headerClass, _footerClass;
         function handleChild(child) {
             switch (child.type) {
                 case Header:
                     _header = child.props.children;
                     _image = child.props.image;
+                    _imageExtraProps = child.props.imageExtraProps;
                     _headerClass = child.props.className;
                     break;
                 case Content:
@@ -45,12 +46,13 @@ const Layout = (props) => {
             content: _content,
             footer: _footer,
             image: _image,
+            imageExtraProps: _imageExtraProps,
             headerClass: _headerClass,
             footerClass: _footerClass,
         };
     }, [children]);
     const cardContent = (0, react_1.useMemo)(() => (react_1.default.createElement(react_1.Fragment, null,
-        (header || image) && (react_1.default.createElement(BackgroundImage_1.default, Object.assign({ className: b('header', headerClass) }, (typeof image === 'string' ? { src: image } : image), { qa: qaAttributes.header }),
+        (header || image) && (react_1.default.createElement(BackgroundImage_1.default, Object.assign({ className: b('header', headerClass) }, (typeof image === 'string' ? { src: image } : image), { extraProps: imageExtraProps, qa: qaAttributes.header }),
             react_1.default.createElement("div", { className: b('header-content') }, header))),
         react_1.default.createElement("div", { className: b('body', bodyClassName), "data-qa": qaAttributes.body },
             react_1.default.createElement("div", { className: b('content', contentClassName), "data-qa": qaAttributes.content }, content),
@@ -58,6 +60,7 @@ const Layout = (props) => {
         header,
         content,
         image,
+        imageExtraProps,
         headerClass,
         bodyClassName,
         contentClassName,

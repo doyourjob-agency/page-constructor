@@ -14,13 +14,14 @@ export const Layout = (props) => {
     const { className, bodyClassName, analyticsEvents, contentClassName, children, url, target, border = 'shadow', urlTitle, qa, extraProps = {}, } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.CardBase, url);
     const qaAttributes = useMemo(() => getQaAttrubutes(qa, 'header', 'footer', 'body', 'content'), [qa]);
-    const { header, content, footer, image, headerClass, footerClass } = useMemo(() => {
-        let _header, _content, _footer, _image, _headerClass, _footerClass;
+    const { header, content, footer, image, imageExtraProps, headerClass, footerClass } = useMemo(() => {
+        let _header, _content, _footer, _image, _imageExtraProps, _headerClass, _footerClass;
         function handleChild(child) {
             switch (child.type) {
                 case Header:
                     _header = child.props.children;
                     _image = child.props.image;
+                    _imageExtraProps = child.props.imageExtraProps;
                     _headerClass = child.props.className;
                     break;
                 case Content:
@@ -42,12 +43,13 @@ export const Layout = (props) => {
             content: _content,
             footer: _footer,
             image: _image,
+            imageExtraProps: _imageExtraProps,
             headerClass: _headerClass,
             footerClass: _footerClass,
         };
     }, [children]);
     const cardContent = useMemo(() => (React.createElement(Fragment, null,
-        (header || image) && (React.createElement(BackgroundImage, Object.assign({ className: b('header', headerClass) }, (typeof image === 'string' ? { src: image } : image), { qa: qaAttributes.header }),
+        (header || image) && (React.createElement(BackgroundImage, Object.assign({ className: b('header', headerClass) }, (typeof image === 'string' ? { src: image } : image), { extraProps: imageExtraProps, qa: qaAttributes.header }),
             React.createElement("div", { className: b('header-content') }, header))),
         React.createElement("div", { className: b('body', bodyClassName), "data-qa": qaAttributes.body },
             React.createElement("div", { className: b('content', contentClassName), "data-qa": qaAttributes.content }, content),
@@ -55,6 +57,7 @@ export const Layout = (props) => {
         header,
         content,
         image,
+        imageExtraProps,
         headerClass,
         bodyClassName,
         contentClassName,

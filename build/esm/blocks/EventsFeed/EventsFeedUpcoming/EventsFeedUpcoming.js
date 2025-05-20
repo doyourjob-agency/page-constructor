@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { CardLayoutBlock } from '../..';
 import { Anchor } from '../../../components';
 import { EventsUpcomingContext } from '../../../context/eventsContext';
+import { FeedCard } from '../../../sub-blocks';
 import { block } from '../../../utils';
-import EventsFeedCard from './../EventsFeedCard/EventsFeedCard';
 import './EventsFeedUpcoming.css';
 const b = block('events-feed-upcoming');
 const colSizes = {
@@ -17,6 +17,6 @@ export const EventsFeedUpcoming = () => {
     const { upcoming } = useContext(EventsUpcomingContext);
     return (React.createElement("div", { className: b() },
         React.createElement(Anchor, { id: "upcoming" }),
-        React.createElement(CardLayoutBlock, { colSizes: colSizes }, upcoming.map((item) => (React.createElement(EventsFeedCard, Object.assign({ key: item.slug }, item)))))));
+        React.createElement(CardLayoutBlock, { colSizes: colSizes }, upcoming.map((item) => (React.createElement(FeedCard, Object.assign({ key: item.slug }, item)))))));
 };
 export default React.memo(EventsFeedUpcoming);

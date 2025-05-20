@@ -15,3 +15,4 @@ tslib_1.__exportStar(require("../../sub-blocks/ImageCard/schema"), exports);
 tslib_1.__exportStar(require("../../sub-blocks/ContentLayoutCard/schema"), exports);
 tslib_1.__exportStar(require("../../sub-blocks/Card/schema"), exports);
 tslib_1.__exportStar(require("../../sub-blocks/PostCard/schema"), exports);
+tslib_1.__exportStar(require("../../sub-blocks/FeedCard/schema"), exports);

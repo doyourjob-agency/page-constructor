@@ -1,6 +1,7 @@
 import React from 'react';
 export type EventData = {
     slug: string;
+    url?: string;
     title?: string;
     description?: string;
     date?: string;

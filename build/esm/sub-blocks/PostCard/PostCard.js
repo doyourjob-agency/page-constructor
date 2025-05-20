@@ -1,7 +1,6 @@
 import React from 'react';
 import { Icon, useUniqId } from '@gravity-ui/uikit';
 import { CardBase, HTML, YFMWrapper } from '../../components';
-import { useAriaAttributes } from '../../hooks/useAriaAttributes';
 import { TimeIcon } from '../../icons/TimeIcon';
 import { PostCardSize, PostCardTitleHeadingLevel } from '../../models';
 import { block } from '../../utils/cn';
@@ -13,23 +12,12 @@ const PostCard = ({ title, date, readingTime, image, description, tags, url, ful
     var _a;
     const titleId = useUniqId();
     const descriptionId = useUniqId();
-    const dateId = useUniqId();
-    const tagId = useUniqId();
-    const readingTimeId = useUniqId();
     const isTagVisible = showTag && ((_a = tags === null || tags === void 0 ? void 0 : tags[0]) === null || _a === void 0 ? void 0 : _a.name);
-    const ariaAttributes = useAriaAttributes({
-        labelIds: [isTagVisible && tagId, title && titleId],
-        descriptionIds: [
-            description && descriptionId,
-            date && dateId,
-            readingTime && readingTimeId,
-        ],
-    });
-    return (React.createElement(CardBase, { url: url, className: b('card', { fullWidth }), extraProps: ariaAttributes },
-        React.createElement(CardBase.Header, { image: image, className: b('header', { fullWidth }) },
+    return (React.createElement(CardBase, { url: url, className: b('card', { fullWidth }) },
+        React.createElement(CardBase.Header, { image: image, imageExtraProps: { 'aria-hidden': 'true' }, className: b('header', { fullWidth }) },
             React.createElement("div", { className: b('image-container'), "data-qa": "blog-suggest-header" })),
         React.createElement(CardBase.Content, null,
-            isTagVisible && (React.createElement("div", { id: tagId, className: b('tag', { size }) }, tags[0].name)),
+            isTagVisible && React.createElement("div", { className: b('tag', { size }) }, tags[0].name),
             title &&
                 React.createElement(titleHeadingLevel, { className: b('title', { size }) }, React.createElement("span", null,
                     React.createElement(HTML, { id: titleId }, title))),

@@ -21,6 +21,7 @@ var SubBlockType;
     SubBlockType["ContentLayoutCard"] = "content-layout-card";
     SubBlockType["Card"] = "card";
     SubBlockType["PostCard"] = "post-card";
+    SubBlockType["FeedCard"] = "feed-card";
 })(SubBlockType = exports.SubBlockType || (exports.SubBlockType = {}));
 var IconPosition;
 (function (IconPosition) {

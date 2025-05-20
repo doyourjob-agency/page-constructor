@@ -6,8 +6,8 @@ const react_1 = tslib_1.__importStar(require("react"));
 const __1 = require("../..");
 const components_1 = require("../../../components");
 const eventsContext_1 = require("../../../context/eventsContext");
+const sub_blocks_1 = require("../../../sub-blocks");
 const utils_1 = require("../../../utils");
-const EventsFeedCard_1 = tslib_1.__importDefault(require("../EventsFeedCard/EventsFeedCard"));
 const i18n_1 = require("../i18n");
 const b = (0, utils_1.block)('events-feed-recent');
 const colSizes = {
@@ -26,7 +26,7 @@ const EventsFeedRecent = () => {
     }
     return (react_1.default.createElement("div", { className: b() },
         react_1.default.createElement(components_1.Anchor, { id: "recent" }),
-        react_1.default.createElement(__1.CardLayoutBlock, { title: (0, i18n_1.i18n)('recent_events'), colSizes: colSizes }, itemsToShow.map((item) => (react_1.default.createElement(EventsFeedCard_1.default, Object.assign({ key: item.slug }, item))))),
+        react_1.default.createElement(__1.CardLayoutBlock, { title: (0, i18n_1.i18n)('recent_events'), colSizes: colSizes }, itemsToShow.map((item) => (react_1.default.createElement(sub_blocks_1.FeedCard, Object.assign({ key: item.slug }, item))))),
         react_1.default.createElement(components_1.InfiniteScroll, { hasMore: hasMore, onNext: onLoadMore })));
 };
 exports.EventsFeedRecent = EventsFeedRecent;

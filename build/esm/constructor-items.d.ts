@@ -43,6 +43,7 @@ export declare const subBlockMap: {
     "content-layout-card": (props: import("./models").ContentLayoutBlockProps) => JSX.Element;
     card: ({ header, text, service, ...props }: import("./models").CardProps) => JSX.Element;
     "post-card": import("react").MemoExoticComponent<({ title, date, readingTime, image, description, tags, url, fullWidth, size, showTag, titleHeadingLevel, }: import("./models").PostCardProps) => JSX.Element>;
+    "feed-card": import("react").MemoExoticComponent<({ url, image, title, type, description, info, place }: import("./models").FeedCardProps) => JSX.Element>;
 };
 export declare const navItemMap: {
     button: import("react").FC<Pick<import("./navigation").NavigationItemProps, "className"> & import("./models").ButtonProps>;

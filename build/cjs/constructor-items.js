@@ -54,6 +54,7 @@ exports.subBlockMap = {
     [models_1.SubBlockType.ContentLayoutCard]: sub_blocks_1.ContentLayoutCard,
     [models_1.SubBlockType.Card]: sub_blocks_1.Card,
     [models_1.SubBlockType.PostCard]: sub_blocks_1.PostCard,
+    [models_1.SubBlockType.FeedCard]: sub_blocks_1.FeedCard,
 };
 exports.navItemMap = {
     [models_1.NavigationItemType.Button]: NavigationItem_1.NavigationButton,
