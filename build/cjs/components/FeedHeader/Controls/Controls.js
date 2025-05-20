@@ -41,10 +41,8 @@ const FilterSelect = ({ label, value, onChange, items = [], }) => {
                 defaultLabel: label || '',
             }), disablePortal: true, virtualizationThreshold: VIRTUALIZATION_THRESHOLD, renderOption: customRenders_1.renderOption })));
 };
-const Filter = ({ name, type, label, items, }) => {
+const Filter = ({ name, type, value, label, items, }) => {
     const { onChangeFilter } = (0, react_1.useContext)(feedHeaderContext_1.FeedHeaderFunctionsContext);
-    const { filter } = (0, react_1.useContext)(feedHeaderContext_1.FeedHeaderFilterContext);
-    const value = (0, react_1.useMemo)(() => filter[name], [filter, name]);
     const handleChangeFilter = (0, react_1.useCallback)((data) => {
         onChangeFilter === null || onChangeFilter === void 0 ? void 0 : onChangeFilter({ [name]: data });
     }, [name, onChangeFilter]);
@@ -62,9 +60,10 @@ const Filter = ({ name, type, label, items, }) => {
 const FilterMemo = react_1.default.memo(Filter);
 const Controls = ({ title }) => {
     const { filters } = (0, react_1.useContext)(feedHeaderContext_1.FeedHeaderFiltersContext);
+    const { filter } = (0, react_1.useContext)(feedHeaderContext_1.FeedHeaderFilterContext);
     return (react_1.default.createElement("div", { className: b() },
         react_1.default.createElement("h1", { className: b('title') }, title),
-        react_1.default.createElement("div", { className: b('filters') }, filters.map((item) => (react_1.default.createElement(FilterMemo, { key: item.name, name: item.name, type: item.type, label: item.label, items: item.items }))))));
+        react_1.default.createElement("div", { className: b('filters') }, filters.map((item) => (react_1.default.createElement(FilterMemo, { key: item.name, name: item.name, value: filter[item.name], type: item.type, label: item.label, items: item.items }))))));
 };
 exports.Controls = Controls;
 exports.default = react_1.default.memo(exports.Controls);
