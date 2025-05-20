@@ -18,8 +18,21 @@ exports.PostCard = {
                 type: 'string',
             }, description: {
                 type: 'string',
-            }, tag: {
-                type: 'string',
+            }, tags: {
+                type: 'array',
+                items: {
+                    type: 'object',
+                    additionalProperties: false,
+                    required: ['name', 'slug'],
+                    properties: {
+                        name: {
+                            type: 'string',
+                        },
+                        slug: {
+                            type: 'string',
+                        },
+                    },
+                },
             } }),
     },
 };

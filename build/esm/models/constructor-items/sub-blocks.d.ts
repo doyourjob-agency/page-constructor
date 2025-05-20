@@ -190,7 +190,10 @@ export interface PostCardProps extends PostCardParams {
     image: string;
     readingTime?: number;
     slug: string;
-    tag?: string;
+    tags: {
+        slug: string;
+        name: string;
+    }[];
     title: string;
     url: string;
 }

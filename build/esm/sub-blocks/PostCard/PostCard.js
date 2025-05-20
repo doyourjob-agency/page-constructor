@@ -9,13 +9,14 @@ import { i18n } from './i18n';
 import './PostCard.css';
 const ICON_SIZE = 16;
 const b = block('post-card');
-const PostCard = ({ title, date, readingTime, image, description, tag, url, fullWidth = false, size = PostCardSize.SMALL, showTag = false, titleHeadingLevel = PostCardTitleHeadingLevel.H3, }) => {
+const PostCard = ({ title, date, readingTime, image, description, tags, url, fullWidth = false, size = PostCardSize.SMALL, showTag = false, titleHeadingLevel = PostCardTitleHeadingLevel.H3, }) => {
+    var _a;
     const titleId = useUniqId();
     const descriptionId = useUniqId();
     const dateId = useUniqId();
     const tagId = useUniqId();
     const readingTimeId = useUniqId();
-    const isTagVisible = showTag && tag;
+    const isTagVisible = showTag && ((_a = tags === null || tags === void 0 ? void 0 : tags[0]) === null || _a === void 0 ? void 0 : _a.name);
     const ariaAttributes = useAriaAttributes({
         labelIds: [isTagVisible && tagId, title && titleId],
         descriptionIds: [
@@ -28,7 +29,7 @@ const PostCard = ({ title, date, readingTime, image, description, tag, url, full
         React.createElement(CardBase.Header, { image: image, className: b('header', { fullWidth }) },
             React.createElement("div", { className: b('image-container'), "data-qa": "blog-suggest-header" })),
         React.createElement(CardBase.Content, null,
-            isTagVisible && (React.createElement("div", { id: tagId, className: b('tag', { size }) }, tag)),
+            isTagVisible && (React.createElement("div", { id: tagId, className: b('tag', { size }) }, tags[0].name)),
             title &&
                 React.createElement(titleHeadingLevel, { className: b('title', { size }) }, React.createElement("span", null,
                     React.createElement(HTML, { id: titleId }, title))),

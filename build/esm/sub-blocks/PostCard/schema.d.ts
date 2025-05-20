@@ -21,8 +21,21 @@ export declare const PostCard: {
             description: {
                 type: string;
             };
-            tag: {
+            tags: {
                 type: string;
+                items: {
+                    type: string;
+                    additionalProperties: boolean;
+                    required: string[];
+                    properties: {
+                        name: {
+                            type: string;
+                        };
+                        slug: {
+                            type: string;
+                        };
+                    };
+                };
             };
             type: {};
             when: {

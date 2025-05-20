@@ -11,13 +11,14 @@ const cn_1 = require("../../utils/cn");
 const i18n_1 = require("./i18n");
 const ICON_SIZE = 16;
 const b = (0, cn_1.block)('post-card');
-const PostCard = ({ title, date, readingTime, image, description, tag, url, fullWidth = false, size = models_1.PostCardSize.SMALL, showTag = false, titleHeadingLevel = models_1.PostCardTitleHeadingLevel.H3, }) => {
+const PostCard = ({ title, date, readingTime, image, description, tags, url, fullWidth = false, size = models_1.PostCardSize.SMALL, showTag = false, titleHeadingLevel = models_1.PostCardTitleHeadingLevel.H3, }) => {
+    var _a;
     const titleId = (0, uikit_1.useUniqId)();
     const descriptionId = (0, uikit_1.useUniqId)();
     const dateId = (0, uikit_1.useUniqId)();
     const tagId = (0, uikit_1.useUniqId)();
     const readingTimeId = (0, uikit_1.useUniqId)();
-    const isTagVisible = showTag && tag;
+    const isTagVisible = showTag && ((_a = tags === null || tags === void 0 ? void 0 : tags[0]) === null || _a === void 0 ? void 0 : _a.name);
     const ariaAttributes = (0, useAriaAttributes_1.useAriaAttributes)({
         labelIds: [isTagVisible && tagId, title && titleId],
         descriptionIds: [
@@ -30,7 +31,7 @@ const PostCard = ({ title, date, readingTime, image, description, tag, url, full
         react_1.default.createElement(components_1.CardBase.Header, { image: image, className: b('header', { fullWidth }) },
             react_1.default.createElement("div", { className: b('image-container'), "data-qa": "blog-suggest-header" })),
         react_1.default.createElement(components_1.CardBase.Content, null,
-            isTagVisible && (react_1.default.createElement("div", { id: tagId, className: b('tag', { size }) }, tag)),
+            isTagVisible && (react_1.default.createElement("div", { id: tagId, className: b('tag', { size }) }, tags[0].name)),
             title &&
                 react_1.default.createElement(titleHeadingLevel, { className: b('title', { size }) }, react_1.default.createElement("span", null,
                     react_1.default.createElement(components_1.HTML, { id: titleId }, title))),
