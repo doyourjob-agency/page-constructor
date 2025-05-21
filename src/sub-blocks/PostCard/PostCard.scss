@@ -1,0 +1,136 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}post-card';
+
+#{$block} {
+    $linesToShow: 5;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+
+        min-height: 400px;
+
+        &_fullWidth {
+            flex-direction: row;
+
+            @media (max-width: map-get($gridBreakpoints, 'lg')) {
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__header {
+        &_fullWidth {
+            min-height: auto;
+            height: 100%;
+
+            @media (min-width: map-get($gridBreakpoints, 'lg')) {
+                width: 66%;
+                min-height: 480px;
+            }
+        }
+    }
+
+    &__title {
+        margin-bottom: $indentXXXS;
+
+        &_size_s {
+            @include heading4();
+        }
+
+        &_size_m {
+            @include heading2();
+        }
+    }
+
+    &__image-container {
+        height: 156px;
+    }
+
+    &__tag {
+        color: var(--g-color-text-secondary);
+        font-weight: var(--g-text-accent-font-weight);
+
+        &_size_s {
+            @include text-size(body-2);
+            padding-bottom: 4px;
+        }
+
+        &_size_m {
+            @include text-size(body-3);
+            padding-bottom: $indentXXXS;
+        }
+    }
+
+    &__description {
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: $indentXXL;
+        white-space: initial;
+        color: var(--g-color-text-primary);
+
+        @supports (-webkit-line-clamp: $linesToShow) {
+            max-height: none;
+            -webkit-line-clamp: $linesToShow;
+        }
+
+        &_size {
+            &_m {
+                max-height: $indentXXXL;
+            }
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-top: $indentXXS;
+        color: var(--g-color-text-secondary);
+    }
+
+    &__suggest-container {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        @include text-size(body-2);
+
+        display: flex;
+        padding-right: $indentSM;
+        padding-top: $indentXXS;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &_size {
+            &_s {
+                @include text-size(body-2);
+            }
+
+            &_m {
+                @include text-size(body-3);
+            }
+        }
+    }
+
+    &__item:last-child {
+        @include text-size(body-2);
+
+        display: flex;
+        padding-right: 0px;
+        padding-top: $indentXXS;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+    }
+}

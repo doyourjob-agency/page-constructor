@@ -1,0 +1,53 @@
+{
+  "pinnedPost": {
+    "slug": "test-1",
+    "title": "Lorem Ipsum is",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "date": "May 11, 2025",
+    "image": "/story-assets/img_6-12_light.png",
+    "readingTime": 5,
+    "tag": "Test",
+    "url": "#"
+  },
+  "posts": [
+    {
+      "slug": "test-3",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "May 12, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 5,
+      "tag": "Test",
+      "url": "#"
+    },
+    {
+      "slug": "test-4",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "May 14, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 15,
+      "url": "#"
+    },
+    {
+      "slug": "test-5",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "May 17, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "url": "#"
+    },
+    {
+      "slug": "test-6",
+      "title": "Lorem Ipsum is",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "date": "May 19, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 15,
+      "tag": "Tag",
+      "url": "#"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}

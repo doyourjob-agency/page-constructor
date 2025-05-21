@@ -68,6 +68,7 @@ export enum BlockType {
     QuotesBlock = 'quotes-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
+    BlogFeedBlock = 'blog-feed-block',
     PressReleasesBlock = 'press-releases-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
@@ -377,6 +378,11 @@ export interface EventsFeedBlockProps {
     title?: string;
 }
 
+export interface BlogFeedBlockProps {
+    image?: string;
+    title?: string;
+}
+
 export interface PressReleasesBlockProps {
     title?: string;
 }
@@ -644,6 +650,10 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type BlogFeedBlockModel = {
+    type: BlockType.BlogFeedBlock;
+} & BlogFeedBlockProps;
+
 export type PressReleasesBlockModel = {
     type: BlockType.PressReleasesBlock;
 } & PressReleasesBlockProps;
@@ -679,6 +689,7 @@ type BlockModels =
     | QuotesBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | BlogFeedBlockModel
     | PressReleasesBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;

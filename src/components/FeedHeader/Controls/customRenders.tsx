@@ -1,31 +1,28 @@
 import React from 'react';
 
-import {SelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
+import {SelectOption as PcSelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
-import {block} from '../../../../utils';
-import {i18n} from '../../i18n';
-import {EventsFeedHeaderSelectOption} from '../EventsFeedHeaderSelectOption/EventsFeedHeaderSelectOption';
-import {
-    EventsFeedHeaderSwitcher,
-    EventsFeedHeaderSwitcherProps,
-} from '../EventsFeedHeaderSwitcher/EventsFeedHeaderSwitcher';
+import {block} from '../../../utils';
+import {SelectOption} from '../SelectOption/SelectOption';
+import {Switcher, SwitcherProps} from '../Switcher/Switcher';
+import {i18n} from '../i18n';
 
-import './EventsFeedHeaderControls.scss';
+import './Controls.scss';
 
-const b = block('events-feed-header-controls');
+const b = block('feed-header-controls');
 
 type RenderSwitcherType = ({
     initial,
     list,
     defaultLabel,
 }: {
-    initial: EventsFeedHeaderSwitcherProps['initial'];
-    list: EventsFeedHeaderSwitcherProps['list'];
+    initial: SwitcherProps['initial'];
+    list: SwitcherProps['list'];
     defaultLabel: string;
 }) => SelectProps['renderControl'];
 
 export const renderSwitcher: RenderSwitcherType = ({initial, list, defaultLabel}) => {
-    const Switcher: SelectProps['renderControl'] = ({
+    const WrapSwitcher: SelectProps['renderControl'] = ({
         onClick,
         ref,
         onKeyDown,
@@ -35,7 +32,7 @@ export const renderSwitcher: RenderSwitcherType = ({initial, list, defaultLabel}
         activeIndex,
     }) => {
         return (
-            <EventsFeedHeaderSwitcher
+            <Switcher
                 initial={initial}
                 defaultLabel={defaultLabel}
                 list={list}
@@ -49,7 +46,7 @@ export const renderSwitcher: RenderSwitcherType = ({initial, list, defaultLabel}
             />
         );
     };
-    return Switcher;
+    return WrapSwitcher;
 };
 
 export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKeyDown}) => {
@@ -66,6 +63,6 @@ export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKe
     );
 };
 
-export const renderOption = (option: SelectOption) => {
-    return <EventsFeedHeaderSelectOption data={option} />;
+export const renderOption = (option: PcSelectOption) => {
+    return <SelectOption data={option} />;
 };

@@ -1,5 +1,6 @@
 import {
     BannerBlock,
+    BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
@@ -46,6 +47,7 @@ import {
     ImageCard,
     LayoutItem,
     MediaCard,
+    PostCard,
     PriceCard,
     PriceDetailed,
     Quote,
@@ -74,6 +76,7 @@ export const blockMap = {
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
+    [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
 
     [BlockType.LinkTableBlock]: LinkTableBlock,
@@ -97,6 +100,7 @@ export const subBlockMap = {
     [SubBlockType.ImageCard]: ImageCard,
     [SubBlockType.ContentLayoutCard]: ContentLayoutCard,
     [SubBlockType.Card]: Card,
+    [SubBlockType.PostCard]: PostCard,
 };
 
 export const navItemMap = {

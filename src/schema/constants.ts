@@ -3,6 +3,7 @@ import {BlockType} from '../models';
 import {
     BannerBlock,
     BannerCard,
+    BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
     ContentLayoutBlock,
@@ -38,6 +39,7 @@ import {
     Divider,
     ImageCard,
     MediaCardBlock,
+    PostCard,
     PriceCardBlock,
     PriceDetailedBlock,
     Quote,
@@ -71,6 +73,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...QuotesBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...BlogFeedBlock,
     ...PressReleasesBlock,
 };
 
@@ -85,6 +88,7 @@ export const cardSchemas = {
     ...ImageCard,
     ...ContentLayoutCard,
     ...Card,
+    ...PostCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -120,6 +124,7 @@ export const constructorBlockSchemaNames = [
     'quotes-block',
     'link-table-block',
     'events-feed-block',
+    'blog-feed-block',
 ];
 
 export const constructorCardSchemaNames = [
@@ -135,4 +140,5 @@ export const constructorCardSchemaNames = [
     'image-card',
     'content-layout-card',
     'card',
+    'post-card',
 ];

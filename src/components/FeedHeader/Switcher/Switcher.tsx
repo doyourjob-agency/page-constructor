@@ -2,28 +2,28 @@ import React, {LegacyRef, useMemo} from 'react';
 
 import {Icon, SelectProps, useUniqId} from '@gravity-ui/uikit';
 
-import {EventsOption} from '../../../../context/eventsContext';
-import {CloseIcon} from '../../../../icons/CloseIcon';
-import {DropdownArrowIcon} from '../../../../icons/DropdownArrowIcon';
-import {block} from '../../../../utils';
+import {FeedHeaderOption} from '../../../context/feedHeaderContext';
+import {CloseIcon} from '../../../icons/CloseIcon';
+import {DropdownArrowIcon} from '../../../icons/DropdownArrowIcon';
+import {block} from '../../../utils';
 
-import './EventsFeedHeaderSwitcher.scss';
+import './Switcher.scss';
 
-const b = block('events-feed-header-switcher');
+const b = block('feed-header-switcher');
 
 type RenderControlParameters = Partial<Parameters<Required<SelectProps>['renderControl']>[0]>;
 
-export type EventsFeedHeaderSwitcherProps = {
+export type SwitcherProps = {
     initial: (string | number | null)[];
     defaultLabel: string;
-    list: EventsOption[];
+    list: FeedHeaderOption[];
     controlRef: RenderControlParameters['ref'];
 } & Omit<RenderControlParameters, 'ref'>;
 
 const ICON_SIZE = 12;
 const CLEAR_ICON_SIZE = 11;
 
-export const EventsFeedHeaderSwitcher = ({
+export const Switcher = ({
     initial,
     defaultLabel,
     list,
@@ -34,7 +34,7 @@ export const EventsFeedHeaderSwitcher = ({
     renderClear,
     popupId,
     activeIndex,
-}: EventsFeedHeaderSwitcherProps) => {
+}: SwitcherProps) => {
     const itemsNames = useMemo(() => {
         const items = list
             .filter((item) => initial.includes(item.value))
@@ -76,4 +76,4 @@ export const EventsFeedHeaderSwitcher = ({
     );
 };
 
-export default EventsFeedHeaderSwitcher;
+export default Switcher;

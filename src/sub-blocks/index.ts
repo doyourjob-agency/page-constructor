@@ -12,3 +12,4 @@ export {default as PriceCard} from './PriceCard/PriceCard';
 export {default as ImageCard} from './ImageCard/ImageCard';
 export {default as ContentLayoutCard} from './ContentLayoutCard/ContentLayoutCard';
 export {default as Card} from './Card/Card';
+export {default as PostCard} from './PostCard/PostCard';
