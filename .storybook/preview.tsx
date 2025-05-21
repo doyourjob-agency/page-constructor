@@ -2,7 +2,7 @@ import '../styles/storybook/index.scss';
 import '@gravity-ui/uikit/styles/styles.scss';
 import {MobileProvider, Platform, ThemeProvider} from '@gravity-ui/uikit';
 
-import React from 'react';
+import React, {Fragment} from 'react';
 import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport';
 import type {Decorator, Preview} from '@storybook/react';
 import {themeLight} from './theme/light';
@@ -18,19 +18,22 @@ import {FormListContext, FormListContextProps} from '../src/context/formListCont
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 import {RouterContext, RouterContextProps} from '../src/context/routerContext';
 import {
-    EventsHeaderFilterContext,
-    EventsHeaderFilterContextProps,
-    EventsHeaderFiltersContext,
-    EventsHeaderFiltersContextProps,
     EventsRecentContext,
     EventsRecentContextProps,
     EventsUpcomingContext,
     EventsUpcomingContextProps,
 } from '../src/context/eventsContext';
+import {BlogPostsContext, BlogPostsContextProps} from '../src/context/blogPostsContext';
 import {PressReleasesContext, PressReleasesContextProps} from '../src/context/pressReleasesContext';
 import {HeaderContext, HeaderContextProps} from '../src/context/headerContext';
 
 import '../styles/styles.scss';
+import {
+    FeedHeaderFilterContext,
+    FeedHeaderFilterContextProps,
+    FeedHeaderFiltersContext,
+    FeedHeaderFiltersContextProps,
+} from '../src/context/feedHeaderContext';
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
@@ -45,73 +48,43 @@ const withContextProvider: Decorator = (Story, context) => {
     // TODO: to switch docs theme dynamically in the future
     // context.parameters.docs.theme = theme === 'light' ? CommonTheme.light : CommonTheme.dark;
 
-    return (
-        <GlobalThemeController>
-            <ThemeProvider theme={theme}>
-                <MobileProvider mobile={false} platform={Platform.BROWSER}>
-                    <ServicesContext.Provider
-                        value={context.args.servicesContext as ServicesContextProps}
-                    >
-                        <FormListContext.Provider
-                            value={context.args.formListContext as FormListContextProps}
-                        >
-                            <SolutionsContext.Provider
-                                value={context.args.solutionsContext as SolutionsContextProps}
-                            >
-                                <RouterContext.Provider
-                                    value={context.args.routerContext as RouterContextProps}
-                                >
-                                    <EventsHeaderFiltersContext.Provider
-                                        value={
-                                            context.args
-                                                .eventsHeaderFiltersContext as EventsHeaderFiltersContextProps
-                                        }
-                                    >
-                                        <EventsHeaderFilterContext.Provider
-                                            value={
-                                                context.args
-                                                    .eventsHeaderFilterContext as EventsHeaderFilterContextProps
-                                            }
-                                        >
-                                            <EventsUpcomingContext.Provider
-                                                value={
-                                                    context.args
-                                                        .eventsUpcomingContext as EventsUpcomingContextProps
-                                                }
-                                            >
-                                                <EventsRecentContext.Provider
-                                                    value={
-                                                        context.args
-                                                            .eventsRecentContext as EventsRecentContextProps
-                                                    }
-                                                >
-                                                    <PressReleasesContext.Provider
-                                                        value={
-                                                            context.args
-                                                                .pressReleasesContext as PressReleasesContextProps
-                                                        }
-                                                    >
-                                                        <HeaderContext.Provider
-                                                            value={
-                                                                context.args
-                                                                    .headerContext as HeaderContextProps
-                                                            }
-                                                        >
-                                                            <Story {...context} />
-                                                        </HeaderContext.Provider>
-                                                    </PressReleasesContext.Provider>
-                                                </EventsRecentContext.Provider>
-                                            </EventsUpcomingContext.Provider>
-                                        </EventsHeaderFilterContext.Provider>
-                                    </EventsHeaderFiltersContext.Provider>
-                                </RouterContext.Provider>
-                            </SolutionsContext.Provider>
-                        </FormListContext.Provider>
-                    </ServicesContext.Provider>
-                </MobileProvider>
-            </ThemeProvider>
-        </GlobalThemeController>
+    /* eslint-disable react/jsx-key */
+    const children = [
+        <GlobalThemeController />,
+        <ThemeProvider theme={theme} />,
+        <MobileProvider mobile={false} platform={Platform.BROWSER} />,
+        <ServicesContext.Provider value={context.args.servicesContext as ServicesContextProps} />,
+        <FormListContext.Provider value={context.args.formListContext as FormListContextProps} />,
+        <SolutionsContext.Provider
+            value={context.args.solutionsContext as SolutionsContextProps}
+        />,
+        <RouterContext.Provider value={context.args.routerContext as RouterContextProps} />,
+        <FeedHeaderFiltersContext.Provider
+            value={context.args.feedHeaderFiltersContext as FeedHeaderFiltersContextProps}
+        />,
+        <FeedHeaderFilterContext.Provider
+            value={context.args.feedHeaderFilterContext as FeedHeaderFilterContextProps}
+        />,
+        <EventsUpcomingContext.Provider
+            value={context.args.eventsUpcomingContext as EventsUpcomingContextProps}
+        />,
+        <EventsRecentContext.Provider
+            value={context.args.eventsRecentContext as EventsRecentContextProps}
+        />,
+        <PressReleasesContext.Provider
+            value={context.args.pressReleasesContext as PressReleasesContextProps}
+        />,
+        <BlogPostsContext.Provider
+            value={context.args.blogPostsContext as BlogPostsContextProps}
+        />,
+        <HeaderContext.Provider value={context.args.headerContext as HeaderContextProps} />,
+    ].reduceRight(
+        (prev, provider) => React.cloneElement(provider, {}, prev),
+        <Story {...context} />,
     );
+    /* eslint-enable react/jsx-key */
+
+    return <Fragment>{children}</Fragment>;
 };
 
 const withPageConstructorProvider: Decorator = (Story, context) => {

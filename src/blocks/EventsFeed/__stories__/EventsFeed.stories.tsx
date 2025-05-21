@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {argEventsContext, argRouterContext} from '../../../../.storybook/utils';
+import {argEventsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {EventsFeedBlockModel} from '../../../models';
 import EventsFeed from '../EventsFeed';
@@ -13,11 +13,11 @@ export default {
     title: 'Blocks/EventsFeed',
     component: EventsFeed,
     args: {
-        ...argRouterContext.args,
+        ...argFeedHeaderContext.args,
         ...argEventsContext.args,
     },
     argTypes: {
-        ...argRouterContext.argTypes,
+        ...argFeedHeaderContext.argTypes,
         ...argEventsContext.argTypes,
     },
 } as Meta;

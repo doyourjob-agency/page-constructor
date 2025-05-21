@@ -6,7 +6,9 @@ export * from './context/servicesContext';
 export * from './context/solutionsContext';
 export * from './context/formListContext';
 export * from './context/routerContext';
+export * from './context/feedHeaderContext';
 export * from './context/eventsContext';
+export * from './context/blogPostsContext';
 export * from './context/pressReleasesContext';
 export * from './context/headerContext';
 

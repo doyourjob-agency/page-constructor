@@ -3,12 +3,13 @@ import argsServicesContext from './args/argsServicesContext.json';
 import argsFormListContext from './args/argsFormListContext.json';
 import argsSolutionsContext from './args/argsSolutionsContext.json';
 import argsRouterContext from './args/argsRouterContext.json';
-import argsEventsHeaderFiltersContext from './args/argsEventsHeaderFiltersContext.json';
-import argsEventsHeaderFilterContext from './args/argsEventsHeaderFilterContext.json';
+import argsFeedHeaderFiltersContext from './args/argsFeedHeaderFiltersContext.json';
+import argsFeedHeaderFilterContext from './args/argsFeedHeaderFilterContext.json';
 import argsEventsUpcomingContext from './args/argsEventsUpcomingContext.json';
 import argsEventsRecentContext from './args/argsEventsRecentContext.json';
 import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
+import argsBlogPostsContext from './args/argsBlogPostsContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -74,20 +75,6 @@ export const argRouterContext = {
 
 export const argEventsContext = {
     argTypes: {
-        eventsHeaderFiltersContext: {
-            name: 'EventsHeaderFiltersContext',
-            control: 'object',
-            table: {
-                category: 'Context',
-            },
-        },
-        eventsHeaderFilterContext: {
-            name: 'EventsHeaderFilterContext',
-            control: 'object',
-            table: {
-                category: 'Context',
-            },
-        },
         eventsUpcomingContext: {
             name: 'EventsUpcomingContext',
             control: 'object',
@@ -104,10 +91,46 @@ export const argEventsContext = {
         },
     },
     args: {
-        eventsHeaderFiltersContext: argsEventsHeaderFiltersContext,
-        eventsHeaderFilterContext: argsEventsHeaderFilterContext,
         eventsUpcomingContext: argsEventsUpcomingContext,
         eventsRecentContext: argsEventsRecentContext,
+    },
+};
+
+export const argBlogPostsContext = {
+    argTypes: {
+        blogPostsContext: {
+            name: 'BlogPostsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        blogPostsContext: argsBlogPostsContext,
+    },
+};
+
+export const argFeedHeaderContext = {
+    argTypes: {
+        feedHeaderFiltersContext: {
+            name: 'FeedHeaderFiltersContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+        feedHeaderFilterContext: {
+            name: 'FeedHeaderFilterContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        feedHeaderFiltersContext: argsFeedHeaderFiltersContext,
+        feedHeaderFilterContext: argsFeedHeaderFilterContext,
     },
 };
 

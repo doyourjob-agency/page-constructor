@@ -163,6 +163,7 @@ export interface BackgroundImageProps
     style?: CSSProperties;
     imageClassName?: string;
     hide?: boolean;
+    extraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 
 //components props

@@ -1,7 +1,7 @@
-@import '../../../../../styles/mixins';
-@import '../../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
 
-$block: '.#{$ns}events-feed-header-switcher';
+$block: '.#{$ns}feed-header-switcher';
 
 #{$block} {
     position: relative;

@@ -3,21 +3,21 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {Icon, TextInput} from '@gravity-ui/uikit';
 import lodashDebounce from 'lodash/debounce';
 
-import {CloseIcon} from '../../../../icons/CloseIcon';
-import {SearchIcon} from '../../../../icons/SearchIcon';
-import {block} from '../../../../utils';
-import {i18n} from '../../i18n';
+import {CloseIcon} from '../../../icons/CloseIcon';
+import {SearchIcon} from '../../../icons/SearchIcon';
+import {block} from '../../../utils';
+import {i18n} from '../i18n';
 
-import './EventsFeedHeaderSearch.scss';
+import './Search.scss';
 
-const b = block('events-feed-header-search');
+const b = block('feed-header-search');
 
 const SEARCH_ICON_SIZE = 16;
 const CLOSE_ICON_SIZE = 12;
 
 export type SearchSize = 's' | 'm';
 
-type EventsFeedHeaderSearchProps = {
+type SearchProps = {
     className?: string;
     initialValue?: string;
     onSubmit: (value: string) => void;
@@ -26,14 +26,14 @@ type EventsFeedHeaderSearchProps = {
     size?: SearchSize;
 };
 
-export const EventsFeedHeaderSearch = ({
+export const Search = ({
     className,
     initialValue,
     onSubmit,
     debounce = 300,
     placeholder,
     size = 'm',
-}: EventsFeedHeaderSearchProps) => {
+}: SearchProps) => {
     const handleChange = lodashDebounce(onSubmit, debounce);
     const [isSetInitValue, setIsSetInitValue] = useState(false);
     const [value, setValue] = useState(initialValue);
@@ -99,4 +99,4 @@ export const EventsFeedHeaderSearch = ({
     );
 };
 
-export default EventsFeedHeaderSearch;
+export default Search;
