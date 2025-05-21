@@ -11,7 +11,7 @@ export interface FeedHeaderFilterContextProps {
 
 export interface FeedHeaderFiltersContextProps {
     filters: {
-        type: 'select' | 'input';
+        type: 'select' | 'input' | 'multiple-select';
         name: string;
         label?: string;
         items?: FeedHeaderOption[];

@@ -22,7 +22,7 @@ const PostCard = ({
     readingTime,
     image,
     description,
-    tag,
+    tags,
     url,
     fullWidth = false,
     size = PostCardSize.SMALL,
@@ -34,7 +34,7 @@ const PostCard = ({
     const dateId = useUniqId();
     const tagId = useUniqId();
     const readingTimeId = useUniqId();
-    const isTagVisible = showTag && tag;
+    const isTagVisible = showTag && tags?.[0]?.name;
     const ariaAttributes = useAriaAttributes({
         labelIds: [isTagVisible && tagId, title && titleId],
         descriptionIds: [
@@ -52,7 +52,7 @@ const PostCard = ({
             <CardBase.Content>
                 {isTagVisible && (
                     <div id={tagId} className={b('tag', {size})}>
-                        {tag}
+                        {tags[0].name}
                     </div>
                 )}
                 {title &&
