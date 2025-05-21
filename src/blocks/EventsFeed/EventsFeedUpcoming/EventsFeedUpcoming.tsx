@@ -21,6 +21,10 @@ const colSizes = {
 export const EventsFeedUpcoming = () => {
     const {upcoming} = useContext(EventsUpcomingContext);
 
+    if (!upcoming || upcoming.length === 0) {
+        return null;
+    }
+
     return (
         <div className={b()}>
             <Anchor id="upcoming" />

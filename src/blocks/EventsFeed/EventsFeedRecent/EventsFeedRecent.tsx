@@ -24,7 +24,7 @@ export const EventsFeedRecent = () => {
     const itemsToShow = recent.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(recent.length / pageSize);
 
-    if (recent.length === 0) {
+    if (!recent || recent.length === 0) {
         return null;
     }
 

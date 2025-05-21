@@ -5,4 +5,11 @@ $block: '.#{$ns}constructor-block';
 
 #{$block} {
     @include indents(&);
+
+    &_type {
+        &_blog-feed-block,
+        &_events-feed-block {
+            z-index: 2;
+        }
+    }
 }
