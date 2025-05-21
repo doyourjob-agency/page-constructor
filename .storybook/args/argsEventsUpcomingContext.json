@@ -2,6 +2,7 @@
   "upcoming": [
     {
       "slug": "test-1",
+      "url": "#",
       "title": "Lorem Ipsum is",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "date": "2030-10-25T23:59:59Z",
@@ -15,6 +16,7 @@
     },
     {
       "slug": "test-2",
+      "url": "#",
       "title": "Lorem Ipsum is",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "date": "2030-01-18T23:59:59Z",

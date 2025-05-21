@@ -44,6 +44,7 @@ import {
     Content,
     ContentLayoutCard,
     Divider,
+    FeedCard,
     ImageCard,
     LayoutItem,
     MediaCard,
@@ -101,6 +102,7 @@ export const subBlockMap = {
     [SubBlockType.ContentLayoutCard]: ContentLayoutCard,
     [SubBlockType.Card]: Card,
     [SubBlockType.PostCard]: PostCard,
+    [SubBlockType.FeedCard]: FeedCard,
 };
 
 export const navItemMap = {
