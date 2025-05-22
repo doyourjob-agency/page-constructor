@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useRef} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
+import debounce from 'lodash/debounce';
 
 import {HTML, YFMWrapper} from '../../components';
-import {Col, Grid, Row} from '../../grid';
 import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -11,33 +11,44 @@ import './HighlightTable.scss';
 
 const b = block('highlight-table-block');
 
-function getColSize(value?: string) {
-    switch (value) {
-        case 'xxl':
-            return 12;
-        case 'xl':
-            return 6;
-        case 'l':
-            return 4;
-        case 'm':
-            return 3;
-        case 's':
-            return 2;
-        case 'xs':
-            return 1;
-        default:
-            return undefined;
-    }
-}
-
 export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
     const {title, description, table} = props;
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
-
+    const customColumnWidth = table.customColumnWidth || [];
+    const maxContentColumns = Math.max(...table.content.map((row) => row.length));
+    const maxCustomColumn = customColumnWidth.reduce((val, value) => val + value, 0) || 0;
+    const maxColumns =
+        maxContentColumns > maxCustomColumn
+            ? maxCustomColumn + (maxContentColumns - customColumnWidth.length) * 2
+            : maxCustomColumn;
+    const blockRef = useRef<HTMLDivElement>(null);
     const tableRef = useRef<HTMLDivElement>(null);
+    const tableContentRef = useRef<HTMLDivElement>(null);
     const scrollBarRef = useRef<HTMLDivElement>(null);
     const scrollThumbRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const blockElem = blockRef.current;
+        const tableContentElem = tableContentRef.current;
+
+        if (!tableContentElem || !blockElem) return () => {};
+
+        const updateSizes = debounce(() => {
+            const width = Math.max(672, blockElem.clientWidth);
+            const tableWidth = (1 / (12 / maxColumns)) * width;
+            tableContentElem.style.setProperty('width', `${tableWidth}px`);
+            tableContentElem.style.setProperty('--block-width', `${width}px`);
+        });
+
+        updateSizes();
+
+        blockElem.addEventListener('resize', updateSizes);
+
+        return () => {
+            blockElem.removeEventListener('resize', updateSizes);
+        };
+    }, [maxColumns]);
 
     useEffect(() => {
         const tableElem = tableRef.current;
@@ -57,7 +68,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
             scrollThumb.style.setProperty('width', `${scrollWidth}px`);
         };
 
-        updateProgress();
+        setTimeout(updateProgress, 0);
 
         tableElem.addEventListener('scroll', updateProgress);
 
@@ -68,28 +79,32 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
 
     const renderRow = useCallback(
         (row: string[], index: number) => (
-            <Row
+            <div
                 key={index}
                 className={b('row')}
                 style={{backgroundColor: table.highlighter?.[index] ?? ''}}
             >
                 {row.map((cell, cellIndex) => (
-                    <Col
-                        sizes={getColSize(table.customColumnWidth?.[cellIndex])}
+                    <div
                         key={cellIndex}
                         className={b('cell')}
-                        style={{textAlign: table.justify?.[cellIndex] ?? 'left'}}
+                        style={{
+                            textAlign: table.justify?.[cellIndex] ?? 'left',
+                            width: `calc(var(--block-width) * ${
+                                1 / (12 / (table.customColumnWidth?.[cellIndex] || 2))
+                            })`,
+                        }}
                     >
                         <HTML>{cell}</HTML>
-                    </Col>
+                    </div>
                 ))}
-            </Row>
+            </div>
         ),
         [table.customColumnWidth, table.highlighter, table.justify],
     );
 
     return (
-        <div className={b()}>
+        <div ref={blockRef} className={b()}>
             <Text className={b('title')} variant="header-2">
                 {title}
             </Text>
@@ -99,10 +114,10 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
                 </div>
             )}
             <div ref={tableRef} className={b('table')}>
-                <Grid className={b('content')}>
+                <div ref={tableContentRef} className={b('content')}>
                     <div className={b('head')}>{renderRow(firstRow, 0)}</div>
                     <div className={b('body')}>{otherRows.map(renderRow)}</div>
-                </Grid>
+                </div>
             </div>
             <div ref={scrollBarRef} className={b('scrollbar')}>
                 <div ref={scrollThumbRef} />

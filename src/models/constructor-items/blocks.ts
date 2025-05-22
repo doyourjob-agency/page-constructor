@@ -348,7 +348,7 @@ export interface TableBlockProps {
 
 export interface HighlightTableData {
     content: string[][];
-    customColumnWidth?: ('xxl' | 'xl' | 'l' | 'm' | 's' | 'xs')[];
+    customColumnWidth?: (12 | 6 | 4 | 3 | 2)[];
     justify?: ('left' | 'right' | 'center')[];
     highlighter?: string[];
 }

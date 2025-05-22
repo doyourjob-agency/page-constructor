@@ -18,14 +18,6 @@ $block: '.#{$ns}highlight-table-block';
         margin-bottom: $indentXS;
     }
 
-    &__content {
-        padding: 0 $indentXXXS;
-
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            min-width: 1024px;
-        }
-    }
-
     &__table {
         overflow: auto;
 
@@ -41,6 +33,10 @@ $block: '.#{$ns}highlight-table-block';
         }
     }
 
+    &__content {
+        width: max-content;
+    }
+
     &__head {
         color: rgba(0, 0, 0, 0.5);
     }
@@ -52,19 +48,12 @@ $block: '.#{$ns}highlight-table-block';
     &__head,
     &__body {
         border-radius: 10px;
-        padding: 0 $indentS;
-        margin: 0 -8px;
         overflow: hidden;
     }
 
     &__row {
-        @include add-specificity(&) {
-            @include add-specificity(&) {
-                margin-left: -$indentS;
-                margin-right: -$indentS;
-                padding: $indentXXS;
-            }
-        }
+        display: flex;
+        padding: $indentXXS;
 
         & + & {
             border-top: 1px solid var(--g-color-private-black-100);
@@ -72,6 +61,8 @@ $block: '.#{$ns}highlight-table-block';
     }
 
     &__cell {
+        padding-right: $indentXXXS;
+        padding-left: $indentXXXS;
         & p {
             margin: 0;
         }

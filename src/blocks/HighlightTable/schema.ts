@@ -43,7 +43,7 @@ export const HighlightTableBlock = {
                         type: 'array',
                         items: {
                             type: 'string',
-                            enum: ['xxl', 'xl', 'l', 'm', 's', 'xs'],
+                            enum: [12, 6, 4, 3, 2],
                         },
                     },
                 },
