@@ -35,7 +35,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
         if (!tableContentElem || !blockElem) return () => {};
 
         const updateSizes = debounce(() => {
-            const width = Math.max(672, blockElem.clientWidth + 24 + 2); // 24 - padding, 2 - border
+            const width = Math.max(672, blockElem.clientWidth - 24 - 2); // 24 - padding, 2 - border
             tableContentElem.style.setProperty('--block-width', `${width}px`);
         });
 
