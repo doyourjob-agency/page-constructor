@@ -52,7 +52,7 @@ $block: '.#{$ns}highlight-table-block';
     &__head,
     &__body {
         border-radius: 10px;
-        padding: 0 20px;
+        padding: 0 $indentS;
         margin: 0 -8px;
         overflow: hidden;
     }
@@ -60,13 +60,20 @@ $block: '.#{$ns}highlight-table-block';
     &__row {
         @include add-specificity(&) {
             @include add-specificity(&) {
-                margin: 0 -20px;
-                padding: 0 12px;
+                margin-left: -$indentS;
+                margin-right: -$indentS;
+                padding: $indentXXS;
             }
         }
 
         & + & {
             border-top: 1px solid var(--g-color-private-black-100);
+        }
+    }
+
+    &__cell {
+        & p {
+            margin: 0;
         }
     }
 
