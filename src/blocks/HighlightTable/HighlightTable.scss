@@ -6,9 +6,6 @@ $block: '.#{$ns}highlight-table-block';
 #{$block} {
     $class: &;
 
-    display: flex;
-    flex-direction: column;
-
     &__description {
         margin-bottom: $indentXS;
     }
@@ -17,11 +14,31 @@ $block: '.#{$ns}highlight-table-block';
         @include heading2();
 
         position: sticky;
+        display: block;
         margin-bottom: $indentXS;
     }
 
     &__content {
         padding: 0 $indentXXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            min-width: 1024px;
+        }
+    }
+
+    &__table {
+        overflow: auto;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-right: -$indentL;
+            margin-left: -$indentL;
+            padding: 0 $indentL $indentXXS;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
     }
 
     &__head {
@@ -50,6 +67,29 @@ $block: '.#{$ns}highlight-table-block';
 
         & + & {
             border-top: 1px solid var(--g-color-private-black-100);
+        }
+    }
+
+    &__scrollbar {
+        visibility: hidden;
+        overflow: hidden;
+        height: 5px;
+        width: 100%;
+        margin-top: -5px;
+        border-radius: 2px;
+        background-color: var(--g-color-private-black-150);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            visibility: visible;
+
+            & > div {
+                height: 100%;
+
+                border-radius: 2px;
+                background-color: var(--g-color-private-black-400);
+
+                transition: transform ease 50ms;
+            }
         }
     }
 }

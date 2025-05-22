@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
@@ -35,6 +35,37 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
 
+    const tableRef = useRef<HTMLDivElement>(null);
+    const scrollBarRef = useRef<HTMLDivElement>(null);
+    const scrollThumbRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const tableElem = tableRef.current;
+        const scrollBar = scrollBarRef.current;
+        const scrollThumb = scrollThumbRef.current;
+
+        if (!tableElem || !scrollBar || !scrollThumb) return () => {};
+
+        const updateProgress = () => {
+            const scrollWidth = Math.round(
+                scrollBar.clientWidth * (tableElem.clientWidth / tableElem.scrollWidth),
+            );
+            const scrollLeft = Math.round(
+                scrollBar.clientWidth * (tableElem.scrollLeft / tableElem.scrollWidth),
+            );
+            scrollThumb.style.setProperty('transform', `translateX(${scrollLeft}px)`);
+            scrollThumb.style.setProperty('width', `${scrollWidth}px`);
+        };
+
+        updateProgress();
+
+        tableElem.addEventListener('scroll', updateProgress);
+
+        return () => {
+            tableElem.removeEventListener('scroll', updateProgress);
+        };
+    }, []);
+
     const renderRow = useCallback(
         (row: string[], index: number) => (
             <Row
@@ -67,10 +98,15 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
                     <YFMWrapper content={description} modifiers={{constructor: true}} />
                 </div>
             )}
-            <Grid className={b('content')}>
-                <div className={b('head')}>{renderRow(firstRow, 0)}</div>
-                <div className={b('body')}>{otherRows.map(renderRow)}</div>
-            </Grid>
+            <div ref={tableRef} className={b('table')}>
+                <Grid className={b('content')}>
+                    <div className={b('head')}>{renderRow(firstRow, 0)}</div>
+                    <div className={b('body')}>{otherRows.map(renderRow)}</div>
+                </Grid>
+            </div>
+            <div ref={scrollBarRef} className={b('scrollbar')}>
+                <div ref={scrollThumbRef} />
+            </div>
         </div>
     );
 };
