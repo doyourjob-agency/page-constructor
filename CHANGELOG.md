@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.31.21](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.13-main...v5.31.21) (2025-05-22)
+## [5.31.22](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.13-main...v5.31.22) (2025-05-22)
 
 ### Features
 
