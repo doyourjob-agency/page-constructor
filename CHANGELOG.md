@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.20](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.13-main...v5.31.20) (2025-05-22)
+
+### Features
+
+* **HighlightTable:** Add block
+
+
 ## [5.31.13](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.12-main...v5.31.13-main) (2025-05-19)
 
 ### Features
