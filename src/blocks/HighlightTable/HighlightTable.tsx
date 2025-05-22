@@ -36,8 +36,6 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
 
         const updateSizes = debounce(() => {
             const width = Math.max(672, blockElem.clientWidth);
-            const tableWidth = (1 / (12 / maxColumns)) * width;
-            tableContentElem.style.setProperty('width', `${tableWidth}px`);
             tableContentElem.style.setProperty('--block-width', `${width}px`);
         });
 

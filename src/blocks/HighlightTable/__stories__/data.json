@@ -18,7 +18,7 @@
           ["Lorem 9", "1", "1", "1"],
           ["Lorem 10", "1", "1", "1"]
         ],
-        "customColumnWidth": [2, 4, 2, 2],
+        "customColumnWidth": [2, 2, 2, 2],
         "justify": ["left", "center", "center", "center", "center", "right"],
         "highlighter": ["", "#eee", "", "#eee", ""]
       }
