@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "type": "new-table-block",
+      "type": "highlight-table-block",
       "title": "Lorem ipsum dolor sit amet",
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "table": {
@@ -18,7 +18,7 @@
           ["Lorem 9", "1", "1", "1"],
           ["Lorem 10", "1", "1", "1"]
         ],
-        "justify": ["start", "center", "end", "center"],
+        "justify": ["left", "center", "right", "center"],
         "highlighter": ["", "#eee", "", "#eee", ""]
       }
     }

@@ -2,14 +2,14 @@ import React, {useCallback} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
-import {HTML} from '../../components';
+import {HTML, YFMWrapper} from '../../components';
 import {Col, Grid, Row} from '../../grid';
-import {NewTableBlockProps} from '../../models';
+import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
 
-import './NewTable.scss';
+import './HighlightTable.scss';
 
-const b = block('new-table-block');
+const b = block('highlight-table-block');
 
 function getColSize(value?: string) {
     switch (value) {
@@ -30,7 +30,7 @@ function getColSize(value?: string) {
     }
 }
 
-export const NewTableBlock = (props: NewTableBlockProps) => {
+export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
     const {title, description, table} = props;
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
@@ -59,14 +59,12 @@ export const NewTableBlock = (props: NewTableBlockProps) => {
 
     return (
         <div className={b()}>
-            <Text className={b('title')} variant="display-2">
+            <Text className={b('title')} variant="header-2">
                 {title}
             </Text>
             {description && (
                 <div className={b('description')}>
-                    <Text variant="body-2">
-                        <HTML>{description}</HTML>
-                    </Text>
+                    <YFMWrapper content={description} modifiers={{constructor: true}} />
                 </div>
             )}
             <Grid className={b('content')}>
@@ -77,4 +75,4 @@ export const NewTableBlock = (props: NewTableBlockProps) => {
     );
 };
 
-export default NewTableBlock;
+export default HighlightTableBlock;

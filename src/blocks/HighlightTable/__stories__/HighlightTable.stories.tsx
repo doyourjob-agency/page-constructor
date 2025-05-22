@@ -4,17 +4,17 @@ import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {NewTableBlockModel} from '../../../models';
-import NewTable from '../NewTable';
+import {HighlightTableBlockModel} from '../../../models';
+import HighlightTable from '../HighlightTable';
 
 import data from './data.json';
 
 export default {
-    component: NewTable,
-    title: 'Blocks/NewTable',
+    component: HighlightTable,
+    title: 'Blocks/HighlightTable',
 } as Meta;
 
-const DefaultTemplate: StoryFn<NewTableBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<HighlightTableBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
@@ -29,4 +29,4 @@ Default.args = {
             row.map((col) => yfmTransform(col)),
         ),
     },
-} as NewTableBlockModel;
+} as HighlightTableBlockModel;

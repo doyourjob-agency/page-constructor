@@ -26,4 +26,4 @@ export * from '../../blocks/LinkTable/schema';
 export * from '../../blocks/EventsFeed/schema';
 export * from '../../blocks/BlogFeed/schema';
 export * from '../../blocks/PressReleases/schema';
-export * from '../../blocks/NewTable/schema';
+export * from '../../blocks/HighlightTable/schema';

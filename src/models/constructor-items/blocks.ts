@@ -72,7 +72,7 @@ export enum BlockType {
     PressReleasesBlock = 'press-releases-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
-    NewTableBlock = 'new-table-block',
+    HighlightTableBlock = 'highlight-table-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -346,17 +346,17 @@ export interface TableBlockProps {
     buttons?: ButtonProps[];
 }
 
-export interface NewTableData {
+export interface HighlightTableData {
     content: string[][];
     customColumnWidth?: ('xxl' | 'xl' | 'l' | 'm' | 's' | 'xs')[];
     justify?: ('left' | 'right' | 'center')[];
     highlighter?: string[];
 }
 
-export interface NewTableBlockProps {
+export interface HighlightTableBlockProps {
     title?: string;
     description?: string;
-    table: NewTableData;
+    table: HighlightTableData;
 }
 
 export interface TabsBlockItem
@@ -608,9 +608,9 @@ export type TableBlockModel = {
     type: BlockType.TableBlock;
 } & TableBlockProps;
 
-export type NewTableBlockModel = {
-    type: BlockType.NewTableBlock;
-} & NewTableBlockProps;
+export type HighlightTableBlockModel = {
+    type: BlockType.HighlightTableBlock;
+} & HighlightTableBlockProps;
 
 export type TabsBlockModel = {
     type: BlockType.TabsBlock;
@@ -692,7 +692,7 @@ type BlockModels =
     | MapBlockModel
     | InfoBlockModel
     | TableBlockModel
-    | NewTableBlockModel
+    | HighlightTableBlockModel
     | TabsBlockModel
     | HeaderBlockModel
     | IconsBlockModel

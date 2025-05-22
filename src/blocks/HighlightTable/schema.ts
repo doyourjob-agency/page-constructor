@@ -1,7 +1,7 @@
 import {BaseProps, BlockBaseProps} from '../../schema/validators/common';
 
-export const NewTableBlock = {
-    'new-table-block': {
+export const HighlightTableBlock = {
+    'highlight-table-block': {
         additionalProperties: false,
         required: ['table'],
         properties: {

@@ -1,20 +1,23 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}new-table-block';
+$block: '.#{$ns}highlight-table-block';
 
 #{$block} {
     $class: &;
 
+    display: flex;
+    flex-direction: column;
+
     &__description {
-        margin-bottom: $indentM;
+        margin-bottom: $indentXS;
     }
 
     &__title {
         @include heading2();
 
         position: sticky;
-        margin-bottom: $indentM;
+        margin-bottom: $indentXS;
     }
 
     &__content {
@@ -22,15 +25,11 @@ $block: '.#{$ns}new-table-block';
     }
 
     &__head {
-        color: #00000080;
+        color: rgba(0, 0, 0, 0.5);
     }
 
     &__body {
         border: 1px solid var(--g-color-private-black-100);
-
-        & > div + div {
-            border-top: 1px solid var(--g-color-private-black-100);
-        }
     }
 
     &__head,
@@ -47,6 +46,10 @@ $block: '.#{$ns}new-table-block';
                 margin: 0 -20px;
                 padding: 0 12px;
             }
+        }
+
+        & + & {
+            border-top: 1px solid var(--g-color-private-black-100);
         }
     }
 }
