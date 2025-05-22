@@ -16,6 +16,7 @@ import {
     MapBlock,
     MarqueeLinksBlock,
     MediaBlock,
+    NewTableBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -79,6 +80,7 @@ export const blockMap = {
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
+    [BlockType.NewTableBlock]: NewTableBlock,
 
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
