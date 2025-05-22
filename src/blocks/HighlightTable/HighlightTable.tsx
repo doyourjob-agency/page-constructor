@@ -41,10 +41,10 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
 
         updateSizes();
 
-        blockElem.addEventListener('resize', updateSizes);
+        window.addEventListener('resize', updateSizes, {passive: true});
 
         return () => {
-            blockElem.removeEventListener('resize', updateSizes);
+            window.removeEventListener('resize', updateSizes);
         };
     }, [maxColumns]);
 
@@ -55,7 +55,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
 
         if (!tableElem || !scrollBar || !scrollThumb) return () => {};
 
-        const updateProgress = () => {
+        const updateProgress = debounce(() => {
             const scrollWidth = Math.round(
                 scrollBar.clientWidth * (tableElem.clientWidth / tableElem.scrollWidth),
             );
@@ -64,14 +64,16 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
             );
             scrollThumb.style.setProperty('transform', `translateX(${scrollLeft}px)`);
             scrollThumb.style.setProperty('width', `${scrollWidth}px`);
-        };
+        });
 
         setTimeout(updateProgress, 0);
 
         tableElem.addEventListener('scroll', updateProgress);
+        window.addEventListener('resize', updateProgress, {passive: true});
 
         return () => {
             tableElem.removeEventListener('scroll', updateProgress);
+            window.removeEventListener('resize', updateProgress);
         };
     }, []);
 
