@@ -1,0 +1,26 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HighlightTableStories from './HighlightTable.stories.tsx';
+
+<Meta of={HighlightTableStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'highlight-table-block'`
+
+`title?: string` — Title on the left
+
+`description?: string` — Description on the left
+
+`table: HighlightTable` — HighlightTable content
+
+-   `content: string[][]` — Text in the table cells
+
+-   `highlighter?: string[]` — Colors in the table rows
+
+-   `customColumnWidth?: ('xxl', 'xl', 'l', 'm', 's', 'xs')[]` — Sizes in the table cells
+
+-   `justify?: ('left' | 'center' | 'right')[]` — Text alignment.
+
+</StoryTemplate>

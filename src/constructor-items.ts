@@ -10,6 +10,7 @@ import {
     FormBlock,
     HeaderBlock,
     HeaderSliderBlock,
+    HighlightTableBlock,
     IconsBlock,
     InfoBlock,
     LinkTableBlock,
@@ -79,6 +80,7 @@ export const blockMap = {
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
+    [BlockType.HighlightTableBlock]: HighlightTableBlock,
 
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,

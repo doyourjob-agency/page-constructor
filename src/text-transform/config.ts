@@ -5,6 +5,7 @@ import {
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
+    HighlightTableData,
     PriceDetailedProps,
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
@@ -29,6 +30,15 @@ function parseTableBlock(transformer: Transformer, content: TableProps) {
     return {
         ...(content || {}),
         legend: legend && legend.map((string) => transformer(string)),
+    };
+}
+
+function parseHighlightTableBlock(transformer: Transformer, content: HighlightTableData) {
+    const rows = content?.content || [];
+
+    return {
+        ...(content || {}),
+        content: rows.map((row) => row.map((col) => transformer(col))),
     };
 }
 
@@ -314,6 +324,17 @@ export const config: BlocksConfig = {
             fields: ['table'],
             transformer: yfmTransformer,
             parser: parseTableBlock,
+        },
+    ],
+    [BlockType.HighlightTableBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+        {
+            fields: ['table'],
+            transformer: yfmTransformer,
+            parser: parseHighlightTableBlock,
         },
     ],
     [BlockType.HeaderSliderBlock]: [

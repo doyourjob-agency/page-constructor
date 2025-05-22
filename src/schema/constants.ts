@@ -13,6 +13,7 @@ import {
     FormBlock,
     HeaderBlock,
     HeaderSliderBlock,
+    HighlightTableBlock,
     IconsBlock,
     InfoBlock,
     LinkTableBlock,
@@ -59,6 +60,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...MapBlock,
     ...InfoBlock,
     ...TableBlock,
+    ...HighlightTableBlock,
     ...TabsBlock,
     ...HeaderSliderBlock,
     ...IconsBlock,
@@ -127,6 +129,7 @@ export const constructorBlockSchemaNames = [
     'link-table-block',
     'events-feed-block',
     'blog-feed-block',
+    'highlight-table-block',
 ];
 
 export const constructorCardSchemaNames = [

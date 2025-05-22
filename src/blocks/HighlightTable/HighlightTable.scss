@@ -1,0 +1,95 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}highlight-table-block';
+
+#{$block} {
+    $class: &;
+
+    &__description {
+        margin-bottom: $indentXS;
+    }
+
+    &__title {
+        @include heading2();
+
+        position: sticky;
+        display: block;
+        margin-bottom: $indentXS;
+    }
+
+    &__content {
+        padding: 0 $indentXXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            min-width: 1024px;
+        }
+    }
+
+    &__table {
+        overflow: auto;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-right: -$indentL;
+            margin-left: -$indentL;
+            padding: 0 $indentL $indentXXS;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    &__head {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    &__body {
+        border: 1px solid var(--g-color-private-black-100);
+    }
+
+    &__head,
+    &__body {
+        border-radius: 10px;
+        padding: 0 20px;
+        margin: 0 -8px;
+        overflow: hidden;
+    }
+
+    &__row {
+        @include add-specificity(&) {
+            @include add-specificity(&) {
+                margin: 0 -20px;
+                padding: 0 12px;
+            }
+        }
+
+        & + & {
+            border-top: 1px solid var(--g-color-private-black-100);
+        }
+    }
+
+    &__scrollbar {
+        visibility: hidden;
+        overflow: hidden;
+        height: 5px;
+        width: 100%;
+        margin-top: -5px;
+        border-radius: 2px;
+        background-color: var(--g-color-private-black-150);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            visibility: visible;
+
+            & > div {
+                height: 100%;
+
+                border-radius: 2px;
+                background-color: var(--g-color-private-black-400);
+
+                transition: transform ease 50ms;
+            }
+        }
+    }
+}
