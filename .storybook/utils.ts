@@ -10,6 +10,7 @@ import argsEventsRecentContext from './args/argsEventsRecentContext.json';
 import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
+import argsRelevantPostsContext from './args/argsRelevantPostsContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -161,5 +162,20 @@ export const argHeaderContext = {
     },
     args: {
         headerContext: argsHeaderContext,
+    },
+};
+
+export const argRelevantPostsContext = {
+    argTypes: {
+        relevantPostsContext: {
+            name: 'RelevantPostsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        relevantPostsContext: argsRelevantPostsContext,
     },
 };

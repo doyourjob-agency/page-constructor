@@ -11,6 +11,7 @@ export * from './context/eventsContext';
 export * from './context/blogPostsContext';
 export * from './context/pressReleasesContext';
 export * from './context/headerContext';
+export * from './context/relevantPostsContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

@@ -34,6 +34,7 @@ import {
     FeedHeaderFiltersContext,
     FeedHeaderFiltersContextProps,
 } from '../src/context/feedHeaderContext';
+import {RelevantPostsContext, RelevantPostsContextProps} from '../src/context/relevantPostsContext';
 
 const withContextProvider: Decorator = (Story, context) => {
     const theme = context.globals.theme;
@@ -78,6 +79,9 @@ const withContextProvider: Decorator = (Story, context) => {
             value={context.args.blogPostsContext as BlogPostsContextProps}
         />,
         <HeaderContext.Provider value={context.args.headerContext as HeaderContextProps} />,
+        <RelevantPostsContext.Provider
+            value={context.args.relevantPostsContext as RelevantPostsContextProps}
+        />,
     ].reduceRight(
         (prev, provider) => React.cloneElement(provider, {}, prev),
         <Story {...context} />,

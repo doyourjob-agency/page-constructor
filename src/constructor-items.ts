@@ -21,6 +21,7 @@ import {
     PromoFeaturesBlock,
     QuestionsBlock,
     QuotesBlock,
+    RelevantPostsBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -79,6 +80,7 @@ export const blockMap = {
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
+    [BlockType.RelevantPostsBlock]: RelevantPostsBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
     [BlockType.HighlightTableBlock]: HighlightTableBlock,
 

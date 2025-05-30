@@ -24,6 +24,7 @@ import {
     PromoFeaturesBlock,
     QuestionsBlock,
     QuotesBlock,
+    RelevantPostsBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -77,6 +78,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...LinkTableBlock,
     ...EventsFeedBlock,
     ...BlogFeedBlock,
+    ...RelevantPostsBlock,
     ...PressReleasesBlock,
 };
 
@@ -130,6 +132,7 @@ export const constructorBlockSchemaNames = [
     'events-feed-block',
     'blog-feed-block',
     'highlight-table-block',
+    'relevant-posts-block',
 ];
 
 export const constructorCardSchemaNames = [

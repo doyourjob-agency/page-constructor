@@ -6,6 +6,5 @@ $block: '.#{$ns}blog-feed-posts';
 #{$block} {
     &__wrap {
         padding-top: $indentSM;
-        scroll-margin: $indentL;
     }
 }

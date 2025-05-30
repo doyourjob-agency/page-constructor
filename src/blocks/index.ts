@@ -24,5 +24,6 @@ export {default as QuotesBlock} from './Quotes/Quotes';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as EventsFeedBlock} from './EventsFeed/EventsFeed';
 export {default as BlogFeedBlock} from './BlogFeed/BlogFeed';
+export {default as RelevantPostsBlock} from './RelevantPosts/RelevantPosts';
 export {default as PressReleasesBlock} from './PressReleases/PressReleases';
 export {default as HighlightTableBlock} from './HighlightTable/HighlightTable';

@@ -1,0 +1,27 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as RelevantPostsStories from './RelevantPosts.stories.tsx';
+
+<Meta of={RelevantPostsStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "relevant-posts-block"`
+
+`title?: Title | string` - Title.
+
+`date?: "today" | "week" | "month" | Date` - Date filter.
+
+`tags?: string[]` - Tags filter.
+
+`services?: string[]` - Services filter.
+
+`pinnedPost?: string` - Pinned post slug.
+
+
+## Types
+
+`Date: { start?: string; end?: string; }`
+
+</StoryTemplate>
