@@ -26,7 +26,7 @@ export const MarqueeLinksBlock = ({
                 </Link>
             );
         }
-        return <Image src={item.src + index} key={item.src} alt="" />;
+        return <Image src={item.src} key={item.src + index} alt="" />;
     }, []);
 
     if (!items.length) return null;
