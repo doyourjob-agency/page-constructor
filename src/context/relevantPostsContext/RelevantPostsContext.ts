@@ -14,7 +14,6 @@ export type RelevantPostData = {
 };
 
 export interface RelevantPostsContextProps {
-    pinnedPost?: string;
     posts: RelevantPostData[];
 }
 

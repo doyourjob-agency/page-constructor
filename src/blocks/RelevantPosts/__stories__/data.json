@@ -3,7 +3,8 @@
     "content": {
       "type": "relevant-posts-block",
       "title": "See also",
-      "pinnedPost": "test-3",
+      "description": "description",
+      "pinnedPost": true,
       "date": {
         "start": "2024-05-30T09:15:00.000Z"
       },

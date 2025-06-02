@@ -1,4 +1,4 @@
-import {BaseProps, TitleProps} from './../../schema/validators/common';
+import {BaseProps, BlockHeaderProps} from './../../schema/validators/common';
 
 export const RelevantPostsBlock = {
     'relevant-posts-block': {
@@ -6,18 +6,7 @@ export const RelevantPostsBlock = {
         required: [],
         properties: {
             ...BaseProps,
-            title: {
-                oneOf: [
-                    {
-                        type: 'string',
-                        optionName: 'text',
-                    },
-                    {
-                        ...TitleProps,
-                        optionName: 'options',
-                    },
-                ],
-            },
+            ...BlockHeaderProps,
             date: {
                 oneOf: [
                     {
@@ -53,7 +42,7 @@ export const RelevantPostsBlock = {
                 },
             },
             pinnedPost: {
-                type: 'string',
+                type: 'boolean',
             },
         },
     },

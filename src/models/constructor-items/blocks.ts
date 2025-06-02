@@ -400,6 +400,7 @@ export interface BlogFeedBlockProps {
 
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;
+    description?: string;
     date?:
         | {
               start?: string;
@@ -410,7 +411,7 @@ export interface RelevantPostsBlockProps {
         | 'month';
     tags?: string[];
     services?: string[];
-    pinnedPost?: string;
+    pinnedPost?: boolean;
 }
 
 export interface PressReleasesBlockProps {
