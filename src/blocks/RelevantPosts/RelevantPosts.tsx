@@ -20,6 +20,8 @@ export const RelevantPosts = ({
     title,
     description,
     date,
+    dateStart,
+    dateEnd,
     tags,
     services,
     pinnedPost,
@@ -38,24 +40,34 @@ export const RelevantPosts = ({
             const itemDate = new Date(item.dateTime);
             let isDateMatch = true;
 
-            if (date === 'today') {
-                const startOfToday = new Date(now);
-                startOfToday.setHours(0, 0, 0, 0);
-                const endOfToday = new Date(now);
-                endOfToday.setHours(23, 59, 59, 999);
-                isDateMatch = itemDate >= startOfToday && itemDate <= endOfToday;
-            } else if (date === 'week') {
-                const weekAgo = new Date(now);
-                weekAgo.setDate(now.getDate() - 7);
-                isDateMatch = itemDate >= weekAgo && itemDate <= now;
-            } else if (date === 'month') {
-                const monthAgo = new Date(now);
-                monthAgo.setMonth(now.getMonth() - 1);
-                isDateMatch = itemDate >= monthAgo && itemDate <= now;
-            } else if (typeof date === 'object' && (date.start || date.end)) {
-                const startDate = date.start ? new Date(date.start) : new Date('1970-01-01');
-                const endDate = date.end ? new Date(date.end) : now;
-                isDateMatch = itemDate >= startDate && itemDate <= endDate;
+            switch (date) {
+                case 'today': {
+                    const startOfToday = new Date(now);
+                    startOfToday.setHours(0, 0, 0, 0);
+                    const endOfToday = new Date(now);
+                    endOfToday.setHours(23, 59, 59, 999);
+                    isDateMatch = itemDate >= startOfToday && itemDate <= endOfToday;
+                    break;
+                }
+                case 'week': {
+                    const weekAgo = new Date(now);
+                    weekAgo.setDate(now.getDate() - 7);
+                    isDateMatch = itemDate >= weekAgo && itemDate <= now;
+                    break;
+                }
+                case 'month': {
+                    const monthAgo = new Date(now);
+                    monthAgo.setMonth(now.getMonth() - 1);
+                    isDateMatch = itemDate >= monthAgo && itemDate <= now;
+                    break;
+                }
+                default: {
+                    if (dateStart || dateEnd) {
+                        const startDate = dateStart ? new Date(dateStart) : new Date('1970-01-01');
+                        const endDate = dateEnd ? new Date(dateEnd) : now;
+                        isDateMatch = itemDate >= startDate && itemDate <= endDate;
+                    }
+                }
             }
 
             // Фильтрация по тегам
@@ -70,7 +82,7 @@ export const RelevantPosts = ({
 
             return isDateMatch && isTagMatch && isServiceMatch;
         });
-    }, [now, posts, date, tags, services]);
+    }, [now, posts, date, tags, services, dateStart, dateEnd]);
 
     const [findedPinnedPost, restPosts] = useMemo(() => {
         if (!pinnedPost || filteredPosts.length === 0) return [undefined, filteredPosts];

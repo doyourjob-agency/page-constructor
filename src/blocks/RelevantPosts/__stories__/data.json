@@ -5,9 +5,7 @@
       "title": "See also",
       "description": "description",
       "pinnedPost": true,
-      "date": {
-        "start": "2024-05-30T09:15:00.000Z"
-      },
+      "dateStart": "2024-05-30T09:15:00.000Z",
       "tags": ["test"],
       "services": ["test"]
     }

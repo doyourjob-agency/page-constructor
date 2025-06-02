@@ -401,14 +401,9 @@ export interface BlogFeedBlockProps {
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;
     description?: string;
-    date?:
-        | {
-              start?: string;
-              end?: string;
-          }
-        | 'today'
-        | 'week'
-        | 'month';
+    date?: 'today' | 'week' | 'month';
+    dateStart?: string;
+    dateEnd?: string;
     tags?: string[];
     services?: string[];
     pinnedPost?: boolean;

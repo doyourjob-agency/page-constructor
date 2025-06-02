@@ -8,26 +8,14 @@ export const RelevantPostsBlock = {
             ...BaseProps,
             ...BlockHeaderProps,
             date: {
-                oneOf: [
-                    {
-                        type: 'string',
-                        enum: ['today', 'week', 'month'],
-                    },
-                    {
-                        type: 'object',
-                        additionalProperties: false,
-                        required: [],
-                        properties: {
-                            start: {
-                                type: 'string',
-                            },
-                            end: {
-                                type: 'string',
-                            },
-                        },
-                        optionName: 'options',
-                    },
-                ],
+                type: 'string',
+                enum: ['today', 'week', 'month'],
+            },
+            dateStart: {
+                type: 'string',
+            },
+            dateEnd: {
+                type: 'string',
             },
             tags: {
                 type: 'array',
