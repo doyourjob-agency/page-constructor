@@ -7,6 +7,9 @@ export const RelevantPostsBlock = {
         properties: {
             ...BaseProps,
             ...BlockHeaderProps,
+            slider: {
+                type: 'boolean',
+            },
             date: {
                 type: 'string',
                 enum: ['today', 'week', 'month'],

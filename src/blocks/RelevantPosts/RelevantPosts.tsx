@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useMemo} from 'react';
 
-import {SliderBlock, Title} from '../..';
+import {CardLayoutBlock, SliderBlock, Title} from '../..';
 import {RelevantPostsContext} from '../../context/relevantPostsContext';
 import {PostCardSize, RelevantPostsBlockProps} from '../../models';
 import PostCard from '../../sub-blocks/PostCard/PostCard';
@@ -10,15 +10,22 @@ import './RelevantPosts.scss';
 
 const b = block('relevant-posts');
 
-const colSizes = {
+const sliderColSizes = {
     xl: 3,
     lg: 2,
     sm: 1,
 };
 
+const layoutColSizes = {
+    all: 12,
+    lg: 4,
+    md: 6,
+};
+
 export const RelevantPosts = ({
     title,
     description,
+    slider,
     date,
     dateStart,
     dateEnd,
@@ -91,6 +98,27 @@ export const RelevantPosts = ({
         return [pinned, postsCopy];
     }, [filteredPosts, pinnedPost]);
 
+    const items = useMemo(() => {
+        if (slider) {
+            return (
+                <div className={b('slider')}>
+                    <SliderBlock slidesToShow={sliderColSizes}>
+                        {restPosts.map((item) => (
+                            <PostCard key={item.slug} {...item} showTag />
+                        ))}
+                    </SliderBlock>
+                </div>
+            );
+        }
+        return (
+            <CardLayoutBlock colSizes={layoutColSizes}>
+                {restPosts.map((item) => (
+                    <PostCard key={item.slug} {...item} showTag />
+                ))}
+            </CardLayoutBlock>
+        );
+    }, [restPosts, slider]);
+
     return (
         <div className={b()}>
             {(title || description) && <Title title={title} subtitle={description} />}
@@ -99,15 +127,7 @@ export const RelevantPosts = ({
                     <PostCard {...findedPinnedPost} size={PostCardSize.MEDIUM} fullWidth showTag />
                 </div>
             )}
-            {restPosts.length > 0 && (
-                <div className={b('slider')}>
-                    <SliderBlock slidesToShow={colSizes}>
-                        {restPosts.map((item) => (
-                            <PostCard key={item.slug} {...item} showTag />
-                        ))}
-                    </SliderBlock>
-                </div>
-            )}
+            {restPosts.length > 0 && items}
         </div>
     );
 };

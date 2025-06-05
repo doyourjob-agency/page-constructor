@@ -401,6 +401,7 @@ export interface BlogFeedBlockProps {
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;
     description?: string;
+    slider: boolean;
     date?: 'today' | 'week' | 'month';
     dateStart?: string;
     dateEnd?: string;
