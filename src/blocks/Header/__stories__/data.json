@@ -195,6 +195,31 @@
       }
     }
   },
+  "widget": {
+    "content": {
+      "type": "header-block",
+      "theme": "dark",
+      "title": "Investor Hub",
+      "description": "Information about Xxxxxx Xxxxx for shareholders, potential investors, and financial analysts",
+      "width": "l",
+      "verticalOffset": "s",
+      "buttons": [
+        {
+          "text": "Latest IR presentation",
+          "theme": "normal-contrast",
+          "url": "https://example.com"
+        },
+        {
+          "text": "Subscribe to updates",
+          "theme": "outlined-contrast",
+          "url": "https://example.com"
+        }
+      ],
+      "background": {
+        "image": "/story-assets/header-bg-img_dark.png"
+      }
+    }
+  },
   "size": {
     "title": "Header size {{size}}"
   }

@@ -1,0 +1,56 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-widget-price';
+
+#{$block} {
+    border-radius: $indentSM;
+    padding: $indentM;
+    max-width: 350px;
+    width: 100%;
+
+    &_theme_light {
+        @include add-specificity(&) {
+            background-color: var(--g-color-text-dark-primary);
+            color: var(--g-color-text-light-primary);
+        }
+        #{$block}__price {
+            color: var(--g-color-text-light-primary);
+        }
+    }
+
+    &_theme_dark {
+        @include add-specificity(&) {
+            background-color: var(--g-color-text-light-primary);
+            color: var(--g-color-text-dark-primary);
+        }
+        #{$block}__price {
+            color: var(--g-color-text-dark-primary);
+        }
+    }
+
+    &__name,
+    &__percent {
+        @include text-size(body-3);
+    }
+
+    &__price {
+        @include heading1();
+        margin-top: $indentXS;
+        margin-bottom: $indentXS;
+    }
+
+    &__update,
+    &__delayed {
+        @include text-size(body-4);
+        opacity: 50%;
+    }
+
+    &__update {
+        margin-bottom: $indentXXXS;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "price": {
+    "name": "XXXXXX: Xxxxxx Xxxxx",
+    "percent": "5.62 (14.25 %)",
+    "price": "$ 45.01",
+    "update": "Last update: Jun 5, 2025",
+    "delayed": "All prices at least 15 minutes delayed"
+  },
+  "shares": {
+    "date": "Data as of March 31, 2025",
+    "total": "238,108,831",
+    "text": "The total number of shares issued and outstanding",
+    "included": [
+      {
+        "title": "202,410,157",
+        "text": "Class A shares"
+      },
+      {
+        "title": "35,698,674",
+        "text": "Class B shares"
+      }
+    ],
+    "description": "Excluding 123,932,113 Class A shares held in treasury pending use under our equ incentive plans and for further financing purposes"
+  }
+}

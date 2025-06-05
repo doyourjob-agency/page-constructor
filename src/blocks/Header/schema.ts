@@ -49,6 +49,10 @@ export const HeaderProperties = {
         type: 'string',
         enum: mediaView,
     },
+    widget: {
+        type: 'string',
+        enum: ['price', 'shares'],
+    },
     backLink: {
         type: 'object',
         required: ['url', 'title'],
