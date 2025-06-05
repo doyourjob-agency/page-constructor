@@ -3,18 +3,18 @@ import React from 'react';
 import {Theme} from '@gravity-ui/uikit';
 
 import {useTheme} from '../../../context/theme';
-import {HeaderWidgetPriceProps} from '../../../models';
+import {HeaderStockPriceProps} from '../../../models';
 import {block} from '../../../utils';
 
-import './HeaderWidgetPrice.scss';
+import './HeaderStockPrice.scss';
 
-const b = block('header-widget-price');
+const b = block('header-stock-price');
 
-type Props = HeaderWidgetPriceProps & {
+type Props = HeaderStockPriceProps & {
     theme: Theme;
 };
 
-export const HeaderWidgetPrice = ({name, percent, price, update, delayed, theme}: Props) => {
+export const HeaderStockPrice = ({name, percent, price, update, delayed, theme}: Props) => {
     const globalTheme = useTheme();
 
     return (
@@ -28,4 +28,4 @@ export const HeaderWidgetPrice = ({name, percent, price, update, delayed, theme}
     );
 };
 
-export default HeaderWidgetPrice;
+export default HeaderStockPrice;

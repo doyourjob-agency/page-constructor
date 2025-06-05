@@ -11,7 +11,7 @@ import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
 import argsRelevantPostsContext from './args/argsRelevantPostsContext.json';
-import argsHeaderWidgetContext from './args/argsHeaderWidgetContext.json';
+import argsHeaderStockContext from './args/argsHeaderStockContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -136,10 +136,10 @@ export const argFeedHeaderContext = {
     },
 };
 
-export const argHeaderWidgetContext = {
+export const argHeaderStockContext = {
     argTypes: {
-        headerWidgetContext: {
-            name: 'HeaderWidgetContext',
+        headerStockContext: {
+            name: 'HeaderStockContext',
             control: 'object',
             table: {
                 category: 'Context',
@@ -147,7 +147,7 @@ export const argHeaderWidgetContext = {
         },
     },
     args: {
-        headerWidgetContext: argsHeaderWidgetContext,
+        headerStockContext: argsHeaderStockContext,
     },
 };
 

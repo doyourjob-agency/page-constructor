@@ -2,9 +2,9 @@ import React, {Fragment} from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {argHeaderContext, argHeaderWidgetContext, yfmTransform} from '../../../../.storybook/utils';
+import {argHeaderContext, argHeaderStockContext, yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {ButtonProps, HeaderBlockModel, HeaderBlockProps, HeaderWidgetType} from '../../../models';
+import {ButtonProps, HeaderBlockModel, HeaderBlockProps, HeaderStockType} from '../../../models';
 import Header from '../Header';
 
 import data from './data.json';
@@ -22,7 +22,7 @@ export default {
     component: Header,
     args: {
         ...argHeaderContext.args,
-        ...argHeaderWidgetContext.args,
+        ...argHeaderStockContext.args,
         image: undefined,
         video: undefined,
         background: undefined,
@@ -33,7 +33,7 @@ export default {
     },
     argTypes: {
         ...argHeaderContext.argTypes,
-        ...argHeaderWidgetContext.argTypes,
+        ...argHeaderStockContext.argTypes,
         overtitle: {control: 'text'},
     },
 } as Meta;
@@ -195,10 +195,10 @@ const BreadCrumbsTemplate: StoryFn<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
-const WidgetTemplate: StoryFn<HeaderBlockModel> = (args) => (
+const StockTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
-        <DefaultTemplate {...args} widget={HeaderWidgetType.Price} />
-        <DefaultTemplate {...args} widget={HeaderWidgetType.Shares} />
+        <DefaultTemplate {...args} stock={HeaderStockType.Price} />
+        <DefaultTemplate {...args} stock={HeaderStockType.Shares} />
     </Fragment>
 );
 
@@ -212,7 +212,7 @@ export const FullWidthMediaBackground = FullWidthMediaBackgroundTemplate.bind({}
 export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 export const MediaViewFit = FitTemplate.bind({});
-export const WithWidget = WidgetTemplate.bind({});
+export const WithStock = StockTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -256,6 +256,6 @@ MediaViewFit.args = {
     mediaView: 'fit',
 } as HeaderBlockProps;
 
-WithWidget.args = {
-    ...data.widget.content,
+WithStock.args = {
+    ...data.stock.content,
 } as HeaderBlockProps;

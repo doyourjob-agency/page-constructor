@@ -3,18 +3,18 @@ import React from 'react';
 import {Theme} from '@gravity-ui/uikit';
 
 import {useTheme} from '../../../context/theme';
-import {HeaderWidgetSharesProps} from '../../../models';
+import {HeaderStockSharesProps} from '../../../models';
 import {block} from '../../../utils';
 
-import './HeaderWidgetShares.scss';
+import './HeaderStockShares.scss';
 
-const b = block('header-widget-shares');
+const b = block('header-stock-shares');
 
-type Props = HeaderWidgetSharesProps & {
+type Props = HeaderStockSharesProps & {
     theme: Theme;
 };
 
-export const HeaderWidgetShares = ({date, total, text, included, description, theme}: Props) => {
+export const HeaderStockShares = ({date, total, text, included, description, theme}: Props) => {
     const globalTheme = useTheme();
 
     return (
@@ -38,4 +38,4 @@ export const HeaderWidgetShares = ({date, total, text, included, description, th
     );
 };
 
-export default HeaderWidgetShares;
+export default HeaderStockShares;

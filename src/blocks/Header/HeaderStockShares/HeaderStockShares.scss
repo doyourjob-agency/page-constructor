@@ -1,12 +1,12 @@
 @import '../../../../styles/mixins.scss';
 @import '../../../../styles/variables.scss';
 
-$block: '.#{$ns}header-widget-price';
+$block: '.#{$ns}header-stock-shares';
 
 #{$block} {
     border-radius: $indentSM;
     padding: $indentM;
-    max-width: 350px;
+    max-width: 505px;
     width: 100%;
 
     &_theme_light {
@@ -14,7 +14,8 @@ $block: '.#{$ns}header-widget-price';
             background-color: var(--g-color-text-dark-primary);
             color: var(--g-color-text-light-primary);
         }
-        #{$block}__price {
+        #{$block}__total,
+        #{$block}__item-total {
             color: var(--g-color-text-light-primary);
         }
     }
@@ -24,30 +25,64 @@ $block: '.#{$ns}header-widget-price';
             background-color: var(--g-color-text-light-primary);
             color: var(--g-color-text-dark-primary);
         }
-        #{$block}__price {
+        #{$block}__total,
+        #{$block}__item-total {
             color: var(--g-color-text-dark-primary);
         }
     }
 
-    &__name,
-    &__percent {
-        @include text-size(body-3);
-    }
-
-    &__price {
-        @include heading1();
-        margin-top: $indentXS;
+    &__date {
+        @include text-size(body-4);
         margin-bottom: $indentXS;
     }
 
-    &__update,
-    &__delayed {
-        @include text-size(body-4);
-        opacity: 50%;
+    &__total {
+        @include heading1();
     }
 
-    &__update {
+    &__text {
+        @include text-size(body-3);
+    }
+
+    &__included {
+        margin-top: $indentXS;
+        margin-bottom: $indentXS;
+        padding: $indentSM;
+        border-radius: $indentXS;
+        background-color: var(--g-color-private-blue-100);
+    }
+
+    &__label {
+        @include text-size(body-4);
         margin-bottom: $indentXXXS;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXS;
+    }
+
+    &__item {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    &__item-total {
+        @include heading4();
+        margin-bottom: $indentXXXS;
+    }
+
+    &__item-text {
+        @include text-size(body-4);
+    }
+
+    &__description {
+        @include text-size(body-3);
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        max-width: 350px;
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {

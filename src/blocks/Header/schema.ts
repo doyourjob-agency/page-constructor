@@ -49,7 +49,7 @@ export const HeaderProperties = {
         type: 'string',
         enum: mediaView,
     },
-    widget: {
+    stock: {
         type: 'string',
         enum: ['price', 'shares'],
     },

@@ -14,9 +14,9 @@ import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
-import HeaderWidget from './HeaderWidget/HeaderWidget';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -76,7 +76,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         overtitle,
         description,
         buttons,
-        widget,
+        stock,
         image,
         video,
         width = 's',
@@ -193,7 +193,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         )}
                                         {children}
                                     </div>
-                                    {widget && <HeaderWidget type={widget} theme={textTheme} />}
+                                    {stock && <HeaderStock type={stock} theme={textTheme} />}
                                 </Col>
                                 <HeaderTags
                                     theme={textTheme}
