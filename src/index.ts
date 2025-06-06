@@ -12,6 +12,7 @@ export * from './context/blogPostsContext';
 export * from './context/pressReleasesContext';
 export * from './context/headerContext';
 export * from './context/relevantPostsContext';
+export * from './context/headerStockContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

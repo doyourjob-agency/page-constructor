@@ -193,6 +193,30 @@ export type HeaderTag = {
     target?: string;
 };
 
+export enum HeaderStockType {
+    Price = 'price',
+    Shares = 'shares',
+}
+
+export interface HeaderStockPriceProps {
+    name: string;
+    percent: string;
+    price: string;
+    update: string;
+    delayed: string;
+}
+
+export interface HeaderStockSharesProps {
+    date: string;
+    total: string;
+    text: string;
+    included: {
+        title: string;
+        text: string;
+    }[];
+    description: string;
+}
+
 export interface HeaderBlockProps {
     title: string;
     topTags?: HeaderTag[];
@@ -200,6 +224,7 @@ export interface HeaderBlockProps {
     overtitle?: string;
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
+    stock?: HeaderStockType;
     width?: HeaderWidth;
     /** @deprecated imageSize now depends on width */
     imageSize?: HeaderImageSize;

@@ -14,6 +14,7 @@ import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
@@ -66,6 +67,7 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
+// eslint-disable-next-line complexity
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
@@ -74,6 +76,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         overtitle,
         description,
         buttons,
+        stock,
         image,
         video,
         width = 's',
@@ -141,53 +144,62 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     theme={textTheme}
                                     tags={topTags}
                                     className={b('tags', {top: true})}
+                                    sizes={titleSizes}
                                 />
                                 <Col sizes={titleSizes} className={b('content-inner')}>
-                                    {overtitle && (
-                                        <div className={b('overtitle')}>
-                                            <HTML>{overtitle}</HTML>
-                                        </div>
-                                    )}
-                                    <h1 className={b('title')} id={titleId}>
-                                        <HeaderTag tag={blockTag} />
-                                        {status}
-                                        {renderTitle ? renderTitle(title) : <HTML>{title}</HTML>}
-                                    </h1>
-                                    {description && (
-                                        <div className={b('description', {theme: textTheme})}>
-                                            <YFMWrapper
-                                                content={description}
-                                                modifiers={{
-                                                    constructor: true,
-                                                    constructorTheme: textTheme,
-                                                }}
-                                            />
-                                        </div>
-                                    )}
-                                    {buttons && (
-                                        <div className={b('buttons')} data-qa="header-buttons">
-                                            {buttons.map((button, index) => (
-                                                <RouterLink href={button.url} key={index}>
-                                                    <Button
-                                                        key={index}
-                                                        className={b('button')}
-                                                        size="xl"
-                                                        extraProps={{
-                                                            'aria-describedby': titleId,
-                                                            ...button.extraProps,
-                                                        }}
-                                                        {...button}
-                                                    />
-                                                </RouterLink>
-                                            ))}
-                                        </div>
-                                    )}
-                                    {children}
+                                    <div>
+                                        {overtitle && (
+                                            <div className={b('overtitle')}>
+                                                <HTML>{overtitle}</HTML>
+                                            </div>
+                                        )}
+                                        <h1 className={b('title')} id={titleId}>
+                                            <HeaderTag tag={blockTag} />
+                                            {status}
+                                            {renderTitle ? (
+                                                renderTitle(title)
+                                            ) : (
+                                                <HTML>{title}</HTML>
+                                            )}
+                                        </h1>
+                                        {description && (
+                                            <div className={b('description', {theme: textTheme})}>
+                                                <YFMWrapper
+                                                    content={description}
+                                                    modifiers={{
+                                                        constructor: true,
+                                                        constructorTheme: textTheme,
+                                                    }}
+                                                />
+                                            </div>
+                                        )}
+                                        {buttons && (
+                                            <div className={b('buttons')} data-qa="header-buttons">
+                                                {buttons.map((button, index) => (
+                                                    <RouterLink href={button.url} key={index}>
+                                                        <Button
+                                                            key={index}
+                                                            className={b('button')}
+                                                            size="xl"
+                                                            extraProps={{
+                                                                'aria-describedby': titleId,
+                                                                ...button.extraProps,
+                                                            }}
+                                                            {...button}
+                                                        />
+                                                    </RouterLink>
+                                                ))}
+                                            </div>
+                                        )}
+                                        {children}
+                                    </div>
+                                    {stock && <HeaderStock type={stock} theme={textTheme} />}
                                 </Col>
                                 <HeaderTags
                                     theme={textTheme}
                                     tags={bottomTags}
                                     className={b('tags', {bottom: true})}
+                                    sizes={titleSizes}
                                 />
                             </Col>
                         </Row>
