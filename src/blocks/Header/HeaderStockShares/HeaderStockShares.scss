@@ -9,6 +9,14 @@ $block: '.#{$ns}header-stock-shares';
     max-width: 505px;
     width: 100%;
 
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        max-width: 350px;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        max-width: 100%;
+    }
+
     &_theme_light {
         @include add-specificity(&) {
             background-color: var(--g-color-text-dark-primary);
@@ -79,13 +87,5 @@ $block: '.#{$ns}header-stock-shares';
 
     &__description {
         @include text-size(body-3);
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        max-width: 350px;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        max-width: 100%;
     }
 }

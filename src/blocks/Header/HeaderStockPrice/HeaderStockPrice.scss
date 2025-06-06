@@ -9,6 +9,10 @@ $block: '.#{$ns}header-stock-price';
     max-width: 350px;
     width: 100%;
 
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        max-width: 100%;
+    }
+
     &_theme_light {
         @include add-specificity(&) {
             background-color: var(--g-color-text-dark-primary);
@@ -48,9 +52,5 @@ $block: '.#{$ns}header-stock-price';
 
     &__update {
         margin-bottom: $indentXXXS;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
-        max-width: 100%;
     }
 }

@@ -16,9 +16,9 @@ export const HeaderStock = ({type, theme}: HeaderStockProps) => {
     const {price, shares} = useContext(HeaderStockContext);
 
     switch (type) {
-        case 'price':
+        case HeaderStockType.Price:
             return price ? <HeaderStockPrice {...price} theme={theme} /> : null;
-        case 'shares':
+        case HeaderStockType.Shares:
             return shares ? <HeaderStockShares {...shares} theme={theme} /> : null;
         default:
             return null;
