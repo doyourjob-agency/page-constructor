@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, Image} from '../../../components';
+import {Button, HTML, Image} from '../../../components';
 import {QuotesItemProps} from '../../../models';
 import {block} from '../../../utils';
 import {i18n} from '../i18n';
@@ -33,7 +33,9 @@ export const QuotesItem = ({
             </div>
             {logo && <Image className={b('logo')} src={logo} alt={i18n('logo')} />}
         </div>
-        <blockquote className={b('body', {style})}>{quote}</blockquote>
+        <HTML block className={b('body', {style})}>
+            {quote}
+        </HTML>
         {buttonText && (
             <div className={b('footer')}>
                 <Button
