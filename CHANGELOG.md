@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.36](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.27...v5.31.36) (2025-06-09)
+
+### Features
+
+* **Header:** Add stock price widget
+
+
 ## [5.31.27](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.26...v5.31.27) (2025-05-30)
 
 ### Features
