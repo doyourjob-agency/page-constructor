@@ -19,6 +19,19 @@ $backgroundWidth: 1440px;
         height: 100%;
     }
 
+    &__content-inner {
+        display: flex;
+        gap: $indentM;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            flex-direction: column;
+        }
+    }
+
     &__content {
         position: relative;
         height: 100%;

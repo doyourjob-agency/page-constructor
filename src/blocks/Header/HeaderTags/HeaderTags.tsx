@@ -3,7 +3,7 @@ import React from 'react';
 import {Clock, MapPin} from '@gravity-ui/icons';
 import {Button as ButtonKit, Icon} from '@gravity-ui/uikit';
 
-import {Col} from '../../../grid';
+import {Col, GridColumnClassParams} from '../../../grid';
 import {HeaderTag} from '../../../models';
 import {block} from '../../../utils';
 
@@ -26,12 +26,13 @@ interface HeaderTagsProps {
     theme?: 'light' | 'dark';
     tags?: HeaderTag[];
     className?: string;
+    sizes: GridColumnClassParams['sizes'];
 }
 
-export const HeaderTags = ({theme, tags, className}: HeaderTagsProps) => {
+export const HeaderTags = ({theme, tags, sizes, className}: HeaderTagsProps) => {
     if (!tags?.length) return null;
     return (
-        <Col className={b({theme}, className)}>
+        <Col className={b({theme}, className)} sizes={sizes}>
             {tags.map((tag) => (
                 <ButtonKit
                     view="outlined"

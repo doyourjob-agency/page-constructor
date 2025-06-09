@@ -11,7 +11,7 @@ import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {Theme} from '../src';
+import {HeaderStockContext, HeaderStockContextProps, Theme} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
@@ -79,6 +79,9 @@ const withContextProvider: Decorator = (Story, context) => {
             value={context.args.blogPostsContext as BlogPostsContextProps}
         />,
         <HeaderContext.Provider value={context.args.headerContext as HeaderContextProps} />,
+        <HeaderStockContext.Provider
+            value={context.args.headerStockContext as HeaderStockContextProps}
+        />,
         <RelevantPostsContext.Provider
             value={context.args.relevantPostsContext as RelevantPostsContextProps}
         />,
