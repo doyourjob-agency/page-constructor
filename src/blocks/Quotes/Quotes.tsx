@@ -18,6 +18,7 @@ export const QuotesBlock = ({
     backgroundColor,
 }: QuotesBlockProps) => {
     const divRef = useRef<HTMLDivElement>(null);
+    const wrapRef = useRef<HTMLDivElement>(null);
     const globalTheme = useTheme();
     const theme = localTheme || globalTheme;
 
@@ -25,10 +26,16 @@ export const QuotesBlock = ({
         if (!divRef.current) return () => {};
         const resizeObserver = new ResizeObserver(() => {
             divRef.current?.style.removeProperty('--quotes-block-width');
-            divRef.current?.style.setProperty(
-                '--quotes-block-width',
-                `${divRef.current?.clientWidth}px`,
-            );
+            const divWidth = divRef.current?.clientWidth;
+            divRef.current?.style.setProperty('--quotes-block-width', `${divWidth}px`);
+            if (divWidth) {
+                wrapRef.current?.style.setProperty('width', `${window.innerWidth}px`);
+                const space = (window.innerWidth - divWidth) / 2;
+                wrapRef.current?.style.setProperty('padding-left', `${space}px`);
+                wrapRef.current?.style.setProperty('padding-right', `${space}px`);
+                wrapRef.current?.style.setProperty('margin-left', `-${space}px`);
+                wrapRef.current?.style.setProperty('margin-right', `-${space}px`);
+            }
         });
         resizeObserver.observe(divRef.current);
         return () => {
@@ -48,11 +55,13 @@ export const QuotesBlock = ({
 
     return (
         <div ref={divRef} className={b({theme})}>
-            <SliderBlock slidesToShow={1} lazyLoad="progressive" adaptive={false}>
-                {items.map((item, index) => (
-                    <QuotesItem key={index} theme={theme} {...item} />
-                ))}
-            </SliderBlock>
+            <div ref={wrapRef} className={b('wrap')}>
+                <SliderBlock slidesToShow={1} lazyLoad="progressive" adaptive={false}>
+                    {items.map((item, index) => (
+                        <QuotesItem key={index} theme={theme} {...item} />
+                    ))}
+                </SliderBlock>
+            </div>
             <div className={b('bg')} style={backgroundStyle} />
         </div>
     );
