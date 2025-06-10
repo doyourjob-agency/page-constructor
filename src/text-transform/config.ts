@@ -10,6 +10,7 @@ import {
     PriceDetailsListProps,
     PriceDetailsSettingsProps,
     PromoFeaturesItem,
+    QuotesItem,
     SubBlockType,
     TableProps,
     TitleItemProps,
@@ -31,6 +32,13 @@ function parseTableBlock(transformer: Transformer, content: TableProps) {
         ...(content || {}),
         legend: legend && legend.map((string) => transformer(string)),
     };
+}
+
+function parseQuotesBlock(transformer: Transformer, items: QuotesItem[]) {
+    return items.map(({quote, ...rest}) => ({
+        quote: quote && transformer(quote),
+        ...rest,
+    }));
 }
 
 function parseHighlightTableBlock(transformer: Transformer, content: HighlightTableData) {
@@ -324,6 +332,13 @@ export const config: BlocksConfig = {
             fields: ['table'],
             transformer: yfmTransformer,
             parser: parseTableBlock,
+        },
+    ],
+    [BlockType.QuotesBlock]: [
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseQuotesBlock,
         },
     ],
     [BlockType.HighlightTableBlock]: [
