@@ -6,10 +6,6 @@ $block: '.#{$ns}quotes-block';
 #{$block} {
     position: relative;
 
-    &__wrap {
-        overflow-x: hidden;
-    }
-
     & .pc-SliderBlock_only-arrows {
         padding: 0;
     }
