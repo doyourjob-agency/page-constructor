@@ -1,4 +1,5 @@
 import {ImageProps} from '../../components/Image/schema';
+import {HeaderStockType} from '../../models';
 import {
     BlockBaseProps,
     ButtonBlock,
@@ -49,9 +50,58 @@ export const HeaderProperties = {
         type: 'string',
         enum: mediaView,
     },
+    stockPrice: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+            type: {
+                type: 'string',
+            },
+            name: {
+                type: 'string',
+            },
+            delayed: {
+                type: 'string',
+            },
+        },
+    },
+    stockShares: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+            date: {
+                type: 'string',
+            },
+            total: {
+                type: 'string',
+            },
+            text: {
+                type: 'string',
+            },
+            included: {
+                type: 'array',
+                items: {
+                    type: 'object',
+                    additionalProperties: false,
+                    required: true,
+                    properties: {
+                        title: {
+                            type: 'string',
+                        },
+                        text: {
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+            description: {
+                type: 'string',
+            },
+        },
+    },
     stock: {
         type: 'string',
-        enum: ['price', 'shares'],
+        enum: [HeaderStockType.Price, HeaderStockType.Shares],
     },
     backLink: {
         type: 'object',

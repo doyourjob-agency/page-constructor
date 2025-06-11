@@ -77,6 +77,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         description,
         buttons,
         stock,
+        stockPrice,
+        stockShares,
         image,
         video,
         width = 's',
@@ -193,7 +195,14 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                         )}
                                         {children}
                                     </div>
-                                    {stock && <HeaderStock type={stock} theme={textTheme} />}
+                                    {stock && (
+                                        <HeaderStock
+                                            type={stock}
+                                            stockPrice={stockPrice}
+                                            stockShares={stockShares}
+                                            theme={textTheme}
+                                        />
+                                    )}
                                 </Col>
                                 <HeaderTags
                                     theme={textTheme}

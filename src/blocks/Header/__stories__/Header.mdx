@@ -25,12 +25,16 @@ There could be only one one Header block on the page.
 
 `stock?: 'price' | 'shares'` — Stock type.
 
+`stockPrice?: { name?: string; percent?: string; price?: string; update?: string; delayed?: string; }` — Stock price data.
+
+`stockShares?: { date?: string; total?: string; text?: string; included?: { title: string; text: string; }[]; description?: string; }` — Stock shares data.
+
 `video?:`
 
-- `src: string[]`
-- `loop?:`
-  - `start: number`
-  - `end: number`
+-   `src: string[]`
+-   `loop?:`
+    -   `start: number`
+    -   `end: number`
 
 `backLink?: 'url' | 'title'`
 
@@ -38,15 +42,16 @@ There could be only one one Header block on the page.
 
 `background?:`
 
-- `fullWidth: true | false` — Background width: Color to the entire screen width or as per column size.
-- `fullWidthMedia: true | false` — Media width: Picture or Video to the entire screen width or as per column size.
-- `color: string` — Background color
-- `image?: string | ImageObjectProps | ImageDeviceProps`
-- `video?: Video`
+-   `fullWidth: true | false` — Background width: Color to the entire screen width or as per column size.
+-   `fullWidthMedia: true | false` — Media width: Picture or Video to the entire screen width or as per column size.
+-   `color: string` — Background color
+-   `image?: string | ImageObjectProps | ImageDeviceProps`
+-   `video?: Video`
 
 `theme?: default | dark` — Sets the text color (black by default, white for the dark background).
 
 `verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl'` — Top and bottom offsets from the text. (Values: '0' - 0px, 's' - 48px, 'm' - 80px, 'l' - 112px, 'xl' - 144px.)
+
 </StoryTemplate>
 
 `mediaView?: full | fit` — full is default value, the media content covers all width and height. Fit - media content has real sizes and locates in the middle

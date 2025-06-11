@@ -25,7 +25,7 @@ export const HeaderStockShares = ({date, total, text, included, description, the
             <div className={b('included')}>
                 <div className={b('label')}>Including:</div>
                 <div className={b('items')}>
-                    {included.map((item) => (
+                    {included?.map((item) => (
                         <div key={item.text} className={b('item')}>
                             <div className={b('item-total')}>{item.title}</div>
                             <div className={b('item-text')}>{item.text}</div>

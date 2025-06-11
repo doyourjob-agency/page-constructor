@@ -203,6 +203,8 @@
       "description": "Information about Xxxxxx Xxxxx for shareholders, potential investors, and financial analysts",
       "width": "l",
       "verticalOffset": "s",
+      "stockPrice": {},
+      "stockShares": {},
       "buttons": [
         {
           "text": "Latest IR presentation",
