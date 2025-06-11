@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useMemo} from 'react';
 
 import {Col, Grid, Row} from '../../grid';
-import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
+import {BlockBaseProps, BlockType, ClassNameProps, QAProps} from '../../models';
 import {block, getBlockVisibilityClasses} from '../../utils';
 import Anchor from '../Anchor/Anchor';
 
@@ -9,13 +9,11 @@ import './BlockBase.scss';
 
 const b = block('block-base');
 
-export type BlockBaseFullProps = BlockBaseProps &
-    ClassNameProps &
-    PropsWithChildren &
-    QAProps & {withoutGrid?: boolean};
+export type BlockBaseFullProps = BlockBaseProps & ClassNameProps & PropsWithChildren & QAProps;
 
 const BlockBase = (props: BlockBaseFullProps) => {
     const {
+        type,
         anchor,
         visibility,
         indent,
@@ -26,7 +24,6 @@ const BlockBase = (props: BlockBaseFullProps) => {
         className,
         resetPaddings,
         qa,
-        withoutGrid,
     } = props;
 
     const {top, bottom} =
@@ -35,60 +32,43 @@ const BlockBase = (props: BlockBaseFullProps) => {
     const isBackgroundUrl = /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(backgroundFull || '');
     const visibilityClasses = getBlockVisibilityClasses(visibility);
 
-    const render = useMemo(
-        () => (
-            <Col
-                className={b(
-                    {
-                        ['reset-paddings']: resetPaddings,
-                        indentTop: top,
-                        indentBottom: bottom,
-                        ...visibilityClasses,
-                    },
-                    className,
-                )}
-                hidden={hidden}
-                visible={visible}
-                reset={true}
-                qa={qa}
-            >
-                {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
-                {backgroundFull && (
-                    <div
-                        className={b('background-full', {top})}
-                        style={
-                            isBackgroundUrl
-                                ? {backgroundImage: `url(${backgroundFull})`}
-                                : {backgroundColor: backgroundFull}
-                        }
-                    />
-                )}
-                {children}
-            </Col>
-        ),
-        [
-            anchor,
-            backgroundFull,
-            bottom,
-            children,
-            className,
-            hidden,
-            isBackgroundUrl,
-            qa,
-            resetPaddings,
-            top,
-            visibilityClasses,
-            visible,
-        ],
+    const styles = useMemo(
+        () => (type === BlockType.QuotesBlock ? {overflowX: 'hidden'} : {}) as React.CSSProperties,
+        [type],
     );
 
-    if (withoutGrid) {
-        return render;
-    }
-
     return (
-        <Grid>
-            <Row>{render}</Row>
+        <Grid style={styles}>
+            <Row>
+                <Col
+                    className={b(
+                        {
+                            ['reset-paddings']: resetPaddings,
+                            indentTop: top,
+                            indentBottom: bottom,
+                            ...visibilityClasses,
+                        },
+                        className,
+                    )}
+                    hidden={hidden}
+                    visible={visible}
+                    reset={true}
+                    qa={qa}
+                >
+                    {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
+                    {backgroundFull && (
+                        <div
+                            className={b('background-full', {top})}
+                            style={
+                                isBackgroundUrl
+                                    ? {backgroundImage: `url(${backgroundFull})`}
+                                    : {backgroundColor: backgroundFull}
+                            }
+                        />
+                    )}
+                    {children}
+                </Col>
+            </Row>
         </Grid>
     );
 };
