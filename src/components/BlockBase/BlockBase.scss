@@ -17,7 +17,7 @@ $block: '.#{$ns}block-base';
     position: relative;
     z-index: 1;
 
-    &__wrap_overflowXhidden {
+    &__wrap_no-horizontal-scroll {
         overflow-x: hidden;
     }
 

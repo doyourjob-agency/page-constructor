@@ -33,7 +33,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
     const visibilityClasses = getBlockVisibilityClasses(visibility);
 
     return (
-        <Grid className={b('wrap', {overflowXhidden: type === BlockType.QuotesBlock})}>
+        <Grid className={b('wrap', {'no-horizontal-scroll': type === BlockType.QuotesBlock})}>
             <Row>
                 <Col
                     className={b(
