@@ -10,7 +10,6 @@ import {AnimateContext} from '../../context/animateContext';
 import {InnerContext} from '../../context/innerContext';
 import {ProjectSettingsContext} from '../../context/projectSettingsContext';
 import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
 import {
     BlockType,
     BlockTypes,
@@ -35,7 +34,6 @@ import {
 
 import {ConstructorBlocks} from './components/ConstructorBlocks';
 import {ConstructorHeader} from './components/ConstructorItem';
-import {ConstructorRow} from './components/ConstructorRow';
 
 import './PageConstructor.scss';
 
@@ -116,13 +114,7 @@ export const Constructor = (props: PageConstructorProps) => {
                         {header && (
                             <ConstructorHeader data={header} blockKey={BlockType.HeaderBlock} />
                         )}
-                        <Grid>
-                            {restBlocks && (
-                                <ConstructorRow>
-                                    <ConstructorBlocks items={restBlocks} />
-                                </ConstructorRow>
-                            )}
-                        </Grid>
+                        {restBlocks && <ConstructorBlocks items={restBlocks} />}
                     </Layout>
                     {isBranded && <BrandFooter />}
                 </div>

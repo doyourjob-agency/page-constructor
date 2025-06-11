@@ -4,7 +4,11 @@
 $block: '.#{$ns}quotes-block';
 
 #{$block} {
-    position: relative;
+    overflow-x: hidden;
+
+    &__wrap {
+        position: relative;
+    }
 
     & .pc-SliderBlock_only-arrows {
         padding: 0;

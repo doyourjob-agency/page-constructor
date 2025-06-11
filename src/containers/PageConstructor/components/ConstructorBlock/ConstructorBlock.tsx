@@ -4,7 +4,11 @@ import pick from 'lodash/pick';
 
 import BlockBase from '../../../../components/BlockBase/BlockBase';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
-import {BlockDecorationProps, ConstructorBlock as ConstructorBlockType} from '../../../../models';
+import {
+    BlockDecorationProps,
+    BlockType,
+    ConstructorBlock as ConstructorBlockType,
+} from '../../../../models';
 import {block} from '../../../../utils';
 
 import './ConstructorBlock.scss';
@@ -34,10 +38,11 @@ export const ConstructorBlock = ({
             ]),
         [data],
     );
+    const withoutGrid = data.type === BlockType.QuotesBlock;
 
     return (
         <BlockDecoration type={type} index={index} {...blockBaseProps}>
-            <BlockBase className={b({type})} {...blockBaseProps}>
+            <BlockBase className={b({type})} {...blockBaseProps} withoutGrid={withoutGrid}>
                 {children}
             </BlockBase>
         </BlockDecoration>
