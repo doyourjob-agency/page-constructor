@@ -199,22 +199,22 @@ export enum HeaderStockType {
 }
 
 export interface HeaderStockPriceProps {
-    name: string;
-    percent: string;
-    price: string;
-    update: string;
-    delayed: string;
+    name?: string;
+    percent?: string;
+    price?: string;
+    update?: string;
+    delayed?: string;
 }
 
 export interface HeaderStockSharesProps {
-    date: string;
-    total: string;
-    text: string;
-    included: {
+    date?: string;
+    total?: string;
+    text?: string;
+    included?: {
         title: string;
         text: string;
     }[];
-    description: string;
+    description?: string;
 }
 
 export interface HeaderBlockProps {
@@ -225,6 +225,8 @@ export interface HeaderBlockProps {
     description?: string;
     buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
     stock?: HeaderStockType;
+    stockPrice?: Pick<HeaderStockPriceProps, 'name' | 'delayed'>;
+    stockShares?: HeaderStockSharesProps;
     width?: HeaderWidth;
     /** @deprecated imageSize now depends on width */
     imageSize?: HeaderImageSize;
