@@ -35,33 +35,35 @@ const BlockBase = (props: BlockBaseFullProps) => {
     return (
         <Grid className={b('wrap', {'no-horizontal-scroll': type === BlockType.QuotesBlock})}>
             <Row>
-                <Col
-                    className={b(
-                        {
-                            ['reset-paddings']: resetPaddings,
-                            indentTop: top,
-                            indentBottom: bottom,
-                            ...visibilityClasses,
-                        },
-                        className,
-                    )}
-                    hidden={hidden}
-                    visible={visible}
-                    reset={true}
-                    qa={qa}
-                >
-                    {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
-                    {backgroundFull && (
-                        <div
-                            className={b('background-full', {top})}
-                            style={
-                                isBackgroundUrl
-                                    ? {backgroundImage: `url(${backgroundFull})`}
-                                    : {backgroundColor: backgroundFull}
-                            }
-                        />
-                    )}
-                    {children}
+                <Col>
+                    <Col
+                        className={b(
+                            {
+                                ['reset-paddings']: resetPaddings,
+                                indentTop: top,
+                                indentBottom: bottom,
+                                ...visibilityClasses,
+                            },
+                            className,
+                        )}
+                        hidden={hidden}
+                        visible={visible}
+                        reset={true}
+                        qa={qa}
+                    >
+                        {anchor && <Anchor id={anchor.url} className={b('anchor')} />}
+                        {backgroundFull && (
+                            <div
+                                className={b('background-full', {top})}
+                                style={
+                                    isBackgroundUrl
+                                        ? {backgroundImage: `url(${backgroundFull})`}
+                                        : {backgroundColor: backgroundFull}
+                                }
+                            />
+                        )}
+                        {children}
+                    </Col>
                 </Col>
             </Row>
         </Grid>
