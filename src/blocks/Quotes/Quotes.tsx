@@ -1,8 +1,7 @@
 import React, {useEffect, useMemo, useRef} from 'react';
 
-import {ConstructorRow} from '../../containers/PageConstructor/components/ConstructorRow';
 import {useTheme} from '../../context/theme';
-import {Grid} from '../../grid';
+import {Grid, Row} from '../../grid';
 import {QuotesBlockProps} from '../../models';
 import {block} from '../../utils';
 import {SliderBlock} from '../Slider/Slider';
@@ -49,7 +48,7 @@ export const QuotesBlock = ({
 
     return (
         <Grid className={b({theme})}>
-            <ConstructorRow>
+            <Row>
                 <div ref={divRef} className={b('wrap')}>
                     <SliderBlock slidesToShow={1} lazyLoad="progressive" adaptive={false}>
                         {items.map((item, index) => (
@@ -58,7 +57,7 @@ export const QuotesBlock = ({
                     </SliderBlock>
                     <div className={b('bg')} style={backgroundStyle} />
                 </div>
-            </ConstructorRow>
+            </Row>
         </Grid>
     );
 };

@@ -1,7 +1,6 @@
 import React, {PropsWithChildren, useMemo} from 'react';
 
-import {ConstructorRow} from '../../containers/PageConstructor/components/ConstructorRow';
-import {Col, Grid} from '../../grid';
+import {Col, Grid, Row} from '../../grid';
 import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
 import {block, getBlockVisibilityClasses} from '../../utils';
 import Anchor from '../Anchor/Anchor';
@@ -89,7 +88,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
 
     return (
         <Grid>
-            <ConstructorRow>{render}</ConstructorRow>
+            <Row>{render}</Row>
         </Grid>
     );
 };
