@@ -17,6 +17,10 @@ $block: '.#{$ns}block-base';
     position: relative;
     z-index: 1;
 
+    &__wrap_overflowXhidden {
+        overflow-x: hidden;
+    }
+
     &__background-full {
         position: absolute;
         background-size: cover;

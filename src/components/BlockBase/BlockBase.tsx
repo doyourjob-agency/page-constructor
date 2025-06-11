@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useMemo} from 'react';
+import React, {PropsWithChildren} from 'react';
 
 import {Col, Grid, Row} from '../../grid';
 import {BlockBaseProps, BlockType, ClassNameProps, QAProps} from '../../models';
@@ -32,13 +32,8 @@ const BlockBase = (props: BlockBaseFullProps) => {
     const isBackgroundUrl = /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(backgroundFull || '');
     const visibilityClasses = getBlockVisibilityClasses(visibility);
 
-    const styles = useMemo(
-        () => (type === BlockType.QuotesBlock ? {overflowX: 'hidden'} : {}) as React.CSSProperties,
-        [type],
-    );
-
     return (
-        <Grid style={styles}>
+        <Grid className={b('wrap', {overflowXhidden: type === BlockType.QuotesBlock})}>
             <Row>
                 <Col
                     className={b(

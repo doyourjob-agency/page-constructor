@@ -8,6 +8,7 @@ import {SliderBlock} from '../Slider/Slider';
 import QuotesItem from './QuotesItem/QuotesItem';
 
 import './Quotes.scss';
+
 const b = block('quotes-block');
 
 export const QuotesBlock = ({
