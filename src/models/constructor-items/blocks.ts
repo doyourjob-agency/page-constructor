@@ -92,6 +92,7 @@ export type VisibilityProp = VisibilityPreset | VisibilityMap;
 
 //block props
 export interface BlockBaseProps {
+    type?: string;
     anchor?: AnchorProps;
     visibility?: VisibilityProp;
     /** @deprecated */

@@ -24,6 +24,7 @@ export const ConstructorBlock = ({
     const blockBaseProps = useMemo(
         () =>
             pick(data, [
+                'type',
                 'anchor',
                 'visible',
                 'hidden',
