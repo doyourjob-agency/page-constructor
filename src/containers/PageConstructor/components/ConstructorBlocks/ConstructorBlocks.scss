@@ -1,0 +1,10 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+$block: '.#{$ns}constructor-blocks';
+
+#{$block} {
+    &_no-horizontal-scroll {
+        overflow-x: hidden;
+    }
+}
