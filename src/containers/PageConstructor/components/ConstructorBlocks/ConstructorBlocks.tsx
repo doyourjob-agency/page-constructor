@@ -73,17 +73,36 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             );
         }
 
-        return blockTypes.includes(item.type) ? (
-            //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
-            // components relying on constructor inner structure like Slider or blog-constructor will be refactored
-            <div key={blockId} className="test-constructor-blog">
-                <ConstructorBlock data={item} index={index}>
-                    {itemElement}
-                </ConstructorBlock>
-            </div>
-        ) : (
-            itemElement
-        );
+        if (blockTypes.includes(item.type)) {
+            if (parentId) {
+                return (
+                    <ConstructorBlock key={blockId} data={item} index={index}>
+                        {itemElement}
+                    </ConstructorBlock>
+                );
+            }
+            return (
+                <div key={blockId} className="test-constructor-blog">
+                    <ConstructorBlock data={item} index={index}>
+                        {itemElement}
+                    </ConstructorBlock>
+                </div>
+            );
+        }
+
+        return itemElement;
+
+        // return blockTypes.includes(item.type) ? (
+        //     //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
+        //     // components relying on constructor inner structure like Slider or blog-constructor will be refactored
+        //     <div key={blockId} className="test-constructor-blog">
+        //         <ConstructorBlock data={item} index={index}>
+        //             {itemElement}
+        //         </ConstructorBlock>
+        //     </div>
+        // ) : (
+        //     itemElement
+        // );
     };
 
     return <Fragment>{items.map(renderer.bind(null, ''))}</Fragment>;
