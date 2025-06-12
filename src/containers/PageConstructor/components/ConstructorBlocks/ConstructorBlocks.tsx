@@ -76,9 +76,11 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
         return blockTypes.includes(item.type) ? (
             //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
             // components relying on constructor inner structure like Slider or blog-constructor will be refactored
-            <ConstructorBlock data={item} key={blockId} index={index}>
-                {itemElement}
-            </ConstructorBlock>
+            <div key={blockId} className="test-constructor-blog">
+                <ConstructorBlock data={item} index={index}>
+                    {itemElement}
+                </ConstructorBlock>
+            </div>
         ) : (
             itemElement
         );
