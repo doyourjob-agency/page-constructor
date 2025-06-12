@@ -4,16 +4,21 @@ import get from 'lodash/get';
 
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
+import {Col, Grid, Row} from '../../../../grid';
 import {
     BlockType,
     ConstructorBlock as ConstructorBlockType,
     LoadableProps,
     SubBlock,
 } from '../../../../models';
-import {getBlockKey} from '../../../../utils';
+import {block, getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
+
+import './ConstructorBlocks.scss';
+
+const b = block('constructor-blocks');
 
 export interface ConstructorBlocksProps {
     items: ConstructorBlockType[];
@@ -72,16 +77,35 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                 </ConstructorItem>
             );
         }
+        //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
+        // components relying on constructor inner structure like Slider or blog-constructor will be refactored
+        if (blockTypes.includes(item.type)) {
+            if (parentId) {
+                return (
+                    <ConstructorBlock key={blockId} data={item} index={index}>
+                        {itemElement}
+                    </ConstructorBlock>
+                );
+            }
+            return (
+                <Grid
+                    key={blockId}
+                    className={b({
+                        'no-horizontal-scroll': item.type === BlockType.QuotesBlock,
+                    })}
+                >
+                    <Row>
+                        <Col>
+                            <ConstructorBlock data={item} index={index}>
+                                {itemElement}
+                            </ConstructorBlock>
+                        </Col>
+                    </Row>
+                </Grid>
+            );
+        }
 
-        return blockTypes.includes(item.type) ? (
-            //TODO: replace ConstructorBlock (and delete it) with BlockBase when all
-            // components relying on constructor inner structure like Slider or blog-constructor will be refactored
-            <ConstructorBlock data={item} key={blockId} index={index}>
-                {itemElement}
-            </ConstructorBlock>
-        ) : (
-            itemElement
-        );
+        return itemElement;
     };
 
     return <Fragment>{items.map(renderer.bind(null, ''))}</Fragment>;
