@@ -41,6 +41,7 @@ import {
     Divider,
     FeedCard,
     ImageCard,
+    InfoCard,
     MediaCardBlock,
     PostCard,
     PriceCardBlock,
@@ -95,6 +96,7 @@ export const cardSchemas = {
     ...Card,
     ...PostCard,
     ...FeedCard,
+    ...InfoCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -150,4 +152,5 @@ export const constructorCardSchemaNames = [
     'card',
     'post-card',
     'feed-card',
+    'info-card',
 ];

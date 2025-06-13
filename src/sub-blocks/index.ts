@@ -14,3 +14,4 @@ export {default as ContentLayoutCard} from './ContentLayoutCard/ContentLayoutCar
 export {default as Card} from './Card/Card';
 export {default as PostCard} from './PostCard/PostCard';
 export {default as FeedCard} from './FeedCard/FeedCard';
+export {default as InfoCard} from './InfoCard/InfoCard';

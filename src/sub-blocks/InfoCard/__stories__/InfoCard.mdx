@@ -1,0 +1,20 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as InfoCardStories from './InfoCard.stories.tsx';
+
+<Meta of={InfoCardStories} />
+<StoryTemplate>
+## Parameters
+
+[`image: string | ImageObjectProps | ReactNode` — ImageProps](?path=/docs/documentation-types--docs#imageobjectprops---image-property). Supports different values for themes
+
+[`title?: Title | string` - title](?path=/docs/documentation-types--docs#title-block-title)
+
+`text?: string` — Text (with YFM support)
+
+[`links?: Link[]` — An array with link objects](?path=/docs/documentation-types--docs#link)
+
+`theme?: 'default' | 'dark' | 'light'` — Component's theme: default, dark, or monochrome light ('default' by default).
+
+</StoryTemplate>

@@ -16,6 +16,10 @@ export const CardLayoutProps = {
         ...AnimatableProps,
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
+        itemColSizes: {
+            type: 'object',
+            additionalProperties: containerSizesObject,
+        },
         background: {
             anyOf: [
                 {

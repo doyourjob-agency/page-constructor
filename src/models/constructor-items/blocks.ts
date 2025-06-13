@@ -470,6 +470,9 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     titleClassName?: string;
     description?: string;
     colSizes?: GridColumnSizesType;
+    itemColSizes?: {
+        [index: number]: GridColumnSizesType;
+    };
     background?: ThemeSupporting<
         BackgroundImageProps & {
             border?: CardBorder;
