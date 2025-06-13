@@ -3,18 +3,18 @@ import React from 'react';
 import {Image, Links, Title, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
-import {InfoCardProps, TitleItemProps} from '../../models';
+import {EventPersonCardProps, TitleItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
-import './InfoCard.scss';
+import './EventPersonCard.scss';
 
-const b = block('info-card');
+const b = block('event-person-card');
 
 const titleColSizes = {
     all: 12,
 };
 
-const InfoCard = (props: InfoCardProps) => {
+const EventPersonCard = (props: EventPersonCardProps) => {
     const {image, title, text, links, theme} = props;
 
     const globalTheme = useTheme();
@@ -49,4 +49,4 @@ const InfoCard = (props: InfoCardProps) => {
     );
 };
 
-export default InfoCard;
+export default EventPersonCard;

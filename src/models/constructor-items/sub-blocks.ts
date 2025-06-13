@@ -46,7 +46,7 @@ export enum SubBlockType {
     Card = 'card',
     PostCard = 'post-card',
     FeedCard = 'feed-card',
-    InfoCard = 'info-card',
+    EventPersonCard = 'event-person-card',
 }
 
 export enum IconPosition {
@@ -265,7 +265,7 @@ export interface FeedCardProps {
     place?: string;
 }
 
-export interface InfoCardProps {
+export interface EventPersonCardProps {
     image: ThemeSupporting<ImageProps>;
     title?: TitleItemBaseProps | string;
     text?: string;
@@ -327,9 +327,9 @@ export type FeedCardModel = {
     type: SubBlockType.FeedCard;
 } & FeedCardProps;
 
-export type InfoCardModel = {
-    type: SubBlockType.InfoCard;
-} & InfoCardProps;
+export type EventPersonCardModel = {
+    type: SubBlockType.EventPersonCard;
+} & EventPersonCardProps;
 
 export type SubBlockModels =
     | DividerModel
@@ -345,6 +345,6 @@ export type SubBlockModels =
     | ImageCardModel
     | PostCardModel
     | FeedCardModel
-    | InfoCardModel;
+    | EventPersonCardModel;
 
 export type SubBlock = SubBlockModels;

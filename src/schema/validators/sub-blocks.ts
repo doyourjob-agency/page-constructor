@@ -13,4 +13,4 @@ export * from '../../sub-blocks/ContentLayoutCard/schema';
 export * from '../../sub-blocks/Card/schema';
 export * from '../../sub-blocks/PostCard/schema';
 export * from '../../sub-blocks/FeedCard/schema';
-export * from '../../sub-blocks/InfoCard/schema';
+export * from '../../sub-blocks/EventPersonCard/schema';

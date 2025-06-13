@@ -3,19 +3,21 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {yfmTransform} from '../../../../.storybook/utils';
-import {ClassNameProps, ContentBlockProps, ContentTheme, InfoCardProps} from '../../../models';
-import InfoCard from '../InfoCard';
+import {ClassNameProps, ContentTheme, EventPersonCardProps} from '../../../models';
+import EventPersonCard from '../EventPersonCard';
 
 import data from './data.json';
 
 export default {
-    component: InfoCard,
-    title: 'Components/Cards/InfoCard',
+    component: EventPersonCard,
+    title: 'Components/Cards/EventPersonCard',
 } as Meta;
 
-const DefaultTemplate: StoryFn<InfoCardProps & ClassNameProps> = (args) => <InfoCard {...args} />;
+const DefaultTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => (
+    <EventPersonCard {...args} />
+);
 
-const ThemeTemplate: StoryFn<InfoCardProps & ClassNameProps> = (args) => (
+const ThemeTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => (
     <div>
         <div
             style={{
@@ -25,7 +27,7 @@ const ThemeTemplate: StoryFn<InfoCardProps & ClassNameProps> = (args) => (
                 marginBottom: '64px',
             }}
         >
-            <InfoCard
+            <EventPersonCard
                 {...args}
                 image={data.theme.light.image}
                 title={data.theme.light.title}
@@ -33,7 +35,7 @@ const ThemeTemplate: StoryFn<InfoCardProps & ClassNameProps> = (args) => (
             />
         </div>
         <div style={{paddingBottom: '64px', paddingTop: '64px', backgroundColor: '#262626'}}>
-            <InfoCard
+            <EventPersonCard
                 {...args}
                 image={data.theme.dark.image}
                 title={data.theme.dark.title}
@@ -53,8 +55,8 @@ const defaultArgs = {
 
 Default.args = {
     ...defaultArgs,
-} as ContentBlockProps;
+} as EventPersonCardProps;
 
 Theme.args = {
     ...defaultArgs,
-} as ContentBlockProps;
+} as EventPersonCardProps;

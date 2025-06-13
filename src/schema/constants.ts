@@ -39,9 +39,9 @@ import {
     Card,
     ContentLayoutCard,
     Divider,
+    EventPersonCard,
     FeedCard,
     ImageCard,
-    InfoCard,
     MediaCardBlock,
     PostCard,
     PriceCardBlock,
@@ -96,7 +96,7 @@ export const cardSchemas = {
     ...Card,
     ...PostCard,
     ...FeedCard,
-    ...InfoCard,
+    ...EventPersonCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -152,5 +152,5 @@ export const constructorCardSchemaNames = [
     'card',
     'post-card',
     'feed-card',
-    'info-card',
+    'event-person-card',
 ];

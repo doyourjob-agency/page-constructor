@@ -2,8 +2,8 @@ import {BaseProps, LinkProps, TitleProps, contentThemes} from '../../schema/vali
 import {ImageProps} from '../../schema/validators/components';
 import {filteredArray} from '../../schema/validators/utils';
 
-export const InfoCard = {
-    'info-card': {
+export const EventPersonCard = {
+    'event-person-card': {
         additionalProperties: false,
         properties: {
             ...BaseProps,

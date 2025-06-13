@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/mixins.scss';
 
-$block: '.#{$ns}info-card';
+$block: '.#{$ns}event-person-card';
 $primary: var(--g-color-text-primary);
 $lightPrimary: var(--g-color-text-light-primary);
 $darkPrimary: var(--g-color-text-dark-primary);
