@@ -478,6 +478,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
             border?: CardBorder;
         }
     >;
+    largeItemGap?: boolean;
 }
 
 export type FilterTag = {

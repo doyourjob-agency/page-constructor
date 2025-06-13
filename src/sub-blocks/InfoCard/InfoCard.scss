@@ -46,10 +46,13 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     }
 
     &__title {
-        margin-bottom: $indentXXS;
+        margin-bottom: 9px;
     }
 
     &__text {
+        .yfm.yfm p {
+            margin-bottom: 9px;
+        }
         .yfm ol,
         .yfm ul {
             padding-left: 1.4em;

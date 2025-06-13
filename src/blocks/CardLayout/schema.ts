@@ -34,6 +34,9 @@ export const CardLayoutProps = {
                 },
             ],
         },
+        largeItemGap: {
+            type: 'boolean',
+        },
         children: ChildrenCardsProps,
     },
 };

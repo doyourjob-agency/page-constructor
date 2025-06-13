@@ -32,6 +32,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     className,
     titleClassName,
     background,
+    largeItemGap,
 }) => {
     const theme = useTheme();
     const {border, ...backgroundImageProps} = getThemedValue(background || {}, theme);
@@ -51,7 +52,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
                         <Col
                             key={index}
                             sizes={itemColSizes[index] || colSizes}
-                            className={b('item')}
+                            className={b('item', {['large-item-gap']: largeItemGap})}
                         >
                             {child}
                         </Col>
