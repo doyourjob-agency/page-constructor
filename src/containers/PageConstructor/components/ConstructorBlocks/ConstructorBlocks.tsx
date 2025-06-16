@@ -12,7 +12,7 @@ import {
     LoadableProps,
     SubBlock,
 } from '../../../../models';
-import {block, getBlockKey, normalizeBackgroundValue} from '../../../../utils';
+import {block, getBlockBackgroundStyles, getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
@@ -89,34 +89,10 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                 );
             }
 
-            const blockBackground = ('blockBackground' in item &&
-                item.blockBackground) as BlockBaseProps['blockBackground'];
-
-            const isStringBackground = typeof blockBackground === 'string';
-            const isObjectBackground =
-                typeof blockBackground === 'object' && blockBackground !== null;
-
-            let styles: React.CSSProperties | undefined;
-
-            if (isStringBackground) {
-                styles = {
-                    background: normalizeBackgroundValue(blockBackground),
-                };
-            }
-
-            if (isObjectBackground) {
-                styles = {
-                    backgroundColor: blockBackground.color,
-                    backgroundImage: normalizeBackgroundValue(blockBackground.image),
-                    backgroundSize: blockBackground.size,
-                    backgroundRepeat: blockBackground.repeat,
-                    backgroundPosition: blockBackground.position,
-                    backgroundAttachment: blockBackground.attachment,
-                    backgroundClip: blockBackground.clip,
-                    backgroundOrigin: blockBackground.origin,
-                    backgroundBlendMode: blockBackground.blendMode,
-                };
-            }
+            const styles = getBlockBackgroundStyles(
+                ('blockBackground' in item &&
+                    item.blockBackground) as BlockBaseProps['blockBackground'],
+            );
 
             return (
                 <Grid

@@ -3,7 +3,7 @@ import React from 'react';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
-import {ThemeSupporting} from '../../utils';
+import {BlockBackgroundType, ThemeSupporting} from '../../utils';
 import {AnalyticsEventsBase} from '../common';
 
 import {
@@ -104,20 +104,8 @@ export interface BlockBaseProps {
         top?: IndentValue;
         bottom?: IndentValue;
     };
-    backgroundFull?: string;
-    blockBackground?:
-        | string
-        | {
-              color?: string;
-              image?: string;
-              size?: string;
-              repeat?: string;
-              position?: string;
-              attachment?: string;
-              clip?: string;
-              origin?: string;
-              blendMode?: string;
-          };
+    backgroundFull?: string; // deprecated, use 'blockBackground'
+    blockBackground?: BlockBackgroundType;
     className?: string;
     qa?: string;
 }
