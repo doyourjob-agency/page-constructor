@@ -22,6 +22,8 @@ const DefaultTemplate: StoryFn<ShareBLockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const BlockBackground = DefaultTemplate.bind({});
+export const BlockBackgroundGradient = DefaultTemplate.bind({});
 
 Default.args = data.withBlockBackgroundString.content as ShareBlockProps;
 BlockBackground.args = data.withBlockBackground.content as ShareBlockProps;
+BlockBackgroundGradient.args = data.withBlockBackgroundGradient.content as ShareBlockProps;
