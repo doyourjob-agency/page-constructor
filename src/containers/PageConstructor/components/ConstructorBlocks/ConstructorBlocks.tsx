@@ -1,7 +1,6 @@
 import React, {Fragment, ReactElement, useContext} from 'react';
 
 import get from 'lodash/get';
-import pick from 'lodash/pick';
 
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
@@ -94,7 +93,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     className={b({
                         'no-horizontal-scroll':
                             item.type === BlockType.QuotesBlock ||
-                            Boolean(pick(item, 'backgroundfull')),
+                            ('backgroundFull' in item && Boolean(item.backgroundFull)),
                     })}
                 >
                     <Row>
