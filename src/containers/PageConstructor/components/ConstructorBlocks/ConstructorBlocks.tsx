@@ -96,11 +96,16 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
             const isObjectBackground =
                 typeof blockBackground === 'object' && blockBackground !== null;
 
-            const styles: React.CSSProperties = {
-                ...(isStringBackground && {
+            let styles: React.CSSProperties | undefined;
+
+            if (isStringBackground) {
+                styles = {
                     background: normalizeBackgroundValue(blockBackground),
-                }),
-                ...(isObjectBackground && {
+                };
+            }
+
+            if (isObjectBackground) {
+                styles = {
                     backgroundColor: blockBackground.color,
                     backgroundImage: normalizeBackgroundValue(blockBackground.image),
                     backgroundSize: blockBackground.size,
@@ -110,8 +115,8 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     backgroundClip: blockBackground.clip,
                     backgroundOrigin: blockBackground.origin,
                     backgroundBlendMode: blockBackground.blendMode,
-                }),
-            };
+                };
+            }
 
             return (
                 <Grid
