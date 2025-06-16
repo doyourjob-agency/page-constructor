@@ -8,6 +8,7 @@ export * from './theme';
 export * from './query';
 export * from './capitalize';
 export * from './trademark';
+export * from './background';
 
 export type {HubspotEventData, HubspotEventHandlers, HubspotEventName} from './hubspot';
 export {isHubspotEventData} from './hubspot';

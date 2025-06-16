@@ -10,8 +10,9 @@ $blockScrollbar: '.#{$ns}table-scrollbar';
 
     &__lhs {
         @media (min-width: map-get($gridBreakpoints, 'md')) {
+            @include top-content-offset($offset: $indentM);
+
             position: sticky;
-            top: calc(var(--header-height) + 0px);
         }
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
@@ -25,14 +26,6 @@ $blockScrollbar: '.#{$ns}table-scrollbar';
 
     &__bottomObject {
         margin-top: $indentSM;
-    }
-
-    &__title {
-        @include heading2();
-        @include top-content-offset($offset: 0px);
-
-        position: sticky;
-        margin-right: $indentM;
     }
 
     &__table {

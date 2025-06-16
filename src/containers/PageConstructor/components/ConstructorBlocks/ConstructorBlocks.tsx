@@ -6,12 +6,13 @@ import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {Col, Grid, Row} from '../../../../grid';
 import {
+    BlockBaseProps,
     BlockType,
     ConstructorBlock as ConstructorBlockType,
     LoadableProps,
     SubBlock,
 } from '../../../../models';
-import {block, getBlockKey} from '../../../../utils';
+import {block, getBlockBackgroundStyles, getBlockKey} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
@@ -87,6 +88,12 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     </ConstructorBlock>
                 );
             }
+
+            const styles = getBlockBackgroundStyles(
+                ('blockBackground' in item &&
+                    item.blockBackground) as BlockBaseProps['blockBackground'],
+            );
+
             return (
                 <Grid
                     key={blockId}
@@ -95,6 +102,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                             item.type === BlockType.QuotesBlock ||
                             ('backgroundFull' in item && Boolean(item.backgroundFull)),
                     })}
+                    style={styles}
                 >
                     <Row>
                         <Col>

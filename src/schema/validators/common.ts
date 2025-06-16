@@ -561,6 +561,46 @@ export const BlockBaseProps = {
     backgroundFull: {
         type: 'string',
     },
+    blockBackground: {
+        oneOf: [
+            {
+                type: 'string',
+            },
+            {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    color: {
+                        type: 'string',
+                    },
+                    image: {
+                        type: 'string',
+                    },
+                    size: {
+                        type: 'string',
+                    },
+                    repeat: {
+                        type: 'string',
+                    },
+                    position: {
+                        type: 'string',
+                    },
+                    attachment: {
+                        type: 'string',
+                    },
+                    clip: {
+                        type: 'string',
+                    },
+                    origin: {
+                        type: 'string',
+                    },
+                    blendMode: {
+                        type: 'string',
+                    },
+                },
+            },
+        ],
+    },
 };
 
 export const TitleProps = {

@@ -11,5 +11,39 @@
       "title": "Share on social networks",
       "items": ["facebook", "vk", "telegram", "twitter", "linkedin"]
     }
+  },
+  "withBlockBackgroundString": {
+    "content": {
+      "type": "share-block",
+      "title": "Share on social networks",
+      "items": ["facebook", "vk", "telegram", "twitter", "linkedin"],
+      "blockBackground": "#f0f0f0"
+    }
+  },
+  "withBlockBackground": {
+    "content": {
+      "type": "share-block",
+      "title": "Share on social networks",
+      "items": ["facebook", "vk", "telegram", "twitter", "linkedin"],
+      "blockBackground": {
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYwP8b90PjYehplhyW7bcbjHeUWs-VOV0i1w&s",
+        "color": "#f0f0f0",
+        "size": "cover",
+        "repeat": "no-repeat",
+        "position": "center center",
+        "attachment": "fixed",
+        "clip": "border-box",
+        "origin": "padding-box",
+        "blendMode": "multiply"
+      }
+    }
+  },
+  "withBlockBackgroundGradient": {
+    "content": {
+      "type": "share-block",
+      "title": "Share on social networks",
+      "items": ["facebook", "vk", "telegram", "twitter", "linkedin"],
+      "blockBackground": "linear-gradient(85.73deg, #E8FF7E -0.55%, #B6FFF2 25.79%, #A4F1F8 51.59%, #C6E3F3 75.82%, #C5CAFF 100.57%)"
+    }
   }
 }

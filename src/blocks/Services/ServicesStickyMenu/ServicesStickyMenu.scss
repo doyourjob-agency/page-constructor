@@ -5,7 +5,7 @@ $block: '.#{$ns}services-sticky-menu';
 
 #{$block} {
     position: sticky;
-    top: calc(var(--header-menu-height, 0px) + $indentM);
+    @include top-content-offset($offset: $indentM);
 
     padding-left: $indentM;
     @media (max-width: map-get($gridBreakpoints, 'md')) {
