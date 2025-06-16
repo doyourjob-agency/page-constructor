@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.43](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.36...v5.31.43) (2025-06-16)
+
+### Features
+
+* **EventPersonCard:** Add card
+
+
 ## [5.31.36](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.27...v5.31.36) (2025-06-09)
 
 ### Features
