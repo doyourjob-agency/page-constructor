@@ -8,6 +8,10 @@ $largeBorderRadius: 32px;
 #{$block} {
     &__item {
         margin-top: $indentSM;
+
+        &_large-item-gap {
+            margin-top: $indentM;
+        }
     }
 
     &__content {

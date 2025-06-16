@@ -1,0 +1,119 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}event-person-card';
+$primary: var(--g-color-text-primary);
+$lightPrimary: var(--g-color-text-light-primary);
+$darkPrimary: var(--g-color-text-dark-primary);
+$darkSecondary: var(--g-color-text-dark-secondary);
+
+@mixin content-link($baseColor: $primary, $hoverColor: $secondary) {
+    color: $baseColor;
+    text-decoration: underline;
+    &:hover {
+        color: $hoverColor;
+    }
+}
+
+#{$block} {
+    --pc-monochrome-button-background-color: #262626;
+    --pc-monochrome-button-background-color-hover: #393939;
+    --pc-monochrome-button-color: var(--g-color-text-light-primary);
+    display: flex;
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-left: $indentXS;
+    }
+
+    &__wrap-image {
+        width: 192px;
+        height: 192px;
+        border-radius: $indentS;
+        overflow: hidden;
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__links {
+        margin-top: $indentXS;
+    }
+
+    &__title {
+        margin-bottom: 9px;
+    }
+
+    &__text {
+        max-width: 815px;
+        .yfm.yfm p {
+            margin-bottom: 9px;
+        }
+        .yfm ol,
+        .yfm ul {
+            padding-left: 1.4em;
+        }
+    }
+
+    &_theme {
+        &_dark {
+            --g-color-line-focus: var(--pc-color-line-focus-dark);
+
+            #{$block}__title *,
+            #{$block}__text .yfm,
+            #{$block}__text .yfm *,
+            #{$block}__links a {
+                color: $lightPrimary;
+            }
+
+            #{$block}__text {
+                .yfm a {
+                    @include content-link($lightPrimary, $lightSecondary);
+                }
+            }
+
+            #{$block}__title {
+                a {
+                    @include content-link($lightPrimary, $lightSecondary);
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &_light {
+            #{$block}__title *,
+            #{$block}__text .yfm,
+            #{$block}__text .yfm *,
+            #{$block}__links a {
+                color: $darkPrimary;
+            }
+
+            #{$block}__text {
+                .yfm a {
+                    @include content-link($darkPrimary, $darkSecondary);
+                }
+            }
+
+            #{$block}__title {
+                a {
+                    @include content-link($darkPrimary, $darkSecondary);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        flex-direction: column;
+
+        &__wrap {
+            margin-top: $indentXS;
+            margin-left: 0;
+        }
+    }
+}

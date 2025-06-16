@@ -22,6 +22,7 @@ import {
     TextTheme,
     Themable,
     ThemedImage,
+    TitleItemBaseProps,
     TitleTextSize,
 } from './common';
 
@@ -45,6 +46,7 @@ export enum SubBlockType {
     Card = 'card',
     PostCard = 'post-card',
     FeedCard = 'feed-card',
+    EventPersonCard = 'event-person-card',
 }
 
 export enum IconPosition {
@@ -263,6 +265,14 @@ export interface FeedCardProps {
     place?: string;
 }
 
+export interface EventPersonCardProps {
+    image: ThemeSupporting<ImageProps>;
+    title?: TitleItemBaseProps | string;
+    text?: string;
+    links?: LinkProps[];
+    theme?: ContentTheme;
+}
+
 // sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
@@ -317,6 +327,10 @@ export type FeedCardModel = {
     type: SubBlockType.FeedCard;
 } & FeedCardProps;
 
+export type EventPersonCardModel = {
+    type: SubBlockType.EventPersonCard;
+} & EventPersonCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -330,6 +344,7 @@ export type SubBlockModels =
     | LayoutItemModel
     | ImageCardModel
     | PostCardModel
-    | FeedCardModel;
+    | FeedCardModel
+    | EventPersonCardModel;
 
 export type SubBlock = SubBlockModels;

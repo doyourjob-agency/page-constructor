@@ -16,6 +16,10 @@ export const CardLayoutProps = {
         ...AnimatableProps,
         ...BlockHeaderProps,
         colSizes: containerSizesObject,
+        itemColSizes: {
+            type: 'object',
+            additionalProperties: containerSizesObject,
+        },
         background: {
             anyOf: [
                 {
@@ -29,6 +33,9 @@ export const CardLayoutProps = {
                     optionName: 'device options',
                 },
             ],
+        },
+        largeItemGap: {
+            type: 'boolean',
         },
         children: ChildrenCardsProps,
     },
