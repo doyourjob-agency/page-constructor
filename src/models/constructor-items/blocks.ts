@@ -105,6 +105,20 @@ export interface BlockBaseProps {
         bottom?: IndentValue;
     };
     backgroundFull?: string;
+    blockBackground?:
+        | string
+        | {
+              color?: string;
+              image?: string;
+              size?: string;
+              repeat?: string;
+              position?: string;
+              attachment?: string;
+              clip?: string;
+              origin?: string;
+              blendMode?: string;
+          };
+    className?: string;
     qa?: string;
 }
 

@@ -6,12 +6,13 @@ import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {Col, Grid, Row} from '../../../../grid';
 import {
+    BlockBaseProps,
     BlockType,
     ConstructorBlock as ConstructorBlockType,
     LoadableProps,
     SubBlock,
 } from '../../../../models';
-import {block, getBlockKey} from '../../../../utils';
+import {block, getBlockKey, normalizeBackgroundValue} from '../../../../utils';
 import {ConstructorBlock} from '../ConstructorBlock/ConstructorBlock';
 import {ConstructorItem} from '../ConstructorItem';
 import {ConstructorLoadable} from '../ConstructorLoadable';
@@ -87,6 +88,31 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     </ConstructorBlock>
                 );
             }
+
+            const blockBackground = ('blockBackground' in item &&
+                item.blockBackground) as BlockBaseProps['blockBackground'];
+
+            const isStringBackground = typeof blockBackground === 'string';
+            const isObjectBackground =
+                typeof blockBackground === 'object' && blockBackground !== null;
+
+            const styles: React.CSSProperties = {
+                ...(isStringBackground && {
+                    background: normalizeBackgroundValue(blockBackground),
+                }),
+                ...(isObjectBackground && {
+                    backgroundColor: blockBackground.color,
+                    backgroundImage: normalizeBackgroundValue(blockBackground.image),
+                    backgroundSize: blockBackground.size,
+                    backgroundRepeat: blockBackground.repeat,
+                    backgroundPosition: blockBackground.position,
+                    backgroundAttachment: blockBackground.attachment,
+                    backgroundClip: blockBackground.clip,
+                    backgroundOrigin: blockBackground.origin,
+                    backgroundBlendMode: blockBackground.blendMode,
+                }),
+            };
+
             return (
                 <Grid
                     key={blockId}
@@ -95,6 +121,7 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                             item.type === BlockType.QuotesBlock ||
                             ('backgroundFull' in item && Boolean(item.backgroundFull)),
                     })}
+                    style={styles}
                 >
                     <Row>
                         <Col>
