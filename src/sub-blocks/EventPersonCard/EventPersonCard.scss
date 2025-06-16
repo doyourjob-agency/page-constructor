@@ -50,6 +50,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     }
 
     &__text {
+        max-width: 815px;
         .yfm.yfm p {
             margin-bottom: 9px;
         }
