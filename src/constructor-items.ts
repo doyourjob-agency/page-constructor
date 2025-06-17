@@ -39,6 +39,7 @@ import {
 } from './navigation/components/NavigationItem';
 import SocialIcon from './navigation/components/SocialIcon/SocialIcon';
 import {
+    AttachmentCard,
     BackgroundCard,
     BannerCard,
     BasicCard,
@@ -109,6 +110,7 @@ export const subBlockMap = {
     [SubBlockType.PostCard]: PostCard,
     [SubBlockType.FeedCard]: FeedCard,
     [SubBlockType.EventPersonCard]: EventPersonCard,
+    [SubBlockType.AttachmentCard]: AttachmentCard,
 };
 
 export const navItemMap = {

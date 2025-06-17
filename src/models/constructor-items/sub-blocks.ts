@@ -38,6 +38,7 @@ export enum SubBlockType {
     LayoutItem = 'layout-item',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
+    AttachmentCard = 'attachment-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
     PriceCard = 'price-card',
@@ -265,6 +266,21 @@ export interface FeedCardProps {
     place?: string;
 }
 
+export interface AttachmentCardItemType {
+    icon: ThemedImage;
+    name: string;
+    link: string;
+    target?: string;
+    download?: boolean;
+}
+
+export interface AttachmentCardProps extends CardBaseProps {
+    title?: TitleItemBaseProps | string;
+    date?: string;
+    items?: AttachmentCardItemType[];
+    column?: boolean;
+}
+
 export interface EventPersonCardProps {
     image: ThemeSupporting<ImageProps>;
     title?: TitleItemBaseProps | string;
@@ -331,6 +347,10 @@ export type EventPersonCardModel = {
     type: SubBlockType.EventPersonCard;
 } & EventPersonCardProps;
 
+export type AttachmentCardModel = {
+    type: SubBlockType.AttachmentCard;
+} & AttachmentCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -345,6 +365,7 @@ export type SubBlockModels =
     | ImageCardModel
     | PostCardModel
     | FeedCardModel
-    | EventPersonCardModel;
+    | EventPersonCardModel
+    | AttachmentCardModel;
 
 export type SubBlock = SubBlockModels;
