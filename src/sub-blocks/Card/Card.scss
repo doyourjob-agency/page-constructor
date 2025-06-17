@@ -8,8 +8,13 @@ $block: '.#{$ns}card';
         height: 136px;
     }
 
+    &__label {
+        margin-bottom: $indentSM;
+    }
+
     &__title {
         @include heading4;
+        margin: 0;
     }
 
     &__service {

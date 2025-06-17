@@ -18,6 +18,11 @@ $block: '.#{$ns}price-card';
         height: 100%;
     }
 
+    &__label {
+        position: relative;
+        margin-bottom: $indentSM;
+    }
+
     &__content {
         height: 100%;
         display: flex;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {CardBase, Media} from '../../components';
+import {CardBase, Media, Tag} from '../../components';
 import {MediaCardProps} from '../../models';
 import {block} from '../../utils';
 
@@ -8,7 +8,7 @@ import './MediaCard.scss';
 
 const b = block('MediaCard');
 
-const MediaCard = ({border, analyticsEvents, ...mediaProps}: MediaCardProps) => (
+const MediaCard = ({border, analyticsEvents, label, ...mediaProps}: MediaCardProps) => (
     <CardBase
         className={b()}
         bodyClassName={b('body')}
@@ -16,6 +16,11 @@ const MediaCard = ({border, analyticsEvents, ...mediaProps}: MediaCardProps) => 
         analyticsEvents={analyticsEvents}
     >
         <CardBase.Content>
+            {label && (
+                <div className={b('label')}>
+                    <Tag {...label} />
+                </div>
+            )}
             <Media {...mediaProps} />
         </CardBase.Content>
     </CardBase>

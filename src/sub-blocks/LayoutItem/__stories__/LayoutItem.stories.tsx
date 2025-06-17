@@ -18,9 +18,11 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<LayoutItemProps> = (args) => (
-    <div style={{maxWidth: '500px'}}>
+    <CardLayout animated={false} colSizes={{all: 12, md: 4}}>
         <LayoutItem {...args} />
-    </div>
+        <LayoutItem {...args} />
+        <LayoutItem {...args} />
+    </CardLayout>
 );
 
 const WithIconTemplate: StoryFn<LayoutItemProps> = (args) => (
@@ -68,6 +70,7 @@ const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const WithContentList = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
 export const MetaInfo = DefaultTemplate.bind({});
@@ -84,6 +87,10 @@ const DefaultArgs = {
 };
 
 Default.args = DefaultArgs as LayoutItemProps;
+WithLabel.args = {
+    ...DefaultArgs,
+    ...data.withLabel.content,
+} as LayoutItemProps;
 WithContentList.args = {
     ...DefaultArgs,
     content: {

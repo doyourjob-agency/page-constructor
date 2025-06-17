@@ -159,6 +159,7 @@ const ControlPositionTemplate: StoryFn<BackgroundCardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const WithBackgroundImage = DefaultTemplate.bind({});
 export const WithBackgroundPosition = DefaultTemplate.bind({});
 export const Paddings = PaddingsTemplate.bind({});
@@ -175,6 +176,11 @@ const DefaultArgs = {
 
 Default.args = {
     ...DefaultArgs,
+} as BackgroundCardProps;
+
+WithLabel.args = {
+    ...DefaultArgs,
+    ...data.withLabel.content,
 } as BackgroundCardProps;
 
 WithBackgroundImage.args = {

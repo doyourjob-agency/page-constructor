@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-import {CardBase, Image, Link, Title} from '../../components';
+import {CardBase, Image, Link, Tag, Title} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {DocumentIcon} from '../../icons/DocumentIcon';
@@ -42,17 +42,24 @@ const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCard
     );
 };
 
-const AttachmentCard = ({title, date, items, column, border}: AttachmentCardProps) => {
+const AttachmentCard = ({title, date, items, label, column, border}: AttachmentCardProps) => {
     const titleProps =
         !title || typeof title === 'string'
             ? ({text: title, textSize: 'm'} as TitleItemProps)
             : title;
 
     return (
-        <CardBase className={b()} contentClassName={b('content', {column})} border={border}>
+        <CardBase className={b()} contentClassName={b('content')} border={border}>
             <CardBase.Content>
-                {title && <Title title={titleProps} colSizes={colSizes} />}
-                {date && <div className={b('date')}>{date}</div>}
+                {label && (
+                    <div className={b('label')}>
+                        <Tag {...label} />
+                    </div>
+                )}
+                <div className={b('wrap', {column})}>
+                    {title && <Title title={titleProps} colSizes={colSizes} />}
+                    {date && <div className={b('date')}>{date}</div>}
+                </div>
             </CardBase.Content>
             {items?.length && (
                 <CardBase.Footer className={b('footer')}>

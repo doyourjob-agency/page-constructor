@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo, Tag} from '../../components';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -28,6 +28,7 @@ const LayoutItem = ({
     className,
     analyticsEvents,
     controlPosition = 'content',
+    label,
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
@@ -78,6 +79,11 @@ const LayoutItem = ({
     };
     return (
         <div className={b(null, className)}>
+            {label && (
+                <div className={b('label')}>
+                    <Tag {...label} />
+                </div>
+            )}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>
                     {title && (

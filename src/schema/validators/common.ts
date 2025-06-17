@@ -797,3 +797,20 @@ export const BlockHeaderProps = {
         inputType: 'textarea',
     },
 };
+
+export const Tag = {
+    type: 'object',
+    additionalProperties: false,
+    required: ['text'],
+    properties: {
+        text: {
+            type: 'string',
+        },
+        color: {
+            type: 'string',
+        },
+        textColor: {
+            type: 'string',
+        },
+    },
+};

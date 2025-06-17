@@ -16,6 +16,10 @@ $block: '.#{$ns}layout-item';
         }
     }
 
+    &__label {
+        margin-bottom: $indentSM;
+    }
+
     &__title,
     &__afterTitle {
         display: block;

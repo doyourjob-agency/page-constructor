@@ -19,6 +19,7 @@ import {
     MediaView,
     PriceDetailedProps,
     ServiceLabelProps,
+    TagProps,
     TextTheme,
     Themable,
     ThemedImage,
@@ -147,6 +148,7 @@ export interface BackgroundCardProps
     backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom';
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
+    label?: TagProps;
 }
 
 export interface BasicCardProps
@@ -159,6 +161,7 @@ export interface BasicCardProps
     icon?: ThemeSupporting<ImageProps>;
     target?: string;
     iconPosition?: IconPosition;
+    label?: TagProps;
 }
 
 export interface CardProps extends CardBaseProps {
@@ -168,6 +171,7 @@ export interface CardProps extends CardBaseProps {
     };
     text?: string;
     service?: ServiceLabelProps;
+    label?: TagProps;
 }
 
 export interface BannerCardProps {
@@ -182,7 +186,9 @@ export interface BannerCardProps {
     mediaView?: MediaView;
 }
 
-export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {}
+export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {
+    label?: TagProps;
+}
 
 export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
     title: string;
@@ -194,6 +200,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     links?: LinkProps[];
     backgroundColor?: string;
     list?: string[];
+    label?: TagProps;
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
@@ -212,6 +219,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     border?: boolean;
     fullscreen?: boolean;
     icon?: ThemeSupporting<PositionedIcon>;
+    label?: TagProps;
 }
 
 export interface ImageCardProps
@@ -226,6 +234,7 @@ export interface ImageCardProps
     url?: string;
     urlTitle?: string;
     target?: string;
+    label?: TagProps;
 }
 
 export enum PostCardSize {
@@ -278,6 +287,7 @@ export interface AttachmentCardProps extends CardBaseProps {
     title?: TitleItemBaseProps | string;
     date?: string;
     items?: AttachmentCardItemType[];
+    label?: TagProps;
     column?: boolean;
 }
 

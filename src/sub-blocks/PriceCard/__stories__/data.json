@@ -143,5 +143,14 @@
         "backgroundColor": "#262626"
       }
     ]
+  },
+  "withLabel": {
+    "content": {
+      "label": {
+        "text": "Label",
+        "color": "#C7E5F7",
+        "textColor": "#000"
+      }
+    }
   }
 }

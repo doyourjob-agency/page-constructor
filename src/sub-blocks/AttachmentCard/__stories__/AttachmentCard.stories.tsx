@@ -46,13 +46,16 @@ const CardLayoutTemplate: StoryFn<AttachmentCardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithCardLayout = CardLayoutTemplate.bind({});
 
-const DefaultArgs = {
-    ...data.default.content,
-};
+const DefaultArgs = data.default.content;
 
 Default.args = DefaultArgs as AttachmentCardProps;
+WithLabel.args = {
+    ...DefaultArgs,
+    ...data.withLabel.content,
+} as AttachmentCardProps;
 WithBorder.args = DefaultArgs as AttachmentCardProps;
 WithCardLayout.args = DefaultArgs as AttachmentCardProps;

@@ -1,4 +1,4 @@
-import {BaseProps, CardBase} from '../../schema/validators/common';
+import {BaseProps, CardBase, Tag} from '../../schema/validators/common';
 
 export const Card = {
     card: {
@@ -36,6 +36,7 @@ export const Card = {
                     },
                 },
             },
+            label: Tag,
         },
     },
 };

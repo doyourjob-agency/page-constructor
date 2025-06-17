@@ -1,4 +1,4 @@
-import {BaseProps, ButtonBlock, CardBase, LinkProps} from '../../schema/validators/common';
+import {BaseProps, ButtonBlock, CardBase, LinkProps, Tag} from '../../schema/validators/common';
 import {ContentBase} from '../Content/schema';
 
 export const PriceCardBlock = {
@@ -45,6 +45,7 @@ export const PriceCardBlock = {
                 type: 'string',
                 enum: ['content', 'footer'],
             },
+            label: Tag,
         },
     },
 };

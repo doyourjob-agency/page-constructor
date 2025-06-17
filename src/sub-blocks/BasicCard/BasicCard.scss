@@ -8,8 +8,13 @@ $block: '.#{$ns}basic-card';
         min-height: auto;
     }
 
+    &__label {
+        margin-bottom: $indentSM;
+    }
+
     &__content {
         display: flex;
+        flex-direction: column;
     }
 
     &__wrapper {

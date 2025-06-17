@@ -1,0 +1,15 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}tag';
+
+#{$block} {
+    @include text-size(body-1);
+
+    border-radius: 20px;
+    padding: 2px 12px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: max-content;
+}

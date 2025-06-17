@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link, useUniqId} from '@gravity-ui/uikit';
 
-import {Image} from '../../components';
+import {Image, Tag} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';
@@ -35,6 +35,7 @@ const ImageCard = (props: ImageCardProps) => {
         theme: cardTheme = 'default',
         size = 's',
         controlPosition = 'content',
+        label,
     } = props;
 
     const globalTheme = useTheme();
@@ -47,6 +48,11 @@ const ImageCard = (props: ImageCardProps) => {
 
     const cardContent = (
         <React.Fragment>
+            {label && (
+                <div className={b('label')}>
+                    <Tag {...label} />
+                </div>
+            )}
             <div className={b('image', {margins})}>
                 <Image
                     className={b('image_inner', {radius: enableImageBorderRadius})}

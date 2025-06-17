@@ -65,8 +65,14 @@ $block: '.#{$ns}background-card';
         border: none;
     }
 
+    &__label {
+        position: relative;
+        margin-bottom: $indentSM;
+    }
+
     &__content {
         display: flex;
+        flex-direction: column;
     }
 
     &__image {

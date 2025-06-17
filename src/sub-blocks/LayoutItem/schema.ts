@@ -5,6 +5,7 @@ import {
     BaseProps,
     CardLayoutProps,
     MediaProps,
+    Tag,
     titleTextSize,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
@@ -68,5 +69,6 @@ export const LayoutItem = {
                 },
             ],
         },
+        label: Tag,
     },
 };
