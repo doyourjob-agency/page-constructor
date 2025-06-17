@@ -38,6 +38,7 @@ $block: '.#{$ns}attachment-card';
         justify-content: space-between;
         flex-wrap: wrap;
         gap: $indentXS;
+        flex: initial;
 
         &_column {
             flex-direction: column;
@@ -50,6 +51,7 @@ $block: '.#{$ns}attachment-card';
         row-gap: $indentXS;
         display: flex;
         flex-direction: column;
+        flex: 1;
     }
 
     &__date {
