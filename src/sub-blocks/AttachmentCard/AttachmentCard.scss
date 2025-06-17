@@ -56,6 +56,6 @@ $block: '.#{$ns}attachment-card';
 
     &__date {
         @include text-size(body-1);
-        color: #69808e;
+        color: var(--pc-color-attach-date);
     }
 }

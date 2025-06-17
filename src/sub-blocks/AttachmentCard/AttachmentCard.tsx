@@ -3,6 +3,7 @@ import React, {useMemo} from 'react';
 import {CardBase, Image, Link, Title} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
+import {DocumentIcon} from '../../icons/DocumentIcon';
 import {TitleItemProps} from '../../models';
 import {
     AttachmentCardItemType,
@@ -31,7 +32,11 @@ const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCard
             className={b('item')}
             extraProps={extraProps}
         >
-            <Image className={b('item-icon')} {...iconData} />
+            {icon === 'document' ? (
+                <DocumentIcon className={b('item-icon')} />
+            ) : (
+                <Image className={b('item-icon')} {...iconData} />
+            )}
             <div className={b('item-name')}>{name}</div>
         </Link>
     );

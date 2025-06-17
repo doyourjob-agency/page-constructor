@@ -24,7 +24,7 @@
         },
         {
           "name": "Letter to shareholders",
-          "icon": "/story-assets/icon_3_light.svg",
+          "icon": "document",
           "link": "https://example.com",
           "target": "_blank"
         }
