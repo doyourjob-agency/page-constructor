@@ -1,0 +1,23 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}attachment-card';
+
+#{$block} {
+    @include add-specificity(&) {
+        min-height: auto;
+    }
+
+    &__item {
+    }
+    &__item-icon {
+    }
+    &__item-name {
+    }
+    &__content {
+    }
+    &__title {
+    }
+    &__date {
+    }
+}

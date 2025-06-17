@@ -1,0 +1,21 @@
+{
+  "withBorder": {
+    "title": "Card with border {{border}}"
+  },
+  "default": {
+    "content": {
+      "title": "Q1 2025",
+      "date": "May 20, 2025",
+      "items": [
+        {
+          "name": "Earnings release",
+          "icon": {
+            "light": "/story-assets/icon_2_light.svg",
+            "dark": "/story-assets/icon_2_dark.svg"
+          },
+          "link": "https://example.com"
+        }
+      ]
+    }
+  }
+}

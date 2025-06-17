@@ -34,6 +34,7 @@ import {
     TabsBlock,
 } from './validators/blocks';
 import {
+    AttachmentCard,
     BackgroundCard,
     BasicCard,
     Card,
@@ -97,6 +98,7 @@ export const cardSchemas = {
     ...PostCard,
     ...FeedCard,
     ...EventPersonCard,
+    ...AttachmentCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -145,6 +147,7 @@ export const constructorCardSchemaNames = [
     'background-card',
     'quote',
     'basic-card',
+    'attachment-card',
     'layout-item',
     'price-card',
     'image-card',
