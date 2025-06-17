@@ -271,13 +271,14 @@ export interface AttachmentCardItemType {
     name: string;
     link: string;
     target?: string;
+    download?: boolean;
 }
 
 export interface AttachmentCardProps extends CardBaseProps {
     title?: TitleItemBaseProps | string;
     date?: string;
     items?: AttachmentCardItemType[];
-    theme?: TextTheme;
+    column?: boolean;
 }
 
 export interface EventPersonCardProps {

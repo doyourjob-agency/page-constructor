@@ -1,10 +1,4 @@
-import {
-    BaseProps,
-    CardBase,
-    ThemeProps,
-    TitleProps,
-    withTheme,
-} from '../../schema/validators/common';
+import {BaseProps, CardBase, TitleProps, withTheme} from '../../schema/validators/common';
 
 export const AttachmentCard = {
     'attachment-card': {
@@ -29,6 +23,9 @@ export const AttachmentCard = {
             date: {
                 type: 'string',
             },
+            column: {
+                type: 'boolean',
+            },
             items: {
                 type: 'array',
                 items: {
@@ -48,10 +45,12 @@ export const AttachmentCard = {
                             type: 'string',
                             enum: ['_blank', '_parent', '_top', '_self'],
                         },
+                        download: {
+                            type: 'boolean',
+                        },
                     },
                 },
             },
-            theme: ThemeProps,
         },
     },
 };

@@ -9,15 +9,51 @@ $block: '.#{$ns}attachment-card';
     }
 
     &__item {
+        margin: 0;
+
+        & > a {
+            color: inherit;
+            column-gap: $indentXXXS;
+
+            &:hover {
+                color: inherit;
+                opacity: 80%;
+            }
+        }
     }
+
     &__item-icon {
+        height: $indentXS;
+        width: $indentXS;
+        display: block;
     }
+
     &__item-name {
+        @include text-size(body-2);
     }
+
     &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $indentXS;
+
+        &_column {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
-    &__title {
+
+    &__footer {
+        margin-top: 56px;
+        row-gap: $indentXS;
+        display: flex;
+        flex-direction: column;
     }
+
     &__date {
+        @include text-size(body-1);
+        color: #69808e;
     }
 }

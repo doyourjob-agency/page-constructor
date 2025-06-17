@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {CardBase, Image, Link, Title} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
-import {Theme, TitleItemProps} from '../../models';
+import {TitleItemProps} from '../../models';
 import {
     AttachmentCardItemType,
     AttachmentCardProps,
@@ -12,47 +12,50 @@ import {block, getThemedValue} from '../../utils';
 
 import './AttachmentCard.scss';
 
+const colSizes = {
+    all: 12,
+};
+
 const b = block('attachment-card');
 
-interface AttachmentCardItemProps extends AttachmentCardItemType {
-    theme: Theme;
-}
-
-const AttachmentCardItem = ({icon, name, link, target, theme}: AttachmentCardItemProps) => {
+const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCardItemType) => {
+    const theme = useTheme();
     const themedIcon = getThemedValue(icon, theme);
     const iconData = themedIcon && getMediaImage(themedIcon);
+    const extraProps = useMemo(() => ({download}), [download]);
     return (
-        <Link url={link} target={target} theme="normal" className={b('item')}>
+        <Link
+            url={link}
+            target={target}
+            theme="normal"
+            className={b('item')}
+            extraProps={extraProps}
+        >
             <Image className={b('item-icon')} {...iconData} />
             <div className={b('item-name')}>{name}</div>
         </Link>
     );
 };
 
-const AttachmentCard = ({title, date, items, theme, border}: AttachmentCardProps) => {
-    const globalTheme = useTheme();
-    const innerTheme = (theme || globalTheme) as Theme;
-
+const AttachmentCard = ({title, date, items, column, border}: AttachmentCardProps) => {
     const titleProps =
         !title || typeof title === 'string'
             ? ({text: title, textSize: 'm'} as TitleItemProps)
             : title;
 
     return (
-        <CardBase
-            className={b({theme: innerTheme})}
-            contentClassName={b('content')}
-            border={border}
-        >
+        <CardBase className={b()} contentClassName={b('content', {column})} border={border}>
             <CardBase.Content>
-                {title && <Title className={b('title')} title={titleProps} colSizes={{all: 12}} />}
+                {title && <Title title={titleProps} colSizes={colSizes} />}
                 {date && <div className={b('date')}>{date}</div>}
             </CardBase.Content>
-            <CardBase.Footer>
-                {items?.map((item, index) => (
-                    <AttachmentCardItem key={index} {...item} theme={innerTheme} />
-                ))}
-            </CardBase.Footer>
+            {items?.length && (
+                <CardBase.Footer className={b('footer')}>
+                    {items?.map((item, index) => (
+                        <AttachmentCardItem key={index} {...item} />
+                    ))}
+                </CardBase.Footer>
+            )}
         </CardBase>
     );
 };

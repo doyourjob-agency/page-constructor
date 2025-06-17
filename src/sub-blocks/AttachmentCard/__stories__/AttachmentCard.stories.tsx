@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
+import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {AttachmentCardProps} from '../../../models';
 import AttachmentCard from '../AttachmentCard';
 
@@ -13,9 +14,6 @@ const getCardWithBorderTitle = (border: string) =>
 export default {
     component: AttachmentCard,
     title: 'Components/Cards/AttachmentCard',
-    args: {
-        theme: 'light',
-    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<AttachmentCardProps> = (args) => (
@@ -38,8 +36,18 @@ const WithBorderTemplate: StoryFn<AttachmentCardProps> = (args) => (
     </div>
 );
 
+const CardLayoutTemplate: StoryFn<AttachmentCardProps> = (args) => (
+    <CardLayout colSizes={{all: 12, md: 4, lg: 3}}>
+        <AttachmentCard {...args} />
+        <AttachmentCard {...args} />
+        <AttachmentCard {...args} />
+        <AttachmentCard {...args} />
+    </CardLayout>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
+export const WithCardLayout = CardLayoutTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -47,3 +55,4 @@ const DefaultArgs = {
 
 Default.args = DefaultArgs as AttachmentCardProps;
 WithBorder.args = DefaultArgs as AttachmentCardProps;
+WithCardLayout.args = DefaultArgs as AttachmentCardProps;

@@ -6,14 +6,27 @@
     "content": {
       "title": "Q1 2025",
       "date": "May 20, 2025",
+      "column": true,
       "items": [
         {
           "name": "Earnings release",
           "icon": {
-            "light": "/story-assets/icon_2_light.svg",
-            "dark": "/story-assets/icon_2_dark.svg"
+            "light": "/story-assets/icon_1_light.svg",
+            "dark": "/story-assets/icon_1_dark.svg"
           },
+          "link": "https://example.com",
+          "download": true
+        },
+        {
+          "name": "Supplementary slides",
+          "icon": "/story-assets/icon_2_light.svg",
           "link": "https://example.com"
+        },
+        {
+          "name": "Letter to shareholders",
+          "icon": "/story-assets/icon_3_light.svg",
+          "link": "https://example.com",
+          "target": "_blank"
         }
       ]
     }
