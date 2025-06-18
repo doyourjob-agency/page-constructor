@@ -6,10 +6,15 @@ $block: '.#{$ns}card';
 #{$block} {
     &__header {
         height: 136px;
+
+        & p {
+            margin: 0;
+        }
     }
 
     &__title {
         @include heading4;
+        margin: 0;
     }
 
     &__service {

@@ -1,4 +1,4 @@
-import {BaseProps, CardBase, TitleProps, withTheme} from '../../schema/validators/common';
+import {BaseProps, CardBase, Tag, TitleProps, withTheme} from '../../schema/validators/common';
 
 export const AttachmentCard = {
     'attachment-card': {
@@ -51,6 +51,7 @@ export const AttachmentCard = {
                     },
                 },
             },
+            label: Tag,
         },
     },
 };

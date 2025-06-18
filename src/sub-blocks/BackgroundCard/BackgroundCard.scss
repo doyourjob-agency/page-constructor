@@ -67,6 +67,7 @@ $block: '.#{$ns}background-card';
 
     &__content {
         display: flex;
+        flex-direction: column;
     }
 
     &__image {

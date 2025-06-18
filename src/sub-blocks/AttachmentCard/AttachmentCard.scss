@@ -33,12 +33,15 @@ $block: '.#{$ns}attachment-card';
     }
 
     &__content {
+        flex: initial;
+    }
+
+    &__wrap {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: $indentXS;
-        flex: initial;
 
         &_column {
             flex-direction: column;
@@ -56,6 +59,6 @@ $block: '.#{$ns}attachment-card';
 
     &__date {
         @include text-size(body-1);
-        color: var(--pc-color-attach-date);
+        color: var(--pc-color-summary);
     }
 }

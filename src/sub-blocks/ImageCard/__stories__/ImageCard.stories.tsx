@@ -154,6 +154,7 @@ const ControlPositionTemplate: StoryFn<ImageCardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = MultipleTemplate.bind({});
 export const Margins = MultipleTemplate.bind({});
 export const DirectionReverse = MultipleTemplate.bind({});
 export const Content = ContentTemplate.bind({});
@@ -164,6 +165,7 @@ export const Border = BorderTemplate.bind({});
 export const BorderRadius = BorderRadiusTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
 
+WithLabel.args = data.withLabel.content;
 DirectionReverse.args = {direction: 'reverse'} as Partial<ImageCardProps>;
 BackgroundColor.args = {...data.backgroundColor.content};
 WithUrl.args = {...data.withUrl.content};

@@ -5,6 +5,7 @@ import {
     BaseProps,
     CardLayoutProps,
     MediaProps,
+    Tag,
     titleTextSize,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
@@ -43,6 +44,9 @@ export const LayoutItem = {
                 },
             },
         },
+        summary: {
+            type: 'string',
+        },
         rightSpace: {
             type: 'boolean',
         },
@@ -68,5 +72,6 @@ export const LayoutItem = {
                 },
             ],
         },
+        label: Tag,
     },
 };

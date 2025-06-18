@@ -22,6 +22,7 @@ const DefaultTemplate: StoryFn<CardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const WithService = DefaultTemplate.bind({});
 export const WithBorder = DefaultTemplate.bind({});
 
@@ -31,6 +32,11 @@ const DefaultArgs = {
 };
 
 Default.args = DefaultArgs as CardProps;
+
+WithLabel.args = {
+    ...DefaultArgs,
+    ...data.withLabel.content,
+} as CardProps;
 
 WithService.args = {
     ...data.withService.content,

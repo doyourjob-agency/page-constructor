@@ -10,6 +10,7 @@ $block: '.#{$ns}basic-card';
 
     &__content {
         display: flex;
+        flex-direction: column;
     }
 
     &__wrapper {

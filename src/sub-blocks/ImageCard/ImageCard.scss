@@ -7,6 +7,7 @@ $block: '.#{$ns}image-card';
     @include card();
     @include slider-shadow-fix(&);
     min-height: 1px;
+    position: relative;
     $image: #{&}__image;
     $content: #{&}__content;
 
@@ -16,6 +17,12 @@ $block: '.#{$ns}image-card';
         padding: $indentM;
 
         flex: auto;
+    }
+
+    &__label {
+        position: absolute;
+        top: $indentSM;
+        left: $indentSM;
     }
 
     #{$image} {

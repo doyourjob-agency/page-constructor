@@ -80,10 +80,16 @@ const MultipleItemsTemplate: StoryFn<PriceCardProps> = (args) => {
 };
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
+
 export const DifferentContent = DifferentContentTemplate.bind({});
 export const Themed = MultipleItemsTemplate.bind({});
 
 Default.args = data.default.content as PriceCardProps;
+WithLabel.args = {
+    ...data.default.content,
+    ...data.withLabel.content,
+} as PriceCardProps;
 Themed.argTypes = {
     theme: {table: {disable: true}},
     title: {table: {disable: true}},

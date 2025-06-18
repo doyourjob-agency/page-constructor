@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}tag';
+
+#{$block} {
+    @include text-size(body-1);
+
+    position: relative;
+    margin-bottom: $indentSM;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 2px 12px;
+    align-self: flex-start;
+
+    &_without-margin-bottom {
+        margin-bottom: 0;
+    }
+}

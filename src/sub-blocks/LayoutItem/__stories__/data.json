@@ -181,5 +181,15 @@
         }
       }
     ]
+  },
+  "withLabel": {
+    "content": {
+      "label": {
+        "text": "Label",
+        "backgroundColor": "#C7E5F7",
+        "textColor": "#000"
+      },
+      "summary": "This is a summary text that provides additional information about the card content."
+    }
   }
 }

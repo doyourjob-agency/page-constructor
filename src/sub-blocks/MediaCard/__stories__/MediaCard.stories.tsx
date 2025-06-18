@@ -24,12 +24,17 @@ const DefaultTemplate: StoryFn<MediaCardProps> = (args) => (
 );
 
 export const Image = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const ImageSlider = DefaultTemplate.bind({});
 export const Video = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const DataLens = DefaultTemplate.bind({});
 
 Image.args = data.image.content;
+WithLabel.args = {
+    ...data.image.content,
+    ...data.withLabel.content,
+};
 ImageSlider.args = data.imageSlider.content;
 Video.args = data.video.content;
 Youtube.args = data.youtube.content;

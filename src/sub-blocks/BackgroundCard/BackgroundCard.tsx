@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {BackgroundImage, CardBase} from '../../components/';
+import {BackgroundImage, CardBase, Tag} from '../../components/';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -17,6 +17,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         url,
         target,
         title,
+        summary,
         text,
         border,
         background,
@@ -31,6 +32,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         urlTitle,
         controlPosition = 'content',
         list,
+        label,
     } = props;
 
     const titleId = useUniqId();
@@ -60,9 +62,11 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     {...getThemedValue(background, theme)}
                     style={{backgroundColor}}
                 />
+                {label && <Tag {...label} />}
                 <Content
                     titleId={titleId}
                     title={title}
+                    summary={summary}
                     text={text}
                     additionalInfo={additionalInfo}
                     size="s"

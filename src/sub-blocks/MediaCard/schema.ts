@@ -1,4 +1,10 @@
-import {AnimatableProps, BaseProps, CardBase, MediaProps} from '../../schema/validators/common';
+import {
+    AnimatableProps,
+    BaseProps,
+    CardBase,
+    MediaProps,
+    Tag,
+} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 
 export const MediaCardBlock = {
@@ -23,6 +29,7 @@ export const MediaCardBlock = {
                     },
                 ],
             },
+            label: Tag,
         },
     },
 };

@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {FullscreenMedia, IconWrapper, Media, MetaInfo} from '../../components';
+import {FullscreenMedia, IconWrapper, Media, MetaInfo, Tag} from '../../components';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -18,6 +18,7 @@ const b = block('layout-item');
 const LayoutItem = ({
     title,
     afterTitle,
+    summary,
     rightSpace = true,
     content: {links, ...content},
     metaInfo,
@@ -28,6 +29,7 @@ const LayoutItem = ({
     className,
     analyticsEvents,
     controlPosition = 'content',
+    label,
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
@@ -78,6 +80,7 @@ const LayoutItem = ({
     };
     return (
         <div className={b(null, className)}>
+            {label && <Tag {...label} />}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>
                     {title && (
@@ -90,6 +93,7 @@ const LayoutItem = ({
                             {afterTitle?.text}
                         </span>
                     )}
+                    {summary && <div className={b('summary')}>{summary}</div>}
                 </div>
             )}
             {renderMedia()}

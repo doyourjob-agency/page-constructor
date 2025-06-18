@@ -41,5 +41,14 @@
         "disableCompress": true
       }
     }
+  },
+  "withLabel": {
+    "content": {
+      "label": {
+        "text": "Label",
+        "backgroundColor": "#C7E5F7",
+        "textColor": "#000"
+      }
+    }
   }
 }

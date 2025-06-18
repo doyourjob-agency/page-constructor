@@ -145,6 +145,7 @@ const ControlPositionTemplate: StoryFn<BasicCardProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithLabel = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const WithBorder = WithBorderTemplate.bind({});
 export const WithUrl = WithUrlTemplate.bind({});
@@ -159,6 +160,10 @@ const DefaultArgs = {
 Default.args = {
     ...data.default.content,
     ...DefaultArgs,
+} as BasicCardProps;
+WithLabel.args = {
+    ...DefaultArgs,
+    ...data.withLabel.content,
 } as BasicCardProps;
 WithIcon.args = DefaultArgs as BasicCardProps;
 WithBorder.args = DefaultArgs as BasicCardProps;

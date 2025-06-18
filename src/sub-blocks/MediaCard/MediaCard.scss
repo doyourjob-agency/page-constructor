@@ -4,6 +4,14 @@
 $block: '.#{$ns}MediaCard';
 
 #{$block} {
+    position: relative;
+
+    &__label {
+        position: absolute;
+        top: $indentSM;
+        left: $indentSM;
+    }
+
     &__body {
         padding: 0;
     }

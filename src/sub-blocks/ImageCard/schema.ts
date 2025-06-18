@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
 
-import {BaseProps, CardBase, CardLayoutProps} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps, Tag} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {ContentBase} from '../Content/schema';
 
@@ -33,6 +33,7 @@ export const ImageCard = {
             urlTitle: {
                 type: 'string',
             },
+            label: Tag,
         },
     },
 };

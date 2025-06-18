@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 
 import {ImageObjectProps} from '../../components/Image/schema';
-import {BaseProps, CardBase, CardLayoutProps, withTheme} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps, Tag, withTheme} from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../Content/schema';
 
@@ -55,6 +55,7 @@ export const BackgroundCard = {
                 type: 'string',
                 enum: ['content', 'footer'],
             },
+            label: Tag,
         },
     },
 };

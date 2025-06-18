@@ -1,4 +1,9 @@
-import {BaseProps, CardBase} from '../../schema/validators/common';
+import pick from 'lodash/pick';
+
+import {BaseProps, CardBase, Tag} from '../../schema/validators/common';
+import {ContentBase} from '../Content/schema';
+
+const CardContentProps = pick(ContentBase, ['text', 'summary']);
 
 export const Card = {
     card: {
@@ -7,6 +12,7 @@ export const Card = {
         properties: {
             ...BaseProps,
             ...CardBase,
+            ...CardContentProps,
             header: {
                 type: 'object',
                 additionalProperties: false,
@@ -19,9 +25,6 @@ export const Card = {
                         type: 'string',
                     },
                 },
-            },
-            text: {
-                type: 'string',
             },
             service: {
                 type: 'object',
@@ -36,6 +39,7 @@ export const Card = {
                     },
                 },
             },
+            label: Tag,
         },
     },
 };
