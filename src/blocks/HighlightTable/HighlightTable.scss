@@ -34,7 +34,7 @@ $block: '.#{$ns}highlight-table-block';
     }
 
     &__content {
-        width: max-content;
+        display: inline-block;
     }
 
     &__head {
