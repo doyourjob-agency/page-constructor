@@ -16,6 +16,13 @@ $block: '.#{$ns}layout-item';
         }
     }
 
+    &__summary {
+        @include text-size(body-1);
+
+        color: var(--pc-color-attach-date);
+        margin-top: $indent4XS;
+    }
+
     &__label {
         margin-bottom: $indentSM;
     }

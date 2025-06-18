@@ -69,6 +69,9 @@ export const ContentBase = {
         type: 'string',
         enum: ['default', 'bottom'],
     },
+    summary: {
+        type: 'string',
+    },
 };
 
 export const ContentBlock = {

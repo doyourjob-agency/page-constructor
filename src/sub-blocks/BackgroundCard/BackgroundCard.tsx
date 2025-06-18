@@ -17,6 +17,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         url,
         target,
         title,
+        summary,
         text,
         border,
         background,
@@ -69,6 +70,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                 <Content
                     titleId={titleId}
                     title={title}
+                    summary={summary}
                     text={text}
                     additionalInfo={additionalInfo}
                     size="s"

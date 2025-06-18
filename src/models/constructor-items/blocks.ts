@@ -548,6 +548,7 @@ export interface ContentListProps {
 export interface ContentBlockProps {
     title?: TitleItemBaseProps | string;
     subtitle?: string;
+    summary?: string;
     titleId?: string;
     text?: string;
     textId?: string;

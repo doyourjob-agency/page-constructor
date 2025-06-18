@@ -44,6 +44,9 @@ export const LayoutItem = {
                 },
             },
         },
+        summary: {
+            type: 'string',
+        },
         rightSpace: {
             type: 'boolean',
         },

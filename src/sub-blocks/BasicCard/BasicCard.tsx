@@ -16,6 +16,7 @@ const b = block('basic-card');
 const BasicCard = (props: BasicCardProps) => {
     const {
         title,
+        summary,
         text,
         icon,
         additionalInfo,
@@ -53,6 +54,7 @@ const BasicCard = (props: BasicCardProps) => {
                     <Content
                         title={title}
                         titleId={titleId}
+                        summary={summary}
                         text={text}
                         textId={descriptionId}
                         additionalInfo={additionalInfo}

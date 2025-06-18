@@ -164,12 +164,11 @@ export interface BasicCardProps
     label?: TagProps;
 }
 
-export interface CardProps extends CardBaseProps {
+export interface CardProps extends CardBaseProps, Pick<ContentBlockProps, 'summary' | 'text'> {
     header: {
         image: string;
         title: string;
     };
-    text?: string;
     service?: ServiceLabelProps;
     label?: TagProps;
 }
@@ -212,6 +211,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
         text?: string;
         size?: TitleTextSize;
     };
+    summary?: string;
     rightSpace?: boolean;
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: ThemeSupporting<MediaProps>;

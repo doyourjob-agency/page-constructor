@@ -18,6 +18,7 @@ const b = block('layout-item');
 const LayoutItem = ({
     title,
     afterTitle,
+    summary,
     rightSpace = true,
     content: {links, ...content},
     metaInfo,
@@ -96,6 +97,7 @@ const LayoutItem = ({
                             {afterTitle?.text}
                         </span>
                     )}
+                    {summary && <div className={b('summary')}>{summary}</div>}
                 </div>
             )}
             {renderMedia()}

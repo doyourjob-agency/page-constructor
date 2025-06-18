@@ -23,6 +23,13 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     display: flex;
     flex-direction: column;
 
+    &__summary {
+        @include text-size(body-1);
+
+        color: var(--pc-color-attach-date);
+        margin-top: $indent4XS;
+    }
+
     &__notice,
     &__text {
         .yfm ol,
@@ -85,6 +92,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 margin-top: $indentXXXS;
             }
 
+            #{$block}__summary,
             #{$block}__text {
                 &_without-title {
                     margin-top: 0;
@@ -105,6 +113,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
                 margin-top: $indentXXS;
             }
 
+            #{$block}__summary,
             #{$block}__text {
                 &_without-title {
                     margin-top: 0;

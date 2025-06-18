@@ -29,6 +29,7 @@ const Content = (props: ContentProps) => {
     const {
         title,
         subtitle,
+        summary,
         subtitleLinks,
         titleId: titleIdFromProps,
         text,
@@ -73,6 +74,9 @@ const Content = (props: ContentProps) => {
                     id={titleId}
                 />
             )}
+            {summary && (
+                <div className={b('summary', {['without-title']: !hasTitle})}>{summary}</div>
+            )}
             {subtitleLinks && (
                 <Links
                     className={b('subtitle-links', {size})}
@@ -84,7 +88,7 @@ const Content = (props: ContentProps) => {
                 />
             )}
             {text && (
-                <div className={b('text', {['without-title']: !hasTitle})}>
+                <div className={b('text', {['without-title']: !hasTitle && !summary})}>
                     <YFMWrapper
                         content={text}
                         modifiers={{constructor: true, [`constructor-size-${size}`]: true}}

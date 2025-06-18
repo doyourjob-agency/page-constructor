@@ -19,6 +19,7 @@ const ImageCard = (props: ImageCardProps) => {
     const {
         border = 'shadow',
         title,
+        summary,
         text,
         image,
         enableImageBorderRadius = false,
@@ -64,6 +65,7 @@ const ImageCard = (props: ImageCardProps) => {
                     <Content
                         titleId={titleId}
                         title={title}
+                        summary={summary}
                         text={text}
                         links={links}
                         buttons={buttons}
