@@ -23,6 +23,17 @@ $block: '.#{$ns}price-card';
         margin-bottom: $indentSM;
     }
 
+    &__wrap {
+        margin-bottom: $indentSM;
+    }
+
+    &__summary {
+        @include text-size(body-1);
+
+        color: var(--pc-color-attach-date);
+        margin-top: $indent4XS;
+    }
+
     &__content {
         height: 100%;
         display: flex;
@@ -69,7 +80,6 @@ $block: '.#{$ns}price-card';
 
     &__title {
         @include text-size(subheader-3);
-        margin-bottom: $indentSM;
     }
 
     &__price {

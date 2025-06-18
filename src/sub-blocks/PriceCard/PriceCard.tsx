@@ -14,6 +14,7 @@ const PriceCard = (props: PriceCardProps) => {
     const {
         border,
         title,
+        summary,
         price,
         pricePeriod,
         priceDetails,
@@ -36,7 +37,10 @@ const PriceCard = (props: PriceCardProps) => {
                 )}
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
-                        <HTML className={b('title')}>{title}</HTML>
+                        <div className={b('wrap')}>
+                            <HTML className={b('title')}>{title}</HTML>
+                            {summary && <div className={b('summary')}>{summary}</div>}
+                        </div>
                         <div className={b('price')}>
                             <div>
                                 <span className={b('price-value')}>{price}</span>

@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.31.47](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-18)
+
+### Features
+
+* **AttachmentCard** Add card
+* **BackgroundCard** Added props summary and label
+* **BasicCard** Added props summary and label
+* **Card** Added props summary and label
+* **ImageCard** Added props summary and label
+* **LayoutItem** Added props summary and label
+* **MediaCard** Added props label
+* **PriceCard** Added props summary and label
+
+
 ## [5.31.46](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.43...v5.31.46) (2025-06-16)
 
 ### Features

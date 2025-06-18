@@ -191,6 +191,7 @@ export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBas
 
 export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
     title: string;
+    summary?: string;
     price: string;
     pricePeriod?: string;
     priceDetails?: string;

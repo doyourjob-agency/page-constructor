@@ -12,6 +12,9 @@ export const PriceCardBlock = {
             title: {
                 type: 'string',
             },
+            summary: {
+                type: 'string',
+            },
             price: {
                 type: 'string',
             },
