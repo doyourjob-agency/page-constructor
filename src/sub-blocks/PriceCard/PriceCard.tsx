@@ -33,10 +33,12 @@ const PriceCard = (props: PriceCardProps) => {
                 {label && <Tag {...label} />}
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
-                        <div className={b('wrap')}>
-                            <HTML className={b('title')}>{title}</HTML>
-                            {summary && <div className={b('summary')}>{summary}</div>}
-                        </div>
+                        {(title || summary) && (
+                            <div className={b('wrap')}>
+                                {title && <HTML className={b('title')}>{title}</HTML>}
+                                {summary && <div className={b('summary')}>{summary}</div>}
+                            </div>
+                        )}
                         <div className={b('price')}>
                             <div>
                                 <span className={b('price-value')}>{price}</span>
