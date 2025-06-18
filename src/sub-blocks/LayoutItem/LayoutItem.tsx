@@ -80,11 +80,7 @@ const LayoutItem = ({
     };
     return (
         <div className={b(null, className)}>
-            {label && (
-                <div className={b('label')}>
-                    <Tag {...label} />
-                </div>
-            )}
+            {label && <Tag {...label} />}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>
                     {title && (

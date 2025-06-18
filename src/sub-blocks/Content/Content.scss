@@ -26,7 +26,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     &__summary {
         @include text-size(body-1);
 
-        color: var(--pc-color-attach-date);
+        color: var(--pc-color-summary);
         margin-top: $indent4XS;
     }
 

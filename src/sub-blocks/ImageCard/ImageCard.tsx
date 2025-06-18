@@ -51,7 +51,7 @@ const ImageCard = (props: ImageCardProps) => {
         <React.Fragment>
             {label && (
                 <div className={b('label')}>
-                    <Tag {...label} />
+                    <Tag {...label} withoutMarginBottom />
                 </div>
             )}
             <div className={b('image', {margins})}>

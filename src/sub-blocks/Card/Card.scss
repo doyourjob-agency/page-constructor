@@ -6,10 +6,10 @@ $block: '.#{$ns}card';
 #{$block} {
     &__header {
         height: 136px;
-    }
 
-    &__label {
-        margin-bottom: $indentSM;
+        & p {
+            margin: 0;
+        }
     }
 
     &__title {

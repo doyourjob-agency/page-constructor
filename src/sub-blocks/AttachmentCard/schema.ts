@@ -51,7 +51,7 @@ export const AttachmentCard = {
                     },
                 },
             },
-            length: Tag,
+            label: Tag,
         },
     },
 };

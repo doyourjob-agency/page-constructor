@@ -18,11 +18,7 @@ const Card = ({header, summary, text, service, label, ...props}: CardProps) => {
     return (
         <CardBase {...props}>
             <CardBase.Header className={b('header')} image={header.image}>
-                {label && (
-                    <div className={b('label')}>
-                        <Tag {...label} />
-                    </div>
-                )}
+                {label && <Tag {...label} />}
                 <h3 className={b('title')}>
                     <HTML>{header.title}</HTML>
                 </h3>

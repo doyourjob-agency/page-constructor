@@ -30,11 +30,7 @@ const PriceCard = (props: PriceCardProps) => {
         <CardBase className={b({theme})} border={border}>
             <CardBase.Content key="content">
                 <BackgroundImage className={b('background')} style={{backgroundColor}} />
-                {label && (
-                    <div className={b('label')}>
-                        <Tag {...label} />
-                    </div>
-                )}
+                {label && <Tag {...label} />}
                 <div className={b('content', {theme})}>
                     <div className={b('info')}>
                         <div className={b('wrap')}>

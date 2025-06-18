@@ -62,11 +62,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                     {...getThemedValue(background, theme)}
                     style={{backgroundColor}}
                 />
-                {label && (
-                    <div className={b('label')}>
-                        <Tag {...label} />
-                    </div>
-                )}
+                {label && <Tag {...label} />}
                 <Content
                     titleId={titleId}
                     title={title}

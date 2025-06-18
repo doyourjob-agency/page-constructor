@@ -42,11 +42,7 @@ const BasicCard = (props: BasicCardProps) => {
             extraProps={{'aria-describedby': descriptionId, 'aria-labelledby': titleId}}
         >
             <CardBase.Content>
-                {label && (
-                    <div className={b('label')}>
-                        <Tag {...label} />
-                    </div>
-                )}
+                {label && <Tag {...label} />}
                 <IconWrapper
                     icon={themedIcon ? {value: themedIcon, position: iconPosition} : undefined}
                     className={b('wrapper')}

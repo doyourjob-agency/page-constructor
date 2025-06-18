@@ -499,6 +499,6 @@ export interface ServiceLabelProps {
 
 export interface TagProps {
     text: string;
-    color: string;
+    backgroundColor: string;
     textColor: string;
 }

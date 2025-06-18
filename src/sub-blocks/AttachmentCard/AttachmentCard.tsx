@@ -51,11 +51,7 @@ const AttachmentCard = ({title, date, items, label, column, border}: AttachmentC
     return (
         <CardBase className={b()} contentClassName={b('content')} border={border}>
             <CardBase.Content>
-                {label && (
-                    <div className={b('label')}>
-                        <Tag {...label} />
-                    </div>
-                )}
+                {label && <Tag {...label} />}
                 <div className={b('wrap', {column})}>
                     {title && <Title title={titleProps} colSizes={colSizes} />}
                     {date && <div className={b('date')}>{date}</div>}

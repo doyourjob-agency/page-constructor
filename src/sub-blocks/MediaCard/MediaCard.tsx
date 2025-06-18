@@ -18,7 +18,7 @@ const MediaCard = ({border, analyticsEvents, label, ...mediaProps}: MediaCardPro
         <CardBase.Content>
             {label && (
                 <div className={b('label')}>
-                    <Tag {...label} />
+                    <Tag {...label} withoutMarginBottom />
                 </div>
             )}
             <Media {...mediaProps} />
