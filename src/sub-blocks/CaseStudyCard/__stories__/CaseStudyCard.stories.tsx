@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<CaseStudyCardProps> = (args) => (
-    <div style={{maxWidth: '400px'}}>
+    <div>
         <CaseStudyCard {...args} />
     </div>
 );

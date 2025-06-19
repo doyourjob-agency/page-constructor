@@ -4,5 +4,98 @@
 $block: '.#{$ns}case-study-card';
 
 #{$block} {
-    display: flex;
+    background: rgba(240, 248, 255, 1);
+
+    display: grid;
+    padding: $indentL $indentXL $indentXL;
+    gap: $indentL;
+    grid-template-columns: 1fr;
+
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        grid-template-columns: 1fr 1fr;
+        padding: $indentL $indentXL $indentXL;
+    }
+
+    @include text-body-3();
+
+    &__lhs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-top: $indentSM;
+        @include heading1();
+    }
+
+    &__main-info {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
+    }
+
+    &__lower-stamp-list {
+        display: flex;
+        gap: $indentXXXS;
+    }
+
+    &__lhs-lower {
+        display: flex;
+        flex-flow: column-reverse wrap;
+        justify-content: space-between;
+        flex: 1;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            flex-direction: column;
+        }
+    }
+
+    &__lower-stamp {
+        margin: -$indentS 0 $indentS;
+        padding: $indent4XS $indentXXS;
+        border-radius: 20px;
+        background: rgba(205, 240, 253, 1);
+        white-space: nowrap;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+        }
+    }
+
+    &__rhs {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXXS;
+    }
+
+    &__rhs-card {
+        border-radius: 40px;
+        background: linear-gradient(
+                24.21deg,
+                #e8ff7e -192.23%,
+                #aff7ea 70.77%,
+                #a5e8ee 269.11%,
+                #b0e3ff 418.39%,
+                #c5caff 683.71%
+            ),
+            linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: $indentM;
+        box-sizing: border-box;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            height: 192px;
+        }
+    }
+
+    &__rhs-title {
+        @include heading1();
+        margin-bottom: $indentXXS;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            white-space: nowrap;
+        }
+    }
 }
