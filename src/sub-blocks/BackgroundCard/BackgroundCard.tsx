@@ -64,6 +64,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
                 />
                 {label && <Tag {...label} />}
                 <Content
+                    className={b('data')}
                     titleId={titleId}
                     title={title}
                     summary={summary}

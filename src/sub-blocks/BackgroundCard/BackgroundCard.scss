@@ -70,6 +70,10 @@ $block: '.#{$ns}background-card';
         flex-direction: column;
     }
 
+    &__data {
+        flex: 1;
+    }
+
     &__image {
         position: absolute;
         top: 0;
