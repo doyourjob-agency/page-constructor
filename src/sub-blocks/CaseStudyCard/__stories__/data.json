@@ -1,7 +1,39 @@
 {
   "default": {
     "content": {
-      "test": "Test"
+      "image": "/story-assets/icon_1_light.svg",
+      "lhsInfo": [
+        {
+          "text": "Constructor is an all-in-one platform for education and research. It is built to cater to the needs of schools, higher education, corporate training, alternative credentials and sports teams."
+        },
+        {
+          "prefix": "Goal:",
+          "text": "To address various downstream tasks in racing image analysis within Constructor SportsTech applications."
+        },
+        {
+          "prefix": "Solution:",
+          "text": "To utilize Nebius AI for pre-training a computer vision foundation model in a self-supervised fashion using an extensive, custom racing dataset."
+        },
+        {
+          "prefix": "Result:",
+          "text": "The model, available on Hugging Face, allows the "
+        }
+      ],
+      "rhsInfo": [
+        {
+          "upper": "4x leap",
+          "lower": "in speed over the early version of the framework running on A100"
+        },
+        {
+          "upper": "~500 ms",
+          "lower": "to process one image during inference"
+        },
+        {
+          "upper": "1B parameters",
+          "lower": "of the model"
+        }
+      ],
+      "lowerStamps": ["H100", "Inference", "Stable diffusion"]
     }
   }
 }

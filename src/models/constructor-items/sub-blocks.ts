@@ -294,7 +294,17 @@ export interface AttachmentCardProps extends CardBaseProps {
 }
 
 export interface CaseStudyCardProps {
-    test?: string;
+    title: string;
+    image: string;
+    lhsInfo: {
+        prefix?: string;
+        text: string;
+    }[];
+    rhsInfo: {
+        upper: string;
+        lower: string;
+    }[];
+    lowerStamps: string[];
 }
 
 export interface EventPersonCardProps {
