@@ -44,6 +44,7 @@ import {
     BannerCard,
     BasicCard,
     Card,
+    CaseStudyCard,
     Content,
     ContentLayoutCard,
     Divider,
@@ -111,6 +112,7 @@ export const subBlockMap = {
     [SubBlockType.FeedCard]: FeedCard,
     [SubBlockType.EventPersonCard]: EventPersonCard,
     [SubBlockType.AttachmentCard]: AttachmentCard,
+    [SubBlockType.CaseStudyCard]: CaseStudyCard,
 };
 
 export const navItemMap = {

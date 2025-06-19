@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.48](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.47...v5.31.48) (2025-06-19)
+
+### Features
+
+* **CaseStudyCard:** Add card
+
+
 ## [5.31.47](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-18)
 
 ### Features

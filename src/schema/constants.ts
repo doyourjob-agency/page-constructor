@@ -38,6 +38,7 @@ import {
     BackgroundCard,
     BasicCard,
     Card,
+    CaseStudyCard,
     ContentLayoutCard,
     Divider,
     EventPersonCard,
@@ -99,6 +100,7 @@ export const cardSchemas = {
     ...FeedCard,
     ...EventPersonCard,
     ...AttachmentCard,
+    ...CaseStudyCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -156,4 +158,5 @@ export const constructorCardSchemaNames = [
     'post-card',
     'feed-card',
     'event-person-card',
+    'case-study-card',
 ];
