@@ -112,10 +112,13 @@ const FormDataTemplate: StoryFn<FormBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const ContentDirection = ContentDirectionTemplate.bind({});
+export const WithFullWidth = ContentDirectionTemplate.bind({});
 export const WithBackgroundColor = ContentDirectionTemplate.bind({});
 export const WithBackgroundImage = ContentDirectionTemplate.bind({});
 export const DarkTheme = ContentDirectionTemplate.bind({});
 export const FormData = FormDataTemplate.bind({});
+
+WithFullWidth.args = data.withFullWidth;
 
 WithBackgroundColor.args = data.withBackground;
 

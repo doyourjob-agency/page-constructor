@@ -67,6 +67,9 @@ export const FormBlock = {
                     },
                 ],
             },
+            fullWidth: {
+                type: 'boolean',
+            },
         },
     },
 };

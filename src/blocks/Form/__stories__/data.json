@@ -32,6 +32,9 @@
       }
     }
   },
+  "withFullWidth": {
+    "fullWidth": true
+  },
   "withBackgroundImage": {
     "background": {
       "dark": {

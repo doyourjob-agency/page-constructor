@@ -608,6 +608,7 @@ export interface FormBlockProps {
     backgroundColor?: string;
     image?: string;
     slug?: string;
+    fullWidth?: boolean;
 }
 
 //block models

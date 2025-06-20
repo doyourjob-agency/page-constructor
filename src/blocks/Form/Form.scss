@@ -151,7 +151,7 @@ $largeBorderRadius: 32px;
         &_with-background,
         &:not(#{$root}_with-background) {
             #{$root}__row {
-                #{$root}__form-wrapper,
+                #{$root}__form-wrapper:not(#{$root}__form-wrapper_full),
                 #{$root}__content-wrapper {
                     max-width: $maxLargeWidth;
                 }

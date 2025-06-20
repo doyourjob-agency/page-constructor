@@ -14,38 +14,103 @@ Each block has the following common properties:
 
 `visibility?: 'mobile' | 'desktop' | VisibilityProps` — Sets the screen size to display block
 
-> `VisibilityProps: {
-xs?: boolean — 0px – 576px
-sm?: boolean — 577px – 768px
-md?: boolean — 769px – 1080px
-lg?: boolean — 1081px – 1184px
-xl?: boolean — 1185px – 1247px
-xxl?: boolean — 1248px – ∞
-}`
+> `VisibilityProps: { xs?: boolean — 0px – 576px sm?: boolean — 577px – 768px md?: boolean — 769px – 1080px lg?: boolean — 1081px – 1184px xl?: boolean — 1185px – 1247px xxl?: boolean — 1248px – ∞ }`
 
-`visible?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` — Sets the screen size to start block display from (*deprecated)
+`visible?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` — Sets the screen size to start block display from (\*deprecated)
 
-`hidden?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` — Sets the screen size to start block hidden from (*deprecated)
+`hidden?: 'all' | 'sm' | 'md' | 'lg' | 'xl'` — Sets the screen size to start block hidden from (\*deprecated)
 
 `resetPaddings: boolean` — Allows resetting top and bottom margins standard for all blocks. **Deprecated**, use `indent` instead
 
 `indent?: { top?: string bottom?: string }` - block indentation at the top and bottom, default size `l`, examples you can see [here](?path=/story/blocks-cardlayout--with-custom-indents)
 
-`backgroundFull?: string` - background color or background image (*deprecated use 'blockBackground')
+`backgroundFull?: string` - background color or background image (\*deprecated use 'blockBackground')
 
-`blockBackground?: 
-        | string
-        | {
-              color?: string;
-              image?: string;
-              size?: string;
-              repeat?: string;
-              position?: string;
-              attachment?: string;
-              clip?: string;
-              origin?: string;
-              blendMode?: string;
-          }` - new background properties
+`blockBackground?: string` - - new background properties
+
+or
+
+`blockBackground?:`
+
+-   `color?: string;`
+    Background color.
+    Accepts any valid CSS color.
+    Examples: 'red', '#ffffff', 'rgba(0, 0, 0, 0.3)', 'transparent'.
+
+-   `image?: string;`
+    Background image.
+    Examples: https://...
+
+-   `size?: string;`
+    Controls how the background image is scaled.
+    Common values:
+
+    'cover' – fills the container, maintaining aspect ratio.
+
+    'contain' – fits the image entirely inside the container.
+
+    '100px 200px' – sets explicit width and height.
+
+-   `repeat?: string;`
+    Controls repetition of the background image.
+    Common values:
+
+    'no-repeat' – image shown once.
+
+    'repeat-x' – repeats horizontally.
+
+    'repeat' – repeats both horizontally and vertically.
+
+    'repeat-y' – repeats vertically.
+
+-   `position?: string;`
+    Defines the starting position of the background image.
+    Common values:
+
+    'center', 'top left', 'bottom right',
+    '10px 50%' – precise offsets.
+
+-   `attachment?: string;`
+    Specifies how the background image behaves during scroll.
+    Possible values:
+
+    'scroll' – scrolls with the content.
+
+    'fixed' – stays fixed during scroll (parallax effect).
+
+    'local' – scrolls with the element’s content.
+
+-   `clip?: string;`
+    Specifies the area where the background is visible.
+    Options:
+
+    'border-box' – includes the border area.
+
+    'padding-box' – includes only padding and content.
+
+    'content-box' – limited strictly to content area.
+
+-   `origin?: string;`
+    Defines the background positioning area.
+    Options:
+
+    'padding-box' – starts from the padding edge (default).
+
+    'border-box' – starts from the outer border edge.
+
+    'content-box' – starts from the content box.
+
+-   `blendMode?: string;`
+    Controls how the background image blends with the background color.
+    Common values:
+
+    'normal' – no blending.
+
+    'multiply' – darkens the image.
+    
+    'screen' – lightens the image.
+
+    Other options: 'overlay', 'darken', 'lighten', etc.
 
 _[Common field types](?id=documentation-types&viewMode=docs)_
 

@@ -15,7 +15,7 @@ export type BlockBackgroundType =
 
 export function normalizeBackgroundValue(str?: string): string | undefined {
     if (!str) return undefined;
-    return /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(str) ? `url(${str})` : str;
+    return /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(str) ? `url('${str}')` : str;
 }
 
 export function getBlockBackgroundStyles(
@@ -27,6 +27,8 @@ export function getBlockBackgroundStyles(
     if (isStringBackground) {
         return {
             background: normalizeBackgroundValue(blockBackground),
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
         };
     }
 
