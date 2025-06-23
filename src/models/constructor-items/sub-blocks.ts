@@ -296,7 +296,7 @@ export interface AttachmentCardProps extends CardBaseProps {
 export interface CaseStudyCardProps {
     title: string;
     image: string;
-    leftText: string;
+    text: string;
     cardInfo: {
         overtext?: string;
         text: string;

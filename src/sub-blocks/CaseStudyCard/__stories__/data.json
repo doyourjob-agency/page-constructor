@@ -3,7 +3,7 @@
     "content": {
       "title": "Hello",
       "image": "/story-assets/icon_1_light.svg",
-      "leftText": "<p>Constructor is an all-in-one platform for education and research. It is built to cater to the needs of schools, higher education, corporate training, alternative credentials and sports teams.</p><p><b>Goal:</b> To address various downstream tasks in racing image analysis within Constructor SportsTech applications.</p><p><b>Solution:</b> To utilize Nebius AI for pre-training a computer vision foundation model in a self-supervised fashion using an extensive, custom racing dataset.</p><p><b>Result: </b> The model, available on Hugging Face, allows the </p>",
+      "text": "<p>Constructor is an all-in-one platform for education and research. It is built to cater to the needs of schools, higher education, corporate training, alternative credentials and sports teams.</p><p><b>Goal:</b> To address various downstream tasks in racing image analysis within Constructor SportsTech applications.</p><p><b>Solution:</b> To utilize Nebius AI for pre-training a computer vision foundation model in a self-supervised fashion using an extensive, custom racing dataset.</p><p><b>Result: </b> The model, available on Hugging Face, allows the </p>",
       "cardInfo": [
         {
           "overtext": "some text",

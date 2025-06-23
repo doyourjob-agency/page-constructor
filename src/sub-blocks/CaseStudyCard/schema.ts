@@ -6,16 +6,13 @@ export const CaseStudyCard = {
         required: [],
         properties: {
             ...BaseProps,
-            test: {
-                type: 'string',
-            },
             title: {
                 type: 'string',
             },
             image: {
                 type: 'string',
             },
-            leftText: {
+            text: {
                 type: 'string',
             },
             cardInfo: {
