@@ -15,25 +15,25 @@ export const CaseStudyCard = {
             text: {
                 type: 'string',
             },
-            cardInfo: {
+            highlights: {
                 type: 'array',
                 items: {
                     type: 'object',
                     properties: {
-                        overtext: {
+                        kicker: {
                             type: 'string',
                         },
-                        text: {
+                        title: {
                             type: 'string',
                         },
-                        undertext: {
+                        subtitle: {
                             type: 'string',
                         },
                     },
                     required: ['text'],
                 },
             },
-            lowerTags: {
+            labels: {
                 type: 'array',
                 items: {
                     type: 'string',

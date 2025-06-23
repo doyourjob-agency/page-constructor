@@ -9,7 +9,7 @@ import './CaseStudyCard.scss';
 const b = block('case-study-card');
 
 const CaseStudyCard = (props: CaseStudyCardProps) => {
-    const {image, title, text, cardInfo, lowerTags} = props;
+    const {image, title, text, highlights, labels} = props;
 
     return (
         <div className={b()}>
@@ -21,8 +21,8 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                         <HTML>{text}</HTML>
                     </div>
                     <div className={b('lower-stamp-list')}>
-                        {lowerTags &&
-                            lowerTags.map((text) => (
+                        {labels &&
+                            labels.map((text) => (
                                 <Tag
                                     key={text}
                                     text={text}
@@ -35,12 +35,12 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                 </div>
             </div>
             <div className={b('rhs')}>
-                {cardInfo &&
-                    cardInfo.map(({overtext, text, undertext}) => (
-                        <div className={b('rhs-card')} key={text}>
-                            {overtext && <div className={b('rhs-d')}>{overtext}</div>}
-                            <h2 className={b('rhs-title')}>{text}</h2>
-                            {undertext && <div className={b('rhs-d')}>{undertext}</div>}
+                {highlights &&
+                    highlights.map(({kicker, title, subtitle}) => (
+                        <div className={b('rhs-card')} key={title}>
+                            {kicker && <div className={b('rhs-kicker')}>{kicker}</div>}
+                            <h1 className={b('rhs-title')}>{title}</h1>
+                            {subtitle && <div className={b('rhs-subtitle')}>{subtitle}</div>}
                         </div>
                     ))}
             </div>

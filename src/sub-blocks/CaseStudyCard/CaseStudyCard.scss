@@ -7,12 +7,14 @@ $block: '.#{$ns}case-study-card';
     background: rgba(240, 248, 255, 1);
 
     display: grid;
-    padding: $indentL $indentXL $indentXL;
-    gap: $indentL;
+    padding: $indentM;
+
+    gap: $indentM;
     grid-template-columns: 1fr;
     border-radius: $borderRadius;
 
     @media (min-width: map-get($gridBreakpoints, 'md')) {
+        gap: $indentL;
         grid-template-columns: 1fr 1fr;
         padding: $indentL $indentXL $indentXL;
     }
@@ -54,16 +56,19 @@ $block: '.#{$ns}case-study-card';
     }
 
     &__rhs-card {
-        border-radius: 40px;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: $indentM;
         box-sizing: border-box;
+        border-radius: $indentXS;
+        padding: $indentXS $indentS;
+        margin: 0 (-$indentXXS);
 
         @media (min-width: map-get($gridBreakpoints, 'md')) {
+            margin: 0;
             height: 192px;
+            border-radius: $indentM;
+            padding: $indentM;
         }
 
         &:nth-child(1) {
@@ -105,7 +110,6 @@ $block: '.#{$ns}case-study-card';
 
     &__rhs-title {
         @include heading1();
-        margin-bottom: $indentXXS;
 
         @media (min-width: map-get($gridBreakpoints, 'lg')) {
             @include heading0();
