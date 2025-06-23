@@ -50,6 +50,10 @@ function parseHighlightTableBlock(transformer: Transformer, content: HighlightTa
     };
 }
 
+function parseHighlightTableBlockLegend(transformer: Transformer, legend: string[]) {
+    return legend.map((item) => transformer(item));
+}
+
 function parseFeatures(transformer: Transformer, items: ExtendedFeaturesItem[]) {
     return items.map(({title, text, ...rest}) => ({
         title: title && transformer(title),
@@ -345,6 +349,11 @@ export const config: BlocksConfig = {
         {
             fields: ['description'],
             transformer: yfmTransformer,
+        },
+        {
+            fields: ['legend'],
+            transformer: yfmTransformer,
+            parser: parseHighlightTableBlockLegend,
         },
         {
             fields: ['table'],
