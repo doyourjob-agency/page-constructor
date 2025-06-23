@@ -21,7 +21,8 @@
         "customColumnWidth": [2, 2, 2, 2],
         "justify": ["left", "center", "center", "center", "center", "right"],
         "highlighter": ["", "#eee", "", "#eee", ""]
-      }
+      },
+      "legend": ["Lorem 1", "Lorem 2"]
     }
   }
 }

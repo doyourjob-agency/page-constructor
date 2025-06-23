@@ -18,6 +18,19 @@ $block: '.#{$ns}highlight-table-block';
         margin-bottom: $indentXS;
     }
 
+    &__legend {
+        display: flex;
+        column-gap: 28px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    &__legend-item {
+        display: flex;
+        align-items: center;
+    }
+
     &__table {
         overflow: auto;
 

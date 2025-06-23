@@ -12,6 +12,12 @@ export const HighlightTableBlock = {
             description: {
                 type: 'string',
             },
+            legend: {
+                type: 'array',
+                items: {
+                    type: 'string',
+                },
+            },
             table: {
                 additionalProperties: false,
                 required: ['content'],

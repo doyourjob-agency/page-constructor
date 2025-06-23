@@ -12,7 +12,7 @@ import './HighlightTable.scss';
 const b = block('highlight-table-block');
 
 export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
-    const {title, description, table} = props;
+    const {title, description, table, legend} = props;
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
     const customColumnWidth = table.customColumnWidth || [];
@@ -111,6 +111,15 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
             {description && (
                 <div className={b('description')}>
                     <YFMWrapper content={description} modifiers={{constructor: true}} />
+                </div>
+            )}
+            {legend?.length && (
+                <div className={b('legend')}>
+                    {legend.map((item, index) => (
+                        <div className={b('legend-item')} key={String(index)}>
+                            {item}
+                        </div>
+                    ))}
                 </div>
             )}
             <div ref={tableRef} className={b('table')}>
