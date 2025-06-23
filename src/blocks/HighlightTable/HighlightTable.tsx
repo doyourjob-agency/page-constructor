@@ -116,9 +116,9 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
             {legend?.length && (
                 <div className={b('legend')}>
                     {legend.map((item, index) => (
-                        <div className={b('legend-item')} key={String(index)}>
+                        <HTML className={b('legend-item')} key={String(index)}>
                             {item}
-                        </div>
+                        </HTML>
                     ))}
                 </div>
             )}
