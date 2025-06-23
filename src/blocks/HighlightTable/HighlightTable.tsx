@@ -1,9 +1,8 @@
 import React, {useCallback, useEffect, useRef} from 'react';
 
-import {Text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
-import {HTML, YFMWrapper} from '../../components';
+import {HTML, Title} from '../../components';
 import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -105,18 +104,11 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
 
     return (
         <div ref={blockRef} className={b()}>
-            <Text className={b('title')} variant="header-2">
-                {title}
-            </Text>
-            {description && (
-                <div className={b('description')}>
-                    <YFMWrapper content={description} modifiers={{constructor: true}} />
-                </div>
-            )}
+            {(title || description) && <Title title={title} subtitle={description} />}
             {legend?.length && (
                 <div className={b('legend')}>
                     {legend.map((item, index) => (
-                        <HTML className={b('legend-item')} key={String(index)}>
+                        <HTML className={b('legend-item')} block key={String(index)}>
                             {item}
                         </HTML>
                     ))}

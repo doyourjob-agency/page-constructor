@@ -6,29 +6,25 @@ $block: '.#{$ns}highlight-table-block';
 #{$block} {
     $class: &;
 
-    &__description {
-        margin-bottom: $indentXS;
-    }
-
-    &__title {
-        @include heading2();
-
-        position: sticky;
-        display: block;
-        margin-bottom: $indentXS;
-    }
-
     &__legend {
         display: flex;
         column-gap: 28px;
         align-items: center;
         justify-content: center;
-        margin-bottom: 12px;
+        margin-top: $indentXS;
+        margin-bottom: $indentXXS;
     }
 
     &__legend-item {
         display: flex;
         align-items: center;
+        font-size: 15px;
+        line-height: 20px;
+
+        img {
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 
     &__table {
@@ -76,8 +72,14 @@ $block: '.#{$ns}highlight-table-block';
     &__cell {
         padding-right: $indentXXXS;
         padding-left: $indentXXXS;
-        & p {
+
+        p {
             margin: 0;
+        }
+
+        img {
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 
