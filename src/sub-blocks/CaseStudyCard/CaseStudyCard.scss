@@ -10,13 +10,14 @@ $block: '.#{$ns}case-study-card';
     padding: $indentL $indentXL $indentXL;
     gap: $indentL;
     grid-template-columns: 1fr;
+    border-radius: $borderRadius;
 
     @media (min-width: map-get($gridBreakpoints, 'md')) {
         grid-template-columns: 1fr 1fr;
         padding: $indentL $indentXL $indentXL;
     }
 
-    @include text-body-3();
+    @include text-body-2();
 
     &__lhs {
         display: flex;
@@ -28,12 +29,6 @@ $block: '.#{$ns}case-study-card';
         @include heading1();
     }
 
-    &__main-info {
-        display: flex;
-        flex-direction: column;
-        gap: $indentXS;
-    }
-
     &__lower-stamp-list {
         display: flex;
         gap: $indentXXXS;
@@ -43,21 +38,12 @@ $block: '.#{$ns}case-study-card';
         display: flex;
         flex-flow: column-reverse wrap;
         justify-content: space-between;
+        gap: $indentXS;
         flex: 1;
+        margin-top: $indentXS;
 
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             flex-direction: column;
-        }
-    }
-
-    &__lower-stamp {
-        margin: -$indentS 0 $indentS;
-        padding: $indent4XS $indentXXS;
-        border-radius: 20px;
-        background: rgba(205, 240, 253, 1);
-        white-space: nowrap;
-
-        @media (min-width: map-get($gridBreakpoints, 'md')) {
         }
     }
 
@@ -93,6 +79,10 @@ $block: '.#{$ns}case-study-card';
     &__rhs-title {
         @include heading1();
         margin-bottom: $indentXXS;
+
+        @media (min-width: map-get($gridBreakpoints, 'lg')) {
+            @include heading0();
+        }
 
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             white-space: nowrap;

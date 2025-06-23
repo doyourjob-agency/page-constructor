@@ -20,7 +20,7 @@ const DefaultTemplate: StoryFn<CaseStudyCardProps> = (args) => (
 );
 
 const SliderTemplate: StoryFn<CaseStudyCardProps> = (args) => (
-    <SliderBlock>
+    <SliderBlock slidesToShow={1}>
         <CaseStudyCard {...args} />
         <CaseStudyCard {...args} />
         <CaseStudyCard {...args} />

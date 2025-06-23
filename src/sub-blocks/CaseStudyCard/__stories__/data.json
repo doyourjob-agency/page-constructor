@@ -1,39 +1,25 @@
 {
   "default": {
     "content": {
+      "title": "Hello",
       "image": "/story-assets/icon_1_light.svg",
-      "lhsInfo": [
+      "leftText": "<p>Constructor is an all-in-one platform for education and research. It is built to cater to the needs of schools, higher education, corporate training, alternative credentials and sports teams.</p><p><b>Goal:</b> To address various downstream tasks in racing image analysis within Constructor SportsTech applications.</p><p><b>Solution:</b> To utilize Nebius AI for pre-training a computer vision foundation model in a self-supervised fashion using an extensive, custom racing dataset.</p><p><b>Result: </b> The model, available on Hugging Face, allows the </p>",
+      "cardInfo": [
         {
-          "text": "Constructor is an all-in-one platform for education and research. It is built to cater to the needs of schools, higher education, corporate training, alternative credentials and sports teams."
+          "overtext": "some text",
+          "text": "4x leap",
+          "undertext": "in speed over the early version of the framework running on A100"
         },
         {
-          "prefix": "Goal:",
-          "text": "To address various downstream tasks in racing image analysis within Constructor SportsTech applications."
+          "text": "~500 ms",
+          "undertext": "to process one image during inference"
         },
         {
-          "prefix": "Solution:",
-          "text": "To utilize Nebius AI for pre-training a computer vision foundation model in a self-supervised fashion using an extensive, custom racing dataset."
-        },
-        {
-          "prefix": "Result:",
-          "text": "The model, available on Hugging Face, allows the "
+          "text": "1B parameters",
+          "undertext": "of the model"
         }
       ],
-      "rhsInfo": [
-        {
-          "upper": "4x leap",
-          "lower": "in speed over the early version of the framework running on A100"
-        },
-        {
-          "upper": "~500 ms",
-          "lower": "to process one image during inference"
-        },
-        {
-          "upper": "1B parameters",
-          "lower": "of the model"
-        }
-      ],
-      "lowerStamps": ["H100", "Inference", "Stable diffusion"]
+      "lowerTags": ["H100", "Inference", "Stable diffusion"]
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Image} from '../../components';
+import {HTML, Image, Tag} from '../../components';
 import {CaseStudyCardProps} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
 
@@ -9,40 +9,36 @@ import './CaseStudyCard.scss';
 const b = block('case-study-card');
 
 const CaseStudyCard = (props: CaseStudyCardProps) => {
-    const {image, lhsInfo, rhsInfo, lowerStamps} = props;
+    const {image, title, leftText, cardInfo, lowerTags} = props;
 
     return (
         <div className={b()}>
             <div className={b('lhs')}>
                 <Image className={b('icon')} src={image} alt="" aria-hidden="true" />
-                <h1 className={b('title')}>Stable diffusion inference</h1>
+                <h1 className={b('title')}>{title}</h1>
                 <div className={b('lhs-lower')}>
                     <div className={b('main-info')}>
-                        {lhsInfo.map(({prefix, text}) => (
-                            <div key="text">
-                                {prefix && (
-                                    <React.Fragment>
-                                        <span>{prefix}</span>{' '}
-                                    </React.Fragment>
-                                )}
-                                {text}
-                            </div>
-                        ))}
+                        <HTML>{leftText}</HTML>
                     </div>
                     <div className={b('lower-stamp-list')}>
-                        {lowerStamps.map((text) => (
-                            <div className={b('lower-stamp')} key={text}>
-                                {text}
-                            </div>
+                        {lowerTags.map((text) => (
+                            <Tag
+                                key={text}
+                                text={text}
+                                textColor="black"
+                                backgroundColor="rgb(205, 240, 253)"
+                                withoutMarginBottom
+                            />
                         ))}
                     </div>
                 </div>
             </div>
             <div className={b('rhs')}>
-                {rhsInfo.map(({upper, lower}) => (
-                    <div className={b('rhs-card')} key={upper}>
-                        <div className={b('rhs-title')}>{upper}</div>
-                        <div className={b('rhs-d')}>{lower}</div>
+                {cardInfo.map(({overtext, text, undertext}) => (
+                    <div className={b('rhs-card')} key={text}>
+                        {overtext && <div className={b('rhs-d')}>{overtext}</div>}
+                        <div className={b('rhs-title')}>{text}</div>
+                        {undertext && <div className={b('rhs-d')}>{undertext}</div>}
                     </div>
                 ))}
             </div>
