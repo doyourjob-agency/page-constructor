@@ -55,15 +55,6 @@ $block: '.#{$ns}case-study-card';
 
     &__rhs-card {
         border-radius: 40px;
-        background: linear-gradient(
-                24.21deg,
-                #e8ff7e -192.23%,
-                #aff7ea 70.77%,
-                #a5e8ee 269.11%,
-                #b0e3ff 418.39%,
-                #c5caff 683.71%
-            ),
-            linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 
         display: flex;
         flex-direction: column;
@@ -73,6 +64,42 @@ $block: '.#{$ns}case-study-card';
 
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             height: 192px;
+        }
+
+        &:nth-child(1) {
+            background: linear-gradient(
+                    344.08deg,
+                    #e8ff7e -151.68%,
+                    #aff7ea -69%,
+                    #a5e8ee -6.64%,
+                    #b0e3ff 40.29%,
+                    #c5caff 123.69%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+        }
+
+        &:nth-child(2) {
+            background: linear-gradient(
+                    23.93deg,
+                    #e8ff7e -226.75%,
+                    #aff7ea -79.18%,
+                    #a5e8ee 32.11%,
+                    #b0e3ff 115.87%,
+                    #c5caff 264.73%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+        }
+
+        &:nth-child(3) {
+            background: linear-gradient(
+                    24.21deg,
+                    #e8ff7e -192.23%,
+                    #aff7ea 70.77%,
+                    #a5e8ee 269.11%,
+                    #b0e3ff 418.39%,
+                    #c5caff 683.71%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
         }
     }
 
