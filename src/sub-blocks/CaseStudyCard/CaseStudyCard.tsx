@@ -39,7 +39,7 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                     cardInfo.map(({overtext, text, undertext}) => (
                         <div className={b('rhs-card')} key={text}>
                             {overtext && <div className={b('rhs-d')}>{overtext}</div>}
-                            <div className={b('rhs-title')}>{text}</div>
+                            <h2 className={b('rhs-title')}>{text}</h2>
                             {undertext && <div className={b('rhs-d')}>{undertext}</div>}
                         </div>
                     ))}
