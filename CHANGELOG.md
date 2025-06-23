@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.31.51](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-23)
+* **HighlightTable:** Add legend
+
 ## [5.31.47](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-18)
 
 ### Features
@@ -663,7 +666,7 @@
 * All the props from metrikaGoals and pixelEvents have been deleted, their helpers and lists have been deleted. Cleaned up calls to metric methods. Instead of all that, now AnalyticsEvents ([#814](https://github.com/gravity-ui/page-constructor/pull/814))
 * icons have been removed from the export and also replaced some icons with icons from gravity-ui/icons ([#830](https://github.com/gravity-ui/page-constructor/pull/830))
 
-| Component                        | /icons                            |  @gravity-ui/icons/             | 
+| Component                        | /icons                            |  @gravity-ui/icons/             |
 |:---------------------------------| :---------------------------------|:--------------------------------|
 | BackLink                         | ArrowSidebar                      | ArrowLeft                       |
 | FullscreenImage, FullscreenMedia | Fullscreen, PreviewClose          | ChevronsExpandUpRight, Xmark    |
