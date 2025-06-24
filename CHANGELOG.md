@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.31.55](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-24)
+* **HighlightTable:** Add contentSize
+
 ## [5.31.51](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-23)
 * **HighlightTable:** Add legend
 
