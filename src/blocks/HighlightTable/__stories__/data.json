@@ -2,6 +2,7 @@
   "default": {
     "content": {
       "type": "highlight-table-block",
+      "contentSize": "s",
       "title": "Lorem ipsum dolor sit amet",
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "table": {

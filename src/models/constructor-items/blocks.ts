@@ -388,6 +388,7 @@ export interface HighlightTableBlockProps {
     description?: string;
     table: HighlightTableData;
     legend?: string[];
+    contentSize?: ContentSize;
 }
 
 export interface TabsBlockItem

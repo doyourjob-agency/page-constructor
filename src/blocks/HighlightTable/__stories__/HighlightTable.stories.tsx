@@ -12,6 +12,15 @@ import data from './data.json';
 export default {
     component: HighlightTable,
     title: 'Blocks/HighlightTable',
+    argTypes: {
+        contentSize: {
+            control: {type: 'radio'},
+            options: ['s', 'l'],
+            table: {
+                defaultValue: {summary: 's'},
+            },
+        },
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<HighlightTableBlockModel> = (args) => (

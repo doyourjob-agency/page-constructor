@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useRef} from 'react';
 
+import {text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
 import {HTML, Title} from '../../components';
@@ -10,8 +11,17 @@ import './HighlightTable.scss';
 
 const b = block('highlight-table-block');
 
+const getTextStyles = (contentSize: HighlightTableBlockProps['contentSize']) => {
+    switch (contentSize) {
+        case 'l':
+            return 'body-2';
+        default:
+            return 'body-1';
+    }
+};
+
 export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
-    const {title, description, table, legend} = props;
+    const {title, description, table, legend, contentSize = 's'} = props;
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
     const customColumnWidth = table.customColumnWidth || [];
@@ -26,6 +36,8 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
     const tableContentRef = useRef<HTMLDivElement>(null);
     const scrollBarRef = useRef<HTMLDivElement>(null);
     const scrollThumbRef = useRef<HTMLDivElement>(null);
+
+    const textStyles = text({variant: getTextStyles(contentSize)});
 
     useEffect(() => {
         const blockElem = blockRef.current;
@@ -106,7 +118,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
         <div ref={blockRef} className={b()}>
             {(title || description) && <Title title={title} subtitle={description} />}
             {legend?.length && (
-                <div className={b('legend')}>
+                <div className={`${b('legend')} ${textStyles}`}>
                     {legend.map((item, index) => (
                         <HTML className={b('legend-item')} block key={String(index)}>
                             {item}
@@ -114,7 +126,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
                     ))}
                 </div>
             )}
-            <div ref={tableRef} className={b('table')}>
+            <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
                 <div ref={tableContentRef} className={b('content')}>
                     <div className={b('head')}>{renderRow(firstRow, 0)}</div>
                     <div className={b('body')}>{otherRows.map(renderRow)}</div>

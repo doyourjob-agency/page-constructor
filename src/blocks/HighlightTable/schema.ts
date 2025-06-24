@@ -1,4 +1,4 @@
-import {BaseProps, BlockBaseProps} from '../../schema/validators/common';
+import {BaseProps, BlockBaseProps, contentSizes} from '../../schema/validators/common';
 
 export const HighlightTableBlock = {
     'highlight-table-block': {
@@ -17,6 +17,10 @@ export const HighlightTableBlock = {
                 items: {
                     type: 'string',
                 },
+            },
+            contentSize: {
+                type: 'string',
+                enum: contentSizes,
             },
             table: {
                 additionalProperties: false,
