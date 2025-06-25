@@ -144,7 +144,9 @@ export const HighlightTableBlock = ({
 
     return (
         <div ref={blockRef} className={b()}>
-            {(title || description) && <Title title={title} subtitle={description} />}
+            {(title || description) && (
+                <Title className={b('title')} title={title} subtitle={description} />
+            )}
             {legendPosition === 'top' && renderLegend}
             <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
                 <div ref={tableContentRef} className={b('content')}>

@@ -6,6 +6,10 @@ $block: '.#{$ns}highlight-table-block';
 #{$block} {
     $class: &;
 
+    &__title {
+        margin-bottom: 24px;
+    }
+
     &__legend {
         display: flex;
         column-gap: 28px;
@@ -23,7 +27,6 @@ $block: '.#{$ns}highlight-table-block';
         }
 
         &_position-top {
-            margin-top: $indentXS;
             margin-bottom: $indentXXS;
         }
 
