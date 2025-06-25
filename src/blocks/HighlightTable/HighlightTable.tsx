@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 
 import {text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -20,8 +20,15 @@ const getTextStyles = (contentSize: HighlightTableBlockProps['contentSize']) => 
     }
 };
 
-export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
-    const {title, description, table, legend, contentSize = 's'} = props;
+export const HighlightTableBlock = ({
+    title,
+    description,
+    table,
+    legend,
+    contentSize = 's',
+    legendPosition = 'top',
+    legendAlign = 'center',
+}: HighlightTableBlockProps) => {
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
     const customColumnWidth = table.customColumnWidth || [];
@@ -114,18 +121,31 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
         [table.customColumnWidth, table.highlighter, table.justify],
     );
 
-    return (
-        <div ref={blockRef} className={b()}>
-            {(title || description) && <Title title={title} subtitle={description} />}
-            {legend?.length && (
-                <div className={`${b('legend')} ${textStyles}`}>
+    const renderLegend = useMemo(
+        () =>
+            legend?.length && (
+                <div
+                    className={`${b('legend', {
+                        left: legendAlign === 'left',
+                        right: legendAlign === 'right',
+                        'position-top': legendPosition === 'top',
+                        'position-bottom': legendPosition === 'bottom',
+                    })} ${textStyles}`}
+                >
                     {legend.map((item, index) => (
                         <HTML className={b('legend-item')} block key={String(index)}>
                             {item}
                         </HTML>
                     ))}
                 </div>
-            )}
+            ),
+        [legend, legendAlign, legendPosition, textStyles],
+    );
+
+    return (
+        <div ref={blockRef} className={b()}>
+            {(title || description) && <Title title={title} subtitle={description} />}
+            {legendPosition === 'top' && renderLegend}
             <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
                 <div ref={tableContentRef} className={b('content')}>
                     <div className={b('head')}>{renderRow(firstRow, 0)}</div>
@@ -135,6 +155,7 @@ export const HighlightTableBlock = (props: HighlightTableBlockProps) => {
             <div ref={scrollBarRef} className={b('scrollbar')}>
                 <div ref={scrollThumbRef} />
             </div>
+            {legendPosition === 'bottom' && renderLegend}
         </div>
     );
 };

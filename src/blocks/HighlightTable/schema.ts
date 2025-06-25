@@ -18,6 +18,14 @@ export const HighlightTableBlock = {
                     type: 'string',
                 },
             },
+            legendPosition: {
+                type: 'string',
+                enum: ['top', 'bottom'],
+            },
+            legendAlign: {
+                type: 'string',
+                enum: ['left', 'center', 'right'],
+            },
             contentSize: {
                 type: 'string',
                 enum: contentSizes,

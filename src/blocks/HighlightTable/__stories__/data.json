@@ -2,9 +2,12 @@
   "default": {
     "content": {
       "type": "highlight-table-block",
-      "contentSize": "s",
       "title": "Lorem ipsum dolor sit amet",
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "contentSize": "s",
+      "legend": ["Lorem 1", "Lorem 2"],
+      "legendPosition": "top",
+      "legendAlign": "center",
       "table": {
         "content": [
           ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
@@ -22,8 +25,7 @@
         "customColumnWidth": [2, 2, 2, 2],
         "justify": ["left", "center", "center", "center", "center", "right"],
         "highlighter": ["", "#eee", "", "#eee", ""]
-      },
-      "legend": ["Lorem 1", "Lorem 2"]
+      }
     }
   }
 }

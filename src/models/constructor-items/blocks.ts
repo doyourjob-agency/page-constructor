@@ -388,6 +388,8 @@ export interface HighlightTableBlockProps {
     description?: string;
     table: HighlightTableData;
     legend?: string[];
+    legendPosition?: 'top' | 'bottom';
+    legendAlign?: 'left' | 'center' | 'right';
     contentSize?: ContentSize;
 }
 

@@ -14,10 +14,18 @@ export default {
     title: 'Blocks/HighlightTable',
     argTypes: {
         contentSize: {
-            control: {type: 'radio'},
-            options: ['s', 'l'],
             table: {
                 defaultValue: {summary: 's'},
+            },
+        },
+        legendPosition: {
+            table: {
+                defaultValue: {summary: 'top'},
+            },
+        },
+        legendAlign: {
+            table: {
+                defaultValue: {summary: 'center'},
             },
         },
     },

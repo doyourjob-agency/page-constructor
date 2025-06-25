@@ -11,8 +11,25 @@ $block: '.#{$ns}highlight-table-block';
         column-gap: 28px;
         align-items: center;
         justify-content: center;
-        margin-top: $indentXS;
-        margin-bottom: $indentXXS;
+        padding: 0 $indentS;
+        border: 1px solid transparent;
+
+        &_left {
+            justify-content: flex-start;
+        }
+
+        &_right {
+            justify-content: flex-end;
+        }
+
+        &_position-top {
+            margin-top: $indentXS;
+            margin-bottom: $indentXXS;
+        }
+
+        &_position-bottom {
+            margin-top: $indentXXS;
+        }
     }
 
     &__legend-item {
