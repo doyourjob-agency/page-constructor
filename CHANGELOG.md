@@ -1,9 +1,12 @@
 # Changelog
 
-## [5.31.55](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-24)
+## [5.31.56](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.55...v5.31.56) (2025-06-25)
+* **HighlightTable:** Add legendPosition & legendAlign
+*
+## [5.31.55](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.51...v5.31.55) (2025-06-24)
 * **HighlightTable:** Add contentSize
 
-## [5.31.51](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-23)
+## [5.31.51](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.47...v5.31.51) (2025-06-23)
 * **HighlightTable:** Add legend
 
 ## [5.31.47](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.46...v5.31.47) (2025-06-18)
