@@ -12,34 +12,35 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
     const {image, title, background, text, highlights, labels} = props;
 
     return (
-        <div className={b()} style={{background: background}}>
-            <div className={b('lhs')}>
-                <Image className={b('icon')} src={image} alt="" aria-hidden="true" />
-                <div className={`${b('title')} title-font-family`}>{title}</div>
-                <div className={b('lhs-lower')}>
-                    <HTML block className={b('main-info')}>
-                        {text}
-                    </HTML>
-                    <div className={b('lower-stamp-list')}>
-                        {labels && labels.map((label, index) => <Tag key={index} {...label} />)}
-                    </div>
+        <div className={b()} style={{background}}>
+            <div className={b('info')}>
+                <Image src={image} alt="" aria-hidden="true" />
+                <h2 className={`${b('title')} title-font-family`}>{title}</h2>
+                <div className={b('content')}>
+                    <HTML block>{text}</HTML>
+                    <ul className={b('tags')}>
+                        {labels &&
+                            labels.map((label, index) => (
+                                <li key={index}>
+                                    <Tag {...label} />
+                                </li>
+                            ))}
+                    </ul>
                 </div>
             </div>
-            <div className={b('rhs')}>
+            <div className={b('highlights')}>
                 {highlights &&
                     highlights.map((item, index) => (
                         <div
                             style={{background: item.background}}
-                            className={b('rhs-card')}
+                            className={b('highlight')}
                             key={index}
                         >
-                            {item.kicker && <div className={b('rhs-kicker')}>{item.kicker}</div>}
-                            <div className={`${b('rhs-title')} title-font-family`}>
+                            {item.kicker && <div>{item.kicker}</div>}
+                            <div className={`${b('highlight-title')} title-font-family`}>
                                 {item.title}
                             </div>
-                            {item.subtitle && (
-                                <div className={b('rhs-subtitle')}>{item.subtitle}</div>
-                            )}
+                            {item.subtitle && <div>{item.subtitle}</div>}
                         </div>
                     ))}
             </div>

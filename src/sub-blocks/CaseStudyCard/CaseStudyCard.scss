@@ -18,7 +18,7 @@ $block: '.#{$ns}case-study-card';
         padding: $indentL $indentXL $indentXL;
     }
 
-    &__lhs {
+    &__info {
         display: flex;
         flex-direction: column;
     }
@@ -28,12 +28,7 @@ $block: '.#{$ns}case-study-card';
         margin-top: $indentSM;
     }
 
-    &__lower-stamp-list {
-        display: flex;
-        gap: $indentXXXS;
-    }
-
-    &__lhs-lower {
+    &__content {
         display: flex;
         flex-flow: column-reverse wrap;
         justify-content: space-between;
@@ -46,13 +41,19 @@ $block: '.#{$ns}case-study-card';
         }
     }
 
-    &__rhs {
+    &__tags {
+        @include reset-list-style;
+        display: flex;
+        gap: $indentXXXS;
+    }
+
+    &__highlights {
         display: flex;
         flex-direction: column;
         gap: $indentXXS;
     }
 
-    &__rhs-card {
+    &__highlight {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -105,7 +106,7 @@ $block: '.#{$ns}case-study-card';
         }
     }
 
-    &__rhs-title {
+    &__highlight-title {
         @include heading1();
 
         @media (min-width: map-get($gridBreakpoints, 'lg')) {
