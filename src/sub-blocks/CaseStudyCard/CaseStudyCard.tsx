@@ -22,7 +22,7 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                         {labels &&
                             labels.map((label, index) => (
                                 <li key={index}>
-                                    <Tag {...label} />
+                                    <Tag {...label} withoutMarginBottom />
                                 </li>
                             ))}
                     </ul>
