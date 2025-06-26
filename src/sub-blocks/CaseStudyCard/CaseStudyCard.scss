@@ -101,7 +101,7 @@ $block: '.#{$ns}case-study-card';
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             margin: 0;
             height: 192px;
-            border-radius: $indentM;
+            border-radius: $indentSM;
             padding: $indentM;
         }
     }
