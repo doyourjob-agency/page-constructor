@@ -4,13 +4,13 @@
 $block: '.#{$ns}case-study-card';
 
 #{$block} {
+    @include text-body-2();
     background: rgba(240, 248, 255, 1);
     display: grid;
     padding: $indentM;
     gap: $indentM;
     grid-template-columns: 1fr;
     border-radius: $borderRadius;
-    @include text-body-2();
 
     @media (min-width: map-get($gridBreakpoints, 'md')) {
         gap: $indentL;
@@ -24,8 +24,8 @@ $block: '.#{$ns}case-study-card';
     }
 
     &__title {
-        margin-top: $indentSM;
         @include heading1();
+        margin-top: $indentSM;
     }
 
     &__lower-stamp-list {

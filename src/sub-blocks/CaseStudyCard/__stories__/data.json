@@ -19,7 +19,20 @@
           "subtitle": "of the model"
         }
       ],
-      "labels": ["H100", "Inference", "Stable diffusion"]
+      "labels": [
+        {
+          "text": "H100",
+          "backgroundColor": "rgb(205, 240, 253)"
+        },
+        {
+          "text": "Inference",
+          "backgroundColor": "rgb(205, 240, 253)"
+        },
+        {
+          "text": "Stable diffusion",
+          "backgroundColor": "rgb(205, 240, 253)"
+        }
+      ]
     }
   }
 }

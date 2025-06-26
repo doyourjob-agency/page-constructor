@@ -297,12 +297,14 @@ export interface CaseStudyCardProps {
     title: string;
     image: string;
     text: string;
+    background?: string;
     highlights: {
         kicker?: string;
         title: string;
         subtitle?: string;
+        background?: string;
     }[];
-    labels: string[];
+    labels: TagProps[];
 }
 
 export interface EventPersonCardProps {

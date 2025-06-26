@@ -9,38 +9,37 @@ import './CaseStudyCard.scss';
 const b = block('case-study-card');
 
 const CaseStudyCard = (props: CaseStudyCardProps) => {
-    const {image, title, text, highlights, labels} = props;
+    const {image, title, background, text, highlights, labels} = props;
 
     return (
-        <div className={b()}>
+        <div className={b()} style={{background: background}}>
             <div className={b('lhs')}>
                 <Image className={b('icon')} src={image} alt="" aria-hidden="true" />
-                <h1 className={b('title')}>{title}</h1>
+                <div className={`${b('title')} title-font-family`}>{title}</div>
                 <div className={b('lhs-lower')}>
-                    <div className={b('main-info')}>
-                        <HTML>{text}</HTML>
-                    </div>
+                    <HTML block className={b('main-info')}>
+                        {text}
+                    </HTML>
                     <div className={b('lower-stamp-list')}>
-                        {labels &&
-                            labels.map((text) => (
-                                <Tag
-                                    key={text}
-                                    text={text}
-                                    textColor="black"
-                                    backgroundColor="rgb(205, 240, 253)"
-                                    withoutMarginBottom
-                                />
-                            ))}
+                        {labels && labels.map((label, index) => <Tag key={index} {...label} />)}
                     </div>
                 </div>
             </div>
             <div className={b('rhs')}>
                 {highlights &&
-                    highlights.map(({kicker, title, subtitle}) => (
-                        <div className={b('rhs-card')} key={title}>
-                            {kicker && <div className={b('rhs-kicker')}>{kicker}</div>}
-                            <h1 className={b('rhs-title')}>{title}</h1>
-                            {subtitle && <div className={b('rhs-subtitle')}>{subtitle}</div>}
+                    highlights.map((item, index) => (
+                        <div
+                            style={{background: item.background}}
+                            className={b('rhs-card')}
+                            key={index}
+                        >
+                            {item.kicker && <div className={b('rhs-kicker')}>{item.kicker}</div>}
+                            <div className={`${b('rhs-title')} title-font-family`}>
+                                {item.title}
+                            </div>
+                            {item.subtitle && (
+                                <div className={b('rhs-subtitle')}>{item.subtitle}</div>
+                            )}
                         </div>
                     ))}
             </div>

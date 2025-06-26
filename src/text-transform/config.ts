@@ -436,6 +436,12 @@ export const config: BlocksConfig = {
             parser: createItemsParser(['text']),
         },
     ],
+    [SubBlockType.CaseStudyCard]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.FormBlock]: [
         {
             fields: ['textContent', 'textFormContent'],

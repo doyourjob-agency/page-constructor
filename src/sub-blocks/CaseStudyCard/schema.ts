@@ -1,9 +1,9 @@
-import {BaseProps} from '../../schema/validators/common';
+import {BaseProps, Tag} from '../../schema/validators/common';
 
 export const CaseStudyCard = {
     'case-study-card': {
         additionalProperties: false,
-        required: [],
+        required: ['title', 'image', 'text', 'highlights', 'labels'],
         properties: {
             ...BaseProps,
             title: {
@@ -13,6 +13,9 @@ export const CaseStudyCard = {
                 type: 'string',
             },
             text: {
+                type: 'string',
+            },
+            background: {
                 type: 'string',
             },
             highlights: {
@@ -29,15 +32,16 @@ export const CaseStudyCard = {
                         subtitle: {
                             type: 'string',
                         },
+                        background: {
+                            type: 'string',
+                        },
                     },
                     required: ['text'],
                 },
             },
             labels: {
                 type: 'array',
-                items: {
-                    type: 'string',
-                },
+                items: Tag,
             },
         },
     },
