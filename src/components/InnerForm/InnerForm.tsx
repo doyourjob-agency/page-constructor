@@ -13,12 +13,12 @@ import {getThemedValue} from '../../utils';
 
 interface InnerFormProps {
     formData: FormBlockData;
-    onContentLoad: () => void;
+    onContentLoad?: () => void;
     className?: string;
 }
 
 const InnerForm: React.FC<InnerFormProps> = (props) => {
-    const {formData, onContentLoad, className} = props;
+    const {formData, onContentLoad = () => {}, className} = props;
     const formsConfig = useContext(FormsContext);
     const theme = useTheme();
 

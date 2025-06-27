@@ -8,6 +8,7 @@ import {
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
+    FormWallBlock,
     HeaderBlock,
     HeaderSliderBlock,
     HighlightTableBlock,
@@ -89,6 +90,7 @@ export const blockMap = {
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,
+    [BlockType.FormWallBlock]: FormWallBlock,
     // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,
 };

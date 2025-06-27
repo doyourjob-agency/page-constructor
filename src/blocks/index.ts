@@ -21,6 +21,7 @@ export {default as MarqueeLinksBlock} from './MarqueeLinks/MarqueeLinks';
 export {default as SolutionsBlock} from './Solutions/Solutions';
 export {default as ServicesBlock} from './Services/Services';
 export {default as QuotesBlock} from './Quotes/Quotes';
+export {default as FormWallBlock} from './FormWallBlock/FormWallBlock';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as EventsFeedBlock} from './EventsFeed/EventsFeed';
 export {default as BlogFeedBlock} from './BlogFeed/BlogFeed';
