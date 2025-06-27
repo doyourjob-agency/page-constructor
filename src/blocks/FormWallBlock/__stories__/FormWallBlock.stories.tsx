@@ -6,7 +6,7 @@ import {v4 as uuidv4} from 'uuid';
 import {argFormListContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {FormWallBlockModel, FormWallBlockProps} from '../../../models';
-import FormWallBlock from '../FormWallBlock';
+import FormWallBlock, {FORM_SHOW_FLAG} from '../FormWallBlock';
 
 import data from './data.json';
 
@@ -25,17 +25,24 @@ function __getFormData(
     return {hubspot: {...formData.hubspot, formInstanceId: id}} as FormWallBlockModel['formData'];
 }
 
+function clearStorage() {
+    window.localStorage.removeItem(FORM_SHOW_FLAG);
+}
+
 const DefaultTemplate: StoryFn<FormWallBlockModel> = (args) => (
-    <PageConstructor
-        content={{
-            blocks: [
-                {
-                    ...args,
-                    formData: __getFormData(args.formData),
-                },
-            ],
-        }}
-    />
+    <React.Fragment>
+        <PageConstructor
+            content={{
+                blocks: [
+                    {
+                        ...args,
+                        formData: __getFormData(args.formData),
+                    },
+                ],
+            }}
+        />
+        <button onClick={clearStorage}>Clear local storage</button>
+    </React.Fragment>
 );
 
 export const Default = DefaultTemplate.bind({});
