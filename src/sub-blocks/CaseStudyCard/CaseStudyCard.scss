@@ -44,6 +44,7 @@ $block: '.#{$ns}case-study-card';
     &__tags {
         @include reset-list-style;
         display: flex;
+        flex-wrap: wrap;
         gap: $indentXXXS;
     }
 
