@@ -4,7 +4,7 @@
 $block: '.#{$ns}header-stock-price';
 
 #{$block} {
-    border-radius: $indentSM;
+    border-radius: $borderRadius;
     padding: $indentM;
     max-width: 350px;
     width: 100%;

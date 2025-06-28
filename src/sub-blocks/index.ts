@@ -16,3 +16,4 @@ export {default as PostCard} from './PostCard/PostCard';
 export {default as FeedCard} from './FeedCard/FeedCard';
 export {default as EventPersonCard} from './EventPersonCard/EventPersonCard';
 export {default as AttachmentCard} from './AttachmentCard/AttachmentCard';
+export {default as CaseStudyCard} from './CaseStudyCard/CaseStudyCard';

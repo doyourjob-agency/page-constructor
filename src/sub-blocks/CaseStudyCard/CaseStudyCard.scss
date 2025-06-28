@@ -1,0 +1,117 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}case-study-card';
+
+#{$block} {
+    @include text-body-2();
+    background: rgba(240, 248, 255, 1);
+    display: grid;
+    padding: $indentM;
+    gap: $indentM;
+    grid-template-columns: 1fr;
+    border-radius: $borderRadius;
+
+    @media (min-width: map-get($gridBreakpoints, 'md')) {
+        gap: $indentL;
+        grid-template-columns: 1fr 1fr;
+        padding: $indentL $indentXL $indentXL;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        @include heading1();
+        margin-top: $indentSM;
+    }
+
+    &__content {
+        display: flex;
+        flex-flow: column-reverse wrap;
+        justify-content: space-between;
+        gap: $indentXS;
+        flex: 1;
+        margin-top: $indentXS;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            flex-direction: column;
+        }
+    }
+
+    &__tags {
+        @include reset-list-style;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
+    }
+
+    &__highlights {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXXS;
+    }
+
+    &__highlight {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        border-radius: $borderRadiusXS;
+        padding: $indentXS $indentS;
+        margin: 0 (-$indentXXS);
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            margin: 0;
+            min-height: 192px;
+            border-radius: $borderRadius;
+            padding: $indentM;
+        }
+
+        &:nth-child(1) {
+            background: linear-gradient(
+                    344.08deg,
+                    #e8ff7e -151.68%,
+                    #aff7ea -69%,
+                    #a5e8ee -6.64%,
+                    #b0e3ff 40.29%,
+                    #c5caff 123.69%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+        }
+
+        &:nth-child(2) {
+            background: linear-gradient(
+                    23.93deg,
+                    #e8ff7e -226.75%,
+                    #aff7ea -79.18%,
+                    #a5e8ee 32.11%,
+                    #b0e3ff 115.87%,
+                    #c5caff 264.73%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+        }
+
+        &:nth-child(3) {
+            background: linear-gradient(
+                    24.21deg,
+                    #e8ff7e -192.23%,
+                    #aff7ea 70.77%,
+                    #a5e8ee 269.11%,
+                    #b0e3ff 418.39%,
+                    #c5caff 683.71%
+                ),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+        }
+    }
+
+    &__highlight-title {
+        @include heading1();
+
+        @media (min-width: map-get($gridBreakpoints, 'lg')) {
+            @include heading0();
+        }
+    }
+}
