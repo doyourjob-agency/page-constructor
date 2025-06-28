@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 
 import {Modal} from '@gravity-ui/uikit';
 
@@ -11,7 +11,7 @@ import {block, getThemedValue} from '../../utils';
 
 import './FormWallBlock.scss';
 
-export const FORM_SHOW_FLAG = 'FORM_SHOW_FLAG';
+export const FORM_WALL_BLOCK_STORAGE_KEY = 'FORM_WALL_BLOCK_STORAGE_KEY';
 
 const b = block('form-wall-block');
 
@@ -26,43 +26,55 @@ const FormWallBlock = (props: FormWallBlockProps) => {
     );
     const theme = useTheme();
 
-    function onSubmit() {
+    const localStorageKey = useMemo(
+        () => String(slug || formData?.hubspot?.formId || window.location.pathname),
+        [slug, formData],
+    );
+
+    const handleSubmit = useCallback(() => {
         setShowForm(false);
-        window.localStorage.setItem(FORM_SHOW_FLAG, 'true');
-    }
+        try {
+            const storageData = JSON.parse(
+                window.localStorage.getItem(FORM_WALL_BLOCK_STORAGE_KEY) || '{}',
+            );
+            storageData[localStorageKey] = true;
+            window.localStorage.setItem(FORM_WALL_BLOCK_STORAGE_KEY, JSON.stringify(storageData));
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.log(e);
+        }
+    }, [localStorageKey]);
 
     const data = useMemo(() => {
-        if (form) {
-            return {
-                ...form,
-                onSubmit: onSubmit,
-            };
-        }
-        return formData.hubspot;
-    }, [form, formData]);
+        return form ? form : formData.hubspot;
+    }, [form, formData.hubspot]);
 
     useEffect(() => {
-        if (!window.localStorage.getItem(FORM_SHOW_FLAG)) {
-            setShowForm(true);
+        try {
+            const storageData = JSON.parse(
+                window.localStorage.getItem(FORM_WALL_BLOCK_STORAGE_KEY) || '{}',
+            );
+            if (!storageData[localStorageKey]) {
+                setShowForm(true);
+            }
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.log(e);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const themedFormData = getThemedValue(data, theme);
 
     return (
         <Modal open={showForm}>
-            <div
-                className={b()}
-                style={{
-                    display: showForm ? 'flex' : 'none',
-                }}
-            >
+            <div className={b()}>
                 <div className={b('form-container')}>
                     <HubspotForm
                         createDOMElement={true}
                         {...formsConfig.hubspot}
                         {...themedFormData}
-                        onSubmit={onSubmit}
+                        onSubmit={handleSubmit}
                     />
                 </div>
             </div>

@@ -4,9 +4,11 @@ import {HubspotFormProps} from '../../sub-blocks/HubspotForm/schema';
 export const FormWallBlock = {
     'form-wall-block': {
         additionalProperties: false,
-        required: ['title', 'image', 'text', 'highlights', 'labels'],
         properties: {
             ...BaseProps,
+            slug: {
+                type: 'string',
+            },
             formData: {
                 type: 'object',
                 optionName: 'hubspot',

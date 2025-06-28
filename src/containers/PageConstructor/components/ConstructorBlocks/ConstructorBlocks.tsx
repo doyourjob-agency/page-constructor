@@ -94,6 +94,10 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     item.blockBackground) as BlockBaseProps['blockBackground'],
             );
 
+            if (item.type === BlockType.FormWallBlock) {
+                return <React.Fragment key={blockId}>{itemElement}</React.Fragment>;
+            }
+
             return (
                 <Grid
                     key={blockId}

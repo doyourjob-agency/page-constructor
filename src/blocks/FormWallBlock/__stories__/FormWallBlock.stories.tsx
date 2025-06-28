@@ -1,12 +1,13 @@
 import React from 'react';
 
+import {Button} from '@gravity-ui/uikit';
 import {Meta, StoryFn} from '@storybook/react';
 import {v4 as uuidv4} from 'uuid';
 
 import {argFormListContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {FormWallBlockModel, FormWallBlockProps} from '../../../models';
-import FormWallBlock, {FORM_SHOW_FLAG} from '../FormWallBlock';
+import FormWallBlock, {FORM_WALL_BLOCK_STORAGE_KEY} from '../FormWallBlock';
 
 import data from './data.json';
 
@@ -26,7 +27,8 @@ function __getFormData(
 }
 
 function clearStorage() {
-    window.localStorage.removeItem(FORM_SHOW_FLAG);
+    window.localStorage.removeItem(FORM_WALL_BLOCK_STORAGE_KEY);
+    window.location.reload();
 }
 
 const DefaultTemplate: StoryFn<FormWallBlockModel> = (args) => (
@@ -41,7 +43,7 @@ const DefaultTemplate: StoryFn<FormWallBlockModel> = (args) => (
                 ],
             }}
         />
-        <button onClick={clearStorage}>Clear local storage</button>
+        <Button onClick={clearStorage}>Clear local storage</Button>
     </React.Fragment>
 );
 
