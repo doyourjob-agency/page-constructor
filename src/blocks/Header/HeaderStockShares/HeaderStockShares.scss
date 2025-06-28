@@ -4,7 +4,7 @@
 $block: '.#{$ns}header-stock-shares';
 
 #{$block} {
-    border-radius: $indentSM;
+    border-radius: $borderRadius;
     padding: $indentM;
     max-width: 505px;
     width: 100%;
@@ -56,7 +56,7 @@ $block: '.#{$ns}header-stock-shares';
         margin-top: $indentXS;
         margin-bottom: $indentXS;
         padding: $indentSM;
-        border-radius: $indentXS;
+        border-radius: $borderRadiusXS;
         background-color: var(--g-color-private-blue-100);
     }
 

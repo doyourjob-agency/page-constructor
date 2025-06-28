@@ -31,7 +31,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     &__wrap-image {
         width: 192px;
         height: 192px;
-        border-radius: $indentS;
+        border-radius: $borderRadiusS;
         overflow: hidden;
     }
 
