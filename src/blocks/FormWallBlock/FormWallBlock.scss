@@ -1,0 +1,15 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}form-wall-block';
+
+#{$block} {
+    backdrop-filter: blur(5px);
+
+    &__container {
+        background-color: var(--g-color-base-background);
+        border-radius: $borderRadius;
+        padding: $indentM;
+        height: 100%;
+    }
+}

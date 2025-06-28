@@ -66,6 +66,7 @@ export enum BlockType {
     SolutionsBlock = 'solutions-block',
     ServicesBlock = 'services-block',
     QuotesBlock = 'quotes-block',
+    FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
     BlogFeedBlock = 'blog-feed-block',
@@ -374,6 +375,11 @@ export interface TableBlockProps {
     description?: string;
     links?: LinkProps[];
     buttons?: ButtonProps[];
+}
+
+export interface FormWallBlockProps {
+    formData: FormBlockHubspotData;
+    slug?: string;
 }
 
 export interface HighlightTableData {
@@ -732,6 +738,10 @@ export type PressReleasesBlockModel = {
     type: BlockType.PressReleasesBlock;
 } & PressReleasesBlockProps;
 
+export type FormWallBlockModel = {
+    type: BlockType.FormWallBlock;
+} & FormWallBlockProps;
+
 // unstable block models
 export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
@@ -766,7 +776,8 @@ type BlockModels =
     | EventsFeedBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel
-    | PressReleasesBlockModel;
+    | PressReleasesBlockModel
+    | FormWallBlockModel;
 
 type UnstableBlockModels = SliderNewBlockModel;
 

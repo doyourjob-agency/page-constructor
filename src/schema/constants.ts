@@ -11,6 +11,7 @@ import {
     ExtendedFeaturesBlock,
     FilterBlock,
     FormBlock,
+    FormWallBlock,
     HeaderBlock,
     HeaderSliderBlock,
     HighlightTableBlock,
@@ -83,6 +84,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...BlogFeedBlock,
     ...RelevantPostsBlock,
     ...PressReleasesBlock,
+    ...FormWallBlock,
 };
 
 export const cardSchemas = {
@@ -118,6 +120,7 @@ export const constructorBlockSchemaNames = [
     'media-block',
     'map-block',
     'info-block',
+    'form-wall-block',
     'table-block',
     'tabs-block',
     'marquee-links-block',
