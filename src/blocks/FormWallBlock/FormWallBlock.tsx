@@ -67,16 +67,19 @@ const FormWallBlock = (props: FormWallBlockProps) => {
     const themedFormData = getThemedValue(data, theme);
 
     return (
-        <Modal open={showForm}>
-            <div className={b()}>
-                <div className={b('form-container')}>
-                    <HubspotForm
-                        createDOMElement={true}
-                        {...formsConfig.hubspot}
-                        {...themedFormData}
-                        onSubmit={handleSubmit}
-                    />
-                </div>
+        <Modal
+            open={showForm}
+            className={b()}
+            disableEscapeKeyDown={true}
+            disableOutsideClick={true}
+        >
+            <div className={b('container')}>
+                <HubspotForm
+                    createDOMElement={true}
+                    {...formsConfig.hubspot}
+                    {...themedFormData}
+                    onSubmit={handleSubmit}
+                />
             </div>
         </Modal>
     );
