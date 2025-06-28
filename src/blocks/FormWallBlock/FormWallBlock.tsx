@@ -46,8 +46,9 @@ const FormWallBlock = (props: FormWallBlockProps) => {
     }, [localStorageKey]);
 
     const data = useMemo(() => {
-        return form ? form : formData.hubspot;
-    }, [form, formData.hubspot]);
+        if (form) return {hubspot: form};
+        return formData;
+    }, [form, formData]);
 
     useEffect(() => {
         try {
