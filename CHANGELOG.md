@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.31.58](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.56...v5.31.58) (2025-06-28)
+* add **CaseStudyCard** sub-block
+
 ## [5.31.56](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.55...v5.31.56) (2025-06-25)
 * **HighlightTable:** Add legendPosition & legendAlign
 
