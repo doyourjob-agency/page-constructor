@@ -11,7 +11,13 @@ import {withMobile} from './decorators/withMobile';
 import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
-import {HeaderStockContext, HeaderStockContextProps, Theme} from '../src';
+import {
+    HeaderStockContext,
+    HeaderStockContextProps,
+    ReportsContext,
+    ReportsContextProps,
+    Theme,
+} from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
 import {ServicesContext, ServicesContextProps} from '../src/context/servicesContext';
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
@@ -85,6 +91,7 @@ const withContextProvider: Decorator = (Story, context) => {
         <RelevantPostsContext.Provider
             value={context.args.relevantPostsContext as RelevantPostsContextProps}
         />,
+        <ReportsContext.Provider value={context.args.reportsContext as ReportsContextProps} />,
     ].reduceRight(
         (prev, provider) => React.cloneElement(provider, {}, prev),
         <Story {...context} />,

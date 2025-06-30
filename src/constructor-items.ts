@@ -23,6 +23,7 @@ import {
     QuestionsBlock,
     QuotesBlock,
     RelevantPostsBlock,
+    ReportsBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -91,6 +92,7 @@ export const blockMap = {
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,
+    [BlockType.ReportsBlock]: ReportsBlock,
     [BlockType.FormWallBlock]: FormWallBlock,
     // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,

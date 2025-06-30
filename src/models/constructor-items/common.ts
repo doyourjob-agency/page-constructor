@@ -502,3 +502,22 @@ export interface TagProps {
     backgroundColor: string;
     textColor: string;
 }
+
+export interface ReportFileType {
+    name: string;
+    link: string;
+}
+
+export interface ReportFileProps extends ReportFileType {
+    outline?: boolean;
+}
+
+interface SelectOption {
+    text: string;
+    value: string;
+}
+
+export interface SelectProps {
+    name: string;
+    options: SelectOption[];
+}

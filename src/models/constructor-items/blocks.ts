@@ -29,6 +29,7 @@ import {
     MediaDirection,
     MediaProps,
     MediaView,
+    ReportFileType,
     TextSize,
     TextTheme,
     Themable,
@@ -66,6 +67,7 @@ export enum BlockType {
     SolutionsBlock = 'solutions-block',
     ServicesBlock = 'services-block',
     QuotesBlock = 'quotes-block',
+    ReportsBlock = 'reports-block',
     FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
@@ -477,6 +479,22 @@ export interface QuotesBlockProps extends Themable {
     backgroundColor?: string;
 }
 
+export interface ReportsItem {
+    title?: string;
+    date?: string;
+    text?: string;
+    files?: ReportFileType[];
+}
+
+export interface ReportsItemProps extends ReportsItem {
+    filesOutline?: boolean;
+}
+
+export interface ReportsBlockProps {
+    typeKey: string;
+    empty?: string;
+}
+
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
@@ -714,6 +732,10 @@ export type QuotesBlockModel = {
     type: BlockType.QuotesBlock;
 } & QuotesBlockProps;
 
+export type ReportsBlockModel = {
+    type: BlockType.ReportsBlock;
+} & ReportsBlockProps;
+
 export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
@@ -772,6 +794,7 @@ type BlockModels =
     | SolutionsBlockModel
     | ServicesBlockModel
     | QuotesBlockModel
+    | ReportsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
     | BlogFeedBlockModel

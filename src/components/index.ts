@@ -41,6 +41,8 @@ export {default as YFMWrapper} from './YFMWrapper/YFMWrapper';
 export {default as YandexForm} from './YandexForm/YandexForm';
 export {default as InfiniteScroll} from './InfiniteScroll/InfiniteScroll';
 export {default as Tag} from './Tag/Tag';
+export {default as ReportFile} from './ReportFile/ReportFile';
+export {default as Select} from './Select/Select';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

@@ -1,4 +1,11 @@
 # Changelog
+ReportsBlock
+## [5.31.62](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.59...v5.31.62) (2025-06-30)
+
+### Features
+
+* **Reports:** add block
+
 
 ## [5.31.59](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.58...v5.31.59) (2025-06-28)
 * add **FormWallBlock** block

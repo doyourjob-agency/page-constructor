@@ -22,6 +22,7 @@ export * from '../../blocks/MarqueeLinks/schema';
 export * from '../../blocks/Solutions/schema';
 export * from '../../blocks/Services/schema';
 export * from '../../blocks/Quotes/schema';
+export * from '../../blocks/Reports/schema';
 export * from '../../blocks/LinkTable/schema';
 export * from '../../blocks/EventsFeed/schema';
 export * from '../../blocks/BlogFeed/schema';

@@ -1,0 +1,57 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}reports-item';
+
+#{$block} {
+    padding: $indentSM $indentM;
+    border-radius: $indentSM;
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &__wrap {
+        flex: 1;
+    }
+
+    &__title {
+        @include text-size(body-2);
+    }
+
+    &__info {
+        @include text-size(body-1);
+
+        display: flex;
+        align-items: center;
+        gap: $indentXXXS;
+        color: var(--g-color-private-cool-grey-600-solid);
+        margin-top: $indentXXXS;
+    }
+
+    &__dot {
+        background-color: var(--g-color-private-cool-grey-400);
+        border-radius: 100%;
+        width: 5px;
+        height: 5px;
+    }
+
+    &__files {
+        display: flex;
+        gap: $indentXXXS;
+        flex-wrap: wrap;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        padding: $indentSM;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__files {
+            margin-top: $indentSM;
+        }
+    }
+}

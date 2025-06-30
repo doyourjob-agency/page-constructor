@@ -1,0 +1,9 @@
+{
+  "default": {
+    "content": {
+      "type": "reports-block",
+      "typeKey": "test",
+      "empty": "There are no SEC filings available"
+    }
+  }
+}

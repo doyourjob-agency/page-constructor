@@ -1,0 +1,64 @@
+{
+  "test": {
+    "selects": [
+      {
+        "name": "filing",
+        "init": "all",
+        "options": [
+          {"value": "all", "text": "All filing types"},
+          {"value": "345", "text": "3,4,5"},
+          {"value": "registration", "text": "Registration Statements"},
+          {"value": "proxy", "text": "Proxy Filings"},
+          {"value": "current", "text": "Current Reports"},
+          {"value": "quarterly", "text": "Quarterly Filings"},
+          {"value": "annual", "text": "Annual reports"},
+          {"value": "ma", "text": "M&amp;A"},
+          {"value": "other", "text": "Other"}
+        ]
+      }
+    ],
+    "filesOutline": true,
+    "items": [
+      {
+        "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+        "date": "June 5, 2025",
+        "text": "Filing: 6-K",
+        "files": [
+          {
+            "name": "html",
+            "link": "https://example1.com"
+          },
+          {
+            "name": "pdf",
+            "link": "https://example2.com"
+          }
+        ],
+        "filters": {
+          "filing": ["all", "registration"]
+        }
+      },
+      {
+        "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+        "date": "June 2, 2025",
+        "text": "Filing: 6-K",
+        "files": [
+          {
+            "name": "html",
+            "link": "https://example1.com"
+          },
+          {
+            "name": "pdf",
+            "link": "https://example2.com"
+          },
+          {
+            "name": "xls",
+            "link": "https://example3.com"
+          }
+        ],
+        "filters": {
+          "filing": ["all"]
+        }
+      }
+    ]
+  }
+}
