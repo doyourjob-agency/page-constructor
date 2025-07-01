@@ -96,7 +96,7 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
         const intervalHandle = setInterval(() => {
             setOpacity(0);
             setTimeout(() => {
-                setCurrentIndex((c) => (c + 1) % texts.reduce((acc, curr) => acc + curr.length, 0));
+                setCurrentIndex((c) => (c + 1) % texts.reduce((acc, curr) => acc * curr.length, 1));
                 setOpacity(1);
             }, 200);
         }, switchingTime);
