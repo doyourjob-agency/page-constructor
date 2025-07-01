@@ -92,6 +92,10 @@ $backgroundWidth: 1440px;
         a {
             @include link();
         }
+
+        &_pre-wrap {
+            white-space: pre-wrap;
+        }
     }
 
     &__description {

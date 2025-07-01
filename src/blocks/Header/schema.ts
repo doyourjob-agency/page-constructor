@@ -26,6 +26,21 @@ export const HeaderProperties = {
         type: 'string',
         contentType: 'text',
     },
+    switchingTitle: {
+        type: 'object',
+        additionalProperties: 'false',
+        required: ['text'],
+        properties: [
+            {
+                name: 'text',
+                type: 'string',
+            },
+            {
+                name: 'switchingTime',
+                type: 'number',
+            },
+        ],
+    },
     overtitle: {
         type: 'string',
         contentType: 'text',

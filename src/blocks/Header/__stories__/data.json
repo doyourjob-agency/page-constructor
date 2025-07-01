@@ -47,6 +47,15 @@
   "verticalOffset": {
     "title": "Vertical offset {{offset}}"
   },
+  "switchingTitle": {
+    "content": {
+      "type": "header-block",
+      "switchingTitle": {
+        "text": "Hello, [me]/[world]\nand something [1]/[2]/[3]/[4]/[5] [7]/[6]/[5]/[4]/[3]/[2]/[1].",
+        "switchingTime": 1500
+      }
+    }
+  },
   "default": {
     "content": {
       "type": "header-block",

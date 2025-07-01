@@ -17,6 +17,7 @@ import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
+import SwitchingTitle from './SwitchingTitle/SwitchingTtitle';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -71,6 +72,7 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
+        switchingTitle,
         topTags,
         bottomTags,
         overtitle,
@@ -155,13 +157,24 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 <HTML>{overtitle}</HTML>
                                             </div>
                                         )}
-                                        <h1 className={b('title')} id={titleId}>
+                                        <h1
+                                            className={b('title', {
+                                                'pre-wrap': Boolean(switchingTitle),
+                                            })}
+                                            id={titleId}
+                                        >
                                             <HeaderTag tag={blockTag} />
                                             {status}
-                                            {renderTitle ? (
-                                                renderTitle(title)
+                                            {switchingTitle ? (
+                                                <SwitchingTitle {...switchingTitle} />
                                             ) : (
-                                                <HTML>{title}</HTML>
+                                                <React.Fragment>
+                                                    {renderTitle ? (
+                                                        renderTitle(title)
+                                                    ) : (
+                                                        <HTML>{title}</HTML>
+                                                    )}
+                                                </React.Fragment>
                                             )}
                                         </h1>
                                         {description && (
