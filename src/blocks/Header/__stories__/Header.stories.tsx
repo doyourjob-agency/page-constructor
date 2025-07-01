@@ -203,6 +203,7 @@ const StockTemplate: StoryFn<HeaderBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const SwitchingTitle = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
 export const Image = ImageTemplate.bind({});
 export const VerticalOffset = VerticalOffsetTemplate.bind({});
@@ -215,6 +216,8 @@ export const MediaViewFit = FitTemplate.bind({});
 export const WithStock = StockTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
+
+SwitchingTitle.args = {...DefaultArgs, ...data.switchingTitle.content} as HeaderBlockProps;
 
 Size.args = {...DefaultArgs} as HeaderBlockPropsNoTitle;
 

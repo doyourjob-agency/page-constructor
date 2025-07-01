@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useContext} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -9,12 +9,7 @@ import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {
-    ClassNameProps,
-    HeaderBlockBackground,
-    HeaderBlockProps,
-    SwitchingTitleProps,
-} from '../../models';
+import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
@@ -22,6 +17,7 @@ import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
+import SwitchingTitle from './SwitchingTitle/SwitchingTtitle';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -71,59 +67,6 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
         style={{backgroundColor: background?.color}}
     />
 );
-
-const SwitchingTitle = (props: SwitchingTitleProps) => {
-    const {text, switchingTime} = props;
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [opacity, setOpacity] = useState(1);
-
-    const texts = useMemo(() => {
-        const deconstructText = (str: string): string[][] => {
-            if (str.length === 0) return [['']];
-            const fixedRegExp = new RegExp('\\[.*', 's');
-            const fixedPart = str.replace(fixedRegExp, '');
-            if (fixedPart === str) return [[fixedPart]];
-            const switchingPartRegExp = new RegExp('\\][^/].*', 's');
-            const switchingPart = str.slice(fixedPart.length + 1).replace(switchingPartRegExp, '');
-            const switchingPartArr = switchingPart.replace(/[[\]]/g, '').split('/');
-            const rest = str.slice(fixedPart.length + switchingPart.length + 2);
-            return [[fixedPart], switchingPartArr, ...deconstructText(rest)];
-        };
-        return deconstructText(text);
-    }, [text]);
-
-    useEffect(() => {
-        const intervalHandle = setInterval(() => {
-            setOpacity(0);
-            setTimeout(() => {
-                setCurrentIndex((c) => (c + 1) % texts.reduce((acc, curr) => acc * curr.length, 1));
-                setOpacity(1);
-            }, 200);
-        }, switchingTime);
-
-        return () => clearInterval(intervalHandle);
-    }, [texts, switchingTime]);
-
-    return (
-        <h1 className={`${b('title')} ${b('title--pre-wrap')}`}>
-            {texts.map((lines, index) => (
-                <span
-                    style={
-                        lines.length === 1
-                            ? {}
-                            : {
-                                  transition: 'opacity .2s',
-                                  opacity: opacity,
-                              }
-                    }
-                    key={index}
-                >
-                    {lines[currentIndex % lines.length]}
-                </span>
-            ))}
-        </h1>
-    );
-};
 
 // eslint-disable-next-line complexity
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
@@ -214,22 +157,26 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 <HTML>{overtitle}</HTML>
                                             </div>
                                         )}
-                                        {title && (
-                                            <h1
-                                                style={switchingTitle ? {display: 'none'} : {}}
-                                                className={b('title')}
-                                                id={titleId}
-                                            >
-                                                <HeaderTag tag={blockTag} />
-                                                {status}
-                                                {renderTitle ? (
-                                                    renderTitle(title)
-                                                ) : (
-                                                    <HTML>{title}</HTML>
-                                                )}
-                                            </h1>
-                                        )}
-                                        {switchingTitle && <SwitchingTitle {...switchingTitle} />}
+                                        <h1
+                                            className={b('title', {
+                                                'pre-wrap': Boolean(switchingTitle),
+                                            })}
+                                            id={titleId}
+                                        >
+                                            <HeaderTag tag={blockTag} />
+                                            {status}
+                                            {switchingTitle ? (
+                                                <SwitchingTitle {...switchingTitle} />
+                                            ) : (
+                                                <React.Fragment>
+                                                    {renderTitle ? (
+                                                        renderTitle(title)
+                                                    ) : (
+                                                        <HTML>{title}</HTML>
+                                                    )}
+                                                </React.Fragment>
+                                            )}
+                                        </h1>
                                         {description && (
                                             <div className={b('description', {theme: textTheme})}>
                                                 <YFMWrapper

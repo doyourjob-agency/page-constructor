@@ -93,7 +93,7 @@ $backgroundWidth: 1440px;
             @include link();
         }
 
-        &--pre-wrap {
+        &_pre-wrap {
             white-space: pre-wrap;
         }
     }
