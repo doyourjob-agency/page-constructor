@@ -22,6 +22,7 @@ export {default as SolutionsBlock} from './Solutions/Solutions';
 export {default as ServicesBlock} from './Services/Services';
 export {default as QuotesBlock} from './Quotes/Quotes';
 export {default as ReportsBlock} from './Reports/Reports';
+export {default as ReportsSectionsBlock} from './ReportsSections/ReportsSections';
 export {default as FormWallBlock} from './FormWallBlock/FormWallBlock';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as EventsFeedBlock} from './EventsFeed/EventsFeed';

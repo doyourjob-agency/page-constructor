@@ -1,0 +1,22 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}reports-sections-section';
+
+#{$block} {
+    padding: $indentM;
+    border-radius: $indentSM;
+    background-color: #fff;
+    box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
+
+    &__date {
+        @include text-size(body-3);
+        margin-bottom: $indentXS;
+    }
+
+    &__title {
+        @include heading2();
+
+        margin: 0;
+    }
+}

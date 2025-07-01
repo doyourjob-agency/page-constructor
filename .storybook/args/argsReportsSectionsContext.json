@@ -1,0 +1,157 @@
+{
+  "test": {
+    "selects": [
+      {
+        "name": "year",
+        "init": "all",
+        "options": [
+          {"value": "all", "text": "All yaers"},
+          {"value": "2025", "text": "2025"},
+          {"value": "2024", "text": "2024"},
+          {"value": "2023", "text": "2023"}
+        ]
+      },
+      {
+        "name": "meeting",
+        "init": "all",
+        "options": [
+          {"value": "all", "text": "All meeting types"},
+          {"value": "Annual General Meeting", "text": "Annual General Meeting"},
+          {"value": "Extraordinary General Meeting", "text": "Extraordinary General Meeting"}
+        ]
+      }
+    ],
+    "filesOutline": true,
+    "itemsPerPage": 1,
+    "sections": [
+      {
+        "title": "Annual General Meeting",
+        "date": "June 5, 2025",
+        "items": [
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          }
+        ],
+        "filters": {
+          "year": ["2025"],
+          "meeting": ["Annual General Meeting"]
+        }
+      },
+      {
+        "title": "Extraordinary General Meeting",
+        "date": "June 5, 2024",
+        "items": [
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          },
+          {
+            "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+            "files": [
+              {
+                "name": "pdf",
+                "link": "https://example2.com"
+              }
+            ]
+          }
+        ],
+        "filters": {
+          "year": ["2024"],
+          "meeting": ["Extraordinary General Meeting"]
+        }
+      }
+    ]
+  }
+}

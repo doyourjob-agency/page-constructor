@@ -14,6 +14,7 @@ export * from './context/headerContext';
 export * from './context/relevantPostsContext';
 export * from './context/headerStockContext';
 export * from './context/reportsContext';
+export * from './context/reportsSectionsContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

@@ -1,0 +1,26 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}reports-sections-item';
+
+#{$block} {
+    padding: $indentSM 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--g-color-private-black-100-solid);
+    gap: $indentM;
+
+    &__wrap {
+        flex: 1;
+    }
+
+    &__title {
+        @include text-size(body-2);
+    }
+
+    &__files {
+        display: flex;
+        gap: $indentXXXS;
+        flex-wrap: wrap;
+    }
+}

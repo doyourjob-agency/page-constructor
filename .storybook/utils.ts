@@ -12,6 +12,7 @@ import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
 import argsRelevantPostsContext from './args/argsRelevantPostsContext.json';
 import argsReportsContext from './args/argsReportsContext.json';
+import argsReportsSectionsContext from './args/argsReportsSectionsContext.json';
 import argsHeaderStockContext from './args/argsHeaderStockContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
@@ -209,5 +210,20 @@ export const argReportsContext = {
     },
     args: {
         reportsContext: argsReportsContext,
+    },
+};
+
+export const argReportsSectionsContext = {
+    argTypes: {
+        reportsSectionsContext: {
+            name: 'ReportsSectionsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        reportsSectionsContext: argsReportsSectionsContext,
     },
 };

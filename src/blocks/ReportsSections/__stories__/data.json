@@ -1,0 +1,10 @@
+{
+  "default": {
+    "content": {
+      "type": "reports-sections-block",
+      "title": "Shareholder meetings",
+      "typeKey": "test",
+      "empty": "No meetings found"
+    }
+  }
+}

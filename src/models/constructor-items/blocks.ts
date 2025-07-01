@@ -68,6 +68,7 @@ export enum BlockType {
     ServicesBlock = 'services-block',
     QuotesBlock = 'quotes-block',
     ReportsBlock = 'reports-block',
+    ReportsSectionsBlock = 'reports-sections-block',
     FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
@@ -502,6 +503,23 @@ export interface ReportsBlockProps {
     empty?: string;
 }
 
+export interface ReportsSectionsItem {
+    title?: string;
+    files?: ReportFileType[];
+}
+
+export interface ReportsSectionsSection {
+    title?: string;
+    date?: string;
+    items?: ReportsSectionsItem[];
+}
+
+export interface ReportsSectionsBlockProps {
+    title?: TitleItemBaseProps | string;
+    typeKey: string;
+    empty?: string;
+}
+
 export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
@@ -743,6 +761,10 @@ export type ReportsBlockModel = {
     type: BlockType.ReportsBlock;
 } & ReportsBlockProps;
 
+export type ReportsSectionsBlockModel = {
+    type: BlockType.ReportsSectionsBlock;
+} & ReportsSectionsBlockProps;
+
 export type LinkTableBlockModel = {
     type: BlockType.LinkTableBlock;
 } & LinkTableBlockProps;
@@ -802,6 +824,7 @@ type BlockModels =
     | ServicesBlockModel
     | QuotesBlockModel
     | ReportsBlockModel
+    | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
     | BlogFeedBlockModel

@@ -16,6 +16,8 @@ import {
     HeaderStockContextProps,
     ReportsContext,
     ReportsContextProps,
+    ReportsSectionsContext,
+    ReportsSectionsContextProps,
     Theme,
 } from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
@@ -92,6 +94,9 @@ const withContextProvider: Decorator = (Story, context) => {
             value={context.args.relevantPostsContext as RelevantPostsContextProps}
         />,
         <ReportsContext.Provider value={context.args.reportsContext as ReportsContextProps} />,
+        <ReportsSectionsContext.Provider
+            value={context.args.reportsSectionsContext as ReportsSectionsContextProps}
+        />,
     ].reduceRight(
         (prev, provider) => React.cloneElement(provider, {}, prev),
         <Story {...context} />,

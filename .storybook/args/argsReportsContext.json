@@ -5,8 +5,10 @@
         "name": "year",
         "init": "all",
         "options": [
-          {"value": "all", "text": "All filing types"},
-          {"value": "1", "text": "1"}
+          {"value": "all", "text": "All years"},
+          {"value": "2025", "text": "2025"},
+          {"value": "2024", "text": "2024"},
+          {"value": "2023", "text": "2023"}
         ]
       },
       {
@@ -44,12 +46,12 @@
         ],
         "filters": {
           "filing": ["registration"],
-          "year": ["1"]
+          "year": ["2025"]
         }
       },
       {
         "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
-        "date": "June 2, 2025",
+        "date": "June 2, 2023",
         "text": "Filing: 6-K",
         "files": [
           {
@@ -66,12 +68,13 @@
           }
         ],
         "filters": {
-          "filing": []
+          "filing": [],
+          "year": ["2023"]
         }
       },
       {
         "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
-        "date": "June 2, 2025",
+        "date": "June 2, 2024",
         "text": "Filing: 6-K",
         "files": [
           {
@@ -88,7 +91,8 @@
           }
         ],
         "filters": {
-          "filing": []
+          "filing": [],
+          "year": ["2024"]
         }
       },
       {
