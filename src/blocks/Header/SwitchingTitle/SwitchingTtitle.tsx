@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {SwitchingTitleProps} from '../../../models';
 import {block} from '../../../utils';
-import {partitionSwitchingTitleInput} from '../../../utils/partitionSwitchingTitleInput';
+import {partitionSwitchingTitleInput} from '../utils';
 
 import './SwitchingTitle.scss';
 
