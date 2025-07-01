@@ -37,12 +37,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
         const f = Object.entries(localFilters).filter(([_, value]) => value !== 'all');
         return f.length
             ? items.filter((item) =>
-                  f.reduce((acc, [key, value]) => {
-                      if (item.filters?.[key]?.includes(value)) {
-                          return true;
-                      }
-                      return acc;
-                  }, false),
+                  f.every(([key, value]) => item.filters?.[key]?.includes(value)),
               )
             : items;
     }, [items, localFilters]);
