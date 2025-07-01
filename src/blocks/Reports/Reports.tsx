@@ -33,20 +33,19 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
         [],
     );
 
-    const filteredItems = useMemo(
-        () =>
-            Object.keys(localFilters).length
-                ? items.filter((item) =>
-                      Object.entries(localFilters).reduce((acc, [key, value]) => {
-                          if (item.filters?.[key]?.includes(value)) {
-                              return true;
-                          }
-                          return acc;
-                      }, false),
-                  )
-                : items,
-        [items, localFilters],
-    );
+    const filteredItems = useMemo(() => {
+        const f = Object.entries(localFilters).filter(([_, value]) => value !== 'all');
+        return f.length
+            ? items.filter((item) =>
+                  f.reduce((acc, [key, value]) => {
+                      if (item.filters?.[key]?.includes(value)) {
+                          return true;
+                      }
+                      return acc;
+                  }, false),
+              )
+            : items;
+    }, [items, localFilters]);
 
     const paginatedItems = useMemo(() => {
         if (!itemsPerPage) return filteredItems;

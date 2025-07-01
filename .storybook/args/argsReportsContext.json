@@ -15,6 +15,21 @@
           {"value": "ma", "text": "M&amp;A"},
           {"value": "other", "text": "Other"}
         ]
+      },
+      {
+        "name": "filing",
+        "init": "all",
+        "options": [
+          {"value": "all", "text": "All filing types"},
+          {"value": "345", "text": "3,4,5"},
+          {"value": "registration", "text": "Registration Statements"},
+          {"value": "proxy", "text": "Proxy Filings"},
+          {"value": "current", "text": "Current Reports"},
+          {"value": "quarterly", "text": "Quarterly Filings"},
+          {"value": "annual", "text": "Annual reports"},
+          {"value": "ma", "text": "M&amp;A"},
+          {"value": "other", "text": "Other"}
+        ]
       }
     ],
     "filesOutline": true,

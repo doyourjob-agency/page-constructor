@@ -10,6 +10,9 @@ $block: '.#{$ns}reports-block';
 
     &__select {
         margin-bottom: $indentM;
+        gap: $indentXS;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__empty {
