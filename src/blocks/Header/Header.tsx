@@ -67,11 +67,6 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
-const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
-const lcm = (a: number, b: number): number => (a * b) / gcd(a, b);
-const lcmArray = (arr: number[]): number | number[] =>
-    arr.length == 1 ? arr[0] : lcmArray([...arr.slice(2), lcm(arr[0], arr[1])]);
-
 const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [opacity, setOpacity] = useState(1);
@@ -79,9 +74,11 @@ const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
     const texts = useMemo(() => {
         const deconstructText = (str: string): string[][] => {
             if (str.length == 0) return [['']];
-            const fixedPart = str.replace(/\[.*/, '');
+            const fixedRegExp = new RegExp('\\[.*', 's');
+            const fixedPart = str.replace(fixedRegExp, '');
             if (fixedPart == str) return [[fixedPart]];
-            const switchingPart = str.replace(/[^[]*\[/, '').replace(/\][^/].*/, '');
+            const switchingPartRegExp = new RegExp('\\][^/].*', 's');
+            const switchingPart = str.slice(fixedPart.length + 1).replace(switchingPartRegExp, '');
             const switchingPartArr = switchingPart.replace(/[[\]]/g, '').split('/');
             const rest = str.slice(fixedPart.length + switchingPart.length + 2);
             return [[fixedPart], switchingPartArr, ...deconstructText(rest)];
@@ -89,21 +86,17 @@ const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
         return deconstructText(switchingTitle) as string[][];
     }, []);
 
-    const lcmOfSizes = useMemo(() => {
-        return lcmArray(texts.map((a) => a.length)) as number;
-    }, [texts]);
-
     useEffect(() => {
         const intervalHandle = setInterval(() => {
             setOpacity(0);
             setTimeout(() => {
-                setCurrentIndex((c) => (c + 1) % lcmOfSizes);
+                setCurrentIndex((c) => (c + 1) % texts.reduce((acc, curr) => acc + curr.length, 0));
                 setOpacity(1);
             }, 200);
         }, 1000);
 
         return () => clearInterval(intervalHandle);
-    }, [lcmOfSizes]);
+    }, [texts]);
 
     return (
         <h1 className={`${b('title')} ${b('title--pre-wrap')}`}>
