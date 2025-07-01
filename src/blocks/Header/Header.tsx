@@ -9,7 +9,12 @@ import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {
+    ClassNameProps,
+    HeaderBlockBackground,
+    HeaderBlockProps,
+    SwitchingTitleProps,
+} from '../../models';
 import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
@@ -67,7 +72,8 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
-const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
+const SwitchingTitle = (props: SwitchingTitleProps) => {
+    const {text, switchingTime} = props;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [opacity, setOpacity] = useState(1);
 
@@ -83,7 +89,7 @@ const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
             const rest = str.slice(fixedPart.length + switchingPart.length + 2);
             return [[fixedPart], switchingPartArr, ...deconstructText(rest)];
         };
-        return deconstructText(switchingTitle) as string[][];
+        return deconstructText(text);
     }, []);
 
     useEffect(() => {
@@ -93,10 +99,10 @@ const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
                 setCurrentIndex((c) => (c + 1) % texts.reduce((acc, curr) => acc + curr.length, 0));
                 setOpacity(1);
             }, 200);
-        }, 1000);
+        }, switchingTime);
 
         return () => clearInterval(intervalHandle);
-    }, [texts]);
+    }, [texts, switchingTime]);
 
     return (
         <h1 className={`${b('title')} ${b('title--pre-wrap')}`}>
@@ -223,9 +229,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 )}
                                             </h1>
                                         )}
-                                        {switchingTitle && (
-                                            <SwitchingTitle switchingTitle={switchingTitle} />
-                                        )}
+                                        {switchingTitle && <SwitchingTitle {...switchingTitle} />}
                                         {description && (
                                             <div className={b('description', {theme: textTheme})}>
                                                 <YFMWrapper
