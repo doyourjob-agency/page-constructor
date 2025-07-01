@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -67,10 +67,70 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
     />
 );
 
+const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+const lcm = (a: number, b: number): number => (a * b) / gcd(a, b);
+const lcmArray = (arr: number[]): number | number[] =>
+    arr.length == 1 ? arr[0] : lcmArray([...arr.slice(2), lcm(arr[0], arr[1])]);
+
+const SwitchingTitle = ({switchingTitle}: {switchingTitle: string}) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [opacity, setOpacity] = useState(1);
+
+    const texts = useMemo(() => {
+        const deconstructText = (str: string): string[][] => {
+            if (str.length == 0) return [['']];
+            const fixedPart = str.replace(/\[.*/, '');
+            if (fixedPart == str) return [[fixedPart]];
+            const switchingPart = str.replace(/[^[]*\[/, '').replace(/\][^/].*/, '');
+            const switchingPartArr = switchingPart.replace(/[[\]]/g, '').split('/');
+            const rest = str.slice(fixedPart.length + switchingPart.length + 2);
+            return [[fixedPart], switchingPartArr, ...deconstructText(rest)];
+        };
+        return deconstructText(switchingTitle) as string[][];
+    }, []);
+
+    const lcmOfSizes = useMemo(() => {
+        return lcmArray(texts.map((a) => a.length)) as number;
+    }, [texts]);
+
+    useEffect(() => {
+        const intervalHandle = setInterval(() => {
+            setOpacity(0);
+            setTimeout(() => {
+                setCurrentIndex((c) => (c + 1) % lcmOfSizes);
+                setOpacity(1);
+            }, 200);
+        }, 1000);
+
+        return () => clearInterval(intervalHandle);
+    }, [lcmOfSizes]);
+
+    return (
+        <h1 className={`${b('title')} ${b('title--pre-wrap')}`}>
+            {texts.map((text, index) => (
+                <span
+                    style={
+                        text.length !== 1
+                            ? {
+                                  transition: 'opacity .2s',
+                                  opacity: opacity,
+                              }
+                            : {}
+                    }
+                    key={index}
+                >
+                    {text[currentIndex % text.length]}
+                </span>
+            ))}
+        </h1>
+    );
+};
+
 // eslint-disable-next-line complexity
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
+        switchingTitle,
         topTags,
         bottomTags,
         overtitle,
@@ -155,15 +215,24 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 <HTML>{overtitle}</HTML>
                                             </div>
                                         )}
-                                        <h1 className={b('title')} id={titleId}>
-                                            <HeaderTag tag={blockTag} />
-                                            {status}
-                                            {renderTitle ? (
-                                                renderTitle(title)
-                                            ) : (
-                                                <HTML>{title}</HTML>
-                                            )}
-                                        </h1>
+                                        {title && (
+                                            <h1
+                                                style={switchingTitle ? {display: 'none'} : {}}
+                                                className={b('title')}
+                                                id={titleId}
+                                            >
+                                                <HeaderTag tag={blockTag} />
+                                                {status}
+                                                {renderTitle ? (
+                                                    renderTitle(title)
+                                                ) : (
+                                                    <HTML>{title}</HTML>
+                                                )}
+                                            </h1>
+                                        )}
+                                        {switchingTitle && (
+                                            <SwitchingTitle switchingTitle={switchingTitle} />
+                                        )}
                                         {description && (
                                             <div className={b('description', {theme: textTheme})}>
                                                 <YFMWrapper

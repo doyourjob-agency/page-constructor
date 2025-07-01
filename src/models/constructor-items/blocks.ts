@@ -222,6 +222,7 @@ export interface HeaderStockSharesProps {
 
 export interface HeaderBlockProps {
     title: string;
+    switchingTitle?: string;
     topTags?: HeaderTag[];
     bottomTags?: HeaderTag[];
     overtitle?: string;
