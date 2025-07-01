@@ -19,9 +19,13 @@ export const HeaderStock = ({type, stockPrice, stockShares, theme}: HeaderStockP
 
     switch (type) {
         case HeaderStockType.Price:
-            return price ? <HeaderStockPrice {...price} {...stockPrice} theme={theme} /> : null;
+            return price || stockPrice ? (
+                <HeaderStockPrice {...price} {...stockPrice} theme={theme} />
+            ) : null;
         case HeaderStockType.Shares:
-            return shares ? <HeaderStockShares {...shares} {...stockShares} theme={theme} /> : null;
+            return shares || stockShares ? (
+                <HeaderStockShares {...shares} {...stockShares} theme={theme} />
+            ) : null;
         default:
             return null;
     }
