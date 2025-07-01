@@ -1,5 +1,12 @@
 # Changelog
-ReportsBlock
+
+## [5.31.66](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.52...v5.31.66) (2025-07-01)
+
+### Features
+
+* **Header:** Added props switchingTitle 
+
+
 ## [5.31.62](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.59...v5.31.62) (2025-06-30)
 
 ### Features
