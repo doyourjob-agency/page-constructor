@@ -1,0 +1,1 @@
+/*! typograf | © 2022 Denis Seleznev | MIT  License | https://github.com/typograf/typograf */
