@@ -491,6 +491,7 @@ export interface ReportsItemProps extends ReportsItem {
 }
 
 export interface ReportsBlockProps {
+    title?: TitleItemBaseProps | string;
     typeKey: string;
     empty?: string;
 }

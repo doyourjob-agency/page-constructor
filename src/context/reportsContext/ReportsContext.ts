@@ -13,6 +13,7 @@ interface Select extends SelectProps {
 type ReportsData = {
     selects?: Select[];
     items: Item[];
+    itemsPerPage?: number;
 } & Pick<ReportsItemProps, 'filesOutline'>;
 
 export type ReportsContextProps = Record<string, ReportsData>;

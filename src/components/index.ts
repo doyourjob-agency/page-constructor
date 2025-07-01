@@ -43,6 +43,7 @@ export {default as InfiniteScroll} from './InfiniteScroll/InfiniteScroll';
 export {default as Tag} from './Tag/Tag';
 export {default as ReportFile} from './ReportFile/ReportFile';
 export {default as Select} from './Select/Select';
+export {default as Paginator} from './Paginator/Paginator';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

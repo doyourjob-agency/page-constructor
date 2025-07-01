@@ -1,4 +1,4 @@
-import {BaseProps} from './../../schema/validators/common';
+import {BaseProps, TitleProps} from './../../schema/validators/common';
 
 export const ReportsBlock = {
     'reports-block': {
@@ -6,6 +6,19 @@ export const ReportsBlock = {
         required: ['typeKey'],
         properties: {
             ...BaseProps,
+            title: {
+                oneOf: [
+                    {
+                        type: 'string',
+                        contentType: 'text',
+                        optionName: 'text',
+                    },
+                    {
+                        ...TitleProps,
+                        optionName: 'options',
+                    },
+                ],
+            },
             typeKey: {
                 type: 'string',
             },

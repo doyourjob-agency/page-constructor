@@ -1,0 +1,81 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}paginator';
+
+$itemDimensions: 52px;
+
+#{$block} {
+    $block: &;
+
+    @include reset-list-style();
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+        $item: &;
+        @include text-size(body-2);
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: $itemDimensions;
+        min-height: $itemDimensions;
+        margin: 0 $indent4XS;
+
+        padding: $indentXS $indentS;
+
+        border: none;
+        border-radius: $indentXXXS;
+        background: transparent;
+
+        color: var(--g-color-text-primary);
+
+        &:hover {
+            background-color: var(--g-color-private-blue-50);
+        }
+
+        &_type {
+            &_page {
+                cursor: pointer;
+
+                &#{$item}_active {
+                    background-color: var(--g-color-private-blue-200-solid);
+                    cursor: default;
+                }
+            }
+
+            &_prev,
+            &_next {
+                cursor: pointer;
+                gap: $indentXXXS;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: $indentXXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            flex-direction: column;
+        }
+    }
+
+    &__pagination-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+}
