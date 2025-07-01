@@ -15,8 +15,12 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
 
     const texts = useMemo(() => partitionSwitchingTitleInput(text), [text]);
 
+    const textSizesCommonMultiple = useMemo(
+        () => texts.reduce((acc, curr) => acc * curr.length, 1),
+        [texts],
+    );
+
     useEffect(() => {
-        const textSizesCommonMultiple = texts.reduce((acc, curr) => acc * curr.length, 1);
         const intervalHandle = setInterval(() => {
             setOpacity(0);
             setTimeout(() => {
@@ -26,7 +30,7 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
         }, switchingTime);
 
         return () => clearInterval(intervalHandle);
-    }, [texts, switchingTime]);
+    }, [texts, switchingTime, textSizesCommonMultiple]);
 
     return (
         <span>
