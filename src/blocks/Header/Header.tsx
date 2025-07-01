@@ -79,10 +79,10 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
 
     const texts = useMemo(() => {
         const deconstructText = (str: string): string[][] => {
-            if (str.length == 0) return [['']];
+            if (str.length === 0) return [['']];
             const fixedRegExp = new RegExp('\\[.*', 's');
             const fixedPart = str.replace(fixedRegExp, '');
-            if (fixedPart == str) return [[fixedPart]];
+            if (fixedPart === str) return [[fixedPart]];
             const switchingPartRegExp = new RegExp('\\][^/].*', 's');
             const switchingPart = str.slice(fixedPart.length + 1).replace(switchingPartRegExp, '');
             const switchingPartArr = switchingPart.replace(/[[\]]/g, '').split('/');
@@ -90,7 +90,7 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
             return [[fixedPart], switchingPartArr, ...deconstructText(rest)];
         };
         return deconstructText(text);
-    }, []);
+    }, [text]);
 
     useEffect(() => {
         const intervalHandle = setInterval(() => {
@@ -106,19 +106,19 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
 
     return (
         <h1 className={`${b('title')} ${b('title--pre-wrap')}`}>
-            {texts.map((text, index) => (
+            {texts.map((lines, index) => (
                 <span
                     style={
-                        text.length !== 1
-                            ? {
+                        lines.length === 1
+                            ? {}
+                            : {
                                   transition: 'opacity .2s',
                                   opacity: opacity,
                               }
-                            : {}
                     }
                     key={index}
                 >
-                    {text[currentIndex % text.length]}
+                    {lines[currentIndex % lines.length]}
                 </span>
             ))}
         </h1>
