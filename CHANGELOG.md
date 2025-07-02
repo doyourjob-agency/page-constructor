@@ -1,5 +1,13 @@
 # Changelog
 
+
+## [5.31.72](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.67...v5.31.72) (2025-07-02)
+
+### Features
+
+* **ReportsCards:** add block 
+
+
 ## [5.31.67](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.66...v5.31.67) (2025-07-01)
 
 ### Features
