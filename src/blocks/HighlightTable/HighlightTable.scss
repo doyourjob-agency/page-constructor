@@ -62,6 +62,7 @@ $block: '.#{$ns}highlight-table-block';
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             margin-right: -$indentSM;
             margin-left: -$indentSM;
+            padding: 0 $indentSM $indentXXS;
         }
     }
 
