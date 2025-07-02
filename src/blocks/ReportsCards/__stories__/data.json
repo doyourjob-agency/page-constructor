@@ -1,0 +1,11 @@
+{
+  "default": {
+    "content": {
+      "type": "reports-cards-block",
+      "title": "Financials",
+      "typeKey": "test",
+      "empty": "Not found",
+      "postscript": "*Unaudited pro forma condensed consolidated financial information of the Company as of December 31, 2023 and for the years ended December 31, 2023, 2022, and 2021, giving effect to the divestment transaction completed in July 2024, is available [here](https://example.com)"
+    }
+  }
+}

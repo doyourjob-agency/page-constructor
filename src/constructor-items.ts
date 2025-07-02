@@ -24,6 +24,7 @@ import {
     QuotesBlock,
     RelevantPostsBlock,
     ReportsBlock,
+    ReportsCardsBlock,
     ReportsSectionsBlock,
     ServicesBlock,
     ShareBlock,
@@ -94,6 +95,7 @@ export const blockMap = {
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,
     [BlockType.ReportsBlock]: ReportsBlock,
+    [BlockType.ReportsCardsBlock]: ReportsCardsBlock,
     [BlockType.ReportsSectionsBlock]: ReportsSectionsBlock,
     [BlockType.FormWallBlock]: FormWallBlock,
     // unstable

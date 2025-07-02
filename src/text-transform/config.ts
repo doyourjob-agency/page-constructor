@@ -463,4 +463,10 @@ export const config: BlocksConfig = {
             parser: parseContentLayoutTitle,
         },
     ],
+    [BlockType.ReportsCardsBlock]: [
+        {
+            fields: ['postscript'],
+            transformer: yfmTransformer,
+        },
+    ],
 };

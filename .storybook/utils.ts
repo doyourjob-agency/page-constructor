@@ -12,6 +12,7 @@ import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
 import argsRelevantPostsContext from './args/argsRelevantPostsContext.json';
 import argsReportsContext from './args/argsReportsContext.json';
+import argsReportsCardsContext from './args/argsReportsCardsContext.json';
 import argsReportsSectionsContext from './args/argsReportsSectionsContext.json';
 import argsHeaderStockContext from './args/argsHeaderStockContext.json';
 
@@ -210,6 +211,21 @@ export const argReportsContext = {
     },
     args: {
         reportsContext: argsReportsContext,
+    },
+};
+
+export const argReportsCardsContext = {
+    argTypes: {
+        reportsCardsContext: {
+            name: 'ReportsCardsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        reportsCardsContext: argsReportsCardsContext,
     },
 };
 

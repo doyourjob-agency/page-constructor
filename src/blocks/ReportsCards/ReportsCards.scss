@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}reports-cards-block';
+
+#{$block} {
+    &__title {
+        margin-bottom: 24px;
+    }
+
+    &__select {
+        margin-bottom: $indentM;
+        gap: $indentXS;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__postscript {
+        @include text-size(body-1);
+
+        margin-top: $indentM;
+    }
+
+    &__empty {
+        @include text-size(body-2);
+
+        height: $indentXXXL;
+        width: 100%;
+        background-color: var(--g-color-private-blue-50);
+        border-radius: $indentSM;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+}

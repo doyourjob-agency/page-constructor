@@ -14,6 +14,8 @@ import {DocsDecorator} from './decorators/docs';
 import {
     HeaderStockContext,
     HeaderStockContextProps,
+    ReportsCardsContext,
+    ReportsCardsContextProps,
     ReportsContext,
     ReportsContextProps,
     ReportsSectionsContext,
@@ -94,6 +96,9 @@ const withContextProvider: Decorator = (Story, context) => {
             value={context.args.relevantPostsContext as RelevantPostsContextProps}
         />,
         <ReportsContext.Provider value={context.args.reportsContext as ReportsContextProps} />,
+        <ReportsCardsContext.Provider
+            value={context.args.reportsCardsContext as ReportsCardsContextProps}
+        />,
         <ReportsSectionsContext.Provider
             value={context.args.reportsSectionsContext as ReportsSectionsContextProps}
         />,
