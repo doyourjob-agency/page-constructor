@@ -58,6 +58,11 @@ $block: '.#{$ns}highlight-table-block';
                 display: none;
             }
         }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            margin-right: -$indentSM;
+            margin-left: -$indentSM;
+        }
     }
 
     &__content {
