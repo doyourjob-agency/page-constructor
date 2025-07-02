@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import {CardBase, Image, Link, Tag, Title} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
-import {DocumentIcon} from '../../icons/DocumentIcon';
+import {DocumentIcon, VideoIcon} from '../../icons';
 import {TitleItemProps} from '../../models';
 import {
     AttachmentCardItemType,
@@ -24,6 +24,16 @@ const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCard
     const themedIcon = getThemedValue(icon, theme);
     const iconData = themedIcon && getMediaImage(themedIcon);
     const extraProps = useMemo(() => ({download}), [download]);
+    const renderIcon = useMemo(() => {
+        switch (icon) {
+            case 'document':
+                return <DocumentIcon className={b('item-icon')} />;
+            case 'video':
+                return <VideoIcon className={b('item-icon')} />;
+            default:
+                return <Image className={b('item-icon')} {...iconData} />;
+        }
+    }, [icon, iconData]);
     return (
         <Link
             url={link}
@@ -32,11 +42,7 @@ const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCard
             className={b('item')}
             extraProps={extraProps}
         >
-            {icon === 'document' ? (
-                <DocumentIcon className={b('item-icon')} />
-            ) : (
-                <Image className={b('item-icon')} {...iconData} />
-            )}
+            {renderIcon}
             <div className={b('item-name')}>{name}</div>
         </Link>
     );
