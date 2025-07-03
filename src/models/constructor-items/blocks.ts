@@ -447,10 +447,12 @@ export interface EventsFeedBlockProps {
 
 export interface IrEventsFeedUpcomingBlockProps {
     label?: TagProps;
+    empty?: string;
 }
 
 export interface IrEventsFeedRecentBlockProps {
     label?: TagProps;
+    empty?: string;
 }
 
 export interface BlogFeedBlockProps {

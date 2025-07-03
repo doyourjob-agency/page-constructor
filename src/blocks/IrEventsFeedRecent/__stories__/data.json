@@ -2,6 +2,7 @@
   "default": {
     "content": {
       "type": "ir-events-feed-recent-block",
+      "empty": "Not found",
       "label": {
         "text": "For Investors",
         "backgroundColor": "#c7e5f7",

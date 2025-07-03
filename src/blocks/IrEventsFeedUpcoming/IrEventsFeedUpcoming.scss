@@ -10,4 +10,16 @@ $block: '.#{$ns}ir-events-feed-upcoming-block';
     &__title {
         margin-bottom: $indentM;
     }
+
+    &__empty {
+        @include text-size(body-2);
+
+        height: $indentXXXL;
+        width: 100%;
+        background-color: var(--g-color-private-blue-50);
+        border-radius: $indentSM;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
 }

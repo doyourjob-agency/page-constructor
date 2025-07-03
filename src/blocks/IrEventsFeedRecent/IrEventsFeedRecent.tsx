@@ -21,14 +21,10 @@ const colSizes = {
     all: 12,
 };
 
-export const IrEventsFeedRecent = ({label}: IrEventsFeedRecentBlockProps) => {
+export const IrEventsFeedRecent = ({label, empty}: IrEventsFeedRecentBlockProps) => {
     const {recent, page, pageSize, onLoadMore} = useContext(EventsRecentContext);
     const itemsToShow = recent.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(recent.length / pageSize);
-
-    if (!recent || recent.length === 0) {
-        return null;
-    }
 
     return (
         <div className={b()}>
@@ -36,18 +32,23 @@ export const IrEventsFeedRecent = ({label}: IrEventsFeedRecentBlockProps) => {
             <CardLayoutBlock
                 title={i18n('past_events')}
                 titleClassName={b('title')}
-                colSizes={colSizes}
+                colSizes={itemsToShow.length ? colSizes : {all: 12}}
             >
-                {itemsToShow.map((item) => (
-                    <AttachmentCard
-                        key={item.slug}
-                        title={item.title}
-                        date={item.date}
-                        time={item.info}
-                        column
-                        label={label}
-                    />
-                ))}
+                {itemsToShow.length ? (
+                    itemsToShow.map((item) => (
+                        <AttachmentCard
+                            key={item.slug}
+                            url={item.url}
+                            title={item.title}
+                            date={item.date}
+                            time={item.info}
+                            column
+                            label={label}
+                        />
+                    ))
+                ) : (
+                    <div className={b('empty')}>{empty}</div>
+                )}
             </CardLayoutBlock>
             <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
         </div>

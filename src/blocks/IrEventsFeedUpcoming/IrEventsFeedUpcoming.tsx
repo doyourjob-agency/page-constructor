@@ -21,12 +21,8 @@ const colSizes = {
     all: 12,
 };
 
-export const IrEventsFeedUpcoming = ({label}: IrEventsFeedUpcomingBlockProps) => {
+export const IrEventsFeedUpcoming = ({label, empty}: IrEventsFeedUpcomingBlockProps) => {
     const {upcoming} = useContext(EventsUpcomingContext);
-
-    if (!upcoming || upcoming.length === 0) {
-        return null;
-    }
 
     return (
         <div className={b()}>
@@ -34,18 +30,23 @@ export const IrEventsFeedUpcoming = ({label}: IrEventsFeedUpcomingBlockProps) =>
             <CardLayoutBlock
                 title={i18n('upcoming_events')}
                 titleClassName={b('title')}
-                colSizes={colSizes}
+                colSizes={upcoming.length ? colSizes : {all: 12}}
             >
-                {upcoming.map((item) => (
-                    <AttachmentCard
-                        key={item.slug}
-                        title={item.title}
-                        date={item.date}
-                        time={item.info}
-                        column
-                        label={label}
-                    />
-                ))}
+                {upcoming.length ? (
+                    upcoming.map((item) => (
+                        <AttachmentCard
+                            key={item.slug}
+                            url={item.url}
+                            title={item.title}
+                            date={item.date}
+                            time={item.info}
+                            column
+                            label={label}
+                        />
+                    ))
+                ) : (
+                    <div className={b('empty')}>{empty}</div>
+                )}
             </CardLayoutBlock>
         </div>
     );

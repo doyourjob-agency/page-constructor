@@ -7,6 +7,9 @@ export const IrEventsFeedRecentBlock = {
         properties: {
             ...BaseProps,
             label: Tag,
+            empty: {
+                type: 'string',
+            },
         },
     },
 };
