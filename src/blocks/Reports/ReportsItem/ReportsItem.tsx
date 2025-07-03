@@ -20,9 +20,9 @@ export const ReportsItem = ({title, date, text, files, filesOutline}: ReportsIte
                 </div>
             )}
         </div>
-        {files?.length && (
+        {Boolean(files?.length) && (
             <div className={b('files')}>
-                {files.map((file) => (
+                {files?.map((file) => (
                     <ReportFile key={file.link} {...file} outline={filesOutline} />
                 ))}
             </div>
