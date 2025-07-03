@@ -78,6 +78,8 @@ export enum BlockType {
     IrEventsFeedRecentBlock = 'ir-events-feed-recent-block',
     BlogFeedBlock = 'blog-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
+    RelevantReportsCardsBlock = 'relevant-reports-cards-block',
+    RelevantReportsBlock = 'relevant-reports-block',
     PressReleasesBlock = 'press-releases-block',
     // unstable
     SliderNewBlock = 'slider-new-block',
@@ -472,6 +474,28 @@ export interface RelevantPostsBlockProps {
     pinnedPost?: boolean;
 }
 
+export interface RelevantReportsCardsBlockProps {
+    typeKey: string;
+    link?: LinkProps;
+    title?: TitleItemProps | string;
+    description?: string;
+    slider: boolean;
+    date?: 'today' | 'week' | 'month';
+    dateStart?: string;
+    dateEnd?: string;
+}
+
+export interface RelevantReportsBlockProps {
+    typeKey: string;
+    link?: LinkProps;
+    title?: TitleItemProps | string;
+    description?: string;
+    slider: boolean;
+    date?: 'today' | 'week' | 'month';
+    dateStart?: string;
+    dateEnd?: string;
+}
+
 export interface PressReleasesBlockProps {
     title?: string;
 }
@@ -811,6 +835,14 @@ export type RelevantPostsBlockModel = {
     type: BlockType.RelevantPostsBlock;
 } & RelevantPostsBlockProps;
 
+export type RelevantReportsCardsBlockModel = {
+    type: BlockType.RelevantReportsCardsBlock;
+} & RelevantReportsCardsBlockProps;
+
+export type RelevantReportsBlockModel = {
+    type: BlockType.RelevantReportsBlock;
+} & RelevantReportsBlockProps;
+
 export type PressReleasesBlockModel = {
     type: BlockType.PressReleasesBlock;
 } & PressReleasesBlockProps;
@@ -858,6 +890,8 @@ type BlockModels =
     | IrEventsFeedRecentBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel
+    | RelevantReportsCardsBlockModel
+    | RelevantReportsBlockModel
     | PressReleasesBlockModel
     | FormWallBlockModel;
 

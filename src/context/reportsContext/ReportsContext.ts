@@ -3,7 +3,11 @@ import React from 'react';
 import {ReportsItem, ReportsItemProps, SelectProps} from '../../models';
 
 interface Item extends ReportsItem {
+    url?: string;
     filters?: Record<string, string[]>;
+    options?: {
+        date?: string;
+    };
 }
 
 interface Select extends SelectProps {

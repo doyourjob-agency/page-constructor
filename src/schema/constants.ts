@@ -28,6 +28,8 @@ import {
     QuestionsBlock,
     QuotesBlock,
     RelevantPostsBlock,
+    RelevantReportsBlock,
+    RelevantReportsCardsBlock,
     ReportsBlock,
     ReportsCardsBlock,
     ReportsSectionsBlock,
@@ -93,6 +95,8 @@ export const blockSchemas: Record<BlockType, object> = {
     ...IrEventsFeedRecentBlock,
     ...BlogFeedBlock,
     ...RelevantPostsBlock,
+    ...RelevantReportsCardsBlock,
+    ...RelevantReportsBlock,
     ...PressReleasesBlock,
     ...FormWallBlock,
 };
@@ -157,6 +161,8 @@ export const constructorBlockSchemaNames = [
     'blog-feed-block',
     'highlight-table-block',
     'relevant-posts-block',
+    'relevant-reports-cards-block',
+    'relevant-reports-block',
 ];
 
 export const constructorCardSchemaNames = [

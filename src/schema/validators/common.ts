@@ -612,6 +612,7 @@ export const TitleProps = {
             type: 'string',
             contentType: 'text',
         },
+        link: LinkProps,
         textSize: {
             type: 'string',
             enum: titleTextSize,

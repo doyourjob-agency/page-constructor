@@ -25,6 +25,8 @@ import {
     QuestionsBlock,
     QuotesBlock,
     RelevantPostsBlock,
+    RelevantReportsBlock,
+    RelevantReportsCardsBlock,
     ReportsBlock,
     ReportsCardsBlock,
     ReportsSectionsBlock,
@@ -92,6 +94,8 @@ export const blockMap = {
     [BlockType.IrEventsFeedRecentBlock]: IrEventsFeedRecentBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.RelevantPostsBlock]: RelevantPostsBlock,
+    [BlockType.RelevantReportsCardsBlock]: RelevantReportsCardsBlock,
+    [BlockType.RelevantReportsBlock]: RelevantReportsBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
     [BlockType.HighlightTableBlock]: HighlightTableBlock,
 

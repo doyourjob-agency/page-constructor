@@ -4,6 +4,9 @@ import {AttachmentCardProps, SelectProps} from '../../models';
 
 interface Item extends AttachmentCardProps {
     filters?: Record<string, string[]>;
+    options?: {
+        date?: string;
+    };
 }
 
 interface Select extends SelectProps {

@@ -31,6 +31,8 @@ export * from '../../blocks/IrEventsFeedUpcoming/schema';
 export * from '../../blocks/IrEventsFeedRecent/schema';
 export * from '../../blocks/BlogFeed/schema';
 export * from '../../blocks/RelevantPosts/schema';
+export * from '../../blocks/RelevantReportsCards/schema';
+export * from '../../blocks/RelevantReports/schema';
 export * from '../../blocks/FormWallBlock/schema';
 export * from '../../blocks/PressReleases/schema';
 export * from '../../blocks/HighlightTable/schema';

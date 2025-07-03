@@ -1,0 +1,24 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as RelevantReportsStories from './RelevantReports.stories.tsx';
+
+<Meta of={RelevantReportsStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "relevant-reports-block"`
+
+`typeKey: string;` - A key indicating what data to take from the context.
+
+`title?: Title | string` - Title.
+
+`slider?: boolean` - Slider mode.
+
+`date?: "today" | "week" | "month"` - Date filter.
+
+`dateStart?: string` - Date start filter.
+
+`dateEnd?: string` - Date end filter.
+
+</StoryTemplate>

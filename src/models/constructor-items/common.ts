@@ -468,6 +468,7 @@ export interface TitleProps {
     title?: TitleItemProps | string;
     subtitle?: string;
     subtitleBold?: boolean;
+    link?: LinkProps;
 }
 
 export interface YandexFormProps extends AnalyticsEventsBase {

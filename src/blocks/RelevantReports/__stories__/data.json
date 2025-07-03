@@ -1,0 +1,11 @@
+{
+  "default": {
+    "content": {
+      "type": "relevant-reports-block",
+      "link": {"url": "https://test.com", "text": "test"},
+      "typeKey": "test",
+      "title": "See also",
+      "description": "description"
+    }
+  }
+}

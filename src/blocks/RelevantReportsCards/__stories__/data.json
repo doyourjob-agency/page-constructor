@@ -1,0 +1,12 @@
+{
+  "default": {
+    "content": {
+      "type": "relevant-reports-cards-block",
+      "link": {"url": "https://test.com", "text": "test"},
+      "typeKey": "test",
+      "title": "See also",
+      "description": "description",
+      "dateStart": "2024-05-30T09:15:00.000Z"
+    }
+  }
+}

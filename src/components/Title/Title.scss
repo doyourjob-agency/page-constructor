@@ -4,6 +4,16 @@
 $block: '.#{$ns}title';
 
 #{$block} {
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__link {
+        margin: 0;
+    }
+
     &__description {
         .yfm {
             @include text-size(body-3);

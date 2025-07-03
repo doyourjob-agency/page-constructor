@@ -31,5 +31,7 @@ export {default as IrEventsFeedUpcomingBlock} from './IrEventsFeedUpcoming/IrEve
 export {default as IrEventsFeedRecentBlock} from './IrEventsFeedRecent/IrEventsFeedRecent';
 export {default as BlogFeedBlock} from './BlogFeed/BlogFeed';
 export {default as RelevantPostsBlock} from './RelevantPosts/RelevantPosts';
+export {default as RelevantReportsCardsBlock} from './RelevantReportsCards/RelevantReportsCards';
+export {default as RelevantReportsBlock} from './RelevantReports/RelevantReports';
 export {default as PressReleasesBlock} from './PressReleases/PressReleases';
 export {default as HighlightTableBlock} from './HighlightTable/HighlightTable';

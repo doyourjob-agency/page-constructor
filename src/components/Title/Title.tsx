@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {Link} from '..';
 import {Col, GridColumnSizesType} from '../../grid';
 import {ClassNameProps, TitleItemProps, TitleProps as TitleParams} from '../../models';
 import {block} from '../../utils';
@@ -20,6 +21,7 @@ const Title = ({
     title,
     subtitle,
     subtitleBold,
+    link,
     className,
     colSizes = {all: 12, sm: 8},
     id,
@@ -34,8 +36,9 @@ const Title = ({
     return (
         <div className={b(null, className)} id={id}>
             {text && (
-                <Col reset sizes={colSizes}>
+                <Col reset sizes={colSizes} className={b('title')}>
                     <TitleItem text={text} {...titleProps} />
+                    {link && <Link {...link} className={b('link')} theme="normal" arrow />}
                 </Col>
             )}
             {subtitle && (

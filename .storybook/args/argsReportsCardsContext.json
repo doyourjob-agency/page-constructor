@@ -39,6 +39,9 @@
             "target": "_blank"
           }
         ],
+        "options": {
+          "date": "2025-05-20"
+        },
         "filters": {
           "year": ["2025"]
         }
@@ -69,6 +72,9 @@
             "target": "_blank"
           }
         ],
+        "options": {
+          "date": "2024-05-20"
+        },
         "filters": {
           "year": ["2024"]
         }
