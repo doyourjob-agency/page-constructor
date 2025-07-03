@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.75](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.72...v5.31.75) (2025-07-03)
+
+### Features
+
+* **IrEventsFeedRecent:** add block 
+* **IrEventsFeedUpcoming:** add block 
+
 
 ## [5.31.72](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.67...v5.31.72) (2025-07-02)
 
