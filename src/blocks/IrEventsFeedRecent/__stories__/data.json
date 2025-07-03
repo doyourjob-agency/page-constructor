@@ -1,0 +1,12 @@
+{
+  "default": {
+    "content": {
+      "type": "ir-events-feed-recent-block",
+      "label": {
+        "text": "For Investors",
+        "backgroundColor": "#c7e5f7",
+        "textColor": "#052b42"
+      }
+    }
+  }
+}

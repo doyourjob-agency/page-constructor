@@ -30,6 +30,7 @@ import {
     MediaProps,
     MediaView,
     ReportFileType,
+    TagProps,
     TextSize,
     TextTheme,
     Themable,
@@ -73,6 +74,8 @@ export enum BlockType {
     FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
+    IrEventsFeedUpcomingBlock = 'ir-events-feed-upcoming-block',
+    IrEventsFeedRecentBlock = 'ir-events-feed-recent-block',
     BlogFeedBlock = 'blog-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
     PressReleasesBlock = 'press-releases-block',
@@ -442,6 +445,14 @@ export interface EventsFeedBlockProps {
     title?: string;
 }
 
+export interface IrEventsFeedUpcomingBlockProps {
+    label?: TagProps;
+}
+
+export interface IrEventsFeedRecentBlockProps {
+    label?: TagProps;
+}
+
 export interface BlogFeedBlockProps {
     image?: string;
     title?: string;
@@ -782,6 +793,14 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type IrEventsFeedUpcomingBlockModel = {
+    type: BlockType.IrEventsFeedUpcomingBlock;
+} & IrEventsFeedUpcomingBlockProps;
+
+export type IrEventsFeedRecentBlockModel = {
+    type: BlockType.IrEventsFeedRecentBlock;
+} & IrEventsFeedRecentBlockProps;
+
 export type BlogFeedBlockModel = {
     type: BlockType.BlogFeedBlock;
 } & BlogFeedBlockProps;
@@ -833,6 +852,8 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | IrEventsFeedUpcomingBlockModel
+    | IrEventsFeedRecentBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel
     | PressReleasesBlockModel

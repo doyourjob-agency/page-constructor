@@ -34,6 +34,7 @@ $block: '.#{$ns}attachment-card';
 
     &__content {
         flex: initial;
+        margin-bottom: $indentSM;
     }
 
     &__wrap {
@@ -50,7 +51,7 @@ $block: '.#{$ns}attachment-card';
     }
 
     &__footer {
-        margin-top: 56px;
+        margin-top: $indentM;
         row-gap: $indentXS;
         display: flex;
         flex-direction: column;
@@ -60,5 +61,19 @@ $block: '.#{$ns}attachment-card';
     &__date {
         @include text-size(body-1);
         color: var(--pc-color-summary);
+    }
+
+    &__time {
+        padding-left: $indentXXXS;
+        gap: $indentXXXS;
+        display: flex;
+        align-items: center;
+    }
+
+    &__dot {
+        background-color: var(--g-color-private-cool-grey-400);
+        border-radius: 100%;
+        width: 5px;
+        height: 5px;
     }
 }

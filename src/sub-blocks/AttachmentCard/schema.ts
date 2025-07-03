@@ -7,6 +7,9 @@ export const AttachmentCard = {
         properties: {
             ...BaseProps,
             ...CardBase,
+            url: {
+                type: 'string',
+            },
             title: {
                 oneOf: [
                     {
@@ -21,6 +24,9 @@ export const AttachmentCard = {
                 ],
             },
             date: {
+                type: 'string',
+            },
+            time: {
                 type: 'string',
             },
             column: {

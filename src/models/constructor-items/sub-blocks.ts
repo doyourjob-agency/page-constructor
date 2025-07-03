@@ -286,8 +286,10 @@ export interface AttachmentCardItemType {
 }
 
 export interface AttachmentCardProps extends CardBaseProps {
+    url?: string;
     title?: TitleItemBaseProps | string;
     date?: string;
+    time?: string;
     items?: AttachmentCardItemType[];
     label?: TagProps;
     column?: boolean;

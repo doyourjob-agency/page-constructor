@@ -48,19 +48,38 @@ const AttachmentCardItem = ({icon, name, link, download, target}: AttachmentCard
     );
 };
 
-const AttachmentCard = ({title, date, items, label, column, border}: AttachmentCardProps) => {
+const AttachmentCard = ({
+    url,
+    title,
+    date,
+    time,
+    items,
+    label,
+    column,
+    border,
+}: AttachmentCardProps) => {
     const titleProps =
         !title || typeof title === 'string'
             ? ({text: title, textSize: 'm'} as TitleItemProps)
             : title;
 
     return (
-        <CardBase className={b()} contentClassName={b('content')} border={border}>
+        <CardBase url={url} className={b()} contentClassName={b('content')} border={border}>
             <CardBase.Content>
                 {label && <Tag {...label} />}
                 <div className={b('wrap', {column})}>
                     {title && <Title title={titleProps} colSizes={colSizes} />}
-                    {date && <div className={b('date')}>{date}</div>}
+                    {date && (
+                        <div className={b('date')}>
+                            {date}
+                            {time && (
+                                <div className={b('time')}>
+                                    <div className={b('dot')} />
+                                    {time}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </CardBase.Content>
             {items?.length && (
