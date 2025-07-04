@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Paginator, Select, Title} from '../../components';
+import {Paginator, ProgressCircular, Select, Title} from '../../components';
 import {ReportsContext} from '../../context/reportsContext';
 import {ReportsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -18,7 +18,7 @@ const titleColSizes = {
 export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
     const data = useContext(ReportsContext);
     const [page, setPage] = useState(1);
-    const {selects, items, itemsPerPage, filesOutline} = useMemo(
+    const {selects, loading, items, itemsPerPage, filesOutline} = useMemo(
         () => data[typeKey],
         [data, typeKey],
     );
@@ -53,6 +53,18 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
             ? ({text: title, textSize: 'm'} as TitleItemProps)
             : title;
 
+    const renderItems = useMemo(() => {
+        if (loading) {
+            return <ProgressCircular size={48} strokeWidth={2} color="#262626" />;
+        }
+        if (!paginatedItems.length) {
+            return <div className={b('empty')}>{empty}</div>;
+        }
+        return paginatedItems.map((item, index) => (
+            <ReportsItem key={index} {...item} filesOutline={filesOutline} />
+        ));
+    }, [loading, empty, filesOutline, paginatedItems]);
+
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
@@ -63,13 +75,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
                     ))}
                 </div>
             )}
-            {paginatedItems.length ? (
-                paginatedItems.map((item, index) => (
-                    <ReportsItem key={index} {...item} filesOutline={filesOutline} />
-                ))
-            ) : (
-                <div className={b('empty')}>{empty}</div>
-            )}
+            {renderItems}
             {itemsPerPage && (
                 <Paginator
                     page={page}
