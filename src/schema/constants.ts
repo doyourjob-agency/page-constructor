@@ -38,6 +38,7 @@ import {
     SliderBlock,
     SliderNewBlock,
     SolutionsBlock,
+    TabLinksBlock,
     TableBlock,
     TabsBlock,
 } from './validators/blocks';
@@ -74,6 +75,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...TableBlock,
     ...HighlightTableBlock,
     ...TabsBlock,
+    ...TabLinksBlock,
     ...HeaderSliderBlock,
     ...IconsBlock,
     ...CardLayoutBlock,
@@ -137,6 +139,7 @@ export const constructorBlockSchemaNames = [
     'form-wall-block',
     'table-block',
     'tabs-block',
+    'tab-links-block',
     'marquee-links-block',
     /** @deprecated */
     'price-detailed',

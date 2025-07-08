@@ -34,6 +34,7 @@ import {
     ShareBlock,
     SliderBlock,
     SolutionsBlock,
+    TabLinksBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
@@ -78,6 +79,7 @@ export const blockMap = {
     [BlockType.InfoBlock]: InfoBlock,
     [BlockType.TableBlock]: TableBlock,
     [BlockType.TabsBlock]: TabsBlock,
+    [BlockType.TabLinksBlock]: TabLinksBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
     [BlockType.IconsBlock]: IconsBlock,
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,

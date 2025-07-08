@@ -1,0 +1,43 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}tab-links-block';
+
+#{$block} {
+    display: flex;
+    border-bottom: 1px solid var(--g-color-private-cool-grey-400);
+    gap: $indentM;
+
+    &__item {
+        @include text-size(body-3);
+        position: relative;
+        font-weight: 700;
+        padding-bottom: $indentXXXS;
+
+        & > a {
+            color: inherit;
+        }
+
+        &::after {
+            content: '';
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: var(--g-color-text-primary);
+            position: absolute;
+            transition: height 0.3s ease;
+        }
+
+        &_active,
+        &:hover {
+            & > a {
+                color: inherit;
+            }
+
+            &::after {
+                height: 3px;
+            }
+        }
+    }
+}

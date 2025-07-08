@@ -55,6 +55,7 @@ export enum BlockType {
     InfoBlock = 'info-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
+    TabLinksBlock = 'tab-links-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
     IconsBlock = 'icons-block',
@@ -437,6 +438,14 @@ export interface TabsBlockProps extends Animatable {
     contentSize?: ContentSize;
 }
 
+export interface TabLinksBlockProps {
+    items: {
+        active?: boolean;
+        text: string;
+        url: string;
+    }[];
+}
+
 export interface ServicesBlockProps {
     title?: string;
     serviceLinkType?: 'doc' | 'price';
@@ -755,6 +764,10 @@ export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
+export type TabLinksBlockModel = {
+    type: BlockType.TabLinksBlock;
+} & TabLinksBlockProps;
+
 export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
@@ -869,6 +882,7 @@ type BlockModels =
     | TableBlockModel
     | HighlightTableBlockModel
     | TabsBlockModel
+    | TabLinksBlockModel
     | HeaderBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel

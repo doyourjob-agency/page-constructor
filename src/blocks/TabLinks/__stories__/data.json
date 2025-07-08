@@ -1,0 +1,22 @@
+{
+  "default": {
+    "content": {
+      "type": "tab-links-block",
+      "items": [
+        {
+          "text": "Tab 1",
+          "url": "https://tab1.com",
+          "active": true
+        },
+        {
+          "text": "Tab 2",
+          "url": "https://tab2.com"
+        },
+        {
+          "text": "Tab 3",
+          "url": "https://tab3.com"
+        }
+      ]
+    }
+  }
+}
