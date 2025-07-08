@@ -32,12 +32,16 @@ $block: '.#{$ns}case-study-card';
         display: flex;
         flex-flow: column-reverse wrap;
         justify-content: space-between;
-        gap: $indentXS;
+        gap: $indentM;
         flex: 1;
         margin-top: $indentXS;
 
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             flex-direction: column;
+        }
+
+        p {
+            margin: $indentXS 0;
         }
     }
 
