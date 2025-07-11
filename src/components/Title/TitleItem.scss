@@ -6,6 +6,7 @@ $block: '.#{$ns}title-item';
 #{$block} {
     @include justify();
     $root: &;
+    flex: 1;
 
     &_size_xs {
         @include heading5();
