@@ -1,4 +1,4 @@
-# @gravity-ui/page-constructor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/page-constructor)](https://www.npmjs.com/package/@gravity-ui/page-constructor) [![CI](https://img.shields.io/github/actions/workflow/status/gravity-ui/page-constructor/ci.yml?branch=main&label=CI)](https://github.com/gravity-ui/page-constructor/actions/workflows/ci.yml?query=branch:main) [![Release](https://img.shields.io/github/actions/workflow/status/gravity-ui/page-constructor/release.yml?branch=main&label=Release)](https://github.com/gravity-ui/page-constructor/actions/workflows/release.yml?query=branch:main) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://doyourjob-agency.github.io/page-constructor/main/)
+# @doyourjob/gravity-ui-page-constructor &middot; [![npm package](https://img.shields.io/npm/v/@doyourjob/gravity-ui-page-constructor)](https://www.npmjs.com/package/@doyourjob/gravity-ui-page-constructor) [![CI](https://img.shields.io/github/actions/workflow/status/doyourjob-agency/page-constructor/ci.yml?branch=main&label=CI)](https://github.com/doyourjob-agency/page-constructor/actions/workflows/ci.yml?query=branch:main) [![Release](https://img.shields.io/github/actions/workflow/status/doyourjob-agency/page-constructor/release.yml?branch=main&label=Release)](https://github.com/doyourjob-agency/page-constructor/actions/workflows/release.yml?query=branch:main) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://doyourjob-agency.github.io/page-constructor/main/)
 
 ## Page constructor
 
@@ -11,7 +11,7 @@ For the format of input data and list of available blocks, see the [documentatio
 ## Install
 
 ```shell
-npm install @gravity-ui/page-constructor
+npm install @doyourjob/gravity-ui-page-constructor
 ```
 
 ## Required dependencies
@@ -23,7 +23,7 @@ Please note that to start using the package, your project must also have the fol
 The page constructor is imported as a React component. To make sure it runs properly, wrap it in `PageConstructorProvider`:
 
 ```jsx
-import {PageConstructor, PageConstructorProvider} from '@gravity-ui/page-constructor';
+import {PageConstructor, PageConstructorProvider} from '@doyourjob/gravity-ui-page-constructor';
 
 const Page: React.PropsWithChildren<PageProps> = ({content}) => (
   <PageConstructorProvider>
@@ -115,7 +115,7 @@ interface NavigationLogo {
 The package provides a set of server utilities for transforming your content.
 
 ```ts
-const {fullTransform} = require('@gravity-ui/page-constructor/server');
+const {fullTransform} = require('@doyourjob/gravity-ui-page-constructor/server');
 
 const {html} = fullTransform(content, {
   lang,
@@ -135,7 +135,7 @@ const {
   typografToText,
   typografToHTML,
   yfmTransformer,
-} = require('@gravity-ui/page-constructor/server');
+} = require('@doyourjob/gravity-ui-page-constructor/server');
 
 const post = {
   title: typografToText(title, lang),
@@ -144,7 +144,7 @@ const post = {
 };
 ```
 
-You can find more utilities in this [section](https://github.com/gravity-ui/page-constructor/tree/main/src/text-transform)
+You can find more utilities in this [section](https://github.com/doyourjob-agency/page-constructor/tree/main/src/text-transform)
 
 ### Custom blocks
 
@@ -163,7 +163,7 @@ To pass custom blocks to the constructor:
 To use mixins and constructor style variables when creating custom blocks, add import in your file:
 
 ```css
-@import '~@gravity-ui/page-constructor/styles/styles.scss';
+@import '~@doyourjob/gravity-ui-page-constructor/styles/styles.scss';
 ```
 
 ### Loadable blocks
@@ -188,7 +188,7 @@ The page constructor uses the `bootstrap` grid and its implementation based on R
 Usage example:
 
 ```jsx
-import {Grid, Row, Col} from '@gravity-ui/page-constructor';
+import {Grid, Row, Col} from '@doyourjob/gravity-ui-page-constructor';
 
 const Page: React.FC<PageProps> = ({children}) => (
   <Grid>
@@ -204,7 +204,7 @@ const Page: React.FC<PageProps> = ({children}) => (
 Page navigation can also be used separately from the constructor:
 
 ```jsx
-import {Navigation} from '@gravity-ui/page-constructor';
+import {Navigation} from '@doyourjob/gravity-ui-page-constructor';
 
 const Page: React.FC<PageProps> = ({data, logo}) => <Navigation data={data} logo={logo} />;
 ```
@@ -363,7 +363,7 @@ export default defineConfig({
   plugins: [
     react(),
     dynamicImport({
-      filter: (id) => id.includes('/node_modules/@gravity-ui/page-constructor'),
+      filter: (id) => id.includes('/node_modules/@doyourjob/gravity-ui-page-constructor'),
     }),
   ],
 });
@@ -392,9 +392,9 @@ When you receive the approval of your pull-request from the code owners and pass
 
 1. You should check if there is a release pull-request from robot with changes from another contributor (it looks like `chore(main): release 0.0.0`). If it exists, you should check why it is not merged. If the contributor agrees to release a shared version, follow the next step. If not, ask him to release his version, then follow the next step.
 2. Squash and merge your PR (It is important to release a new version with Github-Actions)
-3. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+3. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/doyourjob-agency/page-constructor/actions).
 4. Check your changes in CHANGELOG.md and approve robot's PR.
-5. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+5. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/doyourjob-agency/page-constructor/actions).
 
 ### Alpha versions release
 
@@ -434,9 +434,9 @@ If you want to release a new version in previous major after commit it to the ma
 3. Cherry-pick your commit from the branch `main`
 4. Create PR, get an approval and merge into the previous major release branch
 5. Squash and merge your PR (It is important to release a new version with Github-Actions)
-6. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+6. Wait until robot creates a PR with a new version of the package and information about your changes in CHANGELOG.md. You can see the process on [the Actions tab](https://github.com/doyourjob-agency/page-constructor/actions).
 7. Check your changes in CHANGELOG.md and approve robot's PR.
-8. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/gravity-ui/page-constructor/actions).
+8. Squash and merge PR. You can see release process on [the Actions tab](https://github.com/doyourjob-agency/page-constructor/actions).
 
 ## Page constructor editor
 
@@ -445,7 +445,7 @@ Editor provides user interface for page content management with realtime preview
 How to use:
 
 ```tsx
-import {Editor} from '@gravity-ui/page-constructor/editor';
+import {Editor} from '@doyourjob/gravity-ui-page-constructor/editor';
 
 interface MyAppEditorProps {
   initialContent: PageContent;
