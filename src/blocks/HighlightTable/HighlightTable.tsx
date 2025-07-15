@@ -24,7 +24,7 @@ export const HighlightTableBlock = ({
     title,
     description,
     table,
-    legend,
+    legend = [],
     contentSize = 's',
     legendPosition = 'top',
     legendAlign = 'center',
@@ -123,7 +123,7 @@ export const HighlightTableBlock = ({
 
     const renderLegend = useMemo(
         () =>
-            legend?.length && (
+            Boolean(legend.length) && (
                 <div
                     className={`${b('legend', {
                         left: legendAlign === 'left',

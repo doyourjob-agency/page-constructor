@@ -53,7 +53,7 @@ const AttachmentCard = ({
     title,
     date,
     time,
-    items,
+    items = [],
     label,
     column,
     border,
@@ -82,7 +82,7 @@ const AttachmentCard = ({
                     )}
                 </div>
             </CardBase.Content>
-            {items?.length && (
+            {Boolean(items.length) && (
                 <CardBase.Footer className={b('footer')}>
                     <ul className={b('items')}>
                         {items?.map((item, index) => (

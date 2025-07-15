@@ -8,11 +8,11 @@ import './Section.scss';
 
 const b = block('reports-sections-section');
 
-export const Section = ({title, date, items}: ReportsSectionsSection) => (
+export const Section = ({title, date, items = []}: ReportsSectionsSection) => (
     <div className={b()}>
         {date && <div className={b('date')}>{date}</div>}
         {title && <h2 className={b('title')}>{title}</h2>}
-        {items?.length && (
+        {Boolean(items.length) && (
             <ul className={b('files')}>
                 {items.map((item, index) => (
                     <li key={index}>

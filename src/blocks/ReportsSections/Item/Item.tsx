@@ -8,12 +8,12 @@ import './Item.scss';
 
 const b = block('reports-sections-item');
 
-export const Item = ({title, files}: ReportsSectionsItem) => (
+export const Item = ({title, files = []}: ReportsSectionsItem) => (
     <div className={b()}>
         <div className={b('wrap')}>
             <div className={b('title')}>{title}</div>
         </div>
-        {files?.length && (
+        {Boolean(files.length) && (
             <ul className={b('files')}>
                 {files.map((file) => (
                     <li key={file.link}>

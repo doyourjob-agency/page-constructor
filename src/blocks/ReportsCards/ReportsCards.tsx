@@ -52,7 +52,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {selects.length && (
+            {Boolean(selects.length) && (
                 <div className={b('select')}>
                     {selects.map(({name, options}) => (
                         <Select key={name} name={name} options={options} onChange={handleChange} />

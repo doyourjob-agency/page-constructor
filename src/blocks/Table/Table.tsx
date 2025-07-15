@@ -14,7 +14,7 @@ const bTable = block('table');
 const bScrollbar = block('table-scrollbar');
 
 export const TableBlock = (props: TableBlockProps) => {
-    const {title, table, description, links, buttons} = props;
+    const {title, table, description, links = [], buttons = []} = props;
 
     const tableRef = useRef<HTMLDivElement>(null);
 
@@ -73,8 +73,10 @@ export const TableBlock = (props: TableBlockProps) => {
                                 </Text>
                             </div>
                         )}
-                        {links?.length && <Links className={b('bottomObject')} links={links} />}
-                        {buttons?.length && (
+                        {Boolean(links.length) && (
+                            <Links className={b('bottomObject')} links={links} />
+                        )}
+                        {Boolean(buttons.length) && (
                             <Buttons className={b('bottomObject')} buttons={buttons} />
                         )}
                     </Col>

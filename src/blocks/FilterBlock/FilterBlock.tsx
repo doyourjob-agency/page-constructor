@@ -59,7 +59,7 @@ const FilterBlock: React.FC<FilterBlockProps> = ({
                     subtitle={description}
                 />
             )}
-            {tabButtons.length && (
+            {Boolean(tabButtons.length) && (
                 <Row>
                     <Col>
                         <ButtonTabs
