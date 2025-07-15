@@ -15,9 +15,7 @@ export const Section = ({title, date, items = []}: ReportsSectionsSection) => (
         {Boolean(items.length) && (
             <ul className={b('files')}>
                 {items.map((item, index) => (
-                    <li key={index}>
-                        <Item {...item} />
-                    </li>
+                    <Item key={index} {...item} />
                 ))}
             </ul>
         )}

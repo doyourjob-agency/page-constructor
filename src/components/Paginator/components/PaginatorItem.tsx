@@ -5,46 +5,63 @@ import {block} from '../../../utils/cn';
 import {i18n} from '../i18n';
 import {ArrowType, PaginatorItemProps} from '../types';
 
+const mapTypes: Record<string, string> = {
+    [ArrowType.Prev]: 'prev',
+    [ArrowType.Next]: 'next',
+    ellipsis: 'ellipsis',
+};
+
 const b = block('paginator');
 
-const PaginatorItem = ({dataKey, type, active, onClick}: PaginatorItemProps) => {
+const PaginatorItem = ({dataKey, active, onClick}: PaginatorItemProps) => {
     const index = Number(dataKey);
 
     const handleClick = useCallback(() => {
         if (typeof onClick === 'function') {
-            if (type === ArrowType.Prev) {
-                onClick(ArrowType.Prev);
-                return;
+            switch (dataKey) {
+                case ArrowType.Prev: {
+                    onClick(ArrowType.Prev);
+                    break;
+                }
+                case ArrowType.Next: {
+                    onClick(ArrowType.Next);
+                    break;
+                }
+                case 'ellipsis':
+                    break;
+                default:
+                    onClick(index);
+                    break;
             }
-            if (type === ArrowType.Next) {
-                onClick(ArrowType.Next);
-                return;
-            }
-            onClick(index);
         }
-    }, [index, onClick, type]);
+    }, [dataKey, index, onClick]);
 
     const renderContent = useMemo(() => {
-        if (type === 'ellipsis') {
-            return '…';
-        } else if (type === ArrowType.Prev) {
-            return (
-                <React.Fragment>
-                    <ArrowLeftIcon />
-                    <span>{i18n('prev')}</span>
-                </React.Fragment>
-            );
-        } else if (type === ArrowType.Next) {
-            return (
-                <React.Fragment>
-                    <span>{i18n('next')}</span>
-                    <ArrowRightIcon />
-                </React.Fragment>
-            );
-        } else {
-            return index;
+        switch (dataKey) {
+            case ArrowType.Prev: {
+                return (
+                    <React.Fragment>
+                        <ArrowLeftIcon />
+                        <span>{i18n('prev')}</span>
+                    </React.Fragment>
+                );
+            }
+            case ArrowType.Next: {
+                return (
+                    <React.Fragment>
+                        <span>{i18n('next')}</span>
+                        <ArrowRightIcon />
+                    </React.Fragment>
+                );
+            }
+            case 'ellipsis':
+                return '…';
+            default:
+                return index;
         }
-    }, [index, type]);
+    }, [dataKey, index]);
+
+    const type = useMemo(() => mapTypes[dataKey as string] ?? 'page', [dataKey]);
 
     return (
         <button

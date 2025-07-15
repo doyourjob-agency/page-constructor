@@ -73,10 +73,10 @@ const AttachmentCard = ({
                         <div className={b('date')}>
                             {date}
                             {time && (
-                                <div className={b('time')}>
-                                    <div className={b('dot')} />
+                                <span className={b('time')}>
+                                    <span className={b('dot')} />
                                     {time}
-                                </div>
+                                </span>
                             )}
                         </div>
                     )}

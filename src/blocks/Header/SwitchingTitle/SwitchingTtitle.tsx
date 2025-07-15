@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 
 import {SwitchingTitleProps} from '../../../models';
 import {block} from '../../../utils';
@@ -12,6 +12,7 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
     const {text, switchingTime} = props;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [opacity, setOpacity] = useState(1);
+    const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
 
     const texts = useMemo(() => partitionSwitchingTitleInput(text), [text]);
 
@@ -20,8 +21,13 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
         [texts],
     );
 
+    const clearAllTimeouts = () => {
+        timeoutsRef.current.forEach(clearTimeout);
+        timeoutsRef.current = [];
+    };
+
     useEffect(() => {
-        const timeouts: NodeJS.Timeout[] = [];
+        clearAllTimeouts();
 
         const intervalHandle = setInterval(() => {
             setOpacity(0);
@@ -29,14 +35,12 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
                 setCurrentIndex((c) => (c + 1) % textSizesCommonMultiple);
                 setOpacity(1);
             }, 200);
-            timeouts.push(timeout);
+            timeoutsRef.current.push(timeout);
         }, switchingTime);
 
         return () => {
             clearInterval(intervalHandle);
-            for (const timeout of timeouts) {
-                clearTimeout(timeout);
-            }
+            clearAllTimeouts();
         };
     }, [texts, switchingTime, textSizesCommonMultiple]);
 

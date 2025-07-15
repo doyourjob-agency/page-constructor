@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 
 import {block} from '../../utils/cn';
 
@@ -24,36 +24,37 @@ export const Paginator = ({
     const pagesCount = getPagesCount({itemsPerPage, totalItems, maxPages});
     const isShowSupportButtons = pagesCount > pageCountForShowSupportButtons;
 
-    const paginatorItems = useMemo(() => {
-        const items = getPageConfigs({page, pagesCount, handlePageClick: onPageChange});
-        if (isShowSupportButtons && page > 1) {
-            items.unshift({
-                key: ArrowType.Prev,
-                dataKey: ArrowType.Prev,
-                type: ArrowType.Prev,
-                onClick: onPageChange,
-            });
-        }
+    const handlePageClick = useCallback(
+        (index: number | ArrowType) => {
+            switch (index) {
+                case ArrowType.Prev:
+                    onPageChange((prev) => prev - 1);
+                    break;
+                case ArrowType.Next:
+                    onPageChange((prev) => prev + 1);
+                    break;
+                default:
+                    onPageChange(index);
+            }
+        },
+        [onPageChange],
+    );
 
-        if (isShowSupportButtons && page < pagesCount) {
-            items.push({
-                key: ArrowType.Next,
-                dataKey: ArrowType.Next,
-                type: ArrowType.Next,
-                onClick: onPageChange,
-            });
-        }
-
-        return items;
-    }, [page, pagesCount, onPageChange, isShowSupportButtons]);
+    const items = getPageConfigs({page, pagesCount, handlePageClick});
 
     if (pagesCount <= 1) return null;
 
     return (
         <ul className={b(null, className)} role="navigation" aria-label="Pagination Navigation">
-            {paginatorItems.map(({key, ...rest}) => (
-                <PaginatorItem key={`page_${key}`} {...rest} />
+            {isShowSupportButtons && page > 1 && (
+                <PaginatorItem dataKey={ArrowType.Prev} onClick={handlePageClick} />
+            )}
+            {items.map((item, index) => (
+                <PaginatorItem key={index} {...item} />
             ))}
+            {isShowSupportButtons && page < pagesCount && (
+                <PaginatorItem dataKey={ArrowType.Next} onClick={handlePageClick} />
+            )}
         </ul>
     );
 };

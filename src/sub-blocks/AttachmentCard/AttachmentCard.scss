@@ -69,10 +69,8 @@ $block: '.#{$ns}attachment-card';
     }
 
     &__time {
-        padding-left: $indentXXXS;
-        gap: $indentXXXS;
-        display: flex;
-        align-items: center;
+        display: inline-block;
+        vertical-align: middle;
     }
 
     &__dot {
@@ -80,5 +78,9 @@ $block: '.#{$ns}attachment-card';
         border-radius: 100%;
         width: 5px;
         height: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: $indentXXXS;
+        margin-right: $indentXXXS;
     }
 }

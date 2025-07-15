@@ -9,7 +9,7 @@ import './Item.scss';
 const b = block('reports-sections-item');
 
 export const Item = ({title, files = []}: ReportsSectionsItem) => (
-    <div className={b()}>
+    <li className={b()}>
         <div className={b('wrap')}>
             <div className={b('title')}>{title}</div>
         </div>
@@ -22,7 +22,7 @@ export const Item = ({title, files = []}: ReportsSectionsItem) => (
                 ))}
             </ul>
         )}
-    </div>
+    </li>
 );
 
 export default Item;

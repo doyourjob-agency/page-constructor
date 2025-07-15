@@ -1,8 +1,7 @@
 import type {ClassNameProps} from '../../models/common';
 
 export interface PaginatorItemProps {
-    key: string | ArrowType;
-    dataKey: string | ArrowType;
+    dataKey: string | ArrowType | 'ellipsis';
     type?: string;
     active?: boolean;
     onClick?: (key: number | ArrowType) => void;
@@ -13,7 +12,7 @@ export type PaginatorProps = {
     totalItems: number;
     itemsPerPage: number;
     maxPages: number;
-    onPageChange: (page: number | ArrowType) => void;
+    onPageChange: React.Dispatch<React.SetStateAction<number>>;
     pageCountForShowSupportButtons?: number;
 } & ClassNameProps;
 

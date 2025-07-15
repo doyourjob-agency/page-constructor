@@ -4,6 +4,9 @@
 $block: '.#{$ns}reports-block';
 
 #{$block} {
+    display: flex;
+    flex-direction: column;
+
     &__title {
         margin-bottom: 24px;
     }
@@ -13,6 +16,20 @@ $block: '.#{$ns}reports-block';
         gap: $indentXS;
         display: flex;
         flex-wrap: wrap;
+    }
+
+    &__loader {
+        align-self: center;
+        width: 48px;
+        height: 48px;
+
+        & > div {
+            border-color: var(--pc-color-progress-circular);
+        }
+    }
+
+    &__paginator {
+        margin-top: $indentM;
     }
 
     &__items {

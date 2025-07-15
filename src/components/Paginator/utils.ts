@@ -13,19 +13,9 @@ export const getPageConfigs = ({
 
     const addPage = (i: number) => {
         paginatorItems.push({
-            key: String(i),
             dataKey: String(i),
-            type: 'page',
             active: page === i,
             onClick: handlePageClick,
-        });
-    };
-
-    const addEllipsis = (key: string) => {
-        paginatorItems.push({
-            key,
-            dataKey: key,
-            type: 'ellipsis',
         });
     };
 
@@ -40,14 +30,14 @@ export const getPageConfigs = ({
         for (let i = 1; i <= 5; i++) {
             addPage(i);
         }
-        addEllipsis('ellipsis-right');
+        paginatorItems.push({dataKey: 'ellipsis'});
         addPage(pagesCount);
         return paginatorItems;
     }
 
     if (page >= pagesCount - 3) {
         addPage(1);
-        addEllipsis('ellipsis-left');
+        paginatorItems.push({dataKey: 'ellipsis'});
         for (let i = pagesCount - 4; i <= pagesCount; i++) {
             addPage(i);
         }
@@ -55,11 +45,11 @@ export const getPageConfigs = ({
     }
 
     addPage(1);
-    addEllipsis('ellipsis-left');
+    paginatorItems.push({dataKey: 'ellipsis'});
     addPage(page - 1);
     addPage(page);
     addPage(page + 1);
-    addEllipsis('ellipsis-right');
+    paginatorItems.push({dataKey: 'ellipsis'});
     addPage(pagesCount);
 
     return paginatorItems;

@@ -7,8 +7,11 @@ $block: '.#{$ns}reports-sections-item';
     padding: $indentSM 0;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--g-color-private-black-100-solid);
     gap: $indentM;
+
+    & + & {
+        border-top: 1px solid var(--g-color-private-black-100-solid);
+    }
 
     &__wrap {
         flex: 1;

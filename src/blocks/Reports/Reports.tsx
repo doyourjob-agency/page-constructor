@@ -1,7 +1,8 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {EmptyPlug, Paginator, ProgressCircular, Select, Title} from '../../components';
-import {ArrowType} from '../../components/Paginator/types';
+import {Spin} from '@gravity-ui/uikit';
+
+import {EmptyPlug, Paginator, Select, Title} from '../../components';
 import {ReportsContext} from '../../context/reportsContext';
 import {ReportsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -62,7 +63,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
 
     const renderItems = useMemo(() => {
         if (loading) {
-            return <ProgressCircular />;
+            return <Spin size="xl" className={b('loader')} />;
         }
         if (!paginatedItems.length) {
             return <EmptyPlug empty={empty} />;
@@ -77,19 +78,6 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
             </ul>
         );
     }, [empty, filesOutline, loading, paginatedItems]);
-
-    const handlePageChange = useCallback((index: number | ArrowType) => {
-        switch (index) {
-            case ArrowType.Prev:
-                setPage((prev) => prev - 1);
-                break;
-            case ArrowType.Next:
-                setPage((prev) => prev + 1);
-                break;
-            default:
-                setPage(index);
-        }
-    }, []);
 
     return (
         <div className={b()}>
@@ -108,7 +96,8 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
                     itemsPerPage={itemsPerPage}
                     totalItems={filteredItems.length}
                     maxPages={Infinity}
-                    onPageChange={handlePageChange}
+                    onPageChange={setPage}
+                    className={b('paginator')}
                 />
             )}
         </div>
