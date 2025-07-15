@@ -15,7 +15,7 @@ interface Select extends SelectProps {
 
 type ReportsCardsData = {
     selects?: Select[];
-    items: Item[];
+    items?: Item[];
 };
 
 export type ReportsCardsContextProps = Record<string, ReportsCardsData>;

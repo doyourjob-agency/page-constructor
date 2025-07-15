@@ -23,9 +23,9 @@ const cardsColSizes = {
 
 export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCardsBlockProps) => {
     const data = useContext(ReportsCardsContext);
-    const {selects, items} = useMemo(() => data[typeKey], [data, typeKey]);
+    const {selects = [], items = []} = useMemo(() => data[typeKey] || {}, [data, typeKey]);
     const initFilters = useMemo(
-        () => selects?.reduce((acc, select) => ({...acc, [select.name]: select.init}), {}) || {},
+        () => selects.reduce((acc, select) => ({...acc, [select.name]: select.init}), {}) || {},
         [selects],
     );
     const [localFilters, setLocalFilters] = useState<Record<string, string>>(initFilters);
@@ -52,7 +52,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {selects?.length && (
+            {selects.length && (
                 <div className={b('select')}>
                     {selects.map(({name, options}) => (
                         <Select key={name} name={name} options={options} onChange={handleChange} />

@@ -17,7 +17,7 @@ interface Select extends SelectProps {
 type ReportsData = {
     selects?: Select[];
     loading?: boolean;
-    items: Item[];
+    items?: Item[];
     itemsPerPage?: number;
 } & Pick<ReportsItemProps, 'filesOutline'>;
 

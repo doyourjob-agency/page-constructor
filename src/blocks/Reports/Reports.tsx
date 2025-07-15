@@ -18,12 +18,15 @@ const titleColSizes = {
 export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
     const data = useContext(ReportsContext);
     const [page, setPage] = useState(1);
-    const {selects, loading, items, itemsPerPage, filesOutline} = useMemo(
-        () => data[typeKey],
-        [data, typeKey],
-    );
+    const {
+        selects = [],
+        loading,
+        items = [],
+        itemsPerPage,
+        filesOutline,
+    } = useMemo(() => data[typeKey] || {}, [data, typeKey]);
     const initFilters = useMemo(
-        () => selects?.reduce((acc, select) => ({...acc, [select.name]: select.init}), {}) || {},
+        () => selects.reduce((acc, select) => ({...acc, [select.name]: select.init}), {}) || {},
         [selects],
     );
     const [localFilters, setLocalFilters] = useState<Record<string, string>>(initFilters);
@@ -68,7 +71,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {selects?.length && (
+            {selects.length && (
                 <div className={b('select')}>
                     {selects.map(({name, options}) => (
                         <Select key={name} name={name} options={options} onChange={handleChange} />

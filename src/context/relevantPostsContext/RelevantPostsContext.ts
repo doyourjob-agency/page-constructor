@@ -14,7 +14,7 @@ export type RelevantPostData = {
 };
 
 export interface RelevantPostsContextProps {
-    posts: RelevantPostData[];
+    posts?: RelevantPostData[];
 }
 
 export const RelevantPostsContext = React.createContext<RelevantPostsContextProps>({

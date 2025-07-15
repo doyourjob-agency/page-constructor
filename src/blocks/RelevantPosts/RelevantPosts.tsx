@@ -35,7 +35,7 @@ export const RelevantPosts = ({
 }: RelevantPostsBlockProps) => {
     const [now, setNow] = React.useState<Date | null>(null);
 
-    const {posts} = useContext(RelevantPostsContext);
+    const {posts = []} = useContext(RelevantPostsContext);
 
     useEffect(() => {
         setNow(new Date());

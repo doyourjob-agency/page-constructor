@@ -32,7 +32,7 @@ export const RelevantReports = ({
 }: RelevantReportsBlockProps) => {
     const [now, setNow] = React.useState<Date | null>(null);
     const data = useContext(ReportsContext);
-    const {items} = useMemo(() => data[typeKey], [data, typeKey]);
+    const {items = []} = useMemo(() => data[typeKey] || {}, [data, typeKey]);
 
     useEffect(() => {
         setNow(new Date());
