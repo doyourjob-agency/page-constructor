@@ -9,6 +9,7 @@ $block: '.#{$ns}reports-item';
     transition: box-shadow 0.3s ease-in-out;
     display: flex;
     align-items: center;
+    gap: $indentM;
 
     &__wrap {
         flex: 1;
@@ -36,6 +37,8 @@ $block: '.#{$ns}reports-item';
     }
 
     &__files {
+        @include reset-list-style();
+
         display: flex;
         gap: $indentXXXS;
         flex-wrap: wrap;
@@ -49,9 +52,6 @@ $block: '.#{$ns}reports-item';
         padding: $indentSM;
         flex-direction: column;
         align-items: flex-start;
-
-        &__files {
-            margin-top: $indentSM;
-        }
+        gap: $indentSM;
     }
 }

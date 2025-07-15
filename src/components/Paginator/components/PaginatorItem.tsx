@@ -1,20 +1,60 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 
+import {ArrowLeftIcon, ArrowRightIcon} from '../../../icons';
 import {block} from '../../../utils/cn';
+import {i18n} from '../i18n';
 import {ArrowType, PaginatorItemProps} from '../types';
 
 const b = block('paginator');
 
-export const PaginatorItem = ({dataKey, mods, content, onClick}: PaginatorItemProps) => {
-    const itemKey = Number(dataKey) > 0 ? Number(dataKey) : (dataKey as ArrowType);
+const PaginatorItem = ({dataKey, type, active, onClick}: PaginatorItemProps) => {
+    const index = Number(dataKey);
 
     const handleClick = useCallback(() => {
-        onClick?.(itemKey);
-    }, [itemKey, onClick]);
+        if (typeof onClick === 'function') {
+            if (type === ArrowType.Prev) {
+                onClick(ArrowType.Prev);
+                return;
+            }
+            if (type === ArrowType.Next) {
+                onClick(ArrowType.Next);
+                return;
+            }
+            onClick(index);
+        }
+    }, [index, onClick, type]);
+
+    const renderContent = useMemo(() => {
+        if (type === 'ellipsis') {
+            return '…';
+        } else if (type === ArrowType.Prev) {
+            return (
+                <React.Fragment>
+                    <ArrowLeftIcon />
+                    <span>{i18n('prev')}</span>
+                </React.Fragment>
+            );
+        } else if (type === ArrowType.Next) {
+            return (
+                <React.Fragment>
+                    <span>{i18n('next')}</span>
+                    <ArrowRightIcon />
+                </React.Fragment>
+            );
+        } else {
+            return index;
+        }
+    }, [index, type]);
 
     return (
-        <button className={b('item', mods)} onClick={handleClick}>
-            {content}
+        <button
+            className={b('item', {type, active})}
+            aria-current={active ? 'true' : undefined}
+            onClick={handleClick}
+        >
+            {renderContent}
         </button>
     );
 };
+
+export default React.memo(PaginatorItem);

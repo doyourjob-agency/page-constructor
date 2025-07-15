@@ -2,6 +2,7 @@
 @import '../../../styles/variables';
 
 $block: '.#{$ns}relevant-reports-block';
+$blockContent: '.#{$ns}content';
 
 #{$block} {
     &__pinned {
@@ -9,5 +10,12 @@ $block: '.#{$ns}relevant-reports-block';
     }
     &__slider {
         padding-top: $indentXXS;
+    }
+    &__item {
+        height: 100%;
+
+        & #{$blockContent} {
+            justify-content: space-between;
+        }
     }
 }

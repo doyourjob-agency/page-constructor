@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
-import {Anchor, InfiniteScroll} from '../../components';
+import {Anchor, EmptyPlug, InfiniteScroll} from '../../components';
 import {EventsRecentContext} from '../../context/eventsContext';
 import {IrEventsFeedRecentBlockProps} from '../../models';
 import {AttachmentCard} from '../../sub-blocks';
@@ -47,7 +47,7 @@ export const IrEventsFeedRecent = ({label, empty}: IrEventsFeedRecentBlockProps)
                         />
                     ))
                 ) : (
-                    <div className={b('empty')}>{empty}</div>
+                    <EmptyPlug empty={empty} />
                 )}
             </CardLayoutBlock>
             <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />

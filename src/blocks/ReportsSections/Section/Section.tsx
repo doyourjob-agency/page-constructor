@@ -13,11 +13,13 @@ export const Section = ({title, date, items}: ReportsSectionsSection) => (
         {date && <div className={b('date')}>{date}</div>}
         {title && <h2 className={b('title')}>{title}</h2>}
         {items?.length && (
-            <div className={b('files')}>
+            <ul className={b('files')}>
                 {items.map((item, index) => (
-                    <Item key={index} {...item} />
+                    <li key={index}>
+                        <Item {...item} />
+                    </li>
                 ))}
-            </div>
+            </ul>
         )}
     </div>
 );

@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Paginator, ProgressCircular, Select, Title} from '../../components';
+import {EmptyPlug, Paginator, ProgressCircular, Select, Title} from '../../components';
+import {ArrowType} from '../../components/Paginator/types';
 import {ReportsContext} from '../../context/reportsContext';
 import {ReportsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -31,10 +32,10 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
     );
     const [localFilters, setLocalFilters] = useState<Record<string, string>>(initFilters);
 
-    const handleChange = useCallback(
-        (name: string, value: string) => setLocalFilters((prev) => ({...prev, [name]: value})),
-        [],
-    );
+    const handleChange = useCallback((name: string, value: string) => {
+        setLocalFilters((prev) => ({...prev, [name]: value}));
+        setPage(1);
+    }, []);
 
     const filteredItems = useMemo(() => {
         const f = Object.entries(localFilters).filter(([_, value]) => value !== 'all');
@@ -51,22 +52,44 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
         return filteredItems.slice(startIndex, startIndex + itemsPerPage);
     }, [filteredItems, itemsPerPage, page]);
 
-    const titleProps =
-        !title || typeof title === 'string'
-            ? ({text: title, textSize: 'm'} as TitleItemProps)
-            : title;
+    const titleProps = useMemo(
+        () =>
+            !title || typeof title === 'string'
+                ? ({text: title, textSize: 'm'} as TitleItemProps)
+                : title,
+        [title],
+    );
 
     const renderItems = useMemo(() => {
         if (loading) {
-            return <ProgressCircular size={48} strokeWidth={2} color="#262626" />;
+            return <ProgressCircular />;
         }
         if (!paginatedItems.length) {
-            return <div className={b('empty')}>{empty}</div>;
+            return <EmptyPlug empty={empty} />;
         }
-        return paginatedItems.map((item, index) => (
-            <ReportsItem key={index} {...item} filesOutline={filesOutline} />
-        ));
-    }, [loading, empty, filesOutline, paginatedItems]);
+        return (
+            <ul className={b('items')}>
+                {paginatedItems.map((item, index) => (
+                    <li key={index}>
+                        <ReportsItem {...item} filesOutline={filesOutline} />
+                    </li>
+                ))}
+            </ul>
+        );
+    }, [empty, filesOutline, loading, paginatedItems]);
+
+    const handlePageChange = useCallback((index: number | ArrowType) => {
+        switch (index) {
+            case ArrowType.Prev:
+                setPage((prev) => prev - 1);
+                break;
+            case ArrowType.Next:
+                setPage((prev) => prev + 1);
+                break;
+            default:
+                setPage(index);
+        }
+    }, []);
 
     return (
         <div className={b()}>
@@ -85,7 +108,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
                     itemsPerPage={itemsPerPage}
                     totalItems={filteredItems.length}
                     maxPages={Infinity}
-                    onPageChange={setPage}
+                    onPageChange={handlePageChange}
                 />
             )}
         </div>

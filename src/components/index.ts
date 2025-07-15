@@ -45,6 +45,7 @@ export {default as ReportFile} from './ReportFile/ReportFile';
 export {default as Select} from './Select/Select';
 export {default as Paginator} from './Paginator/Paginator';
 export {default as ProgressCircular} from './ProgressCircular/ProgressCircular';
+export {default as EmptyPlug} from './EmptyPlug/EmptyPlug';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

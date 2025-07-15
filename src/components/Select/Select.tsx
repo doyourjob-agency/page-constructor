@@ -11,7 +11,7 @@ interface Props extends SelectProps {
     onChange?: (name: string, value: string) => void;
 }
 
-export const Select = ({name, options, onChange}: Props) => {
+const Select = ({name, options, onChange}: Props) => {
     const handleChange = useCallback(
         (e: React.SyntheticEvent<HTMLSelectElement, Event>) => {
             onChange?.(name, e.currentTarget.value);
@@ -29,4 +29,4 @@ export const Select = ({name, options, onChange}: Props) => {
     );
 };
 
-export default Select;
+export default React.memo(Select);

@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Select, Title, YFMWrapper} from '../../components';
+import {EmptyPlug, Select, Title, YFMWrapper} from '../../components';
 import {ReportsCardsContext} from '../../context/reportsCardsContext';
 import {Col, Row} from '../../grid';
 import {ReportsCardsBlockProps, TitleItemProps} from '../../models';
@@ -68,7 +68,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
                     ))}
                 </Row>
             ) : (
-                <div className={b('empty')}>{empty}</div>
+                <EmptyPlug empty={empty} />
             )}
             {postscript && (
                 <YFMWrapper

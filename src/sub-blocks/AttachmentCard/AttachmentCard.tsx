@@ -84,9 +84,13 @@ const AttachmentCard = ({
             </CardBase.Content>
             {items?.length && (
                 <CardBase.Footer className={b('footer')}>
-                    {items?.map((item, index) => (
-                        <AttachmentCardItem key={index} {...item} />
-                    ))}
+                    <ul className={b('items')}>
+                        {items?.map((item, index) => (
+                            <li key={index}>
+                                <AttachmentCardItem {...item} />
+                            </li>
+                        ))}
+                    </ul>
                 </CardBase.Footer>
             )}
         </CardBase>

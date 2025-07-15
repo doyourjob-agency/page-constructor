@@ -22,7 +22,7 @@ $block: '.#{$ns}report-file';
         background-color: var(--g-color-private-cool-grey-400);
     }
 
-    &_outline {
+    &_outlined {
         border-color: var(--g-color-private-cool-grey-400);
         background-color: transparent;
         &:hover {

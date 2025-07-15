@@ -8,7 +8,7 @@ import './ReportsItem.scss';
 
 const b = block('reports-item');
 
-export const ReportsItem = ({title, date, text, files, filesOutline}: ReportsItemProps) => (
+const ReportsItem = ({title, date, text, files, filesOutline}: ReportsItemProps) => (
     <div className={b()}>
         <div className={b('wrap')}>
             <div className={b('title')}>{title}</div>
@@ -21,13 +21,15 @@ export const ReportsItem = ({title, date, text, files, filesOutline}: ReportsIte
             )}
         </div>
         {Boolean(files?.length) && (
-            <div className={b('files')}>
+            <ul className={b('files')}>
                 {files?.map((file) => (
-                    <ReportFile key={file.link} {...file} outline={filesOutline} />
+                    <li key={file.link}>
+                        <ReportFile {...file} outlined={filesOutline} />
+                    </li>
                 ))}
-            </div>
+            </ul>
         )}
     </div>
 );
 
-export default ReportsItem;
+export default React.memo(ReportsItem);

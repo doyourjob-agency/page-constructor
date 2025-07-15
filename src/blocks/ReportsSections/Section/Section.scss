@@ -6,7 +6,7 @@ $block: '.#{$ns}reports-sections-section';
 #{$block} {
     padding: $indentM;
     border-radius: $indentSM;
-    background-color: #fff;
+    background: var(--g-color-base-background);
     box-shadow: 0 4px 24px var(--pc-color-sfx-shadow), 0 2px 8px var(--pc-color-sfx-shadow);
 
     &__date {
@@ -18,5 +18,9 @@ $block: '.#{$ns}reports-sections-section';
         @include heading2();
 
         margin: 0;
+    }
+
+    &__files {
+        @include reset-list-style();
     }
 }

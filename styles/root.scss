@@ -51,6 +51,8 @@
     --pc-color-line-focus-light: var(--g-color-text-brand);
     --pc-color-line-focus-dark: var(--g-color-text-light-primary);
 
+    --pc-color-progress-circular: #262626;
+
     &_theme_light {
         @include pc-colors-light;
         --g-color-line-focus: var(--pc-color-line-focus-light);

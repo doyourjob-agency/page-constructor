@@ -1,75 +1,66 @@
-import {GetPageConfigParams, PaginatorItemProps, PaginatorProps} from './types';
+import {ArrowType, PaginatorItemProps, PaginatorProps} from './types';
 
-export const getPageConfigs = ({page, pagesCount, handlePageClick}: GetPageConfigParams) => {
+export const getPageConfigs = ({
+    page,
+    pagesCount,
+    handlePageClick,
+}: {
+    page: number;
+    pagesCount: number;
+    handlePageClick: (index: number | ArrowType) => void;
+}): PaginatorItemProps[] => {
     const paginatorItems: PaginatorItemProps[] = [];
-
-    const showLeftDots = page > 4;
-    const showRightDots = page < pagesCount - 3;
 
     const addPage = (i: number) => {
         paginatorItems.push({
             key: String(i),
             dataKey: String(i),
-            index: i,
-            mods: {type: 'page', active: page === i},
+            type: 'page',
+            active: page === i,
             onClick: handlePageClick,
-            content: i,
         });
     };
 
-    if (pagesCount <= 5) {
+    const addEllipsis = (key: string) => {
+        paginatorItems.push({
+            key,
+            dataKey: key,
+            type: 'ellipsis',
+        });
+    };
+
+    if (pagesCount <= 7) {
         for (let i = 1; i <= pagesCount; i++) {
             addPage(i);
         }
-
         return paginatorItems;
     }
 
-    // Всегда добавляем первую
-    addPage(1);
-
-    // Левые троеточия
-    if (showLeftDots) {
-        paginatorItems.push({
-            key: 'ellipsis',
-            dataKey: 'ellipsis',
-            index: -1,
-            mods: {type: 'ellipsis'},
-            content: '…',
-        });
-    }
-
-    // Центральный блок
-    let start = Math.max(2, page - 1);
-    let end = Math.min(pagesCount - 1, page + 1);
-
-    if (!showLeftDots) {
-        start = 2;
-        end = 5;
-    } else if (!showRightDots) {
-        start = pagesCount - 4;
-        end = pagesCount - 1;
-    }
-
-    for (let i = start; i <= end; i++) {
-        addPage(i);
-    }
-
-    // Правые троеточия
-    if (showRightDots) {
-        paginatorItems.push({
-            key: 'ellipsis',
-            dataKey: 'ellipsis',
-            index: -2,
-            mods: {type: 'ellipsis'},
-            content: '…',
-        });
-    }
-
-    // Последняя страница
-    if (pagesCount > 1) {
+    if (page <= 4) {
+        for (let i = 1; i <= 5; i++) {
+            addPage(i);
+        }
+        addEllipsis('ellipsis-right');
         addPage(pagesCount);
+        return paginatorItems;
     }
+
+    if (page >= pagesCount - 3) {
+        addPage(1);
+        addEllipsis('ellipsis-left');
+        for (let i = pagesCount - 4; i <= pagesCount; i++) {
+            addPage(i);
+        }
+        return paginatorItems;
+    }
+
+    addPage(1);
+    addEllipsis('ellipsis-left');
+    addPage(page - 1);
+    addPage(page);
+    addPage(page + 1);
+    addEllipsis('ellipsis-right');
+    addPage(pagesCount);
 
     return paginatorItems;
 };

@@ -14,11 +14,13 @@ export const Item = ({title, files}: ReportsSectionsItem) => (
             <div className={b('title')}>{title}</div>
         </div>
         {files?.length && (
-            <div className={b('files')}>
+            <ul className={b('files')}>
                 {files.map((file) => (
-                    <ReportFile key={file.link} {...file} outline />
+                    <li key={file.link}>
+                        <ReportFile {...file} outlined />
+                    </li>
                 ))}
-            </div>
+            </ul>
         )}
     </div>
 );

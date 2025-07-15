@@ -100,13 +100,14 @@ export const RelevantReports = ({
         return (
             <CardLayoutBlock colSizes={layoutColSizes}>
                 {filteredPosts.map((item, index) => (
-                    <BasicCard
-                        key={index}
-                        title={item.title}
-                        text={item.date}
-                        url={item.url || ''}
-                        border="line"
-                    />
+                    <div className={b('item')} key={index}>
+                        <BasicCard
+                            title={item.title}
+                            text={item.date}
+                            url={item.url || ''}
+                            border="line"
+                        />
+                    </div>
                 ))}
             </CardLayoutBlock>
         );

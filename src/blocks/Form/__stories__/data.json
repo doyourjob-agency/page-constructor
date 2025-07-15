@@ -33,7 +33,8 @@
     }
   },
   "withFullWidth": {
-    "fullWidth": true
+    "fullWidth": true,
+    "fullWidthContent": true
   },
   "withBackgroundImage": {
     "background": {

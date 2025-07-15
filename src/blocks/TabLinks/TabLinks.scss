@@ -4,9 +4,19 @@
 $block: '.#{$ns}tab-links-block';
 
 #{$block} {
-    display: flex;
     border-bottom: 1px solid var(--g-color-private-cool-grey-400);
-    gap: $indentM;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; // smooth scroll on iOS
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+        display: none; // Chrome/Safari
+    }
+
+    &__scroll {
+        display: flex;
+        gap: $indentM;
+        min-width: max-content;
+    }
 
     &__item {
         @include text-size(body-3);

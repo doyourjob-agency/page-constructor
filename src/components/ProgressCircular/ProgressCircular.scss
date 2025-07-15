@@ -14,6 +14,8 @@ $itemDimensions: 52px;
     &__fg {
         stroke-linecap: round;
         animation: dash 1.4s ease-in-out infinite;
+
+        stroke: var(--pc-color-progress-circular);
     }
 }
 

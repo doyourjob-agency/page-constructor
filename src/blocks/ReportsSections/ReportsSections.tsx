@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {Select, Title} from '../../components';
+import {EmptyPlug, Select, Title} from '../../components';
 import {ReportsSectionsContext} from '../../context/reportsSectionsContext';
 import {ReportsSectionsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -60,7 +60,7 @@ export const ReportsSectionsBlock = ({title, typeKey, empty}: ReportsSectionsBlo
                     ))}
                 </div>
             ) : (
-                <div className={b('empty')}>{empty}</div>
+                <EmptyPlug empty={empty} className={b('empty')} />
             )}
         </div>
     );

@@ -1,16 +1,11 @@
-import type {ReactNode} from 'react';
-
-import type {NoStrictEntityMods} from '@bem-react/classname';
-
 import type {ClassNameProps} from '../../models/common';
 
 export interface PaginatorItemProps {
     key: string | ArrowType;
     dataKey: string | ArrowType;
-    mods: NoStrictEntityMods;
-    content: ReactNode;
+    type?: string;
+    active?: boolean;
     onClick?: (key: number | ArrowType) => void;
-    index: number;
 }
 
 export type PaginatorProps = {
@@ -18,7 +13,7 @@ export type PaginatorProps = {
     totalItems: number;
     itemsPerPage: number;
     maxPages: number;
-    onPageChange: (page: number) => void;
+    onPageChange: (page: number | ArrowType) => void;
     pageCountForShowSupportButtons?: number;
 } & ClassNameProps;
 

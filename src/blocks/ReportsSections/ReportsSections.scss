@@ -22,14 +22,6 @@ $block: '.#{$ns}reports-sections-block';
     }
 
     &__empty {
-        @include text-size(body-2);
-
-        height: $indentXXXL;
-        width: 100%;
-        background-color: #fff;
-        border-radius: $indentSM;
-        justify-content: center;
-        align-items: center;
-        display: flex;
+        background: var(--g-color-base-background);
     }
 }

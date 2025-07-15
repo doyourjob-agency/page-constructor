@@ -30,6 +30,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
         textFormContent,
         direction = FormBlockDirection.Center,
         fullWidth,
+        fullWidthContent,
         background,
         image,
         backgroundColor,
@@ -61,6 +62,7 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
     );
 
     const isFullWidthForm = direction === FormBlockDirection.Center && fullWidth;
+    const isFullWidthContent = direction === FormBlockDirection.Center && fullWidthContent;
 
     const onContentLoad = useCallback(() => {
         setContentLoaded(true);
@@ -120,7 +122,10 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                         direction,
                     })}
                 >
-                    <Col sizes={colSizes} className={b('content-col')}>
+                    <Col
+                        sizes={isFullWidthContent ? {[GridColumnSize.All]: 12} : colSizes}
+                        className={b('content-col')}
+                    >
                         {textContent && (
                             <div className={b('content-wrapper')}>
                                 <Content

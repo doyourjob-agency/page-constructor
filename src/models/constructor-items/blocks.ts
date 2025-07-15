@@ -709,6 +709,7 @@ export interface FormBlockProps {
     image?: string;
     slug?: string;
     fullWidth?: boolean;
+    fullWidthContent?: boolean;
 }
 
 //block models

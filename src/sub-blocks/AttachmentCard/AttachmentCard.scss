@@ -52,10 +52,15 @@ $block: '.#{$ns}attachment-card';
 
     &__footer {
         margin-top: $indentM;
+        flex: 1;
+    }
+
+    &__items {
+        @include reset-list-style();
+
         row-gap: $indentXS;
         display: flex;
         flex-direction: column;
-        flex: 1;
     }
 
     &__date {

@@ -7,8 +7,8 @@ import './ReportFile.scss';
 
 const b = block('report-file');
 
-export const ReportFile = ({name, link, outline}: ReportFileProps) => (
-    <a className={b({outline})} href={link}>
+export const ReportFile = ({name, link, outlined}: ReportFileProps) => (
+    <a className={b({outlined})} href={link}>
         {name}
     </a>
 );

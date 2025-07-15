@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
-import {Anchor} from '../../components';
+import {Anchor, EmptyPlug} from '../../components';
 import {EventsUpcomingContext} from '../../context/eventsContext';
 import {IrEventsFeedUpcomingBlockProps} from '../../models';
 import {AttachmentCard} from '../../sub-blocks';
@@ -45,7 +45,7 @@ export const IrEventsFeedUpcoming = ({label, empty}: IrEventsFeedUpcomingBlockPr
                         />
                     ))
                 ) : (
-                    <div className={b('empty')}>{empty}</div>
+                    <EmptyPlug empty={empty} />
                 )}
             </CardLayoutBlock>
         </div>

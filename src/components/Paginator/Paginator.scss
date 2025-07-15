@@ -57,25 +57,4 @@ $itemDimensions: 52px;
             }
         }
     }
-
-    &__pagination {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        gap: $indentXXXS;
-
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            flex-direction: column;
-        }
-    }
-
-    &__pagination-block {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 4px;
-    }
 }

@@ -13,9 +13,9 @@ type ProgressCircularProps = {
 };
 
 export default function ProgressCircular({
-    size = 40,
-    strokeWidth = 4,
-    color = '#1976d2',
+    size = 48,
+    strokeWidth = 2,
+    color,
 }: ProgressCircularProps) {
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;

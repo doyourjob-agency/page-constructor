@@ -15,15 +15,7 @@ $block: '.#{$ns}reports-block';
         flex-wrap: wrap;
     }
 
-    &__empty {
-        @include text-size(body-2);
-
-        height: $indentXXXL;
-        width: 100%;
-        background-color: var(--g-color-private-blue-50);
-        border-radius: $indentSM;
-        justify-content: center;
-        align-items: center;
-        display: flex;
+    &__items {
+        @include reset-list-style();
     }
 }

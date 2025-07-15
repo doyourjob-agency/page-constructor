@@ -70,6 +70,9 @@ export const FormBlock = {
             fullWidth: {
                 type: 'boolean',
             },
+            fullWidthContent: {
+                type: 'boolean',
+            },
         },
     },
 };

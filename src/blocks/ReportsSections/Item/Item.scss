@@ -19,6 +19,8 @@ $block: '.#{$ns}reports-sections-item';
     }
 
     &__files {
+        @include reset-list-style();
+
         display: flex;
         gap: $indentXXXS;
         flex-wrap: wrap;

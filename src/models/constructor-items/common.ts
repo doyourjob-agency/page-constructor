@@ -510,7 +510,7 @@ export interface ReportFileType {
 }
 
 export interface ReportFileProps extends ReportFileType {
-    outline?: boolean;
+    outlined?: boolean;
 }
 
 interface SelectOption {
