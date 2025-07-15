@@ -21,15 +21,23 @@ const SwitchingTitle = (props: SwitchingTitleProps) => {
     );
 
     useEffect(() => {
+        const timeouts: NodeJS.Timeout[] = [];
+
         const intervalHandle = setInterval(() => {
             setOpacity(0);
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
                 setCurrentIndex((c) => (c + 1) % textSizesCommonMultiple);
                 setOpacity(1);
             }, 200);
+            timeouts.push(timeout);
         }, switchingTime);
 
-        return () => clearInterval(intervalHandle);
+        return () => {
+            clearInterval(intervalHandle);
+            for (const timeout of timeouts) {
+                clearTimeout(timeout);
+            }
+        };
     }, [texts, switchingTime, textSizesCommonMultiple]);
 
     return (
