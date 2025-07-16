@@ -42,7 +42,6 @@ export {default as YandexForm} from './YandexForm/YandexForm';
 export {default as InfiniteScroll} from './InfiniteScroll/InfiniteScroll';
 export {default as Tag} from './Tag/Tag';
 export {default as ReportFile} from './ReportFile/ReportFile';
-export {default as Select} from './Select/Select';
 export {default as Paginator} from './Paginator/Paginator';
 export {default as EmptyPlug} from './EmptyPlug/EmptyPlug';
 

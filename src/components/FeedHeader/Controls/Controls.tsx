@@ -1,6 +1,4 @@
-import React, {useCallback, useContext, useMemo} from 'react';
-
-import {Select} from '@gravity-ui/uikit';
+import React, {useCallback, useContext} from 'react';
 
 import {
     FeedHeaderFilterContext,
@@ -8,128 +6,15 @@ import {
     FeedHeaderFunctionsContext,
     FeedHeaderOption,
 } from '../../../context/feedHeaderContext';
-import {MobileContext} from '../../../context/mobileContext';
 import {block} from '../../../utils';
-import {Search} from '../Search/Search';
-
-import {renderFilter, renderOption, renderSwitcher} from './customRenders';
+import FilterInput from '../../Filters/FilterInput/FilterInput';
+import FilterMultipleSelect from '../../Filters/FilterMultipleSelect/FilterMultipleSelect';
+import FilterSelect from '../../Filters/FilterSelect/FilterSelect';
+import {i18n} from '../i18n';
 
 import './Controls.scss';
 
 const b = block('feed-header-controls');
-
-const VIRTUALIZATION_THRESHOLD = 1000;
-
-const FilterInput = ({
-    value,
-    onChange,
-    label,
-}: {
-    value: string;
-    onChange: (value: string) => void;
-    label?: string;
-}) => (
-    <div className={b('filter-item')}>
-        <Search
-            className={b('filter-input')}
-            placeholder={label}
-            initialValue={value}
-            onSubmit={onChange}
-        />
-    </div>
-);
-
-const FilterMultipleSelect = ({
-    label,
-    value,
-    onChange,
-    items = [],
-}: {
-    value: string;
-    onChange: (value: string) => void;
-    label?: string;
-    items?: FeedHeaderOption[];
-}) => {
-    const isMobile = useContext(MobileContext);
-
-    const handleUpdate = (selected: string[]) => {
-        const asString = selected.join(',');
-
-        onChange(asString);
-    };
-
-    const valueLocal = useMemo(() => (value ? [...value.split(',')] : []), [value]);
-
-    return (
-        <div className={b('filter-item')}>
-            <Select
-                className={b('filter-select')}
-                size="xl"
-                options={items}
-                defaultValue={[]}
-                value={valueLocal}
-                onUpdate={handleUpdate}
-                popupClassName={b('popup', {mobile: isMobile})}
-                renderControl={renderSwitcher({
-                    initial: valueLocal,
-                    list: items,
-                    defaultLabel: label || '',
-                })}
-                disablePortal
-                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                renderOption={renderOption}
-                renderFilter={renderFilter}
-                multiple
-                filterable
-                hasClear
-            />
-        </div>
-    );
-};
-
-const FilterSelect = ({
-    label,
-    value,
-    onChange,
-    items = [],
-}: {
-    value: string;
-    onChange: (value: string) => void;
-    label?: string;
-    items?: FeedHeaderOption[];
-}) => {
-    const isMobile = useContext(MobileContext);
-
-    const handleUpdate = (selected: string[]) => {
-        const isEmpty = selected.some((tag) => tag === 'empty');
-
-        onChange(isEmpty ? '' : selected[0]);
-    };
-
-    const valueLocal = useMemo(() => (value ? [value] : []), [value]);
-
-    return (
-        <div className={b('filter-item')}>
-            <Select
-                className={b('filter-select')}
-                size="xl"
-                options={items}
-                defaultValue={[]}
-                value={valueLocal}
-                onUpdate={handleUpdate}
-                popupClassName={b('popup', {mobile: isMobile})}
-                renderControl={renderSwitcher({
-                    initial: valueLocal,
-                    list: items,
-                    defaultLabel: label || '',
-                })}
-                disablePortal
-                virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
-                renderOption={renderOption}
-            />
-        </div>
-    );
-};
 
 const Filter = ({
     name,
@@ -155,24 +40,38 @@ const Filter = ({
 
     switch (type) {
         case 'input':
-            return <FilterInput label={label} value={value} onChange={handleChangeFilter} />;
+            return (
+                <div className={b('filter-item')}>
+                    <FilterInput
+                        label={label}
+                        value={value}
+                        onChange={handleChangeFilter}
+                        clearText={i18n('clear')}
+                    />
+                </div>
+            );
         case 'multiple-select':
             return (
-                <FilterMultipleSelect
-                    label={label}
-                    items={items}
-                    value={value}
-                    onChange={handleChangeFilter}
-                />
+                <div className={b('filter-item')}>
+                    <FilterMultipleSelect
+                        label={label}
+                        items={items}
+                        value={value}
+                        onChange={handleChangeFilter}
+                        filterText={i18n('search')}
+                    />
+                </div>
             );
         case 'select':
             return (
-                <FilterSelect
-                    label={label}
-                    items={items}
-                    value={value}
-                    onChange={handleChangeFilter}
-                />
+                <div className={b('filter-item')}>
+                    <FilterSelect
+                        label={label}
+                        items={items}
+                        value={value}
+                        onChange={handleChangeFilter}
+                    />
+                </div>
             );
         default:
             return null;

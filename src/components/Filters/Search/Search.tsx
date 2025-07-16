@@ -6,11 +6,10 @@ import lodashDebounce from 'lodash/debounce';
 import {CloseIcon} from '../../../icons/CloseIcon';
 import {SearchIcon} from '../../../icons/SearchIcon';
 import {block} from '../../../utils';
-import {i18n} from '../i18n';
 
 import './Search.scss';
 
-const b = block('feed-header-search');
+const b = block('filter-search');
 
 const SEARCH_ICON_SIZE = 16;
 const CLOSE_ICON_SIZE = 12;
@@ -24,6 +23,7 @@ type SearchProps = {
     debounce?: number;
     placeholder?: string;
     size?: SearchSize;
+    clearText?: string;
 };
 
 export const Search = ({
@@ -33,6 +33,7 @@ export const Search = ({
     debounce = 300,
     placeholder,
     size = 'm',
+    clearText,
 }: SearchProps) => {
     const handleChange = lodashDebounce(onSubmit, debounce);
     const [isSetInitValue, setIsSetInitValue] = useState(false);
@@ -63,13 +64,13 @@ export const Search = ({
             <button
                 className={b('input-icon')}
                 onClick={handleClick}
-                aria-label={i18n('clear')}
+                aria-label={clearText}
                 disabled={!value}
             >
                 <Icon data={iconData} size={iconSize} />
             </button>
         ),
-        [handleClick, value, iconData, iconSize],
+        [handleClick, value, iconData, iconSize, clearText],
     );
 
     const handleUpdate = useCallback(

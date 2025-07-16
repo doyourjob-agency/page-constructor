@@ -1,0 +1,17 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}filter-selects';
+
+#{$block} {
+    margin-bottom: $indentM;
+    gap: $indentXS;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__select {
+        width: 240px;
+        --pc-color-border-switcher: var(--g-color-private-cool-grey-400-solid);
+        --pc-color-border-switcher-hover: var(--g-color-private-cool-grey-600-solid);
+    }
+}

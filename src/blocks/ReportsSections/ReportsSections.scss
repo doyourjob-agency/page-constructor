@@ -8,13 +8,6 @@ $block: '.#{$ns}reports-sections-block';
         margin-bottom: 24px;
     }
 
-    &__select {
-        margin-bottom: $indentM;
-        gap: $indentXS;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     &__sections {
         display: flex;
         flex-direction: column;

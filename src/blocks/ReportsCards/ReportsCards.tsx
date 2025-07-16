@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {EmptyPlug, Select, Title, YFMWrapper} from '../../components';
+import {EmptyPlug, Title, YFMWrapper} from '../../components';
+import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsCardsContext} from '../../context/reportsCardsContext';
 import {Col, Row} from '../../grid';
 import {ReportsCardsBlockProps, TitleItemProps} from '../../models';
@@ -52,13 +53,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {Boolean(selects.length) && (
-                <div className={b('select')}>
-                    {selects.map(({name, options}) => (
-                        <Select key={name} name={name} options={options} onChange={handleChange} />
-                    ))}
-                </div>
-            )}
+            <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
             {filteredItems.length ? (
                 <Row>
                     {filteredItems.map((item, index) => (

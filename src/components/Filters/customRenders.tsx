@@ -2,14 +2,8 @@ import React from 'react';
 
 import {SelectOption as PcSelectOption, SelectProps, TextInput} from '@gravity-ui/uikit';
 
-import {block} from '../../../utils';
-import {SelectOption} from '../SelectOption/SelectOption';
-import {Switcher, SwitcherProps} from '../Switcher/Switcher';
-import {i18n} from '../i18n';
-
-import './Controls.scss';
-
-const b = block('feed-header-controls');
+import SelectOption from './SelectOption/SelectOption';
+import Switcher, {SwitcherProps} from './Switcher/Switcher';
 
 type RenderSwitcherType = ({
     initial,
@@ -20,6 +14,14 @@ type RenderSwitcherType = ({
     list: SwitcherProps['list'];
     defaultLabel: string;
 }) => SelectProps['renderControl'];
+
+type RenderFilterType = ({
+    placeholder,
+    className,
+}: {
+    placeholder?: string;
+    className?: string;
+}) => SelectProps['renderFilter'];
 
 export const renderSwitcher: RenderSwitcherType = ({initial, list, defaultLabel}) => {
     const WrapSwitcher: SelectProps['renderControl'] = ({
@@ -49,18 +51,21 @@ export const renderSwitcher: RenderSwitcherType = ({initial, list, defaultLabel}
     return WrapSwitcher;
 };
 
-export const renderFilter: SelectProps['renderFilter'] = ({value, onChange, onKeyDown}) => {
-    return (
-        <TextInput
-            controlProps={{size: 1}}
-            value={value}
-            view={'clear'}
-            placeholder={i18n('search')}
-            onUpdate={onChange}
-            onKeyDown={onKeyDown}
-            className={b('popup-filter')}
-        />
-    );
+export const renderFilter: RenderFilterType = ({placeholder, className}) => {
+    const WrapFilter: SelectProps['renderFilter'] = ({value, onChange, onKeyDown}) => {
+        return (
+            <TextInput
+                controlProps={{size: 1}}
+                value={value}
+                view={'clear'}
+                placeholder={placeholder}
+                onUpdate={onChange}
+                onKeyDown={onKeyDown}
+                className={className}
+            />
+        );
+    };
+    return WrapFilter;
 };
 
 export const renderOption = (option: PcSelectOption) => {

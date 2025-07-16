@@ -2,7 +2,8 @@ import React, {useCallback, useContext, useMemo, useState} from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
 
-import {EmptyPlug, Paginator, Select, Title} from '../../components';
+import {EmptyPlug, Paginator, Title} from '../../components';
+import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsContext} from '../../context/reportsContext';
 import {ReportsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -82,13 +83,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {Boolean(selects.length) && (
-                <div className={b('select')}>
-                    {selects.map(({name, options}) => (
-                        <Select key={name} name={name} options={options} onChange={handleChange} />
-                    ))}
-                </div>
-            )}
+            <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
             {renderItems}
             {itemsPerPage && (
                 <Paginator

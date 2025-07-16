@@ -8,13 +8,6 @@ $block: '.#{$ns}reports-cards-block';
         margin-bottom: 24px;
     }
 
-    &__select {
-        margin-bottom: $indentM;
-        gap: $indentXS;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     &__postscript {
         @include text-size(body-1);
 

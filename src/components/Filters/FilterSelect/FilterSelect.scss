@@ -1,0 +1,32 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}filter-select';
+
+#{$block} {
+    width: 100%;
+
+    &__popup {
+        max-height: 500px;
+
+        border-radius: 12px;
+
+        & .g-select-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        & .g-select-list .g-list {
+            max-height: calc(500px - var(--g-text-body-3-line-height) - 12px);
+        }
+
+        & .g-list__item {
+            margin: 4px;
+
+            border-radius: 8px;
+        }
+
+        &_mobile {
+            max-height: inherit;
+        }
+    }
+}

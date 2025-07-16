@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
-$block: '.#{$ns}feed-header-switcher';
+$block: '.#{$ns}filter-switcher';
 
 #{$block} {
     position: relative;
@@ -20,7 +20,7 @@ $block: '.#{$ns}feed-header-switcher';
 
     text-align: initial;
 
-    border: 1px solid var(--g-color-base-background);
+    border: 1px solid var(--pc-color-border-switcher, var(--g-color-base-background));
     border-radius: var(--g-border-radius-xl);
     background-color: var(--g-color-base-background);
 
@@ -49,7 +49,7 @@ $block: '.#{$ns}feed-header-switcher';
     &:hover {
         cursor: pointer;
 
-        border-color: var(--g-color-base-generic-hover);
+        border-color: var(--pc-color-border-switcher-hover, var(--g-color-base-generic-hover));
     }
 
     &__element {

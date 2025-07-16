@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
-$block: '.#{$ns}feed-header-select-option';
+$block: '.#{$ns}filter-select-option';
 
 #{$block} {
     display: flex;

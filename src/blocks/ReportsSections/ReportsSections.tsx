@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {EmptyPlug, Select, Title} from '../../components';
+import {EmptyPlug, Title} from '../../components';
+import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsSectionsContext} from '../../context/reportsSectionsContext';
 import {ReportsSectionsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
@@ -46,13 +47,7 @@ export const ReportsSectionsBlock = ({title, typeKey, empty}: ReportsSectionsBlo
     return (
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
-            {Boolean(selects.length) && (
-                <div className={b('select')}>
-                    {selects.map(({name, options}) => (
-                        <Select key={name} name={name} options={options} onChange={handleChange} />
-                    ))}
-                </div>
-            )}
+            <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
             {filteredItems.length ? (
                 <div className={b('sections')}>
                     {filteredItems.map((item, index) => (

@@ -6,7 +6,7 @@ import {block} from '../../../utils';
 
 import './SelectOption.scss';
 
-const b = block('feed-header-select-option');
+const b = block('filter-select-option');
 
 type SelectOptionProps = {
     data: PcSelectOption;

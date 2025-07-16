@@ -11,13 +11,6 @@ $block: '.#{$ns}reports-block';
         margin-bottom: 24px;
     }
 
-    &__select {
-        margin-bottom: $indentM;
-        gap: $indentXS;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     &__loader {
         align-self: center;
         width: 48px;

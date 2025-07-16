@@ -9,7 +9,7 @@ import {block} from '../../../utils';
 
 import './Switcher.scss';
 
-const b = block('feed-header-switcher');
+const b = block('filter-switcher');
 
 type RenderControlParameters = Partial<Parameters<Required<SelectProps>['renderControl']>[0]>;
 

@@ -514,7 +514,7 @@ export interface ReportFileProps extends ReportFileType {
 }
 
 interface SelectOption {
-    text: string;
+    content: string;
     value: string;
 }
 
