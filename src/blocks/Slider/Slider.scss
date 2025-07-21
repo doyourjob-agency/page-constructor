@@ -72,6 +72,25 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
+    &__mobile-scroll {
+        display: flex;
+        margin: 0 -24px;
+        padding: 24px;
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__mobile-scroll-item {
+        flex: 0 0 auto;
+        width: 90%;
+    }
+
     &__header {
         &_no-description {
             position: relative;
@@ -332,34 +351,6 @@ $block: '.#{$ns}SliderBlock';
                 left: 0;
             }
         }
-
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            .slick-arrow {
-                display: none;
-            }
-
-            &#{$root}:not(&_one-slide) {
-                .slick-list {
-                    margin-left: 0;
-                }
-
-                .slick-track {
-                    padding-left: 0;
-                }
-
-                .slick-slide {
-                    // to remove the indentation between slides
-                    /* stylelint-disable declaration-no-important */
-                    padding-right: 0 !important;
-                    padding-left: 0 !important;
-                    /* stylelint-enable declaration-no-important */
-
-                    &:last-child {
-                        padding-right: 0;
-                    }
-                }
-            }
-        }
     }
 
     @media (max-width: map-get($gridBreakpoints, 'md')) {
@@ -370,28 +361,6 @@ $block: '.#{$ns}SliderBlock';
                 position: relative;
                 width: 100%;
                 padding-bottom: $indentS;
-            }
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &:not(&_one-slide) {
-            margin-left: -($gridContainerMargin + $gridGutterMobile);
-            padding-left: $gridContainerMargin + $gridGutterMobile;
-            width: calc(100% + #{($gridContainerMargin + $gridGutterMobile) * 2});
-            overflow-x: auto;
-
-            .slick-list {
-                margin-left: -($gridContainerMargin + $gridGutterMobile);
-                margin-right: 0;
-            }
-
-            .slick-track {
-                padding-left: $gridContainerMargin + $gridGutterMobile - $slideOffset;
-            }
-
-            .slick-slide {
-                padding: 0 $slideOffset;
             }
         }
     }
