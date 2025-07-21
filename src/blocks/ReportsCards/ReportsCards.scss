@@ -5,7 +5,11 @@ $block: '.#{$ns}reports-cards-block';
 
 #{$block} {
     &__title {
-        margin-bottom: 24px;
+        margin-bottom: $indentSM;
+    }
+
+    &__items {
+        row-gap: $indentXS;
     }
 
     &__postscript {

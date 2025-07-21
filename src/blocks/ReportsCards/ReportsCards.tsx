@@ -55,7 +55,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
             <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
             {filteredItems.length ? (
-                <Row>
+                <Row className={b('items')}>
                     {filteredItems.map((item, index) => (
                         <Col key={index} sizes={cardsColSizes}>
                             <AttachmentCard {...item} />
