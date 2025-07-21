@@ -72,6 +72,10 @@ $block: '.#{$ns}SliderBlock';
         }
     }
 
+    &__slick-mobile {
+        display: none;
+    }
+
     &__mobile-scroll {
         display: flex;
         margin: 0 -24px;
@@ -362,6 +366,15 @@ $block: '.#{$ns}SliderBlock';
                 width: 100%;
                 padding-bottom: $indentS;
             }
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        &__slick {
+            display: none;
+        }
+        &__slick-mobile {
+            display: block;
         }
     }
 }

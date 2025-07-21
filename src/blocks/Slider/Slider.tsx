@@ -406,21 +406,6 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
     };
 
     const renderSlider = () => {
-        if (isMobile) {
-            return (
-                <React.Fragment>
-                    <div className={b('mobile-scroll')}>
-                        {disclosedChildren.map((child, index) => (
-                            <div key={index} className={b('mobile-scroll-item')}>
-                                {child}
-                            </div>
-                        ))}
-                    </div>
-                    <div className={b('footer')}>{renderDisclaimer()}</div>
-                </React.Fragment>
-            );
-        }
-
         /* Disable adding of width in inline styles when SSR to prevent overriding of default styles */
         /* Calculate appropriate breakpoint for mobile devices with user agent */
         const variableWidth = isServer && isMobile;
@@ -460,13 +445,25 @@ export const SliderBlock = (props: React.PropsWithChildren<SliderProps>) => {
         };
 
         return (
-            <OutsideClick onOutsideClick={isMobile ? unsetFocus : noop}>
-                <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
-                <div className={b('footer')}>
-                    {renderDisclaimer()}
-                    {renderNavigation()}
+            <React.Fragment>
+                <OutsideClick className={b('slick')} onOutsideClick={isMobile ? unsetFocus : noop}>
+                    <SlickSlider {...settings}>{disclosedChildren}</SlickSlider>
+                    <div className={b('footer')}>
+                        {renderDisclaimer()}
+                        {renderNavigation()}
+                    </div>
+                </OutsideClick>
+                <div className={b('slick-mobile')}>
+                    <div className={b('mobile-scroll')}>
+                        {disclosedChildren.map((child, index) => (
+                            <div key={index} className={b('mobile-scroll-item')}>
+                                {child}
+                            </div>
+                        ))}
+                    </div>
+                    <div className={b('footer')}>{renderDisclaimer()}</div>
                 </div>
-            </OutsideClick>
+            </React.Fragment>
         );
     };
 
