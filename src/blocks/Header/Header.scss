@@ -6,6 +6,7 @@ $backgroundWidth: 1440px;
 
 #{$block} {
     position: relative;
+    z-index: 1;
 
     &_full-width {
         --pc-border-radius: 0;

@@ -53,7 +53,7 @@ export const HighlightTableBlock = ({
         if (!tableContentElem || !blockElem) return () => {};
 
         const updateSizes = debounce(() => {
-            const width = Math.max(672, blockElem.clientWidth - 24 - 2); // 24 - padding, 2 - border
+            const width = Math.max(648, blockElem.clientWidth - 24 - 2); // 24 - padding, 2 - border
             tableContentElem.style.setProperty('--block-width', `${width}px`);
         });
 
@@ -74,6 +74,13 @@ export const HighlightTableBlock = ({
         if (!tableElem || !scrollBar || !scrollThumb) return () => {};
 
         const updateProgress = debounce(() => {
+            if (tableElem.clientWidth === tableElem.scrollWidth) {
+                if (scrollBar.style.getPropertyValue('display') !== 'none') {
+                    scrollBar.style.setProperty('display', `none`);
+                }
+            } else if (scrollBar.style.getPropertyValue('display') !== 'block') {
+                scrollBar.style.setProperty('display', `block`);
+            }
             const scrollWidth = Math.round(
                 scrollBar.clientWidth * (tableElem.clientWidth / tableElem.scrollWidth),
             );

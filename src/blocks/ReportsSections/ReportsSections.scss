@@ -8,6 +8,10 @@ $block: '.#{$ns}reports-sections-block';
         margin-bottom: 24px;
     }
 
+    &__wrap-sections {
+        @include animate-fade(#{$block}__sections);
+    }
+
     &__sections {
         display: flex;
         flex-direction: column;

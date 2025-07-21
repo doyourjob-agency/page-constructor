@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {EmptyPlug, Title} from '../../components';
+import {AnimateBlock, EmptyPlug, Title} from '../../components';
 import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsSectionsContext} from '../../context/reportsSectionsContext';
 import {ReportsSectionsBlockProps, TitleItemProps} from '../../models';
@@ -49,11 +49,17 @@ export const ReportsSectionsBlock = ({title, typeKey, empty}: ReportsSectionsBlo
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
             <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
             {filteredItems.length ? (
-                <div className={b('sections')}>
-                    {filteredItems.map((item, index) => (
-                        <Section key={index} {...item} />
-                    ))}
-                </div>
+                <AnimateBlock
+                    key={JSON.stringify(localFilters)}
+                    className={b('wrap-sections')}
+                    animate
+                >
+                    <div className={b('sections')}>
+                        {filteredItems.map((item, index) => (
+                            <Section key={index} {...item} />
+                        ))}
+                    </div>
+                </AnimateBlock>
             ) : (
                 <EmptyPlug empty={empty} className={b('empty')} />
             )}

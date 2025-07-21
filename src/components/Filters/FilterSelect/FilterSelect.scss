@@ -11,8 +11,12 @@ $block: '.#{$ns}filter-select';
 
         border-radius: 12px;
 
-        & .g-select-list::-webkit-scrollbar {
-            display: none;
+        & .g-select-list {
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         & .g-select-list .g-list {
