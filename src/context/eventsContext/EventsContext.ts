@@ -18,7 +18,7 @@ export type EventData = {
 export type EventsContextProps = Record<
     string,
     {
-        items: EventData[];
+        items?: EventData[];
         page?: number;
         pageSize?: number;
         onLoadMore?: () => void;

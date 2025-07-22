@@ -21,7 +21,7 @@ const colSizes = {
 
 export const EventsSection = ({typeKey, title, label, empty}: EventsSectionBlockProps) => {
     const data = useContext(EventsContext);
-    const {items, page, pageSize, onLoadMore} = data[typeKey] || {};
+    const {items = [], page, pageSize, onLoadMore} = data[typeKey] || {};
     const hasInfiniteScroll = page !== undefined && pageSize !== undefined;
     const itemsToShow = useMemo(() => {
         if (!hasInfiniteScroll) {

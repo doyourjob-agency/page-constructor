@@ -20,7 +20,7 @@ const colSizes = {
 
 export const EventsFeedSection = ({typeKey, title}: {typeKey: string; title?: string}) => {
     const data = useContext(EventsContext);
-    const {items, page, pageSize, onLoadMore} = data[typeKey] || {};
+    const {items = [], page, pageSize, onLoadMore} = data[typeKey] || {};
     const hasInfiniteScroll = page !== undefined && pageSize !== undefined;
     const itemsToShow = useMemo(() => {
         if (!hasInfiniteScroll) {
