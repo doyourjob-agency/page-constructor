@@ -69,7 +69,7 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
                         <div key={groupIndex} className={b('group')}>
                             {group.title && (
                                 <Title
-                                    title={{text: group.title, textSize: 'xs'}}
+                                    title={{text: group.title, textSize: 'm'}}
                                     colSizes={titleColSizes}
                                 />
                             )}
