@@ -75,8 +75,7 @@ export enum BlockType {
     FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
-    IrEventsFeedUpcomingBlock = 'ir-events-feed-upcoming-block',
-    IrEventsFeedRecentBlock = 'ir-events-feed-recent-block',
+    EventsSectionBlock = 'events-section-block',
     BlogFeedBlock = 'blog-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
     RelevantReportsCardsBlock = 'relevant-reports-cards-block',
@@ -456,12 +455,9 @@ export interface EventsFeedBlockProps {
     title?: string;
 }
 
-export interface IrEventsFeedUpcomingBlockProps {
-    label?: TagProps;
-    empty?: string;
-}
-
-export interface IrEventsFeedRecentBlockProps {
+export interface EventsSectionBlockProps {
+    typeKey: string;
+    title?: TitleItemProps | string;
     label?: TagProps;
     empty?: string;
 }
@@ -833,13 +829,9 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
-export type IrEventsFeedUpcomingBlockModel = {
-    type: BlockType.IrEventsFeedUpcomingBlock;
-} & IrEventsFeedUpcomingBlockProps;
-
-export type IrEventsFeedRecentBlockModel = {
-    type: BlockType.IrEventsFeedRecentBlock;
-} & IrEventsFeedRecentBlockProps;
+export type EventsSectionBlockModel = {
+    type: BlockType.EventsSectionBlock;
+} & EventsSectionBlockProps;
 
 export type BlogFeedBlockModel = {
     type: BlockType.BlogFeedBlock;
@@ -901,8 +893,7 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
-    | IrEventsFeedUpcomingBlockModel
-    | IrEventsFeedRecentBlockModel
+    | EventsSectionBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel
     | RelevantReportsCardsBlockModel

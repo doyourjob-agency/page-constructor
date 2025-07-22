@@ -15,24 +15,14 @@ export type EventData = {
     online?: boolean;
 };
 
-export interface EventsUpcomingContextProps {
-    upcoming: EventData[];
-}
+export type EventsContextProps = Record<
+    string,
+    {
+        items: EventData[];
+        page?: number;
+        pageSize?: number;
+        onLoadMore?: () => void;
+    }
+>;
 
-export interface EventsRecentContextProps {
-    recent: EventData[];
-    page: number;
-    pageSize: number;
-    onLoadMore?: () => void;
-}
-
-export const EventsUpcomingContext = React.createContext<EventsUpcomingContextProps>({
-    upcoming: [],
-});
-
-export const EventsRecentContext = React.createContext<EventsRecentContextProps>({
-    recent: [],
-    page: 1,
-    pageSize: 6,
-    onLoadMore: () => {},
-});
+export const EventsContext = React.createContext<EventsContextProps>({});

@@ -5,8 +5,7 @@ import argsSolutionsContext from './args/argsSolutionsContext.json';
 import argsRouterContext from './args/argsRouterContext.json';
 import argsFeedHeaderFiltersContext from './args/argsFeedHeaderFiltersContext.json';
 import argsFeedHeaderFilterContext from './args/argsFeedHeaderFilterContext.json';
-import argsEventsUpcomingContext from './args/argsEventsUpcomingContext.json';
-import argsEventsRecentContext from './args/argsEventsRecentContext.json';
+import argsEventsContext from './args/argsEventsContext.json';
 import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
@@ -80,15 +79,8 @@ export const argRouterContext = {
 
 export const argEventsContext = {
     argTypes: {
-        eventsUpcomingContext: {
-            name: 'EventsUpcomingContext',
-            control: 'object',
-            table: {
-                category: 'Context',
-            },
-        },
-        eventsRecentContext: {
-            name: 'EventsRecentContext',
+        eventsContext: {
+            name: 'EventsContext',
             control: 'object',
             table: {
                 category: 'Context',
@@ -96,8 +88,7 @@ export const argEventsContext = {
         },
     },
     args: {
-        eventsUpcomingContext: argsEventsUpcomingContext,
-        eventsRecentContext: argsEventsRecentContext,
+        eventsContext: argsEventsContext,
     },
 };
 

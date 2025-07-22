@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
-$block: '.#{$ns}events-feed-recent';
+$block: '.#{$ns}events-feed-section';
 
 #{$block} {
     margin-top: 48px;

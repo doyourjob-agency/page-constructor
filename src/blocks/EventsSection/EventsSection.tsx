@@ -1,17 +1,15 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {Anchor, EmptyPlug, InfiniteScroll} from '../../components';
-import {EventsRecentContext} from '../../context/eventsContext';
-import {IrEventsFeedRecentBlockProps} from '../../models';
+import {EventsContext} from '../../context/eventsContext';
+import {EventsSectionBlockProps} from '../../models';
 import {AttachmentCard} from '../../sub-blocks';
 import {block} from '../../utils';
 
-import {i18n} from './i18n';
+import './EventsSection.scss';
 
-import './IrEventsFeedRecent.scss';
-
-const b = block('ir-events-feed-recent-block');
+const b = block('events-section-block');
 
 const colSizes = {
     sm: 12,
@@ -21,16 +19,22 @@ const colSizes = {
     all: 12,
 };
 
-export const IrEventsFeedRecent = ({label, empty}: IrEventsFeedRecentBlockProps) => {
-    const {recent, page, pageSize, onLoadMore} = useContext(EventsRecentContext);
-    const itemsToShow = recent.slice(0, page * pageSize);
-    const hasMore = page < Math.ceil(recent.length / pageSize);
+export const EventsSection = ({typeKey, title, label, empty}: EventsSectionBlockProps) => {
+    const data = useContext(EventsContext);
+    const {items, page, pageSize, onLoadMore} = data[typeKey] || {};
+    const hasInfiniteScroll = page !== undefined && pageSize !== undefined;
+    const itemsToShow = useMemo(() => {
+        if (!hasInfiniteScroll) {
+            return items;
+        }
+        return items.slice(0, page * pageSize);
+    }, [items, page, pageSize, hasInfiniteScroll]);
 
     return (
         <div className={b()}>
-            <Anchor id="recent" />
+            <Anchor id={typeKey} />
             <CardLayoutBlock
-                title={i18n('past_events')}
+                title={title}
                 titleClassName={b('title')}
                 colSizes={itemsToShow.length ? colSizes : {all: 12}}
             >
@@ -50,9 +54,14 @@ export const IrEventsFeedRecent = ({label, empty}: IrEventsFeedRecentBlockProps)
                     <EmptyPlug empty={empty} />
                 )}
             </CardLayoutBlock>
-            <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
+            {hasInfiniteScroll && (
+                <InfiniteScroll
+                    hasMore={page < Math.ceil(items.length / pageSize)}
+                    onNext={onLoadMore}
+                />
+            )}
         </div>
     );
 };
 
-export default IrEventsFeedRecent;
+export default EventsSection;

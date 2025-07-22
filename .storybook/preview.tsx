@@ -27,12 +27,7 @@ import {ServicesContext, ServicesContextProps} from '../src/context/servicesCont
 import {FormListContext, FormListContextProps} from '../src/context/formListContext';
 import {SolutionsContext, SolutionsContextProps} from '../src/context/solutionsContext';
 import {RouterContext, RouterContextProps} from '../src/context/routerContext';
-import {
-    EventsRecentContext,
-    EventsRecentContextProps,
-    EventsUpcomingContext,
-    EventsUpcomingContextProps,
-} from '../src/context/eventsContext';
+import {EventsContext, EventsContextProps} from '../src/context/eventsContext';
 import {BlogPostsContext, BlogPostsContextProps} from '../src/context/blogPostsContext';
 import {PressReleasesContext, PressReleasesContextProps} from '../src/context/pressReleasesContext';
 import {HeaderContext, HeaderContextProps} from '../src/context/headerContext';
@@ -76,12 +71,7 @@ const withContextProvider: Decorator = (Story, context) => {
         <FeedHeaderFilterContext.Provider
             value={context.args.feedHeaderFilterContext as FeedHeaderFilterContextProps}
         />,
-        <EventsUpcomingContext.Provider
-            value={context.args.eventsUpcomingContext as EventsUpcomingContextProps}
-        />,
-        <EventsRecentContext.Provider
-            value={context.args.eventsRecentContext as EventsRecentContextProps}
-        />,
+        <EventsContext.Provider value={context.args.eventsContext as EventsContextProps} />,
         <PressReleasesContext.Provider
             value={context.args.pressReleasesContext as PressReleasesContextProps}
         />,
