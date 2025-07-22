@@ -17,4 +17,16 @@ $block: '.#{$ns}reports-cards-block';
 
         margin-top: $indentM;
     }
+
+    &__groups {
+        display: flex;
+        flex-direction: column;
+        row-gap: $indentSM;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        row-gap: $indentXS;
+    }
 }

@@ -13,8 +13,14 @@ interface Select extends SelectProps {
     init: string;
 }
 
+type ReportsCardsGroup = {
+    title?: string;
+    items: Item[];
+};
+
 type ReportsCardsData = {
     selects?: Select[];
+    groups?: ReportsCardsGroup[];
     items?: Item[];
 };
 

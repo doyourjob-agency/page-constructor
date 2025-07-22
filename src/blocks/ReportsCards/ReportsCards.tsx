@@ -24,7 +24,7 @@ const cardsColSizes = {
 
 export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCardsBlockProps) => {
     const data = useContext(ReportsCardsContext);
-    const {selects = [], items = []} = useMemo(() => data[typeKey] || {}, [data, typeKey]);
+    const {selects = [], groups = []} = useMemo(() => data[typeKey] || {}, [data, typeKey]);
     const initFilters = useMemo(
         () => selects.reduce((acc, select) => ({...acc, [select.name]: select.init}), {}) || {},
         [selects],
@@ -36,14 +36,23 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
         [],
     );
 
-    const filteredItems = useMemo(() => {
-        const f = Object.entries(localFilters).filter(([_, value]) => value !== 'all');
-        return f.length
-            ? items.filter((item) =>
-                  f.every(([key, value]) => item.filters?.[key]?.includes(value)),
-              )
-            : items;
-    }, [items, localFilters]);
+    const filteredGroups = useMemo(() => {
+        const activeFilters = Object.entries(localFilters).filter(([_, value]) => value !== 'all');
+
+        return groups
+            .map((group) => {
+                const filteredItems = activeFilters.length
+                    ? group.items.filter((item) =>
+                          activeFilters.every(([key, value]) =>
+                              item.filters?.[key]?.includes(value),
+                          ),
+                      )
+                    : group.items;
+
+                return {...group, items: filteredItems};
+            })
+            .filter((group) => group.items.length > 0);
+    }, [groups, localFilters]);
 
     const titleProps =
         !title || typeof title === 'string'
@@ -54,14 +63,26 @@ export const ReportsCardsBlock = ({title, typeKey, postscript, empty}: ReportsCa
         <div className={b()}>
             {title && <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />}
             <FilterSelects selects={selects} filters={localFilters} handleChange={handleChange} />
-            {filteredItems.length ? (
-                <Row className={b('items')}>
-                    {filteredItems.map((item, index) => (
-                        <Col key={index} sizes={cardsColSizes}>
-                            <AttachmentCard {...item} />
-                        </Col>
+            {filteredGroups.length ? (
+                <div className={b('groups')}>
+                    {filteredGroups.map((group, groupIndex) => (
+                        <div key={groupIndex} className={b('group')}>
+                            {group.title && (
+                                <Title
+                                    title={{text: group.title, textSize: 'xs'}}
+                                    colSizes={titleColSizes}
+                                />
+                            )}
+                            <Row className={b('items')}>
+                                {group.items.map((item, index) => (
+                                    <Col key={index} sizes={cardsColSizes}>
+                                        <AttachmentCard {...item} />
+                                    </Col>
+                                ))}
+                            </Row>
+                        </div>
                     ))}
-                </Row>
+                </div>
             ) : (
                 <EmptyPlug empty={empty} />
             )}
