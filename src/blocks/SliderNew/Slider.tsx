@@ -150,7 +150,14 @@ export const SliderNewBlock = ({
                 >
                     {React.Children.map(children, (elem, index) => (
                         <SwiperSlide className={b('slide')} key={index}>
-                            <div className={b('slide-item')}>{elem}</div>
+                            {({isVisible}) => (
+                                <div
+                                    className={b('slide-item')}
+                                    aria-hidden={!isA11yControlHidden && !isVisible}
+                                >
+                                    {elem}
+                                </div>
+                            )}
                         </SwiperSlide>
                     ))}
                 </SwiperReact>
