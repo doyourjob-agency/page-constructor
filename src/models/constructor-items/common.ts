@@ -507,6 +507,7 @@ export interface TagProps {
 export interface ReportFileType {
     name: string;
     link: string;
+    target?: string;
 }
 
 export interface ReportFileProps extends ReportFileType {
