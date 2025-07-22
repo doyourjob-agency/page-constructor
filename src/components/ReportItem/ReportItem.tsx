@@ -1,15 +1,15 @@
 import React from 'react';
 
-import {ReportFile} from '../../../components';
-import {ReportsItemProps} from '../../../models';
-import {block} from '../../../utils';
+import {ReportFile} from '../../components';
+import {ReportItemProps} from '../../models';
+import {block} from '../../utils';
 
-import './ReportsItem.scss';
+import './ReportItem.scss';
 
-const b = block('reports-item');
+const b = block('report-item');
 
-const ReportsItem = ({title, date, text, files, filesOutline}: ReportsItemProps) => (
-    <div className={b()}>
+const ReportItem = ({title, date, text, files, filesOutline}: ReportItemProps) => (
+    <li className={b()}>
         <div className={b('wrap')}>
             <div className={b('title')}>{title}</div>
             {(date || text) && (
@@ -29,7 +29,7 @@ const ReportsItem = ({title, date, text, files, filesOutline}: ReportsItemProps)
                 ))}
             </ul>
         )}
-    </div>
+    </li>
 );
 
-export default React.memo(ReportsItem);
+export default React.memo(ReportItem);

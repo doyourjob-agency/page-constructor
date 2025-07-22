@@ -1,12 +1,10 @@
 import React, {useCallback, useContext, useMemo, useState} from 'react';
 
-import {AnimateBlock, EmptyPlug, Title} from '../../components';
+import {AnimateBlock, EmptyPlug, ReportSection, Title} from '../../components';
 import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsSectionsContext} from '../../context/reportsSectionsContext';
 import {ReportsSectionsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
-
-import Section from './Section/Section';
 
 import './ReportsSections.scss';
 
@@ -56,7 +54,7 @@ export const ReportsSectionsBlock = ({title, typeKey, empty}: ReportsSectionsBlo
                 >
                     <div className={b('sections')}>
                         {filteredItems.map((item, index) => (
-                            <Section key={index} {...item} />
+                            <ReportSection key={index} {...item} />
                         ))}
                     </div>
                 </AnimateBlock>

@@ -522,3 +522,14 @@ export interface SelectProps {
     name: string;
     options: SelectOption[];
 }
+
+export interface ReportItemType {
+    title?: string;
+    date?: string;
+    text?: string;
+    files?: ReportFileType[];
+}
+
+export interface ReportItemProps extends ReportItemType {
+    filesOutline?: boolean;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 
 import {ReportFile} from '../../../components';
-import {ReportsSectionsItem} from '../../../models';
+import {ReportSectionItemProps} from '../../../models';
 import {block} from '../../../utils';
 
 import './Item.scss';
 
-const b = block('reports-sections-item');
+const b = block('report-section-item');
 
-export const Item = ({title, files = []}: ReportsSectionsItem) => (
+export const Item = ({title, files = []}: ReportSectionItemProps) => (
     <li className={b()}>
         <div className={b('wrap')}>
             <div className={b('title')}>{title}</div>

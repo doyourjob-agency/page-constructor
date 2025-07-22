@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
-$block: '.#{$ns}reports-sections-item';
+$block: '.#{$ns}report-section-item';
 
 #{$block} {
     padding: $indentSM 0;

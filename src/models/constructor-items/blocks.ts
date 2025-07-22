@@ -529,17 +529,6 @@ export interface QuotesBlockProps extends Themable {
     backgroundColor?: string;
 }
 
-export interface ReportsItem {
-    title?: string;
-    date?: string;
-    text?: string;
-    files?: ReportFileType[];
-}
-
-export interface ReportsItemProps extends ReportsItem {
-    filesOutline?: boolean;
-}
-
 export interface ReportsBlockProps {
     title?: TitleItemBaseProps | string;
     typeKey: string;
@@ -550,15 +539,15 @@ export interface ReportsCardsBlockProps extends ReportsBlockProps {
     postscript?: string;
 }
 
-export interface ReportsSectionsItem {
+export interface ReportSectionItemProps {
     title?: string;
     files?: ReportFileType[];
 }
 
-export interface ReportsSectionsSection {
+export interface ReportSectionProps {
     title?: string;
     date?: string;
-    items?: ReportsSectionsItem[];
+    items?: ReportSectionItemProps[];
 }
 
 export interface ReportsSectionsBlockProps extends ReportsBlockProps {}

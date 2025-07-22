@@ -44,6 +44,8 @@ export {default as Tag} from './Tag/Tag';
 export {default as ReportFile} from './ReportFile/ReportFile';
 export {default as Paginator} from './Paginator/Paginator';
 export {default as EmptyPlug} from './EmptyPlug/EmptyPlug';
+export {default as ReportSection} from './ReportSection/ReportSection';
+export {default as ReportItem} from './ReportItem/ReportItem';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';

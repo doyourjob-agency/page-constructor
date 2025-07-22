@@ -1,0 +1,64 @@
+{
+  "default": {
+    "content": {
+      "title": "Annual General Meeting",
+      "date": "June 5, 2025",
+      "items": [
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        },
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        },
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        },
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        },
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        },
+        {
+          "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+          "files": [
+            {
+              "name": "pdf",
+              "link": "https://example2.com"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

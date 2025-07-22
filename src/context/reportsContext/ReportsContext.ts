@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {ReportsItem, ReportsItemProps, SelectProps} from '../../models';
+import {ReportItemProps, ReportItemType, SelectProps} from '../../models';
 
-interface Item extends ReportsItem {
+interface Item extends ReportItemType {
     url?: string;
     filters?: Record<string, string[]>;
     options?: {
@@ -19,7 +19,7 @@ type ReportsData = {
     loading?: boolean;
     items?: Item[];
     itemsPerPage?: number;
-} & Pick<ReportsItemProps, 'filesOutline'>;
+} & Pick<ReportItemProps, 'filesOutline'>;
 
 export type ReportsContextProps = Record<string, ReportsData>;
 

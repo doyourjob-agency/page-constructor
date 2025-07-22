@@ -1,14 +1,15 @@
 import React from 'react';
 
-import {ReportsSectionsSection} from '../../../models';
-import {block} from '../../../utils';
-import Item from '../Item/Item';
+import {ReportSectionProps} from '../../models';
+import {block} from '../../utils';
 
-import './Section.scss';
+import Item from './Item/Item';
 
-const b = block('reports-sections-section');
+import './ReportSection.scss';
 
-export const Section = ({title, date, items = []}: ReportsSectionsSection) => (
+const b = block('report-section');
+
+export const ReportSection = ({title, date, items = []}: ReportSectionProps) => (
     <div className={b()}>
         {date && <div className={b('date')}>{date}</div>}
         {title && <h2 className={b('title')}>{title}</h2>}
@@ -22,4 +23,4 @@ export const Section = ({title, date, items = []}: ReportsSectionsSection) => (
     </div>
 );
 
-export default Section;
+export default ReportSection;

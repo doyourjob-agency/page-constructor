@@ -2,13 +2,11 @@ import React, {useCallback, useContext, useMemo, useState} from 'react';
 
 import {Spin} from '@gravity-ui/uikit';
 
-import {EmptyPlug, Paginator, Title} from '../../components';
+import {EmptyPlug, Paginator, ReportItem, Title} from '../../components';
 import FilterSelects from '../../components/Filters/FilterSelects/FilterSelects';
 import {ReportsContext} from '../../context/reportsContext';
 import {ReportsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
-
-import ReportsItem from './ReportsItem/ReportsItem';
 
 import './Reports.scss';
 
@@ -72,9 +70,7 @@ export const ReportsBlock = ({title, typeKey, empty}: ReportsBlockProps) => {
         return (
             <ul className={b('items')}>
                 {paginatedItems.map((item, index) => (
-                    <li key={index}>
-                        <ReportsItem {...item} filesOutline={filesOutline} />
-                    </li>
+                    <ReportItem key={index} {...item} filesOutline={filesOutline} />
                 ))}
             </ul>
         );

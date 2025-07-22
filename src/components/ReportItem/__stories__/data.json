@@ -1,0 +1,19 @@
+{
+  "default": {
+    "content": {
+      "title": "Report of Foreign Issuer Pursuant to Rule 13a-16 or 15d-16",
+      "date": "June 5, 2025",
+      "text": "Filing: 6-K",
+      "files": [
+        {
+          "name": "html",
+          "link": "https://example1.com"
+        },
+        {
+          "name": "pdf",
+          "link": "https://example2.com"
+        }
+      ]
+    }
+  }
+}

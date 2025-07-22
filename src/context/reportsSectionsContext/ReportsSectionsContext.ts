@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {ReportsSectionsSection, SelectProps} from '../../models';
+import {ReportSectionProps, SelectProps} from '../../models';
 
-interface Section extends ReportsSectionsSection {
+interface Section extends ReportSectionProps {
     filters?: Record<string, string[]>;
 }
 
