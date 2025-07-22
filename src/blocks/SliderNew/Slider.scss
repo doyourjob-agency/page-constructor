@@ -1,11 +1,13 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
-$block: '.#{$ns}SliderNewBlock';
+$block: '.#{$ns}slider-new-block';
+$fullscreenArrowArea: 120px;
+$fullscreenImageMobilePadding: 16px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &:not(&_one-slide) {
+        &#{$block}:not(#{$block}_one-slide) {
             margin-left: 0;
             padding-left: 0;
             width: 100%;
@@ -15,6 +17,7 @@ $block: '.#{$ns}SliderNewBlock';
 }
 
 $dotsCn: '.swiper-container-horizontal .swiper-pagination-bullets';
+$wrapperCn: '.swiper-wrapper';
 
 $dotSize: 8px;
 
@@ -53,6 +56,11 @@ $dotSize: 8px;
         &.swiper-slide-visible {
             animation: safari-fix 300ms;
         }
+
+        #{$root}__slide-item {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     #{$root}__slide-item {
@@ -87,6 +95,8 @@ $dotSize: 8px;
         background-color: var(--g-color-line-generic-accent);
         cursor: pointer;
         display: inline-block;
+
+        transition: background-color 1s;
 
         &:hover {
             background-color: var(--g-color-line-generic-accent-hover);
@@ -174,6 +184,11 @@ $dotSize: 8px;
                     display: none;
                 }
             }
+
+            & #{$dotsCn} {
+                left: $indentSM;
+                width: calc(100% - $indentSM);
+            }
         }
     }
 
@@ -209,19 +224,32 @@ $dotSize: 8px;
                 left: 0;
                 margin-right: 0;
             }
+        }
 
-            button {
-                background-color: transparent;
-                box-shadow: none;
-
-                &:hover {
-                    box-shadow: none;
-                }
+        &:has(.swiper-slide-active .#{$ns}header-block_controls-view_light) {
+            .#{$ns}slider-arrow__inner {
+                color: var(--g-color-text-dark-primary);
             }
 
-            &:hover {
-                & button {
-                    box-shadow: none;
+            .#{$ns}SliderBlock__dot {
+                background-color: var(--g-color-private-black-150);
+
+                &_active {
+                    background-color: var(--g-color-private-black-300);
+                }
+            }
+        }
+
+        &:has(.swiper-slide-active .#{$ns}header-block_controls-view_dark) {
+            .#{$ns}slider-arrow__inner {
+                color: var(--g-color-text-light-primary);
+            }
+
+            .#{$ns}SliderBlock__dot {
+                background-color: var(--g-color-private-white-150);
+
+                &_active {
+                    background-color: var(--g-color-private-white-300);
                 }
             }
         }
@@ -230,24 +258,104 @@ $dotSize: 8px;
             padding: 0;
         }
 
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            &#{$root}:not(#{$root}_one-slide) {
+                margin-left: -$indentXXXS;
+                padding-left: 0;
+                width: calc(100% + #{$indentXXXS});
+            }
+        }
+
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             #{$root}__arrow {
                 display: none;
             }
-
-            &#{$root}:not(&_one-slide) {
+            &#{$root}:not(#{$root}_one-slide) {
                 #{$root}__slider {
                     margin-left: 0;
+                }
+
+                #{$wrapperCn} {
+                    padding-left: 0;
                 }
 
                 #{$root}__slide {
                     // to remove the indentation between slides
                     padding-right: 0;
                     padding-left: 0;
+                }
+            }
+        }
+    }
 
-                    &:last-child {
-                        padding-right: 0;
-                    }
+    &_type_fullscreen-card {
+        @include fullscreen-card();
+        padding-top: 0;
+
+        #{$root}__slider {
+            padding: 24px 0 40px;
+            height: 100vh;
+            margin: 0;
+
+            & .swiper-pagination {
+                bottom: 11px;
+            }
+
+            #{$root}__dot {
+                background-color: var(--g-color-text-light-hint);
+
+                &_active {
+                    background-color: var(--g-color-text-light-primary);
+                }
+            }
+
+            #{$root}__slide {
+                height: 100%;
+                padding: 0 $fullscreenArrowArea;
+            }
+        }
+
+        &:hover {
+            #{$root}__arrow {
+                display: flex;
+            }
+        }
+
+        #{$root}__arrow {
+            display: none;
+            width: $fullscreenArrowArea;
+            top: 40px;
+            bottom: 40px;
+
+            &_prev {
+                left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-left: 0;
+
+            #{$root}_slider {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            &:hover {
+                #{$root}__arrow {
+                    display: none;
+                }
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            &#{$root}:not(#{$root}_one-slide) {
+                #{$root}__slider {
+                    margin-left: 0;
+                }
+
+                #{$wrapperCn} {
+                    padding-left: 0;
                 }
             }
         }
@@ -267,19 +375,24 @@ $dotSize: 8px;
 
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
         $horizontalPadding: $gridContainerMargin + $gridGutterMobile;
-        &:not(&_one-slide) {
-            margin-left: #{-$horizontalPadding};
+
+        &:not(#{&}_one-slide) {
+            margin-left: -($horizontalPadding);
             padding-left: $horizontalPadding;
-            width: calc(100% + #{$horizontalPadding * 2});
+            width: calc(100% + #{($horizontalPadding) * 2});
             overflow-x: auto;
 
             #{$root}__slider {
-                padding: $indentSM $horizontalPadding $indentL;
-                margin: 0 0 0 #{-$horizontalPadding};
+                margin-left: #{-$horizontalPadding};
+                margin-right: 0;
+            }
+
+            & #{$wrapperCn} {
+                padding-left: $horizontalPadding - $gridGutter;
             }
 
             #{$root}__slide {
-                padding: 0 $indentXXXS;
+                padding: 0 $fullscreenImageMobilePadding;
             }
         }
     }

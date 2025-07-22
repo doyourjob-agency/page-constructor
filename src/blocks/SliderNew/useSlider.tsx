@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useEffect, useMemo, useState} from 'react';
+import * as React from 'react';
 
 import type {Swiper} from 'swiper';
 
@@ -6,22 +6,22 @@ import {SliderType, SlidesToShow} from '../../models';
 
 import {getSliderResponsiveParams, useMemoized} from './utils';
 
-type UseSliderProps = PropsWithChildren<{
+type UseSliderProps = React.PropsWithChildren<{
     autoplayMs?: number;
     type?: string;
     slidesToShow?: SlidesToShow;
 }>;
 
 export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps) => {
-    const [slider, setSlider] = useState<Swiper>();
-    const [isLocked, setIsLocked] = useState(false);
+    const [slider, setSlider] = React.useState<Swiper>();
+    const [isLocked, setIsLocked] = React.useState(false);
     const slidesToShow = useMemoized(props.slidesToShow);
 
     const childrenCount = React.Children.count(children);
 
     const autoplayEnabled = autoplayMs !== undefined && autoplayMs > 0;
 
-    const breakpoints = useMemo(() => {
+    const breakpoints = React.useMemo(() => {
         return getSliderResponsiveParams({
             contentLength: childrenCount,
             slidesToShow,
@@ -36,7 +36,7 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
             return;
         }
 
-        if (slider.isEnd) {
+        if (slider.isEnd && !slider.params.loop) {
             slider.slideTo(0);
             return;
         }
@@ -49,7 +49,7 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
             return;
         }
 
-        if (slider.isBeginning) {
+        if (slider.isBeginning && !slider.params.loop) {
             slider.slideTo(childrenCount - 1);
             return;
         }
@@ -57,7 +57,11 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         slider.slidePrev();
     };
 
-    useEffect(() => {
+    const handleImagesReady = React.useCallback((localSlider: Swiper) => {
+        setTimeout(() => localSlider.update(), 100);
+    }, []);
+
+    React.useEffect(() => {
         if (!slider) {
             return;
         }
@@ -74,6 +78,7 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         onSwiper: setSlider,
         onNext: handleNext,
         onPrev: handlePrev,
+        onImagesReady: handleImagesReady,
         breakpoints,
         childrenCount,
         isLocked,

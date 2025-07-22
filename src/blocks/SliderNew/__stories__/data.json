@@ -152,7 +152,8 @@
   "autoPlay": {
     "content": {
       "type": "slider-new-block",
-      "autoplay": 1000
+      "autoplay": 1000,
+      "infinite": true
     }
   },
   "withoutArrows": {

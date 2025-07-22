@@ -1,12 +1,12 @@
-import React, {Fragment, PropsWithChildren} from 'react';
+import * as React from 'react';
 
-import SwiperCore, {A11y, Autoplay, Pagination} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
+import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import Title from '../../components/Title/Title';
-import {ClassNameProps, Refable, SliderProps as SliderParams} from '../../models';
+import {ClassNameProps, Refable, SliderProps as SliderParams, SliderType} from '../../models';
 import {block} from '../../utils';
 
 import Arrow from './Arrow/Arrow';
@@ -17,13 +17,15 @@ import {useSliderPagination} from './useSliderPagination';
 import './Slider.scss';
 import 'swiper/swiper-bundle.css';
 
-const b = block('SliderNewBlock');
+export type {Swiper, SwiperOptions} from 'swiper';
+
+const b = block('slider-new-block');
 
 export interface SliderNewProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
-                Swiper,
+                SwiperReact,
                 | 'onSlideChange'
                 | 'onSlideChangeTransitionStart'
                 | 'onSlideChangeTransitionEnd'
@@ -38,9 +40,11 @@ export interface SliderNewProps
     dotsClassName?: string;
     blockClassName?: string;
     arrowSize?: number;
+    initialSlide?: number;
 }
 
-SwiperCore.use([Autoplay, A11y, Pagination]);
+// eslint-disable-next-line react-hooks/rules-of-hooks
+Swiper.use([Autoplay, A11y, Pagination]);
 
 export const SliderNewBlock = ({
     animated,
@@ -51,7 +55,9 @@ export const SliderNewBlock = ({
     arrows = true,
     adaptive,
     autoplay: autoplayMs,
+    infinite = false,
     dots = true,
+    initialSlide = 0,
     className,
     dotsClassName,
     disclaimer,
@@ -64,14 +70,23 @@ export const SliderNewBlock = ({
     onSlideChangeTransitionEnd,
     onActiveIndexChange,
     onBreakpoint,
-}: PropsWithChildren<SliderNewProps>) => {
-    const {autoplay, isLocked, childrenCount, breakpoints, onSwiper, onPrev, onNext, setIsLocked} =
-        useSlider({
-            slidesToShow,
-            children,
-            type,
-            autoplayMs,
-        });
+}: React.PropsWithChildren<SliderNewProps>) => {
+    const {
+        autoplay,
+        isLocked,
+        childrenCount,
+        breakpoints,
+        onSwiper,
+        onImagesReady,
+        onPrev,
+        onNext,
+        setIsLocked,
+    } = useSlider({
+        slidesToShow,
+        children,
+        type,
+        autoplayMs,
+    });
 
     const isA11yControlHidden = Boolean(autoplay);
     const controlTabIndex = isA11yControlHidden ? -1 : 0;
@@ -90,7 +105,10 @@ export const SliderNewBlock = ({
             className={b(
                 {
                     'one-slide': childrenCount === 1,
-                    'only-arrows': !title?.text && !description && arrows,
+                    'only-arrows':
+                        (!title || (typeof title !== 'string' && !title?.text)) &&
+                        !description &&
+                        arrows,
                     'without-dots': !dots || isLocked,
                     type,
                 },
@@ -104,13 +122,14 @@ export const SliderNewBlock = ({
                 className={b('header', {'no-description': !description})}
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
-                <Swiper
+                <SwiperReact
                     className={b('slider', className)}
                     onSwiper={onSwiper}
-                    speed={1000}
+                    speed={700}
                     autoplay={autoplay}
+                    loop={infinite}
                     autoHeight={adaptive}
-                    initialSlide={0}
+                    initialSlide={initialSlide}
                     noSwiping={false}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
@@ -120,6 +139,7 @@ export const SliderNewBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
+                    onImagesReady={onImagesReady}
                     watchSlidesVisibility
                     watchOverflow
                     a11y={{
@@ -140,13 +160,14 @@ export const SliderNewBlock = ({
                             )}
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                </SwiperReact>
                 {arrows && !isLocked && (
-                    <Fragment>
+                    <React.Fragment>
                         <div aria-hidden={isA11yControlHidden}>
                             <Arrow
                                 className={b('arrow', {prev: true})}
                                 type="left"
+                                transparent={type === SliderType.HeaderCard}
                                 onClick={onPrev}
                                 size={arrowSize}
                                 extraProps={{tabIndex: controlTabIndex}}
@@ -154,12 +175,13 @@ export const SliderNewBlock = ({
                             <Arrow
                                 className={b('arrow', {next: true})}
                                 type="right"
+                                transparent={type === SliderType.HeaderCard}
                                 onClick={onNext}
                                 size={arrowSize}
                                 extraProps={{tabIndex: controlTabIndex}}
                             />
                         </div>
-                    </Fragment>
+                    </React.Fragment>
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (

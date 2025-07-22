@@ -98,7 +98,6 @@ export const blockMap = {
     [BlockType.RelevantReportsBlock]: RelevantReportsBlock,
     [BlockType.PressReleasesBlock]: PressReleasesBlock,
     [BlockType.HighlightTableBlock]: HighlightTableBlock,
-
     [BlockType.LinkTableBlock]: LinkTableBlock,
     [BlockType.ServicesBlock]: ServicesBlock,
     [BlockType.QuotesBlock]: QuotesBlock,
@@ -106,7 +105,6 @@ export const blockMap = {
     [BlockType.ReportsCardsBlock]: ReportsCardsBlock,
     [BlockType.ReportsSectionsBlock]: ReportsSectionsBlock,
     [BlockType.FormWallBlock]: FormWallBlock,
-    // unstable
     [BlockType.SliderNewBlock]: SliderNewBlock,
 };
 

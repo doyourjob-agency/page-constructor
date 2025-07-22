@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import * as React from 'react';
 
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
@@ -20,6 +20,7 @@ export interface GetSlidesToShowParams {
     slidesToShow?: SlidesToShow;
     mobileFullscreen?: boolean;
 }
+
 export function getSliderResponsiveParams({
     contentLength,
     slidesToShow,
@@ -52,9 +53,9 @@ export function getSliderResponsiveParams({
 }
 
 export const useMemoized = <T>(value: T): T => {
-    const [memoizedValue, setMemoizedValue] = useState(value);
+    const [memoizedValue, setMemoizedValue] = React.useState(value);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setMemoizedValue((memoized) =>
             value && typeof value === 'object' && isEqual(memoized, value) ? memoized : value,
         );

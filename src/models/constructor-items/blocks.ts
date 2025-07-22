@@ -81,7 +81,6 @@ export enum BlockType {
     RelevantReportsCardsBlock = 'relevant-reports-cards-block',
     RelevantReportsBlock = 'relevant-reports-block',
     PressReleasesBlock = 'press-releases-block',
-    // unstable
     SliderNewBlock = 'slider-new-block',
     HighlightTableBlock = 'highlight-table-block',
 }
@@ -846,7 +845,6 @@ export type FormWallBlockModel = {
     type: BlockType.FormWallBlock;
 } & FormWallBlockProps;
 
-// unstable block models
 export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
 } & SliderNewProps;
@@ -888,8 +886,7 @@ type BlockModels =
     | RelevantReportsCardsBlockModel
     | RelevantReportsBlockModel
     | PressReleasesBlockModel
-    | FormWallBlockModel;
+    | FormWallBlockModel
+    | SliderNewBlockModel;
 
-type UnstableBlockModels = SliderNewBlockModel;
-
-export type Block = (BlockModels | UnstableBlockModels) & BlockBaseProps;
+export type Block = BlockModels & BlockBaseProps;

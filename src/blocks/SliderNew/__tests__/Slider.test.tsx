@@ -34,7 +34,7 @@ describe('SliderNew', () => {
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const slides = container.querySelectorAll('.pc-SliderNewBlock__slide');
+        const slides = container.querySelectorAll('.pc-slider-new-block__slide');
         expect(slides.length).toEqual(cardCount);
     });
 
@@ -60,7 +60,7 @@ describe('SliderNew', () => {
         );
 
         // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-        const arrow = container.querySelector('.pc-SliderNewBlock__arrow');
+        const arrow = container.querySelector('.pc-slider-new-block__arrow');
         expect(arrow).toBeFalsy();
     });
 });

@@ -26,7 +26,18 @@ const LoadableProps = {
             type: 'object',
             patternProperties: {
                 '.*': {
-                    type: ['string', 'number', 'boolean'],
+                    oneOf: [
+                        {
+                            type: ['string', 'number', 'boolean'],
+                        },
+                        {
+                            type: 'object',
+                            additionalProperties: true,
+                        },
+                        {
+                            type: 'array',
+                        },
+                    ],
                 },
             },
         },
@@ -62,6 +73,9 @@ export const SliderNewProps = {
     },
     autoplay: {
         type: 'number',
+    },
+    infinite: {
+        type: 'boolean',
     },
     type: {
         type: 'string',
