@@ -6,13 +6,12 @@ import './EmptyPlug.scss';
 
 const b = block('empty-plug');
 
-interface EmptyPlugProps {
+export interface EmptyPlugProps {
     empty?: string;
-    className?: string;
 }
 
-export const EmptyPlug = ({empty, className}: EmptyPlugProps) => {
-    return <div className={b(null, className)}>{empty}</div>;
+export const EmptyPlug = ({empty}: EmptyPlugProps) => {
+    return <div className={b()}>{empty}</div>;
 };
 
 export default React.memo(EmptyPlug);

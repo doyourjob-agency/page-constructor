@@ -59,7 +59,7 @@ export const ReportsSectionsBlock = ({title, typeKey, empty}: ReportsSectionsBlo
                     </div>
                 </AnimateBlock>
             ) : (
-                <EmptyPlug empty={empty} className={b('empty')} />
+                <EmptyPlug empty={empty} />
             )}
         </div>
     );

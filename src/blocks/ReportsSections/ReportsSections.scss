@@ -4,6 +4,8 @@
 $block: '.#{$ns}reports-sections-block';
 
 #{$block} {
+    --pc-color-empty: var(--g-color-base-background);
+
     &__title {
         margin-bottom: 24px;
     }
@@ -16,9 +18,5 @@ $block: '.#{$ns}reports-sections-block';
         display: flex;
         flex-direction: column;
         gap: 56px;
-    }
-
-    &__empty {
-        background: var(--g-color-base-background);
     }
 }

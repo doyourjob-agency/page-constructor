@@ -16,7 +16,7 @@ $block: '.#{$ns}report-file';
     color: inherit;
     display: flex;
     transition: background-color 0.3s ease-in-out;
-    background-color: var(--g-color-private-blue-50);
+    background-color: var(--pc-color-report-file);
 
     &:hover {
         background-color: var(--g-color-private-cool-grey-400);
@@ -26,7 +26,7 @@ $block: '.#{$ns}report-file';
         border-color: var(--g-color-private-cool-grey-400);
         background-color: transparent;
         &:hover {
-            background-color: var(--g-color-private-blue-50);
+            background-color: var(--pc-color-report-file);
         }
     }
 }

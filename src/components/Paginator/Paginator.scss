@@ -36,7 +36,7 @@ $itemDimensions: 52px;
         color: var(--g-color-text-primary);
 
         &:hover {
-            background-color: var(--g-color-private-blue-50);
+            background-color: var(--pc-color-paginator-hover);
         }
 
         &_type {
@@ -44,7 +44,7 @@ $itemDimensions: 52px;
                 cursor: pointer;
 
                 &#{$item}_active {
-                    background-color: var(--g-color-private-blue-200-solid);
+                    background-color: var(--pc-color-paginator-active);
                     cursor: default;
                 }
             }

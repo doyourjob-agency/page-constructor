@@ -1,0 +1,11 @@
+{
+  "default": {
+    "content": {
+      "itemsPerPage": 10,
+      "totalItems": 100,
+      "maxPages": 10,
+      "page": 2,
+      "pageCountForShowSupportButtons": 5
+    }
+  }
+}

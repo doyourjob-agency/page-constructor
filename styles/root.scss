@@ -47,6 +47,11 @@
         --pc-monochrome-button-background-color-hover
     );
 
+    --pc-color-empty: var(--g-color-private-blue-50);
+    --pc-color-paginator-hover: var(--g-color-private-blue-50);
+    --pc-color-paginator-active: var(--g-color-private-blue-200-solid);
+    --pc-color-report-file: var(--g-color-private-blue-50);
+
     // focus color
     --pc-color-line-focus-light: var(--g-color-text-brand);
     --pc-color-line-focus-dark: var(--g-color-text-light-primary);
