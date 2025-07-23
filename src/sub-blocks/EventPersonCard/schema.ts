@@ -20,6 +20,9 @@ export const EventPersonCard = {
                     },
                 ],
             },
+            subtitle: {
+                type: 'string',
+            },
             text: {
                 type: 'string',
                 contentType: 'yfm',

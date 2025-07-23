@@ -15,7 +15,7 @@ const titleColSizes = {
 };
 
 const EventPersonCard = (props: EventPersonCardProps) => {
-    const {image, title, text, links, theme} = props;
+    const {image, title, subtitle, text, links, theme} = props;
 
     const globalTheme = useTheme();
     const themedImage = getThemedValue(image, globalTheme);
@@ -33,8 +33,14 @@ const EventPersonCard = (props: EventPersonCardProps) => {
             </div>
             <div className={b('wrap')}>
                 {title && (
-                    <Title className={b('title')} title={titleProps} colSizes={titleColSizes} />
+                    <Title
+                        className={b('title')}
+                        title={titleProps}
+                        subtitle={subtitle}
+                        colSizes={titleColSizes}
+                    />
                 )}
+                {links && <Links className={b('links')} size="s" links={links} />}
                 {text && (
                     <div className={b('text')}>
                         <YFMWrapper
@@ -43,7 +49,6 @@ const EventPersonCard = (props: EventPersonCardProps) => {
                         />
                     </div>
                 )}
-                {links && <Links className={b('links')} size="s" links={links} />}
             </div>
         </div>
     );

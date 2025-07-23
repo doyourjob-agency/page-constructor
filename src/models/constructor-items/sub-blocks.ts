@@ -312,6 +312,7 @@ export interface CaseStudyCardProps {
 export interface EventPersonCardProps {
     image: ThemeSupporting<ImageProps>;
     title?: TitleItemBaseProps | string;
+    subtitle?: string;
     text?: string;
     links?: LinkProps[];
     theme?: ContentTheme;
