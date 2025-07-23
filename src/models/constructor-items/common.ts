@@ -161,6 +161,7 @@ export interface BackgroundImageProps
         Partial<ImageDeviceProps>,
         Partial<ImageObjectProps>,
         QAProps {
+    hoverImage?: ImageProps;
     style?: CSSProperties;
     imageMods?: NoStrictEntityMods;
     imageClassName?: string;

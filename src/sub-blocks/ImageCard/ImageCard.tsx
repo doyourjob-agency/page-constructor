@@ -6,9 +6,8 @@ import {Image, Tag} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {GridColumnSizesType} from '../../grid';
-import {useHoverImageThemeSupporting} from '../../hooks';
 import {ImageCardDirection, ImageCardProps} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 import Content from '../Content/Content';
 
 import './ImageCard.scss';
@@ -44,13 +43,9 @@ const ImageCard = (props: ImageCardProps) => {
     const globalTheme = useTheme();
     const areControlsInFooter = controlPosition === 'footer';
     const hasContent = Boolean(text || title || buttons || links || list);
-    const {imageData, onMouseEnter, onMouseLeave, imageMods} = useHoverImageThemeSupporting(
-        100,
-        globalTheme,
-        image,
-        hoverImage,
-    );
-    const imageProps = getMediaImage(imageData || '');
+
+    const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
+    const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
 
     const titleId = useUniqId();
 
@@ -63,9 +58,18 @@ const ImageCard = (props: ImageCardProps) => {
             )}
             <div className={b('image', {margins})}>
                 <Image
-                    className={b('image_inner', {radius: enableImageBorderRadius, ...imageMods})}
+                    className={b('image_inner', {radius: enableImageBorderRadius})}
                     {...imageProps}
                 />
+                {hoverImage && (
+                    <Image
+                        className={b('image_inner', {
+                            hover: true,
+                            radius: enableImageBorderRadius,
+                        })}
+                        {...hoverImageProps}
+                    />
+                )}
             </div>
             {hasContent && (
                 <div className={b('content')}>
@@ -99,8 +103,6 @@ const ImageCard = (props: ImageCardProps) => {
             extraProps={{
                 draggable: false,
                 onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
-                onMouseEnter,
-                onMouseLeave,
             }}
         >
             {cardContent}
@@ -109,8 +111,6 @@ const ImageCard = (props: ImageCardProps) => {
         <div
             className={b({border, 'with-content': hasContent, direction})}
             style={{backgroundColor}}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
         >
             {cardContent}
         </div>

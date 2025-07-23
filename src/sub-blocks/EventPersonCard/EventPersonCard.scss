@@ -29,6 +29,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     }
 
     &__wrap-image {
+        position: relative;
         width: 192px;
         height: 192px;
         border-radius: $borderRadiusS;
@@ -36,11 +37,21 @@ $darkSecondary: var(--g-color-text-dark-secondary);
     }
 
     &__image {
-        @include hover-image-fade(0.5s);
-
         object-fit: cover;
         width: 100%;
         height: 100%;
+
+        &_hover {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    &:hover &__image_hover {
+        opacity: 1;
     }
 
     &__links {

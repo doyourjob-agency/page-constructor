@@ -84,6 +84,15 @@ $block: '.#{$ns}background-card';
         img {
             object-fit: cover;
         }
+
+        &_hover {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    }
+
+    &:hover &__image_hover {
+        opacity: 1;
     }
 }
 

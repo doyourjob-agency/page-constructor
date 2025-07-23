@@ -3,9 +3,8 @@ import React from 'react';
 import {Image, Links, Title, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
-import {useHoverImageThemeSupporting} from '../../hooks';
 import {EventPersonCardProps, TitleItemProps} from '../../models';
-import {block} from '../../utils';
+import {block, getThemedValue} from '../../utils';
 
 import './EventPersonCard.scss';
 
@@ -19,13 +18,8 @@ const EventPersonCard = (props: EventPersonCardProps) => {
     const {image, hoverImage, title, subtitle, text, links, theme} = props;
 
     const globalTheme = useTheme();
-    const {imageData, onMouseEnter, onMouseLeave, imageMods} = useHoverImageThemeSupporting(
-        100,
-        globalTheme,
-        image,
-        hoverImage,
-    );
-    const imageProps = getMediaImage(imageData || '');
+    const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
+    const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
 
     const titleProps =
         !title || typeof title === 'string'
@@ -33,9 +27,10 @@ const EventPersonCard = (props: EventPersonCardProps) => {
             : title;
 
     return (
-        <div className={b({theme})} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div className={b({theme})}>
             <div className={b('wrap-image')}>
-                <Image className={b('image', imageMods)} {...imageProps} />
+                <Image className={b('image')} {...imageProps} />
+                {hoverImage && <Image className={b('image', {hover: true})} {...hoverImageProps} />}
             </div>
             <div className={b('wrap')}>
                 {title && (
