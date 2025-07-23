@@ -6,7 +6,6 @@ import React, {
     ReactNode,
 } from 'react';
 
-import {NoStrictEntityMods} from '@bem-react/classname';
 import {ButtonView, ButtonProps as UikitButtonProps} from '@gravity-ui/uikit';
 
 import {ThemeSupporting} from '../../utils';
@@ -163,7 +162,6 @@ export interface BackgroundImageProps
         QAProps {
     hoverImage?: ImageProps;
     style?: CSSProperties;
-    imageMods?: NoStrictEntityMods;
     imageClassName?: string;
     hide?: boolean;
     extraProps?: React.HTMLAttributes<HTMLImageElement>;
