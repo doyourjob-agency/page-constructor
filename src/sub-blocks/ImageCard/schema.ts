@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
 
-import {BaseProps, CardBase, CardLayoutProps, Tag} from '../../schema/validators/common';
+import {BaseProps, CardBase, CardLayoutProps, Tag, withTheme} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {ContentBase} from '../Content/schema';
 
@@ -15,7 +15,8 @@ export const ImageCard = {
             ...CardBase,
             ...CardLayoutProps,
             ...ImageCardBlockContentProps,
-            image: ImageProps,
+            image: withTheme(ImageProps),
+            hoverImage: withTheme(ImageProps),
             direction: {
                 type: 'string',
                 enum: ['direct', 'reverse'],

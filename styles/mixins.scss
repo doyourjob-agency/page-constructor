@@ -689,3 +689,13 @@ unpredictable css rules order in build */
         }
     }
 }
+
+@mixin hover-image-fade($duration: 0.3s) {
+    will-change: opacity;
+    transition: opacity $duration ease;
+
+    &_fade {
+        opacity: 0;
+        transition: none;
+    }
+}

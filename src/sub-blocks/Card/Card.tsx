@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
 import {CardBase, HTML, Links, Tag} from '../../components';
 import ServiceLabel from '../../components/ServiceLabel/ServiceLabel';
+import {useHoverImage} from '../../hooks';
 import {CardProps} from '../../models/constructor-items/sub-blocks';
 import {block} from '../../utils';
 import Content from '../Content/Content';
@@ -15,9 +16,20 @@ import './Card.scss';
 const b = block('card');
 
 const Card = ({header, summary, text, service, label, ...props}: CardProps) => {
+    const {imageData, onMouseEnter, onMouseLeave, imageMods} = useHoverImage(
+        100,
+        header.image,
+        header.hoverImage,
+    );
+
+    const cardBaseExtraProps = useMemo(
+        () => ({onMouseEnter, onMouseLeave}),
+        [onMouseEnter, onMouseLeave],
+    );
+
     return (
-        <CardBase {...props}>
-            <CardBase.Header className={b('header')} image={header.image}>
+        <CardBase {...props} extraProps={cardBaseExtraProps}>
+            <CardBase.Header className={b('header')} image={imageData} imageMods={imageMods}>
                 {label && <Tag {...label} />}
                 <h3 className={b('title')}>
                     <HTML>{header.title}</HTML>

@@ -11,13 +11,17 @@ export const qaIdByDefault = 'background-image';
 const b = block('storage-background-image');
 
 const BackgroundImage = (props: React.PropsWithChildren<BackgroundImageProps>) => {
-    const {children, src, desktop, className, imageClassName, style, hide, qa} = props;
+    const {children, src, desktop, className, imageMods, imageClassName, style, hide, qa} = props;
     const qaAttributes = getQaAttrubutes(qa || qaIdByDefault);
 
     return (
         <div className={b(null, className)} style={style} data-qa={qa || qaIdByDefault}>
             {(src || desktop) && !hide && (
-                <Image {...props} className={b('img', imageClassName)} qa={qaAttributes.image} />
+                <Image
+                    {...props}
+                    className={b('img', imageMods, imageClassName)}
+                    qa={qaAttributes.image}
+                />
             )}
             {children && <div className={b('container')}>{children}</div>}
         </div>

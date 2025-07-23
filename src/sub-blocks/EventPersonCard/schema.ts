@@ -1,4 +1,10 @@
-import {BaseProps, LinkProps, TitleProps, contentThemes} from '../../schema/validators/common';
+import {
+    BaseProps,
+    LinkProps,
+    TitleProps,
+    contentThemes,
+    withTheme,
+} from '../../schema/validators/common';
 import {ImageProps} from '../../schema/validators/components';
 import {filteredArray} from '../../schema/validators/utils';
 
@@ -33,7 +39,8 @@ export const EventPersonCard = {
                 type: 'string',
                 enum: contentThemes,
             },
-            image: ImageProps,
+            image: withTheme(ImageProps),
+            hoverImage: withTheme(ImageProps),
         },
     },
 };

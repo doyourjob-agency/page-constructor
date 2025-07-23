@@ -101,6 +101,17 @@
           "src": "/story-assets/img-bg_nopadding_4-12_dark.png",
           "alt": "Lorem ipsumt"
         }
+      },
+      "hoverBackground": {
+        "light": {
+          "src": "/story-assets/img_6-12_light.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "/story-assets/img_6-12_dark.png",
+          "alt": "Lorem ipsumt"
+        }
       }
     }
   },

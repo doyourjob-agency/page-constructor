@@ -9,6 +9,7 @@ import React, {
     useMemo,
 } from 'react';
 
+import {NoStrictEntityMods} from '@bem-react/classname';
 import {Link} from '@gravity-ui/uikit';
 
 import {useAnalytics} from '../../hooks';
@@ -20,6 +21,7 @@ import {
 } from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
+import {getMediaImage} from '../Media/Image/utils';
 import RouterLink from '../RouterLink/RouterLink';
 
 import './CardBase.scss';
@@ -40,6 +42,7 @@ export type CardBasePropsType = PropsWithChildren<CardBaseProps>;
 export interface CardHeaderBaseProps {
     className?: string;
     image?: ImageProps | null;
+    imageMods?: NoStrictEntityMods;
     imageExtraProps?: React.HTMLAttributes<HTMLImageElement>;
 }
 
@@ -75,15 +78,23 @@ export const Layout = (props: CardBasePropsType) => {
         [qa],
     );
 
-    const {header, content, footer, image, imageExtraProps, headerClass, footerClass} =
+    const {header, content, footer, image, imageMods, imageExtraProps, headerClass, footerClass} =
         useMemo(() => {
-            let _header, _content, _footer, _image, _imageExtraProps, _headerClass, _footerClass;
+            let _header,
+                _content,
+                _footer,
+                _image,
+                _imageMods,
+                _imageExtraProps,
+                _headerClass,
+                _footerClass;
 
             function handleChild(child: ReactElement) {
                 switch (child.type) {
                     case Header:
                         _header = child.props.children;
                         _image = child.props.image;
+                        _imageMods = child.props.imageMods;
                         _imageExtraProps = child.props.imageExtraProps;
                         _headerClass = child.props.className;
                         break;
@@ -108,6 +119,7 @@ export const Layout = (props: CardBasePropsType) => {
                 content: _content,
                 footer: _footer,
                 image: _image,
+                imageMods: _imageMods,
                 imageExtraProps: _imageExtraProps,
                 headerClass: _headerClass,
                 footerClass: _footerClass,
@@ -120,7 +132,8 @@ export const Layout = (props: CardBasePropsType) => {
                 {(header || image) && (
                     <BackgroundImage
                         className={b('header', headerClass)}
-                        {...(typeof image === 'string' ? {src: image} : image)}
+                        {...getMediaImage(image || '')}
+                        imageMods={imageMods}
                         extraProps={imageExtraProps}
                         qa={qaAttributes.header}
                     >
@@ -141,15 +154,19 @@ export const Layout = (props: CardBasePropsType) => {
         ),
         [
             header,
-            content,
             image,
-            imageExtraProps,
             headerClass,
+            imageMods,
+            imageExtraProps,
+            qaAttributes.header,
+            qaAttributes.body,
+            qaAttributes.content,
+            qaAttributes.footer,
             bodyClassName,
             contentClassName,
+            content,
             footer,
             footerClass,
-            qaAttributes,
         ],
     );
 

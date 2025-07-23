@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase, Tag} from '../../components/';
+import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
+import {useHoverImageThemeSupporting} from '../../hooks';
 import {BackgroundCardProps} from '../../models';
-import {block, getThemedValue} from '../../utils';
+import {block} from '../../utils';
 import Content from '../Content/Content';
 
 import './BackgroundCard.scss';
@@ -21,6 +23,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         text,
         border,
         background,
+        hoverBackground,
         backgroundPosition = 'left',
         paddingBottom,
         backgroundColor,
@@ -42,6 +45,19 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     const borderType = hasBackgroundColor ? 'none' : border;
     const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
 
+    const {imageData, onMouseEnter, onMouseLeave, imageMods} = useHoverImageThemeSupporting(
+        100,
+        theme,
+        background,
+        hoverBackground,
+    );
+    const backgroundProps = getMediaImage(imageData || '');
+
+    const cardBaseExtraProps = useMemo(
+        () => ({onMouseEnter, onMouseLeave}),
+        [onMouseEnter, onMouseLeave],
+    );
+
     return (
         <CardBase
             className={b({
@@ -55,11 +71,13 @@ const BackgroundCard = (props: BackgroundCardProps) => {
             border={borderType}
             analyticsEvents={analyticsEvents}
             urlTitle={urlTitle}
+            extraProps={cardBaseExtraProps}
         >
             <CardBase.Content>
                 <BackgroundImage
                     className={b('image')}
-                    {...getThemedValue(background, theme)}
+                    {...backgroundProps}
+                    imageMods={imageMods}
                     style={{backgroundColor}}
                 />
                 {label && <Tag {...label} />}
