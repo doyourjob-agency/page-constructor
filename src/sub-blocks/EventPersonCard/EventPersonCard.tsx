@@ -15,11 +15,11 @@ const titleColSizes = {
 };
 
 const EventPersonCard = (props: EventPersonCardProps) => {
-    const {image, title, subtitle, text, links, theme} = props;
+    const {image, hoverImage, title, subtitle, text, links, theme} = props;
 
     const globalTheme = useTheme();
-    const themedImage = getThemedValue(image, globalTheme);
-    const imageProps = getMediaImage(themedImage);
+    const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
+    const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
 
     const titleProps =
         !title || typeof title === 'string'
@@ -30,6 +30,7 @@ const EventPersonCard = (props: EventPersonCardProps) => {
         <div className={b({theme})}>
             <div className={b('wrap-image')}>
                 <Image className={b('image')} {...imageProps} />
+                {hoverImage && <Image className={b('image', {hover: true})} {...hoverImageProps} />}
             </div>
             <div className={b('wrap')}>
                 {title && (

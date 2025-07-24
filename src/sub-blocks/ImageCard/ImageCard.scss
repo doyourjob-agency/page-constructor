@@ -33,6 +33,14 @@ $block: '.#{$ns}image-card';
             &_radius {
                 border-radius: $borderRadius;
             }
+
+            &_hover {
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
         }
 
         &_margins {
@@ -52,6 +60,10 @@ $block: '.#{$ns}image-card';
                 }
             }
         }
+    }
+
+    &:hover #{$image}_inner_hover {
+        opacity: 1;
     }
 
     &_with-content {
