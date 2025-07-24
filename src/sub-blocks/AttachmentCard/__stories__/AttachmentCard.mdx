@@ -1,0 +1,35 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as AttachmentCardStories from './AttachmentCard.stories.tsx';
+
+<Meta of={AttachmentCardStories} />
+<StoryTemplate>
+## Parameters
+
+`type: attachment-card`
+
+`url: string` - Link
+
+[`title?: Title | string` - title](?path=/docs/documentation-types--docs#title-block-title)
+
+`date: string` - Date
+
+`time: string` - Time
+
+`items: File[]` - Files
+
+```
+File:
+    - icon: string;
+    - name: string;
+    - link: string;
+    - target?: string;
+    - download?: boolean;
+```
+
+`column: boolean` - Title with date in line or not
+
+`border: boolean`
+
+</StoryTemplate>
