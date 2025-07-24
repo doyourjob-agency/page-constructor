@@ -73,10 +73,10 @@ const AttachmentCard = ({
                         <div className={b('date')}>
                             {date}
                             {time && (
-                                <span className={b('time')}>
+                                <React.Fragment>
                                     <span className={b('dot')} />
                                     {time}
-                                </span>
+                                </React.Fragment>
                             )}
                         </div>
                     )}
