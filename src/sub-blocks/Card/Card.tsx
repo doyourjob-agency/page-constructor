@@ -16,8 +16,12 @@ const b = block('card');
 
 const Card = ({header, summary, text, service, label, ...props}: CardProps) => {
     return (
-        <CardBase {...props}>
-            <CardBase.Header className={b('header')} image={header.image}>
+        <CardBase className={b()} {...props}>
+            <CardBase.Header
+                className={b('header')}
+                image={header.image}
+                hoverImage={header.hoverImage}
+            >
                 {label && <Tag {...label} />}
                 <h3 className={b('title')}>
                     <HTML>{header.title}</HTML>

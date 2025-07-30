@@ -7,6 +7,10 @@
         "dark": "/story-assets/img_8-12_dark.png",
         "light": "/story-assets/img_8-12_light.png"
       },
+      "hoverImage": {
+        "dark": "/story-assets/img_8-12_light.png",
+        "light": "/story-assets/img_8-12_dark.png"
+      },
       "direction": "direct",
       "border": "shadow"
     }

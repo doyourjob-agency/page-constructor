@@ -146,6 +146,7 @@ export interface BackgroundCardProps
     urlTitle?: string;
     target?: string;
     background?: ThemeSupporting<ImageObjectProps>;
+    hoverBackground?: ThemeSupporting<ImageObjectProps>;
     backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom';
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
@@ -167,8 +168,9 @@ export interface BasicCardProps
 
 export interface CardProps extends CardBaseProps, Pick<ContentBlockProps, 'summary' | 'text'> {
     header: {
-        image: string;
         title: string;
+        image: string;
+        hoverImage?: string;
     };
     service?: ServiceLabelProps;
     label?: TagProps;
@@ -229,6 +231,7 @@ export interface ImageCardProps
         CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     image: ThemeSupporting<ImageProps>;
+    hoverImage: ThemeSupporting<ImageProps>;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;
     direction?: ImageCardDirection;
@@ -311,6 +314,7 @@ export interface CaseStudyCardProps {
 
 export interface EventPersonCardProps {
     image: ThemeSupporting<ImageProps>;
+    hoverImage?: ThemeSupporting<ImageProps>;
     title?: TitleItemBaseProps | string;
     subtitle?: string;
     text?: string;

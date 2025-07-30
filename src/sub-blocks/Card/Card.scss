@@ -2,6 +2,7 @@
 @import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}card';
+$blockBackgroundImage: '.#{$ns}storage-background-image';
 
 #{$block} {
     &__header {
@@ -10,6 +11,10 @@ $block: '.#{$ns}card';
         & p {
             margin: 0;
         }
+    }
+
+    &:hover #{$blockBackgroundImage}__img_hover {
+        opacity: 1;
     }
 
     &__title {

@@ -27,6 +27,7 @@ export const BackgroundCard = {
                 enum: ['_blank', '_parent', '_top', '_self'],
             },
             background: withTheme(ImageObjectProps),
+            hoverBackground: withTheme(ImageObjectProps),
             backgroundColor: {
                 type: 'string',
             },

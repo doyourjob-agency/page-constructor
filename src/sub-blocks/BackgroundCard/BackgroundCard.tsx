@@ -3,6 +3,7 @@ import React from 'react';
 import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundImage, CardBase, Tag} from '../../components/';
+import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {BackgroundCardProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -21,6 +22,7 @@ const BackgroundCard = (props: BackgroundCardProps) => {
         text,
         border,
         background,
+        hoverBackground,
         backgroundPosition = 'left',
         paddingBottom,
         backgroundColor,
@@ -42,6 +44,9 @@ const BackgroundCard = (props: BackgroundCardProps) => {
     const borderType = hasBackgroundColor ? 'none' : border;
     const areControlsInFooter = !paddingBottom && controlPosition === 'footer';
 
+    const backgroundProps = getMediaImage(getThemedValue(background, theme) || '');
+    const hoverBackgroundProps = getMediaImage(getThemedValue(hoverBackground, theme) || '');
+
     return (
         <CardBase
             className={b({
@@ -59,9 +64,16 @@ const BackgroundCard = (props: BackgroundCardProps) => {
             <CardBase.Content>
                 <BackgroundImage
                     className={b('image')}
-                    {...getThemedValue(background, theme)}
+                    {...backgroundProps}
                     style={{backgroundColor}}
                 />
+                {hoverBackground && (
+                    <BackgroundImage
+                        className={b('image', {hover: true})}
+                        {...hoverBackgroundProps}
+                        style={{backgroundColor}}
+                    />
+                )}
                 {label && <Tag {...label} />}
                 <Content
                     className={b('data')}
