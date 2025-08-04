@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import Swiper, {A11y, Autoplay, Pagination} from 'swiper';
+import {A11y, Autoplay, Pagination} from 'swiper/modules';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
+import type {SwiperProps} from 'swiper/react';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -15,9 +16,9 @@ import {useSlider} from './useSlider';
 import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
-import 'swiper/swiper-bundle.css';
-
-export type {Swiper, SwiperOptions} from 'swiper';
+import 'swiper/modules/autoplay.min.css';
+import 'swiper/modules/pagination.min.css';
+import 'swiper/swiper.min.css';
 
 const b = block('slider-new-block');
 
@@ -25,7 +26,7 @@ export interface SliderNewProps
     extends Omit<SliderParams, 'children'>,
         Partial<
             Pick<
-                SwiperReact,
+                SwiperProps,
                 | 'onSlideChange'
                 | 'onSlideChangeTransitionStart'
                 | 'onSlideChangeTransitionEnd'
@@ -42,9 +43,6 @@ export interface SliderNewProps
     arrowSize?: number;
     initialSlide?: number;
 }
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
-Swiper.use([Autoplay, A11y, Pagination]);
 
 export const SliderNewBlock = ({
     animated,
@@ -77,7 +75,7 @@ export const SliderNewBlock = ({
         childrenCount,
         breakpoints,
         onSwiper,
-        onImagesReady,
+        handleSwiperInit,
         onPrev,
         onNext,
         setIsLocked,
@@ -99,6 +97,7 @@ export const SliderNewBlock = ({
         bulletActiveClass: b('dot_active'),
         paginationLabel: i18n('pagination-label'),
     });
+
     return (
         <div
             className={b(
@@ -122,6 +121,7 @@ export const SliderNewBlock = ({
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
                 <SwiperReact
+                    modules={[Autoplay, A11y, Pagination]}
                     className={b('slider', className)}
                     onSwiper={onSwiper}
                     speed={700}
@@ -140,8 +140,8 @@ export const SliderNewBlock = ({
                     onBreakpoint={onBreakpoint}
                     onLock={() => setIsLocked(true)}
                     onUnlock={() => setIsLocked(false)}
-                    onImagesReady={onImagesReady}
-                    watchSlidesVisibility
+                    onInit={handleSwiperInit}
+                    watchSlidesProgress
                     watchOverflow
                     a11y={{
                         slideLabelMessage: '',
@@ -163,26 +163,24 @@ export const SliderNewBlock = ({
                     ))}
                 </SwiperReact>
                 {arrows && !isLocked && (
-                    <React.Fragment>
-                        <div aria-hidden={isA11yControlHidden}>
-                            <Arrow
-                                className={b('arrow', {prev: true})}
-                                type="left"
-                                transparent={type === SliderType.HeaderCard}
-                                onClick={onPrev}
-                                size={arrowSize}
-                                extraProps={{tabIndex: controlTabIndex}}
-                            />
-                            <Arrow
-                                className={b('arrow', {next: true})}
-                                type="right"
-                                transparent={type === SliderType.HeaderCard}
-                                onClick={onNext}
-                                size={arrowSize}
-                                extraProps={{tabIndex: controlTabIndex}}
-                            />
-                        </div>
-                    </React.Fragment>
+                    <div aria-hidden={isA11yControlHidden}>
+                        <Arrow
+                            className={b('arrow', {prev: true})}
+                            type="left"
+                            transparent={type === SliderType.HeaderCard}
+                            onClick={onPrev}
+                            size={arrowSize}
+                            extraProps={{tabIndex: controlTabIndex}}
+                        />
+                        <Arrow
+                            className={b('arrow', {next: true})}
+                            type="right"
+                            transparent={type === SliderType.HeaderCard}
+                            onClick={onNext}
+                            size={arrowSize}
+                            extraProps={{tabIndex: controlTabIndex}}
+                        />
+                    </div>
                 )}
                 <div className={b('footer')}>
                     {disclaimer ? (

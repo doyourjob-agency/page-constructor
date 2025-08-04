@@ -15,7 +15,7 @@ module.exports = {
         '!**/*/*.stories.{ts,tsx}',
     ],
     testEnvironment: '<rootDir>/test-utils/custom-environment.ts',
-    setupFiles: ['<rootDir>/test-utils/setup-tests.ts'],
+    setupFiles: ['<rootDir>/test-utils/setup-tests.tsx'],
     setupFilesAfterEnv: ['<rootDir>/test-utils/setup-tests-after.ts'],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'jest-transform-css',

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type {Swiper} from 'swiper';
+import type {Swiper} from 'swiper/types';
 
 import {SliderType, SlidesToShow} from '../../models';
 
@@ -57,12 +57,13 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         slider.slidePrev();
     };
 
-    const handleImagesReady = React.useCallback((localSlider: Swiper) => {
-        setTimeout(() => localSlider.update(), 100);
-    }, []);
+    const handleSwiperInit = (swiper: Swiper) => {
+        setSlider(swiper);
+        setTimeout(() => swiper.update(), 100);
+    };
 
     React.useEffect(() => {
-        if (!slider) {
+        if (!slider || !slider.autoplay) {
             return;
         }
 
@@ -78,7 +79,7 @@ export const useSlider = ({children, autoplayMs, type, ...props}: UseSliderProps
         onSwiper: setSlider,
         onNext: handleNext,
         onPrev: handlePrev,
-        onImagesReady: handleImagesReady,
+        handleSwiperInit,
         breakpoints,
         childrenCount,
         isLocked,
