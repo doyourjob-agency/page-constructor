@@ -12,7 +12,7 @@ export const DEFAULT_SLIDE_BREAKPOINTS = {
     [SliderBreakpointNames.Lg]: 3,
     [SliderBreakpointNames.Md]: 2,
     [SliderBreakpointNames.Sm]: 2,
-    [SliderBreakpointNames.Xs]: 1.15,
+    [SliderBreakpointNames.Xs]: 1.2,
 };
 
 export interface GetSlidesToShowParams {
@@ -44,9 +44,12 @@ export function getSliderResponsiveParams({
     };
 
     return Object.entries(showCount).reduce((res, [breakpointName, value]) => {
+        const key = BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1;
         // eslint-disable-next-line no-param-reassign
-        res[BREAKPOINTS[breakpointName as SliderBreakpointNames] + 1] = {
+        res[key] = {
             slidesPerView: value,
+            slidesOffsetBefore: key > BREAKPOINTS.md ? 0 : 24,
+            slidesOffsetAfter: key > BREAKPOINTS.md ? 0 : 24,
         };
         return res;
     }, {} as Record<number, SwiperOptions>);

@@ -3,7 +3,7 @@ import React, {useEffect, useMemo, useRef} from 'react';
 import {useTheme} from '../../context/theme';
 import {QuotesBlockProps} from '../../models';
 import {block} from '../../utils';
-import {SliderBlock} from '../Slider/Slider';
+import SliderNewBlock from '../SliderNew/Slider';
 
 import QuotesItem from './QuotesItem/QuotesItem';
 
@@ -48,11 +48,11 @@ export const QuotesBlock = ({
 
     return (
         <div ref={divRef} className={b({theme})}>
-            <SliderBlock slidesToShow={1} lazyLoad="progressive" adaptive={false}>
+            <SliderNewBlock slidesToShow={1}>
                 {items.map((item, index) => (
                     <QuotesItem key={index} theme={theme} {...item} />
                 ))}
-            </SliderBlock>
+            </SliderNewBlock>
             <div className={b('bg')} style={backgroundStyle} />
         </div>
     );

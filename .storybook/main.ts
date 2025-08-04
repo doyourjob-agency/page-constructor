@@ -27,6 +27,7 @@ const config = {
                 actions: false,
             },
         },
+        '@storybook/addon-viewport',
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
         '@storybook/addon-mdx-gfm',

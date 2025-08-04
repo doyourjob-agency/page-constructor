@@ -32,12 +32,12 @@ import {
     ServicesBlock,
     ShareBlock,
     SliderBlock,
+    SliderNewBlock,
     SolutionsBlock,
     TabLinksBlock,
     TableBlock,
     TabsBlock,
 } from './blocks';
-import {SliderNewBlock} from './blocks/unstable';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
     GithubButton,

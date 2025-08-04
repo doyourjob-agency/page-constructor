@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 import {Button, HTML, Image} from '../../../components';
 import {QuotesItemProps} from '../../../models';
@@ -19,34 +19,46 @@ export const QuotesItem = ({
     style = 'normal',
     buttonText,
     buttonUrl,
-}: QuotesItemProps) => (
-    <div className={b({theme})}>
-        <div className={b('header')}>
-            <div className={b('author')}>
-                {avatar && (
-                    <Image className={b('author-avatar')} src={avatar} alt={i18n('avatar')} />
-                )}
-                <div className={b('author-wrap')}>
-                    {name && <div className={b('author-title')}>{name}</div>}
-                    {description && <div className={b('author-text')}>{description}</div>}
+}: QuotesItemProps) => {
+    const renderAuthor = useCallback(
+        (mobile?: boolean) => {
+            return (
+                <div className={b('author', mobile ? {mobile} : {desktop: true})}>
+                    {avatar && (
+                        <Image className={b('author-avatar')} src={avatar} alt={i18n('avatar')} />
+                    )}
+                    <div className={b('author-wrap')}>
+                        {name && <div className={b('author-title')}>{name}</div>}
+                        {description && <div className={b('author-text')}>{description}</div>}
+                    </div>
                 </div>
+            );
+        },
+        [avatar, description, name],
+    );
+
+    return (
+        <div className={b({theme})}>
+            <div className={b('header')}>
+                {renderAuthor()}
+                {logo && <Image className={b('logo')} src={logo} alt={i18n('logo')} />}
             </div>
-            {logo && <Image className={b('logo')} src={logo} alt={i18n('logo')} />}
+            <HTML block className={b('body', {style})}>
+                {quote}
+            </HTML>
+            {renderAuthor(true)}
+            {buttonText && (
+                <div className={b('footer')}>
+                    <Button
+                        theme={theme === 'light' ? 'outlined' : 'outlined-contrast'}
+                        text={buttonText}
+                        size="xl"
+                        url={buttonUrl}
+                    />
+                </div>
+            )}
         </div>
-        <HTML block className={b('body', {style})}>
-            {quote}
-        </HTML>
-        {buttonText && (
-            <div className={b('footer')}>
-                <Button
-                    theme={theme === 'light' ? 'outlined' : 'outlined-contrast'}
-                    text={buttonText}
-                    size="xl"
-                    url={buttonUrl}
-                />
-            </div>
-        )}
-    </div>
-);
+    );
+};
 
 export default QuotesItem;

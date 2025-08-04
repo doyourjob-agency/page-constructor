@@ -3,7 +3,6 @@
 
 $block: '.#{$ns}slider-new-block';
 $fullscreenArrowArea: 120px;
-$fullscreenImageMobilePadding: 16px;
 
 @mixin fullscreen-card() {
     @media (max-width: map-get($gridBreakpoints, 'sm')) {
@@ -385,14 +384,6 @@ $dotSize: 8px;
             #{$root}__slider {
                 margin-left: #{-$horizontalPadding};
                 margin-right: 0;
-            }
-
-            & #{$wrapperCn} {
-                padding-left: $horizontalPadding - $gridGutter;
-            }
-
-            #{$root}__slide {
-                padding: 0 $fullscreenImageMobilePadding;
             }
         }
     }

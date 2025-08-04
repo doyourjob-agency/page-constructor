@@ -99,7 +99,6 @@ export const SliderNewBlock = ({
         bulletActiveClass: b('dot_active'),
         paginationLabel: i18n('pagination-label'),
     });
-
     return (
         <div
             className={b(
@@ -131,6 +130,8 @@ export const SliderNewBlock = ({
                     autoHeight={adaptive}
                     initialSlide={initialSlide}
                     noSwiping={false}
+                    slidesOffsetBefore={24}
+                    slidesOffsetAfter={24}
                     breakpoints={breakpoints}
                     onSlideChange={onSlideChange}
                     onSlideChangeTransitionStart={onSlideChangeTransitionStart}
