@@ -21,6 +21,9 @@ export const Card = {
                     image: {
                         type: 'string',
                     },
+                    hoverImage: {
+                        type: 'string',
+                    },
                     title: {
                         type: 'string',
                     },

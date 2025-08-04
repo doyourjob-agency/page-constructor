@@ -22,6 +22,7 @@ const ImageCard = (props: ImageCardProps) => {
         summary,
         text,
         image,
+        hoverImage,
         enableImageBorderRadius = false,
         direction = ImageCardDirection.Direct,
         margins,
@@ -42,8 +43,9 @@ const ImageCard = (props: ImageCardProps) => {
     const globalTheme = useTheme();
     const areControlsInFooter = controlPosition === 'footer';
     const hasContent = Boolean(text || title || buttons || links || list);
-    const themedImage = getThemedValue(image, globalTheme);
-    const imageProps = getMediaImage(themedImage);
+
+    const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
+    const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
 
     const titleId = useUniqId();
 
@@ -59,6 +61,15 @@ const ImageCard = (props: ImageCardProps) => {
                     className={b('image_inner', {radius: enableImageBorderRadius})}
                     {...imageProps}
                 />
+                {hoverImage && (
+                    <Image
+                        className={b('image_inner', {
+                            hover: true,
+                            radius: enableImageBorderRadius,
+                        })}
+                        {...hoverImageProps}
+                    />
+                )}
             </div>
             {hasContent && (
                 <div className={b('content')}>
