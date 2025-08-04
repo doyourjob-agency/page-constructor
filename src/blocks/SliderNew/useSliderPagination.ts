@@ -1,5 +1,4 @@
-import type {Swiper} from 'swiper';
-import type {SwiperProps} from 'swiper/react';
+import {Swiper as SwiperProps} from 'swiper/swiper-react';
 
 import {setElementAtrributes} from './utils';
 
@@ -24,7 +23,7 @@ export const useSliderPagination = (props: {
             bulletClass,
             bulletActiveClass,
         },
-        onPaginationUpdate: (slider: Swiper) => {
+        onPaginationUpdate: (slider) => {
             const pagination = slider.pagination.el;
 
             setElementAtrributes(pagination, {
@@ -35,7 +34,7 @@ export const useSliderPagination = (props: {
 
             const bullets = pagination.querySelectorAll(`.${bulletClass}`);
 
-            bullets.forEach((bullet: Element) => {
+            bullets.forEach((bullet) => {
                 const isActive = bullet.classList.contains(bulletActiveClass);
 
                 setElementAtrributes(bullet, {
