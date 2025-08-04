@@ -19,8 +19,6 @@ module.exports = {
     setupFilesAfterEnv: ['<rootDir>/test-utils/setup-tests-after.ts'],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'jest-transform-css',
-        '^swiper/css$': 'jest-transform-stub',
-        '^swiper/css/.*$': 'jest-transform-stub',
     },
     testMatch: ['**/*.test.[jt]s?(x)'],
     testPathIgnorePatterns: [

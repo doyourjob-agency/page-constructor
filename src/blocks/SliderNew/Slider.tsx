@@ -1,8 +1,5 @@
 import * as React from 'react';
 
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/pagination';
 import {A11y, Autoplay, Pagination} from 'swiper/modules';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 import type {SwiperProps} from 'swiper/react';
@@ -19,6 +16,7 @@ import {useSlider} from './useSlider';
 import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
+import 'swiper/swiper-bundle.css';
 
 const b = block('slider-new-block');
 
