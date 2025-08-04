@@ -303,6 +303,7 @@ export interface QuestionItem {
 export interface QuestionsProps
     extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
     items: QuestionItem[];
+    firstOpened?: boolean;
 }
 
 export interface QuestionBlockItemProps extends QuestionItem {

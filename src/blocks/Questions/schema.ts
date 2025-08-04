@@ -30,6 +30,9 @@ export const QuestionsBlock = {
                         type: 'string',
                         enum: ['dash', 'disk'],
                     },
+                    firstOpened: {
+                        type: 'boolean',
+                    },
                 },
             }),
         },
