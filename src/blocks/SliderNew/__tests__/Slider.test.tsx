@@ -3,7 +3,7 @@ import React from 'react';
 import {render} from '@testing-library/react';
 
 import {BasicCard} from '../../../sub-blocks';
-import Slider from '../SliderClient';
+import Slider from '../Slider';
 
 const EXAMPLE_URL = 'https://example.com';
 const SLIDER_TITLE = 'Slider title';
