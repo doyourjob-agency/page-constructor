@@ -26,6 +26,10 @@ $block: '.#{$ns}quotes-item';
     &__header {
         display: flex;
         gap: $indentXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            padding-top: 20px;
+        }
     }
 
     &__author {
@@ -90,7 +94,13 @@ $block: '.#{$ns}quotes-item';
     }
 
     &__logo {
+        display: block;
         max-width: 100%;
+        max-height: 80px;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            max-height: 40px;
+        }
     }
 
     &__body {
@@ -104,8 +114,8 @@ $block: '.#{$ns}quotes-item';
             line-height: 40px;
 
             @media (max-width: map-get($gridBreakpoints, 'md')) {
-                font-size: 24px;
-                line-height: 28px;
+                font-size: 20px;
+                line-height: 24px;
             }
         }
 
@@ -114,8 +124,8 @@ $block: '.#{$ns}quotes-item';
             line-height: 53px;
 
             @media (max-width: map-get($gridBreakpoints, 'md')) {
-                font-size: 32px;
-                line-height: 30px;
+                font-size: 24px;
+                line-height: 28px;
             }
         }
 
@@ -124,8 +134,8 @@ $block: '.#{$ns}quotes-item';
             line-height: 28px;
 
             @media (max-width: map-get($gridBreakpoints, 'md')) {
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 17px;
+                line-height: 22px;
             }
         }
 
