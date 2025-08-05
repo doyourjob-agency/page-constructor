@@ -61,7 +61,7 @@ export const PageConstructorProvider = (
         <MapsContext.Provider value={mapsContext} />,
         <AnalyticsContext.Provider value={analytics} />,
         <FormsContext.Provider value={forms} />,
-        <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <SSRContext.Provider value={ssrConfig} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 
