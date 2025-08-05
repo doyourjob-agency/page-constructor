@@ -233,6 +233,11 @@ export interface SwitchingTitleProps {
     switchingTime?: number;
 }
 
+export type HeaderButtonType = Pick<
+    ButtonProps,
+    'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'
+>;
+
 export interface HeaderBlockProps {
     title: string;
     switchingTitle?: SwitchingTitleProps;
@@ -240,7 +245,7 @@ export interface HeaderBlockProps {
     bottomTags?: HeaderTag[];
     overtitle?: string;
     description?: string;
-    buttons?: Pick<ButtonProps, 'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'>[];
+    buttons?: HeaderButtonType[];
     stock?: HeaderStockType;
     stockPrice?: Pick<HeaderStockPriceProps, 'name' | 'delayed'>;
     stockShares?: HeaderStockSharesProps;

@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {Button, HTML, Media, RouterLink} from '../../components';
+import {HTML, Media} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
-import YFMWrapper from '../../components/YFMWrapper/YFMWrapper';
 import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
@@ -14,6 +13,8 @@ import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
+import HeaderButtons from './HeaderButtons/HeaderButtons';
+import HeaderDescription from './HeaderDescription/HeaderDescription';
 import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
@@ -100,17 +101,22 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const {backButton, blockTag} = useContext(HeaderContext);
     const theme = useTheme();
     const hasRightSideImage = Boolean(image || video);
-    const curImageSize = imageSize || getImageSize(width);
-    const titleSizes = hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width);
-    let curVerticalOffset = verticalOffset;
+    const curImageSize = useMemo(() => imageSize || getImageSize(width), [imageSize, width]);
+    const titleSizes = useMemo(
+        () => (hasRightSideImage ? titleWithImageSizes(curImageSize) : getTitleSizes(width)),
+        [curImageSize, hasRightSideImage, width],
+    );
+    const curVerticalOffset = useMemo(
+        () => verticalOffset ?? (hasRightSideImage ? 'm' : verticalOffset),
+        [hasRightSideImage, verticalOffset],
+    );
 
-    if (hasRightSideImage && !verticalOffset) {
-        curVerticalOffset = 'm';
-    }
-
-    const backgroundThemed = background && getThemedValue(background, theme);
-    const imageThemed = image && getThemedValue(image, theme);
-    const videoThemed = video && getThemedValue(video, theme);
+    const backgroundThemed = useMemo(
+        () => background && getThemedValue(background, theme),
+        [background, theme],
+    );
+    const imageThemed = useMemo(() => image && getThemedValue(image, theme), [image, theme]);
+    const videoThemed = useMemo(() => video && getThemedValue(video, theme), [theme, video]);
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
 
@@ -177,35 +183,12 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 </React.Fragment>
                                             )}
                                         </h1>
-                                        {description && (
-                                            <div className={b('description', {theme: textTheme})}>
-                                                <YFMWrapper
-                                                    content={description}
-                                                    modifiers={{
-                                                        constructor: true,
-                                                        constructorTheme: textTheme,
-                                                    }}
-                                                />
-                                            </div>
-                                        )}
-                                        {buttons && (
-                                            <div className={b('buttons')} data-qa="header-buttons">
-                                                {buttons.map((button, index) => (
-                                                    <RouterLink href={button.url} key={index}>
-                                                        <Button
-                                                            key={index}
-                                                            className={b('button')}
-                                                            size="xl"
-                                                            extraProps={{
-                                                                'aria-describedby': titleId,
-                                                                ...button.extraProps,
-                                                            }}
-                                                            {...button}
-                                                        />
-                                                    </RouterLink>
-                                                ))}
-                                            </div>
-                                        )}
+                                        <HeaderDescription
+                                            className={b('description', {theme: textTheme})}
+                                            description={description}
+                                            theme={textTheme}
+                                        />
+                                        <HeaderButtons buttons={buttons} />
                                         {children}
                                     </div>
                                     {stock && (
