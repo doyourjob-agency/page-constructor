@@ -1,20 +1,17 @@
-import React, {useContext, useMemo} from 'react';
-
-import {SSRContext} from '../../context/ssrContext';
+import React, {ComponentType, PropsWithChildren, useEffect, useState} from 'react';
 
 import type {SliderNewProps} from './SliderClient';
 
-export const SliderNewBlock = (props: React.PropsWithChildren<SliderNewProps>) => {
-    const {isServer, dynamic} = useContext(SSRContext);
+export const SliderNewBlock = (props: PropsWithChildren<SliderNewProps>) => {
+    const [SliderClient, setSliderClient] = useState<ComponentType<SliderNewProps> | null>(null);
 
-    const SliderClient = useMemo(() => {
-        if (dynamic && isServer) {
-            return dynamic(() => import('./SliderClient').then((mod) => mod.SliderClient), {
-                ssr: false,
-            });
-        }
-        return require('./SliderClient').SliderClient;
-    }, [dynamic, isServer]);
+    useEffect(() => {
+        import('./SliderClient').then((mod) => {
+            setSliderClient(() => mod.SliderClient);
+        });
+    }, []);
+
+    if (!SliderClient) return null;
 
     return <SliderClient {...props} />;
 };
