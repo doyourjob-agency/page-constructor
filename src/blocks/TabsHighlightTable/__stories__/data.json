@@ -1,0 +1,163 @@
+{
+  "default": {
+    "content": {
+      "type": "tabs-highlight-table-block",
+      "title": {
+        "text": "Lorem ipsum"
+      },
+      "items": [
+        {
+          "tabName": "Dolor sit amet",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "contentSize": "s",
+          "legend": ["Lorem 1", "Lorem 2"],
+          "legendPosition": "top",
+          "legendAlign": "center",
+          "table": {
+            "content": [
+              ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+              ["Lorem 1", "0", "0", "0"],
+              ["Lorem 2", "0", "0", "1"],
+              ["Lorem 3", "0", "0", "1"],
+              ["Lorem 4", "0", "1", "1"],
+              ["Lorem 5", "1", "1", "1"],
+              ["Lorem 6", "1", "1", "1"],
+              ["Lorem 7", "1", "1", "1"],
+              ["Lorem 8", "1", "1", "1"],
+              ["Lorem 9", "1", "1", "1"],
+              ["Lorem 10", "1", "1", "1"]
+            ],
+            "customColumnWidth": [2, 2, 2, 6],
+            "justify": ["left", "center", "center", "center", "center", "right"],
+            "highlighter": ["", "#eee", "", "#eee", ""]
+          }
+        },
+        {
+          "tabName": "Lorem ipsum",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "contentSize": "s",
+          "legend": ["Lorem 1", "Lorem 2"],
+          "legendPosition": "top",
+          "legendAlign": "center",
+          "table": {
+            "content": [
+              ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+              ["Lorem 1", "0", "0", "0"],
+              ["Lorem 2", "0", "0", "1"],
+              ["Lorem 3", "0", "0", "1"],
+              ["Lorem 4", "0", "1", "1"],
+              ["Lorem 5", "1", "1", "1"],
+              ["Lorem 6", "1", "1", "1"],
+              ["Lorem 7", "1", "1", "1"],
+              ["Lorem 8", "1", "1", "1"],
+              ["Lorem 9", "1", "1", "1"],
+              ["Lorem 10", "1", "1", "1"]
+            ],
+            "customColumnWidth": [2, 2, 2, 4],
+            "justify": ["left", "center", "center", "center", "center", "right"],
+            "highlighter": ["", "#eee", "", "#eee", ""]
+          }
+        },
+        {
+          "tabName": "Ut enim",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "contentSize": "s",
+          "legend": ["Lorem 1", "Lorem 2"],
+          "legendPosition": "top",
+          "legendAlign": "center",
+          "table": {
+            "content": [
+              ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+              ["Lorem 1", "0", "0", "0"],
+              ["Lorem 2", "0", "0", "1"],
+              ["Lorem 3", "0", "0", "1"],
+              ["Lorem 4", "0", "1", "1"],
+              ["Lorem 5", "1", "1", "1"],
+              ["Lorem 6", "1", "1", "1"],
+              ["Lorem 7", "1", "1", "1"],
+              ["Lorem 8", "1", "1", "1"],
+              ["Lorem 9", "1", "1", "1"],
+              ["Lorem 10", "1", "1", "1"]
+            ],
+            "customColumnWidth": [2, 6, 2, 2],
+            "justify": ["left", "center", "center", "center", "center", "right"],
+            "highlighter": ["", "#eee", "", "#eee", ""]
+          }
+        },
+        {
+          "tabName": "Consectetur adipiscing elit",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "contentSize": "s",
+          "legend": ["Lorem 1", "Lorem 2"],
+          "legendPosition": "top",
+          "legendAlign": "center",
+          "table": {
+            "content": [
+              ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+              ["Lorem 1", "0", "0", "0"],
+              ["Lorem 2", "0", "0", "1"],
+              ["Lorem 3", "0", "0", "1"],
+              ["Lorem 4", "0", "1", "1"],
+              ["Lorem 5", "1", "1", "1"],
+              ["Lorem 6", "1", "1", "1"],
+              ["Lorem 7", "1", "1", "1"],
+              ["Lorem 8", "1", "1", "1"],
+              ["Lorem 9", "1", "1", "1"],
+              ["Lorem 10", "1", "1", "1"]
+            ],
+            "customColumnWidth": [2, 2, 4, 2],
+            "justify": ["left", "center", "center", "center", "center", "right"],
+            "highlighter": ["", "#eee", "", "#eee", ""]
+          }
+        },
+        {
+          "tabName": "minim veniam",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "contentSize": "s",
+          "legend": ["Lorem 1", "Lorem 2"],
+          "legendPosition": "top",
+          "legendAlign": "center",
+          "table": {
+            "content": [
+              ["Lorem", "ipsum 1", "dolor 2", "sit 3"],
+              ["Lorem 1", "0", "0", "0"],
+              ["Lorem 2", "0", "0", "1"],
+              ["Lorem 3", "0", "0", "1"],
+              ["Lorem 4", "0", "1", "1"],
+              ["Lorem 5", "1", "1", "1"],
+              ["Lorem 6", "1", "1", "1"],
+              ["Lorem 7", "1", "1", "1"],
+              ["Lorem 8", "1", "1", "1"],
+              ["Lorem 9", "1", "1", "1"],
+              ["Lorem 10", "1", "1", "1"]
+            ],
+            "customColumnWidth": [6, 2, 2, 2],
+            "justify": ["left", "center", "center", "center", "center", "right"],
+            "highlighter": ["", "#eee", "", "#eee", ""]
+          }
+        }
+      ]
+    }
+  },
+  "buttonsColSizes": {
+    "wide": {
+      "title": "Tabs buttons with col sizes 12 columns",
+      "colSizes": {
+        "all": 12
+      }
+    },
+    "narrow": {
+      "title": "Tabs buttons with col sizes 8 columns",
+      "colSizes": {
+        "all": 12,
+        "md": 8
+      }
+    }
+  },
+  "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+}

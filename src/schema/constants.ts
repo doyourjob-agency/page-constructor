@@ -40,6 +40,7 @@ import {
     TabLinksBlock,
     TableBlock,
     TabsBlock,
+    TabsHighlightTableBlock,
 } from './validators/blocks';
 import {
     AttachmentCard,
@@ -74,6 +75,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...TableBlock,
     ...HighlightTableBlock,
     ...TabsBlock,
+    ...TabsHighlightTableBlock,
     ...TabLinksBlock,
     ...HeaderSliderBlock,
     ...IconsBlock,
@@ -138,6 +140,7 @@ export const constructorBlockSchemaNames = [
     'form-wall-block',
     'table-block',
     'tabs-block',
+    'tabs-highlight-table-block',
     'tab-links-block',
     'marquee-links-block',
     /** @deprecated */

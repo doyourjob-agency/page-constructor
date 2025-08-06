@@ -10,6 +10,7 @@ export * from '../../blocks/Questions/schema';
 export * from '../../blocks/Slider/schema';
 export * from '../../blocks/Table/schema';
 export * from '../../blocks/Tabs/schema';
+export * from '../../blocks/TabsHighlightTable/schema';
 export * from '../../blocks/TabLinks/schema';
 export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';

@@ -13,6 +13,7 @@ import {
     QuotesItem,
     SubBlockType,
     TableProps,
+    TabsHighlightTableBlockItem,
     TitleItemProps,
 } from '../models';
 
@@ -52,6 +53,34 @@ function parseHighlightTableBlock(transformer: Transformer, content: HighlightTa
 
 function parseHighlightTableBlockLegend(transformer: Transformer, legend: string[]) {
     return legend.map((item) => transformer(item));
+}
+
+function parseTabsHighlightTableBlock(
+    transformer: Transformer,
+    items: TabsHighlightTableBlockItem[],
+) {
+    return items.map((item) => {
+        const rows = item.table?.content || [];
+        return {
+            ...item,
+            table: {
+                ...(item.table || {}),
+                content: rows.map((row) => row.map((col) => transformer(col))),
+            },
+        };
+    });
+}
+
+function parseTabsHighlightTableBlockLegend(
+    transformer: Transformer,
+    items: TabsHighlightTableBlockItem[],
+) {
+    return items.map((item) => {
+        return {
+            ...item,
+            legend: item.legend?.map((legend) => transformer(legend)) || [],
+        };
+    });
 }
 
 function parseFeatures(transformer: Transformer, items: ExtendedFeaturesItem[]) {
@@ -325,6 +354,24 @@ export const config: BlocksConfig = {
             fields: ['items'],
             transformer: typografTransformer,
             parser: parseItemsTitle,
+        },
+    ],
+    [BlockType.TabsHighlightTableBlock]: [
+        ...blockHeaderTransformer,
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['description']),
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseTabsHighlightTableBlockLegend,
+        },
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: parseTabsHighlightTableBlock,
         },
     ],
     [BlockType.TableBlock]: [
