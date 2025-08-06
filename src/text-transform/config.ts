@@ -469,4 +469,10 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [SubBlockType.EventPersonCard]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
 };
