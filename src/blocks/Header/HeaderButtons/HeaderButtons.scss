@@ -1,0 +1,15 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}header-buttons';
+
+#{$block} {
+    margin-top: $indentXS;
+
+    &__button {
+        @include add-specificity(&) {
+            margin-top: $indentXS;
+            margin-right: $indentXS;
+        }
+    }
+}
