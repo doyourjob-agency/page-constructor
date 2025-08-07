@@ -14,6 +14,7 @@ import argsReportsContext from './args/argsReportsContext.json';
 import argsReportsCardsContext from './args/argsReportsCardsContext.json';
 import argsReportsSectionsContext from './args/argsReportsSectionsContext.json';
 import argsHeaderStockContext from './args/argsHeaderStockContext.json';
+import argsMiniCaseContext from './args/argsMiniCaseContext.json';
 
 export const yfmTransform = (content: string) => yfm(content).result.html;
 
@@ -232,5 +233,20 @@ export const argReportsSectionsContext = {
     },
     args: {
         reportsSectionsContext: argsReportsSectionsContext,
+    },
+};
+
+export const argMiniCaseContext = {
+    argTypes: {
+        miniCaseContext: {
+            name: 'MiniCaseContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        miniCaseContext: argsMiniCaseContext,
     },
 };
