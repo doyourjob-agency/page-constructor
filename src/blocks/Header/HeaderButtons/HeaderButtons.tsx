@@ -27,13 +27,17 @@ const HeaderButton = (props: HeaderButtonProps) => {
     );
 };
 
-export const HeaderButtons = ({buttons}: Pick<HeaderBlockProps, 'buttons'>) => {
+type HeaderButtonsProps = Pick<HeaderBlockProps, 'buttons'> & {
+    titleId?: string;
+};
+
+export const HeaderButtons = ({buttons, titleId}: HeaderButtonsProps) => {
     if (!buttons) return null;
 
     return (
         <div className={b()} data-qa="header-buttons">
             {buttons.map((button, index) => (
-                <HeaderButton key={index} {...button} />
+                <HeaderButton key={index} {...button} titleId={titleId} />
             ))}
         </div>
     );

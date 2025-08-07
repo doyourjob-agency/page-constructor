@@ -188,7 +188,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                             description={description}
                                             theme={textTheme}
                                         />
-                                        <HeaderButtons buttons={buttons} />
+                                        <HeaderButtons buttons={buttons} titleId={titleId} />
                                         {children}
                                     </div>
                                     {stock && (
