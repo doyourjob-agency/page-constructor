@@ -475,4 +475,5 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.MiniCaseBlock]: blockHeaderTransformer,
 };
