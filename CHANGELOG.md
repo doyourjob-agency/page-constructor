@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.109](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.80...v5.31.109) (2025-08-08)
+
+### Features
+
+* **TabsHighlightTable:** add block 
+
+
 ## [5.31.80](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.77...v5.31.80) (2025-07-08)
 
 ### Features
