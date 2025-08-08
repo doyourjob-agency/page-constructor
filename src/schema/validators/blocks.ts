@@ -37,3 +37,4 @@ export * from '../../blocks/RelevantReports/schema';
 export * from '../../blocks/FormWallBlock/schema';
 export * from '../../blocks/PressReleases/schema';
 export * from '../../blocks/HighlightTable/schema';
+export * from '../../blocks/MiniCase/schema';
