@@ -2,6 +2,10 @@
   "default": {
     "content": {
       "type": "mini-case-block",
+      "title": {
+        "text": "Title"
+      },
+      "description": "description",
       "items": ["test1", "test1"]
     }
   }

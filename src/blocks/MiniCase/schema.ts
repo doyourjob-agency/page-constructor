@@ -1,4 +1,4 @@
-import {BaseProps} from '../../schema/validators/common';
+import {BaseProps, BlockHeaderProps} from '../../schema/validators/common';
 
 export const MiniCaseBlock = {
     'mini-case-block': {
@@ -6,6 +6,7 @@ export const MiniCaseBlock = {
         required: ['items'],
         properties: {
             ...BaseProps,
+            ...BlockHeaderProps,
             items: {
                 type: 'array',
                 items: {

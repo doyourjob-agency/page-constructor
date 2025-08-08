@@ -416,7 +416,7 @@ export interface HighlightTableBlockProps {
     contentSize?: ContentSize;
 }
 
-export interface MiniCaseBlockProps {
+export interface MiniCaseBlockProps extends Pick<SliderProps, 'title' | 'description'> {
     items: string[];
 }
 

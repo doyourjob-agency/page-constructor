@@ -6,7 +6,7 @@ import {CaseStudyCard} from '../../sub-blocks';
 import SliderNewBlock from '../SliderNew/Slider';
 
 const MiniCaseBlock = (props: MiniCaseBlockProps) => {
-    const {items} = props;
+    const {items, ...sliderProps} = props;
     const data = useContext(MiniCaseContext);
 
     const fullItems = useMemo(() => {
@@ -21,7 +21,7 @@ const MiniCaseBlock = (props: MiniCaseBlockProps) => {
     }, [data, items]);
 
     return (
-        <SliderNewBlock slidesToShow={1}>
+        <SliderNewBlock {...sliderProps} slidesToShow={1}>
             {fullItems.map((args, index) => (
                 <CaseStudyCard key={index} {...args} />
             ))}
