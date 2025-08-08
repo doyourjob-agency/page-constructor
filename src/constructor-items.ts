@@ -37,6 +37,7 @@ import {
     TabLinksBlock,
     TableBlock,
     TabsBlock,
+    TabsHighlightTableBlock,
 } from './blocks';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
@@ -78,6 +79,7 @@ export const blockMap = {
     [BlockType.InfoBlock]: InfoBlock,
     [BlockType.TableBlock]: TableBlock,
     [BlockType.TabsBlock]: TabsBlock,
+    [BlockType.TabsHighlightTableBlock]: TabsHighlightTableBlock,
     [BlockType.TabLinksBlock]: TabLinksBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
     [BlockType.IconsBlock]: IconsBlock,

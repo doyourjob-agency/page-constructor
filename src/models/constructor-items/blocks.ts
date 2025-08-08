@@ -55,6 +55,7 @@ export enum BlockType {
     InfoBlock = 'info-block',
     TableBlock = 'table-block',
     TabsBlock = 'tabs-block',
+    TabsHighlightTableBlock = 'tabs-highlight-table-block',
     TabLinksBlock = 'tab-links-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
@@ -437,6 +438,19 @@ export interface TabsBlockProps extends Animatable {
     contentSize?: ContentSize;
 }
 
+export interface TabsHighlightTableBlockItem extends HighlightTableBlockProps {
+    tabName: string;
+}
+
+export interface TabsHighlightTableBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    description?: string;
+    tabsColSizes?: GridColumnSizesType;
+    centered?: boolean;
+    items: TabsHighlightTableBlockItem[];
+    contentSize?: ContentSize;
+}
+
 export interface TabLinksBlockProps {
     items: {
         active?: boolean;
@@ -750,6 +764,10 @@ export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
 
+export type TabsHighlightTableBlockModel = {
+    type: BlockType.TabsHighlightTableBlock;
+} & TabsHighlightTableBlockProps;
+
 export type TabLinksBlockModel = {
     type: BlockType.TabLinksBlock;
 } & TabLinksBlockProps;
@@ -863,6 +881,7 @@ type BlockModels =
     | TableBlockModel
     | HighlightTableBlockModel
     | TabsBlockModel
+    | TabsHighlightTableBlockModel
     | TabLinksBlockModel
     | HeaderBlockModel
     | IconsBlockModel

@@ -1,0 +1,35 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as TabsHighlightTableStories from './TabsHighlightTable.stories.tsx';
+
+<Meta of={TabsHighlightTableStories} />
+<StoryTemplate>
+## Parameters
+
+`type: tabs-highlight-table-block`
+
+`title?: Title | string`
+
+`description?: string`
+
+`animated?: boolean` — Enables/disables animation for the block (enabled by default).
+
+`centered?: false | true` - Aligns all content to the center ('false' by default)
+
+`tabsColSizes?: colSizes` more info about colSizes [here](?path=/docs/documentation-types--docs#colsizes).
+
+`items: TabsHighlightTableBlockItem[]` — Tab description
+
+- `tabName: string` — Tab title.
+- `title?: string` — Title on the left
+- `description?: string` — Description on the left
+- `contentSize?: ContentSize (s | l)` - Content size for table & legend.
+- `legend?: string[]` — Legend for the table
+- `table: HighlightTable` — HighlightTable content
+- -   `content: string[][]` — Text in the table cells
+- -   `highlighter?: string[]` — Colors in the table rows
+- -   `customColumnWidth?: (12 | 6 | 4 | 3 | 2)[]` — Sizes in the table cells
+- -   `justify?: ('left' | 'center' | 'right')[]` — Text alignment.
+
+</StoryTemplate>
