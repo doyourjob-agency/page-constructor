@@ -84,6 +84,7 @@ export enum BlockType {
     PressReleasesBlock = 'press-releases-block',
     SliderNewBlock = 'slider-new-block',
     HighlightTableBlock = 'highlight-table-block',
+    MiniCaseBlock = 'mini-case-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -418,6 +419,10 @@ export interface HighlightTableBlockProps {
     legendPosition?: 'top' | 'bottom';
     legendAlign?: 'left' | 'center' | 'right';
     contentSize?: ContentSize;
+}
+
+export interface MiniCaseBlockProps {
+    items: string[];
 }
 
 export interface TabsBlockItem
@@ -765,6 +770,10 @@ export type HighlightTableBlockModel = {
     type: BlockType.HighlightTableBlock;
 } & HighlightTableBlockProps;
 
+export type MiniCaseBlockModel = {
+    type: BlockType.MiniCaseBlock;
+} & MiniCaseBlockProps;
+
 export type TabsBlockModel = {
     type: BlockType.TabsBlock;
 } & TabsBlockProps;
@@ -885,6 +894,7 @@ type BlockModels =
     | InfoBlockModel
     | TableBlockModel
     | HighlightTableBlockModel
+    | MiniCaseBlockModel
     | TabsBlockModel
     | TabsHighlightTableBlockModel
     | TabLinksBlockModel

@@ -22,6 +22,7 @@ import {
     MapBlock,
     MarqueeLinksBlock,
     MediaBlock,
+    MiniCaseBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -74,6 +75,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...InfoBlock,
     ...TableBlock,
     ...HighlightTableBlock,
+    ...MiniCaseBlock,
     ...TabsBlock,
     ...TabsHighlightTableBlock,
     ...TabLinksBlock,
@@ -167,6 +169,7 @@ export const constructorBlockSchemaNames = [
     'relevant-posts-block',
     'relevant-reports-cards-block',
     'relevant-reports-block',
+    'mini-case-block',
 ];
 
 export const constructorCardSchemaNames = [

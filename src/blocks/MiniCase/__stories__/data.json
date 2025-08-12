@@ -1,0 +1,8 @@
+{
+  "default": {
+    "content": {
+      "type": "mini-case-block",
+      "items": ["test1", "test1"]
+    }
+  }
+}
