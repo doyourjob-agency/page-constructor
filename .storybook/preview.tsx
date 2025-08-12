@@ -14,6 +14,8 @@ import {DocsDecorator} from './decorators/docs';
 import {
     HeaderStockContext,
     HeaderStockContextProps,
+    MiniCaseContext,
+    MiniCaseContextProps,
     ReportsCardsContext,
     ReportsCardsContextProps,
     ReportsContext,
@@ -92,6 +94,7 @@ const withContextProvider: Decorator = (Story, context) => {
         <ReportsSectionsContext.Provider
             value={context.args.reportsSectionsContext as ReportsSectionsContextProps}
         />,
+        <MiniCaseContext.Provider value={context.args.miniCaseContext as MiniCaseContextProps} />,
     ].reduceRight(
         (prev, provider) => React.cloneElement(provider, {}, prev),
         <Story {...context} />,
