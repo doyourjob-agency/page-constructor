@@ -9,16 +9,13 @@ const MiniCaseBlock = (props: MiniCaseBlockProps) => {
     const {items, ...sliderProps} = props;
     const data = useContext(MiniCaseContext);
 
-    const fullItems = useMemo(() => {
-        const res: CaseStudyCardProps[] = [];
-        items.forEach((item) => {
-            const el = (data || {})[item];
-            if (el) {
-                res.push(el);
-            }
-        });
-        return res;
-    }, [data, items]);
+    const fullItems = useMemo<CaseStudyCardProps[]>(
+        () =>
+            items
+                .map((item) => (data || {})[item])
+                .filter((el): el is CaseStudyCardProps => Boolean(el)),
+        [data, items],
+    );
 
     return (
         <SliderNewBlock {...sliderProps} slidesToShow={1}>
