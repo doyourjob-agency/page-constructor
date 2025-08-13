@@ -9,7 +9,7 @@ $block: '.#{$ns}header-stock-price';
     max-width: 350px;
     width: 100%;
 
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
         max-width: 100%;
     }
 

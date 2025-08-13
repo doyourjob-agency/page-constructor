@@ -23,13 +23,17 @@ $backgroundWidth: 1440px;
     &__content-inner {
         display: flex;
         gap: $indentM;
+        justify-content: space-between;
+        align-items: center;
 
-        @media (min-width: map-get($gridBreakpoints, 'md')) {
-            justify-content: space-between;
-            align-items: center;
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            flex-wrap: wrap;
         }
+
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             flex-direction: column;
+            justify-content: initial;
+            align-items: initial;
         }
     }
 

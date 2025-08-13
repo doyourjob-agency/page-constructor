@@ -10,10 +10,6 @@ $block: '.#{$ns}header-stock-shares';
     width: 100%;
 
     @media (max-width: map-get($gridBreakpoints, 'lg')) {
-        max-width: 350px;
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'md')) {
         max-width: 100%;
     }
 
@@ -45,7 +41,15 @@ $block: '.#{$ns}header-stock-shares';
     }
 
     &__total {
-        @include heading1();
+        font-size: 48px;
+        line-height: 52px;
+        color: var(--pc-text-header-color);
+        @extend %heading-margin-reset;
+        @include text-accent();
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            @include text-size(display-2);
+        }
     }
 
     &__text {
