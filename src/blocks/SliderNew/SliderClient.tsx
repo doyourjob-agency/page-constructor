@@ -118,75 +118,81 @@ export const SliderClient = ({
                 className={b('header', {'no-description': !description})}
             />
             <AnimateBlock className={b('animate-slides')} animate={animated}>
-                <SwiperReact
-                    modules={[Autoplay, A11y, Pagination]}
-                    className={b('slider', className)}
-                    onSwiper={onSwiper}
-                    speed={700}
-                    autoplay={autoplay}
-                    loop={infinite}
-                    autoHeight={adaptive}
-                    initialSlide={initialSlide}
-                    noSwiping={false}
-                    slidesOffsetBefore={24}
-                    slidesOffsetAfter={24}
-                    breakpoints={breakpoints}
-                    onSlideChange={onSlideChange}
-                    onSlideChangeTransitionStart={onSlideChangeTransitionStart}
-                    onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
-                    onActiveIndexChange={onActiveIndexChange}
-                    onBreakpoint={onBreakpoint}
-                    onLock={() => setIsLocked(true)}
-                    onUnlock={() => setIsLocked(false)}
-                    onInit={handleSwiperInit}
-                    watchSlidesProgress
-                    watchOverflow
-                    a11y={{
-                        slideLabelMessage: '',
-                        paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
-                    }}
-                    {...paginationProps}
-                >
-                    {React.Children.map(children, (elem, index) => (
-                        <SwiperSlide className={b('slide')} key={index}>
-                            {({isVisible}) => (
-                                <div
-                                    className={b('slide-item')}
-                                    aria-hidden={!isA11yControlHidden && !isVisible}
-                                >
-                                    {elem}
+                {React.Children.count(children) === 1 ? (
+                    <div className={b('slider', className)}>{children}</div>
+                ) : (
+                    <React.Fragment>
+                        <SwiperReact
+                            modules={[Autoplay, A11y, Pagination]}
+                            className={b('slider', className)}
+                            onSwiper={onSwiper}
+                            speed={700}
+                            autoplay={autoplay}
+                            loop={infinite}
+                            autoHeight={adaptive}
+                            initialSlide={initialSlide}
+                            noSwiping={false}
+                            slidesOffsetBefore={24}
+                            slidesOffsetAfter={24}
+                            breakpoints={breakpoints}
+                            onSlideChange={onSlideChange}
+                            onSlideChangeTransitionStart={onSlideChangeTransitionStart}
+                            onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
+                            onActiveIndexChange={onActiveIndexChange}
+                            onBreakpoint={onBreakpoint}
+                            onLock={() => setIsLocked(true)}
+                            onUnlock={() => setIsLocked(false)}
+                            onInit={handleSwiperInit}
+                            watchSlidesProgress
+                            watchOverflow
+                            a11y={{
+                                slideLabelMessage: '',
+                                paginationBulletMessage: i18n('dot-label', {index: '{{index}}'}),
+                            }}
+                            {...paginationProps}
+                        >
+                            {React.Children.map(children, (elem, index) => (
+                                <SwiperSlide className={b('slide')} key={index}>
+                                    {({isVisible}) => (
+                                        <div
+                                            className={b('slide-item')}
+                                            aria-hidden={!isA11yControlHidden && !isVisible}
+                                        >
+                                            {elem}
+                                        </div>
+                                    )}
+                                </SwiperSlide>
+                            ))}
+                        </SwiperReact>
+                        {arrows && !isLocked && (
+                            <div aria-hidden={isA11yControlHidden}>
+                                <Arrow
+                                    className={b('arrow', {prev: true})}
+                                    type="left"
+                                    transparent={type === SliderType.HeaderCard}
+                                    onClick={onPrev}
+                                    size={arrowSize}
+                                    extraProps={{tabIndex: controlTabIndex}}
+                                />
+                                <Arrow
+                                    className={b('arrow', {next: true})}
+                                    type="right"
+                                    transparent={type === SliderType.HeaderCard}
+                                    onClick={onNext}
+                                    size={arrowSize}
+                                    extraProps={{tabIndex: controlTabIndex}}
+                                />
+                            </div>
+                        )}
+                        <div className={b('footer')}>
+                            {disclaimer ? (
+                                <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
+                                    {disclaimer?.text}
                                 </div>
-                            )}
-                        </SwiperSlide>
-                    ))}
-                </SwiperReact>
-                {arrows && !isLocked && (
-                    <div aria-hidden={isA11yControlHidden}>
-                        <Arrow
-                            className={b('arrow', {prev: true})}
-                            type="left"
-                            transparent={type === SliderType.HeaderCard}
-                            onClick={onPrev}
-                            size={arrowSize}
-                            extraProps={{tabIndex: controlTabIndex}}
-                        />
-                        <Arrow
-                            className={b('arrow', {next: true})}
-                            type="right"
-                            transparent={type === SliderType.HeaderCard}
-                            onClick={onNext}
-                            size={arrowSize}
-                            extraProps={{tabIndex: controlTabIndex}}
-                        />
-                    </div>
-                )}
-                <div className={b('footer')}>
-                    {disclaimer ? (
-                        <div className={b('disclaimer', {size: disclaimer?.size || 'm'})}>
-                            {disclaimer?.text}
+                            ) : null}
                         </div>
-                    ) : null}
-                </div>
+                    </React.Fragment>
+                )}
             </AnimateBlock>
         </div>
     );
