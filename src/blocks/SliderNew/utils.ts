@@ -48,8 +48,8 @@ export function getSliderResponsiveParams({
         // eslint-disable-next-line no-param-reassign
         res[key] = {
             slidesPerView: value,
-            slidesOffsetBefore: key > BREAKPOINTS.md ? 0 : 24,
-            slidesOffsetAfter: key > BREAKPOINTS.md ? 0 : 24,
+            slidesOffsetBefore: key > BREAKPOINTS.sm ? 0 : 24,
+            slidesOffsetAfter: key > BREAKPOINTS.sm ? 0 : 24,
         };
         return res;
     }, {} as Record<number, SwiperOptions>);
