@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_doyourjob_gravity_ui_page_constructor=self.webpackChunk_doyourjob_gravity_ui_page_constructor||[]).push([[8356],{"./src/editor/data/templates/share-block.json":module=>{module.exports=JSON.parse('{"template":{"type":"share-block","items":["facebook","vk","telegram","twitter","linkedin"]}}')}}]);
