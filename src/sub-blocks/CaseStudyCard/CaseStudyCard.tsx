@@ -14,7 +14,7 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
     return (
         <div className={b()} style={{background}}>
             <div className={b('info')}>
-                <Image src={image} alt="" aria-hidden="true" />
+                <Image src={image} className={b('image')} alt="" aria-hidden="true" />
                 <h2 className={`${b('title')} title-font-family`}>{title}</h2>
                 <div className={b('content')}>
                     <HTML block>{text}</HTML>
