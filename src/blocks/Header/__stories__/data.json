@@ -233,5 +233,13 @@
   },
   "size": {
     "title": "Header size {{size}}"
+  },
+  "backgroundEffect": {
+    "content": {
+      "backgroundEffect": {
+        "firstSrc": "/story-assets/video_8-12_light.mp4",
+        "secondSrc": "/story-assets/video_8-12_dark.mp4"
+      }
+    }
   }
 }

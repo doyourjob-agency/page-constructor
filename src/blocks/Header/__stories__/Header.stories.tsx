@@ -214,6 +214,7 @@ export const DarkTheme = DefaultTemplate.bind({});
 export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 export const MediaViewFit = FitTemplate.bind({});
 export const WithStock = StockTemplate.bind({});
+export const WithBackgroundEffect = DefaultTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -261,4 +262,9 @@ MediaViewFit.args = {
 
 WithStock.args = {
     ...data.stock.content,
+} as HeaderBlockProps;
+
+WithBackgroundEffect.args = {
+    ...DefaultArgs,
+    ...data.backgroundEffect.content,
 } as HeaderBlockProps;
