@@ -58,7 +58,10 @@ function parseExtendedFeaturesItems(
 ) {
     return items.map((item) => ({
         ...item,
-        title: transformer(typeof item.title === 'object' ? item.title.text : item.title),
+        title:
+            typeof item.title === 'object'
+                ? {...item.title, text: transformer(item.title.text)}
+                : transformer(item.title),
     }));
 }
 
