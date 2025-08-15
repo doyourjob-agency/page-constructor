@@ -1,0 +1,39 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+$block: '.#{$ns}background-effect';
+$headerBlock: '.#{$ns}header-block';
+
+#{$block} {
+    position: absolute;
+    inset: 0;
+    display: flex;
+
+    &__left {
+        position: absolute;
+        inset: 0;
+        clip-path: inset(0 0.01% 0 0);
+        transition: clip-path 1.5s ease;
+    }
+
+    &__right {
+        position: absolute;
+        inset: 0;
+        clip-path: inset(0 0 0 99.99%);
+        transition: clip-path 1.5s ease;
+    }
+
+    #{$headerBlock}:hover &__left {
+        clip-path: inset(0 99.99% 0 0);
+    }
+
+    #{$headerBlock}:hover &__right {
+        clip-path: inset(0 0 0 0.01%);
+    }
+
+    &__video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
