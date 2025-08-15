@@ -404,9 +404,20 @@ export interface FormWallBlockProps {
     slug?: string;
 }
 
+type HighlightTableColumnWidth = 12 | 6 | 4 | 3 | 2;
+
+export type HighlightTableCell =
+    | {
+          cell: string;
+          buttonUrl?: string;
+          buttonText?: string;
+          columnWidth?: HighlightTableColumnWidth;
+      }
+    | string;
+
 export interface HighlightTableData {
-    content: string[][];
-    customColumnWidth?: (12 | 6 | 4 | 3 | 2)[];
+    content: HighlightTableCell[][];
+    customColumnWidth?: HighlightTableColumnWidth[];
     justify?: ('left' | 'right' | 'center')[];
     highlighter?: string[];
 }
@@ -419,6 +430,8 @@ export interface HighlightTableBlockProps {
     legendPosition?: 'top' | 'bottom';
     legendAlign?: 'left' | 'center' | 'right';
     contentSize?: ContentSize;
+    rowHoverColor?: string;
+    rowHoverIncrease?: boolean;
 }
 
 export interface MiniCaseBlockProps extends Pick<SliderProps, 'title' | 'description'> {
