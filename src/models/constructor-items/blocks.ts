@@ -272,7 +272,7 @@ export interface HeaderBlockProps {
 
 export interface ExtendedFeaturesItem
     extends Omit<ContentBlockProps, 'theme' | 'centered' | 'colSizes' | 'size' | 'title'> {
-    title: string;
+    title: Pick<TitleItemProps, 'text' | 'textSize'> | string;
     label?: string;
     icon?: ThemedImage;
     /** @deprecated **/

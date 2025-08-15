@@ -85,7 +85,7 @@ function parseTabsHighlightTableBlockLegend(
 
 function parseFeatures(transformer: Transformer, items: ExtendedFeaturesItem[]) {
     return items.map(({title, text, ...rest}) => ({
-        title: title && transformer(title),
+        title: title && transformer(typeof title === 'object' ? title.text : title),
         text: text && transformer(text),
         ...rest,
     }));

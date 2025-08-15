@@ -3,6 +3,7 @@ import {
     BlockBaseProps,
     BlockHeaderProps,
     LinkProps,
+    TitleProps,
     containerSizesObject,
     withTheme,
 } from '../../schema/validators/common';
@@ -14,8 +15,21 @@ export const ExtendedFeaturesItem = {
     required: [],
     properties: {
         title: {
-            type: 'string',
-            contentType: 'text',
+            oneOf: [
+                {
+                    type: 'string',
+                    contentType: 'text',
+                    optionName: 'text',
+                },
+                {
+                    ...TitleProps,
+                    properties: {
+                        text: TitleProps.properties.text,
+                        textSize: TitleProps.properties.textSize,
+                    },
+                    optionName: 'options',
+                },
+            ],
         },
         text: {
             type: 'string',

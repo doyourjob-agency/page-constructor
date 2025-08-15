@@ -32,6 +32,26 @@ $block: '.#{$ns}ExtendedFeaturesBlock';
             a {
                 @include link();
             }
+
+            &_size_xs {
+                @include heading5();
+            }
+
+            &_size_s {
+                @include heading4();
+            }
+
+            &_size_m {
+                @include heading2();
+            }
+
+            &_size_l {
+                @include heading1();
+            }
+
+            &_size_xl {
+                @include heading0();
+            }
         }
 
         &-label {

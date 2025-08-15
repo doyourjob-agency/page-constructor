@@ -35,17 +35,20 @@ export const ExtendedFeaturesBlock = ({
             <div className={b('items')}>
                 <Row>
                     {items.map(
-                        ({
-                            title: itemTitle,
-                            text,
-                            list,
-                            link,
-                            links,
-                            label,
-                            icon,
-                            buttons,
-                            additionalInfo,
-                        }) => {
+                        (
+                            {
+                                title: itemTitle,
+                                text,
+                                list,
+                                link,
+                                links,
+                                label,
+                                icon,
+                                buttons,
+                                additionalInfo,
+                            },
+                            index,
+                        ) => {
                             const itemLinks = links || [];
 
                             const iconThemed = icon && getThemedValue(icon, theme);
@@ -56,7 +59,7 @@ export const ExtendedFeaturesBlock = ({
                             }
 
                             return (
-                                <Col className={b('item')} key={text || itemTitle} sizes={colSizes}>
+                                <Col className={b('item')} key={index} sizes={colSizes}>
                                     {iconData && (
                                         <div className={b('icon-wrap')} aria-hidden>
                                             <Image {...iconData} className={b('icon')} />
@@ -67,10 +70,19 @@ export const ExtendedFeaturesBlock = ({
                                             React.createElement(
                                                 itemTitleHeadingTag,
                                                 {
-                                                    className: b('item-title'),
+                                                    className: b(
+                                                        'item-title',
+                                                        typeof itemTitle === 'object'
+                                                            ? {size: itemTitle.textSize}
+                                                            : undefined,
+                                                    ),
                                                 },
                                                 <React.Fragment>
-                                                    <HTML>{itemTitle}</HTML>
+                                                    <HTML>
+                                                        {typeof itemTitle === 'object'
+                                                            ? itemTitle.text
+                                                            : itemTitle}
+                                                    </HTML>
                                                     {label && (
                                                         <span className={b('item-label')}>
                                                             {label}
