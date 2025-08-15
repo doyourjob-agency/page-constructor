@@ -56,17 +56,20 @@ function parseExtendedFeaturesItems(
     transformer: Transformer,
     items: ExtendedFeaturesProps['items'],
 ) {
-    return items.map((item) => ({
-        ...item,
-        ...(item.title
-            ? {
-                  title:
-                      typeof item.title === 'object'
-                          ? {...item.title, text: transformer(item.title.text)}
-                          : transformer(item.title),
-              }
-            : undefined),
-    }));
+    return items.map((item) => {
+        const {title, ...other} = item;
+        return {
+            ...other,
+            ...(title
+                ? {
+                      title:
+                          typeof title === 'object'
+                              ? {...title, text: transformer(title.text)}
+                              : transformer(title),
+                  }
+                : undefined),
+        };
+    });
 }
 
 function parseHighlightTableBlockLegend(transformer: Transformer, legend: string[]) {
