@@ -97,7 +97,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         renderTitle,
         children,
         mediaView = 'full',
-        backgroundEffect = {},
+        backgroundEffect,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -136,7 +136,9 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
-            <BackgroundEffect {...backgroundEffect} />
+            {backgroundEffect && backgroundEffect.firstSrc && backgroundEffect.secondSrc && (
+                <BackgroundEffect {...backgroundEffect} />
+            )}
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
                 <BackButton

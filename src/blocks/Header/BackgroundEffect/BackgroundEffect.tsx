@@ -13,34 +13,34 @@ const FAST_RATE = 1.05;
 const SLOW_RATE = 0.95;
 
 type BackgroundEffectProps = {
-    firstSrc?: string;
-    secondSrc?: string;
+    firstSrc: string;
+    secondSrc: string;
 };
 
 export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) => {
     const master = useRef<HTMLVideoElement>(null);
-    const slave = useRef<HTMLVideoElement>(null);
+    const driven = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
         const m = master.current;
-        const s = slave.current;
+        const d = driven.current;
         let rafId: number;
-        if (m && s) {
-            const syncMaster: VideoFrameRequestCallback = (_, metadata) => {
+        if (m && d) {
+            const syncMaster: VideoFrameRequestCallback = () => {
                 if (m.paused) {
                     m.play().catch(() => {});
                 }
-                const targetTime = metadata.mediaTime;
-                const delta = targetTime - s.currentTime;
-                if (s.paused) {
-                    s.play().catch(() => {});
+                const delta = m.currentTime - d.currentTime;
+                if (d.paused) {
+                    d.play().catch(() => {});
                 }
                 if (Math.abs(delta) > MAX_DESYNC) {
-                    s.currentTime = targetTime;
+                    d.currentTime = m.currentTime;
+                    d.playbackRate = 1;
                 } else if (Math.abs(delta) > SYNC_THRESHOLD) {
-                    s.playbackRate = delta > 0 ? FAST_RATE : SLOW_RATE;
+                    d.playbackRate = delta > 0 ? FAST_RATE : SLOW_RATE;
                 } else {
-                    s.playbackRate = 1;
+                    d.playbackRate = 1;
                 }
                 rafId = m.requestVideoFrameCallback(syncMaster);
             };
@@ -48,9 +48,9 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
             rafId = m.requestVideoFrameCallback(syncMaster);
         }
         const handleVisibility = () => {
-            if (!document.hidden && m && s) {
+            if (!document.hidden && m && d) {
                 m.play().catch(() => {});
-                s.play().catch(() => {});
+                d.play().catch(() => {});
             }
         };
         document.addEventListener('visibilitychange', handleVisibility);
@@ -87,7 +87,7 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
             </div>
             <div className={b('right')}>
                 <video
-                    ref={slave}
+                    ref={driven}
                     disablePictureInPicture
                     playsInline
                     // @ts-ignore
