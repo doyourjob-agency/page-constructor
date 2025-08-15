@@ -5,6 +5,7 @@ import {
     BlockType,
     ContentBlockProps,
     ExtendedFeaturesItem,
+    ExtendedFeaturesProps,
     HighlightTableData,
     PriceDetailedProps,
     PriceDetailsListProps,
@@ -49,6 +50,16 @@ function parseHighlightTableBlock(transformer: Transformer, content: HighlightTa
         ...(content || {}),
         content: rows.map((row) => row.map((col) => transformer(col))),
     };
+}
+
+function parseExtendedFeaturesItems(
+    transformer: Transformer,
+    items: ExtendedFeaturesProps['items'],
+) {
+    return items.map((item) => ({
+        ...item,
+        title: transformer(typeof item.title === 'object' ? item.title.text : item.title),
+    }));
 }
 
 function parseHighlightTableBlockLegend(transformer: Transformer, legend: string[]) {
@@ -270,7 +281,7 @@ export const config: BlocksConfig = {
         {
             fields: ['items'],
             transformer: typografTransformer,
-            parser: createItemsParser(['title']),
+            parser: parseExtendedFeaturesItems,
         },
         {
             fields: ['items'],
