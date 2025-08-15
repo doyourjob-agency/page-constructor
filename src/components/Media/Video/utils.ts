@@ -22,7 +22,7 @@ const VideoTypePriority = {
     [VideoType.Mp4]: 3,
 };
 
-function parseVideoType(src: string): VideoType | undefined {
+export function parseVideoType(src: string): VideoType | undefined {
     const [path] = src.split('?');
     const fileExt = path.split('.').pop() as VideoExt;
 
