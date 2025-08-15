@@ -1,0 +1,40 @@
+{
+  "default": {
+    "content": {
+      "type": "advantages-block",
+      "title": "Your cloud wasn’t built for AI.",
+      "link": {
+        "text": "Ours is →",
+        "url": "#"
+      },
+      "hoverColor": "#ffffff",
+      "items": [
+        {
+          "icon": "/story-assets/icon_1_light.svg",
+          "title": "Faster time to AI value",
+          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "url": "#"
+        },
+        {
+          "icon": "/story-assets/icon_2_light.svg",
+          "title": "Faster time to AI value",
+          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "url": "#"
+        },
+        {
+          "icon": "/story-assets/icon_3_light.svg",
+          "title": "Faster time to AI value",
+          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "url": "#"
+        },
+        {
+          "icon": "/story-assets/icon_4_light.svg",
+          "title": "Faster time to AI value",
+          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "url": "#"
+        }
+      ],
+      "blockBackground": "#e0ff4f"
+    }
+  }
+}
