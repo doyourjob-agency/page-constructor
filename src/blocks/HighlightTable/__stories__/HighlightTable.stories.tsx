@@ -9,6 +9,23 @@ import HighlightTable from '../HighlightTable';
 
 import data from './data.json';
 
+const getArgs = (content: HighlightTableBlockModel) => {
+    return {
+        ...content,
+        description: yfmTransform(content.description || ''),
+        table: {
+            ...content.table,
+            content: content.table.content.map((row) =>
+                row.map((col) =>
+                    typeof col === 'object'
+                        ? {...col, cell: yfmTransform(col.cell)}
+                        : yfmTransform(col),
+                ),
+            ),
+        },
+    };
+};
+
 export default {
     component: HighlightTable,
     title: 'Blocks/HighlightTable',
@@ -36,14 +53,7 @@ const DefaultTemplate: StoryFn<HighlightTableBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithHover = DefaultTemplate.bind({});
 
-Default.args = {
-    ...data.default.content,
-    description: yfmTransform(data.default.content.description),
-    table: {
-        ...data.default.content.table,
-        content: data.default.content.table.content.map((row) =>
-            row.map((col) => yfmTransform(col)),
-        ),
-    },
-} as HighlightTableBlockModel;
+Default.args = getArgs(data.default.content as HighlightTableBlockModel);
+WithHover.args = getArgs(data.withHover.content as HighlightTableBlockModel);

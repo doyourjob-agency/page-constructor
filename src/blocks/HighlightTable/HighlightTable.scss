@@ -87,13 +87,34 @@ $block: '.#{$ns}highlight-table-block';
     &__row {
         display: flex;
         padding: $indentXXS;
+        transition: padding 0.4s ease 0.3s, background-color 0.3s ease;
+        background-color: var(--ps-ht-color);
 
         & + & {
             border-top: 1px solid var(--g-color-private-black-100);
         }
+
+        #{$block}__body &:hover {
+            transition: padding 0.4s ease, background-color 0.3s ease;
+            background-color: var(--ps-ht-hover-color, var(--ps-ht-color));
+
+            & #{$block}__button {
+                opacity: 1;
+                margin-top: $indent4XS;
+                max-height: 100px;
+                transition: margin-top 0.3s ease, max-height 0.3s ease, opacity 0.1s ease 0.3s;
+            }
+        }
+
+        #{$block}__body &_increase:hover {
+            padding-top: $indentS;
+            padding-bottom: $indentS;
+        }
     }
 
     &__cell {
+        display: flex;
+        flex-direction: column;
         padding-right: $indentXXXS;
         padding-left: $indentXXXS;
 
@@ -129,5 +150,14 @@ $block: '.#{$ns}highlight-table-block';
                 transition: transform ease 50ms;
             }
         }
+    }
+
+    &__button {
+        margin-top: 0;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        display: block;
+        transition: margin-top 0.3s ease 0.1s, max-height 0.3s ease 0.1s, opacity 0.1s ease;
     }
 }

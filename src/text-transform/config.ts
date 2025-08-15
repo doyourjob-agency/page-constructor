@@ -48,7 +48,11 @@ function parseHighlightTableBlock(transformer: Transformer, content: HighlightTa
 
     return {
         ...(content || {}),
-        content: rows.map((row) => row.map((col) => transformer(col))),
+        content: rows.map((row) =>
+            row.map((col) =>
+                typeof col === 'object' ? {...col, cell: transformer(col.cell)} : transformer(col),
+            ),
+        ),
     };
 }
 
@@ -86,7 +90,13 @@ function parseTabsHighlightTableBlock(
             ...item,
             table: {
                 ...(item.table || {}),
-                content: rows.map((row) => row.map((col) => transformer(col))),
+                content: rows.map((row) =>
+                    row.map((col) =>
+                        typeof col === 'object'
+                            ? {...col, cell: transformer(col.cell)}
+                            : transformer(col),
+                    ),
+                ),
             },
         };
     });
