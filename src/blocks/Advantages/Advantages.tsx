@@ -12,6 +12,11 @@ import './Advantages.scss';
 
 const b = block('advantages-block');
 
+const colSizesHeader = {all: 12, lg: 4};
+const colSizesBody = {all: 12, lg: 8};
+const colSizesItemWrap = {all: 12, md: 3};
+const colSizesItemDesc = {all: 12, md: 9};
+
 export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
     const {animated, title, link, hoverColor, items} = props;
 
@@ -24,7 +29,7 @@ export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
         <AnimateBlock className={b()} style={styles} animate={animated}>
             <Grid>
                 <Row>
-                    <Col sizes={{all: 12, lg: 4}} className={b('wrap')}>
+                    <Col sizes={colSizesHeader} className={b('header')}>
                         {title && <h2 className={b('title')}>{title}</h2>}
                         {link && (
                             <Link className={b('link')} href={link.url}>
@@ -32,14 +37,14 @@ export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
                             </Link>
                         )}
                     </Col>
-                    <Col sizes={{all: 12, lg: 8}}>
+                    <Col sizes={colSizesBody}>
                         <Grid>
                             {items?.map((item, index) => (
                                 <RouterLink href={item.url} key={index}>
                                     <Link href={item.url} className={b('item')}>
                                         <Row>
                                             <Col
-                                                sizes={{all: 12, md: 3}}
+                                                sizes={colSizesItemWrap}
                                                 className={b('item-wrap')}
                                             >
                                                 <Image
@@ -52,7 +57,7 @@ export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
                                             </Col>
                                             <Col
                                                 className={b('item-desc')}
-                                                sizes={{all: 12, md: 9}}
+                                                sizes={colSizesItemDesc}
                                             >
                                                 {item.description}
                                             </Col>
