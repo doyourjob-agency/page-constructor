@@ -1,0 +1,18 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as PartnersStories from './Partners.stories.tsx';
+
+<Meta of={PartnersStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'partners-block'`
+
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
+`items: {url: string; src: string}[]` — Items for slots.
+`count: number` — Rendering amount of items.
+`colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
+
+
+</StoryTemplate>
