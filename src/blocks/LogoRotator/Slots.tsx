@@ -1,19 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-import {Link} from '@gravity-ui/uikit';
+import {LogoRotatorBlockProps} from '../../models';
 
-import {Image} from '../../components';
-import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import {Col, Grid, Row} from '../../grid';
-import {PartnersBlockProps} from '../../models';
-import {block} from '../../utils';
+import Item from './Item';
 
-import './Partners.scss';
-
-const b = block('partners-block');
-
-export const PartnersBlock = (props: PartnersBlockProps) => {
-    const {animated, items, count, colSizes = {all: 3}} = props;
+export const Slots = (props: Omit<LogoRotatorBlockProps, 'animated'>) => {
+    const {items, count, colSizes} = props;
     const [slots, setSlots] = useState(new Array(count).fill(0).map((_, index) => index));
     const [hidden, setHidden] = useState(() => Array(count).fill(false));
     const nextIndexRef = useRef(count - 1);
@@ -58,28 +50,18 @@ export const PartnersBlock = (props: PartnersBlockProps) => {
     }, [count, items]);
 
     return (
-        <AnimateBlock className={b()} animate={animated}>
-            <Grid className={b('items')}>
-                <Row className={b('row')}>
-                    {slots.map((slot, index) => (
-                        <Col key={index} sizes={colSizes}>
-                            <Link
-                                href={items[slot].url}
-                                className={b('item', {hidden: hidden[index]})}
-                            >
-                                <Image
-                                    src={items[slot].src}
-                                    className={b('image')}
-                                    alt=""
-                                    aria-hidden="true"
-                                />
-                            </Link>
-                        </Col>
-                    ))}
-                </Row>
-            </Grid>
-        </AnimateBlock>
+        <React.Fragment>
+            {slots.map((slot, index) => (
+                <Item
+                    key={index}
+                    colSizes={colSizes}
+                    url={items[slot].url}
+                    src={items[slot].src}
+                    hidden={hidden[index]}
+                />
+            ))}
+        </React.Fragment>
     );
 };
 
-export default PartnersBlock;
+export default Slots;

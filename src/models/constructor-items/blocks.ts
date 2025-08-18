@@ -50,7 +50,7 @@ export enum BlockType {
     SliderBlock = 'slider-block',
     QuestionsBlock = 'questions-block',
     BannerBlock = 'banner-block',
-    PartnersBlock = 'partners-block',
+    LogoRotatorBlock = 'logo-rotator-block',
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
     InfoBlock = 'info-block',
@@ -321,7 +321,7 @@ export interface QuestionBlockItemProps extends QuestionItem {
 
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
-export interface PartnersBlockProps extends Animatable {
+export interface LogoRotatorBlockProps extends Animatable {
     items: {url: string; src: string}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
@@ -753,9 +753,9 @@ export type BannerBlockModel = {
     type: BlockType.BannerBlock;
 } & BannerBlockProps;
 
-export type PartnersBlockModel = {
-    type: BlockType.PartnersBlock;
-} & PartnersBlockProps;
+export type LogoRotatorBlockModel = {
+    type: BlockType.LogoRotatorBlock;
+} & LogoRotatorBlockProps;
 
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
@@ -899,7 +899,7 @@ type BlockModels =
     | PromoFeaturesBlockModel
     | QuestionsBlockModel
     | BannerBlockModel
-    | PartnersBlockModel
+    | LogoRotatorBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel

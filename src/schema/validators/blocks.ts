@@ -38,4 +38,4 @@ export * from '../../blocks/FormWallBlock/schema';
 export * from '../../blocks/PressReleases/schema';
 export * from '../../blocks/HighlightTable/schema';
 export * from '../../blocks/MiniCase/schema';
-export * from '../../blocks/Partners/schema';
+export * from '../../blocks/LogoRotator/schema';

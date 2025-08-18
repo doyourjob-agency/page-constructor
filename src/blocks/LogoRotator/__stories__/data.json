@@ -1,7 +1,7 @@
 {
   "default": {
     "content": {
-      "type": "partners-block",
+      "type": "logo-rotator-block",
       "animated": false,
       "blockBackground": "black",
       "items": [

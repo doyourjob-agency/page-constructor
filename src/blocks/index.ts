@@ -1,5 +1,5 @@
 export {default as BannerBlock} from './Banner/Banner';
-export {default as PartnersBlock} from './Partners/Partners';
+export {default as LogoRotatorBlock} from './LogoRotator/LogoRotator';
 export {default as CompaniesBlock} from './Companies/Companies';
 export {default as InfoBlock} from './Info/Info';
 export {default as MediaBlock} from './Media/Media';

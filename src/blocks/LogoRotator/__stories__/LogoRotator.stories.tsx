@@ -3,20 +3,20 @@ import React from 'react';
 import {Meta, StoryFn} from '@storybook/react';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {PartnersBlockModel, PartnersBlockProps} from '../../../models';
-import Partners from '../Partners';
+import {LogoRotatorBlockModel, LogoRotatorBlockProps} from '../../../models';
+import LogoRotator from '../LogoRotator';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/Partners',
-    component: Partners,
+    title: 'Blocks/LogoRotator',
+    component: LogoRotator,
 } as Meta;
 
-const DefaultTemplate: StoryFn<PartnersBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<LogoRotatorBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
 export const Default = DefaultTemplate.bind({});
 
-Default.args = data.default.content as PartnersBlockProps;
+Default.args = data.default.content as LogoRotatorBlockProps;

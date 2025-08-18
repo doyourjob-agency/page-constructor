@@ -1,7 +1,7 @@
 import {AnimatableProps, BaseProps, containerSizesObject} from '../../schema/validators/common';
 
-export const PartnersBlock = {
-    'partners-block': {
+export const LogoRotatorBlock = {
+    'logo-rotator-block': {
         additionalProperties: false,
         required: ['items', 'count'],
         properties: {
