@@ -46,4 +46,4 @@ export const Cell = ({cell, justify, columnWidth}: Props) => {
     );
 };
 
-export default Cell;
+export default React.memo(Cell);

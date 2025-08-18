@@ -41,4 +41,4 @@ export const Row = ({row, rowHoverIncrease, color, justify, customColumnWidth}: 
     );
 };
 
-export default Row;
+export default React.memo(Row);
