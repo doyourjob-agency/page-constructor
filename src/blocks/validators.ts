@@ -9,6 +9,7 @@ export * from './Icons/schema';
 export * from './Info/schema';
 export * from './Media/schema';
 export * from './PromoFeaturesBlock/schema';
+export * from './Advantages/schema';
 export * from './Questions/schema';
 export * from './Slider/schema';
 export * from './Table/schema';

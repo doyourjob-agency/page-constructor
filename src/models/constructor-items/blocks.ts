@@ -45,6 +45,7 @@ import {
 import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {
+    AdvantagesBlock = 'advantages-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -319,6 +320,18 @@ export interface QuestionBlockItemProps extends QuestionItem {
 }
 
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
+
+export interface AdvantagesBlockProps extends Animatable {
+    title?: string;
+    link?: Pick<LinkProps, 'text' | 'url'>;
+    hoverColor?: string;
+    items?: {
+        icon: string;
+        title: string;
+        description: string;
+        url: string;
+    }[];
+}
 
 export interface CompaniesBlockProps extends Animatable {
     title: string;
@@ -746,6 +759,10 @@ export type BannerBlockModel = {
     type: BlockType.BannerBlock;
 } & BannerBlockProps;
 
+export type AdvantagesBlockModel = {
+    type: BlockType.AdvantagesBlock;
+} & AdvantagesBlockProps;
+
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
@@ -888,6 +905,7 @@ type BlockModels =
     | PromoFeaturesBlockModel
     | QuestionsBlockModel
     | BannerBlockModel
+    | AdvantagesBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel

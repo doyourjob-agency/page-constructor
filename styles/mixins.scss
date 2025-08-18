@@ -689,3 +689,11 @@ unpredictable css rules order in build */
         }
     }
 }
+
+@mixin hover() {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
