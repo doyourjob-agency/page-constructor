@@ -87,7 +87,7 @@ $block: '.#{$ns}highlight-table-block';
     &__row {
         display: flex;
         padding: $indentXXS;
-        transition: padding 0.4s ease 0.3s, background-color 0.3s ease;
+        transition: padding 0.8s ease 0.5s, background-color 0.5s ease;
         background-color: var(--ps-ht-color);
 
         & + & {
@@ -95,14 +95,14 @@ $block: '.#{$ns}highlight-table-block';
         }
 
         #{$block}__body &:hover {
-            transition: padding 0.4s ease, background-color 0.3s ease;
+            transition: padding 0.8s ease, background-color 0.5s ease;
             background-color: var(--ps-ht-hover-color, var(--ps-ht-color));
 
             & #{$block}__button {
                 opacity: 1;
                 margin-top: $indent4XS;
                 max-height: 100px;
-                transition: margin-top 0.3s ease, max-height 0.3s ease, opacity 0.1s ease 0.3s;
+                transition: margin-top 0.5s ease, max-height 0.5s ease, opacity 0.3s ease 0.5s;
             }
         }
 
@@ -158,6 +158,6 @@ $block: '.#{$ns}highlight-table-block';
         max-height: 0;
         overflow: hidden;
         display: block;
-        transition: margin-top 0.3s ease 0.1s, max-height 0.3s ease 0.1s, opacity 0.1s ease;
+        transition: margin-top 0.5s ease 0.3s, max-height 0.5s ease 0.3s, opacity 0.3s ease;
     }
 }

@@ -1,21 +1,18 @@
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 
 import {text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
-import {Button, HTML, Title} from '../../components';
-import {HighlightTableBlockProps, HighlightTableCell} from '../../models';
+import {HTML, Title} from '../../components';
+import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
+
+import Cell from './Cell';
+import Row from './Row';
 
 import './HighlightTable.scss';
 
 const b = block('highlight-table-block');
-
-const justifyMap = {
-    left: 'flex-start',
-    center: 'center',
-    right: 'flex-end',
-};
 
 const getTextStyles = (contentSize: HighlightTableBlockProps['contentSize']) => {
     switch (contentSize) {
@@ -110,59 +107,6 @@ export const HighlightTableBlock = ({
         };
     }, []);
 
-    const renderCells = useCallback(
-        (row: HighlightTableCell[]) =>
-            row.map((cell, cellIndex) => (
-                <div
-                    key={cellIndex}
-                    className={b('cell')}
-                    style={{
-                        textAlign: table.justify?.[cellIndex] ?? 'left',
-                        alignItems: table.justify?.[cellIndex]
-                            ? justifyMap[table.justify[cellIndex]]
-                            : 'flex-start',
-                        width: `calc(var(--block-width) * ${
-                            1 /
-                            (12 /
-                                ((typeof cell === 'object' && cell.columnWidth) ||
-                                    table.customColumnWidth?.[cellIndex] ||
-                                    2))
-                        })`,
-                    }}
-                >
-                    <HTML>{typeof cell === 'object' ? cell.cell : cell}</HTML>
-                    {typeof cell === 'object' && cell.buttonText && (
-                        <Button
-                            url={cell.buttonUrl}
-                            text={cell.buttonText}
-                            theme="action"
-                            className={b('button')}
-                        />
-                    )}
-                </div>
-            )),
-        [table.customColumnWidth, table.justify],
-    );
-
-    const renderRow = useCallback(
-        (row: HighlightTableCell[], index: number) => (
-            <div
-                key={index}
-                className={b('row', {increase: rowHoverIncrease})}
-                style={
-                    table.highlighter?.[index]
-                        ? ({
-                              ['--ps-ht-color']: table.highlighter[index],
-                          } as React.CSSProperties)
-                        : {}
-                }
-            >
-                {renderCells(row)}
-            </div>
-        ),
-        [renderCells, rowHoverIncrease, table.highlighter],
-    );
-
     const renderLegend = useMemo(
         () =>
             Boolean(legend.length) && (
@@ -184,16 +128,15 @@ export const HighlightTableBlock = ({
         [legend, legendAlign, legendPosition, textStyles],
     );
 
+    const rootStyle = useMemo(
+        () =>
+            ({
+                ['--ps-ht-hover-color']: rowHoverColor,
+            } as React.CSSProperties),
+        [rowHoverColor],
+    );
     return (
-        <div
-            ref={blockRef}
-            className={b()}
-            style={
-                {
-                    ['--ps-ht-hover-color']: rowHoverColor,
-                } as React.CSSProperties
-            }
-        >
+        <div ref={blockRef} className={b()} style={rootStyle}>
             {(title || description) && (
                 <Title className={b('title')} title={title} subtitle={description} />
             )}
@@ -201,9 +144,29 @@ export const HighlightTableBlock = ({
             <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
                 <div ref={tableContentRef} className={b('content')}>
                     <div className={b('head')}>
-                        <div className={b('row')}>{renderCells(firstRow)}</div>
+                        <div className={b('row')}>
+                            {firstRow.map((cell, index) => (
+                                <Cell
+                                    key={index}
+                                    cell={cell}
+                                    justify={table.justify?.[index]}
+                                    columnWidth={table.customColumnWidth?.[index]}
+                                />
+                            ))}
+                        </div>
                     </div>
-                    <div className={b('body')}>{otherRows.map(renderRow)}</div>
+                    <div className={b('body')}>
+                        {otherRows.map((row, index) => (
+                            <Row
+                                key={index}
+                                row={row}
+                                rowHoverIncrease={rowHoverIncrease}
+                                color={table.highlighter?.[index]}
+                                justify={table.justify}
+                                customColumnWidth={table.customColumnWidth}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
             <div ref={scrollBarRef} className={b('scrollbar')}>
