@@ -47,12 +47,9 @@ $block: '.#{$ns}advantages-block';
 
     &__item {
         display: block;
-        padding: $indentSM;
-        transition: background-color 0.3s ease;
+        padding: $indentSM 0;
 
-        @include hover() {
-            background-color: var(--pc-ab-hover-color, var(--g-color-private-black-100));
-        }
+        transition: background-color 0.3s ease;
 
         & + & {
             border-top: 1px var(--g-color-private-black-200) dashed;
@@ -96,8 +93,12 @@ $block: '.#{$ns}advantages-block';
             }
         }
 
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            padding: $indentSM 0;
+        @media (min-width: map-get($gridBreakpoints, 'lg')) {
+            padding: $indentSM;
+
+            @include hover() {
+                background-color: var(--pc-ab-hover-color, var(--g-color-private-black-100));
+            }
         }
     }
 }
