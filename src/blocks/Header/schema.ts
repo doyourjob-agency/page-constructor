@@ -200,6 +200,15 @@ export const HeaderProperties = {
             },
         },
     },
+    backgroundEffect: {
+        type: 'object',
+        additionalProperties: false,
+        required: true,
+        properties: {
+            firstSrc: {type: 'string'},
+            secondSrc: {type: 'string'},
+        },
+    },
 };
 
 export const HeaderBlock = {
