@@ -24,6 +24,9 @@ export const RelevantReportsBlock = {
             dateEnd: {
                 type: 'string',
             },
+            count: {
+                type: 'number',
+            },
         },
     },
 };

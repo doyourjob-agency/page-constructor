@@ -29,6 +29,7 @@ export const RelevantReports = ({
     date,
     dateStart,
     dateEnd,
+    count,
 }: RelevantReportsBlockProps) => {
     const [now, setNow] = React.useState<Date | null>(null);
     const data = useContext(ReportsContext);
@@ -40,7 +41,7 @@ export const RelevantReports = ({
 
     const filteredPosts = useMemo(() => {
         if (!now) return [];
-        return items.filter((item) => {
+        const filteredItems = items.filter((item) => {
             const itemDate = new Date(item.options?.date || '');
             let isDateMatch = true;
 
@@ -76,7 +77,11 @@ export const RelevantReports = ({
 
             return isDateMatch;
         });
-    }, [now, items, date, dateStart, dateEnd]);
+        if (count) {
+            return filteredItems.slice(0, count);
+        }
+        return filteredItems;
+    }, [now, items, count, date, dateStart, dateEnd]);
 
     const renderItems = useMemo(() => {
         if (slider) {

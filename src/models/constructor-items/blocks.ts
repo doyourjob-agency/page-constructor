@@ -523,6 +523,7 @@ export interface RelevantReportsBlockProps {
     date?: 'today' | 'week' | 'month';
     dateStart?: string;
     dateEnd?: string;
+    count?: number;
 }
 
 export interface PressReleasesBlockProps {
