@@ -20,12 +20,17 @@ type Props = {
     colSizes: LogoRotatorBlockProps['colSizes'];
 };
 
-export const Item = ({url, src, hidden, colSizes}: Props) => (
-    <Col sizes={colSizes || defaultColSizes}>
-        <Link href={url} className={b('item', {hidden})}>
-            <Image src={src} className={b('image')} alt="" aria-hidden="true" />
-        </Link>
-    </Col>
-);
+export const Item = ({url, src, hidden, colSizes}: Props) => {
+    const renderItem = React.useMemo(
+        () => (
+            <Link href={url} className={b('item', {hidden})}>
+                <Image src={src} className={b('image')} alt="" aria-hidden="true" />
+            </Link>
+        ),
+        [hidden, src, url],
+    );
+
+    return <Col sizes={colSizes || defaultColSizes}>{renderItem}</Col>;
+};
 
 export default React.memo(Item);
