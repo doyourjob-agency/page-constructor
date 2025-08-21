@@ -209,6 +209,9 @@ export const HeaderProperties = {
             secondSrc: {type: 'string'},
         },
     },
+    headerSpace: {
+        type: 'boolean',
+    },
 };
 
 export const HeaderBlock = {

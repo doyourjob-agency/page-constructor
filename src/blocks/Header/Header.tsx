@@ -98,6 +98,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         children,
         mediaView = 'full',
         backgroundEffect,
+        headerSpace,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -130,6 +131,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                     ['full-width']: fullWidth,
                     ['media-view']: mediaView,
                     ['controls-view']: textTheme,
+                    ['header-space']: headerSpace,
                 },
                 className,
             )}

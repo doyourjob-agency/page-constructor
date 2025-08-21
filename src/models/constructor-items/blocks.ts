@@ -272,6 +272,7 @@ export interface HeaderBlockProps {
         firstSrc: string;
         secondSrc: string;
     };
+    headerSpace?: boolean;
 }
 
 export interface ExtendedFeaturesItem
