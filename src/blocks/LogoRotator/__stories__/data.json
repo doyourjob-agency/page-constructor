@@ -14,9 +14,51 @@
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/polestar.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/ahlsell.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"}
       ],
-      "count": 6,
+      "count": 18,
+      "colSizes": {"all": 6, "md": 3, "lg": 2}
+    }
+  },
+  "light": {
+    "content": {
+      "type": "logo-rotator-block",
+      "animated": false,
+      "items": [
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/beamery.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/truecaller.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/piab.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/veoneer.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/merck.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/juni.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/polestar.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/ahlsell.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/black/hinge.svg"}
+      ],
+      "count": 18,
       "colSizes": {"all": 6, "md": 3, "lg": 2}
     }
   }

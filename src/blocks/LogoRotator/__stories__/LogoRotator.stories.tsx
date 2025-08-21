@@ -18,5 +18,7 @@ const DefaultTemplate: StoryFn<LogoRotatorBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const Light = DefaultTemplate.bind({});
 
 Default.args = data.default.content as LogoRotatorBlockProps;
+Light.args = data.light.content as LogoRotatorBlockProps;
