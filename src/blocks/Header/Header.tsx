@@ -12,6 +12,7 @@ import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../mod
 import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
+import BackgroundEffect from './BackgroundEffect/BackgroundEffect';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import HeaderButtons from './HeaderButtons/HeaderButtons';
 import HeaderDescription from './HeaderDescription/HeaderDescription';
@@ -96,6 +97,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         renderTitle,
         children,
         mediaView = 'full',
+        backgroundEffect,
+        headerSpace,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -128,12 +131,16 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                     ['full-width']: fullWidth,
                     ['media-view']: mediaView,
                     ['controls-view']: textTheme,
+                    ['header-space']: headerSpace,
                 },
                 className,
             )}
         >
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
+            {backgroundEffect && backgroundEffect.firstSrc && backgroundEffect.secondSrc && (
+                <BackgroundEffect {...backgroundEffect} />
+            )}
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
                 <BackButton

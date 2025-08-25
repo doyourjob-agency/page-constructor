@@ -268,6 +268,11 @@ export interface HeaderBlockProps {
     breadcrumbs?: HeaderBreadCrumbsProps;
     status?: JSX.Element;
     renderTitle?: (title: string) => React.ReactNode;
+    backgroundEffect?: {
+        firstSrc: string;
+        secondSrc: string;
+    };
+    headerSpace?: boolean;
 }
 
 export interface ExtendedFeaturesItem
