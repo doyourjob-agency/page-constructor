@@ -1,5 +1,15 @@
 # Changelog
 
+
+## [5.31.122](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.110...v5.31.122) (2025-08-25)
+
+### Features
+
+* **LogoRotator:** add block 
+* **HighlightTable:** update logic and add new props
+* **Header:** add logic background effect
+
+
 ## [5.31.110](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.109...v5.31.110) (2025-08-12)
 
 ### Features
