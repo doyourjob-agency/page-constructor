@@ -1,0 +1,21 @@
+import {Meta} from '@storybook/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as LogoRotatorStories from './LogoRotator.stories.tsx';
+
+<Meta of={LogoRotatorStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'logo-rotator-block'`
+
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
+
+`items: {url: string; src: string}[]` — Items for slots.
+
+`count: number` — Rendering amount of items.
+
+`colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
+
+
+</StoryTemplate>
