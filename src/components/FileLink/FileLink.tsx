@@ -21,12 +21,31 @@ export enum FileExtension {
     ZIP = 'zip',
 }
 
-export function getFileExt(name: string) {
-    if (name?.includes(FIGMA_URL)) {
+export function getFileExt(name?: string): FileExtension | undefined {
+    if (!name) return undefined;
+
+    if (name.includes(FIGMA_URL)) {
         return FileExtension.FIG;
     }
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return name && name.split('.').pop()!.toLowerCase();
+
+    let pathname = name;
+
+    try {
+        const url = new URL(name);
+        pathname = url.pathname;
+    } catch {}
+
+    const parts = pathname.trim().split('.');
+    if (parts.length < 2) return undefined;
+
+    const ext = parts.pop()?.toLowerCase();
+
+    if (!ext) return undefined;
+    if (Object.values(FileExtension).includes(ext as FileExtension)) {
+        return ext as FileExtension;
+    }
+
+    return undefined;
 }
 
 const FileExtensionThemes = {
