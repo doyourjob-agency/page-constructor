@@ -35,7 +35,31 @@ export const HighlightTable = {
                 items: {
                     type: 'array',
                     items: {
-                        type: 'string',
+                        oneOf: [
+                            {
+                                type: 'object',
+                                additionalProperties: false,
+                                required: ['cell'],
+                                properties: {
+                                    cell: {
+                                        type: 'string',
+                                    },
+                                    buttonText: {
+                                        type: 'string',
+                                    },
+                                    buttonUrl: {
+                                        type: 'string',
+                                    },
+                                    columnWidth: {
+                                        type: 'number',
+                                        enum: [12, 6, 4, 3, 2],
+                                    },
+                                },
+                            },
+                            {
+                                type: 'string',
+                            },
+                        ],
                     },
                 },
             },
@@ -58,6 +82,12 @@ export const HighlightTable = {
                     type: 'string',
                     enum: [12, 6, 4, 3, 2],
                 },
+            },
+            rowHoverColor: {
+                type: 'string',
+            },
+            rowHoverIncrease: {
+                type: 'boolean',
             },
         },
     },

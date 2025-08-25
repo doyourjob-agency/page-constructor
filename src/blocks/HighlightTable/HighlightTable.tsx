@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 
 import {text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
@@ -6,6 +6,9 @@ import debounce from 'lodash/debounce';
 import {HTML, Title} from '../../components';
 import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
+
+import Cell from './Cell';
+import Row from './Row';
 
 import './HighlightTable.scss';
 
@@ -28,6 +31,8 @@ export const HighlightTableBlock = ({
     contentSize = 's',
     legendPosition = 'top',
     legendAlign = 'center',
+    rowHoverColor,
+    rowHoverIncrease,
 }: HighlightTableBlockProps) => {
     const firstRow = table.content[0] || [];
     const otherRows = table.content.slice(1);
@@ -102,32 +107,6 @@ export const HighlightTableBlock = ({
         };
     }, []);
 
-    const renderRow = useCallback(
-        (row: string[], index: number) => (
-            <div
-                key={index}
-                className={b('row')}
-                style={{backgroundColor: table.highlighter?.[index] ?? ''}}
-            >
-                {row.map((cell, cellIndex) => (
-                    <div
-                        key={cellIndex}
-                        className={b('cell')}
-                        style={{
-                            textAlign: table.justify?.[cellIndex] ?? 'left',
-                            width: `calc(var(--block-width) * ${
-                                1 / (12 / (table.customColumnWidth?.[cellIndex] || 2))
-                            })`,
-                        }}
-                    >
-                        <HTML>{cell}</HTML>
-                    </div>
-                ))}
-            </div>
-        ),
-        [table.customColumnWidth, table.highlighter, table.justify],
-    );
-
     const renderLegend = useMemo(
         () =>
             Boolean(legend.length) && (
@@ -149,16 +128,45 @@ export const HighlightTableBlock = ({
         [legend, legendAlign, legendPosition, textStyles],
     );
 
+    const rootStyle = useMemo(
+        () =>
+            ({
+                ['--ps-ht-hover-color']: rowHoverColor,
+            } as React.CSSProperties),
+        [rowHoverColor],
+    );
     return (
-        <div ref={blockRef} className={b()}>
+        <div ref={blockRef} className={b()} style={rootStyle}>
             {(title || description) && (
                 <Title className={b('title')} title={title} subtitle={description} />
             )}
             {legendPosition === 'top' && renderLegend}
             <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
                 <div ref={tableContentRef} className={b('content')}>
-                    <div className={b('head')}>{renderRow(firstRow, 0)}</div>
-                    <div className={b('body')}>{otherRows.map(renderRow)}</div>
+                    <div className={b('head')}>
+                        <div className={b('row')}>
+                            {firstRow.map((cell, index) => (
+                                <Cell
+                                    key={index}
+                                    cell={cell}
+                                    justify={table.justify?.[index]}
+                                    columnWidth={table.customColumnWidth?.[index]}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                    <div className={b('body')}>
+                        {otherRows.map((row, index) => (
+                            <Row
+                                key={index}
+                                row={row}
+                                rowHoverIncrease={rowHoverIncrease}
+                                color={table.highlighter?.[index]}
+                                justify={table.justify}
+                                customColumnWidth={table.customColumnWidth}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
             <div ref={scrollBarRef} className={b('scrollbar')}>

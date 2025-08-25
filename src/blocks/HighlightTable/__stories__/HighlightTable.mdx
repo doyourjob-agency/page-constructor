@@ -19,7 +19,12 @@ import * as HighlightTableStories from './HighlightTable.stories.tsx';
 
 `table: HighlightTable` — HighlightTable content
 
--   `content: string[][]` — Text in the table cells
+-   `content: (string | HighlightTableCell)[][]` — Text in the table cells
+
+-   -   `cell: string` — Text in the table cell
+-   -   `buttonUrl?: string` — Url button in cell
+-   -   `buttonText?: string` — Text button in cell
+-   -   `columnWidth?: 12 | 6 | 4 | 3 | 2` — Custom column width for cell
 
 -   `highlighter?: string[]` — Colors in the table rows
 
