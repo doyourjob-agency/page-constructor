@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.31.123](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.122...v5.31.123) (2025-08-26)
+
+### Features
+
+* **FilterCardLayout:** add block 
+
 
 ## [5.31.122](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.110...v5.31.122) (2025-08-25)
 
