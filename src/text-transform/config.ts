@@ -514,6 +514,19 @@ export const config: BlocksConfig = {
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
     [BlockType.FilterBlock]: blockHeaderTransformer,
+    [BlockType.FilterCardLayoutBlock]: [
+        ...blockHeaderTransformer,
+        {
+            fields: ['items'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['description']),
+        },
+        {
+            fields: ['items'],
+            transformer: typografTransformer,
+            parser: parseItemsTitle,
+        },
+    ],
     [BlockType.IconsBlock]: blockHeaderTransformer,
     [SubBlockType.PriceCard]: [
         {

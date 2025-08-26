@@ -66,6 +66,7 @@ export enum BlockType {
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
+    FilterCardLayoutBlock = 'filter-card-layout-block',
     FormBlock = 'form-block',
     MarqueeLinksBlock = 'marquee-links-block',
     SolutionsBlock = 'solutions-block',
@@ -639,6 +640,20 @@ export interface FilterBlockProps extends Animatable, LoadableChildren {
     centered?: boolean;
 }
 
+export type FilterCardLayoutItem = {
+    tags: string[];
+} & CardLayoutBlockModel;
+
+export interface FilterCardLayoutBlockProps extends Animatable, LoadableChildren {
+    title?: TitleItemProps | string;
+    description?: string;
+    tags: FilterTag[];
+    items: FilterCardLayoutItem[];
+    tagButtonSize?: ButtonSize;
+    allTag?: boolean | string;
+    centered?: boolean;
+}
+
 export interface IconsBlockItemProps extends AnalyticsEventsBase {
     url: string;
     text: string;
@@ -824,6 +839,10 @@ export type FilterBlockModel = {
     type: BlockType.FilterBlock;
 } & FilterBlockProps;
 
+export type FilterCardLayoutBlockModel = {
+    type: BlockType.FilterCardLayoutBlock;
+} & FilterCardLayoutBlockProps;
+
 export type IconsBlockModel = {
     type: BlockType.IconsBlock;
 } & IconsBlockProps;
@@ -936,6 +955,7 @@ type BlockModels =
     | ContentLayoutBlockModel
     | ShareBLockModel
     | FilterBlockModel
+    | FilterCardLayoutBlockModel
     | FormBlockModel
     | MarqueeLinksBlockModel
     | SolutionsBlockModel

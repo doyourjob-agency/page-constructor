@@ -1,0 +1,41 @@
+{
+  "default": {
+    "card": {
+      "type": "layout-item",
+      "media": {
+        "dark": {
+          "image": "/story-assets/img-mini_4-12_dark.png"
+        },
+        "light": {
+          "image": "/story-assets/img-mini_4-12_light.png"
+        }
+      },
+      "content": {
+        "title": "Lorem&nbsp;ipsum",
+        "text": "Dolor sit amet"
+      }
+    },
+    "layout": {
+      "type": "card-layout-block",
+      "title": "Lorem&nbsp;ipsum"
+    },
+    "content": {
+      "title": "Card Layout",
+      "description": "Three **cards in a row on the desktop**, two cards in a row on a tablet, one card in a row on a mobile phone."
+    },
+    "filters": [
+      {
+        "id": "one",
+        "label": "First very long label"
+      },
+      {
+        "id": "two",
+        "label": "Second very long label"
+      },
+      {
+        "id": "three",
+        "label": "Third very long label"
+      }
+    ]
+  }
+}

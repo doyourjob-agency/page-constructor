@@ -1,0 +1,33 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}filter-card-layout';
+
+#{$block} {
+    &__title {
+        margin-bottom: $indentSM;
+
+        @include centerable-title();
+    }
+
+    &__tabs {
+        margin-bottom: 0;
+
+        @include tab-panel();
+    }
+
+    .row &__block-container.row {
+        margin: 0px;
+    }
+
+    &__block-container {
+        display: flex;
+        flex-direction: column;
+        gap: $indentM;
+        padding-top: $indentS;
+    }
+
+    &__container {
+        width: 100%;
+    }
+}
