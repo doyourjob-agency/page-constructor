@@ -175,6 +175,7 @@ export const constructorBlockSchemaNames = [
     'relevant-posts-block',
     'relevant-reports-cards-block',
     'relevant-reports-block',
+    'press-releases-block',
     'mini-case-block',
 ];
 
