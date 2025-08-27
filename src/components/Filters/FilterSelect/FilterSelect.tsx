@@ -48,6 +48,7 @@ const FilterSelect = ({
                 list: items,
                 defaultLabel: label || '',
             })}
+            popupPlacement="bottom-start"
             disablePortal
             virtualizationThreshold={VIRTUALIZATION_THRESHOLD}
             renderOption={renderOption}
