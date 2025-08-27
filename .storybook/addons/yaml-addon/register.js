@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
-import {AddonPanel} from '@storybook/components';
-import {addons, types, useGlobals, useArgs} from '@storybook/manager-api';
+import {AddonPanel} from 'storybook/internal/components';
+import {addons, types, useGlobals, useArgs} from 'storybook/manager-api';
 import yaml from 'js-yaml';
 import {ClipboardButton, ThemeProvider} from '@gravity-ui/uikit';
 

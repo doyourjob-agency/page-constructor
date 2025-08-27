@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-webpack5';
 
 import {Col, Row} from '../../../grid';
 import Button, {ButtonProps} from '../Button';

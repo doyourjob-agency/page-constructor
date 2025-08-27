@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Lang as UIKitLang, configure as uikitConfigure} from '@gravity-ui/uikit';
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-webpack5';
 
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {ShareBLockModel, ShareBlockProps} from '../../../models';

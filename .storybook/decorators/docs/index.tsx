@@ -1,5 +1,5 @@
-import {DocsContainer} from '@storybook/addon-docs';
-import type {DocsContainerProps} from '@storybook/addon-docs';
+import {DocsContainer} from '@storybook/addon-docs/blocks';
+import type {DocsContainerProps} from '@storybook/addon-docs/blocks';
 import React from 'react';
 import {ThemeProvider} from '@gravity-ui/uikit';
 
@@ -15,7 +15,7 @@ const b = cn('docs-decorator');
 
 export function DocsDecorator({children, context}: DocsDecoratorProps) {
     // @ts-expect-error
-    const theme = context.store.globals.globals.theme;
+    const theme = context.store.userGlobals.globals.theme;
 
     return (
         <div className={b()}>

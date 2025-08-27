@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-webpack5';
 
 import {MediaProps} from '../../../models';
 import Media, {MediaAllProps} from '../Media';

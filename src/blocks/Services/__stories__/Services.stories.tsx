@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-webpack5';
 
 import {argServicesContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';

@@ -1,6 +1,6 @@
 import React, {useCallback, useContext} from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-webpack5';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {LocaleContext} from '../../../context/localeContext';

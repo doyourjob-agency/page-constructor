@@ -16,4 +16,8 @@ $root: '.docs-decorator';
     .innerZoomElementWrapper {
         overflow: hidden;
     }
+
+    code {
+        white-space: normal;
+    }
 }
