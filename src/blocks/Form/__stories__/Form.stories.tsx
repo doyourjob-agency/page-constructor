@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 import {v4 as uuidv4} from 'uuid';
 
 import {argFormListContext, yfmTransform} from '../../../../.storybook/utils';
@@ -32,7 +32,7 @@ export default {
     },
     argTypes: {
         type: {control: false},
-        direction: {options: FormBlockDirection, control: {type: 'select'}},
+        direction: {options: Object.values(FormBlockDirection), control: {type: 'select'}},
         ...argFormListContext.argTypes,
     },
 } as Meta;

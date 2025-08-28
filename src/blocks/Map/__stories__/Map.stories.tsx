@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {scriptsSrc, ymapApiKeyForStorybook} from '../../../../.storybook/maps';
 import {yfmTransform} from '../../../../.storybook/utils';

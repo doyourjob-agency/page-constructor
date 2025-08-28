@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {argServicesContext, yfmTransform} from '../../../../.storybook/utils';
 import {CardProps} from '../../../models/constructor-items/sub-blocks';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {argServicesContext} from '../../../../.storybook/utils';
 import ServiceIcon, {ServiceIconProps} from '../ServiceIcon';

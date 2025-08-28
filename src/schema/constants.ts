@@ -130,8 +130,6 @@ export const cardSchemas = {
 export const constructorBlockSchemaNames = [
     'divider',
     'quote',
-    'event',
-    'post',
     'extended-features-block',
     'promo-features-block',
     'slider-block',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import CardLayout from '../../../blocks/CardLayout/CardLayout';
 import {AttachmentCardProps} from '../../../models';

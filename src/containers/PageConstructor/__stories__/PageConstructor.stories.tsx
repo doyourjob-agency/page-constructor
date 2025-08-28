@@ -1,7 +1,9 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
+import {argHeaderContext} from '../../../../.storybook/utils';
+import {HeaderContext, HeaderContextProps} from '../../../context/headerContext';
 import {PageConstructor, PageConstructorProps} from '../PageConstructor';
 
 import data from './data.json';
@@ -9,12 +11,21 @@ import data from './data.json';
 export default {
     title: 'Containers/PageConstructor',
     component: PageConstructor,
+    argTypes: {
+        ...argHeaderContext.argTypes,
+    },
 } as Meta;
 
-const DefaultTemplate: StoryFn<PageConstructorProps> = (args) => <PageConstructor {...args} />;
+const DefaultTemplate: StoryFn<PageConstructorProps> = (args) => (
+    <HeaderContext.Provider value={argHeaderContext.args as HeaderContextProps}>
+        <PageConstructor {...args} />
+    </HeaderContext.Provider>
+);
 
 const WithFullWidthBackgroundMediaTemplate: StoryFn<PageConstructorProps> = (args) => (
-    <PageConstructor {...args} />
+    <HeaderContext.Provider value={argHeaderContext.args as HeaderContextProps}>
+        <PageConstructor {...args} />
+    </HeaderContext.Provider>
 );
 
 export const Default = DefaultTemplate.bind({});

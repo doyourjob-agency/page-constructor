@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoryFn, StoryContext} from '@storybook/react';
+import {StoryFn, StoryContext} from '@storybook/react-vite';
 import {MobileProvider} from '@gravity-ui/uikit';
 
 export function withMobile(Story: StoryFn, context: StoryContext) {

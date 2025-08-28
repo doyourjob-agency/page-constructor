@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, StoryFn} from '@storybook/react';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {Col, Row} from '../../../grid';
 import BackLink, {BackLinkProps} from '../BackLink';
