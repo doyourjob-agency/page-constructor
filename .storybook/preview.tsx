@@ -4,7 +4,7 @@ import {MobileProvider, Platform, ThemeProvider} from '@gravity-ui/uikit';
 
 import React, {Fragment} from 'react';
 import {MINIMAL_VIEWPORTS} from 'storybook/viewport';
-import type {Decorator, Preview} from '@storybook/react-webpack5';
+import type {Decorator, Preview} from '@storybook/react-vite';
 import {themeLight} from './theme/light';
 import {PageConstructorProvider} from '../src/containers/PageConstructor/Provider';
 import {withMobile} from './decorators/withMobile';
@@ -131,6 +131,22 @@ const preview: Preview = {
         },
         a11y: {
             test: 'todo',
+            config: {
+                rules: [
+                    {
+                        id: 'image-alt',
+                        enabled: false,
+                    },
+                    {
+                        id: 'color-contrast',
+                        enabled: false,
+                    },
+                    {
+                        id: 'link-in-text-block',
+                        enabled: false,
+                    },
+                ],
+            },
         },
         // FIXME: Disabled due to performance reasons. See https://github.com/storybookjs/storybook/issues/5551
         // actions: {

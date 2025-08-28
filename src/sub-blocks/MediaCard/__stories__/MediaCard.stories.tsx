@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Meta, StoryFn} from '@storybook/react-webpack5';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {MediaCardProps} from '../../../models';
 import MediaCard from '../MediaCard';

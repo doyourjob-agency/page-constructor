@@ -1,20 +1,33 @@
 import {resolve} from 'path';
-import WebpackShellPluginNext from 'webpack-shell-plugin-next';
-import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
-import {StorybookConfig} from '@storybook/react-webpack5';
-import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+import {StorybookConfig} from '@storybook/react-vite';
+import StringReplace from 'vite-plugin-string-replace';
+import {exec} from 'child_process';
+import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 
 const ASSET_PATH = 'story-assets';
 const PREVIEW_DEST_PATH = process.env.PREVIEW_DEST_PATH;
 
+const customPluginShell = () => {
+    return {
+        name: 'vite-plugin-shell',
+        buildStart() {
+            exec('npm run build:widget', (err, stdout, stderr) => {
+                if (err) {
+                    console.error(stderr);
+                } else {
+                    console.log(stdout);
+                }
+            });
+        },
+    };
+};
+
 const customAlias = {
     widget: resolve(__dirname, '../widget'),
 };
+
 const config: StorybookConfig = {
-    framework: {
-        name: '@storybook/react-webpack5',
-        options: {},
-    },
+    framework: '@storybook/react-vite',
 
     core: {
         disableTelemetry: true,
@@ -25,50 +38,44 @@ const config: StorybookConfig = {
     staticDirs: ['./public'],
 
     addons: [
-        '@storybook/preset-scss',
         './addons/yaml-addon/preset',
         './addons/theme-addon/register.tsx',
-        '@storybook/addon-webpack5-compiler-babel',
         '@storybook/addon-docs',
         '@storybook/addon-a11y',
+        '@storybook/addon-vitest',
     ],
 
-    webpackFinal: async (storybookBaseConfig) => {
-        if (storybookBaseConfig.plugins) {
-            storybookBaseConfig.plugins.push(
-                new NodePolyfillPlugin(),
-                new MonacoWebpackPlugin(),
-                new WebpackShellPluginNext({
-                    onBuildStart: {
-                        scripts: ['npm run build:widget'],
-                        blocking: false,
-                    },
-                }),
-            );
-        }
-
-        if (storybookBaseConfig.resolve) {
-            storybookBaseConfig.resolve.alias = {
-                ...(storybookBaseConfig.resolve?.alias || {}),
-                ...customAlias,
-            };
-        }
-
-        // main and branch storybook previews are deployed in subfolders
-        // so we need to add subfolder prefix to stories asset static path:
-        if (PREVIEW_DEST_PATH) {
-            storybookBaseConfig.module?.rules?.push({
-                test: /data\.json$/,
-                loader: 'string-replace-loader',
-                options: {
-                    search: `/${ASSET_PATH}/`,
-                    replace: `${PREVIEW_DEST_PATH}/${ASSET_PATH}/`,
-                    flags: 'g',
+    async viteFinal(config, {configType}) {
+        const {mergeConfig, defineConfig} = await import('vite');
+        return mergeConfig(
+            config,
+            defineConfig({
+                define: {
+                    'process.env': process.env,
                 },
-            });
-        }
-
-        return storybookBaseConfig;
+                resolve: {
+                    alias: {
+                        ...config.resolve?.alias,
+                        ...customAlias,
+                    },
+                },
+                plugins: [
+                    monacoEditorPlugin({}),
+                    customPluginShell(),
+                    ...(PREVIEW_DEST_PATH
+                        ? [
+                              StringReplace([
+                                  {
+                                      fileName: /data\.json$/,
+                                      search: new RegExp(`/${ASSET_PATH}/`, 'g'),
+                                      replace: `${PREVIEW_DEST_PATH}/${ASSET_PATH}/`,
+                                  },
+                              ]),
+                          ]
+                        : []),
+                ],
+            }),
+        );
     },
 
     features: {

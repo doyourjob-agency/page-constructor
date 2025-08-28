@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {Meta, StoryFn} from '@storybook/react-webpack5';
+import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';

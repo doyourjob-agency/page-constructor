@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Button} from '@gravity-ui/uikit';
-import {Meta, StoryFn} from '@storybook/react-webpack5';
+import {Meta, StoryFn} from '@storybook/react-vite';
 import {v4 as uuidv4} from 'uuid';
 
 import {argFormListContext} from '../../../../.storybook/utils';
