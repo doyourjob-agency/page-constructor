@@ -32,7 +32,7 @@ export default {
     },
     argTypes: {
         type: {control: false},
-        direction: {options: FormBlockDirection, control: {type: 'select'}},
+        direction: {options: Object.values(FormBlockDirection), control: {type: 'select'}},
         ...argFormListContext.argTypes,
     },
 } as Meta;

@@ -802,7 +802,7 @@ export const BlockHeaderProps = {
 export const Tag = {
     type: 'object',
     additionalProperties: false,
-    required: true,
+    required: ['text', 'backgroundColor', 'textColor'],
     properties: {
         text: {
             type: 'string',

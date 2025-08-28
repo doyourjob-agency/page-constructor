@@ -28,18 +28,16 @@ export const HeaderProperties = {
     },
     switchingTitle: {
         type: 'object',
-        additionalProperties: 'false',
+        additionalProperties: false,
         required: ['text'],
-        properties: [
-            {
-                name: 'text',
+        properties: {
+            text: {
                 type: 'string',
             },
-            {
-                name: 'switchingTime',
+            switchingTime: {
                 type: 'number',
             },
-        ],
+        },
     },
     overtitle: {
         type: 'string',
@@ -98,7 +96,7 @@ export const HeaderProperties = {
                 items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: true,
+                    required: ['title', 'text'],
                     properties: {
                         title: {
                             type: 'string',
@@ -203,7 +201,7 @@ export const HeaderProperties = {
     backgroundEffect: {
         type: 'object',
         additionalProperties: false,
-        required: true,
+        required: ['firstSrc', 'secondSrc'],
         properties: {
             firstSrc: {type: 'string'},
             secondSrc: {type: 'string'},

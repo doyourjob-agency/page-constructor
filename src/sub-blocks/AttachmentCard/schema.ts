@@ -36,7 +36,7 @@ export const AttachmentCard = {
                 type: 'array',
                 items: {
                     additionalProperties: false,
-                    required: true,
+                    required: ['icon', 'name', 'link', 'target', 'download'],
                     properties: {
                         icon: withTheme({
                             type: 'string',
