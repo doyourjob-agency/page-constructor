@@ -1,0 +1,5 @@
+import{R as e}from"./iframe-C6zC0JWY.js";import{R as s}from"./ReactPlayer-FQkyCbRC.js";import"./preload-helper-D6kgxu3v.js";import"./debounce-CJn-F6Sb.js";import"./isSymbol-BCi6_KtB.js";import"./cjs-Cz8BQk8L.js";import"./index-BTzldc6R.js";import"./addComponentKeysets-D-oJkUEv.js";import"./common-CgL19bot.js";import"./Icon-m9LFWCOJ.js";import"./useMount-CFueNtj6.js";import"./useAnalytics-BgH11C1R.js";import"./PlayFill-Ct07Z7PQ.js";const m={default:{content:{src:"https://doyourjob-agency.github.io/page-constructor/pr/feature/storybook-9/story-assets/video_8-12_white.mp4",loop:!0,customBarControlsClassName:"",showPreview:!0}}},_={component:s,title:"Components/Pics, video, DataLens/ReactPlayer"},p=i=>e.createElement("div",{style:{maxWidth:"500px"}},e.createElement(s,{...i})),t=p.bind({});t.args=m.default.content;var o,r,a;t.parameters={...t.parameters,docs:{...(o=t.parameters)==null?void 0:o.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <ReactPlayer {...args} />
+    </div>`,...(a=(r=t.parameters)==null?void 0:r.docs)==null?void 0:a.source}}};const b=["Default"];export{t as Default,b as __namedExportsOrder,_ as default};

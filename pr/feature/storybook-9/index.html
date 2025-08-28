@@ -56,7 +56,9 @@
     
     <link href="./sb-addons/a11y-4/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/storybook-5/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/vitest-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-6/manager-bundle.js" rel="modulepreload" />
       <link rel="icon" href="/story-assets/favicon.png" />
  
 
@@ -134,11 +136,11 @@
         
       
         
-          window['STORYBOOK_BUILDER'] = "@storybook/builder-webpack5";
+          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
         
       
         
-          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-webpack5";
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
         
       
     </script>
@@ -158,7 +160,9 @@
       
         import './sb-addons/a11y-4/manager-bundle.js';
       
-        import './sb-addons/storybook-5/manager-bundle.js';
+        import './sb-addons/vitest-5/manager-bundle.js';
+      
+        import './sb-addons/storybook-6/manager-bundle.js';
       
 
       import './sb-manager/runtime.js';

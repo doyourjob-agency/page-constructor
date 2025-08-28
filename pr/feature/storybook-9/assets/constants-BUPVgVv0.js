@@ -1,0 +1,1 @@
+const A={BACKSPACE:"Backspace",ENTER:"Enter",TAB:"Tab",SPACEBAR:" ",SPACEBAR_OLD:"Spacebar",ESCAPE:"Escape",ARROW_UP:"ArrowUp",ARROW_DOWN:"ArrowDown",ARROW_LEFT:"ArrowLeft",ARROW_RIGHT:"ArrowRight"};export{A as K};
