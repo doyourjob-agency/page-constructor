@@ -20,7 +20,7 @@ $headerBlock: '.#{$ns}header-block';
     }
 
     #{$headerBlock}:hover &__right {
-        transition: clip-path 0.1s ease;
+        transition: none;
     }
 
     &__video {
