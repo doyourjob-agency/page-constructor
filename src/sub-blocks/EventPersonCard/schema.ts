@@ -26,6 +26,13 @@ export const EventPersonCard = {
                     },
                 ],
             },
+            url: {
+                type: 'string',
+            },
+            target: {
+                type: 'string',
+                enum: ['_blank', '_parent', '_top', '_self'],
+            },
             subtitle: {
                 type: 'string',
             },

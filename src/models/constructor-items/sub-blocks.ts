@@ -314,6 +314,8 @@ export interface CaseStudyCardProps {
 
 export interface EventPersonCardProps {
     image: ThemeSupporting<ImageProps>;
+    url?: string;
+    target?: string;
     hoverImage?: ThemeSupporting<ImageProps>;
     title?: TitleItemBaseProps | string;
     subtitle?: string;

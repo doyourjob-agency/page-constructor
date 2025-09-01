@@ -46,6 +46,7 @@ const ThemeTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => 
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithUrl = DefaultTemplate.bind({});
 export const Theme = ThemeTemplate.bind({});
 
 const defaultArgs = {
@@ -55,6 +56,11 @@ const defaultArgs = {
 
 Default.args = {
     ...defaultArgs,
+} as EventPersonCardProps;
+
+WithUrl.args = {
+    ...defaultArgs,
+    ...data.withUrl,
 } as EventPersonCardProps;
 
 Theme.args = {

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
-import {Image, Links, Title, YFMWrapper} from '../../components';
+import {Link} from '@gravity-ui/uikit';
+
+import {Image, Links, RouterLink, Title, YFMWrapper} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {EventPersonCardProps, TitleItemProps} from '../../models';
@@ -15,43 +17,70 @@ const titleColSizes = {
 };
 
 const EventPersonCard = (props: EventPersonCardProps) => {
-    const {image, hoverImage, title, subtitle, text, links, theme} = props;
+    const {url, target, image, hoverImage, title, subtitle, text, links, theme} = props;
 
     const globalTheme = useTheme();
     const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
     const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
 
-    const titleProps =
-        !title || typeof title === 'string'
-            ? ({text: title, textSize: 's'} as TitleItemProps)
-            : title;
+    const titleProps = useMemo(
+        () =>
+            !title || typeof title === 'string'
+                ? ({text: title, textSize: 's'} as TitleItemProps)
+                : title,
+        [title],
+    );
 
-    return (
-        <div className={b({theme})}>
-            <div className={b('wrap-image')}>
-                <Image className={b('image')} {...imageProps} />
-                {hoverImage && <Image className={b('image', {hover: true})} {...hoverImageProps} />}
-            </div>
-            <div className={b('wrap')}>
-                {title && (
-                    <Title
-                        className={b('title')}
-                        title={titleProps}
-                        subtitle={subtitle}
-                        colSizes={titleColSizes}
-                    />
-                )}
-                {links && <Links className={b('links')} size="s" links={links} />}
-                {text && (
-                    <div className={b('text')}>
-                        <YFMWrapper
-                            content={text}
-                            modifiers={{constructor: true, ['constructor-size-m']: true}}
+    const content = useMemo(
+        () => (
+            <React.Fragment>
+                <div className={b('wrap-image')}>
+                    <Image className={b('image')} {...imageProps} />
+                    {hoverImage && (
+                        <Image className={b('image', {hover: true})} {...hoverImageProps} />
+                    )}
+                </div>
+                <div className={b('wrap')}>
+                    {title && (
+                        <Title
+                            className={b('title')}
+                            title={titleProps}
+                            subtitle={subtitle}
+                            colSizes={titleColSizes}
                         />
-                    </div>
-                )}
-            </div>
-        </div>
+                    )}
+                    {links && <Links className={b('links')} size="s" links={links} />}
+                    {text && (
+                        <div className={b('text')}>
+                            <YFMWrapper
+                                content={text}
+                                modifiers={{constructor: true, ['constructor-size-m']: true}}
+                            />
+                        </div>
+                    )}
+                </div>
+            </React.Fragment>
+        ),
+        [hoverImage, hoverImageProps, imageProps, links, subtitle, text, title, titleProps],
+    );
+
+    return url ? (
+        <RouterLink href={url}>
+            <Link
+                href={url}
+                target={target}
+                rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+                className={b({theme})}
+                extraProps={{
+                    draggable: false,
+                    onDragStart: (e: React.DragEvent<HTMLAnchorElement>) => e.preventDefault(),
+                }}
+            >
+                {content}
+            </Link>
+        </RouterLink>
+    ) : (
+        <div className={b({theme})}>{content}</div>
     );
 };
 
