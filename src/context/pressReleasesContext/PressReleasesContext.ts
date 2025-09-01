@@ -7,15 +7,11 @@ export type PressRelease = {
 };
 
 export interface PressReleasesContextProps {
-    pressReleases: PressRelease[];
-    page: number;
-    pageSize: number;
-    onLoadMore: () => void;
+    items: PressRelease[];
+    itemsPerPage: number;
 }
 
 export const PressReleasesContext = React.createContext<PressReleasesContextProps>({
-    pressReleases: [],
-    page: 1,
-    pageSize: 10,
-    onLoadMore: () => {},
+    items: [],
+    itemsPerPage: 2,
 });

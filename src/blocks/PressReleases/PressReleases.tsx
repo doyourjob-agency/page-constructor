@@ -1,10 +1,15 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo, useState} from 'react';
 
 import {CardLayoutBlock} from '..';
-import {InfiniteScroll} from '../../components';
+import {Paginator} from '../../components';
 import {PressReleasesContext} from '../../context/pressReleasesContext';
 import {PressReleasesBlockProps} from '../../models';
 import {BasicCard} from '../../sub-blocks';
+import {block} from '../../utils';
+
+import './PressReleases.scss';
+
+const b = block('press-releases-block');
 
 const colSizes = {
     all: 12,
@@ -14,14 +19,19 @@ const colSizes = {
 };
 
 export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
-    const {pressReleases, page, pageSize, onLoadMore} = useContext(PressReleasesContext);
-    const itemsToShow = pressReleases.slice(0, page * pageSize);
-    const hasMore = page < Math.ceil(pressReleases.length / pageSize);
+    const {items, itemsPerPage} = useContext(PressReleasesContext);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const paginatedItems = useMemo(() => {
+        if (!itemsPerPage) return items;
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        return items.slice(startIndex, startIndex + itemsPerPage);
+    }, [items, itemsPerPage, currentPage]);
 
     return (
-        <div>
+        <div className={b()}>
             <CardLayoutBlock title={title} colSizes={colSizes}>
-                {itemsToShow.map((item) => (
+                {paginatedItems.map((item) => (
                     <BasicCard
                         key={item.url}
                         title={item.title}
@@ -31,7 +41,16 @@ export const PressReleasesBlock = ({title}: PressReleasesBlockProps) => {
                     />
                 ))}
             </CardLayoutBlock>
-            <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
+            {itemsPerPage && (
+                <Paginator
+                    page={currentPage}
+                    itemsPerPage={itemsPerPage}
+                    totalItems={items.length}
+                    maxPages={Infinity}
+                    onPageChange={setCurrentPage}
+                    className={b('paginator')}
+                />
+            )}
         </div>
     );
 };

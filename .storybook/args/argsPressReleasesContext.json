@@ -1,5 +1,5 @@
 {
-  "pressReleases": [
+  "items": [
     {
       "title": "Title 1",
       "date": "Augus 12, 2025",
@@ -16,6 +16,5 @@
       "url": "#"
     }
   ],
-  "page": 1,
-  "pageSize": 10
+  "itemsPerPage": 2
 }
