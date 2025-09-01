@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 
 import {parseVideoType} from '../../../components/Media/Video/utils';
 import {block} from '../../../utils';
@@ -15,11 +15,13 @@ const SLOW_RATE = 0.95;
 type BackgroundEffectProps = {
     firstSrc: string;
     secondSrc: string;
+    attachRef: React.RefObject<HTMLElement>;
 };
 
-export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) => {
+export const BackgroundEffect = ({firstSrc, secondSrc, attachRef}: BackgroundEffectProps) => {
     const master = useRef<HTMLVideoElement>(null);
     const driven = useRef<HTMLVideoElement>(null);
+    const [clip, setClip] = useState('inset(0 0 0 99.99%)'); // по умолчанию невидимо
 
     useEffect(() => {
         const m = master.current;
@@ -62,9 +64,31 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
         };
     }, []);
 
-    if (!firstSrc || !secondSrc) {
-        return null;
-    }
+    useEffect(() => {
+        const el = attachRef.current;
+        if (!el) return () => {};
+
+        const handleMove = (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = (x / rect.width) * 100;
+            setClip(`inset(0 0 0 ${percent}%)`);
+        };
+
+        const handleLeave = () => setClip('inset(0 0 0 99.99%)');
+
+        el.addEventListener('mousemove', handleMove);
+        el.addEventListener('mouseleave', handleLeave);
+
+        return () => {
+            el.removeEventListener('mousemove', handleMove);
+            el.removeEventListener('mouseleave', handleLeave);
+        };
+    }, [attachRef]);
+
+    const style = useMemo(() => ({clipPath: clip}), [clip]);
+
+    if (!firstSrc || !secondSrc) return null;
 
     return (
         <div className={b()}>
@@ -85,7 +109,7 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
                     <source src={firstSrc} type={parseVideoType(firstSrc)} />
                 </video>
             </div>
-            <div className={b('right')}>
+            <div className={b('right')} style={style}>
                 <video
                     ref={driven}
                     disablePictureInPicture
