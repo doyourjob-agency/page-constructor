@@ -130,3 +130,7 @@ $darkSecondary: var(--g-color-text-dark-secondary);
         }
     }
 }
+
+a#{$block} {
+    @include card-hover();
+}

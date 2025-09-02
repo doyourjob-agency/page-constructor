@@ -14,7 +14,9 @@ export default {
 } as Meta;
 
 const DefaultTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => (
-    <EventPersonCard {...args} />
+    <div style={{padding: '20px'}}>
+        <EventPersonCard {...args} />
+    </div>
 );
 
 const ThemeTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => (
@@ -25,6 +27,8 @@ const ThemeTemplate: StoryFn<EventPersonCardProps & ClassNameProps> = (args) => 
                 paddingTop: '64px',
                 backgroundColor: '#ccf0d2',
                 marginBottom: '64px',
+                paddingLeft: '20px',
+                paddingRight: '20px',
             }}
         >
             <EventPersonCard
