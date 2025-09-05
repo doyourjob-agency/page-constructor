@@ -7,6 +7,10 @@ $headerBlock: '.#{$ns}header-block';
 #{$block} {
     position: absolute;
     inset: 0;
+    user-select: none;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 
     &__left {
         width: 100%;

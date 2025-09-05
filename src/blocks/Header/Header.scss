@@ -165,6 +165,13 @@ $backgroundWidth: 1440px;
         }
     }
 
+    &__background {
+        user-select: none;
+        /* stylelint-disable-next-line property-no-vendor-prefix */
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+
     &__background,
     &__background#{$block}__background_media {
         position: absolute;
