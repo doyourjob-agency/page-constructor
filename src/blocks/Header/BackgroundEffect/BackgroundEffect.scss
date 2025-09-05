@@ -20,12 +20,12 @@ $headerBlock: '.#{$ns}header-block';
     &__right {
         position: absolute;
         inset: 0;
+        transition: clip-path 0.5s linear;
         clip-path: inset(0 0 0 99.99%);
-        transition: clip-path 1.5s ease;
     }
 
     #{$headerBlock}:hover &__right {
-        clip-path: inset(0 0 0 0.01%);
+        transition: none;
     }
 
     &__video {

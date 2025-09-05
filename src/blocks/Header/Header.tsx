@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext, useMemo, useRef} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -122,9 +122,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const videoThemed = useMemo(() => video && getThemedValue(video, theme), [theme, video]);
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
+    const headerRef = useRef<HTMLElement>(null);
 
     return (
         <header
+            ref={headerRef}
             className={b(
                 {
                     ['has-media']: hasRightSideImage,
@@ -139,7 +141,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             {backgroundThemed && fullWidth && <FullWidthBackground background={backgroundThemed} />}
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
             {backgroundEffect && backgroundEffect.firstSrc && backgroundEffect.secondSrc && (
-                <BackgroundEffect {...backgroundEffect} />
+                <BackgroundEffect {...backgroundEffect} attachRef={headerRef} />
             )}
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
