@@ -1,0 +1,1 @@
+import{R as r}from"./iframe-VsWcB4Fh.js";import{K as o}from"./constants-BUPVgVv0.js";function t(e){return n=>{e&&[o.ENTER,o.SPACEBAR,o.SPACEBAR_OLD].includes(n.key)&&(n.preventDefault(),e(n))}}function i(e){return{onKeyDown:r.useMemo(()=>t(e),[e])}}export{i as u};
