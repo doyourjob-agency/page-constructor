@@ -15,7 +15,6 @@ $block: '.#{$ns}block-base';
     @include visibility-classes();
 
     position: relative;
-    z-index: 1;
 
     &__background-full {
         position: absolute;
