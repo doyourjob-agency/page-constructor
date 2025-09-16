@@ -15,11 +15,13 @@ const SLOW_RATE = 0.95;
 type BackgroundEffectProps = {
     firstSrc: string;
     secondSrc: string;
+    attachRef: React.RefObject<HTMLElement>;
 };
 
-export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) => {
+export const BackgroundEffect = ({firstSrc, secondSrc, attachRef}: BackgroundEffectProps) => {
     const master = useRef<HTMLVideoElement>(null);
     const driven = useRef<HTMLVideoElement>(null);
+    const drivenWrap = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const m = master.current;
@@ -62,9 +64,92 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
         };
     }, []);
 
-    if (!firstSrc || !secondSrc) {
-        return null;
-    }
+    useEffect(() => {
+        const el = attachRef.current;
+        if (!el) return () => {};
+
+        const wrap = drivenWrap.current;
+        if (!wrap) return () => {};
+
+        let target = 99.99;
+        let current = 99.99;
+        let locked = false;
+        let rafId: number | null = null;
+
+        const setClip = (value: number) => {
+            if (!wrap) return;
+            wrap.style.setProperty('clip-path', `inset(0 0 0 ${value}%)`);
+        };
+
+        const update = () => {
+            if (!wrap) return;
+
+            const diff = target - current;
+
+            if (Math.abs(diff) < 0.1) {
+                current = target;
+                setClip(current);
+                locked = true;
+                rafId = null;
+                return;
+            }
+
+            if (!locked) {
+                current += diff * 0.05;
+                setClip(current);
+                rafId = requestAnimationFrame(update);
+            }
+        };
+
+        const handleEnter = (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            target = (x / rect.width) * 100;
+
+            locked = false;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(update);
+        };
+
+        const handleMove = (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            target = (x / rect.width) * 100;
+
+            if (locked) {
+                current = target;
+                setClip(current);
+                return;
+            }
+
+            if (!rafId) rafId = requestAnimationFrame(update);
+        };
+
+        const handleLeave = () => {
+            locked = false;
+            target = 99.99;
+            setClip(target);
+            current = target;
+
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+            }
+        };
+
+        el.addEventListener('mouseenter', handleEnter);
+        el.addEventListener('mousemove', handleMove);
+        el.addEventListener('mouseleave', handleLeave);
+
+        return () => {
+            el.removeEventListener('mouseenter', handleEnter);
+            el.removeEventListener('mousemove', handleMove);
+            el.removeEventListener('mouseleave', handleLeave);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
+    }, [attachRef]);
+
+    if (!firstSrc || !secondSrc) return null;
 
     return (
         <div className={b()}>
@@ -85,7 +170,7 @@ export const BackgroundEffect = ({firstSrc, secondSrc}: BackgroundEffectProps) =
                     <source src={firstSrc} type={parseVideoType(firstSrc)} />
                 </video>
             </div>
-            <div className={b('right')}>
+            <div className={b('right')} ref={drivenWrap}>
                 <video
                     ref={driven}
                     disablePictureInPicture
