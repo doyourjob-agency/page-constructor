@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import {parseVideoType} from '../../../components/Media/Video/utils';
 import {block} from '../../../utils';
@@ -21,7 +21,7 @@ type BackgroundEffectProps = {
 export const BackgroundEffect = ({firstSrc, secondSrc, attachRef}: BackgroundEffectProps) => {
     const master = useRef<HTMLVideoElement>(null);
     const driven = useRef<HTMLVideoElement>(null);
-    const [clip, setClip] = useState('inset(0 0 0 99.99%)'); // по умолчанию невидимо
+    const drivenWrap = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const m = master.current;
@@ -68,25 +68,86 @@ export const BackgroundEffect = ({firstSrc, secondSrc, attachRef}: BackgroundEff
         const el = attachRef.current;
         if (!el) return () => {};
 
+        const wrap = drivenWrap.current;
+        if (!wrap) return () => {};
+
+        let target = 99.99;
+        let current = 99.99;
+        let locked = false;
+        let rafId: number | null = null;
+
+        const setClip = (value: number) => {
+            if (!wrap) return;
+            wrap.style.setProperty('clip-path', `inset(0 0 0 ${value}%)`);
+        };
+
+        const update = () => {
+            if (!wrap) return;
+
+            const diff = target - current;
+
+            if (Math.abs(diff) < 0.1) {
+                current = target;
+                setClip(current);
+                locked = true;
+                rafId = null;
+                return;
+            }
+
+            if (!locked) {
+                current += diff * 0.05;
+                setClip(current);
+                rafId = requestAnimationFrame(update);
+            }
+        };
+
+        const handleEnter = (e: MouseEvent) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            target = (x / rect.width) * 100;
+
+            locked = false;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(update);
+        };
+
         const handleMove = (e: MouseEvent) => {
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left;
-            const percent = (x / rect.width) * 100;
-            setClip(`inset(0 0 0 ${percent}%)`);
+            target = (x / rect.width) * 100;
+
+            if (locked) {
+                current = target;
+                setClip(current);
+                return;
+            }
+
+            if (!rafId) rafId = requestAnimationFrame(update);
         };
 
-        const handleLeave = () => setClip('inset(0 0 0 99.99%)');
+        const handleLeave = () => {
+            locked = false;
+            target = 99.99;
+            setClip(target);
+            current = target;
 
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+            }
+        };
+
+        el.addEventListener('mouseenter', handleEnter);
         el.addEventListener('mousemove', handleMove);
         el.addEventListener('mouseleave', handleLeave);
 
         return () => {
+            el.removeEventListener('mouseenter', handleEnter);
             el.removeEventListener('mousemove', handleMove);
             el.removeEventListener('mouseleave', handleLeave);
+            if (rafId) cancelAnimationFrame(rafId);
         };
     }, [attachRef]);
-
-    const style = useMemo(() => ({clipPath: clip}), [clip]);
 
     if (!firstSrc || !secondSrc) return null;
 
@@ -109,7 +170,7 @@ export const BackgroundEffect = ({firstSrc, secondSrc, attachRef}: BackgroundEff
                     <source src={firstSrc} type={parseVideoType(firstSrc)} />
                 </video>
             </div>
-            <div className={b('right')} style={style}>
+            <div className={b('right')} ref={drivenWrap}>
                 <video
                     ref={driven}
                     disablePictureInPicture
