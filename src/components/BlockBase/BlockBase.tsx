@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react';
+import React, {CSSProperties, PropsWithChildren, useMemo} from 'react';
 
 import {Col} from '../../grid';
 import {BlockBaseProps, ClassNameProps, QAProps} from '../../models';
@@ -17,6 +17,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
         visibility,
         indent,
         backgroundFull,
+        selectionColor,
         visible,
         hidden,
         children,
@@ -30,7 +31,11 @@ const BlockBase = (props: BlockBaseFullProps) => {
 
     const isBackgroundUrl = /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(backgroundFull || '');
     const visibilityClasses = getBlockVisibilityClasses(visibility);
-
+    const rootStyle = useMemo(
+        () =>
+            selectionColor ? ({['--selection-bg']: selectionColor} as CSSProperties) : undefined,
+        [selectionColor],
+    );
     return (
         <Col
             className={b(
@@ -42,6 +47,7 @@ const BlockBase = (props: BlockBaseFullProps) => {
                 },
                 className,
             )}
+            style={rootStyle}
             hidden={hidden}
             visible={visible}
             reset={true}

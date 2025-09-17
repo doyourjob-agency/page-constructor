@@ -118,6 +118,7 @@ export interface BlockBaseProps {
         bottom?: IndentValue;
     };
     backgroundFull?: string; // deprecated, use 'blockBackground'
+    selectionColor?: string;
     blockBackground?: BlockBackgroundType;
     className?: string;
     qa?: string;

@@ -31,6 +31,7 @@ export const ConstructorBlock = ({
                 'resetPaddings',
                 'indent',
                 'backgroundFull',
+                'selectionColor',
             ]),
         [data],
     );
