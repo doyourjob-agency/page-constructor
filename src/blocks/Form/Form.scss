@@ -143,11 +143,17 @@ $largeBorderRadius: 32px;
         }
     }
 
-    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
-        &__row {
+    @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        &__row:not(#{$root}__row_direction_form-content) {
             flex-direction: column;
         }
 
+        &__row_direction_form-content {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'lg')) and (min-width: map-get($gridBreakpoints, 'md')) {
         &_with-background,
         &:not(#{$root}_with-background) {
             #{$root}__row {
@@ -170,14 +176,24 @@ $largeBorderRadius: 32px;
 
                 #{$root}__content-wrapper {
                     text-align: center;
+                }
+
+                &:not(#{$root}__row_direction_form-content) #{$root}__content-wrapper {
                     padding-bottom: $indentM;
+                }
+
+                &#{$root}__row_direction_form-content #{$root}__content-wrapper {
+                    padding-top: $indentM;
                 }
             }
         }
 
         &:not(#{$root}_with-background) &__row {
-            #{$root}__content-wrapper {
+            &:not(#{$root}__row_direction_form-content) #{$root}__content-wrapper {
                 padding: 0 0 $indentM 0;
+            }
+            &#{$root}__row_direction_form-content #{$root}__content-wrapper {
+                padding: $indentM 0 0 0;
             }
         }
     }
@@ -197,8 +213,14 @@ $largeBorderRadius: 32px;
                     padding: 0;
                 }
 
-                #{$root}__content-wrapper {
+                &:not(#{$root}__row_direction_form-content) #{$root}__content-wrapper {
                     padding-bottom: $indentM;
+                }
+                &#{$root}__row_direction_form-content #{$root}__content-wrapper {
+                    padding-top: $indentM;
+                }
+
+                #{$root}__content-wrapper {
                     margin-bottom: 0;
                 }
             }
