@@ -122,6 +122,12 @@
       }
     }
   },
+  "withUnicorn": {
+    "content": {
+      "type": "content-layout-block",
+      "unicorn": "/story-assets/unicorn.json"
+    }
+  },
   "textAlignCenter": {
     "content": {
       "type": "content-layout-block",

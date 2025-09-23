@@ -672,6 +672,7 @@ export interface IconsBlockProps {
 interface ContentLayoutBlockParams {
     size?: ContentSize;
     background?: ThemeSupporting<BackgroundImageProps>;
+    unicorn?: string;
     centered?: boolean;
     theme?: ContentTheme;
     textWidth?: ContentTextSize;

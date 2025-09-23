@@ -49,10 +49,11 @@ $block: '.#{$ns}content-layout-block';
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: $borderRadius;
+        overflow: hidden;
 
         &-item {
             height: 100%;
-            border-radius: $borderRadius;
         }
     }
 

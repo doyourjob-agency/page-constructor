@@ -164,6 +164,7 @@ export const Default = DefaultTemplate.bind([]);
 export const WithFiles = WithFilesTemplate.bind([]);
 export const Size = SizesTemplate.bind([]);
 export const WithBackgroundColor = BackgroundTemplate.bind({});
+export const WithUnicorn = BackgroundTemplate.bind({});
 export const WithBackgroundImageAndColor = BackgroundTemplate.bind({});
 export const TextAlignCenter = BackgroundTemplate.bind({});
 export const Theme = ThemesTemplate.bind([]);
@@ -197,6 +198,15 @@ Size.args = {
 
 WithBackgroundColor.args = {
     ...data.withBackgroundColor.content,
+    textContent: {
+        title: data.common.title,
+        text: transformedText,
+        buttons: data.common.buttons,
+    },
+} as ContentLayoutBlockProps;
+
+WithUnicorn.args = {
+    ...data.withUnicorn.content,
     textContent: {
         title: data.common.title,
         text: transformedText,

@@ -1,5 +1,7 @@
 import React, {useContext, useMemo} from 'react';
 
+import UnicornScene from 'unicornstudio-react';
+
 import {BackgroundImage, FileLink} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
@@ -41,6 +43,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         fileContent,
         size = 'l',
         background,
+        unicorn,
         centered,
         theme = 'default',
         textWidth = 'm',
@@ -51,7 +54,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const themedBackground = getThemedValue(background, globalTheme);
 
     return (
-        <div className={b({size, theme, background: Boolean(background)})}>
+        <div className={b({size, theme, background: Boolean(background) || Boolean(unicorn)})}>
             <Content
                 className={b('content')}
                 {...textContent}
@@ -80,6 +83,15 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
                         className={b('background-item')}
                         {...themedBackground}
                         hide={isMobile}
+                    />
+                </div>
+            )}
+            {unicorn && (
+                <div className={b('background')}>
+                    <UnicornScene
+                        className={b('background-item')}
+                        jsonFilePath={unicorn}
+                        width="100%"
                     />
                 </div>
             )}

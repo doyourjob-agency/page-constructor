@@ -15,6 +15,9 @@ const ContentLayoutBlockProperties = {
         enum: contentSizes,
     },
     background: BackgroundImageProps,
+    unicorn: {
+        type: 'string',
+    },
     centered: {
         type: 'boolean',
     },
