@@ -1,0 +1,1 @@
+import{R as e,b as m}from"./iframe-BaOgIThH.js";const o=m("empty-plug"),t=({empty:s})=>e.createElement("div",{className:o()},s),r=e.memo(t);t.__docgenInfo={description:"",methods:[],displayName:"EmptyPlug",props:{empty:{required:!1,tsType:{name:"string"},description:""}}};export{r as E};
