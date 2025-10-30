@@ -1,0 +1,35 @@
+import{j as i,M as n}from"./iframe--8y_hAUE.js";import{useMDXComponents as e}from"./index-Dmas7cEl.js";import{S as m}from"./StoryTemplate-BOAGIeVH.js";import{H as p}from"./HighlightTable.stories-D6GGCwNW.js";import"./preload-helper-D6kgxu3v.js";import"./utils-DKTfWgRb.js";import"./index-BSQLFoMp.js";import"./keys-Cy_jny8C.js";import"./_baseKeys-DHb_7LwJ.js";import"./url-BTV04eQ9.js";import"./index-Bw8wY5-6.js";import"./cjs-Cz8BQk8L.js";import"./PageConstructor-C7eG4kKs.js";import"./BackgroundMedia-CkgW5T2M.js";import"./AnimateBlock-C_PPFeM_.js";import"./inheritsLoose-B6TuBNuE.js";import"./Media-OL6o9ZWX.js";import"./VideoBlock-lDO0QBsU.js";import"./debounce-B9-LisEC.js";import"./isSymbol-CyyA7zcZ.js";import"./useAnalytics-ChIQtWxF.js";import"./Image-ClK9Bpro.js";import"./constants-D1qj5IDx.js";import"./blocks-CxHYg9s2.js";import"./toString-Bn4_f1Ax.js";import"./addComponentKeysets-BL6FKVwe.js";import"./v4-Dv1xt2bl.js";import"./url-CQhBb8_q.js";import"./PlayFill-DOK8PIlV.js";import"./useUniqId-BoLIqCVI.js";import"./common-CkMfKubd.js";import"./Icon-B1_ISU8x.js";import"./useActionHandlers-2sb4kKoa.js";import"./constants-BUPVgVv0.js";import"./FullscreenImage-DgbnizcE.js";import"./Xmark-BwtBBNgv.js";import"./transition-Ym9K3MEf.js";import"./EventBroker-Dbb4kF6a.js";import"./Button-WZBJSIhs.js";import"./ReactPlayer-DrB0NkAb.js";import"./index-DPqS1T46.js";import"./common-CgL19bot.js";import"./useMount-Wd1SOVA8.js";import"./Slider-DFTgYsrL.js";import"./_baseIteratee-Ci59vEzl.js";import"./_getTag-CNkMps-Y.js";import"./Title-DM3RfJnP.js";import"./HTML-DMtnnOwi.js";import"./ToggleArrow-NYbmiJBs.js";import"./svg-CQ-OHbUx.js";import"./Link-D7zMXH2P.js";import"./BackLink-DXuOywUc.js";import"./FileLink-BfBwkj1F.js";import"./Label-BnIGBBDi.js";import"./Col-CxonwRl3.js";import"./StylesContext-B3Rgkmay.js";import"./BackgroundImage-C1vX4fo9.js";import"./utils-COU2-ufE.js";import"./Link-DSJooqMO.js";import"./Content-DSphVRx0.js";import"./Links-Bgk5mkTC.js";import"./ContentList-B1e7gmkU.js";import"./theme-Bb5cdwdB.js";import"./Buttons-BYDilqE0.js";import"./Button-kk1nggXK.js";import"./Row-A5sJ39eh.js";import"./BalancedMasonry-C3Ylfnp5.js";import"./FullWidthBackground-CqHQbGU-.js";import"./PriceDetailed-D_fOe8-R.js";import"./toInteger-2BmBHhrX.js";import"./CardBase-R9EbXjtG.js";import"./RouterLink-DpY-O-d3.js";import"./Grid-JZP_NFLh.js";import"./Table-CbE4lpk-.js";import"./HeaderBreadcrumbs-BZYNQUgo.js";import"./CardLayout-BsMynQtj.js";import"./Map-9o7GQmJE.js";import"./ErrorWrapper-LxI_VUpS.js";import"./YandexForm-6KG4Xvxl.js";import"./index-BSo9EJXs.js";import"./AttachmentCard-DY30nqzK.js";import"./Tag-Ban0AxXl.js";import"./EmptyPlug-C_zuos-o.js";import"./sub-blocks-BnRb4tSo.js";import"./BasicCard-CdNbjc-6.js";import"./IconWrapper-CulvviBq.js";import"./Paginator-D-rOHnYD.js";import"./CaseStudyCard-DS1Sbb8R.js";import"./ServiceIcon-DfZF-gh4.js";import"./ReportItem-Bz5G-lsZ.js";import"./ReportFile-CJBPd96i.js";import"./ReportSection-Dx5JTm52.js";import"./Divider-BAnENigh.js";import"./MediaCard-C_r7XBSB.js";import"./LayoutItem-BnupbwOx.js";import"./MetaInfo-BGqZIUKq.js";import"./BackgroundCard-Cj-ytFYT.js";import"./Quote-CPcCacr4.js";import"./Author-C6s1QMzp.js";import"./PriceCard-Dq-0eUsH.js";import"./ImageCard-CbkZ9Zh1.js";import"./Card-CLTY6YuU.js";import"./ServiceLabel-DUIyK8ph.js";import"./EventPersonCard-Dent0Tg4.js";import"./OverflowScroller-fHo7OJ5i.js";import"./Control-D__hx7ES.js";import"./BlockBase-CZrreDsK.js";function o(r){const t={code:"code",h2:"h2",li:"li",p:"p",ul:"ul",...e(),...r.components};return i.jsxs(i.Fragment,{children:[i.jsx(n,{of:p}),`
+`,i.jsxs(m,{children:[i.jsx(t.h2,{id:"parameters",children:"Parameters"}),i.jsx(t.p,{children:i.jsx(t.code,{children:"type: 'highlight-table-block'"})}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"title?: string"})," — Title on the left"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"description?: string"})," — Description on the left"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"contentSize?: ContentSize (s | l)"})," - Content size for table & legend."]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"legend?: string[]"})," — Legend for the table"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"table: HighlightTable"})," — HighlightTable content"]}),i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"content: (string | HighlightTableCell)[][]"})," — Text in the table cells"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"cell: string"})," — Text in the table cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"buttonUrl?: string"})," — Url button in cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"buttonText?: string"})," — Text button in cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"columnWidth?: 12 | 6 | 4 | 3 | 2"})," — Custom column width for cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"highlighter?: string[]"})," — Colors in the table rows"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"customColumnWidth?: (12 | 6 | 4 | 3 | 2)[]"})," — Sizes in the table cells"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"justify?: ('left' | 'center' | 'right')[]"})," — Text alignment."]}),`
+`]}),`
+`]})]})]})}function pt(r={}){const{wrapper:t}={...e(),...r.components};return t?i.jsx(t,{...r,children:i.jsx(o,{...r})}):o(r)}export{pt as default};
