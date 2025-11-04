@@ -570,4 +570,8 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
+    [BlockType.AdvantagesBlock]: {
+        fields: ['title'],
+        transformer: typografTransformer,
+    },
 };

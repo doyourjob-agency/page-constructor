@@ -7,97 +7,105 @@ $block: '.#{$ns}advantages-block';
     @include animate();
 
     &__header {
-        margin-bottom: $indentXS;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        @include add-specificity(&) {
+            padding-top: $indentM;
+            padding-bottom: $indentM;
+        }
     }
 
     &__title {
-        padding-top: $indentXS;
+        @extend %heading-margin-reset;
+        @include heading1;
+
+        color: var(--pc-color-ab-base);
     }
 
-    &__title,
     &__link {
         @extend %heading-margin-reset;
+        @include heading1;
 
-        font-size: 56px;
-        line-height: 50px;
-        color: var(--pc-text-header-color);
-        font-weight: normal;
-        letter-spacing: -3px;
-        margin-bottom: $indentL;
+        transition: color 0.3s ease;
+        color: var(--pc-color-ab-second);
+        margin-bottom: $indentM;
 
-        @media (max-width: map-get($gridBreakpoints, 'lg')) {
-            margin-bottom: $indentXS;
-            padding-top: 0;
-        }
-
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            @include text-size(display-2);
+        @include hover() {
+            color: var(--pc-color-ab-base);
         }
     }
 
-    &__link {
-        opacity: 1;
-        transition: opacity 0.3s ease;
+    &__wrap-logo {
+        margin-top: auto;
+    }
 
-        @include hover() {
-            color: var(--pc-text-header-color);
-            opacity: 0.5;
-        }
+    &__logo {
+        display: block;
+        object-fit: contain;
+        height: 76px;
     }
 
     &__item {
-        display: block;
-        padding: $indentSM 0;
+        display: flex;
+        margin-left: $indentXXXS;
+        border-left: 1px var(--pc-color-ab-border) solid;
+        border-right: 1px var(--pc-color-ab-border) solid;
+        transition: opacity 0.3s ease;
 
-        transition: background-color 0.3s ease;
+        @include hover() {
+            opacity: 0.5;
+        }
 
         & + & {
-            border-top: 1px var(--g-color-private-black-200) dashed;
+            border-top: 1px var(--pc-color-ab-border) solid;
         }
 
         &-wrap {
-            display: flex;
-            margin-top: $indentXXXS;
-
-            @media (max-width: map-get($gridBreakpoints, 'md')) {
-                margin-top: 0;
-                margin-bottom: $indentXS;
-                align-items: center;
-            }
+            padding: $indentM;
         }
 
-        &-icon {
-            width: 25px;
-            height: 25px;
+        &-image {
+            width: 230px;
+            height: 230px;
             display: block;
-            margin-right: $indentXS;
+            margin-left: $indentM;
         }
 
         &-title {
             @extend %heading-margin-reset;
 
-            font-size: 14px;
-            line-height: 20px;
-            color: var(--pc-text-header-color);
-            font-weight: normal;
+            @include heading3;
+
+            color: var(--pc-color-ab-second);
+            margin-bottom: $indentXXXS;
         }
 
         &-desc {
-            font-size: 24px;
-            line-height: 32px;
-            color: var(--pc-text-header-color);
-            letter-spacing: -1px;
+            @include heading3;
 
-            @media (max-width: map-get($gridBreakpoints, 'sm')) {
-                @include text-size(body-3);
+            color: var(--pc-color-ab-base);
+            opacity: 0.6;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            border-left: none;
+            border-right: none;
+            border-top: 1px var(--pc-color-ab-border) solid;
+            margin-left: 0;
+
+            &-wrap {
+                padding: $indentM 0;
             }
         }
 
-        @media (min-width: map-get($gridBreakpoints, 'lg')) {
-            padding: $indentSM;
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            flex-direction: column;
+            margin-bottom: $indentXS;
 
-            @include hover() {
-                background-color: var(--pc-ab-hover-color, var(--g-color-private-black-100));
+            &-wrap {
+                padding: $indentXS 0;
             }
         }
     }
