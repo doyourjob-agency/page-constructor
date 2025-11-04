@@ -2,7 +2,7 @@
   "default": {
     "content": {
       "type": "advantages-block",
-      "title": "No queues.<br>No black boxes.",
+      "title": "No queues.\nNo black boxes.",
       "link": {
         "text": "Just raw AI power.",
         "url": "#"

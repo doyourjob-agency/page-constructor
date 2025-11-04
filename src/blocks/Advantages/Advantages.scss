@@ -19,21 +19,37 @@ $block: '.#{$ns}advantages-block';
 
     &__title {
         @extend %heading-margin-reset;
-        @include heading1;
+        @include text-accent();
 
+        font-size: 48px;
+        line-height: 52px;
         color: var(--pc-color-ab-base);
+
+        p {
+            margin: 0;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            @include text-size(display-2);
+        }
     }
 
     &__link {
         @extend %heading-margin-reset;
-        @include heading1;
+        @include text-accent();
 
+        font-size: 48px;
+        line-height: 52px;
         transition: color 0.3s ease;
         color: var(--pc-color-ab-second);
         margin-bottom: $indentM;
 
         @include hover() {
             color: var(--pc-color-ab-base);
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            @include text-size(display-2);
         }
     }
 
@@ -49,21 +65,19 @@ $block: '.#{$ns}advantages-block';
 
     &__item {
         display: flex;
-        margin-left: $indentXXXS;
-        border-left: 1px var(--pc-color-ab-border) solid;
-        border-right: 1px var(--pc-color-ab-border) solid;
+        margin-left: 0;
+        margin-bottom: $indentXS;
+        border-left: none;
+        border-right: none;
+        border-top: 1px var(--pc-color-ab-border) solid;
         transition: opacity 0.3s ease;
 
         @include hover() {
             opacity: 0.5;
         }
 
-        & + & {
-            border-top: 1px var(--pc-color-ab-border) solid;
-        }
-
         &-wrap {
-            padding: $indentM;
+            padding: $indentM 0;
         }
 
         &-image {
@@ -89,20 +103,23 @@ $block: '.#{$ns}advantages-block';
             opacity: 0.6;
         }
 
-        @media (max-width: map-get($gridBreakpoints, 'lg')) {
-            border-left: none;
-            border-right: none;
-            border-top: 1px var(--pc-color-ab-border) solid;
-            margin-left: 0;
+        @media (min-width: map-get($gridBreakpoints, 'xl')) {
+            border-left: 1px var(--pc-color-ab-border) solid;
+            border-right: 1px var(--pc-color-ab-border) solid;
+            margin-left: $indentXXXS;
+            margin-bottom: 0;
+
+            & + & {
+                border-top: 1px var(--pc-color-ab-border) solid;
+            }
 
             &-wrap {
-                padding: $indentM 0;
+                padding: $indentM;
             }
         }
 
-        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
             flex-direction: column;
-            margin-bottom: $indentXS;
 
             &-wrap {
                 padding: $indentXS 0;
