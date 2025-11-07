@@ -41,7 +41,8 @@ $block: '.#{$ns}VideoBlock';
         height: 64px;
 
         color: var(--g-color-base-background);
-        background-color: var(--g-color-base-brand);
+        backdrop-filter: blur(30px);
+        background-color: rgba(215, 215, 215, 0.32);
         border-radius: 50%;
     }
 
