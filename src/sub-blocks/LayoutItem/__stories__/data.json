@@ -46,6 +46,11 @@
       }
     }
   },
+  "withMediaLink": {
+    "content": {
+      "mediaLink": "#"
+    }
+  },
   "withList": {
     "content": {
       "list": [

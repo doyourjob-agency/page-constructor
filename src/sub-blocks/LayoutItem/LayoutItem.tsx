@@ -23,6 +23,7 @@ const LayoutItem = ({
     content: {links, ...content},
     metaInfo,
     media,
+    mediaLink,
     border,
     fullscreen,
     icon,
@@ -96,7 +97,7 @@ const LayoutItem = ({
                     {summary && <div className={b('summary')}>{summary}</div>}
                 </div>
             )}
-            {renderMedia()}
+            {mediaLink ? <a href={mediaLink}>{renderMedia()}</a> : renderMedia()}
             {metaInfo && (
                 <MetaInfo items={metaInfo} className={b('meta-info', {right: rightSpace})} />
             )}
