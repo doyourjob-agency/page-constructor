@@ -30,6 +30,7 @@ const LayoutItem = ({
     analyticsEvents,
     controlPosition = 'content',
     label,
+    jumpOnHover,
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
@@ -79,7 +80,7 @@ const LayoutItem = ({
         );
     };
     return (
-        <div className={b(null, className)}>
+        <div className={b({jumpOnHover}, className)}>
             {label && <Tag {...label} />}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>

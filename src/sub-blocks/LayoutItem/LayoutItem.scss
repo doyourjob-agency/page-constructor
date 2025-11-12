@@ -16,6 +16,10 @@ $block: '.#{$ns}layout-item';
         }
     }
 
+    &_jumpOnHover {
+        @include card-hover();
+    }
+
     &__summary {
         @include text-size(body-1);
 

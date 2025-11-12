@@ -32,6 +32,7 @@
       "title": {"text": "Title", "size": "m"},
       "afterTitle": {"text": "After title", "size": "m"},
       "rightSpace": true,
+      "jumpOnHover": false,
       "content": {
         "title": "Lorem&nbsp;ipsum",
         "text": "Dolor sit *amet*"

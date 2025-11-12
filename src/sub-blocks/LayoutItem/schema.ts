@@ -73,5 +73,8 @@ export const LayoutItem = {
             ],
         },
         label: Tag,
+        jumpOnHover: {
+            type: 'boolean',
+        },
     },
 };

@@ -224,6 +224,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     fullscreen?: boolean;
     icon?: ThemeSupporting<PositionedIcon>;
     label?: TagProps;
+    jumpOnHover?: boolean;
 }
 
 export interface ImageCardProps
