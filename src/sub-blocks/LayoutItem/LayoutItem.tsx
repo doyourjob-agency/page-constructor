@@ -98,7 +98,14 @@ const LayoutItem = ({
                 </div>
             )}
             {mediaLink ? (
-                <a href={mediaLink} aria-hidden tabIndex={0}>
+                <a
+                    download={mediaLink.download}
+                    target={mediaLink.newTab ? '_blank' : ''}
+                    aria-hidden
+                    href={mediaLink.href}
+                    tabIndex={0}
+                    rel="noreferrer"
+                >
                     {renderMedia()}
                 </a>
             ) : (

@@ -219,7 +219,11 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     rightSpace?: boolean;
     content: Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size'>;
     media?: ThemeSupporting<MediaProps>;
-    mediaLink?: string;
+    mediaLink?: {
+        href: string;
+        download?: boolean;
+        newTab?: boolean;
+    };
     metaInfo?: string[];
     border?: boolean;
     fullscreen?: boolean;

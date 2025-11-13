@@ -48,7 +48,11 @@
   },
   "withMediaLink": {
     "content": {
-      "mediaLink": "#"
+      "mediaLink": {
+        "href": "#",
+        "newTab": true,
+        "download": false
+      }
     }
   },
   "withList": {
