@@ -97,7 +97,13 @@ const LayoutItem = ({
                     {summary && <div className={b('summary')}>{summary}</div>}
                 </div>
             )}
-            {mediaLink ? <a href={mediaLink}>{renderMedia()}</a> : renderMedia()}
+            {mediaLink ? (
+                <a href={mediaLink} aria-hidden tabIndex={0}>
+                    {renderMedia()}
+                </a>
+            ) : (
+                renderMedia()
+            )}
             {metaInfo && (
                 <MetaInfo items={metaInfo} className={b('meta-info', {right: rightSpace})} />
             )}
