@@ -70,6 +70,7 @@ const ControlPositionTemplate: StoryFn<LayoutItemProps> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const WithMediaLink = DefaultTemplate.bind({});
 export const WithLabel = DefaultTemplate.bind({});
 export const WithContentList = DefaultTemplate.bind({});
 export const Fullscreen = DefaultTemplate.bind({});
@@ -87,10 +88,17 @@ const DefaultArgs = {
 };
 
 Default.args = DefaultArgs as LayoutItemProps;
+
+WithMediaLink.args = {
+    ...DefaultArgs,
+    ...data.withMediaLink.content,
+} as LayoutItemProps;
+
 WithLabel.args = {
     ...DefaultArgs,
     ...data.withLabel.content,
 } as LayoutItemProps;
+
 WithContentList.args = {
     ...DefaultArgs,
     content: {

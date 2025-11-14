@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.31.128](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.123...v5.31.128) (2025-08-26)
+
+### Features
+
+* **LayoutCard:** add an ability to wrap a link around media
+
 ## [5.31.123](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.122...v5.31.123) (2025-08-26)
 
 ### Features

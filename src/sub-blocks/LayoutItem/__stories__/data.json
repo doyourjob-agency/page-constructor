@@ -47,6 +47,15 @@
       }
     }
   },
+  "withMediaLink": {
+    "content": {
+      "mediaLink": {
+        "href": "#",
+        "target": "_blank",
+        "download": false
+      }
+    }
+  },
   "withList": {
     "content": {
       "list": [
