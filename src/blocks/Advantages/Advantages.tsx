@@ -12,8 +12,8 @@ import './Advantages.scss';
 
 const b = block('advantages-block');
 
-const colSizesHeader = {all: 12, lg: 6};
-const colSizesBody = {all: 12, lg: 6};
+const colSizesHeader = {all: 12, xl: 6};
+const colSizesBody = {all: 12, xl: 6};
 
 export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
     const {animated, title, link, logo, items} = props;
