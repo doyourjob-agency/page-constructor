@@ -58,6 +58,13 @@ declare namespace Ymaps {
     }
 }
 
+declare namespace odometer {
+    export class Odometer {
+        constructor(options: {el: HTMLElement; value: number; format: string; duration: number});
+        update(value: number): void;
+    }
+}
+
 interface Window {
     hbspt?: {
         forms: {
@@ -65,4 +72,5 @@ interface Window {
         };
     };
     ymaps: Ymaps;
+    Odometer?: odometer;
 }

@@ -1,0 +1,84 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}benchmark-block';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        margin-bottom: $indentM;
+    }
+
+    &__content {
+        flex: 1;
+        border: 1px #001a2b solid;
+        border-radius: $indentSM;
+        overflow: hidden;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 0.5px #001a2b solid;
+        margin-top: -0.5px;
+        margin-bottom: -0.5px;
+
+        @include add-specificity(&) {
+            padding-top: $indentM;
+            padding-bottom: $indentSM;
+        }
+    }
+
+    &__wrap-inner {
+        width: 100%;
+        display: flex;
+
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            flex-direction: column;
+        }
+    }
+
+    &__wrap-title {
+        text-align: center;
+        margin-bottom: $indentL;
+
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            margin-bottom: $indentSM;
+        }
+    }
+
+    &__item {
+        flex: 1;
+        text-align: center;
+        padding-left: $indentXXXS;
+        padding-right: $indentXXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            & + & {
+                margin-top: $indentM;
+            }
+        }
+    }
+
+    &__value {
+        font-size: 64px;
+        line-height: 52px;
+        font-weight: 600;
+        letter-spacing: -0.002em;
+        margin-top: $indentXXS;
+        margin-bottom: $indentXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            font-size: 32px;
+            line-height: 26px;
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+    }
+}

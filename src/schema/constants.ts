@@ -4,6 +4,7 @@ import {
     AdvantagesBlock,
     BannerBlock,
     BannerCard,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -103,6 +104,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsSectionsBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...BenchmarkBlock,
     ...EventsSectionBlock,
     ...BlogFeedBlock,
     ...RelevantPostsBlock,
@@ -180,6 +182,7 @@ export const constructorBlockSchemaNames = [
     'press-releases-block',
     'mini-case-block',
     'advantages-block',
+    'benchmark-block',
 ];
 
 export const constructorCardSchemaNames = [
