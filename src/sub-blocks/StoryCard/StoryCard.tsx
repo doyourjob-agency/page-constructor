@@ -21,7 +21,7 @@ const StoryCard: React.FC<StoryCardProps> = ({
     logo,
     avatar,
     autor,
-    items,
+    data,
     background,
 }) => {
     return (
@@ -35,7 +35,7 @@ const StoryCard: React.FC<StoryCardProps> = ({
                     </div>
                 </Col>
                 <Col className={b('col')} sizes={columnSizes}>
-                    {items?.map((item, index) => (
+                    {data?.map((item, index) => (
                         <div key={index} className={b('box', {centered: true})}>
                             <div className={b('value')}>{item.value}</div>
                             <div className={b('label')}>{item.label}</div>

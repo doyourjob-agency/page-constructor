@@ -333,7 +333,7 @@ export interface StoryCardProps {
     logo?: string;
     avatar?: string;
     autor?: string;
-    items?: {value: string; label?: string}[];
+    data?: {value: string; label?: string}[];
     background?: string;
 }
 
