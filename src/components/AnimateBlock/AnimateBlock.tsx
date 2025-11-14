@@ -14,11 +14,21 @@ export interface AnimateBlockProps extends AnimateContextProps, QAProps {
     className?: string;
     style?: CSSProperties;
     onScroll?: () => void;
+    onAnimateStart?: () => void;
 }
 
 const AnimateBlock = (props: React.PropsWithChildren<AnimateBlockProps>) => {
     const {animated} = useContext(AnimateContext);
-    const {children, className, offset = 100, onScroll, style, animate = animated, qa} = props;
+    const {
+        children,
+        className,
+        offset = 100,
+        onScroll,
+        style,
+        animate = animated,
+        qa,
+        onAnimateStart,
+    } = props;
     const [playAnimation, setPlayAnimation] = useState<boolean>(false);
 
     const divClassName = animate
@@ -32,6 +42,7 @@ const AnimateBlock = (props: React.PropsWithChildren<AnimateBlockProps>) => {
                 bottomOffset={offset}
                 onEnter={async () => {
                     setPlayAnimation(true);
+                    onAnimateStart?.();
                     if (onScroll) {
                         onScroll();
                     }

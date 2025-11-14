@@ -1,0 +1,28 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BenchmarkStories from './Benchmark.stories.tsx';
+
+<Meta of={BenchmarkStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "benchmark-block"`
+
+`title?: Title | string` — Title.
+
+`duration?: number` — Duration animation in ms.
+
+`data: BenchmarkData` — Benchmark data content.
+
+- `title?: string` — Column title.
+- `sizes?: Object` — more info [here](?path=/docs/documentation-types--docs#colsizes).
+- `items: BenchmarkColumn` — Benchmark column content
+- -   `top?: string` — Text above the value
+- -   `bottom?: string` — Text below the value
+- -   `postfix?: string` — text after value
+- -   `value: number` — Value.
+- -   `init?: number` — Init value.
+
+
+</StoryTemplate>

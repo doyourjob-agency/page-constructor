@@ -45,6 +45,7 @@ import {
 import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {
+    AdvantagesBlock = 'advantages-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -87,6 +88,7 @@ export enum BlockType {
     SliderNewBlock = 'slider-new-block',
     HighlightTableBlock = 'highlight-table-block',
     MiniCaseBlock = 'mini-case-block',
+    BenchmarkBlock = 'benchmark-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -332,6 +334,18 @@ export interface LogoRotatorBlockProps extends Animatable {
     items: {url: string; src: string}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
+}
+
+export interface AdvantagesBlockProps {
+    title?: string;
+    link?: Pick<LinkProps, 'text' | 'url'>;
+    logo?: string;
+    items?: {
+        image?: string;
+        title: string;
+        description: string;
+        url: string;
+    }[];
 }
 
 export interface CompaniesBlockProps extends Animatable {
@@ -620,6 +634,22 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     largeItemGap?: boolean;
 }
 
+export interface BenchmarkBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    duration?: number;
+    data: {
+        title?: string;
+        sizes?: GridColumnSizesType;
+        items: {
+            top?: string;
+            value: number;
+            init?: number;
+            postfix?: string;
+            bottom?: string;
+        }[];
+    }[];
+}
+
 export type FilterTag = {
     id: string;
     label: string;
@@ -793,6 +823,10 @@ export type LogoRotatorBlockModel = {
     type: BlockType.LogoRotatorBlock;
 } & LogoRotatorBlockProps;
 
+export type AdvantagesBlockModel = {
+    type: BlockType.AdvantagesBlock;
+} & AdvantagesBlockProps;
+
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
@@ -901,6 +935,10 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type BenchmarkBlockModel = {
+    type: BlockType.BenchmarkBlock;
+} & BenchmarkBlockProps;
+
 export type EventsSectionBlockModel = {
     type: BlockType.EventsSectionBlock;
 } & EventsSectionBlockProps;
@@ -940,6 +978,7 @@ type BlockModels =
     | QuestionsBlockModel
     | BannerBlockModel
     | LogoRotatorBlockModel
+    | AdvantagesBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel
@@ -968,6 +1007,7 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | BenchmarkBlockModel
     | EventsSectionBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel

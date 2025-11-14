@@ -1,5 +1,7 @@
 import {
+    AdvantagesBlock,
     BannerBlock,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -69,12 +71,14 @@ import {
     PriceCard,
     PriceDetailed,
     Quote,
+    StoryCard,
 } from './sub-blocks';
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
+    [BlockType.AdvantagesBlock]: AdvantagesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.LogoRotatorBlock]: LogoRotatorBlock,
@@ -98,6 +102,7 @@ export const blockMap = {
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
+    [BlockType.BenchmarkBlock]: BenchmarkBlock,
     [BlockType.EventsSectionBlock]: EventsSectionBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.RelevantPostsBlock]: RelevantPostsBlock,
@@ -135,6 +140,7 @@ export const subBlockMap = {
     [SubBlockType.EventPersonCard]: EventPersonCard,
     [SubBlockType.AttachmentCard]: AttachmentCard,
     [SubBlockType.CaseStudyCard]: CaseStudyCard,
+    [SubBlockType.StoryCard]: StoryCard,
 };
 
 export const navItemMap = {

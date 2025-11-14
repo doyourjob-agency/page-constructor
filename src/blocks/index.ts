@@ -8,6 +8,7 @@ export {default as SliderBlock} from './Slider/Slider';
 export {default as SliderNewBlock} from './SliderNew/Slider';
 export {default as ExtendedFeaturesBlock} from './ExtendedFeatures/ExtendedFeatures';
 export {default as PromoFeaturesBlock} from './PromoFeaturesBlock/PromoFeaturesBlock';
+export {default as AdvantagesBlock} from './Advantages/Advantages';
 export {default as QuestionsBlock} from './Questions/Questions';
 export {default as TableBlock} from './Table/Table';
 export {default as TabsBlock} from './Tabs/Tabs';
@@ -40,3 +41,4 @@ export {default as RelevantReportsBlock} from './RelevantReports/RelevantReports
 export {default as PressReleasesBlock} from './PressReleases/PressReleases';
 export {default as HighlightTableBlock} from './HighlightTable/HighlightTable';
 export {default as MiniCaseBlock} from './MiniCase/MiniCase';
+export {default as BenchmarkBlock} from './Benchmark/Benchmark';

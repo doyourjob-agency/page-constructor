@@ -513,6 +513,13 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
+    [BlockType.BenchmarkBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+    ],
     [BlockType.FilterBlock]: blockHeaderTransformer,
     [BlockType.FilterCardLayoutBlock]: [
         ...blockHeaderTransformer,
@@ -569,5 +576,20 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [SubBlockType.StoryCard]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+        {
+            fields: ['text', 'quote', 'autor'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
+    [BlockType.AdvantagesBlock]: {
+        fields: ['title'],
+        transformer: yfmTransformer,
+    },
 };

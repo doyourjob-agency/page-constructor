@@ -1,8 +1,10 @@
 import {BlockType} from '../models';
 
 import {
+    AdvantagesBlock,
     BannerBlock,
     BannerCard,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -61,12 +63,14 @@ import {
     PriceCardBlock,
     PriceDetailedBlock,
     Quote,
+    StoryCard,
 } from './validators/sub-blocks';
 
 export const blockSchemas: Record<BlockType, object> = {
     ...Divider,
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
+    ...AdvantagesBlock,
     ...SliderBlock,
     ...QuestionsBlock,
     ...HeaderBlock,
@@ -100,6 +104,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsSectionsBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...BenchmarkBlock,
     ...EventsSectionBlock,
     ...BlogFeedBlock,
     ...RelevantPostsBlock,
@@ -125,6 +130,7 @@ export const cardSchemas = {
     ...EventPersonCard,
     ...AttachmentCard,
     ...CaseStudyCard,
+    ...StoryCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -175,6 +181,8 @@ export const constructorBlockSchemaNames = [
     'relevant-reports-block',
     'press-releases-block',
     'mini-case-block',
+    'advantages-block',
+    'benchmark-block',
 ];
 
 export const constructorCardSchemaNames = [
@@ -195,4 +203,5 @@ export const constructorCardSchemaNames = [
     'feed-card',
     'event-person-card',
     'case-study-card',
+    'story-card',
 ];
