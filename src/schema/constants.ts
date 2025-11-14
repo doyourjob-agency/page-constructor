@@ -61,6 +61,7 @@ import {
     PriceCardBlock,
     PriceDetailedBlock,
     Quote,
+    StoryCard,
 } from './validators/sub-blocks';
 
 export const blockSchemas: Record<BlockType, object> = {
@@ -125,6 +126,7 @@ export const cardSchemas = {
     ...EventPersonCard,
     ...AttachmentCard,
     ...CaseStudyCard,
+    ...StoryCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -195,4 +197,5 @@ export const constructorCardSchemaNames = [
     'feed-card',
     'event-person-card',
     'case-study-card',
+    'story-card',
 ];

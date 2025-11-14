@@ -1,0 +1,28 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as StoryCardStories from './StoryCard.stories.tsx';
+
+<Meta of={StoryCardStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "story-card"`
+
+`title?: Title | string` — Title.
+
+`text?: string` — Left text.
+
+`quote?: string` — Right text.
+
+`logo?: string` — Right logo.
+
+`avatar?: string` — Right avatar.
+
+`autor?: string` — Right autor text.
+
+`background?: string` — Background card.
+
+`items?: {value: string; label?: string}[]` — Center elements.
+
+</StoryTemplate>
