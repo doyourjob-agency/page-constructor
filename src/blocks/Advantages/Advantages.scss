@@ -95,5 +95,9 @@ $block: '.#{$ns}advantages-block';
                 @include text-size(body-3);
             }
         }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            padding: $indentSM 0;
+        }
     }
 }
