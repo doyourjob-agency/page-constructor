@@ -13,7 +13,7 @@ const b = block('benchmark-block');
 
 const defaultSizes = {all: 12};
 
-const Benchmark: React.FC<BenchmarkBlockProps> = ({title, data, animated}) => {
+const Benchmark: React.FC<BenchmarkBlockProps> = ({title, data, duration, animated}) => {
     const [playNumbers, setPlayNumbers] = useState(false);
     const handleOnAnimateStart = useCallback(() => setPlayNumbers(true), []);
 
@@ -46,6 +46,7 @@ const Benchmark: React.FC<BenchmarkBlockProps> = ({title, data, animated}) => {
                                                 value={item.value}
                                                 postfix={item.postfix}
                                                 animated={playNumbers}
+                                                duration={duration}
                                             />
                                         </div>
                                         {item.bottom && (

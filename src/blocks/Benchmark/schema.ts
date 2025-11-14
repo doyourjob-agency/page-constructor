@@ -13,6 +13,9 @@ export const BenchmarkBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: BlockHeaderProps.title,
+            duration: {
+                type: 'number',
+            },
             data: {
                 type: 'array',
                 items: {

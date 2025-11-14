@@ -3,6 +3,7 @@
     "content": {
       "type": "benchmark-block",
       "title": "Title",
+      "duration": 2000,
       "data": [
         {
           "title": "Shared filesystem",

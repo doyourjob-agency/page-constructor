@@ -636,6 +636,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 
 export interface BenchmarkBlockProps extends Animatable {
     title?: TitleItemProps | string;
+    duration?: number;
     data: {
         title?: string;
         sizes?: GridColumnSizesType;
