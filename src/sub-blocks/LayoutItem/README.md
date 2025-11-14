@@ -8,7 +8,7 @@
 
 `media: Media` — media props (see [Media](?path=/story/blocks-media--default))
 
-`mediaLink?: {href: string; download?: boolean; newTab?: boolean}` — object, that wraps a link around the media.
+`mediaLink?: {href: string; download?: boolean; target?: string}` — object, that wraps a link around the media.
 Href regulates the link, and download flag that sets whether or not we want this thing to be downloadable
 target regulates whether or not we want the link to be opened in new tab
 

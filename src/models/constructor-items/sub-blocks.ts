@@ -222,7 +222,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     mediaLink?: {
         href: string;
         download?: boolean;
-        target?: boolean;
+        target?: string;
     };
     metaInfo?: string[];
     border?: boolean;

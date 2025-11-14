@@ -50,6 +50,21 @@ export const LayoutItem = {
         rightSpace: {
             type: 'boolean',
         },
+        mediaLink: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+                href: {
+                    type: 'string',
+                },
+                download: {
+                    type: 'boolean',
+                },
+                target: {
+                    type: 'string',
+                },
+            },
+        },
         media: MediaProps,
         content: omit(ContentBase, ['colSize', 'size', 'centered']),
         metaInfo: metaInfo,
