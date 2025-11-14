@@ -338,9 +338,9 @@ export interface LogoRotatorBlockProps extends Animatable {
 export interface AdvantagesBlockProps extends Animatable {
     title?: string;
     link?: Pick<LinkProps, 'text' | 'url'>;
-    hoverColor?: string;
+    logo?: string;
     items?: {
-        icon: string;
+        image?: string;
         title: string;
         description: string;
         url: string;

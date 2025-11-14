@@ -19,7 +19,7 @@ export const AdvantagesBlock = {
                     text: {type: 'string'},
                 },
             },
-            hoverColor: {
+            logo: {
                 type: 'string',
             },
             items: {
@@ -30,7 +30,7 @@ export const AdvantagesBlock = {
                     required: true,
                     properties: {
                         url: {type: 'string'},
-                        icon: {type: 'string'},
+                        image: {type: 'string'},
                         title: {type: 'string'},
                         description: {type: 'string'},
                     },

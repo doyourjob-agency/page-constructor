@@ -2,39 +2,37 @@
   "default": {
     "content": {
       "type": "advantages-block",
-      "title": "Your cloud wasn’t built for AI.",
+      "title": "No queues.<br>No black boxes.",
       "link": {
-        "text": "Ours is →",
+        "text": "Just raw AI power.",
         "url": "#"
       },
-      "hoverColor": "#ffffff",
+      "logo": "/story-assets/content-bg-img_light.png",
       "items": [
         {
-          "icon": "/story-assets/icon_1_light.svg",
-          "title": "Faster time to AI value",
-          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "image": "/story-assets/icon_1_light.svg",
+          "title": "Train what’s next",
+          "description": "NVIDIA GB200 NVL72 and early upgrade paths to NVIDIA GB300 NVL72",
           "url": "#"
         },
         {
-          "icon": "/story-assets/icon_2_light.svg",
-          "title": "Faster time to AI value",
-          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "image": "/story-assets/icon_2_light.svg",
+          "title": "Shift gears and scale",
+          "description": "Blackwell-ready infrastructure and NVIDIA B200 power, whenever you need it",
           "url": "#"
         },
         {
-          "icon": "/story-assets/icon_3_light.svg",
-          "title": "Faster time to AI value",
-          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
-          "url": "#"
-        },
-        {
-          "icon": "/story-assets/icon_4_light.svg",
-          "title": "Faster time to AI value",
-          "description": "From zero to clusters in hours, not weeks, with built-in repeatability, self-service access and support every step of the way. ",
+          "image": "/story-assets/icon_3_light.svg",
+          "title": "Switch and save 15%",
+          "description": "Bring your contract, get guaranteed NVIDIA H200/H100 GPUs access.",
           "url": "#"
         }
       ],
-      "blockBackground": "#e0ff4f"
+      "blockBackground": "#001A2B",
+      "indent": {
+        "top": "0",
+        "bottom": "0"
+      }
     }
   }
 }
