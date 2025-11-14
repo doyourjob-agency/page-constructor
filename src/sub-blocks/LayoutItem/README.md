@@ -10,7 +10,7 @@
 
 `mediaLink?: {href: string; download?: boolean; newTab?: boolean}` — object, that wraps a link around the media.
 Href regulates the link, and download flag that sets whether or not we want this thing to be downloadable
-newTab regulates whether or not we want the link to be opened in new tab
+target regulates whether or not we want the link to be opened in new tab
 
 `content: Partial<Content>` - `Content` props (size and justify props like `colSizes`, `centered`, `size` are omitted) (see [Content](?path=/story/components-content--default))
 

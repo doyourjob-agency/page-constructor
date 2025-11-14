@@ -100,7 +100,7 @@ const LayoutItem = ({
             {mediaLink ? (
                 <a
                     download={mediaLink.download}
-                    target={mediaLink.newTab ? '_blank' : ''}
+                    target={mediaLink.target ? '_blank' : ''}
                     aria-hidden
                     href={mediaLink.href}
                     tabIndex={0}
