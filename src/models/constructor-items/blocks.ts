@@ -45,6 +45,7 @@ import {
 import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
 
 export enum BlockType {
+    AdvantagesBlock = 'advantages-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -332,6 +333,18 @@ export interface LogoRotatorBlockProps extends Animatable {
     items: {url: string; src: string}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
+}
+
+export interface AdvantagesBlockProps extends Animatable {
+    title?: string;
+    link?: Pick<LinkProps, 'text' | 'url'>;
+    hoverColor?: string;
+    items?: {
+        icon: string;
+        title: string;
+        description: string;
+        url: string;
+    }[];
 }
 
 export interface CompaniesBlockProps extends Animatable {
@@ -793,6 +806,10 @@ export type LogoRotatorBlockModel = {
     type: BlockType.LogoRotatorBlock;
 } & LogoRotatorBlockProps;
 
+export type AdvantagesBlockModel = {
+    type: BlockType.AdvantagesBlock;
+} & AdvantagesBlockProps;
+
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
@@ -940,6 +957,7 @@ type BlockModels =
     | QuestionsBlockModel
     | BannerBlockModel
     | LogoRotatorBlockModel
+    | AdvantagesBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel

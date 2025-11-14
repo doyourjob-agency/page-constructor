@@ -1,4 +1,5 @@
 import {
+    AdvantagesBlock,
     BannerBlock,
     BlogFeedBlock,
     CardLayoutBlock,
@@ -76,6 +77,7 @@ export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
+    [BlockType.AdvantagesBlock]: AdvantagesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.LogoRotatorBlock]: LogoRotatorBlock,
