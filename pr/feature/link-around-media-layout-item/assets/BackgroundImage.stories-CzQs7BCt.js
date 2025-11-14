@@ -1,0 +1,5 @@
+import{R as t}from"./iframe-ClpkpS-U.js";import{B as s}from"./BackgroundImage-C_AV-87z.js";import"./preload-helper-D6kgxu3v.js";import"./Image-BvxQD-aG.js";import"./constants-D1qj5IDx.js";import"./blocks-BqGWC0-M.js";import"./toString-Ba8Shs5t.js";import"./isSymbol-BRcQWj6T.js";import"./utils-COU2-ufE.js";const m={default:{content:{src:"https://doyourjob-agency.github.io/page-constructor/pr/feature/link-around-media-layout-item/story-assets/header-bg-img_light.png",alt:"string",disableCompress:!0,style:{height:"500px"},imageClassName:"",hide:!1}}},y={component:s,title:"Components/Pics, video, DataLens/BackgroundImage"},n=i=>t.createElement("div",{style:{maxWidth:"1400px"}},t.createElement(s,{...i})),e=n.bind({});e.args=m.default.content;var a,r,o;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '1400px'
+}}>
+        <BackgroundImage {...args} />
+    </div>`,...(o=(r=e.parameters)==null?void 0:r.docs)==null?void 0:o.source}}};const b=["Default"];export{e as Default,b as __namedExportsOrder,y as default};
