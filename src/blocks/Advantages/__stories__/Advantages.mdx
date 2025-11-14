@@ -1,0 +1,30 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as AdvantagesStories from './Advantages.stories.tsx';
+
+<Meta of={AdvantagesStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'advantages-block'`
+
+`animated?: bool` — Enables/disables animation for the block (enabled by default).
+
+`title?: string` — Title.
+
+`link?: ` — Title.
+
+-   `url: string` — Url.
+-   `text: string` — Link text.
+
+`log?: string` — Logo.
+
+`items?: Item[]` — Title.
+
+-   `url: string` — Url for item.
+-   `image: string` — Image for item.
+-   `title: string` — Title for item.
+-   `description: string` — Description for item.
+
+</StoryTemplate>
