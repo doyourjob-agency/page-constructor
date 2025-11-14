@@ -46,6 +46,9 @@ export const BenchmarkBlock = {
                                     value: {
                                         type: 'number',
                                     },
+                                    init: {
+                                        type: 'number',
+                                    },
                                     postfix: {
                                         type: 'string',
                                     },

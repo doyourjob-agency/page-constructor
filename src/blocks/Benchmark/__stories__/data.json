@@ -12,11 +12,13 @@
             {
               "top": "Write throughput for 2032 GPU cluster³",
               "value": 442,
+              "init": 0,
               "postfix": " GiB/s"
             },
             {
               "top": "Read throughput for 2032 GPU cluster³",
               "value": 535,
+              "init": 0,
               "postfix": " GiB/s"
             }
           ]
@@ -28,6 +30,7 @@
             {
               "top": "Write throughput per client⁴",
               "value": 10,
+              "init": 0,
               "postfix": " GiB/s"
             }
           ]
@@ -39,12 +42,14 @@
             {
               "top": "Mean Time Between Failure (MTBF)⁵",
               "value": 167,
+              "init": 0,
               "postfix": "K GPU hours",
               "bottom": "for 3000-GPU cluster"
             },
             {
               "top": "Mean Time To Recovery (MTTR)",
               "value": 12,
+              "init": 0,
               "postfix": " minutes"
             }
           ]

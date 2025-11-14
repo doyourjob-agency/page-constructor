@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
-import {AnimateBlock, AnimatedNumber, Title} from '../../components';
+import {AnimateBlock, Odometer, Title} from '../../components';
 import {Col, Grid, Row} from '../../grid';
 import {BenchmarkBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -42,12 +42,13 @@ const Benchmark: React.FC<BenchmarkBlockProps> = ({title, data, duration, animat
                                             </Text>
                                         )}
                                         <div className={b('value')}>
-                                            <AnimatedNumber
+                                            <Odometer
                                                 value={item.value}
-                                                postfix={item.postfix}
-                                                animated={playNumbers}
+                                                initValue={item.init}
                                                 duration={duration}
+                                                animated={playNumbers}
                                             />
+                                            {item.postfix}
                                         </div>
                                         {item.bottom && (
                                             <Text variant="body-1" className={b('label')}>

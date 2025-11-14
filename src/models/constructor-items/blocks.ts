@@ -643,6 +643,7 @@ export interface BenchmarkBlockProps extends Animatable {
         items: {
             top?: string;
             value: number;
+            init?: number;
             postfix?: string;
             bottom?: string;
         }[];
