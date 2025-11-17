@@ -561,6 +561,19 @@ export const BlockBaseProps = {
     backgroundFull: {
         type: 'string',
     },
+    visibilityFilter: {
+        oneOf: [
+            {
+                type: 'string',
+            },
+            {
+                type: 'array',
+                items: {
+                    type: 'string',
+                },
+            },
+        ],
+    },
     blockBackground: {
         oneOf: [
             {

@@ -32,6 +32,7 @@ export const ConstructorBlock = ({
                 'indent',
                 'backgroundFull',
                 'selectionColor',
+                'visibilityFilter',
             ]),
         [data],
     );

@@ -18,6 +18,7 @@ import {
 } from '../../context/projectSettingsContext';
 import {SSRContext, SSRContextProps} from '../../context/ssrContext';
 import {ThemeContext} from '../../context/theme';
+import {VisibilityFiltersContext} from '../../context/visibilityFiltersContext';
 import {Theme} from '../../models';
 
 export interface PageConstructorProviderProps {
@@ -28,6 +29,7 @@ export interface PageConstructorProviderProps {
     theme?: Theme;
     mapsContext?: MapsContextType;
     projectSettings?: ProjectSettingsContextProps;
+    visibilityFilters?: string[];
     analytics?: AnalyticsContextProps;
     forms?: FormsContextProps;
     image?: ImageContextProps;
@@ -44,6 +46,7 @@ export const PageConstructorProvider = (
         analytics = {},
         ssrConfig = {},
         projectSettings = {},
+        visibilityFilters = [],
         theme = DEFAULT_THEME,
         children,
         image = {},
@@ -62,6 +65,7 @@ export const PageConstructorProvider = (
         <AnalyticsContext.Provider value={analytics} />,
         <FormsContext.Provider value={forms} />,
         <SSRContext.Provider value={{isServer: ssrConfig?.isServer}} />,
+        <VisibilityFiltersContext.Provider value={visibilityFilters} />,
     ].reduceRight((prev, provider) => React.cloneElement(provider, {}, prev), children);
     /* eslint-enable react/jsx-key */
 

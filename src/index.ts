@@ -17,6 +17,7 @@ export * from './context/reportsContext';
 export * from './context/reportsCardsContext';
 export * from './context/reportsSectionsContext';
 export * from './context/miniCaseContext';
+export * from './context/visibilityFiltersContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

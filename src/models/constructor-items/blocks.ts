@@ -122,6 +122,7 @@ export interface BlockBaseProps {
     blockBackground?: BlockBackgroundType;
     className?: string;
     qa?: string;
+    visibilityFilter?: string | string[];
 }
 
 export interface LoadableProps {
