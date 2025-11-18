@@ -3,7 +3,6 @@ import React from 'react';
 import {Link} from '@gravity-ui/uikit';
 
 import {HTML, Image, RouterLink} from '../../components';
-import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {Col, Grid, Row} from '../../grid';
 import {AdvantagesBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -16,10 +15,10 @@ const colSizesHeader = {all: 12, xl: 6};
 const colSizesBody = {all: 12, xl: 6};
 
 export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
-    const {animated, title, link, logo, items} = props;
+    const {title, link, logo, items} = props;
 
     return (
-        <AnimateBlock className={b()} animate={animated}>
+        <div className={b()}>
             <Grid>
                 <Row>
                     <Col sizes={colSizesHeader} className={b('header')}>
@@ -63,7 +62,7 @@ export const AdvantagesBlock = (props: AdvantagesBlockProps) => {
                     </Col>
                 </Row>
             </Grid>
-        </AnimateBlock>
+        </div>
     );
 };
 
