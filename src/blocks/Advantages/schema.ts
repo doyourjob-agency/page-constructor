@@ -1,4 +1,4 @@
-import {AnimatableProps, BaseProps} from '../../schema/validators/common';
+import {BaseProps} from '../../schema/validators/common';
 
 export const AdvantagesBlock = {
     'advantages-block': {
@@ -6,7 +6,6 @@ export const AdvantagesBlock = {
         required: false,
         properties: {
             ...BaseProps,
-            ...AnimatableProps,
             title: {
                 type: 'string',
             },

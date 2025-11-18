@@ -337,7 +337,7 @@ export interface LogoRotatorBlockProps extends Animatable {
     colSizes?: Partial<Record<GridColumnSize, number>>;
 }
 
-export interface AdvantagesBlockProps extends Animatable {
+export interface AdvantagesBlockProps {
     title?: string;
     link?: Pick<LinkProps, 'text' | 'url'>;
     logo?: string;
