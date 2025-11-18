@@ -50,6 +50,7 @@ export enum SubBlockType {
     PostCard = 'post-card',
     FeedCard = 'feed-card',
     EventPersonCard = 'event-person-card',
+    StoryCard = 'story-card',
 }
 
 export enum IconPosition {
@@ -330,6 +331,17 @@ export interface EventPersonCardProps {
     theme?: ContentTheme;
 }
 
+export interface StoryCardProps {
+    title?: TitleItemBaseProps | string;
+    text?: string;
+    quote?: string;
+    logo?: string;
+    avatar?: string;
+    autor?: string;
+    items?: {value: string; label?: string}[];
+    background?: string;
+}
+
 // sub-block models
 export type DividerModel = {
     type: SubBlockType.Divider;
@@ -396,6 +408,10 @@ export type CaseStudyCardModel = {
     type: SubBlockType.CaseStudyCard;
 } & CaseStudyCardProps;
 
+export type StoryCardModel = {
+    type: SubBlockType.StoryCard;
+} & StoryCardProps;
+
 export type SubBlockModels =
     | DividerModel
     | QuoteModel
@@ -412,6 +428,7 @@ export type SubBlockModels =
     | FeedCardModel
     | EventPersonCardModel
     | AttachmentCardModel
-    | CaseStudyCardModel;
+    | CaseStudyCardModel
+    | StoryCardModel;
 
 export type SubBlock = SubBlockModels;

@@ -1,0 +1,110 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}story-card';
+
+#{$block} {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: $indentXS;
+    padding-bottom: $indentXS;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: -$indentXS;
+        right: -$indentXS;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 40px;
+    }
+
+    &__title {
+        margin-top: 14px;
+        margin-bottom: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    &__text,
+    &__label {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    &__row {
+        row-gap: $indent4XS;
+    }
+
+    &__col {
+        row-gap: $indent4XS;
+        display: flex;
+        flex-direction: column;
+        min-height: 608px;
+
+        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+            min-height: auto;
+        }
+    }
+
+    &__box {
+        border-radius: 30px;
+        padding: 30px;
+        background-color: #ffffff;
+        flex: 1;
+
+        &_centered {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        &_between {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__value {
+        font-size: 48px;
+        line-height: 31px;
+        letter-spacing: -0.1em;
+        font-weight: 700;
+    }
+
+    &__label {
+        margin-top: $indentXS;
+    }
+
+    &__wrap-logo {
+        display: flex;
+        align-items: center;
+        height: 54px;
+        margin-bottom: $indentS;
+    }
+
+    &__logo {
+        display: block;
+        max-height: 100%;
+        position: relative;
+    }
+
+    &__autor {
+        display: flex;
+        column-gap: $indentXS;
+        margin-top: $indentS;
+    }
+
+    &__avatar {
+        display: block;
+        height: $indentXL;
+        width: $indentXL;
+        position: relative;
+        object-fit: cover;
+        border-radius: $indentXS;
+    }
+}
