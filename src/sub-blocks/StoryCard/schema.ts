@@ -12,7 +12,7 @@ export const StoryCard = {
             logo: {type: 'string'},
             avatar: {type: 'string'},
             autor: {type: 'string'},
-            items: {
+            data: {
                 type: 'array',
                 items: {
                     type: 'object',

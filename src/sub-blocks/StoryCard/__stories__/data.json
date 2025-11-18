@@ -1,14 +1,14 @@
 {
   "default": {
     "content": {
-      "type": "customer-story-block",
+      "type": "story-card",
       "title": "Title",
       "text": "Recraft is an AI design tool that lets users create and edit digital illustrations, vector art, icons and 3D graphics in a uniform brand style.",
       "quote": "“Nebius stands out when compared to other clouds, especially if you're looking for flexibility and quick support. On the scalability front, they always have GPUs available, so no frustrating delays waiting for quotas. The storage speed on Nebius is also higher in comparison to some other clouds. Nebius offers more control, better support, and reliable scalability compared to some other clouds.”​",
       "logo": "/story-assets/icon_2_light.svg",
       "avatar": "/story-assets/img_6-12_light.png",
       "autor": "Florian Wuennemann <br/>Bioinformatics Engineer <br/>Sequera",
-      "items": [
+      "data": [
         {
           "value": "2x",
           "label": "Faster model training"
