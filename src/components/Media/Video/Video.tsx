@@ -37,7 +37,7 @@ const Video = (props: VideoAllProps) => {
         videoClassName,
         playVideo,
         setHasVideoFallback,
-        hasVideoFallback,
+        // hasVideoFallback,
         qa,
         ratio,
     } = props;
@@ -143,20 +143,14 @@ const Video = (props: VideoAllProps) => {
         return video.src.length ? (
             <div
                 className={b('wrap', videoClassName)}
-                style={{height, display: hasVideoFallback ? 'none' : 'block'}}
+                style={{height}}
+                // style={{height, display: hasVideoFallback ? 'none' : 'block'}}
                 data-qa={qaAttributes.default}
             >
                 <DefaultVideo ref={ref} video={video} qa={qaAttributes.source} />
             </div>
         ) : null;
-    }, [
-        video,
-        hasVideoFallback,
-        videoClassName,
-        height,
-        qaAttributes.default,
-        qaAttributes.source,
-    ]);
+    }, [video, videoClassName, height, qaAttributes.default, qaAttributes.source]);
 
     switch (video.type) {
         case MediaVideoType.Player:
