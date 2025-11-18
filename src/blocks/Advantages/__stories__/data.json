@@ -1,0 +1,38 @@
+{
+  "default": {
+    "content": {
+      "type": "advantages-block",
+      "title": "No queues.\nNo black boxes.",
+      "link": {
+        "text": "Just raw AI power.",
+        "url": "#"
+      },
+      "logo": "/story-assets/content-bg-img_light.png",
+      "items": [
+        {
+          "image": "/story-assets/icon_1_light.svg",
+          "title": "Train what’s next",
+          "description": "NVIDIA GB200 NVL72 and early upgrade paths to NVIDIA GB300 NVL72",
+          "url": "#"
+        },
+        {
+          "image": "/story-assets/icon_2_light.svg",
+          "title": "Shift gears and scale",
+          "description": "Blackwell-ready infrastructure and NVIDIA B200 power, whenever you need it",
+          "url": "#"
+        },
+        {
+          "image": "/story-assets/icon_3_light.svg",
+          "title": "Switch and save 15%",
+          "description": "Bring your contract, get guaranteed NVIDIA H200/H100 GPUs access.",
+          "url": "#"
+        }
+      ],
+      "blockBackground": "#001A2B",
+      "indent": {
+        "top": "0",
+        "bottom": "0"
+      }
+    }
+  }
+}
