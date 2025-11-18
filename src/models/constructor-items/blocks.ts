@@ -88,6 +88,7 @@ export enum BlockType {
     SliderNewBlock = 'slider-new-block',
     HighlightTableBlock = 'highlight-table-block',
     MiniCaseBlock = 'mini-case-block',
+    BenchmarkBlock = 'benchmark-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -634,6 +635,22 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
     largeItemGap?: boolean;
 }
 
+export interface BenchmarkBlockProps extends Animatable {
+    title?: TitleItemProps | string;
+    duration?: number;
+    data: {
+        title?: string;
+        sizes?: GridColumnSizesType;
+        items: {
+            top?: string;
+            value: number;
+            init?: number;
+            postfix?: string;
+            bottom?: string;
+        }[];
+    }[];
+}
+
 export type FilterTag = {
     id: string;
     label: string;
@@ -919,6 +936,10 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type BenchmarkBlockModel = {
+    type: BlockType.BenchmarkBlock;
+} & BenchmarkBlockProps;
+
 export type EventsSectionBlockModel = {
     type: BlockType.EventsSectionBlock;
 } & EventsSectionBlockProps;
@@ -987,6 +1008,7 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | BenchmarkBlockModel
     | EventsSectionBlockModel
     | BlogFeedBlockModel
     | RelevantPostsBlockModel

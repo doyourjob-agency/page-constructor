@@ -1,6 +1,7 @@
 import {
     AdvantagesBlock,
     BannerBlock,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -101,6 +102,7 @@ export const blockMap = {
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
+    [BlockType.BenchmarkBlock]: BenchmarkBlock,
     [BlockType.EventsSectionBlock]: EventsSectionBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.RelevantPostsBlock]: RelevantPostsBlock,
