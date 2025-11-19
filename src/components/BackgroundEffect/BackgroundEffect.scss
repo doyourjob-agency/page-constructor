@@ -1,8 +1,9 @@
-@import '../../../../styles/mixins.scss';
-@import '../../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
 $block: '.#{$ns}background-effect';
 $headerBlock: '.#{$ns}header-block';
+$headerMinifyBlock: '.#{$ns}header-minify-block';
 
 #{$block} {
     position: absolute;
@@ -24,7 +25,8 @@ $headerBlock: '.#{$ns}header-block';
         clip-path: inset(0 0 0 99.99%);
     }
 
-    #{$headerBlock}:hover &__right {
+    #{$headerBlock}:hover &__right,
+    #{$headerMinifyBlock}:hover &__right {
         transition: none;
     }
 
