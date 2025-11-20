@@ -1,0 +1,1 @@
+import{j as s,T as a,S as r,P as e,C as o,a as x}from"./iframe-B0G_RIo8.js";const i=({children:t})=>s.jsxs(s.Fragment,{children:[s.jsx(a,{}),s.jsx(r,{}),t,s.jsx(e,{}),s.jsx(o,{}),s.jsx(x,{})]});export{i as S};
