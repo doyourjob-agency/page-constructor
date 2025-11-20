@@ -1,4 +1,10 @@
-import {AnimatableProps, BaseProps, containerSizesObject} from '../../schema/validators/common';
+import {
+    AnimatableProps,
+    BaseProps,
+    ThemeProps,
+    TitleProps,
+    containerSizesObject,
+} from '../../schema/validators/common';
 
 export const LogoRotatorBlock = {
     'logo-rotator-block': {
@@ -7,6 +13,8 @@ export const LogoRotatorBlock = {
         properties: {
             ...BaseProps,
             ...AnimatableProps,
+            title: TitleProps,
+            theme: ThemeProps,
             items: {
                 type: 'array',
                 items: {

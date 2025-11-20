@@ -1,8 +1,9 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import TitleItem from '../../components/Title/TitleItem';
 import {Grid, Row} from '../../grid';
-import {LogoRotatorBlockProps} from '../../models';
+import {LogoRotatorBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
@@ -12,7 +13,7 @@ import './LogoRotator.scss';
 const b = block('logo-rotator-block');
 
 export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
-    const {animated, items, count, colSizes} = props;
+    const {animated, title, theme, items, count, colSizes} = props;
     const [slots, setSlots] = useState(new Array(count).fill(0).map((_, index) => index));
     const [hidden, setHidden] = useState(() => Array(count).fill(false));
     const nextIndexRef = useRef(count - 1);
@@ -70,8 +71,12 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         [colSizes, hidden, items, slots],
     );
 
+    const titleProps =
+        !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
+
     return (
-        <AnimateBlock className={b()} animate={animated}>
+        <AnimateBlock className={b({theme})} animate={animated}>
+            <TitleItem className={b('title')} {...titleProps} />
             <Grid className={b('items')}>
                 <Row className={b('row')}>{renderItems}</Row>
             </Grid>
