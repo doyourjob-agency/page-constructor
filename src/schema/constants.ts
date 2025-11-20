@@ -1,8 +1,11 @@
 import {BlockType} from '../models';
 
 import {
+    AdvantagesBlock,
     BannerBlock,
     BannerCard,
+    BannerMinifyBlock,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -15,6 +18,7 @@ import {
     FormBlock,
     FormWallBlock,
     HeaderBlock,
+    HeaderMinifyBlock,
     HeaderSliderBlock,
     HighlightTableBlock,
     IconsBlock,
@@ -61,15 +65,18 @@ import {
     PriceCardBlock,
     PriceDetailedBlock,
     Quote,
+    StoryCard,
 } from './validators/sub-blocks';
 
 export const blockSchemas: Record<BlockType, object> = {
     ...Divider,
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
+    ...AdvantagesBlock,
     ...SliderBlock,
     ...QuestionsBlock,
     ...HeaderBlock,
+    ...HeaderMinifyBlock,
     ...BannerBlock,
     ...LogoRotatorBlock,
     ...CompaniesBlock,
@@ -86,6 +93,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...IconsBlock,
     ...CardLayoutBlock,
     ...ContentLayoutBlock,
+    ...BannerMinifyBlock,
     ...ShareBlock,
     ...FilterBlock,
     ...FilterCardLayoutBlock,
@@ -100,6 +108,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsSectionsBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...BenchmarkBlock,
     ...EventsSectionBlock,
     ...BlogFeedBlock,
     ...RelevantPostsBlock,
@@ -125,6 +134,7 @@ export const cardSchemas = {
     ...EventPersonCard,
     ...AttachmentCard,
     ...CaseStudyCard,
+    ...StoryCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -136,6 +146,7 @@ export const constructorBlockSchemaNames = [
     'slider-new-block',
     'questions-block',
     'header-block',
+    'header-minify-block',
     'banner-block',
     'logo-rotator-block',
     'companies-block',
@@ -175,6 +186,9 @@ export const constructorBlockSchemaNames = [
     'relevant-reports-block',
     'press-releases-block',
     'mini-case-block',
+    'advantages-block',
+    'benchmark-block',
+    'banner-minify-block',
 ];
 
 export const constructorCardSchemaNames = [
@@ -195,4 +209,5 @@ export const constructorCardSchemaNames = [
     'feed-card',
     'event-person-card',
     'case-study-card',
+    'story-card',
 ];

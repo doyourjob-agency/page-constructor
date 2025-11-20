@@ -58,6 +58,10 @@
 
     --pc-color-progress-circular: #262626;
 
+    --pc-color-ab-base: #ffffff;
+    --pc-color-ab-second: #e0ff4f;
+    --pc-color-ab-border: #9e9e9e;
+
     &_theme_light {
         @include pc-colors-light;
         --g-color-line-focus: var(--pc-color-line-focus-light);

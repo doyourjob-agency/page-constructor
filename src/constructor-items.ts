@@ -1,5 +1,8 @@
 import {
+    AdvantagesBlock,
     BannerBlock,
+    BannerMinifyBlock,
+    BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
     CompaniesBlock,
@@ -12,6 +15,7 @@ import {
     FormBlock,
     FormWallBlock,
     HeaderBlock,
+    HeaderMinifyBlock,
     HeaderSliderBlock,
     HighlightTableBlock,
     IconsBlock,
@@ -69,12 +73,14 @@ import {
     PriceCard,
     PriceDetailed,
     Quote,
+    StoryCard,
 } from './sub-blocks';
 
 export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
+    [BlockType.AdvantagesBlock]: AdvantagesBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.LogoRotatorBlock]: LogoRotatorBlock,
@@ -86,10 +92,12 @@ export const blockMap = {
     [BlockType.TabsHighlightTableBlock]: TabsHighlightTableBlock,
     [BlockType.TabLinksBlock]: TabLinksBlock,
     [BlockType.HeaderBlock]: HeaderBlock,
+    [BlockType.HeaderMinifyBlock]: HeaderMinifyBlock,
     [BlockType.IconsBlock]: IconsBlock,
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
+    [BlockType.BannerMinifyBlock]: BannerMinifyBlock,
     [BlockType.ShareBlock]: ShareBlock,
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,
@@ -98,6 +106,7 @@ export const blockMap = {
     [BlockType.MarqueeLinksBlock]: MarqueeLinksBlock,
     [BlockType.SolutionsBlock]: SolutionsBlock,
     [BlockType.EventsFeedBlock]: EventsFeedBlock,
+    [BlockType.BenchmarkBlock]: BenchmarkBlock,
     [BlockType.EventsSectionBlock]: EventsSectionBlock,
     [BlockType.BlogFeedBlock]: BlogFeedBlock,
     [BlockType.RelevantPostsBlock]: RelevantPostsBlock,
@@ -135,6 +144,7 @@ export const subBlockMap = {
     [SubBlockType.EventPersonCard]: EventPersonCard,
     [SubBlockType.AttachmentCard]: AttachmentCard,
     [SubBlockType.CaseStudyCard]: CaseStudyCard,
+    [SubBlockType.StoryCard]: StoryCard,
 };
 
 export const navItemMap = {
