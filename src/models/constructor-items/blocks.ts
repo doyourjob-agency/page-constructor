@@ -46,6 +46,7 @@ import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub
 
 export enum BlockType {
     AdvantagesBlock = 'advantages-block',
+    ScrollerBlock = 'scroller-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -372,6 +373,13 @@ export interface AdvantagesBlockProps {
         description: string;
         url: string;
     }[];
+}
+
+export interface ScrollerBlockProps extends Childable {
+    title?: string;
+    text?: string;
+    widths?: string[];
+    gapLong?: boolean;
 }
 
 export interface CompaniesBlockProps extends Animatable {
@@ -870,6 +878,10 @@ export type AdvantagesBlockModel = {
     type: BlockType.AdvantagesBlock;
 } & AdvantagesBlockProps;
 
+export type ScrollerBlockModel = {
+    type: BlockType.ScrollerBlock;
+} & ScrollerBlockProps;
+
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
 } & CompaniesBlockProps;
@@ -1026,6 +1038,7 @@ type BlockModels =
     | BannerBlockModel
     | LogoRotatorBlockModel
     | AdvantagesBlockModel
+    | ScrollerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel
