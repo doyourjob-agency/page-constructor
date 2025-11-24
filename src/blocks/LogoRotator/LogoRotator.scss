@@ -10,6 +10,15 @@ $block: '.#{$ns}logo-rotator-block';
         justify-content: center;
     }
 
+    &_theme_dark &__title {
+        color: #ffffff;
+    }
+
+    &__title {
+        margin-bottom: $indentL;
+        text-align: center;
+    }
+
     &__items {
         display: flex;
         flex-wrap: wrap;
