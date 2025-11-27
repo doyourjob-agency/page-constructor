@@ -57,7 +57,6 @@ export const BenefitsBlock = {
             },
             theme: ThemeProps,
             accentColor: {type: 'string'},
-            time: {type: 'number'},
         },
     },
 };
