@@ -2,7 +2,7 @@
   "default": {
     "content": {
       "type": "benchmark-block",
-      "title": "Title",
+      "title": "Reliable performance at scale",
       "duration": 2000,
       "data": [
         {
