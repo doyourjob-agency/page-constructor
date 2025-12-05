@@ -4,6 +4,11 @@
       "type": "logo-rotator-block",
       "animated": false,
       "blockBackground": "black",
+      "title": {
+        "text": "Trusted by the entire AI ecosystem",
+        "textSize": "l"
+      },
+      "theme": "dark",
       "items": [
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/beamery.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/truecaller.svg"},
@@ -35,6 +40,7 @@
     "content": {
       "type": "logo-rotator-block",
       "animated": false,
+      "title": "Trusted by the entire AI ecosystem",
       "items": [
         {"url": "#", "src": "https://sanalabs.com/img/partners/black/beamery.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/black/truecaller.svg"},
