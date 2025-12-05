@@ -1,0 +1,5 @@
+import{m as i,n as p,R as d}from"./iframe-lwF_TUb2.js";import{S as g,P as f}from"./PageConstructor-DKnKt8OJ.js";import{d as l}from"./data-B5fV1fh0.js";const S={component:g,title:"Blocks/Share"};i({lang:p.En});const m=u=>d.createElement(f,{content:{blocks:[u]}}),e=m.bind({}),t=m.bind({});e.args=l.default.content;t.args=l.customTitle.content;var r,o,a;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`args => <PageConstructor content={{
+  blocks: [args]
+}} />`,...(a=(o=e.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};var s,n,c;t.parameters={...t.parameters,docs:{...(s=t.parameters)==null?void 0:s.docs,source:{originalSource:`args => <PageConstructor content={{
+  blocks: [args]
+}} />`,...(c=(n=t.parameters)==null?void 0:n.docs)==null?void 0:c.source}}};const b=["Default","CustomTitle"],T=Object.freeze(Object.defineProperty({__proto__:null,CustomTitle:t,Default:e,__namedExportsOrder:b,default:S},Symbol.toStringTag,{value:"Module"}));export{T as S};
