@@ -105,7 +105,8 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     className={b({
                         'no-horizontal-scroll':
                             item.type === BlockType.QuotesBlock ||
-                            ('backgroundFull' in item && Boolean(item.backgroundFull)),
+                            ('backgroundFull' in item && Boolean(item.backgroundFull)) ||
+                            ('blockUnicorn' in item && Boolean(item.blockUnicorn)),
                     })}
                     style={styles}
                 >
