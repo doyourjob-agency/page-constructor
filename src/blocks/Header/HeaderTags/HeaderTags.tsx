@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Clock, MapPin} from '@gravity-ui/icons';
+import {Calendar, Clock, MapPin} from '@gravity-ui/icons';
 import {Button as ButtonKit, Icon} from '@gravity-ui/uikit';
 
 import {Col, GridColumnClassParams} from '../../../grid';
@@ -13,6 +13,8 @@ const b = block('header-tags');
 
 function getIcon(name?: string) {
     switch (name) {
+        case 'calendar':
+            return <Icon data={Calendar} size={16} />;
         case 'clock':
             return <Icon data={Clock} size={16} />;
         case 'map':

@@ -208,7 +208,7 @@ export type ThemedHeaderBlockBackground = ThemeSupporting<HeaderBlockBackground>
 export type HeaderTag = {
     text: string;
     url?: string;
-    icon?: 'map' | 'clock';
+    icon?: 'map' | 'clock' | 'calendar';
     target?: string;
 };
 

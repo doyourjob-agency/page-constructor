@@ -37,7 +37,7 @@ const StoryCard: React.FC<StoryCardProps> = ({
                 <Col className={b('col')} sizes={columnSizes}>
                     {data?.map((item, index) => (
                         <div key={index} className={b('box', {centered: true})}>
-                            <div className={b('value')}>{item.value}</div>
+                            <div className={`${b('value')} title-font-family`}>{item.value}</div>
                             <div className={b('label')}>{item.label}</div>
                         </div>
                     ))}

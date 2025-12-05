@@ -179,7 +179,7 @@ export const HeaderProperties = {
             properties: {
                 text: {type: 'string'},
                 url: {type: 'string'},
-                icon: {type: 'string', enum: ['map', 'clock']},
+                icon: {type: 'string', enum: ['map', 'clock', 'calendar']},
                 target: {type: 'string'},
             },
         },
@@ -193,7 +193,7 @@ export const HeaderProperties = {
             properties: {
                 text: {type: 'string'},
                 url: {type: 'string'},
-                icon: {type: 'string', enum: ['map', 'clock']},
+                icon: {type: 'string', enum: ['map', 'clock', 'calendar']},
                 target: {type: 'string'},
             },
         },
