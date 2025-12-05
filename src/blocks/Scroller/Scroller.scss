@@ -1,0 +1,50 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}scroller-block';
+
+#{$block} {
+    &__header {
+        margin-bottom: 72px;
+    }
+
+    &__title {
+        color: #001a2b;
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__text {
+        color: #001a2b;
+        margin-top: $indentXS;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    &__content {
+        position: relative;
+        gap: $indentXS;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100vw;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch; // smooth scroll on iOS
+        scrollbar-width: none; // Firefox
+        &::-webkit-scrollbar {
+            display: none; // Chrome/Safari
+        }
+
+        &_gapLong {
+            gap: $indentL;
+        }
+    }
+
+    &__item {
+        position: relative;
+        z-index: 1;
+        flex: none;
+    }
+}

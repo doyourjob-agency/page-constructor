@@ -1,0 +1,22 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as ScrollerStories from './Scroller.stories.tsx';
+
+<Meta of={ScrollerStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'scroller-block'`
+
+`title: string` - Title
+
+`text: string` - Text
+
+`widths: string[]` - Width for items
+
+`gapLong: string[]` - Use big space for items
+
+`children:[]` — You can add an array of any available cards here.
+
+</StoryTemplate>
