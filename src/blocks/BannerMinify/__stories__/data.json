@@ -1,0 +1,26 @@
+{
+  "default": {
+    "content": {
+      "type": "banner-minify-block",
+      "theme": "dark",
+      "indent": {
+        "top": "xl",
+        "bottom": "xl"
+      },
+      "title": "What got you here won’t get you there. Xxxxxx will",
+      "text": "Start your journey with the ultimate AI cloud",
+      "blockUnicorn": "/story-assets/unicorn.json",
+      "buttons": [
+        {
+          "text": "Talk to an expert",
+          "theme": "outline",
+          "url": "/"
+        },
+        {
+          "text": "Start building now",
+          "url": "/"
+        }
+      ]
+    }
+  }
+}

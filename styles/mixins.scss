@@ -276,7 +276,7 @@
 }
 
 @mixin card($hover: false) {
-    min-height: 248px;
+    min-height: 240px;
     height: 100%;
     overflow-x: hidden;
     border-radius: $borderRadius;

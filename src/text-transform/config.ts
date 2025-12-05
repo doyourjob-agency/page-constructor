@@ -466,6 +466,12 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.HeaderMinifyBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.ContentLayoutBlock]: [
         {
             fields: ['textContent'],
@@ -513,13 +519,6 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
-    [BlockType.BenchmarkBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
     [BlockType.FilterBlock]: blockHeaderTransformer,
     [BlockType.FilterCardLayoutBlock]: [
         ...blockHeaderTransformer,
@@ -590,6 +589,10 @@ export const config: BlocksConfig = {
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
     [BlockType.AdvantagesBlock]: {
         fields: ['title'],
+        transformer: yfmTransformer,
+    },
+    [BlockType.BenefitsBlock]: {
+        fields: ['textOne', 'textTwo'],
         transformer: yfmTransformer,
     },
 };

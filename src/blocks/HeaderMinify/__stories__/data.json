@@ -1,0 +1,18 @@
+{
+  "default": {
+    "content": {
+      "type": "header-minify-block",
+      "title": "The ultimate AI cloud",
+      "description": "Build and scale AI models faster — without waiting for GPUs or fighting infrastructure. Endless performance. Limitless possibilities.",
+      "button": {
+        "text": "Talk to an expert",
+        "icon": "/story-assets/icon_6_24.svg",
+        "url": "https://example.com"
+      },
+      "backgroundEffect": {
+        "firstSrc": "/story-assets/video_8-12_light.mp4",
+        "secondSrc": "/story-assets/video_8-12_dark.mp4"
+      }
+    }
+  }
+}

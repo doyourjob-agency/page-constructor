@@ -47,6 +47,8 @@ export {default as EmptyPlug} from './EmptyPlug/EmptyPlug';
 export {default as ReportSection} from './ReportSection/ReportSection';
 export {default as ReportItem} from './ReportItem/ReportItem';
 export {default as Odometer} from './Odometer/Odometer';
+export {default as BackgroundEffect} from './BackgroundEffect/BackgroundEffect';
+export {default as BackgroundUnicorn} from './BackgroundUnicorn/BackgroundUnicorn';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';
