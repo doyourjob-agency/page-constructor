@@ -42,3 +42,4 @@ export * from '../../blocks/HighlightTable/schema';
 export * from '../../blocks/MiniCase/schema';
 export * from '../../blocks/LogoRotator/schema';
 export * from '../../blocks/Benchmark/schema';
+export * from '../../blocks/HeaderMinify/schema';

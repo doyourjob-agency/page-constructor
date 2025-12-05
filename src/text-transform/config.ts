@@ -466,6 +466,12 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.HeaderMinifyBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.ContentLayoutBlock]: [
         {
             fields: ['textContent'],

@@ -2,7 +2,7 @@ import React, {useContext, useMemo, useRef} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {HTML, Media} from '../../components';
+import {BackgroundEffect, HTML, Media} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
@@ -12,7 +12,6 @@ import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../mod
 import {block, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
-import BackgroundEffect from './BackgroundEffect/BackgroundEffect';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import HeaderButtons from './HeaderButtons/HeaderButtons';
 import HeaderDescription from './HeaderDescription/HeaderDescription';

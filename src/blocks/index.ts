@@ -15,6 +15,7 @@ export {default as TabsBlock} from './Tabs/Tabs';
 export {default as TabsHighlightTableBlock} from './TabsHighlightTable/TabsHighlightTable';
 export {default as TabLinksBlock} from './TabLinks/TabLinks';
 export {default as HeaderBlock} from './Header/Header';
+export {default as HeaderMinifyBlock} from './HeaderMinify/HeaderMinify';
 export {default as IconsBlock} from './Icons/Icons';
 export {default as HeaderSliderBlock} from './HeaderSlider/HeaderSlider';
 export {default as CardLayoutBlock} from './CardLayout/CardLayout';

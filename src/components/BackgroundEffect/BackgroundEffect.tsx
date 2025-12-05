@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 
-import {parseVideoType} from '../../../components/Media/Video/utils';
-import {block} from '../../../utils';
+import {block} from '../../utils';
+import {parseVideoType} from '../Media/Video/utils';
 
 import './BackgroundEffect.scss';
 

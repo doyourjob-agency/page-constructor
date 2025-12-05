@@ -61,6 +61,7 @@ export enum BlockType {
     TabLinksBlock = 'tab-links-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
+    HeaderMinifyBlock = 'header-minify-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
@@ -92,7 +93,11 @@ export enum BlockType {
 }
 
 export const BlockTypes = Object.values(BlockType);
-export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [
+    BlockType.HeaderBlock,
+    BlockType.HeaderSliderBlock,
+    BlockType.HeaderMinifyBlock,
+];
 
 export interface Childable {
     children?: SubBlock[];
@@ -243,7 +248,7 @@ export interface SwitchingTitleProps {
 
 export type HeaderButtonType = Pick<
     ButtonProps,
-    'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'
+    'url' | 'text' | 'img' | 'theme' | 'primary' | 'size' | 'extraProps'
 >;
 
 export interface HeaderBlockProps {
@@ -279,6 +284,22 @@ export interface HeaderBlockProps {
         secondSrc: string;
     };
     headerSpace?: boolean;
+}
+
+export interface HeaderMinifyButtonProps {
+    url: string;
+    icon?: string;
+    text: string;
+}
+
+export interface HeaderMinifyBlockProps {
+    title: string;
+    description?: string;
+    button?: HeaderMinifyButtonProps;
+    backgroundEffect?: {
+        firstSrc: string;
+        secondSrc: string;
+    };
 }
 
 export interface ExtendedFeaturesItem
@@ -800,6 +821,10 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
+export type HeaderMinifyBlockModel = {
+    type: BlockType.HeaderMinifyBlock;
+} & HeaderMinifyBlockProps;
+
 export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
@@ -991,6 +1016,7 @@ type BlockModels =
     | TabsHighlightTableBlockModel
     | TabLinksBlockModel
     | HeaderBlockModel
+    | HeaderMinifyBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
