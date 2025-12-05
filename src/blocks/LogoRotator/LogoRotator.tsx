@@ -1,9 +1,11 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 
+import {Link} from '@gravity-ui/uikit';
+
+import {ImageBase} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
-import TitleItem from '../../components/Title/TitleItem';
 import {Grid, Row} from '../../grid';
-import {LogoRotatorBlockProps, TitleItemProps} from '../../models';
+import {LogoRotatorBlockProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
@@ -13,7 +15,7 @@ import './LogoRotator.scss';
 const b = block('logo-rotator-block');
 
 export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
-    const {animated, title, theme, items, count, colSizes} = props;
+    const {animated, title, theme, items, count, colSizes, rowMode} = props;
     const [slots, setSlots] = useState(new Array(count).fill(0).map((_, index) => index));
     const [hidden, setHidden] = useState(() => Array(count).fill(false));
     const nextIndexRef = useRef(count - 1);
@@ -71,15 +73,31 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         [colSizes, hidden, items, slots],
     );
 
-    const titleProps =
-        !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
-
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
-            <TitleItem className={b('title')} {...titleProps} />
-            <Grid className={b('items')}>
-                <Row className={b('row')}>{renderItems}</Row>
-            </Grid>
+            {title && <div className={b('title')}>{title}</div>}
+            {rowMode ? (
+                <div className={b('row-items')}>
+                    {slots.map((slot, index) => (
+                        <Link
+                            key={index}
+                            href={items[slot].url}
+                            className={b('row-item', {hidden: hidden[index]})}
+                        >
+                            <ImageBase
+                                src={items[slot].src}
+                                className={b('image')}
+                                alt=""
+                                aria-hidden="true"
+                            />
+                        </Link>
+                    ))}
+                </div>
+            ) : (
+                <Grid className={b('items')}>
+                    <Row className={b('row')}>{renderItems}</Row>
+                </Grid>
+            )}
         </AnimateBlock>
     );
 };

@@ -357,11 +357,12 @@ export interface QuestionBlockItemProps extends QuestionItem {
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface LogoRotatorBlockProps extends Animatable {
-    title?: TitleItemBaseProps | string;
+    title?: string;
     items: {url: string; src: string}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
     theme?: TextTheme;
+    rowMode?: boolean;
 }
 
 export interface AdvantagesBlockProps {
@@ -703,7 +704,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 }
 
 export interface BenchmarkBlockProps extends Animatable {
-    title?: TitleItemProps | string;
+    title?: string;
     duration?: number;
     data: {
         title?: string;
