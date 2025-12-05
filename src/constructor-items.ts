@@ -1,6 +1,7 @@
 import {
     AdvantagesBlock,
     BannerBlock,
+    BannerMinifyBlock,
     BenchmarkBlock,
     BlogFeedBlock,
     CardLayoutBlock,
@@ -96,6 +97,7 @@ export const blockMap = {
     [BlockType.HeaderSliderBlock]: HeaderSliderBlock,
     [BlockType.CardLayoutBlock]: CardLayoutBlock,
     [BlockType.ContentLayoutBlock]: ContentLayoutBlock,
+    [BlockType.BannerMinifyBlock]: BannerMinifyBlock,
     [BlockType.ShareBlock]: ShareBlock,
     [BlockType.MapBlock]: MapBlock,
     [BlockType.FilterBlock]: FilterBlock,

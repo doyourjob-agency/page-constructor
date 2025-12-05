@@ -20,6 +20,7 @@ export {default as IconsBlock} from './Icons/Icons';
 export {default as HeaderSliderBlock} from './HeaderSlider/HeaderSlider';
 export {default as CardLayoutBlock} from './CardLayout/CardLayout';
 export {default as ContentLayoutBlock} from './ContentLayout/ContentLayout';
+export {default as BannerMinifyBlock} from './BannerMinify/BannerMinify';
 export {default as ShareBlock} from './Share/Share';
 export {default as FilterBlock} from './FilterBlock/FilterBlock';
 export {default as FilterCardLayoutBlock} from './FilterCardLayout/FilterCardLayout';
