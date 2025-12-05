@@ -14,6 +14,9 @@ $block: '.#{$ns}banner-minify-block';
     }
 
     &__title {
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 600;
         color: var(--dc-accent-color);
     }
 

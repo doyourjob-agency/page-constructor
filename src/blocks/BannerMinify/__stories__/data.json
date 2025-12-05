@@ -7,10 +7,7 @@
         "top": "xl",
         "bottom": "xl"
       },
-      "title": {
-        "text": "What got you here won’t get you there. Xxxxxx will",
-        "textSize": "l"
-      },
+      "title": "What got you here won’t get you there. Xxxxxx will",
       "text": "Start your journey with the ultimate AI cloud",
       "blockUnicorn": "/story-assets/unicorn.json",
       "buttons": [
