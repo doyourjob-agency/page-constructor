@@ -1,0 +1,90 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}benefits-block';
+
+#{$block} {
+    position: relative;
+    z-index: 0;
+    --local-base-color: #001a2b;
+    --local-bg-color: #ffffff;
+
+    &_theme_dark {
+        --local-base-color: #ffffff;
+        --local-bg-color: #001a2b;
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: -27px;
+        right: -27px;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 40px;
+    }
+
+    &__header {
+        padding-top: $indentL;
+        margin-bottom: $indentM;
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
+    }
+
+    &__title {
+        color: var(--local-base-color);
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 600;
+        text-align: center;
+
+        & > span {
+            color: var(--local-accent-color);
+        }
+    }
+
+    &__text {
+        color: var(--local-base-color);
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        opacity: 0.6;
+
+        & p {
+            margin: 0;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXS;
+        padding-bottom: $indentXL;
+    }
+
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXS;
+        padding-top: $indentXS;
+        padding-bottom: $indentXS;
+    }
+
+    &__images {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 300px;
+        gap: $indentXXS;
+        padding-top: $indentXXS;
+        padding-bottom: 27px;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $indentSM;
+    }
+}

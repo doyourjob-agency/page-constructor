@@ -46,6 +46,7 @@ import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub
 
 export enum BlockType {
     AdvantagesBlock = 'advantages-block',
+    BenefitsBlock = 'benefits-block',
     ScrollerBlock = 'scroller-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
@@ -373,6 +374,39 @@ export interface AdvantagesBlockProps {
         description: string;
         url: string;
     }[];
+}
+
+export interface BenefitsBlockCard {
+    icon?: string;
+    title?: string;
+    text?: string;
+}
+
+export interface BenefitsBlockItemLabel {
+    title?: string;
+    text?: string;
+}
+
+export interface BenefitsBlockItemData {
+    images: string[];
+    columns: number[];
+    rows: number[];
+}
+
+export interface BenefitsBlockItem extends BenefitsBlockItemLabel, BenefitsBlockItemData {}
+
+export interface BenefitsBlockProps extends Themable {
+    titleOne?: string;
+    postTitleOne?: string;
+    textOne?: string;
+    titleTwo?: string;
+    postTitleTwo?: string;
+    textTwo?: string;
+    background?: string;
+    cards?: BenefitsBlockCard[];
+    items?: BenefitsBlockItem[];
+    accentColor?: string;
+    time?: number;
 }
 
 export interface ScrollerBlockProps extends Childable {
@@ -878,6 +912,10 @@ export type AdvantagesBlockModel = {
     type: BlockType.AdvantagesBlock;
 } & AdvantagesBlockProps;
 
+export type BenefitsBlockModel = {
+    type: BlockType.BenefitsBlock;
+} & BenefitsBlockProps;
+
 export type ScrollerBlockModel = {
     type: BlockType.ScrollerBlock;
 } & ScrollerBlockProps;
@@ -1038,6 +1076,7 @@ type BlockModels =
     | BannerBlockModel
     | LogoRotatorBlockModel
     | AdvantagesBlockModel
+    | BenefitsBlockModel
     | ScrollerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel

@@ -1,0 +1,46 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BenefitsStories from './Benefits.stories.tsx';
+
+<Meta of={BenefitsStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'benefits-block'`
+
+`titleOne?: string` — Title one.
+
+`postTitleOne?: string` — Selected text in end title one.
+
+`textOne?: string` — Text under title one.
+
+`titleTwo?: string` — Title two.
+
+`postTitleTwo?: string` — Selected text in end title two.
+
+`textTwo?: string` — Text under title two.
+
+`background?: string` — Background block.
+
+`theme?: 'light' | 'dark'` — Theme of text in block.
+
+`accentColor?: string` — Accent color in block.
+
+`time?: number` — Time change active item (ms).
+
+`cards?: BenefitsBlockCard[]` — Cards.
+
+- `icon?: string` — Card icon link.
+- `title?: string` — Card title.
+- `text?: string` — Card text.
+
+`items?: BenefitsBlockItem[]` — Items.
+
+- `title: string` — Title of item.
+- `title: string` — Text of item.
+- `images: string[]` — links to images of item.
+- `columns: number[]` — Number of columns of each image.
+- `rows: number[]` — Number of rows of each image.
+
+</StoryTemplate>
