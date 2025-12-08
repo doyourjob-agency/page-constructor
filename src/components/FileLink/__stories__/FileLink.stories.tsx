@@ -57,6 +57,7 @@ const ExtTemplate: StoryFn<FileLinkProps> = (args) => (
         <WithPaddingTemplate {...args} href="example.ppt" />
         <WithPaddingTemplate {...args} href="example.fig" />
         <WithPaddingTemplate {...args} href="example.zip" />
+        <WithPaddingTemplate {...args} href="example.mp3" />
     </Fragment>
 );
 

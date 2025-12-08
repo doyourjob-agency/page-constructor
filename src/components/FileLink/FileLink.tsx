@@ -19,6 +19,7 @@ export enum FileExtension {
     PPT = 'ppt',
     FIG = 'fig',
     ZIP = 'zip',
+    MP3 = 'mp3',
 }
 
 export function getFileExt(name?: string): FileExtension | undefined {
@@ -55,6 +56,7 @@ const FileExtensionThemes = {
     [FileExtension.PPT]: 'warning',
     [FileExtension.FIG]: 'normal',
     [FileExtension.ZIP]: 'unknown',
+    [FileExtension.MP3]: 'info',
 };
 
 const LabelSizeMap: Record<TextSize, LabelProps['size']> = {
