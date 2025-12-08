@@ -1,0 +1,35 @@
+import{j as i,M as n}from"./iframe-DKc3t4eG.js";import{useMDXComponents as e}from"./index-CpWN83I3.js";import{S as m}from"./StoryTemplate-sNjOtxcY.js";import{H as p}from"./HighlightTable.stories-Clv2qoXA.js";import"./preload-helper-D6kgxu3v.js";import"./utils-DVTegM2S.js";import"./index-CYEVV-6I.js";import"./keys-Blhl-89l.js";import"./_baseKeys-C38D8xk3.js";import"./url-C71rkem_.js";import"./index-ClM2q3kj.js";import"./cjs-Cz8BQk8L.js";import"./PageConstructor-CJk16mPp.js";import"./BackgroundMedia-BsB66Y06.js";import"./AnimateBlock-CuCkKAEa.js";import"./inheritsLoose-B6TuBNuE.js";import"./Media-AmBFXLtc.js";import"./VideoBlock-CoV4Ncmu.js";import"./debounce-BYk3U6mW.js";import"./isSymbol-BuGZt5W_.js";import"./useAnalytics-DzZFnXjc.js";import"./Image-BV-Ze5pT.js";import"./constants-D1qj5IDx.js";import"./blocks-ErU7GADI.js";import"./toString-Bb4QW6H1.js";import"./addComponentKeysets-nHgihZik.js";import"./v4-Dv1xt2bl.js";import"./url-BokEB-Nm.js";import"./PlayFill-C1BjCrTN.js";import"./useUniqId-8N6M_QAV.js";import"./common-CWBI2tXq.js";import"./Icon-BovA6tsv.js";import"./useActionHandlers-D_4tQU4P.js";import"./constants-BUPVgVv0.js";import"./FullscreenImage-Cpw7wEXG.js";import"./Xmark-BiSOGTRJ.js";import"./transition-BUlW3NmU.js";import"./EventBroker-B9TLYz1P.js";import"./Button-BttfcD8S.js";import"./ReactPlayer-DYfeyvDY.js";import"./index-DPOb8Uge.js";import"./common-CgL19bot.js";import"./useMount-0MP8HcvR.js";import"./Slider-8DIQ0vvi.js";import"./_baseIteratee-XPFbO09b.js";import"./_getTag-CzkJbrhK.js";import"./Title-C9uRnP6R.js";import"./HTML-DkPM9qxm.js";import"./ToggleArrow-BCqN_sgu.js";import"./svg-CQ-OHbUx.js";import"./Link-CiACXMxU.js";import"./BackLink-BDuMmySp.js";import"./FileLink-ClP1l-w3.js";import"./Label-DAudK5aw.js";import"./Col-DfKaOTnx.js";import"./StylesContext-D1ewrNZ5.js";import"./pickBy-CYXzOmMI.js";import"./BackgroundImage-DuyMSGw5.js";import"./utils-COU2-ufE.js";import"./Link-CSC7LqBr.js";import"./Content-DV7lAtCo.js";import"./Links-DXrv6keP.js";import"./ContentList-DU8g7UkK.js";import"./theme-boQK5-_r.js";import"./Buttons-DqlaBx5m.js";import"./Button-BKg_h976.js";import"./Row-BRtss_wR.js";import"./BalancedMasonry-DZX9Babb.js";import"./FullWidthBackground-Qzja65ut.js";import"./RouterLink-qUOpI3Tk.js";import"./Grid-BhxKFFVi.js";import"./PriceDetailed-Bgdex6YL.js";import"./toInteger-CaHY9ys1.js";import"./CardBase-S7u9P7Te.js";import"./Table-BAuUjTos.js";import"./HeaderBreadcrumbs-B5gD-_LP.js";import"./CardLayout-CrDchF5W.js";import"./Map-D4tbHugH.js";import"./ErrorWrapper-DGvC-CvN.js";import"./YandexForm-C2mR_f5J.js";import"./index-DLCXP6eZ.js";import"./isEqual-N3ADb_JJ.js";import"./AttachmentCard-CFgi52q6.js";import"./Tag-C6F_NpGl.js";import"./EmptyPlug-CW3qHT4o.js";import"./sub-blocks-C8er8-BX.js";import"./BasicCard-Dcf0k4fK.js";import"./IconWrapper-D-ScmGPy.js";import"./Paginator-1dQUjvj_.js";import"./StoryCard-DDqGiJ1h.js";import"./CaseStudyCard-713qUhfz.js";import"./ServiceIcon-SsXNV7ZK.js";import"./ReportItem-BTpAeLYG.js";import"./ReportFile-Cfqw9_Rk.js";import"./ReportSection-BnprX3hI.js";import"./Divider-u5yHgjef.js";import"./MediaCard-DNuansme.js";import"./LayoutItem-BAIg2oKR.js";import"./MetaInfo-Dg_D37ua.js";import"./BackgroundCard-C6DtexMj.js";import"./Quote-DBk2KTNY.js";import"./Author-CMpAE-M7.js";import"./PriceCard-BWEks38s.js";import"./ImageCard-BaP1fwaE.js";import"./Card-n4ZIWUK_.js";import"./ServiceLabel-BkKsNw5S.js";import"./EventPersonCard-NHsgAiGy.js";import"./OverflowScroller-Cep4fCsj.js";import"./Control-CokQ2Ko9.js";import"./BlockBase-Ck_t-je1.js";function o(r){const t={code:"code",h2:"h2",li:"li",p:"p",ul:"ul",...e(),...r.components};return i.jsxs(i.Fragment,{children:[i.jsx(n,{of:p}),`
+`,i.jsxs(m,{children:[i.jsx(t.h2,{id:"parameters",children:"Parameters"}),i.jsx(t.p,{children:i.jsx(t.code,{children:"type: 'highlight-table-block'"})}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"title?: string"})," — Title on the left"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"description?: string"})," — Description on the left"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"contentSize?: ContentSize (s | l)"})," - Content size for table & legend."]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"legend?: string[]"})," — Legend for the table"]}),i.jsxs(t.p,{children:[i.jsx(t.code,{children:"table: HighlightTable"})," — HighlightTable content"]}),i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"content: (string | HighlightTableCell)[][]"})," — Text in the table cells"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"cell: string"})," — Text in the table cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"buttonUrl?: string"})," — Url button in cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"buttonText?: string"})," — Text button in cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.ul,{children:[`
+`,i.jsxs(t.li,{children:[i.jsx(t.code,{children:"columnWidth?: 12 | 6 | 4 | 3 | 2"})," — Custom column width for cell"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"highlighter?: string[]"})," — Colors in the table rows"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"customColumnWidth?: (12 | 6 | 4 | 3 | 2)[]"})," — Sizes in the table cells"]}),`
+`]}),`
+`,i.jsxs(t.li,{children:[`
+`,i.jsxs(t.p,{children:[i.jsx(t.code,{children:"justify?: ('left' | 'center' | 'right')[]"})," — Text alignment."]}),`
+`]}),`
+`]})]})]})}function ct(r={}){const{wrapper:t}={...e(),...r.components};return t?i.jsx(t,{...r,children:i.jsx(o,{...r})}):o(r)}export{ct as default};
