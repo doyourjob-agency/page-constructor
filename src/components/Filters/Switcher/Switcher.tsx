@@ -35,13 +35,11 @@ export const Switcher = ({
     popupId,
     activeIndex,
 }: SwitcherProps) => {
-    const itemsNames = useMemo(() => {
-        const items = list
-            .filter((item) => initial.includes(item.value))
-            .map((item) => item.content);
-
-        return items.length ? items : [defaultLabel];
-    }, [defaultLabel, initial, list]);
+    const itemsNames = useMemo(
+        () => list.filter((item) => initial.includes(item.value)).map((item) => item.content),
+        [initial, list],
+    );
+    const isPlaceholder = itemsNames.length === 0;
     const hasCounter = itemsNames.length > 1;
 
     const contentElementId = useUniqId();
@@ -59,8 +57,12 @@ export const Switcher = ({
                     activeIndex === undefined ? undefined : `${popupId}-item-${activeIndex}`
                 }
             />
-            <div id={contentElementId} className={b('element', {content: true})} aria-hidden>
-                {itemsNames?.join(', ')}
+            <div
+                id={contentElementId}
+                className={b('element', {content: true, placeholder: isPlaceholder})}
+                aria-hidden
+            >
+                {isPlaceholder ? defaultLabel : itemsNames?.join(', ')}
             </div>
             {renderClear &&
                 renderClear({
