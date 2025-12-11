@@ -5,8 +5,8 @@ $block: '.#{$ns}file-link';
 
 #{$block} {
     $root: &;
-
-    align-items: baseline;
+    text-decoration: none;
+    align-items: center;
 
     &_type_horizontal {
         display: flex;
@@ -29,13 +29,11 @@ $block: '.#{$ns}file-link';
         }
     }
 
-    &__link > a {
-        color: var(--g-color-text-primary);
-        border-radius: var(--g-focus-border-radius);
-        @include focusable();
-    }
+    color: var(--g-color-text-primary);
+    border-radius: var(--g-focus-border-radius);
+    @include focusable();
 
-    &__link > a:hover {
+    &:hover {
         color: var(--g-color-text-secondary);
     }
 
@@ -57,21 +55,21 @@ $block: '.#{$ns}file-link';
 
     &_theme {
         &_dark {
-            #{$block}__link > a {
+            #{$block} {
                 color: var(--g-color-text-light-primary);
             }
 
-            #{$block}__link > a:hover {
+            #{$block}:hover {
                 color: var(--g-color-text-light-secondary);
             }
         }
 
         &_light {
-            #{$block}__link > a {
+            #{$block} {
                 color: var(--g-color-text-dark-primary);
             }
 
-            #{$block}__link > a:hover {
+            #{$block}:hover {
                 color: var(--g-color-text-dark-secondary);
             }
         }

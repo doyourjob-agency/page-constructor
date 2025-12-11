@@ -85,23 +85,20 @@ const FileLink = (props: React.PropsWithChildren<FileLinkProps>) => {
     const labelSize = LabelSizeMap[textSize];
 
     return (
-        <div className={b({ext: fileExt, type, size: textSize, theme}, className)}>
+        <a
+            href={href}
+            onClick={onClick}
+            tabIndex={tabIndex}
+            title={urlTitle}
+            {...getLinkProps(href, hostname)}
+            {...extraProps}
+            className={b({ext: fileExt, type, size: textSize, theme}, className)}
+        >
             <Label className={b('file-label')} size={labelSize} theme={labelTheme}>
                 {fileExt}
             </Label>
-            <div className={b('link')}>
-                <a
-                    href={href}
-                    onClick={onClick}
-                    tabIndex={tabIndex}
-                    title={urlTitle}
-                    {...getLinkProps(href, hostname)}
-                    {...extraProps}
-                >
-                    {text}
-                </a>
-            </div>
-        </div>
+            <div className={b('link')}>{text}</div>
+        </a>
     );
 };
 
