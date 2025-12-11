@@ -2,6 +2,7 @@ export * from './Banner/schema';
 export * from './CardLayout/schema';
 export * from './Companies/schema';
 export * from './ContentLayout/schema';
+export * from './BannerMinify/schema';
 export * from './ExtendedFeatures/schema';
 export * from './Header/schema';
 export * from './HeaderSlider/schema';
