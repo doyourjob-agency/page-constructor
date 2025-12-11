@@ -407,7 +407,6 @@ export interface BenefitsBlockProps extends Themable {
     cards?: BenefitsBlockCard[];
     items?: BenefitsBlockItem[];
     accentColor?: string;
-    time?: number;
 }
 
 export interface ScrollerBlockProps extends Childable {
@@ -789,7 +788,7 @@ export interface BannerMinifyButtonProps {
 }
 
 export interface BannerMinifyBlockProps {
-    title?: TitleItemBaseProps | string;
+    title?: string;
     text?: string;
     buttons?: BannerMinifyButtonProps[];
     theme?: ContentTheme;

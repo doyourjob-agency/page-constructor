@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import {HTML, ImageBase} from '../../components';
 import {BenefitsBlockProps} from '../../models';
@@ -24,21 +24,12 @@ export const BenefitsBlock = (props: BenefitsBlockProps) => {
         items,
         theme,
         accentColor,
-        time,
     } = props;
     const [activeIndex, setActiveIndex] = useState(0);
 
     const data = items?.[activeIndex];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (items?.length) {
-                setActiveIndex((prev) => (prev + 1) % items.length);
-            }
-        }, time || 2000);
-
-        return () => clearInterval(interval);
-    }, [items?.length, time]);
+    const handleClick = useCallback((index: number) => setActiveIndex(index), []);
 
     const styles = useMemo<React.CSSProperties>(
         () =>
@@ -86,7 +77,13 @@ export const BenefitsBlock = (props: BenefitsBlockProps) => {
             {Boolean(items?.length) && (
                 <div className={b('labels')}>
                     {items?.map((item, index) => (
-                        <BenefitsLabel key={index} {...item} active={index === activeIndex} />
+                        <BenefitsLabel
+                            key={index}
+                            {...item}
+                            active={index === activeIndex}
+                            index={index}
+                            onClick={handleClick}
+                        />
                     ))}
                 </div>
             )}
