@@ -9,6 +9,7 @@ export {default as SliderNewBlock} from './SliderNew/Slider';
 export {default as ExtendedFeaturesBlock} from './ExtendedFeatures/ExtendedFeatures';
 export {default as PromoFeaturesBlock} from './PromoFeaturesBlock/PromoFeaturesBlock';
 export {default as AdvantagesBlock} from './Advantages/Advantages';
+export {default as ScrollerBlock} from './Scroller/Scroller';
 export {default as QuestionsBlock} from './Questions/Questions';
 export {default as TableBlock} from './Table/Table';
 export {default as TabsBlock} from './Tabs/Tabs';
