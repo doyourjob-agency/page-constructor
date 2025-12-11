@@ -1,0 +1,23 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as BannerMinifyStories from './BannerMinify.stories.tsx';
+
+<Meta of={BannerMinifyStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'banner-minify-block'`
+
+`title?: string` — Title.
+
+`text?: string` — Subtitle.
+
+`buttons?:`
+
+-   `url: string` — Button url
+-   `text: string` — Button text
+-   `theme?: 'normal' | 'outline` — Button style
+
+
+</StoryTemplate>

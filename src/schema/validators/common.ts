@@ -574,6 +574,9 @@ export const BlockBaseProps = {
             },
         ],
     },
+    blockUnicorn: {
+        type: 'string',
+    },
     blockBackground: {
         oneOf: [
             {

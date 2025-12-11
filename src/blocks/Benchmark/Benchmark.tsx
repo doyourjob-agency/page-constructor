@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
-import {AnimateBlock, Odometer, Title} from '../../components';
+import {AnimateBlock, Odometer} from '../../components';
 import {Col, Grid, Row} from '../../grid';
 import {BenchmarkBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -19,7 +19,7 @@ const Benchmark: React.FC<BenchmarkBlockProps> = ({title, data, duration, animat
 
     return (
         <AnimateBlock className={b()} animate={animated} onAnimateStart={handleOnAnimateStart}>
-            {title && <Title title={title} className={b('title')} />}
+            {title && <div className={b('title')}>{title}</div>}
             <Grid className={b('content')}>
                 <Row>
                     {data.map((column, columnIndex) => (

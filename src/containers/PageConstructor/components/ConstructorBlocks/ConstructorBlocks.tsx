@@ -2,6 +2,7 @@ import React, {Fragment, ReactElement, useContext} from 'react';
 
 import get from 'lodash/get';
 
+import {BackgroundUnicorn} from '../../../../components';
 import {InnerContext} from '../../../../context/innerContext';
 import {BlockDecoration} from '../../../../customization/BlockDecoration';
 import {Col, Grid, Row} from '../../../../grid';
@@ -104,10 +105,12 @@ export const ConstructorBlocks: React.FC<ConstructorBlocksProps> = ({items}) => 
                     className={b({
                         'no-horizontal-scroll':
                             item.type === BlockType.QuotesBlock ||
-                            ('backgroundFull' in item && Boolean(item.backgroundFull)),
+                            ('backgroundFull' in item && Boolean(item.backgroundFull)) ||
+                            ('blockUnicorn' in item && Boolean(item.blockUnicorn)),
                     })}
                     style={styles}
                 >
+                    <BackgroundUnicorn {...item} />
                     <Row>
                         <Col>
                             <ConstructorBlock data={item} index={index}>
