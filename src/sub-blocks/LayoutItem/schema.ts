@@ -1,5 +1,6 @@
 import omit from 'lodash/omit';
 
+import {ImageObjectProps} from '../../components/Image/schema';
 import metaInfo from '../../components/MetaInfo/schema';
 import {
     BaseProps,
@@ -7,6 +8,7 @@ import {
     MediaProps,
     Tag,
     titleTextSize,
+    withTheme,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
 import {ContentBase} from '../../sub-blocks/Content/schema';
@@ -90,6 +92,10 @@ export const LayoutItem = {
         label: Tag,
         jumpOnHover: {
             type: 'boolean',
+        },
+        background: withTheme(ImageObjectProps),
+        backgroundColor: {
+            type: 'string',
         },
     },
 };

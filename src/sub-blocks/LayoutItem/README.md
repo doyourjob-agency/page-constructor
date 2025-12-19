@@ -19,3 +19,7 @@ target regulates whether or not we want the link to be opened in new tab
 `border?: boolean` — Image border
 
 `fullscreen?: boolean` — Enables/disable fullscreen mode for media
+
+`background?: ImageObjectProps` — Card background image
+
+`backgroundColor?: string` — Card background color

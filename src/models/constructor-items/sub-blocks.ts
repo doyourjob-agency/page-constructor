@@ -231,6 +231,8 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     icon?: ThemeSupporting<PositionedIcon>;
     label?: TagProps;
     jumpOnHover?: boolean;
+    backgroundColor?: string;
+    background?: ThemeSupporting<ImageObjectProps>;
 }
 
 export interface ImageCardProps

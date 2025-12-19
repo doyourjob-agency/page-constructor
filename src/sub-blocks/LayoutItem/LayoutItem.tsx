@@ -2,7 +2,15 @@ import React, {useMemo} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {FullscreenMedia, IconWrapper, Media, MetaInfo, Tag} from '../../components';
+import {
+    BackgroundImage,
+    FullscreenMedia,
+    IconWrapper,
+    Media,
+    MetaInfo,
+    Tag,
+} from '../../components';
+import {getMediaImage} from '../../components/Media/Image/utils';
 import {useTheme} from '../../context/theme';
 import {ContentBlockProps, LayoutItemProps} from '../../models';
 import {block, getThemedValue} from '../../utils';
@@ -32,6 +40,8 @@ const LayoutItem = ({
     controlPosition = 'content',
     label,
     jumpOnHover,
+    background,
+    backgroundColor,
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
@@ -46,6 +56,9 @@ const LayoutItem = ({
         colSizes: {all: 12, md: 12},
     };
     const titleId = useUniqId();
+
+    const backgroundProps = getMediaImage(getThemedValue(background, theme) || '');
+
     const renderMedia = () => {
         if (!media) {
             return null;
@@ -81,7 +94,17 @@ const LayoutItem = ({
         );
     };
     return (
-        <div className={b({jumpOnHover}, className)}>
+        <div
+            className={b(
+                {jumpOnHover, 'with-image': Boolean(background || backgroundColor)},
+                className,
+            )}
+        >
+            <BackgroundImage
+                className={b('image')}
+                {...backgroundProps}
+                style={{backgroundColor}}
+            />
             {label && <Tag {...label} />}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>

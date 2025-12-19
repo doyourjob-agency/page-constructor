@@ -78,6 +78,8 @@ export const MetaInfo = DefaultTemplate.bind({});
 export const Youtube = DefaultTemplate.bind({});
 export const WithIcon = WithIconTemplate.bind({});
 export const ControlPosition = ControlPositionTemplate.bind({});
+export const WithBackgroundImage = DefaultTemplate.bind({});
+export const BackgroundColor = DefaultTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
@@ -131,3 +133,13 @@ ControlPosition.argTypes = {
     controlPosition: {table: {disable: true}},
     analyticsEvents: {table: {disable: true}},
 };
+
+WithBackgroundImage.args = {
+    ...DefaultArgs,
+    ...data.withBackgroundImage.content,
+} as LayoutItemProps;
+
+BackgroundColor.args = {
+    ...DefaultArgs,
+    ...data.backgroundColor.content,
+} as LayoutItemProps;

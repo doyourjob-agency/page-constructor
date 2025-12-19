@@ -201,5 +201,37 @@
       },
       "summary": "This is a summary text that provides additional information about the card content."
     }
+  },
+  "backgroundColor": {
+    "content": {
+      "backgroundColor": "#7ccea0",
+      "theme": "dark"
+    }
+  },
+  "withBackgroundImage": {
+    "content": {
+      "background": {
+        "light": {
+          "src": "/story-assets/img-bg_nopadding_4-12_light.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "/story-assets/img-bg_nopadding_4-12_dark.png",
+          "alt": "Lorem ipsumt"
+        }
+      },
+      "hoverBackground": {
+        "light": {
+          "src": "/story-assets/img_6-12_light.png",
+          "alt": "Lorem ipsumt",
+          "disableCompress": true
+        },
+        "dark": {
+          "src": "/story-assets/img_6-12_dark.png",
+          "alt": "Lorem ipsumt"
+        }
+      }
+    }
   }
 }
