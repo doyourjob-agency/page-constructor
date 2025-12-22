@@ -10,6 +10,10 @@ $block: '.#{$ns}benchmark-block';
 
     &__title {
         margin-bottom: $indentM;
+        text-align: center;
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 600;
     }
 
     &__content {

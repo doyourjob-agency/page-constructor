@@ -46,6 +46,8 @@ import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub
 
 export enum BlockType {
     AdvantagesBlock = 'advantages-block',
+    BenefitsBlock = 'benefits-block',
+    ScrollerBlock = 'scroller-block',
     PromoFeaturesBlock = 'promo-features-block',
     ExtendedFeaturesBlock = 'extended-features-block',
     SliderBlock = 'slider-block',
@@ -61,9 +63,11 @@ export enum BlockType {
     TabLinksBlock = 'tab-links-block',
     HeaderSliderBlock = 'header-slider-block',
     HeaderBlock = 'header-block',
+    HeaderMinifyBlock = 'header-minify-block',
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
+    BannerMinifyBlock = 'banner-minify-block',
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
@@ -92,7 +96,11 @@ export enum BlockType {
 }
 
 export const BlockTypes = Object.values(BlockType);
-export const HeaderBlockTypes = [BlockType.HeaderBlock, BlockType.HeaderSliderBlock];
+export const HeaderBlockTypes = [
+    BlockType.HeaderBlock,
+    BlockType.HeaderSliderBlock,
+    BlockType.HeaderMinifyBlock,
+];
 
 export interface Childable {
     children?: SubBlock[];
@@ -122,6 +130,7 @@ export interface BlockBaseProps {
     backgroundFull?: string; // deprecated, use 'blockBackground'
     selectionColor?: string;
     blockBackground?: BlockBackgroundType;
+    blockUnicorn?: string;
     className?: string;
     qa?: string;
     visibilityFilter?: string | string[];
@@ -243,7 +252,7 @@ export interface SwitchingTitleProps {
 
 export type HeaderButtonType = Pick<
     ButtonProps,
-    'url' | 'text' | 'theme' | 'primary' | 'size' | 'extraProps'
+    'url' | 'text' | 'img' | 'theme' | 'primary' | 'size' | 'extraProps'
 >;
 
 export interface HeaderBlockProps {
@@ -279,6 +288,22 @@ export interface HeaderBlockProps {
         secondSrc: string;
     };
     headerSpace?: boolean;
+}
+
+export interface HeaderMinifyButtonProps {
+    url: string;
+    icon?: string;
+    text: string;
+}
+
+export interface HeaderMinifyBlockProps {
+    title: string;
+    description?: string;
+    button?: HeaderMinifyButtonProps;
+    backgroundEffect?: {
+        firstSrc: string;
+        secondSrc: string;
+    };
 }
 
 export interface ExtendedFeaturesItem
@@ -332,9 +357,12 @@ export interface QuestionBlockItemProps extends QuestionItem {
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface LogoRotatorBlockProps extends Animatable {
+    title?: string;
     items: {url: string; src: string}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
+    theme?: TextTheme;
+    rowMode?: boolean;
 }
 
 export interface AdvantagesBlockProps {
@@ -347,6 +375,45 @@ export interface AdvantagesBlockProps {
         description: string;
         url: string;
     }[];
+}
+
+export interface BenefitsBlockCard {
+    icon?: string;
+    title?: string;
+    text?: string;
+}
+
+export interface BenefitsBlockItemLabel {
+    title?: string;
+    text?: string;
+}
+
+export interface BenefitsBlockItemData {
+    images: string[];
+    columns: number[];
+    rows: number[];
+}
+
+export interface BenefitsBlockItem extends BenefitsBlockItemLabel, BenefitsBlockItemData {}
+
+export interface BenefitsBlockProps extends Themable {
+    titleOne?: string;
+    postTitleOne?: string;
+    textOne?: string;
+    titleTwo?: string;
+    postTitleTwo?: string;
+    textTwo?: string;
+    background?: string;
+    cards?: BenefitsBlockCard[];
+    items?: BenefitsBlockItem[];
+    accentColor?: string;
+}
+
+export interface ScrollerBlockProps extends Childable {
+    title?: string;
+    text?: string;
+    widths?: string[];
+    gapLong?: boolean;
 }
 
 export interface CompaniesBlockProps extends Animatable {
@@ -636,7 +703,7 @@ export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChi
 }
 
 export interface BenchmarkBlockProps extends Animatable {
-    title?: TitleItemProps | string;
+    title?: string;
     duration?: number;
     data: {
         title?: string;
@@ -712,6 +779,19 @@ interface ContentLayoutBlockParams {
 export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
+}
+
+export interface BannerMinifyButtonProps {
+    url: string;
+    text: string;
+    theme: 'outline' | 'normal';
+}
+
+export interface BannerMinifyBlockProps {
+    title?: string;
+    text?: string;
+    buttons?: BannerMinifyButtonProps[];
+    theme?: ContentTheme;
 }
 
 export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;
@@ -800,6 +880,10 @@ export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
 } & HeaderBlockProps;
 
+export type HeaderMinifyBlockModel = {
+    type: BlockType.HeaderMinifyBlock;
+} & HeaderMinifyBlockProps;
+
 export type SliderBlockModel = {
     type: BlockType.SliderBlock;
 } & SliderProps;
@@ -827,6 +911,14 @@ export type LogoRotatorBlockModel = {
 export type AdvantagesBlockModel = {
     type: BlockType.AdvantagesBlock;
 } & AdvantagesBlockProps;
+
+export type BenefitsBlockModel = {
+    type: BlockType.BenefitsBlock;
+} & BenefitsBlockProps;
+
+export type ScrollerBlockModel = {
+    type: BlockType.ScrollerBlock;
+} & ScrollerBlockProps;
 
 export type CompaniesBlockModel = {
     type: BlockType.CompaniesBlock;
@@ -891,6 +983,10 @@ export type HeaderSliderBlockModel = {
 export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
+
+export type BannerMinifyBlockModel = {
+    type: BlockType.BannerMinifyBlock;
+} & BannerMinifyBlockProps;
 
 export type ShareBLockModel = {
     type: BlockType.ShareBlock;
@@ -980,6 +1076,8 @@ type BlockModels =
     | BannerBlockModel
     | LogoRotatorBlockModel
     | AdvantagesBlockModel
+    | BenefitsBlockModel
+    | ScrollerBlockModel
     | CompaniesBlockModel
     | MediaBlockModel
     | MapBlockModel
@@ -991,10 +1089,12 @@ type BlockModels =
     | TabsHighlightTableBlockModel
     | TabLinksBlockModel
     | HeaderBlockModel
+    | HeaderMinifyBlockModel
     | IconsBlockModel
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
+    | BannerMinifyBlockModel
     | ShareBLockModel
     | FilterBlockModel
     | FilterCardLayoutBlockModel

@@ -1,0 +1,37 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}banner-minify-block';
+
+#{$block} {
+    align-items: end;
+    --dc-accent-color: #001a2b;
+    --dc-bg-color: #ffffff;
+
+    &_theme_dark {
+        --dc-accent-color: #ffffff;
+        --dc-bg-color: #001a2b;
+    }
+
+    &__title {
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 600;
+        color: var(--dc-accent-color);
+    }
+
+    &__text {
+        color: var(--dc-accent-color);
+        margin-top: $indentL;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: end;
+        flex-wrap: wrap;
+        gap: $indentSM;
+        padding-top: $indentM;
+    }
+}

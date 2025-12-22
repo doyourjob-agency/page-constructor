@@ -1,0 +1,30 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as HeaderMinifyStories from './HeaderMinify.stories.tsx';
+
+<Meta of={HeaderMinifyStories} />
+<StoryTemplate>
+## Parameters
+
+There could be only one one Header block on the page.
+
+`type: 'header-minify-block'`
+
+`title: text` — Title.
+
+`description?: text` — Subtitle.
+
+`button?:`
+
+-   `url: string` — Button url
+-   `text: string` — Button text
+-   `icon?: string` — Button icon
+
+
+`backgroundEffect?:`
+
+-   `firstSrc: string` — url video without hover
+-   `secondSrc: string` — url video with hover
+
+</StoryTemplate>
