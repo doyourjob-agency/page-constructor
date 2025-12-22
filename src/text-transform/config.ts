@@ -519,13 +519,6 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.CardLayoutBlock]: blockHeaderTransformer,
-    [BlockType.BenchmarkBlock]: [
-        {
-            fields: ['title'],
-            transformer: typografTransformer,
-            parser: parseTitle,
-        },
-    ],
     [BlockType.FilterBlock]: blockHeaderTransformer,
     [BlockType.FilterCardLayoutBlock]: [
         ...blockHeaderTransformer,
