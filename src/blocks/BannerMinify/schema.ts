@@ -1,4 +1,4 @@
-import {BlockBaseProps, TitleProps} from '../../schema/validators/common';
+import {BlockBaseProps} from '../../schema/validators/common';
 
 export const BannerMinifyBlock = {
     'banner-minify-block': {
@@ -9,7 +9,9 @@ export const BannerMinifyBlock = {
                 type: 'string',
                 enum: ['light', 'dark'],
             },
-            title: TitleProps,
+            title: {
+                type: 'string',
+            },
             text: {
                 type: 'string',
             },
