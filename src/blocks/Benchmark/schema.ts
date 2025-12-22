@@ -1,7 +1,6 @@
 import {
     AnimatableProps,
     BlockBaseProps,
-    BlockHeaderProps,
     containerSizesObject,
 } from '../../schema/validators/common';
 
@@ -12,7 +11,9 @@ export const BenchmarkBlock = {
         properties: {
             ...BlockBaseProps,
             ...AnimatableProps,
-            title: BlockHeaderProps.title,
+            title: {
+                type: 'string',
+            },
             duration: {
                 type: 'number',
             },
