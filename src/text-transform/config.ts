@@ -598,4 +598,8 @@ export const config: BlocksConfig = {
         fields: ['title'],
         transformer: yfmTransformer,
     },
+    [BlockType.BenefitsBlock]: {
+        fields: ['textOne', 'textTwo'],
+        transformer: yfmTransformer,
+    },
 };
