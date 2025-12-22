@@ -97,5 +97,9 @@ export const LayoutItem = {
         backgroundColor: {
             type: 'string',
         },
+        paddingBottom: {
+            type: 'string',
+            enum: ['s', 'm', 'l', 'xl'],
+        },
     },
 };

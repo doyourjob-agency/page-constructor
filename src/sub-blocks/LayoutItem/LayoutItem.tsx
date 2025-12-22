@@ -42,6 +42,7 @@ const LayoutItem = ({
     jumpOnHover,
     background,
     backgroundColor,
+    paddingBottom,
 }: LayoutItemProps) => {
     const normalizedLinks = useMemo(() => getLayoutItemLinks(links), [links]);
     const areControlsInFooter = controlPosition === 'footer';
@@ -96,7 +97,11 @@ const LayoutItem = ({
     return (
         <div
             className={b(
-                {jumpOnHover, 'with-image': Boolean(background || backgroundColor)},
+                {
+                    jumpOnHover,
+                    paddingBottom,
+                    'with-image': Boolean(background || backgroundColor),
+                },
                 className,
             )}
         >

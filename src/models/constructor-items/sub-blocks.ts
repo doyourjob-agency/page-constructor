@@ -233,6 +233,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     jumpOnHover?: boolean;
     backgroundColor?: string;
     background?: ThemeSupporting<ImageObjectProps>;
+    paddingBottom?: 's' | 'm' | 'l' | 'xl';
 }
 
 export interface ImageCardProps

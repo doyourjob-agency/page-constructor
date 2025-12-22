@@ -13,6 +13,24 @@ $block: '.#{$ns}layout-item';
         padding: $indentXS;
     }
 
+    &_paddingBottom {
+        &_s {
+            padding-bottom: 80px;
+        }
+
+        &_m {
+            padding-bottom: 160px;
+        }
+
+        &_l {
+            padding-bottom: 240px;
+        }
+
+        &_xl {
+            padding-bottom: 320px;
+        }
+    }
+
     &__wrap {
         margin-bottom: $indentXS;
 
