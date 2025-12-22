@@ -17,6 +17,7 @@ export * from '../../blocks/HeaderSlider/schema';
 export * from '../../blocks/Icons/schema';
 export * from '../../blocks/CardLayout/schema';
 export * from '../../blocks/ContentLayout/schema';
+export * from '../../blocks/BannerMinify/schema';
 export * from '../../blocks/Share/schema';
 export * from '../../blocks/FilterBlock/schema';
 export * from '../../blocks/FilterCardLayout/schema';
