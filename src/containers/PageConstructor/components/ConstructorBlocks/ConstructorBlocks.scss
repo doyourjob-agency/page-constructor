@@ -5,6 +5,7 @@ $block: '.#{$ns}constructor-blocks';
 
 #{$block} {
     &_no-horizontal-scroll {
+        position: relative;
         overflow-x: hidden;
     }
 }
