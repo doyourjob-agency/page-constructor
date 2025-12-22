@@ -39,6 +39,7 @@ import {
     ReportsBlock,
     ReportsCardsBlock,
     ReportsSectionsBlock,
+    ScrollerBlock,
     ServicesBlock,
     ShareBlock,
     SliderBlock,
@@ -73,6 +74,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
     ...AdvantagesBlock,
+    ...ScrollerBlock,
     ...SliderBlock,
     ...QuestionsBlock,
     ...HeaderBlock,
@@ -187,6 +189,7 @@ export const constructorBlockSchemaNames = [
     'press-releases-block',
     'mini-case-block',
     'advantages-block',
+    'scroller-block',
     'benchmark-block',
     'banner-minify-block',
 ];
