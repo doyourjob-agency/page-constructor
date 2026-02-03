@@ -1,0 +1,5 @@
+import{R as e}from"./iframe-COfbjC2i.js";import{H as s}from"./index-BFZpauXW.js";import"./preload-helper-D6kgxu3v.js";import"./useMount-CbIrAkwt.js";import"./useAnalytics-dCsQOjBS.js";const u={component:s,title:"Components/HubspotForm"},m=n=>e.createElement("div",{style:{maxWidth:"800px"}},e.createElement(s,{...n})),o=m.bind({});o.args={region:"eu1",portalId:"25764979",formId:"a3eb06a6-e8ce-45d4-81bd-7fadb7dab313",className:"example-class-name",onBeforeLoad:()=>console.log("onBeforeLoad"),onBeforeSubmit:()=>console.log("onBeforeSubmit"),onSubmitError:()=>console.log("onSubmitError"),onLoad:()=>console.log("onLoad"),onSubmit:()=>console.log("onSubmit")};var r,t,a;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '800px'
+}}>
+        <HubspotForm {...args} />
+    </div>`,...(a=(t=o.parameters)==null?void 0:t.docs)==null?void 0:a.source}}};const b=["Default"];export{o as Default,b as __namedExportsOrder,u as default};
