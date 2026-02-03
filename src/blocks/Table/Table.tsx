@@ -13,8 +13,23 @@ const b = block('table-block');
 const bTable = block('table');
 const bScrollbar = block('table-scrollbar');
 
+function getTitleVariant(titleSize: TableBlockProps['titleSize']) {
+    switch (titleSize) {
+        case 'xs':
+            return 'header-1';
+        case 's':
+            return 'header-2';
+        case 'l':
+        case 'xl':
+            return 'display-3';
+        case 'm':
+        default:
+            return 'display-2';
+    }
+}
+
 export const TableBlock = (props: TableBlockProps) => {
-    const {title, table, description, links = [], buttons = []} = props;
+    const {title, titleSize, table, description, links = [], buttons = []} = props;
 
     const tableRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +80,7 @@ export const TableBlock = (props: TableBlockProps) => {
                         sizes={{[GridColumnSize.Md]: 3, [GridColumnSize.All]: 12}}
                         alignSelf={GridColumnAlignSelf.Start}
                     >
-                        <Text variant="display-2">{title}</Text>
+                        <Text variant={getTitleVariant(titleSize)}>{title}</Text>
                         {description && (
                             <div className={b('description')}>
                                 <Text variant="body-2">

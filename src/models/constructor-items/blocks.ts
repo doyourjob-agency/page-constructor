@@ -39,6 +39,7 @@ import {
     ThemedMediaVideoProps,
     TitleItemBaseProps,
     TitleItemProps,
+    TitleTextSize,
     WithBorder,
     YandexFormProps,
 } from './common';
@@ -493,6 +494,7 @@ export interface TableBlockProps {
     description?: string;
     links?: LinkProps[];
     buttons?: ButtonProps[];
+    titleSize?: TitleTextSize;
 }
 
 export interface FormWallBlockProps {
