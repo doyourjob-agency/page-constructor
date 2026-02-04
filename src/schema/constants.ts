@@ -182,6 +182,7 @@ export const constructorBlockSchemaNames = [
     'reports-sections-block',
     'link-table-block',
     'events-feed-block',
+    'resourse-hub-feed-block',
     'events-section-block',
     'blog-feed-block',
     'highlight-table-block',
