@@ -1,8 +1,8 @@
 {
   "default": {
     "content": {
-      "type": "resourse-hub-feed-block",
-      "title": "Resourse hub",
+      "type": "resource-hub-feed-block",
+      "title": "Resource hub",
       "image": "/story-assets/img-bg_nopadding_4-12_light.png"
     }
   }
