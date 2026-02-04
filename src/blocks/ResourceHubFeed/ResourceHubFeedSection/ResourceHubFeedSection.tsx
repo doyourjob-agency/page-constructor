@@ -7,7 +7,7 @@ import {PostCardTitleHeadingLevel} from '../../../models';
 import PostCard from '../../../sub-blocks/PostCard/PostCard';
 import {block} from '../../../utils';
 
-const b = block('resourse-hub-feed-section');
+const b = block('resource-hub-feed-section');
 
 const colSizes = {
     all: 12,
@@ -15,7 +15,7 @@ const colSizes = {
     md: 6,
 };
 
-export const ResourseHubFeedSection = () => {
+export const ResourceHubFeedSection = () => {
     const {posts, page, pageSize, onLoadMore} = useContext(BlogPostsContext);
     const itemsToShow = posts.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(posts.length / pageSize);
@@ -41,4 +41,4 @@ export const ResourseHubFeedSection = () => {
     );
 };
 
-export default React.memo(ResourseHubFeedSection);
+export default React.memo(ResourceHubFeedSection);
