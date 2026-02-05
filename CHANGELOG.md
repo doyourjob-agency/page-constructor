@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.31.151](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.150...v5.31.151) (2026-02-03)
+
+### Features
+
+* **Table:** add `titleSize` property to control the size of the title text (`xs`, `s`, `m`, `l`, `xl`). Defaults to `m`.
+* Make this table behave propely on the rtl page
+
 ## [5.31.128](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.123...v5.31.128) (2025-08-26)
 
 ### Features

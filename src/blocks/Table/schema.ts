@@ -4,6 +4,7 @@ import {
     ButtonBlock,
     JustifyProps,
     LinkProps,
+    titleTextSize,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 
@@ -16,6 +17,10 @@ export const TableBlock = {
             title: {
                 type: 'string',
                 contentType: 'text',
+            },
+            titleSize: {
+                type: 'string',
+                enum: titleTextSize,
             },
             description: {
                 type: 'string',
