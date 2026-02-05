@@ -154,7 +154,10 @@ const FormBlock: React.FC<FormBlockProps> = (props) => {
                                             text: innerTitle,
                                             textSize: 's',
                                         }}
-                                        className={b('title', {mobile: isMobile})}
+                                        className={b('title', {
+                                            mobile: isMobile,
+                                            centered: direction === FormBlockDirection.Center,
+                                        })}
                                         colSizes={{all: 12}}
                                     />
                                 )}

@@ -25,6 +25,9 @@ $largeBorderRadius: 32px;
         &_mobile {
             margin-left: $indent4XS;
         }
+        &_centered {
+            text-align: center;
+        }
     }
 
     &__full-form {
