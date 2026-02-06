@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {InfiniteScroll} from '../../../components';
-import {BlogPostsContext} from '../../../context/blogPostsContext';
+import {ResourceHubFeedContext} from '../../../context/resourceHubFeedContext';
 import {PostCardTitleHeadingLevel} from '../../../models';
 import PostCard from '../../../sub-blocks/PostCard/PostCard';
 import {block} from '../../../utils';
@@ -16,7 +16,7 @@ const colSizes = {
 };
 
 export const ResourceHubFeedSection = () => {
-    const {posts, page, pageSize, onLoadMore} = useContext(BlogPostsContext);
+    const {posts, page, pageSize, onLoadMore} = useContext(ResourceHubFeedContext);
     const itemsToShow = posts.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(posts.length / pageSize);
 
