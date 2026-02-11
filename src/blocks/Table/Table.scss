@@ -8,6 +8,8 @@ $blockScrollbar: '.#{$ns}table-scrollbar';
 #{$block} {
     $class: &;
 
+    @include animate(#{$block}__root);
+
     &__lhs {
         @media (min-width: map-get($gridBreakpoints, 'md')) {
             @include top-content-offset($offset: $indentM);

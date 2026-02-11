@@ -1,4 +1,5 @@
 import {
+    AnimatableProps,
     BaseProps,
     BlockBaseProps,
     ButtonBlock,
@@ -14,6 +15,7 @@ export const TableBlock = {
         required: ['title', 'table'],
         properties: {
             ...BlockBaseProps,
+            ...AnimatableProps,
             title: {
                 type: 'string',
                 contentType: 'text',

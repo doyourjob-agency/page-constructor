@@ -1,5 +1,6 @@
 import {BackgroundImageProps} from '../../components/Image/schema';
 import {
+    AnimatableProps,
     BlockBaseProps,
     FileLinkProps,
     contentSizes,
@@ -36,6 +37,7 @@ export const ContentLayoutBlock = {
         additionalProperties: false,
         properties: {
             ...BlockBaseProps,
+            ...AnimatableProps,
             textContent: ContentBlock?.content,
             fileContent: filteredArray(FileLinkProps),
             /**

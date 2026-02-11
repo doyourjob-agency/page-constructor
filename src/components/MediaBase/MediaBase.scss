@@ -6,6 +6,8 @@ $block: '.#{$ns}media-base';
 #{$block} {
     $class: &;
 
+    @include animate(#{$class}__root);
+
     &__card {
         img {
             width: 100%;
@@ -63,6 +65,4 @@ $block: '.#{$ns}media-base';
             }
         }
     }
-
-    @include animate(#{$class}__card);
 }

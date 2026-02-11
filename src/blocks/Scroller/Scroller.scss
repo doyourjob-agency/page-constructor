@@ -4,6 +4,8 @@
 $block: '.#{$ns}scroller-block';
 
 #{$block} {
+    @include animate(#{$block}__root);
+
     &__header {
         margin-bottom: 72px;
     }

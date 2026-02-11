@@ -4,6 +4,8 @@
 $block: '.#{$ns}link-table-block';
 
 #{$block} {
+    @include animate(#{$block}__root);
+
     &__links {
         padding-top: $indentXS;
     }

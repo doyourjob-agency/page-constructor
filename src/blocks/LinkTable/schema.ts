@@ -1,4 +1,4 @@
-import {BaseProps, LinkProps, TitleProps} from './../../schema/validators/common';
+import {AnimatableProps, BaseProps, LinkProps, TitleProps} from './../../schema/validators/common';
 
 export const LinkTableBlock = {
     'link-table-block': {
@@ -6,6 +6,7 @@ export const LinkTableBlock = {
         required: ['items'],
         properties: {
             ...BaseProps,
+            ...AnimatableProps,
             title: TitleProps,
             items: {
                 type: 'array',

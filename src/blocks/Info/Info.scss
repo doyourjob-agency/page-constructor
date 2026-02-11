@@ -4,6 +4,8 @@
 $block: '.#{$ns}info-block';
 
 #{$block} {
+    @include animate(#{$block}__container);
+
     &__container {
         background-color: var(--g-color-base-brand);
         padding: $indentXXL $indentXL;

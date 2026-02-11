@@ -63,31 +63,33 @@ export const MediaBase = (props: MediaBaseProps) => {
 
     return (
         <AnimateBlock className={b()} onScroll={onScroll} animate={animated}>
-            {mediaOnly && (
-                <Title
-                    className={b('header')}
-                    title={title}
-                    subtitle={description}
-                    colSizes={mediaOnlyColSizes}
-                />
-            )}
-            <Grid>
-                <Row
-                    className={b('row', {
-                        reverse: direction === 'media-content',
-                        'mobile-reverse': mobileDirection === 'media-content',
-                    })}
-                >
-                    <Col className={b('content')} sizes={contentSizes}>
-                        {mediaContent}
-                    </Col>
-                    {card ? (
-                        <Col sizes={mediaSizes}>
-                            <div className={b('card')}>{card}</div>
+            <div className={b('root')}>
+                {mediaOnly && (
+                    <Title
+                        className={b('header')}
+                        title={title}
+                        subtitle={description}
+                        colSizes={mediaOnlyColSizes}
+                    />
+                )}
+                <Grid>
+                    <Row
+                        className={b('row', {
+                            reverse: direction === 'media-content',
+                            'mobile-reverse': mobileDirection === 'media-content',
+                        })}
+                    >
+                        <Col className={b('content')} sizes={contentSizes}>
+                            {mediaContent}
                         </Col>
-                    ) : null}
-                </Row>
-            </Grid>
+                        {card ? (
+                            <Col sizes={mediaSizes}>
+                                <div className={b('card')}>{card}</div>
+                            </Col>
+                        ) : null}
+                    </Row>
+                </Grid>
+            </div>
         </AnimateBlock>
     );
 };

@@ -1,6 +1,7 @@
 import omit from 'lodash/omit';
 
 import {
+    AnimatableProps,
     BaseProps,
     ButtonBlock,
     LinkProps,
@@ -21,6 +22,7 @@ export const InfoBlock = {
         required: ['title', 'sectionsTitle'],
         properties: {
             ...BaseProps,
+            ...AnimatableProps,
             title: {
                 type: 'string',
                 contentType: 'text',

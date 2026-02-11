@@ -6,6 +6,8 @@ $block: '.#{$ns}PromoFeaturesBlock';
 #{$block} {
     $class: &;
 
+    @include animate(#{$class}__card-container);
+
     &__card-title {
         @include heading4();
     }
@@ -99,6 +101,4 @@ $block: '.#{$ns}PromoFeaturesBlock';
             background-color: var(--pc-color-base-gold);
         }
     }
-
-    @include animate-slides(#{$class}__card-container-column);
 }

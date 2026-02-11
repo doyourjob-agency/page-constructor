@@ -4,9 +4,13 @@
 $block: '.#{$ns}benchmark-block';
 
 #{$block} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include animate(#{$block}__root);
+
+    &__root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     &__title {
         margin-bottom: $indentM;

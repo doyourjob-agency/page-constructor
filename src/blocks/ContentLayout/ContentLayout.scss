@@ -4,7 +4,27 @@
 $block: '.#{$ns}content-layout-block';
 
 #{$block} {
-    position: relative;
+    &_theme {
+        &_dark {
+            --g-color-line-focus: var(--pc-color-line-focus-dark);
+        }
+    }
+
+    @include animate(#{$block}__root);
+
+    &__root {
+        position: relative;
+
+        &_background {
+            padding: $indentXL;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            &_background {
+                padding: $indentM;
+            }
+        }
+    }
 
     &__content,
     &__files {
@@ -54,22 +74,6 @@ $block: '.#{$ns}content-layout-block';
 
         &-item {
             height: 100%;
-        }
-    }
-
-    &_background {
-        padding: $indentXL;
-    }
-
-    &_theme {
-        &_dark {
-            --g-color-line-focus: var(--pc-color-line-focus-dark);
-        }
-    }
-
-    @media (max-width: map-get($gridBreakpoints, 'sm')) {
-        &_background {
-            padding: $indentM;
         }
     }
 }

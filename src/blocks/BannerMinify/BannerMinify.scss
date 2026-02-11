@@ -4,13 +4,18 @@
 $block: '.#{$ns}banner-minify-block';
 
 #{$block} {
-    align-items: end;
     --dc-accent-color: #001a2b;
     --dc-bg-color: #ffffff;
 
     &_theme_dark {
         --dc-accent-color: #ffffff;
         --dc-bg-color: #001a2b;
+    }
+
+    @include animate(#{$block}__row);
+
+    &__row {
+        align-items: end;
     }
 
     &__title {

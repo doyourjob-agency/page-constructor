@@ -1,4 +1,9 @@
-import {BaseProps, BlockBaseProps, contentSizes} from '../../schema/validators/common';
+import {
+    AnimatableProps,
+    BaseProps,
+    BlockBaseProps,
+    contentSizes,
+} from '../../schema/validators/common';
 
 export const HighlightTable = {
     title: {
@@ -99,6 +104,7 @@ export const HighlightTableBlock = {
         required: ['table'],
         properties: {
             ...BlockBaseProps,
+            ...AnimatableProps,
             ...HighlightTable,
         },
     },

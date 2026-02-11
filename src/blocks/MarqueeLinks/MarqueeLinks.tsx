@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import {Link, Text} from '@gravity-ui/uikit';
 import Marquee from 'react-fast-marquee';
 
-import {HTML, Image} from '../../components';
+import {AnimateBlock, HTML, Image} from '../../components';
 import {MarqueeLinksBlockProps, MarqueeLinksItem} from '../../models';
 import {block} from '../../utils';
 
@@ -12,6 +12,7 @@ import './MarqueeLinks.scss';
 const b = block('marquee-links-block');
 
 export const MarqueeLinksBlock = ({
+    animated,
     title,
     description,
     textAlign = 'left',
@@ -32,23 +33,25 @@ export const MarqueeLinksBlock = ({
     if (!items.length) return null;
 
     return (
-        <div className={b({[textAlign]: true})}>
-            {title && (
-                <div className={b('header')}>
-                    <Text variant="display-2">{title}</Text>
-                </div>
-            )}
-            {description && (
-                <div className={b('description')}>
-                    <Text variant="body-2">
-                        <HTML>{description}</HTML>
-                    </Text>
-                </div>
-            )}
-            <Marquee gradient={true} autoFill={true} speed={speed} className={b('items')}>
-                {items.map(renderItem)}
-            </Marquee>
-        </div>
+        <AnimateBlock className={b({[textAlign]: true})} animate={animated}>
+            <div className={b('root')}>
+                {title && (
+                    <div className={b('header')}>
+                        <Text variant="display-2">{title}</Text>
+                    </div>
+                )}
+                {description && (
+                    <div className={b('description')}>
+                        <Text variant="body-2">
+                            <HTML>{description}</HTML>
+                        </Text>
+                    </div>
+                )}
+                <Marquee gradient={true} autoFill={true} speed={speed} className={b('items')}>
+                    {items.map(renderItem)}
+                </Marquee>
+            </div>
+        </AnimateBlock>
     );
 };
 

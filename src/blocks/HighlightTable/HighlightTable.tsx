@@ -3,7 +3,7 @@ import React, {useEffect, useMemo, useRef} from 'react';
 import {text} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
-import {HTML, Title} from '../../components';
+import {AnimateBlock, HTML, Title} from '../../components';
 import {HighlightTableBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -24,6 +24,7 @@ const getTextStyles = (contentSize: HighlightTableBlockProps['contentSize']) => 
 };
 
 export const HighlightTableBlock = ({
+    animated,
     title,
     description,
     table,
@@ -136,44 +137,46 @@ export const HighlightTableBlock = ({
         [rowHoverColor],
     );
     return (
-        <div ref={blockRef} className={b()} style={rootStyle}>
-            {(title || description) && (
-                <Title className={b('title')} title={title} subtitle={description} />
-            )}
-            {legendPosition === 'top' && renderLegend}
-            <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
-                <div ref={tableContentRef} className={b('content')}>
-                    <div className={b('head')}>
-                        <div className={b('row')}>
-                            {firstRow.map((cell, index) => (
-                                <Cell
+        <AnimateBlock className={b()} animate={animated}>
+            <div ref={blockRef} className={b('root')} style={rootStyle}>
+                {(title || description) && (
+                    <Title className={b('title')} title={title} subtitle={description} />
+                )}
+                {legendPosition === 'top' && renderLegend}
+                <div ref={tableRef} className={`${b('table')} ${textStyles}`}>
+                    <div ref={tableContentRef} className={b('content')}>
+                        <div className={b('head')}>
+                            <div className={b('row')}>
+                                {firstRow.map((cell, index) => (
+                                    <Cell
+                                        key={index}
+                                        cell={cell}
+                                        justify={table.justify?.[index]}
+                                        columnWidth={table.customColumnWidth?.[index]}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                        <div className={b('body')}>
+                            {otherRows.map((row, index) => (
+                                <Row
                                     key={index}
-                                    cell={cell}
-                                    justify={table.justify?.[index]}
-                                    columnWidth={table.customColumnWidth?.[index]}
+                                    row={row}
+                                    rowHoverIncrease={rowHoverIncrease}
+                                    color={table.highlighter?.[index]}
+                                    justify={table.justify}
+                                    customColumnWidth={table.customColumnWidth}
                                 />
                             ))}
                         </div>
                     </div>
-                    <div className={b('body')}>
-                        {otherRows.map((row, index) => (
-                            <Row
-                                key={index}
-                                row={row}
-                                rowHoverIncrease={rowHoverIncrease}
-                                color={table.highlighter?.[index]}
-                                justify={table.justify}
-                                customColumnWidth={table.customColumnWidth}
-                            />
-                        ))}
-                    </div>
                 </div>
+                <div ref={scrollBarRef} className={b('scrollbar')}>
+                    <div ref={scrollThumbRef} />
+                </div>
+                {legendPosition === 'bottom' && renderLegend}
             </div>
-            <div ref={scrollBarRef} className={b('scrollbar')}>
-                <div ref={scrollThumbRef} />
-            </div>
-            {legendPosition === 'bottom' && renderLegend}
-        </div>
+        </AnimateBlock>
     );
 };
 

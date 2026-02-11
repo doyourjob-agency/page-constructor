@@ -4,8 +4,12 @@
 $block: '.#{$ns}solutions-block';
 
 #{$block} {
-    margin-top: calc(var(--pc-first-block-indent) * -1);
-    margin-bottom: var(--pc-first-block-indent);
+    @include animate(#{$block}__root);
+
+    &__root {
+        margin-top: calc(var(--pc-first-block-indent) * -1);
+        margin-bottom: var(--pc-first-block-indent);
+    }
 
     &__card {
         margin-top: $indentXS;

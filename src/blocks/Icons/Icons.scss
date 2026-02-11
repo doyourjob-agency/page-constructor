@@ -4,27 +4,31 @@
 $block: '.#{$ns}icons-block';
 
 #{$block} {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include animate(#{$block}__root);
 
-    @include text-size(body-2);
+    &__root {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-    &_size_s {
-        #{$block}__item {
-            width: 96px;
+        @include text-size(body-2);
+
+        &_size_s {
+            #{$block}__item {
+                width: 96px;
+            }
         }
-    }
 
-    &_size_m {
-        #{$block}__item {
-            width: 128px;
+        &_size_m {
+            #{$block}__item {
+                width: 128px;
+            }
         }
-    }
 
-    &_size_l {
-        #{$block}__item {
-            width: 160px;
+        &_size_l {
+            #{$block}__item {
+                width: 160px;
+            }
         }
     }
 

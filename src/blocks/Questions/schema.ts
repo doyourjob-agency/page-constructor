@@ -1,6 +1,6 @@
 import omit from 'lodash/omit';
 
-import {BlockBaseProps, LinkProps} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps, LinkProps} from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
 import {ContentBase} from '../../sub-blocks/Content/schema';
 
@@ -12,6 +12,7 @@ export const QuestionsBlock = {
         required: ['title', 'items'],
         properties: {
             ...BlockBaseProps,
+            ...AnimatableProps,
             ...QuestionsBlockContentProps,
             items: filteredArray({
                 type: 'object',

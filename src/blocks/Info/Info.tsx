@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {AnimateBlock} from '../../components';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ContentTheme, InfoBlockProps, LinkTheme} from '../../models';
@@ -13,6 +14,7 @@ const sizes = {md: 6, all: 12};
 
 export const InfoBlock = (props: InfoBlockProps) => {
     const {
+        animated,
         backgroundColor,
         theme: blockTheme = 'dark',
         buttons = [],
@@ -41,7 +43,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
     };
 
     return (
-        <div className={b()}>
+        <AnimateBlock className={b()} animate={animated}>
             <div
                 className={b('container')}
                 style={{backgroundColor: getThemedValue(backgroundColor, theme)}}
@@ -73,7 +75,7 @@ export const InfoBlock = (props: InfoBlockProps) => {
                     </Row>
                 </Grid>
             </div>
-        </div>
+        </AnimateBlock>
     );
 };
 

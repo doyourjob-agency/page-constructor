@@ -4,7 +4,7 @@
 $block: '.#{$ns}logo-rotator-block';
 
 #{$block} {
-    @include animate();
+    @include animate(#{$block}__root);
 
     &__row {
         justify-content: center;

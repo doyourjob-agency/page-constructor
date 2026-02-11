@@ -4,14 +4,19 @@
 $block: '.#{$ns}benefits-block';
 
 #{$block} {
-    position: relative;
-    z-index: 0;
     --local-base-color: #001a2b;
     --local-bg-color: #ffffff;
 
     &_theme_dark {
         --local-base-color: #ffffff;
         --local-bg-color: #001a2b;
+    }
+
+    @include animate(#{$block}__root);
+
+    &__root {
+        position: relative;
+        z-index: 0;
     }
 
     &__background {

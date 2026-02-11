@@ -1,4 +1,4 @@
-import {BaseProps} from './../../schema/validators/common';
+import {AnimatableProps, BaseProps} from './../../schema/validators/common';
 
 export const SolutionsBlock = {
     'solutions-block': {
@@ -6,6 +6,7 @@ export const SolutionsBlock = {
         required: [],
         properties: {
             ...BaseProps,
+            ...AnimatableProps,
         },
     },
 };

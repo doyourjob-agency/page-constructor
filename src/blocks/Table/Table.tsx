@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 
 import {Text} from '@gravity-ui/uikit';
 
-import {Buttons, HTML, Links, Table} from '../../components';
+import {AnimateBlock, Buttons, HTML, Links, Table} from '../../components';
 import {Col, Grid, GridColumnAlignSelf, GridColumnSize, Row} from '../../grid';
 import {TableBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -29,7 +29,7 @@ function getTitleVariant(titleSize: TableBlockProps['titleSize']) {
 }
 
 export const TableBlock = (props: TableBlockProps) => {
-    const {title, titleSize, table, description, links = [], buttons = []} = props;
+    const {animated, title, titleSize, table, description, links = [], buttons = []} = props;
 
     const tableRef = useRef<HTMLDivElement>(null);
 
@@ -72,38 +72,40 @@ export const TableBlock = (props: TableBlockProps) => {
     }, []);
 
     return (
-        <div className={b()} ref={tableRef}>
-            <Grid className={b('content')}>
-                <Row className={b('row')}>
-                    <Col
-                        className={b('lhs')}
-                        sizes={{[GridColumnSize.Md]: 3, [GridColumnSize.All]: 12}}
-                        alignSelf={GridColumnAlignSelf.Start}
-                    >
-                        <Text variant={getTitleVariant(titleSize)}>{title}</Text>
-                        {description && (
-                            <div className={b('description')}>
-                                <Text variant="body-2">
-                                    <HTML>{description}</HTML>
-                                </Text>
-                            </div>
-                        )}
-                        {Boolean(links.length) && (
-                            <Links className={b('bottomObject')} links={links} />
-                        )}
-                        {Boolean(buttons.length) && (
-                            <Buttons className={b('bottomObject')} buttons={buttons} />
-                        )}
-                    </Col>
-                    <Col
-                        sizes={{[GridColumnSize.Md]: 8, [GridColumnSize.All]: 12}}
-                        offsets={{[GridColumnSize.Md]: 1}}
-                    >
-                        <Table className={b('table')} {...table} />
-                    </Col>
-                </Row>
-            </Grid>
-        </div>
+        <AnimateBlock className={b()} animate={animated}>
+            <div className={b('root')} ref={tableRef}>
+                <Grid className={b('content')}>
+                    <Row className={b('row')}>
+                        <Col
+                            className={b('lhs')}
+                            sizes={{[GridColumnSize.Md]: 3, [GridColumnSize.All]: 12}}
+                            alignSelf={GridColumnAlignSelf.Start}
+                        >
+                            <Text variant={getTitleVariant(titleSize)}>{title}</Text>
+                            {description && (
+                                <div className={b('description')}>
+                                    <Text variant="body-2">
+                                        <HTML>{description}</HTML>
+                                    </Text>
+                                </div>
+                            )}
+                            {Boolean(links.length) && (
+                                <Links className={b('bottomObject')} links={links} />
+                            )}
+                            {Boolean(buttons.length) && (
+                                <Buttons className={b('bottomObject')} buttons={buttons} />
+                            )}
+                        </Col>
+                        <Col
+                            sizes={{[GridColumnSize.Md]: 8, [GridColumnSize.All]: 12}}
+                            offsets={{[GridColumnSize.Md]: 1}}
+                        >
+                            <Table className={b('table')} {...table} />
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
+        </AnimateBlock>
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Link, Title} from '../../components';
+import {AnimateBlock, Link, Title} from '../../components';
 import {Col, Row} from '../../grid';
 import {LinkTableBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -15,19 +15,21 @@ const colSizes = {
     all: 12,
 };
 
-export const LinkTableBlock = ({title, items}: LinkTableBlockProps) => (
-    <React.Fragment>
-        <Title title={title} />
-        <Row className={b('links')}>
-            {items.map((links) => (
-                <Col key={links.map((link) => link.url).join()} sizes={colSizes}>
-                    {links.map((link) => (
-                        <Link key={link.url} theme="normal" {...link} />
-                    ))}
-                </Col>
-            ))}
-        </Row>
-    </React.Fragment>
+export const LinkTableBlock = ({animated, title, items}: LinkTableBlockProps) => (
+    <AnimateBlock className={b()} animate={animated}>
+        <div className={b('root')}>
+            <Title title={title} />
+            <Row className={b('links')}>
+                {items.map((links) => (
+                    <Col key={links.map((link) => link.url).join()} sizes={colSizes}>
+                        {links.map((link) => (
+                            <Link key={link.url} theme="normal" {...link} />
+                        ))}
+                    </Col>
+                ))}
+            </Row>
+        </div>
+    </AnimateBlock>
 );
 
 export default LinkTableBlock;

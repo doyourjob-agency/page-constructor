@@ -1,4 +1,4 @@
-import {BaseProps} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps} from '../../schema/validators/common';
 
 export const MarqueeLink = {
     type: 'object',
@@ -20,6 +20,7 @@ export const MarqueeLinksBlock = {
         required: ['items'],
         properties: {
             ...BaseProps,
+            ...AnimatableProps,
             title: {
                 type: 'string',
             },

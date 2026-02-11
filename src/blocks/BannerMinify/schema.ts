@@ -1,10 +1,11 @@
-import {BlockBaseProps} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
 
 export const BannerMinifyBlock = {
     'banner-minify-block': {
         additionalProperties: false,
         properties: {
             ...BlockBaseProps,
+            ...AnimatableProps,
             theme: {
                 type: 'string',
                 enum: ['light', 'dark'],

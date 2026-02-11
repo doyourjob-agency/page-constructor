@@ -6,6 +6,8 @@ $block: '.#{$ns}highlight-table-block';
 #{$block} {
     $class: &;
 
+    @include animate(#{$block}__root);
+
     &__title {
         margin-bottom: 24px;
     }

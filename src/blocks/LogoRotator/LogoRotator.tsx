@@ -75,29 +75,31 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
 
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
-            {title && <div className={b('title')}>{title}</div>}
-            {rowMode ? (
-                <div className={b('row-items')}>
-                    {slots.map((slot, index) => (
-                        <Link
-                            key={index}
-                            href={items[slot].url}
-                            className={b('row-item', {hidden: hidden[index]})}
-                        >
-                            <ImageBase
-                                src={items[slot].src}
-                                className={b('image')}
-                                alt=""
-                                aria-hidden="true"
-                            />
-                        </Link>
-                    ))}
-                </div>
-            ) : (
-                <Grid className={b('items')}>
-                    <Row className={b('row')}>{renderItems}</Row>
-                </Grid>
-            )}
+            <div className={b('root')}>
+                {title && <div className={b('title')}>{title}</div>}
+                {rowMode ? (
+                    <div className={b('row-items')}>
+                        {slots.map((slot, index) => (
+                            <Link
+                                key={index}
+                                href={items[slot].url}
+                                className={b('row-item', {hidden: hidden[index]})}
+                            >
+                                <ImageBase
+                                    src={items[slot].src}
+                                    className={b('image')}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <Grid className={b('items')}>
+                        <Row className={b('row')}>{renderItems}</Row>
+                    </Grid>
+                )}
+            </div>
         </AnimateBlock>
     );
 };

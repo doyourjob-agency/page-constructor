@@ -345,7 +345,8 @@ export interface QuestionItem {
 }
 
 export interface QuestionsProps
-    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'> {
+    extends Omit<ContentBlockProps, 'colSizes' | 'centered' | 'size' | 'theme'>,
+        Animatable {
     items: QuestionItem[];
     firstOpened?: boolean;
 }
@@ -397,7 +398,7 @@ export interface BenefitsBlockItemData {
 
 export interface BenefitsBlockItem extends BenefitsBlockItemLabel, BenefitsBlockItemData {}
 
-export interface BenefitsBlockProps extends Themable {
+export interface BenefitsBlockProps extends Themable, Animatable {
     titleOne?: string;
     postTitleOne?: string;
     textOne?: string;
@@ -410,7 +411,7 @@ export interface BenefitsBlockProps extends Themable {
     accentColor?: string;
 }
 
-export interface ScrollerBlockProps extends Childable {
+export interface ScrollerBlockProps extends Childable, Animatable {
     title?: string;
     text?: string;
     widths?: string[];
@@ -448,7 +449,7 @@ export interface MapBlockProps extends MediaBaseBlockProps, WithBorder {
     map: MapProps;
 }
 
-export interface InfoBlockProps {
+export interface InfoBlockProps extends Animatable {
     theme?: TextTheme;
     backgroundColor?: ThemeSupporting<string>;
     /** @deprecated **/
@@ -468,13 +469,15 @@ export type MarqueeLinksItem = {
     url?: string;
 };
 
-export interface MarqueeLinksBlockProps {
+export interface MarqueeLinksBlockProps extends Animatable {
     title?: string;
     description?: string;
     textAlign?: 'left' | 'right' | 'center';
     speed?: number;
     items: MarqueeLinksItem[];
 }
+
+export interface SolutionsBlockProps extends Animatable {}
 
 export interface TableProps {
     content: string[][];
@@ -488,7 +491,7 @@ export interface TableProps {
     caption?: string;
 }
 
-export interface TableBlockProps {
+export interface TableBlockProps extends Animatable {
     title: string;
     table: TableProps;
     description?: string;
@@ -520,7 +523,7 @@ export interface HighlightTableData {
     highlighter?: string[];
 }
 
-export interface HighlightTableBlockProps {
+export interface HighlightTableBlockProps extends Animatable {
     title?: string;
     description?: string;
     table: HighlightTableData;
@@ -641,7 +644,7 @@ export interface PressReleasesBlockProps {
     title?: string;
 }
 
-export interface LinkTableBlockProps {
+export interface LinkTableBlockProps extends Animatable {
     title: TitleItemBaseProps;
     items: LinkProps[][];
 }
@@ -761,7 +764,7 @@ export interface IconsBlockItemProps extends AnalyticsEventsBase {
     src: ThemeSupporting<string>;
 }
 
-export interface IconsBlockProps {
+export interface IconsBlockProps extends Animatable {
     title?: string;
     description?: string;
     size?: 's' | 'm' | 'l';
@@ -778,7 +781,7 @@ interface ContentLayoutBlockParams {
     textWidth?: ContentTextSize;
 }
 
-export interface ContentLayoutBlockProps extends ContentLayoutBlockParams {
+export interface ContentLayoutBlockProps extends ContentLayoutBlockParams, Animatable {
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
 }
@@ -789,7 +792,7 @@ export interface BannerMinifyButtonProps {
     theme: 'outline' | 'normal';
 }
 
-export interface BannerMinifyBlockProps {
+export interface BannerMinifyBlockProps extends Animatable {
     title?: string;
     text?: string;
     buttons?: BannerMinifyButtonProps[];
@@ -1004,7 +1007,7 @@ export type MarqueeLinksBlockModel = {
 
 export type SolutionsBlockModel = {
     type: BlockType.SolutionsBlock;
-};
+} & SolutionsBlockProps;
 
 export type QuotesBlockModel = {
     type: BlockType.QuotesBlock;

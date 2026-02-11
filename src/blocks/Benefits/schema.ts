@@ -1,4 +1,4 @@
-import {BaseProps, ThemeProps} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps, ThemeProps} from '../../schema/validators/common';
 
 export const BenefitsBlock = {
     'benefits-block': {
@@ -6,6 +6,7 @@ export const BenefitsBlock = {
         required: false,
         properties: {
             ...BaseProps,
+            ...AnimatableProps,
             titleOne: {type: 'string'},
             postTitleOne: {type: 'string'},
             textOne: {type: 'string'},

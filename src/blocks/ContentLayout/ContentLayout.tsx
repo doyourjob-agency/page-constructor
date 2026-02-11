@@ -2,7 +2,7 @@ import React, {useContext, useMemo} from 'react';
 
 import UnicornScene from 'unicornstudio-react';
 
-import {BackgroundImage, FileLink} from '../../components';
+import {AnimateBlock, BackgroundImage, FileLink} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col} from '../../grid';
@@ -39,6 +39,7 @@ function getTextWidth(size: ContentTextSize) {
 export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const isMobile = useContext(MobileContext);
     const {
+        animated,
         textContent,
         fileContent,
         size = 'l',
@@ -54,48 +55,50 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     const themedBackground = getThemedValue(background, globalTheme);
 
     return (
-        <div className={b({size, theme, background: Boolean(background) || Boolean(unicorn)})}>
-            <Content
-                className={b('content')}
-                {...textContent}
-                size={size}
-                centered={centered}
-                colSizes={colSizes}
-                theme={theme}
-            />
-            {fileContent && (
-                <Col className={b('files', {size, centered})} reset sizes={colSizes}>
-                    {fileContent.map((file) => (
-                        <FileLink
-                            className={b('file')}
-                            {...file}
-                            key={file.href}
-                            type="horizontal"
-                            textSize={getFileTextSize(size)}
-                            theme={theme}
+        <AnimateBlock className={b({size, theme})} animate={animated}>
+            <div className={b('root', {background: Boolean(background) || Boolean(unicorn)})}>
+                <Content
+                    className={b('content')}
+                    {...textContent}
+                    size={size}
+                    centered={centered}
+                    colSizes={colSizes}
+                    theme={theme}
+                />
+                {fileContent && (
+                    <Col className={b('files', {size, centered})} reset sizes={colSizes}>
+                        {fileContent.map((file) => (
+                            <FileLink
+                                className={b('file')}
+                                {...file}
+                                key={file.href}
+                                type="horizontal"
+                                textSize={getFileTextSize(size)}
+                                theme={theme}
+                            />
+                        ))}
+                    </Col>
+                )}
+                {background && (
+                    <div className={b('background')}>
+                        <BackgroundImage
+                            className={b('background-item')}
+                            {...themedBackground}
+                            hide={isMobile}
                         />
-                    ))}
-                </Col>
-            )}
-            {background && (
-                <div className={b('background')}>
-                    <BackgroundImage
-                        className={b('background-item')}
-                        {...themedBackground}
-                        hide={isMobile}
-                    />
-                </div>
-            )}
-            {unicorn && (
-                <div className={b('background')}>
-                    <UnicornScene
-                        className={b('background-item')}
-                        jsonFilePath={unicorn}
-                        width="100%"
-                    />
-                </div>
-            )}
-        </div>
+                    </div>
+                )}
+                {unicorn && (
+                    <div className={b('background')}>
+                        <UnicornScene
+                            className={b('background-item')}
+                            jsonFilePath={unicorn}
+                            width="100%"
+                        />
+                    </div>
+                )}
+            </div>
+        </AnimateBlock>
     );
 };
 export default ContentLayoutBlock;

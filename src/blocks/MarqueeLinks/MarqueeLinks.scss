@@ -4,6 +4,8 @@
 $block: '.#{$ns}marquee-links-block';
 
 #{$block} {
+    @include animate(#{$block}__root);
+
     &_left {
         text-align: left;
     }

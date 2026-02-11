@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 
+import {AnimateBlock} from '../../components';
 import {ScrollerBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -10,7 +11,7 @@ const b = block('scroller-block');
 export const ScrollerBlock = (
     props: React.PropsWithChildren<Omit<ScrollerBlockProps, 'children'>>,
 ) => {
-    const {title, text, widths, gapLong, children} = props;
+    const {animated, title, text, widths, gapLong, children} = props;
     const rootRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -32,25 +33,27 @@ export const ScrollerBlock = (
     }, []);
 
     return (
-        <div className={b()} ref={rootRef}>
-            {(title || text) && (
-                <div className={b('header')}>
-                    {title && <div className={b('title')}>{title}</div>}
-                    {text && <div className={b('text')}>{text}</div>}
-                </div>
-            )}
-            <div className={b('content', {gapLong})} ref={contentRef}>
-                {React.Children.map(children, (child, index) => (
-                    <div
-                        key={index}
-                        className={b('item')}
-                        style={{width: widths?.[index] || '100%'}}
-                    >
-                        {child}
+        <AnimateBlock className={b()} animate={animated}>
+            <div className={b('root')} ref={rootRef}>
+                {(title || text) && (
+                    <div className={b('header')}>
+                        {title && <div className={b('title')}>{title}</div>}
+                        {text && <div className={b('text')}>{text}</div>}
                     </div>
-                ))}
+                )}
+                <div className={b('content', {gapLong})} ref={contentRef}>
+                    {React.Children.map(children, (child, index) => (
+                        <div
+                            key={index}
+                            className={b('item')}
+                            style={{width: widths?.[index] || '100%'}}
+                        >
+                            {child}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </AnimateBlock>
     );
 };
 

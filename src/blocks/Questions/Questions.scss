@@ -4,6 +4,8 @@
 $block: '.#{$ns}QuestionsBlock';
 
 #{$block} {
+    @include animate(#{$block}__root);
+
     &__title {
         @include top-content-offset($offset: $indentM);
 
