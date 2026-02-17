@@ -12,7 +12,6 @@ export type ResourceHubPostsData = {
 };
 
 export interface ResourceHubPostsContextProps {
-    pinnedPost?: ResourceHubPostsData;
     posts: ResourceHubPostsData[];
     page: number;
     pageSize: number;
