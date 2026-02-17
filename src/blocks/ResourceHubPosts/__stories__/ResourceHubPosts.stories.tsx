@@ -5,7 +5,7 @@ import {Meta, StoryFn} from '@storybook/react-vite';
 import {argBlogPostsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {ResourceHubPostsBlockModel} from '../../../models';
-import ResourceHubPosts from '../ResourceHubFeed';
+import ResourceHubPosts from '../ResourceHubPosts';
 
 import data from './data.json';
 

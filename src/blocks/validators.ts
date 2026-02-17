@@ -18,3 +18,4 @@ export * from './Slider/schema';
 export * from './Table/schema';
 export * from './Share/schema';
 export * from './MarqueeLinks/schema';
+export * from './ResourceHubPosts/schema';

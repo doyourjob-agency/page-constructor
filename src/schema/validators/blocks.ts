@@ -34,7 +34,7 @@ export * from '../../blocks/ReportsCards/schema';
 export * from '../../blocks/ReportsSections/schema';
 export * from '../../blocks/LinkTable/schema';
 export * from '../../blocks/EventsFeed/schema';
-export * from '../../blocks/ResourceHubFeed/schema';
+export * from '../../blocks/ResourceHubPosts/schema';
 export * from '../../blocks/EventsSection/schema';
 export * from '../../blocks/BlogFeed/schema';
 export * from '../../blocks/RelevantPosts/schema';

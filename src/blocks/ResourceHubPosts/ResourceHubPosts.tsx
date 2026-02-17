@@ -3,7 +3,7 @@ import React from 'react';
 import FeedHeader from '../../components/FeedHeader/FeedHeader';
 import {ResourceHubPostsBlockProps} from '../../models';
 
-import ResourceHubPostsSection from './ResourceHubFeedSection/ResourceHubFeedSection';
+import ResourceHubPostsSection from './ResourceHubPostsSection/ResourceHubPostsSection';
 
 export const ResourceHubPostsBlock = ({image, title}: ResourceHubPostsBlockProps) => (
     <React.Fragment>

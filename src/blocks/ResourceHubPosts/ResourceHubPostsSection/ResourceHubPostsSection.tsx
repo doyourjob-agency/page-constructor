@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {InfiniteScroll} from '../../../components';
-import {ResourceHubPostsContext} from '../../../context/resourceHubFeedContext';
+import {ResourceHubPostsContext} from '../../../context/resourceHubPostsContext';
 import {PostCardTitleHeadingLevel} from '../../../models';
 import PostCard from '../../../sub-blocks/PostCard/PostCard';
 import {block} from '../../../utils';
