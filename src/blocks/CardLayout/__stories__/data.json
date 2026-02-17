@@ -74,6 +74,12 @@
       "url": "https://example.com",
       "width": "max",
       "theme": "monochrome"
+    },
+    "violet": {
+      "text": "Button",
+      "url": "https://example.com",
+      "width": "max",
+      "theme": "violet"
     }
   },
   "backgrounds": {

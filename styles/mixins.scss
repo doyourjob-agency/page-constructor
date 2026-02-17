@@ -532,6 +532,16 @@ unpredictable css rules order in build */
     }
 }
 
+@mixin violet-button() {
+    @include add-specificity(&) {
+        @include button(
+            var(--pc-violet-button-color),
+            var(--pc-violet-button-background-color),
+            $hoverBackgroundColor: var(--pc-violet-button-background-color-hover)
+        );
+    }
+}
+
 @mixin centerable-title() {
     &_centered {
         text-align: center;

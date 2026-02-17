@@ -37,6 +37,10 @@ $block: '.#{$ns}button-block';
             @include monochrome-button();
         }
 
+        &_violet {
+            @include violet-button();
+        }
+
         &_normal-contrast,
         &_raised {
             &:focus::before {

@@ -44,6 +44,7 @@ const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
         <SizesTemplate {...args} theme="google-play" />
         <SizesTemplate {...args} theme="scale" />
         <SizesTemplate {...args} theme="monochrome" />
+        <SizesTemplate {...args} theme="violet" />
         <SizesTemplate {...args} theme="normal" />
         <SizesTemplate {...args} theme="action" />
         <SizesTemplate {...args} theme="outlined" />

@@ -213,7 +213,8 @@ export type ButtonTheme =
     | 'app-store'
     | 'google-play'
     | 'scale'
-    | 'monochrome';
+    | 'monochrome'
+    | 'violet';
 
 export interface ButtonProps
     extends AnalyticsEventsBase,

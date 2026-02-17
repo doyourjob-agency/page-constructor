@@ -8,7 +8,7 @@
 
 `size: 'xs' | 's' | 'ns' | 'n' | 'm' | 'l' | 'head' | 'promo'` — Button size.
 
-`theme: 'action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'websearch' | 'normal-dark' | 'dark-grey' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome'` — Button's look and feel.
+`theme: 'action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'websearch' | 'normal-dark' | 'dark-grey' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome' | 'violet'` — Button's look and feel.
 
 `img?: object | string` — Button's icon. If `string`, specify the icon link. If `object`, specify the parameters given below.
 

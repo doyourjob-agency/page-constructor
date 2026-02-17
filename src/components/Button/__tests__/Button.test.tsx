@@ -38,6 +38,7 @@ const buttonViews: ButtonTheme[] = [
     'github',
     'scale',
     'monochrome',
+    'violet',
 ];
 
 describe('Button', () => {

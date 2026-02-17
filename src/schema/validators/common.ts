@@ -403,6 +403,7 @@ export const ButtonProps = {
             'scale',
             'github',
             'monochrome',
+            'violet',
         ],
     },
     img: {
