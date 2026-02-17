@@ -1,7 +1,0 @@
-import{R as S}from"./iframe-BZTXx4Q3.js";import{n as a}from"./utils-BaSfjoOB.js";import{O as f,P as v}from"./PageConstructor-DKolTggh.js";const P={content:{serviceLinkType:"doc"}},T={content:{serviceLinkType:"price"}},o={default:{content:{type:"services-block",title:"Services"}},typeDoc:P,typePrice:T},k={title:"Blocks/Services",component:f,args:a.args,argTypes:{...a.argTypes,serviceLinkType:{table:{disable:!0}}}},s=b=>S.createElement(v,{content:{blocks:[b]}}),e=s.bind({}),r=s.bind({}),t=s.bind({}),c=o.default.content;e.args=c;r.args={...c,...o.typeDoc.content};t.args={...c,...o.typePrice.content};var n,i,p;e.parameters={...e.parameters,docs:{...(n=e.parameters)==null?void 0:n.docs,source:{originalSource:`args => <PageConstructor content={{
-  blocks: [args]
-}} />`,...(p=(i=e.parameters)==null?void 0:i.docs)==null?void 0:p.source}}};var l,g,u;r.parameters={...r.parameters,docs:{...(l=r.parameters)==null?void 0:l.docs,source:{originalSource:`args => <PageConstructor content={{
-  blocks: [args]
-}} />`,...(u=(g=r.parameters)==null?void 0:g.docs)==null?void 0:u.source}}};var m,d,y;t.parameters={...t.parameters,docs:{...(m=t.parameters)==null?void 0:m.docs,source:{originalSource:`args => <PageConstructor content={{
-  blocks: [args]
-}} />`,...(y=(d=t.parameters)==null?void 0:d.docs)==null?void 0:y.source}}};const D=["Default","TypeDoc","TypePrice"],x=Object.freeze(Object.defineProperty({__proto__:null,Default:e,TypeDoc:r,TypePrice:t,__namedExportsOrder:D,default:k},Symbol.toStringTag,{value:"Module"}));export{x as S};
