@@ -26,7 +26,6 @@ export const ResourceHubPostsSection = () => {
 
     return (
         <div className={b()}>
-            Hello
             <CardLayoutBlock className={b('wrap')} colSizes={colSizes}>
                 {itemsToShow.map((item) => (
                     <PostCard
