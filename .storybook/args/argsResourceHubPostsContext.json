@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "slug": "resource-1",
+      "title": "Getting started with Resource Hub",
+      "description": "Introductory guide to the resource hub content.",
+      "date": "May 12, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 5,
+      "tags": [
+        {
+          "slug": "getting-started",
+          "name": "Getting started"
+        }
+      ],
+      "url": "#"
+    },
+    {
+      "slug": "resource-2",
+      "title": "Deep dive into features",
+      "description": "Overview of key capabilities available in the hub.",
+      "date": "May 14, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 10,
+      "tags": [
+        {
+          "slug": "features",
+          "name": "Features"
+        }
+      ],
+      "url": "#"
+    },
+    {
+      "slug": "resource-3",
+      "title": "Best practices collection",
+      "description": "Collection of recommended practices and examples.",
+      "date": "May 17, 2025",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 8,
+      "tags": [
+        {
+          "slug": "best-practices",
+          "name": "Best practices"
+        }
+      ],
+      "url": "#"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}

@@ -84,6 +84,7 @@ export enum BlockType {
     FormWallBlock = 'form-wall-block',
     LinkTableBlock = 'link-table-block',
     EventsFeedBlock = 'events-feed-block',
+    ResourceHubPostsBlock = 'resource-hub-posts-block',
     EventsSectionBlock = 'events-section-block',
     BlogFeedBlock = 'blog-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
@@ -588,10 +589,14 @@ export interface ServicesBlockProps {
     serviceLinkType?: 'doc' | 'price';
 }
 
-export interface EventsFeedBlockProps {
+export interface BaseFeedProps {
     image?: string;
     title?: string;
 }
+
+export interface EventsFeedBlockProps extends BaseFeedProps {}
+
+export interface ResourceHubPostsBlockProps extends BaseFeedProps {}
 
 export interface EventsSectionBlockProps {
     typeKey: string;
@@ -600,10 +605,7 @@ export interface EventsSectionBlockProps {
     empty?: string;
 }
 
-export interface BlogFeedBlockProps {
-    image?: string;
-    title?: string;
-}
+export interface BlogFeedBlockProps extends BaseFeedProps {}
 
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;
@@ -1037,6 +1039,10 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type ResourceHubPostsBlockModel = {
+    type: BlockType.ResourceHubPostsBlock;
+} & ResourceHubPostsBlockProps;
+
 export type BenchmarkBlockModel = {
     type: BlockType.BenchmarkBlock;
 } & BenchmarkBlockProps;
@@ -1113,6 +1119,7 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | ResourceHubPostsBlockModel
     | BenchmarkBlockModel
     | EventsSectionBlockModel
     | BlogFeedBlockModel
