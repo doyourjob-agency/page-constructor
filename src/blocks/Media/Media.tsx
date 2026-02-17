@@ -34,6 +34,7 @@ export const MediaBlock = (props: MediaBlockProps) => {
                     imageClassName={b('image')}
                     {...mediaWithMicrodata}
                     playVideo={play}
+                    animated={props.animated}
                     className={b({border: borderSelected})}
                 />
             </MediaBase.Card>

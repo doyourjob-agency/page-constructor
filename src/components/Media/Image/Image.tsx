@@ -1,10 +1,16 @@
 import React, {Fragment, useEffect, useState} from 'react';
 
-import {Interpolation, animated, config, useSpring} from '@react-spring/web';
+import {animated as Animated, Interpolation, config, useSpring} from '@react-spring/web';
 import debounce from 'lodash/debounce';
 
 import SliderBlock from '../../../blocks/Slider/Slider';
-import {ImageProps, MediaComponentImageProps, QAProps, SliderType} from '../../../models';
+import {
+    Animatable,
+    ImageProps,
+    MediaComponentImageProps,
+    QAProps,
+    SliderType,
+} from '../../../models';
 import {block, getQaAttrubutes} from '../../../utils';
 import BackgroundImage from '../../BackgroundImage/BackgroundImage';
 import FullscreenImage from '../../FullscreenImage/FullscreenImage';
@@ -16,7 +22,7 @@ import './Image.scss';
 
 const b = block('media-component-image');
 
-export interface ImageAdditionProps {
+export interface ImageAdditionProps extends Animatable {
     imageClassName?: string;
     isBackground?: boolean;
     fullscreen?: boolean;
@@ -33,6 +39,7 @@ export const defaultAnimatedDivQa = 'animated-div';
 
 const Image = (props: ImageAllProps) => {
     const {
+        animated,
         parallax,
         height,
         imageClassName,
@@ -104,14 +111,14 @@ const Image = (props: ImageAllProps) => {
     const imageBackground = (oneImage: ImageProps) => {
         const imageData = getMediaImage(oneImage);
         return (
-            <animated.div style={{transform: parallaxInterpolate}} data-qa={qaAttributes.animate}>
+            <Animated.div style={{transform: parallaxInterpolate}} data-qa={qaAttributes.animate}>
                 <BackgroundImage
                     {...imageData}
                     className={imageClass}
                     style={{height}}
                     qa={qaAttributes.backgroundImage}
                 />
-            </animated.div>
+            </Animated.div>
         );
     };
 
@@ -132,7 +139,7 @@ const Image = (props: ImageAllProps) => {
         const fullscreenItem = fullscreen === undefined || fullscreen;
 
         return (
-            <SliderBlock slidesToShow={1} type={SliderType.MediaCard}>
+            <SliderBlock slidesToShow={1} type={SliderType.MediaCard} animated={animated}>
                 {imageArray.map((item, index) => (
                     <Fragment key={index}>
                         {fullscreenItem ? renderFullscreenImage(item) : imageOnly(item)}

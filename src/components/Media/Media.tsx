@@ -1,7 +1,7 @@
 import React, {ReactElement, useContext, useMemo, useState} from 'react';
 
 import {InnerContext} from '../../context/innerContext';
-import {MediaProps, QAProps} from '../../models';
+import {Animatable, MediaProps, QAProps} from '../../models';
 import {block, getQaAttrubutes} from '../../utils';
 import {sanitizeMicrodata} from '../../utils/microdata';
 import IframeVideoBlock from '../VideoBlock/VideoBlock';
@@ -16,7 +16,12 @@ import './Media.scss';
 
 const b = block('Media');
 
-export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAdditionProps, QAProps {
+export interface MediaAllProps
+    extends Animatable,
+        MediaProps,
+        VideoAdditionProps,
+        ImageAdditionProps,
+        QAProps {
     className?: string;
     youtubeClassName?: string;
     autoplay?: boolean;
@@ -25,6 +30,7 @@ export interface MediaAllProps extends MediaProps, VideoAdditionProps, ImageAddi
 
 export const Media = (props: MediaAllProps) => {
     const {
+        animated,
         image,
         video,
         youtube,
@@ -77,6 +83,7 @@ export const Media = (props: MediaAllProps) => {
                     fullscreen={fullscreen}
                     qa={qaAttributes.image}
                     onLoad={onImageLoad}
+                    animated={animated}
                 />,
             );
         }
@@ -133,8 +140,8 @@ export const Media = (props: MediaAllProps) => {
     }, [
         image,
         video,
-        videoIframe,
         youtube,
+        videoIframe,
         dataLens,
         iframe,
         parallax,
@@ -147,6 +154,7 @@ export const Media = (props: MediaAllProps) => {
         qaAttributes.image,
         qaAttributes.video,
         onImageLoad,
+        animated,
         videoClassName,
         analyticsEvents,
         playVideo,
