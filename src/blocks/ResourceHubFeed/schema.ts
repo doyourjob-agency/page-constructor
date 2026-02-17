@@ -1,7 +1,7 @@
 import {BaseProps} from './../../schema/validators/common';
 
-export const ResourceHubFeedBlock = {
-    'resource-hub-feed-block': {
+export const ResourceHubPostsBlock = {
+    'resource-hub-posts-block': {
         additionalProperties: false,
         required: [],
         properties: {

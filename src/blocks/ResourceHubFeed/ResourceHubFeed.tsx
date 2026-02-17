@@ -1,15 +1,15 @@
 import React from 'react';
 
 import FeedHeader from '../../components/FeedHeader/FeedHeader';
-import {ResourceHubFeedBlockProps} from '../../models';
+import {ResourceHubPostsBlockProps} from '../../models';
 
-import ResourceHubFeedSection from './ResourceHubFeedSection/ResourceHubFeedSection';
+import ResourceHubPostsSection from './ResourceHubFeedSection/ResourceHubFeedSection';
 
-export const ResourceHubFeedBlock = ({image, title}: ResourceHubFeedBlockProps) => (
+export const ResourceHubPostsBlock = ({image, title}: ResourceHubPostsBlockProps) => (
     <React.Fragment>
         <FeedHeader image={image} title={title} />
-        <ResourceHubFeedSection />
+        <ResourceHubPostsSection />
     </React.Fragment>
 );
 
-export default ResourceHubFeedBlock;
+export default ResourceHubPostsBlock;

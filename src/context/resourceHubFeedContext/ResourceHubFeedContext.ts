@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type ResourceHubFeedData = {
+export type ResourceHubPostsData = {
     date: string;
     description?: string;
     image: string;
@@ -11,15 +11,15 @@ export type ResourceHubFeedData = {
     url: string;
 };
 
-export interface ResourceHubFeedContextProps {
-    pinnedPost?: ResourceHubFeedData;
-    posts: ResourceHubFeedData[];
+export interface ResourceHubPostsContextProps {
+    pinnedPost?: ResourceHubPostsData;
+    posts: ResourceHubPostsData[];
     page: number;
     pageSize: number;
     onLoadMore?: () => void;
 }
 
-export const ResourceHubFeedContext = React.createContext<ResourceHubFeedContextProps>({
+export const ResourceHubPostsContext = React.createContext<ResourceHubPostsContextProps>({
     posts: [],
     page: 1,
     pageSize: 6,

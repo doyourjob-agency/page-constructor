@@ -4,14 +4,14 @@ import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {argBlogPostsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {ResourceHubFeedBlockModel} from '../../../models';
-import ResourceHubFeed from '../ResourceHubFeed';
+import {ResourceHubPostsBlockModel} from '../../../models';
+import ResourceHubPosts from '../ResourceHubFeed';
 
 import data from './data.json';
 
 export default {
-    title: 'Blocks/ResourceHubFeed',
-    component: ResourceHubFeed,
+    title: 'Blocks/ResourceHubPosts',
+    component: ResourceHubPosts,
     args: {
         ...argFeedHeaderContext.args,
         ...argBlogPostsContext.args,
@@ -22,7 +22,7 @@ export default {
     },
 } as Meta;
 
-const DefaultTemplate: StoryFn<ResourceHubFeedBlockModel> = (args) => (
+const DefaultTemplate: StoryFn<ResourceHubPostsBlockModel> = (args) => (
     <PageConstructor content={{blocks: [args]}} />
 );
 
@@ -32,4 +32,4 @@ const DefaultArgs = {
     ...data.default.content,
 };
 
-Default.args = DefaultArgs as ResourceHubFeedBlockModel;
+Default.args = DefaultArgs as ResourceHubPostsBlockModel;

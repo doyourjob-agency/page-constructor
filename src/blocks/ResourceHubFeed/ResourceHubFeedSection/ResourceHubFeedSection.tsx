@@ -2,12 +2,12 @@ import React, {useContext} from 'react';
 
 import {CardLayoutBlock} from '../..';
 import {InfiniteScroll} from '../../../components';
-import {ResourceHubFeedContext} from '../../../context/resourceHubFeedContext';
+import {ResourceHubPostsContext} from '../../../context/resourceHubFeedContext';
 import {PostCardTitleHeadingLevel} from '../../../models';
 import PostCard from '../../../sub-blocks/PostCard/PostCard';
 import {block} from '../../../utils';
 
-const b = block('resource-hub-feed-section');
+const b = block('resource-hub-posts-section');
 
 const colSizes = {
     all: 12,
@@ -15,8 +15,8 @@ const colSizes = {
     md: 6,
 };
 
-export const ResourceHubFeedSection = () => {
-    const {posts, page, pageSize, onLoadMore} = useContext(ResourceHubFeedContext);
+export const ResourceHubPostsSection = () => {
+    const {posts, page, pageSize, onLoadMore} = useContext(ResourceHubPostsContext);
     const itemsToShow = posts.slice(0, page * pageSize);
     const hasMore = page < Math.ceil(posts.length / pageSize);
 
@@ -41,4 +41,4 @@ export const ResourceHubFeedSection = () => {
     );
 };
 
-export default React.memo(ResourceHubFeedSection);
+export default React.memo(ResourceHubPostsSection);
