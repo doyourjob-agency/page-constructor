@@ -589,12 +589,14 @@ export interface ServicesBlockProps {
     serviceLinkType?: 'doc' | 'price';
 }
 
-export interface EventsFeedBlockProps {
+export interface BaseFeedProps {
     image?: string;
     title?: string;
 }
 
-export type ResourceHubPostsBlockProps = EventsFeedBlockProps;
+export interface EventsFeedBlockProps extends BaseFeedProps {}
+
+export interface ResourceHubPostsBlockProps extends BaseFeedProps {}
 
 export interface EventsSectionBlockProps {
     typeKey: string;
@@ -603,10 +605,7 @@ export interface EventsSectionBlockProps {
     empty?: string;
 }
 
-export interface BlogFeedBlockProps {
-    image?: string;
-    title?: string;
-}
+export interface BlogFeedBlockProps extends BaseFeedProps {}
 
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;

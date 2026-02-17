@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react-vite';
 
-import {argBlogPostsContext, argFeedHeaderContext} from '../../../../.storybook/utils';
+import {argFeedHeaderContext, argResourceHubPostsContext} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {ResourceHubPostsBlockModel} from '../../../models';
 import ResourceHubPosts from '../ResourceHubPosts';
@@ -14,11 +14,11 @@ export default {
     component: ResourceHubPosts,
     args: {
         ...argFeedHeaderContext.args,
-        ...argBlogPostsContext.args,
+        ...argResourceHubPostsContext.args,
     },
     argTypes: {
         ...argFeedHeaderContext.argTypes,
-        ...argBlogPostsContext.argTypes,
+        ...argResourceHubPostsContext.argTypes,
     },
 } as Meta;
 
