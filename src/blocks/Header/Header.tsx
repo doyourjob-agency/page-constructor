@@ -98,6 +98,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         mediaView = 'full',
         backgroundEffect,
         headerSpace,
+        backLink,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -122,6 +123,15 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
     const headerRef = useRef<HTMLElement>(null);
+    const backButtonItem = useMemo(() => {
+        if (backLink) {
+            return {link: backLink.url, text: backLink.title};
+        }
+        if (verticalOffset !== '0' && !breadcrumbs) {
+            return backButton;
+        }
+        return undefined;
+    }, [backButton, backLink, breadcrumbs, verticalOffset]);
 
     return (
         <header
@@ -144,10 +154,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             )}
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />
-                <BackButton
-                    backButton={verticalOffset !== '0' && !breadcrumbs ? backButton : undefined}
-                    theme={textTheme}
-                />
+                <BackButton backButton={backButtonItem} theme={textTheme} />
                 <Row>
                     <Col reset className={b('content-wrapper')}>
                         <Row>

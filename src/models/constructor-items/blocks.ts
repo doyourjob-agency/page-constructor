@@ -283,6 +283,10 @@ export interface HeaderBlockProps {
     theme?: 'light' | 'dark';
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
+    backLink?: {
+        url: string;
+        title: string;
+    };
     status?: JSX.Element;
     renderTitle?: (title: string) => React.ReactNode;
     backgroundEffect?: {
