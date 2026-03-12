@@ -1,0 +1,1 @@
+const t={type:"link-table-block",items:[[{text:"test",url:"https://example.com"}],[{text:"test",url:"https://example.com"}],[{text:"test",url:"https://example.com"}]]},e={template:t};export{e as default,t as template};
