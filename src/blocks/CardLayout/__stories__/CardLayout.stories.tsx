@@ -11,6 +11,9 @@ import data from './data.json';
 export default {
     title: 'Blocks/CardLayout',
     component: CardLayout,
+    args: {
+        theme: 'light',
+    },
 } as Meta;
 
 const createCardArray: (
@@ -26,17 +29,17 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                 {
                     ...args,
                     children: createCardArray(6, data.cards.basicCard),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with layout items',
                     children: createCardArray(3, data.cards.layoutItem),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with background cards',
                     children: createCardArray(3, data.cards.backgroundCard),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with price cards',
@@ -54,12 +57,12 @@ const DefaultTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                             buttons: [data.buttons.monochrome],
                         },
                     ],
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with image cards',
                     children: createCardArray(3, data.cards.imageCard),
-                },
+                } as CardLayoutBlockModel,
             ],
         }}
     />
@@ -74,13 +77,13 @@ const ColSizeTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                         ...args,
                         description: data.colSizes.four.description,
                         colSizes: data.colSizes.four.colSizes,
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...args,
                         description: data.colSizes.two.description,
                         colSizes: data.colSizes.two.colSizes,
                         children: createCardArray(8, data.colSizes.two.card) as SubBlockModels[],
-                    },
+                    } as CardLayoutBlockModel,
                 ],
             }}
         />
@@ -99,7 +102,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: '0',
                             bottom: '0',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...restArgs,
                         title: `${title} with XS indents at the top and bottom`,
@@ -107,7 +110,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: 'xs',
                             bottom: 'xs',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...restArgs,
                         title: `${title} with S indents at the top and bottom`,
@@ -115,7 +118,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: 's',
                             bottom: 's',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...restArgs,
                         title: `${title} with M indents at the top and bottom`,
@@ -123,7 +126,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: 'm',
                             bottom: 'm',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...restArgs,
                         title: `${title} with L (default) indents at the top and bottom`,
@@ -131,7 +134,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: 'l',
                             bottom: 'l',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                     {
                         ...restArgs,
                         title: `${title} with XL indents at the top and bottom`,
@@ -139,7 +142,7 @@ const WithCustomIndentsTemplate: StoryFn<CardLayoutBlockModel> = ({title, ...res
                             top: 'xl',
                             bottom: 'xl',
                         },
-                    },
+                    } as CardLayoutBlockModel,
                 ],
             }}
         />
@@ -154,26 +157,26 @@ const WithBackgroundTemplate: StoryFn<CardLayoutBlockModel> = (args) => (
                     ...args,
                     background: data.backgrounds.image,
                     children: createCardArray(8, data.cards.basicCard),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with background color (basic cards)',
                     background: data.backgrounds.backgroundColor,
                     children: createCardArray(4, data.cards.basicCard),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     background: data.backgrounds.backgroundColorAndShadow,
                     title: 'Card layout with background color and shadow (layout items)',
                     ...data.colSizes.threeOne,
                     children: createCardArray(3, data.cards.layoutItem),
-                },
+                } as CardLayoutBlockModel,
                 {
                     ...args,
                     title: 'Card layout with background image (price cards)',
                     background: data.backgrounds.image,
                     children: createCardArray(4, data.cards.priceCard),
-                },
+                } as CardLayoutBlockModel,
             ],
         }}
     />

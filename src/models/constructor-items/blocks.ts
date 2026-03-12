@@ -697,7 +697,7 @@ export interface ReportSectionProps {
 
 export interface ReportsSectionsBlockProps extends ReportsBlockProps {}
 
-export interface CardLayoutBlockProps extends Childable, Animatable, LoadableChildren {
+export interface CardLayoutBlockProps extends Themable, Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
     description?: string;

@@ -5,6 +5,7 @@ import {
     BlockHeaderProps,
     BorderProps,
     ChildrenCardsProps,
+    ThemeProps,
     containerSizesObject,
 } from '../../schema/validators/common';
 
@@ -37,6 +38,7 @@ export const CardLayoutProps = {
         largeItemGap: {
             type: 'boolean',
         },
+        theme: ThemeProps,
         children: ChildrenCardsProps,
     },
 };

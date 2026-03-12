@@ -23,6 +23,7 @@ export type CardLayoutBlockProps = React.PropsWithChildren<
 const b = block('card-layout-block');
 
 const CardLayout: React.FC<CardLayoutBlockProps> = ({
+    theme: titleTheme,
     title,
     description,
     animated,
@@ -39,7 +40,9 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     return (
         <AnimateBlock className={b(null, className)} animate={animated}>
             {(title || description) && (
-                <Title title={title} subtitle={description} className={titleClassName} />
+                <div className={b('title', {theme: titleTheme})}>
+                    <Title title={title} subtitle={description} className={titleClassName} />
+                </div>
             )}
             <div
                 className={b('content', {

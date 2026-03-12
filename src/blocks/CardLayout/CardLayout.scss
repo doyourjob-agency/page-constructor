@@ -6,6 +6,10 @@ $block: '.#{$ns}card-layout-block';
 $largeBorderRadius: 32px;
 
 #{$block} {
+    &__title_theme_dark {
+        --g-color-text-primary: var(--g-color-text-light-primary);
+        --pc-text-header-color: var(--g-color-text-primary);
+    }
     &__item {
         margin-top: $indentSM;
 
