@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, {useCallback, useContext} from 'react';
 
 import {StoreBadge} from '@gravity-ui/components';
@@ -5,7 +6,7 @@ import {Button as CommonButton, Icon, Platform} from '@gravity-ui/uikit';
 
 import {LocaleContext} from '../../context/localeContext/localeContext';
 import {useAnalytics} from '../../hooks';
-import {Github} from '../../icons';
+import {ApplePodcasts, Github, Spotify, Youtube} from '../../icons';
 import {ButtonProps as ButtonParams, DefaultEventNames, QAProps} from '../../models';
 import {block, setUrlTld} from '../../utils';
 
@@ -79,6 +80,21 @@ const Button = (props: ButtonProps) => {
 
     if (theme === 'github') {
         icon = <Icon className={b('icon')} data={Github} size={24} qa={ICON_QA} />;
+        image = undefined;
+    }
+
+    if (theme === 'youtube') {
+        icon = <Icon className={b('icon')} data={Youtube} size={24} qa={ICON_QA} />;
+        image = undefined;
+    }
+
+    if (theme === 'spotify') {
+        icon = <Icon className={b('icon')} data={Spotify} size={24} qa={ICON_QA} />;
+        image = undefined;
+    }
+
+    if (theme === 'apple-podcasts') {
+        icon = <Icon className={b('icon')} data={ApplePodcasts} size={24} qa={ICON_QA} />;
         image = undefined;
     }
 

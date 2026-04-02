@@ -5,6 +5,10 @@ export const ICON_QA = 'button-icon';
 export type OldButtonTheme =
     | 'normal'
     | 'action'
+    | 'youtube'
+    | 'spotify'
+    | 'apple-podcasts'
+    | 'action'
     | 'flat'
     | 'light'
     | 'clear'
@@ -21,6 +25,9 @@ export type OldButtonTheme =
 const themeMap: Record<OldButtonTheme, ButtonView> = {
     normal: 'normal',
     action: 'action',
+    youtube: 'action',
+    spotify: 'action',
+    'apple-podcasts': 'action',
     flat: 'flat',
     light: 'flat-secondary',
     clear: 'flat-secondary',

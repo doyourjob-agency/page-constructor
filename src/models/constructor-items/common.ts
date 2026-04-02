@@ -210,6 +210,9 @@ export interface FileLinkProps extends ClassNameProps, Tabbable {
 export type ButtonTheme =
     | ButtonView
     | 'github'
+    | 'youtube'
+    | 'spotify'
+    | 'apple-podcasts'
     | 'app-store'
     | 'google-play'
     | 'scale'

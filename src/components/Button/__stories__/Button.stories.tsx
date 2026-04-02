@@ -40,6 +40,9 @@ const ThemesSizesTemplate: StoryFn<ButtonProps> = (args) => (
             <Col>xl</Col>
         </Row>
         <SizesTemplate {...args} theme="github" />
+        <SizesTemplate {...args} theme="youtube" />
+        <SizesTemplate {...args} theme="spotify" />
+        <SizesTemplate {...args} theme="apple-podcasts" />
         <SizesTemplate {...args} theme="app-store" />
         <SizesTemplate {...args} theme="google-play" />
         <SizesTemplate {...args} theme="scale" />
