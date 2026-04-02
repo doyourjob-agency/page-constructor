@@ -64,6 +64,12 @@ $block: '.#{$ns}button-block';
 
         &_xl {
             --btn-image-margin: 25px;
+
+            &#{$block}_theme_youtube,
+            &#{$block}_theme_spotify,
+            &#{$block}_theme_apple-podcasts {
+                --_--padding: 16px;
+            }
         }
     }
 

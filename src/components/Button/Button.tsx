@@ -84,17 +84,38 @@ const Button = (props: ButtonProps) => {
     }
 
     if (theme === 'youtube') {
-        icon = <Icon className={b('icon')} data={Youtube} size={24} qa={ICON_QA} />;
+        icon = (
+            <Icon
+                className={b('icon')}
+                data={Youtube}
+                size={size === 'xl' ? 32 : 24}
+                qa={ICON_QA}
+            />
+        );
         image = undefined;
     }
 
     if (theme === 'spotify') {
-        icon = <Icon className={b('icon')} data={Spotify} size={24} qa={ICON_QA} />;
+        icon = (
+            <Icon
+                className={b('icon')}
+                data={Spotify}
+                size={size === 'xl' ? 32 : 24}
+                qa={ICON_QA}
+            />
+        );
         image = undefined;
     }
 
     if (theme === 'apple-podcasts') {
-        icon = <Icon className={b('icon')} data={ApplePodcasts} size={24} qa={ICON_QA} />;
+        icon = (
+            <Icon
+                className={b('icon')}
+                data={ApplePodcasts}
+                size={size === 'xl' ? 32 : 24}
+                qa={ICON_QA}
+            />
+        );
         image = undefined;
     }
 

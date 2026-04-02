@@ -5,9 +5,9 @@ import {a11yHiddenSvgProps} from '../utils/svg';
 export const Spotify: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="-7 -8 36 40.5"
-        width="36"
-        height="40.5"
+        viewBox="-6 -7 33.6 37.8"
+        width="33.6"
+        height="37.8"
         fill="currentColor"
         {...a11yHiddenSvgProps}
         {...props}
