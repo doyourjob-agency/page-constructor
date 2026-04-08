@@ -18,7 +18,7 @@ $block: '.#{$ns}science-feed-header';
         gap: 28px;
         text-align: center;
         padding: 34px $indentXS;
-        max-width: 780px;
+        max-width: 740px;
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             padding: 20px $indentXS;
@@ -33,6 +33,7 @@ $block: '.#{$ns}science-feed-header';
         letter-spacing: -1%;
         font-family: var(--g-font-family-science-tiempos);
         color: var(--g-color-science-inverse-primary);
+        font-weight: 400;
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             font-size: 28px;
