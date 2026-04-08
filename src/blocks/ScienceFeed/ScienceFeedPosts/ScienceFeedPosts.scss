@@ -1,0 +1,14 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables';
+
+$block: '.#{$ns}science-feed-posts';
+
+#{$block} {
+    &__item {
+        margin-top: 15px;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-top: 28px;
+        }
+    }
+}

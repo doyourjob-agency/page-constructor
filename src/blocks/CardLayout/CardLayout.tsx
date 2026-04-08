@@ -32,6 +32,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
     children,
     className,
     titleClassName,
+    itemClassName,
     background,
     largeItemGap,
 }) => {
@@ -55,7 +56,7 @@ const CardLayout: React.FC<CardLayoutBlockProps> = ({
                         <Col
                             key={index}
                             sizes={itemColSizes[index] || colSizes}
-                            className={b('item', {['large-item-gap']: largeItemGap})}
+                            className={b('item', {['large-item-gap']: largeItemGap}, itemClassName)}
                         >
                             {child}
                         </Col>

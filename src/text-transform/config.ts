@@ -595,4 +595,10 @@ export const config: BlocksConfig = {
         fields: ['textOne', 'textTwo'],
         transformer: yfmTransformer,
     },
+    [BlockType.ScienceFeedBlock]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
 };

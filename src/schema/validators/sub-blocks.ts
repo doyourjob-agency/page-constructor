@@ -12,6 +12,7 @@ export * from '../../sub-blocks/ImageCard/schema';
 export * from '../../sub-blocks/ContentLayoutCard/schema';
 export * from '../../sub-blocks/Card/schema';
 export * from '../../sub-blocks/PostCard/schema';
+export * from '../../sub-blocks/NewPostCard/schema';
 export * from '../../sub-blocks/FeedCard/schema';
 export * from '../../sub-blocks/EventPersonCard/schema';
 export * from '../../sub-blocks/AttachmentCard/schema';

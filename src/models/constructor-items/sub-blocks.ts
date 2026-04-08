@@ -48,6 +48,7 @@ export enum SubBlockType {
     ContentLayoutCard = 'content-layout-card',
     Card = 'card',
     PostCard = 'post-card',
+    NewPostCard = 'new-post-card',
     FeedCard = 'feed-card',
     EventPersonCard = 'event-person-card',
     StoryCard = 'story-card',
@@ -280,6 +281,19 @@ export interface PostCardProps extends PostCardParams {
     url: string;
 }
 
+export interface NewPostCardProps {
+    title: string;
+    description?: string;
+    topic?: string;
+    author?: string;
+    date: string;
+    image: string;
+    readingTime?: number;
+    slug: string;
+    url: string;
+    pinned?: boolean;
+}
+
 export interface FeedCardProps {
     url?: string;
     type?: string;
@@ -395,6 +409,10 @@ export type PostCardModel = {
     type: SubBlockType.PostCard;
 } & PostCardProps;
 
+export type NewPostCardModel = {
+    type: SubBlockType.NewPostCard;
+} & NewPostCardProps;
+
 export type FeedCardModel = {
     type: SubBlockType.FeedCard;
 } & FeedCardProps;
@@ -428,6 +446,7 @@ export type SubBlockModels =
     | LayoutItemModel
     | ImageCardModel
     | PostCardModel
+    | NewPostCardModel
     | FeedCardModel
     | EventPersonCardModel
     | AttachmentCardModel

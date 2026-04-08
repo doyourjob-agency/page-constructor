@@ -37,6 +37,7 @@ export * from '../../blocks/EventsFeed/schema';
 export * from '../../blocks/ResourceHubPosts/schema';
 export * from '../../blocks/EventsSection/schema';
 export * from '../../blocks/BlogFeed/schema';
+export * from '../../blocks/ScienceFeed/schema';
 export * from '../../blocks/RelevantPosts/schema';
 export * from '../../blocks/RelevantReportsCards/schema';
 export * from '../../blocks/RelevantReports/schema';

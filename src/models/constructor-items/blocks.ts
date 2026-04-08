@@ -87,6 +87,7 @@ export enum BlockType {
     ResourceHubPostsBlock = 'resource-hub-posts-block',
     EventsSectionBlock = 'events-section-block',
     BlogFeedBlock = 'blog-feed-block',
+    ScienceFeedBlock = 'science-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
     RelevantReportsCardsBlock = 'relevant-reports-cards-block',
     RelevantReportsBlock = 'relevant-reports-block',
@@ -611,6 +612,16 @@ export interface EventsSectionBlockProps {
 
 export interface BlogFeedBlockProps extends BaseFeedProps {}
 
+export interface ScienceFeedHeaderProps {
+    image?: string;
+    title?: string;
+    text?: string;
+    caption?: string;
+    logo?: string;
+}
+
+export interface ScienceFeedBlockProps extends ScienceFeedHeaderProps {}
+
 export interface RelevantPostsBlockProps {
     title?: TitleItemProps | string;
     description?: string;
@@ -700,6 +711,7 @@ export interface ReportsSectionsBlockProps extends ReportsBlockProps {}
 export interface CardLayoutBlockProps extends Themable, Childable, Animatable, LoadableChildren {
     title?: TitleItemProps | string;
     titleClassName?: string;
+    itemClassName?: string;
     description?: string;
     colSizes?: GridColumnSizesType;
     itemColSizes?: {
@@ -1059,6 +1071,10 @@ export type BlogFeedBlockModel = {
     type: BlockType.BlogFeedBlock;
 } & BlogFeedBlockProps;
 
+export type ScienceFeedBlockModel = {
+    type: BlockType.ScienceFeedBlock;
+} & ScienceFeedBlockProps;
+
 export type RelevantPostsBlockModel = {
     type: BlockType.RelevantPostsBlock;
 } & RelevantPostsBlockProps;
@@ -1127,6 +1143,7 @@ type BlockModels =
     | BenchmarkBlockModel
     | EventsSectionBlockModel
     | BlogFeedBlockModel
+    | ScienceFeedBlockModel
     | RelevantPostsBlockModel
     | RelevantReportsCardsBlockModel
     | RelevantReportsBlockModel

@@ -65,6 +65,19 @@
     --pc-color-ab-second: #e0ff4f;
     --pc-color-ab-border: #9e9e9e;
 
+    // +science theme
+    --g-font-family-science-tiempos: var(--g-font-family-sans);
+    --g-font-family-science-inter: var(--g-font-family-sans);
+    --g-font-family-science-inter-tight: var(--g-font-family-sans);
+    --g-color-science-inverse-primary: var(--g-color-text-primary);
+    --g-color-science-inverse-secondary: var(--g-color-text-primary);
+    --g-color-science-inverse-tertiary: var(--g-color-text-primary);
+    --g-color-science-primary: var(--g-color-text-primary);
+    --g-color-science-secondary: var(--g-color-text-primary);
+    --g-color-science-tertiary: var(--g-color-text-primary);
+    --g-color-science-bg-secondary: var(--g-color-base-background);
+    // -science theme
+
     &_theme_light {
         @include pc-colors-light;
         --g-color-line-focus: var(--pc-color-line-focus-light);

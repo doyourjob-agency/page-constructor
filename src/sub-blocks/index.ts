@@ -13,6 +13,7 @@ export {default as ImageCard} from './ImageCard/ImageCard';
 export {default as ContentLayoutCard} from './ContentLayoutCard/ContentLayoutCard';
 export {default as Card} from './Card/Card';
 export {default as PostCard} from './PostCard/PostCard';
+export {default as NewPostCard} from './NewPostCard/NewPostCard';
 export {default as FeedCard} from './FeedCard/FeedCard';
 export {default as EventPersonCard} from './EventPersonCard/EventPersonCard';
 export {default as AttachmentCard} from './AttachmentCard/AttachmentCard';

@@ -24,6 +24,8 @@ import {
     ReportsSectionsContextProps,
     ResourceHubPostsContext,
     ResourceHubPostsContextProps,
+    SciencePostsContext,
+    SciencePostsContextProps,
     Theme,
 } from '../src';
 import {GlobalThemeController} from './theme/utils/global-theme-controller';
@@ -81,6 +83,9 @@ const withContextProvider: Decorator = (Story, context) => {
         />,
         <BlogPostsContext.Provider
             value={context.args.blogPostsContext as BlogPostsContextProps}
+        />,
+        <SciencePostsContext.Provider
+            value={context.args.sciencePostsContext as SciencePostsContextProps}
         />,
         <ResourceHubPostsContext.Provider
             value={context.args.resourceHubPostsContext as ResourceHubPostsContextProps}

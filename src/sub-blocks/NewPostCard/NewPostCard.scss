@@ -1,0 +1,182 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}new-post-card';
+
+#{$block} {
+    $linesToShow: 5;
+
+    &__card {
+        @include add-specificity(&) {
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            min-height: 510px;
+            background-color: var(--g-color-science-bg-secondary);
+
+            &:hover {
+                background-color: var(--g-color-science-bg-secondary);
+            }
+
+            &_pinned {
+                @media (min-width: map-get($gridBreakpoints, 'md')) {
+                    flex-direction: row;
+                    min-height: 418px;
+                }
+            }
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                min-height: 480px;
+            }
+        }
+    }
+
+    &__header {
+        margin: 10px 10px 0;
+        border-radius: 14px;
+        aspect-ratio: 343/198;
+
+        &_pinned {
+            @media (min-width: map-get($gridBreakpoints, 'md')) {
+                margin: 8px 0 8px 8px;
+                width: 57.3%;
+                border-radius: 20px;
+                aspect-ratio: 642/402;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            border-radius: 10px;
+            margin: 4px 4px 0;
+        }
+    }
+
+    &__body {
+        @include add-specificity(&) {
+            padding: 20px 28px 26px;
+
+            &_pinned {
+                @media (min-width: map-get($gridBreakpoints, 'md')) {
+                    padding: 26px 24px 24px 48px;
+                }
+            }
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                padding: 14px 28px 16px;
+            }
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: $indentXS;
+
+        &_pinned {
+            @media (min-width: map-get($gridBreakpoints, 'md')) {
+                gap: 12px;
+                margin-bottom: $indentSM;
+            }
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 20px;
+        line-height: 120%;
+        font-weight: 500;
+        color: var(--g-color-science-primary);
+        font-family: var(--g-font-family-science-inter-tight);
+
+        &_pinned {
+            @media (min-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 26px;
+                letter-spacing: -2%;
+                font-style: italic;
+                font-family: var(--g-font-family-science-tiempos);
+            }
+        }
+    }
+
+    &__tag {
+        color: var(--g-color-science-tertiary);
+        font-style: italic;
+        font-size: 14px;
+        line-height: 120%;
+        font-family: var(--g-font-family-science-tiempos);
+    }
+
+    &__description {
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: $indentXXL;
+        white-space: initial;
+        color: var(--g-color-science-secondary);
+        font-family: var(--g-font-family-science-inter);
+
+        font-size: 16px;
+        line-height: 120%;
+
+        @supports (-webkit-line-clamp: $linesToShow) {
+            max-height: none;
+            -webkit-line-clamp: $linesToShow;
+        }
+
+        &_pinned {
+            @media (min-width: map-get($gridBreakpoints, 'md')) {
+                line-height: 136%;
+            }
+        }
+    }
+
+    &__author {
+        font-family: var(--g-font-family-science-tiempos);
+        font-size: 14px;
+        line-height: 120%;
+        color: var(--g-color-science-tertiary);
+    }
+
+    &__footer {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: $indentXXS;
+        color: var(--g-color-science-tertiary);
+    }
+
+    &__suggest-container {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        column-gap: 22px;
+        row-gap: $indentXXS;
+        margin-top: $indentXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            column-gap: 14px;
+        }
+    }
+
+    &__item {
+        font-size: 14px;
+        line-height: 120%;
+        font-family: var(--g-font-family-science-inter);
+
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+    }
+}

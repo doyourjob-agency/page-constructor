@@ -1,0 +1,50 @@
+{
+  "pinnedPost": {
+    "slug": "test-1",
+    "title": "The Mixer: Storming Group Theory With Group Intelligence",
+    "description": "How imperfect algorithms, working together, can crack the century-old Burnside puzzle. A new study from the Stevens-Xxxxxx-Gradarius lab.",
+    "author": "By Vlad Stepanov",
+    "date": "25.03.2026",
+    "image": "/story-assets/img_6-12_light.png",
+    "readingTime": 12,
+    "topic": "Academic Grants",
+    "url": "#"
+  },
+  "posts": [
+    {
+      "slug": "test-3",
+      "title": "Articulations Speak Louder Than Words",
+      "description": "Reversing Babel: inside the language-agnostic redesign of speech-to-speech translation.",
+      "author": "Author",
+      "date": "25.03.2026",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 12,
+      "topic": "Collaborations",
+      "url": "#"
+    },
+    {
+      "slug": "test-4",
+      "title": "We’re addicted to you, don’t you know that you’re toxic?",
+      "description": "At Télécom SudParis, researchers turn to Robert Sapolsky’s zebras as they rethink how AI sees toxicity.",
+      "topic": "Academic Grants",
+      "author": "Author",
+      "date": "25.03.2026",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 12,
+      "url": "#"
+    },
+    {
+      "slug": "test-5",
+      "title": "Headline",
+      "description": "Sub-headline",
+      "author": "Author",
+      "topic": "Topic",
+      "date": "Date",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 12,
+      "url": "#"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}
