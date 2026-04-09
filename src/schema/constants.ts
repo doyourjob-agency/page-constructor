@@ -46,6 +46,7 @@ import {
     ScrollerBlock,
     ServicesBlock,
     ShareBlock,
+    SidebarWidgetBlock,
     SliderBlock,
     SliderNewBlock,
     SolutionsBlock,
@@ -113,6 +114,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...QuotesBlock,
     ...ReportsBlock,
     ...ScienceHeaderBlock,
+    ...SidebarWidgetBlock,
     ...ReportsCardsBlock,
     ...ReportsSectionsBlock,
     ...LinkTableBlock,
@@ -206,6 +208,7 @@ export const constructorBlockSchemaNames = [
     'scroller-block',
     'benchmark-block',
     'banner-minify-block',
+    'sidebar-widget-block',
 ];
 
 export const constructorCardSchemaNames = [

@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+$block: '.#{$ns}sidebar-widget-block';
+
+#{$block} {
+    display: flex;
+    padding-top: 10px;
+    border-top: 1px solid var(--g-color-science-border);
+
+    &__image {
+        width: 66px;
+        height: 66px;
+        border-radius: 8px;
+        margin-right: 12px;
+    }
+
+    &__title {
+        margin-bottom: 3px;
+        font-size: 16px;
+        line-height: 118%;
+        color: var(--g-color-science-primary);
+    }
+
+    &__text {
+        font-size: 13px;
+        line-height: 123%;
+        color: var(--g-color-science-secondary);
+    }
+
+    &__icon {
+        position: relative;
+        bottom: -0.2rem;
+    }
+}

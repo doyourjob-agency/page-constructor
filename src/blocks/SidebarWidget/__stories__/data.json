@@ -1,0 +1,12 @@
+{
+  "default": {
+    "content": {
+      "type": "sidebar-widget-block",
+      "title": "Vlad Stepanov",
+      "text": "Long Title",
+      "image": "/story-assets/img_6-12_light.png",
+      "url": "#",
+      "blank": true
+    }
+  }
+}

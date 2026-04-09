@@ -98,6 +98,7 @@ export enum BlockType {
     HighlightTableBlock = 'highlight-table-block',
     MiniCaseBlock = 'mini-case-block',
     BenchmarkBlock = 'benchmark-block',
+    SidebarWidgetBlock = 'sidebar-widget-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -792,6 +793,14 @@ export interface IconsBlockProps extends Animatable {
     colSizes?: GridColumnSizesType;
 }
 
+export interface SidebarWidgetBlockProps {
+    image?: string;
+    title?: string;
+    text?: string;
+    url?: string;
+    blank?: boolean;
+}
+
 interface ContentLayoutBlockParams {
     size?: ContentSize;
     background?: ThemeSupporting<BackgroundImageProps>;
@@ -1117,6 +1126,10 @@ export type SliderNewBlockModel = {
     type: BlockType.SliderNewBlock;
 } & SliderNewProps;
 
+export type SidebarWidgetBlockModel = {
+    type: BlockType.SidebarWidgetBlock;
+} & SidebarWidgetBlockProps;
+
 type BlockModels =
     | SliderBlockModel
     | ExtendedFeaturesBlockModel
@@ -1168,6 +1181,7 @@ type BlockModels =
     | RelevantReportsBlockModel
     | PressReleasesBlockModel
     | FormWallBlockModel
-    | SliderNewBlockModel;
+    | SliderNewBlockModel
+    | SidebarWidgetBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;
