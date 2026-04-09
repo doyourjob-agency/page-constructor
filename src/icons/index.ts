@@ -9,3 +9,4 @@ export * from './ArrowLeftIcon';
 export * from './ArrowRightIcon';
 export * from './VideoIcon';
 export * from './DocumentIcon';
+export * from './ShareArrowUp';

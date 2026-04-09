@@ -1,0 +1,16 @@
+{
+  "default": {
+    "content": {
+      "type": "science-header-block",
+      "title": "The Mixer: Storming Group Theory With Group Intelligence",
+      "description": "How imperfect algorithms, working together, can crack the century-old Burnside puzzle. A new study from the Stevens-Xxxxxx-Gradarius lab.",
+      "author": "By Vlad Stepanov",
+      "date": "25.03.2026",
+      "image": "/story-assets/img_6-12_light.png",
+      "readingTime": 12,
+      "topic": "Academic Grants",
+      "shareOptions": ["Telegram", "Facebook", "Twitter", "VK", "LinkedIn", "Mail"],
+      "shareUrl": "#"
+    }
+  }
+}

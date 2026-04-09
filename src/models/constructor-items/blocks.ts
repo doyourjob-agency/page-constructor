@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {ShareOptions} from '@gravity-ui/components';
 import {ButtonSize} from '@gravity-ui/uikit';
 
 import {GridColumnSize, GridColumnSizesType, IndentValue} from '../../grid/types';
@@ -79,6 +80,7 @@ export enum BlockType {
     ServicesBlock = 'services-block',
     QuotesBlock = 'quotes-block',
     ReportsBlock = 'reports-block',
+    ScienceHeaderBlock = 'science-header-block',
     ReportsCardsBlock = 'reports-cards-block',
     ReportsSectionsBlock = 'reports-sections-block',
     FormWallBlock = 'form-wall-block',
@@ -898,6 +900,18 @@ export interface FormBlockProps {
     fullWidthContent?: boolean;
 }
 
+export interface ScienceHeaderBlockProps {
+    title: string;
+    description?: string;
+    topic?: string;
+    author?: string;
+    date: string;
+    image: string;
+    readingTime?: number;
+    shareOptions?: ShareOptions[];
+    shareUrl?: string;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -1035,6 +1049,10 @@ export type ReportsBlockModel = {
     type: BlockType.ReportsBlock;
 } & ReportsBlockProps;
 
+export type ScienceHeaderBlockModel = {
+    type: BlockType.ScienceHeaderBlock;
+} & ScienceHeaderBlockProps;
+
 export type ReportsCardsBlockModel = {
     type: BlockType.ReportsCardsBlock;
 } & ReportsCardsBlockProps;
@@ -1135,6 +1153,7 @@ type BlockModels =
     | ServicesBlockModel
     | QuotesBlockModel
     | ReportsBlockModel
+    | ScienceHeaderBlockModel
     | ReportsCardsBlockModel
     | ReportsSectionsBlockModel
     | LinkTableBlockModel

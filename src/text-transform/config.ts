@@ -601,4 +601,10 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.ScienceHeaderBlock]: [
+        {
+            fields: ['description'],
+            transformer: yfmTransformer,
+        },
+    ],
 };
