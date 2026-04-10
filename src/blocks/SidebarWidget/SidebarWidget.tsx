@@ -19,7 +19,7 @@ const SidebarWidget = ({image, title, text, url, blank}: SidebarWidgetBlockProps
                     <div className={`${b('title')} title-font-family`}>{title}</div>
                     <div className={b('text')}>
                         {text}
-                        {url ? <span>↗</span> : null}
+                        {url ? <span className={b('icon')}>↗</span> : null}
                     </div>
                 </div>
             </React.Fragment>
