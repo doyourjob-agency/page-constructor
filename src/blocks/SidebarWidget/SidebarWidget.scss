@@ -27,4 +27,9 @@ $block: '.#{$ns}sidebar-widget-block';
         line-height: 123%;
         color: var(--g-color-science-secondary);
     }
+
+    &__icon {
+        position: relative;
+        bottom: -0.1rem;
+    }
 }
