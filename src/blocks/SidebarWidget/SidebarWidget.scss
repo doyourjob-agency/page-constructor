@@ -17,8 +17,8 @@ $block: '.#{$ns}sidebar-widget-block';
 
     &__title {
         margin-bottom: 3px;
-        font-size: 16px;
-        line-height: 118%;
+        font-size: 14px;
+        line-height: 121%;
         color: var(--g-color-science-primary);
     }
 
@@ -26,10 +26,5 @@ $block: '.#{$ns}sidebar-widget-block';
         font-size: 13px;
         line-height: 123%;
         color: var(--g-color-science-secondary);
-    }
-
-    &__icon {
-        position: relative;
-        bottom: -0.2rem;
     }
 }
