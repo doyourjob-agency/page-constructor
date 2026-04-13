@@ -20,12 +20,14 @@ const AboutHeaderBlock = ({title, text, caption, image, logo}: AboutHeaderBlockP
                     <Image src={image} className={b('img')} />
                 </Col>
                 <Col sizes={leftColumn} className={b('right')}>
-                    <h1 className={b('title')}>{title}</h1>
-                    <div className={b('wrap')}>
-                        <div className={b('caption')}>{caption}</div>
-                        <Image src={logo} className={b('logo')} />
+                    <div className={b('content')}>
+                        <h1 className={b('title')}>{title}</h1>
+                        <div className={b('wrap')}>
+                            <div className={b('caption')}>{caption}</div>
+                            <Image src={logo} className={b('logo')} />
+                        </div>
+                        {text && <HTML className={b('text')}>{text}</HTML>}
                     </div>
-                    {text && <HTML className={b('text')}>{text}</HTML>}
                 </Col>
             </Row>
         </div>
