@@ -81,6 +81,7 @@ export enum BlockType {
     QuotesBlock = 'quotes-block',
     ReportsBlock = 'reports-block',
     ScienceHeaderBlock = 'science-header-block',
+    AboutHeaderBlock = 'about-header-block',
     ReportsCardsBlock = 'reports-cards-block',
     ReportsSectionsBlock = 'reports-sections-block',
     FormWallBlock = 'form-wall-block',
@@ -921,6 +922,14 @@ export interface ScienceHeaderBlockProps {
     shareUrl?: string;
 }
 
+export interface AboutHeaderBlockProps {
+    title: string;
+    text?: string;
+    caption?: string;
+    image: string;
+    logo?: string;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -1062,6 +1071,10 @@ export type ScienceHeaderBlockModel = {
     type: BlockType.ScienceHeaderBlock;
 } & ScienceHeaderBlockProps;
 
+export type AboutHeaderBlockModel = {
+    type: BlockType.AboutHeaderBlock;
+} & AboutHeaderBlockProps;
+
 export type ReportsCardsBlockModel = {
     type: BlockType.ReportsCardsBlock;
 } & ReportsCardsBlockProps;
@@ -1167,6 +1180,7 @@ type BlockModels =
     | QuotesBlockModel
     | ReportsBlockModel
     | ScienceHeaderBlockModel
+    | AboutHeaderBlockModel
     | ReportsCardsBlockModel
     | ReportsSectionsBlockModel
     | LinkTableBlockModel

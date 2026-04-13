@@ -1,6 +1,7 @@
 import {BlockType} from '../models';
 
 import {
+    AboutHeaderBlock,
     AdvantagesBlock,
     BannerBlock,
     BannerCard,
@@ -114,6 +115,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...QuotesBlock,
     ...ReportsBlock,
     ...ScienceHeaderBlock,
+    ...AboutHeaderBlock,
     ...SidebarWidgetBlock,
     ...ReportsCardsBlock,
     ...ReportsSectionsBlock,
@@ -209,6 +211,7 @@ export const constructorBlockSchemaNames = [
     'benchmark-block',
     'banner-minify-block',
     'sidebar-widget-block',
+    'about-header-block',
 ];
 
 export const constructorCardSchemaNames = [

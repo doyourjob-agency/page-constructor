@@ -33,6 +33,7 @@ export {default as ServicesBlock} from './Services/Services';
 export {default as QuotesBlock} from './Quotes/Quotes';
 export {default as ReportsBlock} from './Reports/Reports';
 export {default as ScienceHeaderBlock} from './ScienceHeader/ScienceHeader';
+export {default as AboutHeaderBlock} from './AboutHeader/AboutHeader';
 export {default as ReportsCardsBlock} from './ReportsCards/ReportsCards';
 export {default as ReportsSectionsBlock} from './ReportsSections/ReportsSections';
 export {default as FormWallBlock} from './FormWallBlock/FormWallBlock';

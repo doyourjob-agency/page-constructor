@@ -607,4 +607,10 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.AboutHeaderBlock]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
 };

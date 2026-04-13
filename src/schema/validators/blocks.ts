@@ -49,4 +49,5 @@ export * from '../../blocks/LogoRotator/schema';
 export * from '../../blocks/Benchmark/schema';
 export * from '../../blocks/HeaderMinify/schema';
 export * from '../../blocks/ScienceHeader/schema';
+export * from '../../blocks/AboutHeader/schema';
 export * from '../../blocks/SidebarWidget/schema';

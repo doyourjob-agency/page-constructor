@@ -1,4 +1,5 @@
 import {
+    AboutHeaderBlock,
     AdvantagesBlock,
     BannerBlock,
     BannerMinifyBlock,
@@ -131,6 +132,7 @@ export const blockMap = {
     [BlockType.QuotesBlock]: QuotesBlock,
     [BlockType.ReportsBlock]: ReportsBlock,
     [BlockType.ScienceHeaderBlock]: ScienceHeaderBlock,
+    [BlockType.AboutHeaderBlock]: AboutHeaderBlock,
     [BlockType.SidebarWidgetBlock]: SidebarWidgetBlock,
     [BlockType.ReportsCardsBlock]: ReportsCardsBlock,
     [BlockType.ReportsSectionsBlock]: ReportsSectionsBlock,

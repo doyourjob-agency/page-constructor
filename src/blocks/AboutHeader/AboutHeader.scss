@@ -1,39 +1,26 @@
-@import '../../../../styles/mixins';
-@import '../../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
-$block: '.#{$ns}science-feed-header';
+$block: '.#{$ns}about-header-block';
 
 #{$block} {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__content {
-        position: relative;
-        z-index: 1;
+    &__right {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 28px;
-        text-align: center;
-        padding: 34px $indentXS;
-        max-width: 740px;
+        gap: 22px;
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
-            padding: 20px $indentXS;
+            gap: 24px;
+            order: -1;
         }
     }
 
     &__title {
-        @include add-specificity(&) {
-            margin: 0;
-        }
-
+        margin: 0;
         font-style: italic;
         font-size: 32px;
         line-height: 120%;
-        letter-spacing: -1%;
+        letter-spacing: -2%;
         font-family: var(--g-font-family-science-tiempos);
         color: var(--g-color-science-inverse-primary);
         font-weight: 400;
@@ -44,8 +31,8 @@ $block: '.#{$ns}science-feed-header';
     }
 
     &__text {
-        max-width: 550px;
         font-size: 16px;
+        font-weight: 400;
         line-height: 136%;
         font-family: var(--g-font-family-science-inter);
         color: var(--g-color-science-inverse-secondary);
@@ -53,17 +40,21 @@ $block: '.#{$ns}science-feed-header';
         & > p {
             margin: 0;
         }
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            margin-top: 23px;
+        }
     }
 
     &__wrap {
-        gap: 8px;
+        gap: 10px;
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     &__caption {
         font-size: 14px;
+        font-weight: 400;
         line-height: 136%;
         font-family: var(--g-font-family-science-inter);
         color: var(--g-color-science-inverse-tertiary);
@@ -73,19 +64,16 @@ $block: '.#{$ns}science-feed-header';
         width: 208px;
     }
 
-    &__media {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        border-radius: $indentS;
-    }
-
-    &__image {
-        height: 100%;
+    &__img {
         width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        aspect-ratio: 551/379;
         object-fit: cover;
-        object-position: top;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            border-radius: 15px;
+            margin-top: 40px;
+        }
     }
 }
