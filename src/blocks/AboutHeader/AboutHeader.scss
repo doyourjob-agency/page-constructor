@@ -5,18 +5,18 @@ $block: '.#{$ns}about-header-block';
 
 #{$block} {
     &__right {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-
         @media (max-width: map-get($gridBreakpoints, 'md')) {
-            gap: 24px;
             order: -1;
         }
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
         @media (min-width: map-get($gridBreakpoints, 'md')) {
+            gap: 22px;
             padding-left: $indentXS;
         }
     }
