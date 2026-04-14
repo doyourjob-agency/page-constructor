@@ -32,6 +32,7 @@ $block: '.#{$ns}cat-block';
         border: 1.5px solid rgba(20, 7, 15, 0.1);
         color: var(--g-color-science-primary);
         transition: opacity 0.2s ease;
+        font-family: var(--g-font-family-science-inter);
 
         &:hover {
             opacity: 0.7;
