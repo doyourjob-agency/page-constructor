@@ -26,11 +26,9 @@ export const Audio = ({url}: PropsWithChildren<AudioBlockProps>) => {
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
     const [isDragging, setIsDragging] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     // FIX: сброс состояния при смене url
     useEffect(() => {
-        setIsLoading(true);
         setCurrentTime(0);
         setDuration(0);
         setIsPlaying(false);
@@ -155,16 +153,12 @@ export const Audio = ({url}: PropsWithChildren<AudioBlockProps>) => {
             }
         };
         const onDurationChange = () => setDuration(audio.duration);
-        const onCanPlay = () => setIsLoading(false);
-        const onWaiting = () => setIsLoading(true);
 
         audio.addEventListener('play', onPlay);
         audio.addEventListener('pause', onPause);
         audio.addEventListener('ended', onEnded);
         audio.addEventListener('timeupdate', onTimeUpdate);
         audio.addEventListener('durationchange', onDurationChange);
-        audio.addEventListener('canplay', onCanPlay);
-        audio.addEventListener('waiting', onWaiting);
 
         // eslint-disable-next-line consistent-return
         return () => {
@@ -173,8 +167,6 @@ export const Audio = ({url}: PropsWithChildren<AudioBlockProps>) => {
             audio.removeEventListener('ended', onEnded);
             audio.removeEventListener('timeupdate', onTimeUpdate);
             audio.removeEventListener('durationchange', onDurationChange);
-            audio.removeEventListener('canplay', onCanPlay);
-            audio.removeEventListener('waiting', onWaiting);
         };
     }, []);
 
@@ -202,22 +194,20 @@ export const Audio = ({url}: PropsWithChildren<AudioBlockProps>) => {
             <audio ref={audioRef} src={url} preload="auto" />
 
             <button
-                className={b('play-btn', {loading: isLoading})}
+                className={b('play-btn')}
                 onClick={togglePlay}
                 aria-label={isPlaying ? 'Pause' : 'Play'}
                 type="button"
             >
-                {isLoading && <span className={b('spinner')} />}
-                {!isLoading &&
-                    (isPlaying ? (
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                        </svg>
-                    ) : (
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    ))}
+                {isPlaying ? (
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                ) : (
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                )}
             </button>
 
             <div className={b('timeline')}>
