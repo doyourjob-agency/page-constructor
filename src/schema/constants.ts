@@ -10,6 +10,7 @@ import {
     BenefitsBlock,
     BlogFeedBlock,
     CardLayoutBlock,
+    CatBlock,
     CompaniesBlock,
     ContentLayoutBlock,
     EventsFeedBlock,
@@ -131,6 +132,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...RelevantReportsBlock,
     ...PressReleasesBlock,
     ...FormWallBlock,
+    ...CatBlock,
 };
 
 export const cardSchemas = {
@@ -212,6 +214,7 @@ export const constructorBlockSchemaNames = [
     'banner-minify-block',
     'sidebar-widget-block',
     'about-header-block',
+    'cat-block',
 ];
 
 export const constructorCardSchemaNames = [

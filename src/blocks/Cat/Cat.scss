@@ -1,0 +1,40 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}cat-block';
+
+#{$block} {
+    margin: 0;
+    padding: $indentSM 0;
+    border-top: 1.5px solid rgba(20, 7, 15, 0.1);
+    border-bottom: 1.5px solid rgba(20, 7, 15, 0.1);
+
+    &_open {
+        padding: 0;
+        border: none;
+    }
+
+    &__item {
+        margin: 0;
+        padding: 0 $indentXXXS;
+    }
+
+    &__button {
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 400;
+        text-align: center;
+        padding: $indentXS;
+        border-radius: $indentXS;
+        background-color: var(--g-color-science-bg-secondary);
+        border: 1.5px solid rgba(20, 7, 15, 0.1);
+        color: var(--g-color-science-primary);
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

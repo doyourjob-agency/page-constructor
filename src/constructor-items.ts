@@ -7,6 +7,7 @@ import {
     BenefitsBlock,
     BlogFeedBlock,
     CardLayoutBlock,
+    CatBlock,
     CompaniesBlock,
     ContentLayoutBlock,
     EventsFeedBlock,
@@ -138,6 +139,7 @@ export const blockMap = {
     [BlockType.ReportsSectionsBlock]: ReportsSectionsBlock,
     [BlockType.FormWallBlock]: FormWallBlock,
     [BlockType.SliderNewBlock]: SliderNewBlock,
+    [BlockType.CatBlock]: CatBlock,
 };
 
 export const subBlockMap = {

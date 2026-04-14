@@ -100,6 +100,7 @@ export enum BlockType {
     MiniCaseBlock = 'mini-case-block',
     BenchmarkBlock = 'benchmark-block',
     SidebarWidgetBlock = 'sidebar-widget-block',
+    CatBlock = 'cat-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -729,6 +730,10 @@ export interface CardLayoutBlockProps extends Themable, Childable, Animatable, L
     largeItemGap?: boolean;
 }
 
+export interface CatBlockProps {
+    title?: string;
+}
+
 export interface BenchmarkBlockProps extends Animatable {
     title?: string;
     duration?: number;
@@ -1019,6 +1024,10 @@ export type CardLayoutBlockModel = {
     type: BlockType.CardLayoutBlock;
 } & CardLayoutBlockProps;
 
+export type CatBlockModel = {
+    type: BlockType.CatBlock;
+} & CatBlockProps;
+
 export type FilterBlockModel = {
     type: BlockType.FilterBlock;
 } & FilterBlockProps;
@@ -1196,6 +1205,7 @@ type BlockModels =
     | PressReleasesBlockModel
     | FormWallBlockModel
     | SliderNewBlockModel
-    | SidebarWidgetBlockModel;
+    | SidebarWidgetBlockModel
+    | CatBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

@@ -51,3 +51,4 @@ export {default as HighlightTableBlock} from './HighlightTable/HighlightTable';
 export {default as MiniCaseBlock} from './MiniCase/MiniCase';
 export {default as BenchmarkBlock} from './Benchmark/Benchmark';
 export {default as SidebarWidgetBlock} from './SidebarWidget/SidebarWidget';
+export {default as CatBlock} from './Cat/Cat';
