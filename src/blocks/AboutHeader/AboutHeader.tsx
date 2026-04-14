@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HTML, Image} from '../../components';
+import {Image, YFMWrapper} from '../../components';
 import {Col, Row} from '../../grid';
 import {AboutHeaderBlockProps} from '../../models';
 import {block} from '../../utils/cn';
@@ -26,7 +26,13 @@ const AboutHeaderBlock = ({title, text, caption, image, logo}: AboutHeaderBlockP
                             <div className={b('caption')}>{caption}</div>
                             <Image src={logo} className={b('logo')} />
                         </div>
-                        {text && <HTML className={b('text')}>{text}</HTML>}
+                        {text && (
+                            <YFMWrapper
+                                content={text}
+                                modifiers={{constructor: true}}
+                                className={b('text')}
+                            />
+                        )}
                     </div>
                 </Col>
             </Row>

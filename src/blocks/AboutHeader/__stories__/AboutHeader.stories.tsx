@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react-vite';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {AboutHeaderBlockModel} from '../../../models';
-import {yfmTransformer} from '../../../text-transform';
 import AboutHeader from '../AboutHeader';
 
 import data from './data.json';
@@ -22,7 +22,7 @@ export const Default = DefaultTemplate.bind({});
 
 const DefaultArgs = {
     ...data.default.content,
-    text: yfmTransformer('ru', data.default.content.text),
+    text: yfmTransform(data.default.content.text),
 };
 
 Default.args = DefaultArgs as AboutHeaderBlockModel;
