@@ -3,6 +3,7 @@ import {BlockType} from '../models';
 import {
     AboutHeaderBlock,
     AdvantagesBlock,
+    AudioBlock,
     BannerBlock,
     BannerCard,
     BannerMinifyBlock,
@@ -133,6 +134,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...PressReleasesBlock,
     ...FormWallBlock,
     ...CatBlock,
+    ...AudioBlock,
 };
 
 export const cardSchemas = {
@@ -215,6 +217,7 @@ export const constructorBlockSchemaNames = [
     'sidebar-widget-block',
     'about-header-block',
     'cat-block',
+    'audio-block',
 ];
 
 export const constructorCardSchemaNames = [

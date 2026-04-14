@@ -101,6 +101,7 @@ export enum BlockType {
     BenchmarkBlock = 'benchmark-block',
     SidebarWidgetBlock = 'sidebar-widget-block',
     CatBlock = 'cat-block',
+    AudioBlock = 'audio-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -734,6 +735,10 @@ export interface CatBlockProps {
     title?: string;
 }
 
+export interface AudioBlockProps {
+    url?: string;
+}
+
 export interface BenchmarkBlockProps extends Animatable {
     title?: string;
     duration?: number;
@@ -1028,6 +1033,10 @@ export type CatBlockModel = {
     type: BlockType.CatBlock;
 } & CatBlockProps;
 
+export type AudioBlockModel = {
+    type: BlockType.AudioBlock;
+} & AudioBlockProps;
+
 export type FilterBlockModel = {
     type: BlockType.FilterBlock;
 } & FilterBlockProps;
@@ -1206,6 +1215,7 @@ type BlockModels =
     | FormWallBlockModel
     | SliderNewBlockModel
     | SidebarWidgetBlockModel
-    | CatBlockModel;
+    | CatBlockModel
+    | AudioBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

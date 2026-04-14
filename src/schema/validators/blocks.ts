@@ -52,3 +52,4 @@ export * from '../../blocks/ScienceHeader/schema';
 export * from '../../blocks/AboutHeader/schema';
 export * from '../../blocks/SidebarWidget/schema';
 export * from '../../blocks/Cat/schema';
+export * from '../../blocks/Audio/schema';

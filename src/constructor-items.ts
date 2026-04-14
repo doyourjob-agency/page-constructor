@@ -1,6 +1,7 @@
 import {
     AboutHeaderBlock,
     AdvantagesBlock,
+    AudioBlock,
     BannerBlock,
     BannerMinifyBlock,
     BenchmarkBlock,
@@ -140,6 +141,7 @@ export const blockMap = {
     [BlockType.FormWallBlock]: FormWallBlock,
     [BlockType.SliderNewBlock]: SliderNewBlock,
     [BlockType.CatBlock]: CatBlock,
+    [BlockType.AudioBlock]: AudioBlock,
 };
 
 export const subBlockMap = {

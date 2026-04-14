@@ -1,0 +1,8 @@
+{
+  "default": {
+    "content": {
+      "type": "audio-block",
+      "url": "https://samplelib.com/mp3/sample-3s.mp3"
+    }
+  }
+}
