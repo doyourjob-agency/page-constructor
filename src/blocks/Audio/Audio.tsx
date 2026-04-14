@@ -199,7 +199,7 @@ export const Audio = ({url}: PropsWithChildren<AudioBlockProps>) => {
     return (
         <div className={b()}>
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <audio ref={audioRef} src={url} preload="metadata" />
+            <audio ref={audioRef} src={url} preload="auto" />
 
             <button
                 className={b('play-btn', {loading: isLoading})}
