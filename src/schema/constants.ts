@@ -46,6 +46,7 @@ import {
     ResourceHubPostsBlock,
     ScienceFeedBlock,
     ScienceHeaderBlock,
+    ScienceSuggestBlock,
     ScrollerBlock,
     ServicesBlock,
     ShareBlock,
@@ -135,6 +136,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FormWallBlock,
     ...CatBlock,
     ...AudioBlock,
+    ...ScienceSuggestBlock,
 };
 
 export const cardSchemas = {
@@ -218,6 +220,7 @@ export const constructorBlockSchemaNames = [
     'about-header-block',
     'cat-block',
     'audio-block',
+    'science-suggest-block',
 ];
 
 export const constructorCardSchemaNames = [

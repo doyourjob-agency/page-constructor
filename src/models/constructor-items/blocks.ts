@@ -44,7 +44,13 @@ import {
     WithBorder,
     YandexFormProps,
 } from './common';
-import {BannerCardProps, HubspotFormProps, SubBlock, SubBlockModels} from './sub-blocks';
+import {
+    BannerCardProps,
+    HubspotFormProps,
+    NewPostCardProps,
+    SubBlock,
+    SubBlockModels,
+} from './sub-blocks';
 
 export enum BlockType {
     AdvantagesBlock = 'advantages-block',
@@ -102,6 +108,7 @@ export enum BlockType {
     SidebarWidgetBlock = 'sidebar-widget-block',
     CatBlock = 'cat-block',
     AudioBlock = 'audio-block',
+    ScienceSuggestBlock = 'science-suggest-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -932,6 +939,10 @@ export interface ScienceHeaderBlockProps {
     shareUrl?: string;
 }
 
+export interface ScienceSuggestBlockProps {
+    items: NewPostCardProps[];
+}
+
 export interface AboutHeaderBlockProps {
     title: string;
     text?: string;
@@ -1089,6 +1100,10 @@ export type ScienceHeaderBlockModel = {
     type: BlockType.ScienceHeaderBlock;
 } & ScienceHeaderBlockProps;
 
+export type ScienceSuggestBlockModel = {
+    type: BlockType.ScienceSuggestBlock;
+} & ScienceSuggestBlockProps;
+
 export type AboutHeaderBlockModel = {
     type: BlockType.AboutHeaderBlock;
 } & AboutHeaderBlockProps;
@@ -1216,6 +1231,7 @@ type BlockModels =
     | SliderNewBlockModel
     | SidebarWidgetBlockModel
     | CatBlockModel
-    | AudioBlockModel;
+    | AudioBlockModel
+    | ScienceSuggestBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;
