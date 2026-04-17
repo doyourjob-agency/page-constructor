@@ -120,17 +120,19 @@ $block: '.#{$ns}science-header-block';
     }
 
     &__switcher {
-        font-size: 14px;
-        line-height: 120%;
-        font-family: var(--g-font-family-science-inter);
-        color: var(--g-color-science-tertiary);
+        @include add-specificity(&) {
+            font-size: 14px;
+            line-height: 120%;
+            font-family: var(--g-font-family-science-inter);
+            color: var(--g-color-science-tertiary);
 
-        &:hover {
-            color: var(--g-color-science-secondary);
-        }
+            &:hover {
+                color: var(--g-color-science-secondary);
+            }
 
-        & > div + div {
-            padding-inline-start: 5px;
+            & > div + div {
+                padding-inline-start: 5px;
+            }
         }
     }
 }
