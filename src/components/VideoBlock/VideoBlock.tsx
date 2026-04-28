@@ -151,7 +151,6 @@ const VideoBlock = (props: VideoBlockProps) => {
                 height="100%"
                 title={i18n('iframe-title')}
                 frameBorder="0"
-                allowFullScreen={true}
                 allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
                 loading="lazy"
             />
