@@ -3,7 +3,6 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {PlayFill} from '@gravity-ui/icons';
 import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
-import {v4 as uuidv4} from 'uuid';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
 import {AnalyticsEventsBase, DefaultEventNames} from '../../models/common';
@@ -91,7 +90,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const ref = useRef<HTMLDivElement>(null);
     const [hidePreview, setHidePreview] = useState(false);
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
-    const fullId = useMemo(() => id || uuidv4(), [id]);
+    const fullId = useUniqId();
     const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
@@ -145,7 +144,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const iframeContent = useMemo(() => {
         return (
             <iframe
-                id={fullId}
+                id={id || fullId}
                 src={iframeSrc}
                 width="100%"
                 height="100%"
@@ -155,7 +154,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                 loading="lazy"
             />
         );
-    }, [fullId, iframeSrc]);
+    }, [fullId, id, iframeSrc]);
 
     useEffect(() => {
         setHidePreview(false);

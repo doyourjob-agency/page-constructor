@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {v4 as uuidv4} from 'uuid';
-
 import {ContentListProps, ContentSize} from '../../models';
 import {QAProps} from '../../models/common';
 import {block} from '../../utils';
@@ -29,10 +27,10 @@ const ContentList = ({list, size = 'l', qa, theme}: ContentListProps & QAProps) 
 
     return (
         <div className={b({size, theme})} data-qa={qa}>
-            {list?.map((item) => {
+            {list?.map((item, index) => {
                 const {icon, title, text} = item;
                 return (
-                    <div className={b('item', {'without-title': !title})} key={uuidv4()}>
+                    <div className={b('item', {'without-title': !title})} key={index}>
                         <ItemIcon icon={icon} className={b('icon')} qa={qaAttributes.image} />
                         <div>
                             {title &&
