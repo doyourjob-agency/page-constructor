@@ -296,6 +296,8 @@ export interface HeaderBlockProps {
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
+    verticalOffsetTop?: 's' | 'm' | 'l' | 'xl';
+    verticalOffsetBottom?: 's' | 'm' | 'l' | 'xl';
     breadcrumbs?: HeaderBreadCrumbsProps;
     backLink?: {
         url: string;

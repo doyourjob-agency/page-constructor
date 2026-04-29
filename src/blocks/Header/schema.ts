@@ -137,6 +137,14 @@ export const HeaderProperties = {
         type: 'string',
         enum: ['0', 's', 'm', 'l', 'xl'],
     },
+    verticalOffsetTop: {
+        type: 'string',
+        enum: ['s', 'm', 'l', 'xl'],
+    },
+    verticalOffsetBottom: {
+        type: 'string',
+        enum: ['s', 'm', 'l', 'xl'],
+    },
     background: withTheme(HeaderBackgroundProps),
     theme: {
         type: 'string',

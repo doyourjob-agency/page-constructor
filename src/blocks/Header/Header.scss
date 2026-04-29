@@ -81,6 +81,36 @@ $backgroundWidth: 1440px;
             }
         }
 
+        &_vertical-offset-top {
+            &_s {
+                padding-top: $indentXL;
+            }
+            &_m {
+                padding-top: $indentXXL;
+            }
+            &_l {
+                padding-top: $indentXXXL;
+            }
+            &_xl {
+                padding-top: $indent4XL;
+            }
+        }
+
+        &_vertical-offset-bottom {
+            &_s {
+                padding-bottom: $indentXL;
+            }
+            &_m {
+                padding-bottom: $indentXXL;
+            }
+            &_l {
+                padding-bottom: $indentXXXL;
+            }
+            &_xl {
+                padding-bottom: $indent4XL;
+            }
+        }
+
         // deprecated
         // TODO: delete after the possibility to remove padding-bottom in the block
         &_offset_large {

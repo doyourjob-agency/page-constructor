@@ -90,6 +90,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         background,
         theme: textTheme = 'light',
         verticalOffset = 'm',
+        verticalOffsetTop,
+        verticalOffsetBottom,
         className,
         breadcrumbs,
         status,
@@ -163,6 +165,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                     offset,
                                     theme: textTheme,
                                     'vertical-offset': curVerticalOffset,
+                                    'vertical-offset-top': verticalOffsetTop,
+                                    'vertical-offset-bottom': verticalOffsetBottom,
                                 })}
                             >
                                 <HeaderTags
