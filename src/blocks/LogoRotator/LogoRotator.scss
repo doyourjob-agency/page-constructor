@@ -11,15 +11,12 @@ $block: '.#{$ns}logo-rotator-block';
     }
 
     &_theme_dark &__title {
-        color: #ffffff;
+        --pc-text-header-color: #ffffff;
     }
 
     &__title {
         margin-bottom: $indentL;
         text-align: center;
-        font-size: 48px;
-        line-height: 52px;
-        font-weight: 600;
     }
 
     &__items {

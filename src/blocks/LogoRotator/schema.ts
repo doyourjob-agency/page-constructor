@@ -2,6 +2,7 @@ import {
     AnimatableProps,
     BaseProps,
     ThemeProps,
+    TitleProps,
     containerSizesObject,
 } from '../../schema/validators/common';
 
@@ -12,7 +13,19 @@ export const LogoRotatorBlock = {
         properties: {
             ...BaseProps,
             ...AnimatableProps,
-            title: {type: 'string'},
+            title: {
+                oneOf: [
+                    {
+                        type: 'string',
+                        contentType: 'text',
+                        optionName: 'text',
+                    },
+                    {
+                        ...TitleProps,
+                        optionName: 'options',
+                    },
+                ],
+            },
             theme: ThemeProps,
             items: {
                 type: 'array',
@@ -23,6 +36,7 @@ export const LogoRotatorBlock = {
                     properties: {
                         url: {type: 'string'},
                         src: {type: 'string'},
+                        isStatic: {type: 'boolean'},
                     },
                 },
             },

@@ -4,10 +4,17 @@
       "type": "logo-rotator-block",
       "animated": false,
       "blockBackground": "black",
-      "title": "Trusted by the entire AI ecosystem",
+      "title": {
+        "text": "Trusted by the entire AI ecosystem",
+        "textSize": "m"
+      },
       "theme": "dark",
       "items": [
-        {"url": "#", "src": "https://sanalabs.com/img/partners/white/beamery.svg"},
+        {
+          "url": "#",
+          "src": "https://sanalabs.com/img/partners/white/beamery.svg",
+          "isStatic": true
+        },
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/truecaller.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/piab.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/veoneer.svg"},
@@ -16,8 +23,8 @@
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/polestar.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/ahlsell.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
-        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
-        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg", "isStatic": true},
+        {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg", "isStatic": true},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/white/hinge.svg"},
