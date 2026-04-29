@@ -1,0 +1,1 @@
+import{b as r,R as t}from"./iframe-CtO_K48J.js";import{R as s}from"./Row-D1gFhJLQ.js";import{C as e}from"./Col-ZUB02_wJ.js";const a=r("constructor-row"),c=({children:o})=>o?t.createElement(s,{className:a()},t.createElement(e,null,o)):null;c.__docgenInfo={description:"",methods:[],displayName:"ConstructorRow"};export{c as C};
