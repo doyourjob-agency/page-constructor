@@ -36,13 +36,17 @@ const Title = ({
     return (
         <div className={b({centered: titleProps.centered}, className)} id={id}>
             {text && (
-                <Col reset sizes={colSizes} className={b('title')}>
+                <Col
+                    reset
+                    sizes={titleProps.centered ? {all: 12} : colSizes}
+                    className={b('title')}
+                >
                     <TitleItem text={text} {...titleProps} />
                     {link && <Link {...link} className={b('link')} theme="normal" arrow />}
                 </Col>
             )}
             {subtitle && (
-                <Col reset sizes={colSizes}>
+                <Col reset sizes={titleProps.centered ? {all: 12} : colSizes}>
                     <div
                         className={b('description', {
                             titleSize: titleProps?.textSize,
