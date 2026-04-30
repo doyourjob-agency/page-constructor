@@ -4,6 +4,10 @@
 $block: '.#{$ns}title';
 
 #{$block} {
+    &_centered {
+        text-align: center;
+    }
+
     &__title {
         display: flex;
         justify-content: space-between;

@@ -637,6 +637,9 @@ export const TitleProps = {
             type: 'string',
             enum: titleTextSize,
         },
+        centered: {
+            type: 'boolean',
+        },
         url: {
             type: 'string',
         },

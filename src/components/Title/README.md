@@ -10,6 +10,8 @@
 
 - `textSize?: 's' | 'm' | 'l' | 'xl'` — Title font size
 
+- `centered?: boolean`
+
 - `url?: string` — URL for a redirect on clicking the title, an arrow is automatically added at the end.
 
 - `resetMargin?: boolean` - default `true`. Without this property `margin-top` will be proportional to `textSize` (see section _Margins_ below)

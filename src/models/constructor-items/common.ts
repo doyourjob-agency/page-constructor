@@ -384,6 +384,7 @@ export interface TitleItemProps extends Justifyable, TitleItemBaseProps {
 export interface TitleItemBaseProps {
     text: string;
     textSize?: TitleTextSize;
+    centered?: boolean;
     url?: string;
     urlTitle?: string;
     custom?: string | ReactNode;

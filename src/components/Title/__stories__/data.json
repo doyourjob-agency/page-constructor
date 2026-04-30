@@ -16,6 +16,7 @@
         "text": "Lorem ipsum",
         "url": "https://example.com",
         "custom": "Some react node",
+        "centered": true,
         "urlTitle": "Example website. Opens in a new window"
       }
     }

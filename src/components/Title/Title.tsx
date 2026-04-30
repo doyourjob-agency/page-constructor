@@ -34,7 +34,7 @@ const Title = ({
         !title || typeof title === 'string' ? ({text: title} as TitleItemProps) : title;
 
     return (
-        <div className={b(null, className)} id={id}>
+        <div className={b({centered: titleProps.centered}, className)} id={id}>
             {text && (
                 <Col reset sizes={colSizes} className={b('title')}>
                     <TitleItem text={text} {...titleProps} />
