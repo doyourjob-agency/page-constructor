@@ -24,5 +24,9 @@ $block: '.#{$ns}header-tags';
         &_disable {
             pointer-events: none;
         }
+
+        &_opHover:hover {
+            opacity: 0.8;
+        }
     }
 }

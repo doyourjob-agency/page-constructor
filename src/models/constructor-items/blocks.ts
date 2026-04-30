@@ -235,6 +235,8 @@ export type HeaderTag = {
     url?: string;
     icon?: 'map' | 'clock' | 'calendar';
     target?: string;
+    textColor?: string;
+    backgroundColor?: string;
 };
 
 export enum HeaderStockType {

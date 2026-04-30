@@ -40,7 +40,16 @@ export const HeaderTags = ({theme, tags, sizes, className}: HeaderTagsProps) => 
                     view="outlined"
                     size="l"
                     href={tag.url}
-                    className={b('tag', {disable: !tag.url})}
+                    className={b('tag', {disable: !tag.url, opHover: Boolean(tag.backgroundColor)})}
+                    style={
+                        {
+                            ...(tag.backgroundColor && {
+                                '--_--background-color': tag.backgroundColor,
+                                '--_--background-color-hover': tag.backgroundColor,
+                            }),
+                            ...(tag.textColor && {color: tag.textColor}),
+                        } as React.CSSProperties
+                    }
                     {...(tag.url ? {} : {tabIndex: -1})}
                     key={tag.text}
                     target={tag.target}

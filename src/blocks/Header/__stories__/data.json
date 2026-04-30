@@ -78,7 +78,9 @@
           "text": "Test",
           "url": "#",
           "icon": "clock",
-          "target": "_blank"
+          "target": "_blank",
+          "backgroundColor": "green",
+          "textColor": "white"
         }
       ],
       "bottomTags": [
