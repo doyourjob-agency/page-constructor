@@ -34,7 +34,15 @@ export const BasicCard = {
                 type: 'string',
                 enum: ['content', 'footer'],
             },
-            label: Tag,
+            label: {
+                oneOf: [
+                    Tag,
+                    {
+                        type: 'array',
+                        items: Tag,
+                    },
+                ],
+            },
         },
     },
 };

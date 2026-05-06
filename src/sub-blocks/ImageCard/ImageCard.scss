@@ -19,10 +19,14 @@ $block: '.#{$ns}image-card';
         flex: auto;
     }
 
-    &__label {
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
         position: absolute;
         top: $indentSM;
         left: $indentSM;
+        z-index: 1;
     }
 
     #{$image} {
@@ -36,8 +40,9 @@ $block: '.#{$ns}image-card';
 
             &_hover {
                 position: absolute;
-                left: 0;
-                top: 0;
+                top: $imagePadding;
+                left: $imagePadding;
+                width: calc(100% - #{$imagePadding} - #{$imagePadding});
                 opacity: 0;
                 transition: opacity 0.5s ease;
             }
@@ -47,7 +52,8 @@ $block: '.#{$ns}image-card';
             &_s {
                 padding: $indent4XS;
 
-                #{$image}_inner {
+                #{$image}_inner,
+                #{$image}_hover {
                     border-radius: calc(#{$borderRadius} - #{$imagePadding});
                 }
             }
@@ -55,7 +61,8 @@ $block: '.#{$ns}image-card';
             &_m {
                 padding: $indentM;
 
-                #{$image}_inner {
+                #{$image}_inner,
+                #{$image}_hover {
                     border-radius: initial;
                 }
             }

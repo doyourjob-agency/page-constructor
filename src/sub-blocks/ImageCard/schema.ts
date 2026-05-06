@@ -34,7 +34,15 @@ export const ImageCard = {
             urlTitle: {
                 type: 'string',
             },
-            label: Tag,
+            label: {
+                oneOf: [
+                    Tag,
+                    {
+                        type: 'array',
+                        items: Tag,
+                    },
+                ],
+            },
         },
     },
 };

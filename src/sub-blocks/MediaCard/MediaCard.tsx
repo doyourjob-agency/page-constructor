@@ -17,8 +17,12 @@ const MediaCard = ({border, analyticsEvents, label, ...mediaProps}: MediaCardPro
     >
         <CardBase.Content>
             {label && (
-                <div className={b('label')}>
-                    <Tag {...label} withoutMarginBottom />
+                <div className={b('labels')}>
+                    {Array.isArray(label) ? (
+                        label.map((item, index) => <Tag key={index} {...item} />)
+                    ) : (
+                        <Tag {...label} />
+                    )}
                 </div>
             )}
             <Media {...mediaProps} />

@@ -89,7 +89,15 @@ export const LayoutItem = {
                 },
             ],
         },
-        label: Tag,
+        label: {
+            oneOf: [
+                Tag,
+                {
+                    type: 'array',
+                    items: Tag,
+                },
+            ],
+        },
         jumpOnHover: {
             type: 'boolean',
         },

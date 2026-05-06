@@ -52,8 +52,12 @@ const ImageCard = (props: ImageCardProps) => {
     const cardContent = (
         <React.Fragment>
             {label && (
-                <div className={b('label')}>
-                    <Tag {...label} withoutMarginBottom />
+                <div className={b('labels')}>
+                    {Array.isArray(label) ? (
+                        label.map((item, index) => <Tag key={index} {...item} />)
+                    ) : (
+                        <Tag {...label} />
+                    )}
                 </div>
             )}
             <div className={b('image', {margins})}>

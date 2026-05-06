@@ -110,7 +110,15 @@ const LayoutItem = ({
                 {...backgroundProps}
                 style={{backgroundColor}}
             />
-            {label && <Tag {...label} />}
+            {label && (
+                <div className={b('labels')}>
+                    {Array.isArray(label) ? (
+                        label.map((item, index) => <Tag key={index} {...item} />)
+                    ) : (
+                        <Tag {...label} />
+                    )}
+                </div>
+            )}
             {(title || afterTitle) && (
                 <div className={b('wrap', {right: rightSpace})}>
                     {title && (

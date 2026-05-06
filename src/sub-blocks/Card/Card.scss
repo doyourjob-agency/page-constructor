@@ -17,6 +17,13 @@ $blockBackgroundImage: '.#{$ns}storage-background-image';
         opacity: 1;
     }
 
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
+        margin-bottom: $indentSM;
+    }
+
     &__title {
         @include heading4;
         margin: 0;

@@ -7,15 +7,8 @@ import './Tag.scss';
 
 const b = block('tag');
 
-type Props = TagProps & {
-    withoutMarginBottom?: boolean;
-};
-
-export const Tag = ({text, backgroundColor, textColor, withoutMarginBottom}: Props) => (
-    <div
-        className={b({['without-margin-bottom']: withoutMarginBottom})}
-        style={{backgroundColor, color: textColor}}
-    >
+export const Tag = ({text, backgroundColor, textColor}: TagProps) => (
+    <div className={b()} style={{backgroundColor, color: textColor}}>
         {text}
     </div>
 );

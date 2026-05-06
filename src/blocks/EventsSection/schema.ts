@@ -22,7 +22,15 @@ export const EventsSectionBlock = {
                     },
                 ],
             },
-            label: Tag,
+            label: {
+                oneOf: [
+                    Tag,
+                    {
+                        type: 'array',
+                        items: Tag,
+                    },
+                ],
+            },
             empty: {
                 type: 'string',
             },

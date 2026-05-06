@@ -29,7 +29,15 @@ export const MediaCardBlock = {
                     },
                 ],
             },
-            label: Tag,
+            label: {
+                oneOf: [
+                    Tag,
+                    {
+                        type: 'array',
+                        items: Tag,
+                    },
+                ],
+            },
         },
     },
 };

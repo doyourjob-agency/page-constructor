@@ -18,6 +18,13 @@ $block: '.#{$ns}price-card';
         height: 100%;
     }
 
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
+        margin-bottom: $indentSM;
+    }
+
     &__wrap {
         margin-bottom: $indentSM;
     }

@@ -6,7 +6,10 @@ $block: '.#{$ns}MediaCard';
 #{$block} {
     position: relative;
 
-    &__label {
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
         position: absolute;
         top: $indentSM;
         left: $indentSM;

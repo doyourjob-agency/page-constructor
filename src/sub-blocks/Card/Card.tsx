@@ -22,7 +22,15 @@ const Card = ({header, summary, text, service, label, ...props}: CardProps) => {
                 image={header.image}
                 hoverImage={header.hoverImage}
             >
-                {label && <Tag {...label} />}
+                {label && (
+                    <div className={b('labels')}>
+                        {Array.isArray(label) ? (
+                            label.map((item, index) => <Tag key={index} {...item} />)
+                        ) : (
+                            <Tag {...label} />
+                        )}
+                    </div>
+                )}
                 <h3 className={b('title')}>
                     <HTML>{header.title}</HTML>
                 </h3>

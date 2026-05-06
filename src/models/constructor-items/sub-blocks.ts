@@ -152,7 +152,7 @@ export interface BackgroundCardProps
     backgroundPosition?: 'left' | 'right' | 'center' | 'top' | 'bottom';
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
     backgroundColor?: string;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export interface BasicCardProps
@@ -165,7 +165,7 @@ export interface BasicCardProps
     icon?: ThemeSupporting<ImageProps>;
     target?: string;
     iconPosition?: IconPosition;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export interface CardProps extends CardBaseProps, Pick<ContentBlockProps, 'summary' | 'text'> {
@@ -175,7 +175,7 @@ export interface CardProps extends CardBaseProps, Pick<ContentBlockProps, 'summa
         hoverImage?: string;
     };
     service?: ServiceLabelProps;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export interface BannerCardProps {
@@ -191,7 +191,7 @@ export interface BannerCardProps {
 }
 
 export interface MediaCardProps extends MediaProps, AnalyticsEventsBase, CardBaseProps {
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, 'theme'> {
@@ -205,7 +205,7 @@ export interface PriceCardProps extends CardBaseProps, Pick<ContentBlockProps, '
     links?: LinkProps[];
     backgroundColor?: string;
     list?: string[];
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, AnalyticsEventsBase {
@@ -230,7 +230,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     border?: boolean;
     fullscreen?: boolean;
     icon?: ThemeSupporting<PositionedIcon>;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
     jumpOnHover?: boolean;
     backgroundColor?: string;
     background?: ThemeSupporting<ImageObjectProps>;
@@ -250,7 +250,7 @@ export interface ImageCardProps
     url?: string;
     urlTitle?: string;
     target?: string;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
 }
 
 export enum PostCardSize {
@@ -318,7 +318,7 @@ export interface AttachmentCardProps extends CardBaseProps {
     date?: string;
     time?: string;
     items?: AttachmentCardItemType[];
-    label?: TagProps;
+    label?: TagProps | TagProps[];
     column?: boolean;
 }
 

@@ -66,7 +66,15 @@ const AttachmentCard = ({
     return (
         <CardBase url={url} className={b()} contentClassName={b('content')} border={border}>
             <CardBase.Content>
-                {label && <Tag {...label} />}
+                {label && (
+                    <div className={b('labels')}>
+                        {Array.isArray(label) ? (
+                            label.map((item, index) => <Tag key={index} {...item} />)
+                        ) : (
+                            <Tag {...label} />
+                        )}
+                    </div>
+                )}
                 <div className={b('wrap', {column})}>
                     {title && <Title title={titleProps} colSizes={colSizes} />}
                     {date && (

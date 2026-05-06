@@ -623,7 +623,7 @@ export interface ResourceHubPostsBlockProps extends BaseFeedProps {}
 export interface EventsSectionBlockProps {
     typeKey: string;
     title?: TitleItemProps | string;
-    label?: TagProps;
+    label?: TagProps | TagProps[];
     empty?: string;
 }
 
