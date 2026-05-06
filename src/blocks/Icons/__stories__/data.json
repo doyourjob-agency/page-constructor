@@ -65,7 +65,10 @@
   "withDescription": {
     "content": {
       "type": "icons-block",
-      "title": "Icons block title",
+      "title": {
+        "text": "Icons block title",
+        "bottomSpace": "l"
+      },
       "description": "**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "items": [
         {

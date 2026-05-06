@@ -1,6 +1,7 @@
 import {
     AnimatableProps,
     BlockBaseProps,
+    TitleProps,
     containerSizesObject,
 } from '../../schema/validators/common';
 import {AnalyticsEventSchema} from '../../schema/validators/event';
@@ -12,8 +13,17 @@ export const IconsProps = {
         ...BlockBaseProps,
         ...AnimatableProps,
         title: {
-            type: 'string',
-            contentType: 'text',
+            oneOf: [
+                {
+                    type: 'string',
+                    contentType: 'text',
+                    optionName: 'text',
+                },
+                {
+                    ...TitleProps,
+                    optionName: 'options',
+                },
+            ],
         },
         description: {
             type: 'string',

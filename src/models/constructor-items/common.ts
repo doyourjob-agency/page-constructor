@@ -385,6 +385,7 @@ export interface TitleItemBaseProps {
     text: string;
     textSize?: TitleTextSize;
     centered?: boolean;
+    bottomSpace?: 's' | 'm' | 'l';
     url?: string;
     urlTitle?: string;
     custom?: string | ReactNode;

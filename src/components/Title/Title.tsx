@@ -39,7 +39,7 @@ const Title = ({
                 <Col
                     reset
                     sizes={titleProps.centered ? {all: 12} : colSizes}
-                    className={b('title')}
+                    className={b('title', {bottomSpace: titleProps.bottomSpace})}
                 >
                     <TitleItem text={text} {...titleProps} />
                     {link && <Link {...link} className={b('link')} theme="normal" arrow />}

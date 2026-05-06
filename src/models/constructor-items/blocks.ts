@@ -808,7 +808,7 @@ export interface IconsBlockItemProps extends AnalyticsEventsBase {
 }
 
 export interface IconsBlockProps extends Animatable {
-    title?: string;
+    title?: TitleItemProps | string;
     description?: string;
     size?: 's' | 'm' | 'l';
     items: IconsBlockItemProps[];

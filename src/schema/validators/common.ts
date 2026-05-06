@@ -637,6 +637,10 @@ export const TitleProps = {
             type: 'string',
             enum: titleTextSize,
         },
+        bottomSpace: {
+            type: 'string',
+            enum: ['s', 'm', 'l'],
+        },
         centered: {
             type: 'boolean',
         },

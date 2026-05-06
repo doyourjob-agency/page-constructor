@@ -12,6 +12,18 @@ $block: '.#{$ns}title';
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        &_bottomSpace_s {
+            margin-bottom: $indentXXXS;
+        }
+
+        &_bottomSpace_m {
+            margin-bottom: $indentXS;
+        }
+
+        &_bottomSpace_l {
+            margin-bottom: $indentM;
+        }
     }
 
     &__link {
