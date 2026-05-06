@@ -13,16 +13,18 @@ $block: '.#{$ns}title';
         justify-content: space-between;
         align-items: center;
 
-        &_bottomSpace_s {
-            margin-bottom: $indentXXXS;
-        }
+        @include add-specificity(&) {
+            &_bottomSpace_s {
+                margin-bottom: $indentXXXS;
+            }
 
-        &_bottomSpace_m {
-            margin-bottom: $indentXS;
-        }
+            &_bottomSpace_m {
+                margin-bottom: $indentXS;
+            }
 
-        &_bottomSpace_l {
-            margin-bottom: $indentM;
+            &_bottomSpace_l {
+                margin-bottom: $indentM;
+            }
         }
     }
 
