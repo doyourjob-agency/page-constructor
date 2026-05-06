@@ -1,0 +1,25 @@
+import{R as n}from"./iframe-CIWW3WNs.js";import{M as j}from"./MediaCard-BHEeVWoR.js";import"./preload-helper-D6kgxu3v.js";import"./CardBase-DNGSfXOM.js";import"./BackgroundImage-XtH6JJdC.js";import"./Image-D-YMTdx_.js";import"./constants-D1qj5IDx.js";import"./blocks-CMwhZtmU.js";import"./toString-DB-u-ckt.js";import"./isSymbol-a926yi1q.js";import"./utils-COU2-ufE.js";import"./RouterLink-D-I4T_35.js";import"./useAnalytics-D8RDBL9a.js";import"./Link-CpTuk5Ea.js";import"./EventBroker-CurogUEa.js";import"./Tag-Dg3ifoBa.js";import"./Media-Bl1lZbyw.js";import"./index-ZILQk-b1.js";import"./cjs-Cz8BQk8L.js";import"./url-BSUgGxTW.js";import"./VideoBlock-D3xcva6h.js";import"./debounce-awX2OPjo.js";import"./addComponentKeysets-BI2ILOUU.js";import"./url-4Aa6AnwZ.js";import"./PlayFill-DP_b3Gj4.js";import"./useUniqId-Dlr2WfGC.js";import"./common-CodClyQt.js";import"./Icon-CorLdu85.js";import"./useActionHandlers-CqL0v9Sy.js";import"./constants-BUPVgVv0.js";import"./FullscreenImage-C3JakMO2.js";import"./Xmark-D4DrIACC.js";import"./transition-BpnINuWl.js";import"./inheritsLoose-B6TuBNuE.js";import"./Button-BCj9-TbD.js";import"./ReactPlayer-Coy1twEn.js";import"./index-C6ICiUoq.js";import"./common-CgL19bot.js";import"./useMount-Dt03yN1V.js";import"./Slider-DqP_bRWO.js";import"./_baseIteratee-BtvUu_VA.js";import"./keys-Bb2Cx78k.js";import"./_baseKeys-3mCNDqrv.js";import"./_getTag-Bm49IKCx.js";import"./Title-DYdTMSRN.js";import"./HTML-shJpCJ2V.js";import"./ToggleArrow-C03gPyjm.js";import"./svg-CQ-OHbUx.js";import"./Link-m891cq4q.js";import"./BackLink-DFagwQiB.js";import"./FileLink-DKY7-qPq.js";import"./Label-DaP2aiV0.js";import"./Col-CZQN2M46.js";import"./AnimateBlock-KYgAjuVR.js";import"./StylesContext-DoNsFTqi.js";import"./pickBy-C_Eh9NCn.js";const f={content:{video:{src:["https://doyourjob-agency.github.io/page-constructor/main/story-assets/video_8-12_white.webm","https://doyourjob-agency.github.io/page-constructor/main/story-assets/video_8-12_white.mp4","https://doyourjob-agency.github.io/page-constructor/main/story-assets/video_8-12_white.png"],loop:{start:0}}}},E={content:{youtube:"https://youtu.be/0Qd3T6skprA",previewImg:"https://doyourjob-agency.github.io/page-constructor/main/story-assets/video_8-12_white.png"}},k={content:{dataLens:"m2bzon9y39lck"}},D={content:{image:["https://doyourjob-agency.github.io/page-constructor/main/story-assets/img_6-12_light.png","https://doyourjob-agency.github.io/page-constructor/main/story-assets/img_6-12_light.png","https://doyourjob-agency.github.io/page-constructor/main/story-assets/img_6-12_light.png"]}},T={content:{image:{src:"https://doyourjob-agency.github.io/page-constructor/main/story-assets/img_6-12_white.png",alt:"Picture",disableCompress:!0}}},R={content:{label:{text:"Label",backgroundColor:"#C7E5F7",textColor:"#000"}}},t={video:f,youtube:E,dataLens:k,imageSlider:D,image:T,withLabel:R},zt={component:j,title:"Components/Cards/MediaCard",argTypes:{color:{control:{type:"color"}}}},o=I=>n.createElement("div",{style:{maxWidth:"500px"}},n.createElement(j,{...I})),r=o.bind({}),e=o.bind({}),a=o.bind({}),i=o.bind({}),s=o.bind({}),m=o.bind({});r.args=t.image.content;e.args={...t.image.content,...t.withLabel.content};a.args=t.imageSlider.content;i.args=t.video.content;s.args=t.youtube.content;m.args=t.dataLens.content;var p,c,d;r.parameters={...r.parameters,docs:{...(p=r.parameters)==null?void 0:p.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(d=(c=r.parameters)==null?void 0:c.docs)==null?void 0:d.source}}};var g,u,l;e.parameters={...e.parameters,docs:{...(g=e.parameters)==null?void 0:g.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(l=(u=e.parameters)==null?void 0:u.docs)==null?void 0:l.source}}};var b,y,h;a.parameters={...a.parameters,docs:{...(b=a.parameters)==null?void 0:b.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(h=(y=a.parameters)==null?void 0:y.docs)==null?void 0:h.source}}};var v,_,x;i.parameters={...i.parameters,docs:{...(v=i.parameters)==null?void 0:v.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(x=(_=i.parameters)==null?void 0:_.docs)==null?void 0:x.source}}};var C,L,S;s.parameters={...s.parameters,docs:{...(C=s.parameters)==null?void 0:C.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(S=(L=s.parameters)==null?void 0:L.docs)==null?void 0:S.source}}};var w,M,W;m.parameters={...m.parameters,docs:{...(w=m.parameters)==null?void 0:w.docs,source:{originalSource:`args => <div style={{
+  maxWidth: '500px'
+}}>
+        <MediaCard {...args} />
+    </div>`,...(W=(M=m.parameters)==null?void 0:M.docs)==null?void 0:W.source}}};const At=["Image","WithLabel","ImageSlider","Video","Youtube","DataLens"];export{m as DataLens,r as Image,a as ImageSlider,i as Video,e as WithLabel,s as Youtube,At as __namedExportsOrder,zt as default};
