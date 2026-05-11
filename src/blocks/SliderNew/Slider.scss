@@ -1,5 +1,6 @@
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import url('swiper/swiper-bundle.css');
 
 $block: '.#{$ns}slider-new-block';
 $fullscreenArrowArea: 120px;

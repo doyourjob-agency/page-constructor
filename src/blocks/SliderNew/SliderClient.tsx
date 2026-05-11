@@ -16,7 +16,6 @@ import {useSlider} from './useSlider';
 import {useSliderPagination} from './useSliderPagination';
 
 import './Slider.scss';
-import 'swiper/swiper-bundle.css';
 
 const b = block('slider-new-block');
 
