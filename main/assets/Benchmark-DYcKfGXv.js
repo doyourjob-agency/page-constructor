@@ -1,0 +1,31 @@
+import{j as i,M as n}from"./iframe-BXCyXLQj.js";import{useMDXComponents as m}from"./index-FRr1IBH9.js";import{S as p}from"./StoryTemplate-DvGecJMB.js";import{B as e}from"./Benchmark.stories-BqTCZqHx.js";import"./preload-helper-D6kgxu3v.js";import"./PageConstructor-BrzOxUu4.js";import"./BackgroundMedia-D_ecKgnj.js";import"./AnimateBlock-3STS-Xyd.js";import"./inheritsLoose-B6TuBNuE.js";import"./Media-CRW4_mic.js";import"./index-DjHgPrky.js";import"./cjs-Cz8BQk8L.js";import"./url--mdh_SnE.js";import"./VideoBlock-C4hJsmqy.js";import"./debounce-BnW5iArX.js";import"./isSymbol-C50BnLLD.js";import"./useAnalytics-HHgJyXk6.js";import"./Image-nQn8J6o7.js";import"./constants-D1qj5IDx.js";import"./blocks-Bmc6CZQh.js";import"./toString-QTmDiZBv.js";import"./addComponentKeysets-BPaiDh0A.js";import"./url-CeJmVZ2N.js";import"./PlayFill-B-ExbxYc.js";import"./useUniqId-BhyjEMoP.js";import"./common-Bw-ZttL0.js";import"./Icon-CBZW6A5L.js";import"./useActionHandlers-D7GrBUb6.js";import"./constants-BUPVgVv0.js";import"./FullscreenImage-B_fu58s8.js";import"./Xmark-Bsddxq4Y.js";import"./transition-ulJLOBhN.js";import"./EventBroker-CIyFLLYx.js";import"./Button-2Plu2DCk.js";import"./ReactPlayer-C-j0WIF8.js";import"./index-46vmF9or.js";import"./common-CgL19bot.js";import"./useMount-DHHGiang.js";import"./Slider-DIk4Zgz1.js";import"./_baseIteratee-BrQJ5YQd.js";import"./keys-AEkFucCP.js";import"./_baseKeys-CmjzvnXl.js";import"./_getTag-kBeU85QE.js";import"./Title-DGLVxgSC.js";import"./HTML-C2dV_EnF.js";import"./ToggleArrow-Dx9eEVgX.js";import"./svg-CQ-OHbUx.js";import"./Link-B-VKj7Jl.js";import"./BackLink-CEI1Wccv.js";import"./FileLink-McAeI3mH.js";import"./Label-71jisdo5.js";import"./Col-Hs4YFvfx.js";import"./StylesContext-B1DrAEge.js";import"./pickBy-PQnwb-vE.js";import"./BackgroundImage-DMh9T6VX.js";import"./utils-COU2-ufE.js";import"./Link-Cn2ML3bZ.js";import"./Content-CfaPb3TR.js";import"./Links-DvOFH4fn.js";import"./ContentList-ChdFTbRc.js";import"./theme-DpBTTWf6.js";import"./Buttons-D2z1OK9U.js";import"./Button-CS0Nn1jA.js";import"./Row-D9_QwMdx.js";import"./BalancedMasonry-D6ZB8GLA.js";import"./FullWidthBackground-GF18VxhC.js";import"./RouterLink-Tpl1H3ej.js";import"./Grid-DqAhUhZ9.js";import"./PriceDetailed-DWfzqRMp.js";import"./toInteger-5YO4kcZK.js";import"./CardBase-vGqHMIlO.js";import"./Table-CUY7OgA3.js";import"./HeaderBreadcrumbs-sD4lvSU6.js";import"./CardLayout-BUXBO5BX.js";import"./Map-D57UN5E2.js";import"./ErrorWrapper-Bykc_ttW.js";import"./YandexForm-BSaqZfqO.js";import"./index-CUIHzmyB.js";import"./isEqual-EJ7gInUI.js";import"./Tag-C1vDjAnc.js";import"./sub-blocks-GDt2Je40.js";import"./AttachmentCard-BaWStT-6.js";import"./EmptyPlug-BRG3U6or.js";import"./BasicCard-CBmO8VO2.js";import"./IconWrapper-Bdd4aUzU.js";import"./Paginator-DvPvP1gb.js";import"./StoryCard-DM7ajYdp.js";import"./CaseStudyCard-ZYFucziI.js";import"./ServiceIcon-CUQU8_R4.js";import"./ReportItem-fSGP-GzQ.js";import"./ReportFile-CRFRZzZk.js";import"./ReportSection-BkCCeEOx.js";import"./Divider-B5kC6i--.js";import"./MediaCard-BtV75ILQ.js";import"./LayoutItem-DO3wGFpi.js";import"./MetaInfo-YHhfZ-UD.js";import"./BackgroundCard-Pv6CgZL6.js";import"./Quote-wYIc70Gy.js";import"./Author-Ax9RZJmS.js";import"./PriceCard-_lxuhY4s.js";import"./ImageCard-9ZdPy_Wx.js";import"./Card-OzHGkmCs.js";import"./ServiceLabel-BWEm6ilZ.js";import"./EventPersonCard-xqk5DilI.js";import"./OverflowScroller-ClCQAJdg.js";import"./Control-DfprArtE.js";import"./BlockBase-AnS2KzAA.js";function o(t){const r={a:"a",code:"code",h2:"h2",li:"li",p:"p",ul:"ul",...m(),...t.components};return i.jsxs(i.Fragment,{children:[i.jsx(n,{of:e}),`
+`,i.jsxs(p,{children:[i.jsx(r.h2,{id:"parameters",children:"Parameters"}),i.jsx(r.p,{children:i.jsx(r.code,{children:'type: "benchmark-block"'})}),i.jsxs(r.p,{children:[i.jsx(r.code,{children:"title?: string"})," — Title."]}),i.jsxs(r.p,{children:[i.jsx(r.code,{children:"duration?: number"})," — Duration animation in ms."]}),i.jsxs(r.p,{children:[i.jsx(r.code,{children:"data: BenchmarkData"})," — Benchmark data content."]}),i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"title?: string"})," — Column title."]}),`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"sizes?: Object"})," — more info ",i.jsx(r.a,{href:"?path=/docs/documentation-types--docs#colsizes",children:"here"}),"."]}),`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"items: BenchmarkColumn"})," — Benchmark column content"]}),`
+`,i.jsxs(r.li,{children:[`
+`,i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"top?: string"})," — Text above the value"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(r.li,{children:[`
+`,i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"bottom?: string"})," — Text below the value"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(r.li,{children:[`
+`,i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"postfix?: string"})," — text after value"]}),`
+`]}),`
+`]}),`
+`,i.jsxs(r.li,{children:[`
+`,i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"value: number"})," — Value."]}),`
+`]}),`
+`]}),`
+`,i.jsxs(r.li,{children:[`
+`,i.jsxs(r.ul,{children:[`
+`,i.jsxs(r.li,{children:[i.jsx(r.code,{children:"init?: number"})," — Init value."]}),`
+`]}),`
+`]}),`
+`]})]})]})}function er(t={}){const{wrapper:r}={...m(),...t.components};return r?i.jsx(r,{...t,children:i.jsx(o,{...t})}):o(t)}export{er as default};
