@@ -16,6 +16,8 @@ import {
     HeaderStockContextProps,
     MiniCaseContext,
     MiniCaseContextProps,
+    PartnersContext,
+    PartnersContextProps,
     ReportsCardsContext,
     ReportsCardsContextProps,
     ReportsContext,
@@ -78,6 +80,7 @@ const withContextProvider: Decorator = (Story, context) => {
             value={context.args.feedHeaderFilterContext as FeedHeaderFilterContextProps}
         />,
         <EventsContext.Provider value={context.args.eventsContext as EventsContextProps} />,
+        <PartnersContext.Provider value={context.args.partnersContext as PartnersContextProps} />,
         <PressReleasesContext.Provider
             value={context.args.pressReleasesContext as PressReleasesContextProps}
         />,

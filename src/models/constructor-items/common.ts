@@ -507,8 +507,8 @@ export interface ServiceLabelProps {
 
 export interface TagProps {
     text: string;
-    backgroundColor: string;
-    textColor: string;
+    backgroundColor?: string;
+    textColor?: string;
 }
 
 export interface ReportFileType {

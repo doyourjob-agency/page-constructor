@@ -11,4 +11,6 @@ $block: '.#{$ns}tag';
     border-radius: 20px;
     padding: 2px 12px;
     align-self: flex-start;
+    background-color: var(--pc-tag-background-color);
+    color: var(--pc-tag-text-color);
 }

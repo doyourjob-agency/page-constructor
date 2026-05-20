@@ -110,6 +110,7 @@ export enum BlockType {
     AudioBlock = 'audio-block',
     OnetrustCookieListBlock = 'onetrust-cookie-list',
     ScienceSuggestBlock = 'science-suggest-block',
+    PartnersFeedBlock = 'partners-feed-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -618,6 +619,8 @@ export interface BaseFeedProps {
 }
 
 export interface EventsFeedBlockProps extends BaseFeedProps {}
+
+export interface PartnersFeedBlockProps extends BaseFeedProps {}
 
 export interface ResourceHubPostsBlockProps extends BaseFeedProps {}
 
@@ -1137,6 +1140,10 @@ export type EventsFeedBlockModel = {
     type: BlockType.EventsFeedBlock;
 } & EventsFeedBlockProps;
 
+export type PartnersFeedBlockModel = {
+    type: BlockType.PartnersFeedBlock;
+} & PartnersFeedBlockProps;
+
 export type ResourceHubPostsBlockModel = {
     type: BlockType.ResourceHubPostsBlock;
 } & ResourceHubPostsBlockProps;
@@ -1227,6 +1234,7 @@ type BlockModels =
     | ReportsSectionsBlockModel
     | LinkTableBlockModel
     | EventsFeedBlockModel
+    | PartnersFeedBlockModel
     | ResourceHubPostsBlockModel
     | BenchmarkBlockModel
     | EventsSectionBlockModel

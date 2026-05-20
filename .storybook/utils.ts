@@ -6,6 +6,7 @@ import argsRouterContext from './args/argsRouterContext.json';
 import argsFeedHeaderFiltersContext from './args/argsFeedHeaderFiltersContext.json';
 import argsFeedHeaderFilterContext from './args/argsFeedHeaderFilterContext.json';
 import argsEventsContext from './args/argsEventsContext.json';
+import argsPartnersContext from './args/argsPartnersContext.json';
 import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
@@ -92,6 +93,21 @@ export const argEventsContext = {
     },
     args: {
         eventsContext: argsEventsContext,
+    },
+};
+
+export const argPartnersContext = {
+    argTypes: {
+        partnersContext: {
+            name: 'PartnersContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        partnersContext: argsPartnersContext,
     },
 };
 

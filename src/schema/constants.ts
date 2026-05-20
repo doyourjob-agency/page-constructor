@@ -34,6 +34,7 @@ import {
     MediaBlock,
     MiniCaseBlock,
     OnetrustCookieListBlock,
+    PartnersFeedBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -125,6 +126,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsSectionsBlock,
     ...LinkTableBlock,
     ...EventsFeedBlock,
+    ...PartnersFeedBlock,
     ...ResourceHubPostsBlock,
     ...BenchmarkBlock,
     ...EventsSectionBlock,
@@ -224,6 +226,7 @@ export const constructorBlockSchemaNames = [
     'audio-block',
     'science-suggest-block',
     'onetrust-cookie-list',
+    'partners-feed-block',
 ];
 
 export const constructorCardSchemaNames = [

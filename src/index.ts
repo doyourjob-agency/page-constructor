@@ -8,6 +8,7 @@ export * from './context/formListContext';
 export * from './context/routerContext';
 export * from './context/feedHeaderContext';
 export * from './context/eventsContext';
+export * from './context/partnersContext';
 export * from './context/blogPostsContext';
 export * from './context/sciencePostsContext';
 export * from './context/pressReleasesContext';

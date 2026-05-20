@@ -237,6 +237,15 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
 }
 
+export interface FeedPartnerProps extends ClassNameProps {
+    url: string;
+    image?: string;
+    title?: string;
+    subtitle?: string;
+    tags?: string[];
+    jumpOnHover?: boolean;
+}
+
 export interface ImageCardProps
     extends CardBaseProps,
         CardLayoutProps,

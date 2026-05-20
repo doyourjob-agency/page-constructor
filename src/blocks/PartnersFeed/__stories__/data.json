@@ -1,0 +1,9 @@
+{
+  "default": {
+    "content": {
+      "type": "partners-feed-block",
+      "title": "Partners",
+      "image": "/story-assets/img-bg_nopadding_4-12_light.png"
+    }
+  }
+}

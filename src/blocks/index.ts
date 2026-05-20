@@ -39,6 +39,7 @@ export {default as ReportsSectionsBlock} from './ReportsSections/ReportsSections
 export {default as FormWallBlock} from './FormWallBlock/FormWallBlock';
 export {default as LinkTableBlock} from './LinkTable/LinkTable';
 export {default as EventsFeedBlock} from './EventsFeed/EventsFeed';
+export {default as PartnersFeedBlock} from './PartnersFeed/PartnersFeed';
 export {default as ResourceHubPostsBlock} from './ResourceHubPosts/ResourceHubPosts';
 export {default as EventsSectionBlock} from './EventsSection/EventsSection';
 export {default as BlogFeedBlock} from './BlogFeed/BlogFeed';

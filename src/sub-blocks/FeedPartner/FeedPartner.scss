@@ -1,0 +1,52 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+$block: '.#{$ns}feed-partner';
+
+#{$block} {
+    border-radius: $borderRadius;
+    background-color: var(--g-color-base-float);
+    padding: $indentXS;
+    gap: $indentXS;
+    transition: box-shadow 0.3s $ease-out-cubic;
+    @include card-border();
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    --pc-tag-background-color: var(--g-color-base-brand);
+    --pc-tag-text-color: var(--g-color-base-background);
+
+    &__image {
+        width: $indentXL;
+        height: $indentXL;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXXXS;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indent4XS;
+    }
+
+    &_jumpOnHover {
+        @include card-hover();
+    }
+
+    &__title {
+        @include text-size(header-2);
+        color: var(--g-color-text-primary);
+        font-weight: bold;
+    }
+    &__subtitle {
+        @include text-size(body-2);
+        color: var(--g-color-text-secondary);
+    }
+}

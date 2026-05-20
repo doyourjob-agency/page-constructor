@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "url": "#1",
+      "title": "Lorem Ipsum is",
+      "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "tags": ["Conference"],
+      "image": "/story-assets/img_6-12_light.png"
+    },
+    {
+      "url": "#1",
+      "title": "Lorem Ipsum is",
+      "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "tags": ["Conference", "Conference", "Conference", "Conference", "Conference"],
+      "image": "/story-assets/img_6-12_light.png"
+    },
+    {
+      "url": "#1",
+      "title": "Lorem Ipsum is",
+      "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "tags": ["Conference"],
+      "image": "/story-assets/img_6-12_light.png"
+    },
+    {
+      "url": "#1",
+      "title": "Lorem Ipsum is",
+      "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "tags": ["Conference"],
+      "image": "/story-assets/img_6-12_light.png"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}
