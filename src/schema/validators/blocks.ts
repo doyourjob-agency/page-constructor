@@ -53,4 +53,5 @@ export * from '../../blocks/AboutHeader/schema';
 export * from '../../blocks/SidebarWidget/schema';
 export * from '../../blocks/Cat/schema';
 export * from '../../blocks/Audio/schema';
+export * from '../../blocks/OnetrustCookieList/schema';
 export * from '../../blocks/ScienceSuggest/schema';

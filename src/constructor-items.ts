@@ -30,6 +30,7 @@ import {
     MarqueeLinksBlock,
     MediaBlock,
     MiniCaseBlock,
+    OnetrustCookieListBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -144,6 +145,7 @@ export const blockMap = {
     [BlockType.SliderNewBlock]: SliderNewBlock,
     [BlockType.CatBlock]: CatBlock,
     [BlockType.AudioBlock]: AudioBlock,
+    [BlockType.OnetrustCookieListBlock]: OnetrustCookieListBlock,
 };
 
 export const subBlockMap = {

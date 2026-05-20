@@ -108,6 +108,7 @@ export enum BlockType {
     SidebarWidgetBlock = 'sidebar-widget-block',
     CatBlock = 'cat-block',
     AudioBlock = 'audio-block',
+    OnetrustCookieListBlock = 'onetrust-cookie-list',
     ScienceSuggestBlock = 'science-suggest-block',
 }
 
@@ -1052,6 +1053,10 @@ export type AudioBlockModel = {
     type: BlockType.AudioBlock;
 } & AudioBlockProps;
 
+export type OnetrustCookieListModel = {
+    type: BlockType.OnetrustCookieListBlock;
+};
+
 export type FilterBlockModel = {
     type: BlockType.FilterBlock;
 } & FilterBlockProps;
@@ -1236,6 +1241,7 @@ type BlockModels =
     | SidebarWidgetBlockModel
     | CatBlockModel
     | AudioBlockModel
+    | OnetrustCookieListModel
     | ScienceSuggestBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

@@ -33,6 +33,7 @@ import {
     MarqueeLinksBlock,
     MediaBlock,
     MiniCaseBlock,
+    OnetrustCookieListBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
     QuestionsBlock,
@@ -136,6 +137,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...FormWallBlock,
     ...CatBlock,
     ...AudioBlock,
+    ...OnetrustCookieListBlock,
     ...ScienceSuggestBlock,
 };
 
@@ -221,6 +223,7 @@ export const constructorBlockSchemaNames = [
     'cat-block',
     'audio-block',
     'science-suggest-block',
+    'onetrust-cookie-list',
 ];
 
 export const constructorCardSchemaNames = [

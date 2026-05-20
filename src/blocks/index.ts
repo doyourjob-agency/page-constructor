@@ -53,4 +53,5 @@ export {default as BenchmarkBlock} from './Benchmark/Benchmark';
 export {default as SidebarWidgetBlock} from './SidebarWidget/SidebarWidget';
 export {default as CatBlock} from './Cat/Cat';
 export {default as AudioBlock} from './Audio/Audio';
+export {default as OnetrustCookieListBlock} from './OnetrustCookieList/OnetrustCookieList';
 export {default as ScienceSuggestBlock} from './ScienceSuggest/ScienceSuggest';
