@@ -24,6 +24,16 @@ const Iframe = (props: MediaComponentIframeProps) => {
                 width={width}
                 height={height}
                 name={name}
+                /* 
+                  1. allow: дает права на камеру, микрофон, полноэкранный режим 
+                     и демонстрацию экрана (необходимы для Zoom).
+                */
+                allow="camera; microphone; fullscreen; display-capture;"
+                /* 
+                  2. sandbox: снимает ограничения на выполнение скриптов, 
+                     отправку форм, всплывающие окна и сохраняет сессию.
+                */
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
             />
         </div>
     ) : null;
