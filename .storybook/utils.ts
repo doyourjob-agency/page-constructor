@@ -11,6 +11,7 @@ import argsPressReleasesContext from './args/argsPressReleasesContext.json';
 import argsHeaderContext from './args/argsHeaderContext.json';
 import argsBlogPostsContext from './args/argsBlogPostsContext.json';
 import argsSciencePostsContext from './args/argsSciencePostsContext.json';
+import argsCustomerStoriesPostsContext from './args/argsCustomerStoriesPostsContext.json';
 import argsResourceHubPostsContext from './args/argsResourceHubPostsContext.json';
 import argsRelevantPostsContext from './args/argsRelevantPostsContext.json';
 import argsReportsContext from './args/argsReportsContext.json';
@@ -138,6 +139,21 @@ export const argSciencePostsContext = {
     },
     args: {
         sciencePostsContext: argsSciencePostsContext,
+    },
+};
+
+export const argCustomerStoriesPostsContext = {
+    argTypes: {
+        customerStoriesPostsContext: {
+            name: 'CustomerStoriesPostsContext',
+            control: 'object',
+            table: {
+                category: 'Context',
+            },
+        },
+    },
+    args: {
+        customerStoriesPostsContext: argsCustomerStoriesPostsContext,
     },
 };
 

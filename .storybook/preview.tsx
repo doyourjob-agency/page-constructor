@@ -12,6 +12,8 @@ import {withLang} from './decorators/withLang';
 import {DocsDecorator} from './decorators/docs';
 
 import {
+    CustomerStoriesPostsContext,
+    CustomerStoriesPostsContextProps,
     HeaderStockContext,
     HeaderStockContextProps,
     MiniCaseContext,
@@ -89,6 +91,9 @@ const withContextProvider: Decorator = (Story, context) => {
         />,
         <SciencePostsContext.Provider
             value={context.args.sciencePostsContext as SciencePostsContextProps}
+        />,
+        <CustomerStoriesPostsContext.Provider
+            value={context.args.customerStoriesPostsContext as CustomerStoriesPostsContextProps}
         />,
         <ResourceHubPostsContext.Provider
             value={context.args.resourceHubPostsContext as ResourceHubPostsContextProps}

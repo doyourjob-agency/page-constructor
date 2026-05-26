@@ -44,6 +44,7 @@ export {default as ResourceHubPostsBlock} from './ResourceHubPosts/ResourceHubPo
 export {default as EventsSectionBlock} from './EventsSection/EventsSection';
 export {default as BlogFeedBlock} from './BlogFeed/BlogFeed';
 export {default as ScienceFeedBlock} from './ScienceFeed/ScienceFeed';
+export {default as CustomerStoriesFeedBlock} from './CustomerStoriesFeed/CustomerStoriesFeed';
 export {default as RelevantPostsBlock} from './RelevantPosts/RelevantPosts';
 export {default as RelevantReportsCardsBlock} from './RelevantReportsCards/RelevantReportsCards';
 export {default as RelevantReportsBlock} from './RelevantReports/RelevantReports';

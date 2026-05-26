@@ -14,6 +14,7 @@ import {
     CatBlock,
     CompaniesBlock,
     ContentLayoutBlock,
+    CustomerStoriesFeedBlock,
     EventsFeedBlock,
     EventsSectionBlock,
     ExtendedFeaturesBlock,
@@ -132,6 +133,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...EventsSectionBlock,
     ...BlogFeedBlock,
     ...ScienceFeedBlock,
+    ...CustomerStoriesFeedBlock,
     ...RelevantPostsBlock,
     ...RelevantReportsCardsBlock,
     ...RelevantReportsBlock,
@@ -227,6 +229,7 @@ export const constructorBlockSchemaNames = [
     'science-suggest-block',
     'onetrust-cookie-list',
     'partners-feed-block',
+    'customer-stories-feed-block',
 ];
 
 export const constructorCardSchemaNames = [

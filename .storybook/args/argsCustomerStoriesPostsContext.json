@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "The Mixer: Storming Group Theory With Group Intelligence",
+      "description": "How imperfect algorithms, working together, can crack the century-old Burnside puzzle. A new study from the Stevens-Xxxxxx-Gradarius lab.",
+      "image": "/story-assets/img_6-12_light.png",
+      "url": "#1"
+    },
+    {
+      "title": "The Mixer: Storming Group Theory With Group Intelligence",
+      "description": "How imperfect algorithms, working together, can crack the century-old Burnside puzzle. A new study from the Stevens-Xxxxxx-Gradarius lab.",
+      "image": "/story-assets/img_6-12_light.png",
+      "url": "#2"
+    },
+    {
+      "title": "The Mixer: Storming Group Theory With Group Intelligence",
+      "description": "How imperfect algorithms, working together, can crack the century-old Burnside puzzle. A new study from the Stevens-Xxxxxx-Gradarius lab.",
+      "image": "/story-assets/img_6-12_light.png",
+      "url": "#3"
+    }
+  ],
+  "page": 1,
+  "pageSize": 3
+}

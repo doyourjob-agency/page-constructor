@@ -21,6 +21,7 @@ export * from './context/reportsSectionsContext';
 export * from './context/miniCaseContext';
 export * from './context/visibilityFiltersContext';
 export * from './context/resourceHubPostsContext';
+export * from './context/customerStoriesPostsContext';
 
 export * from './containers/PageConstructor';
 export * from './grid';

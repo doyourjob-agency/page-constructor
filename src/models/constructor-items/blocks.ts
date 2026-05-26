@@ -97,6 +97,7 @@ export enum BlockType {
     EventsSectionBlock = 'events-section-block',
     BlogFeedBlock = 'blog-feed-block',
     ScienceFeedBlock = 'science-feed-block',
+    CustomerStoriesFeedBlock = 'customer-stories-feed-block',
     RelevantPostsBlock = 'relevant-posts-block',
     RelevantReportsCardsBlock = 'relevant-reports-cards-block',
     RelevantReportsBlock = 'relevant-reports-block',
@@ -1164,6 +1165,10 @@ export type ScienceFeedBlockModel = {
     type: BlockType.ScienceFeedBlock;
 } & ScienceFeedBlockProps;
 
+export type CustomerStoriesFeedBlockModel = {
+    type: BlockType.CustomerStoriesFeedBlock;
+};
+
 export type RelevantPostsBlockModel = {
     type: BlockType.RelevantPostsBlock;
 } & RelevantPostsBlockProps;
@@ -1240,6 +1245,7 @@ type BlockModels =
     | EventsSectionBlockModel
     | BlogFeedBlockModel
     | ScienceFeedBlockModel
+    | CustomerStoriesFeedBlockModel
     | RelevantPostsBlockModel
     | RelevantReportsCardsBlockModel
     | RelevantReportsBlockModel
