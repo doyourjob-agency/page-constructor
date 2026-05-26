@@ -45,7 +45,9 @@ const ImageCard = (props: ImageCardProps) => {
     const hasContent = Boolean(text || title || buttons || links || list);
 
     const imageProps = getMediaImage(getThemedValue(image, globalTheme) || '');
-    const hoverImageProps = getMediaImage(getThemedValue(hoverImage, globalTheme) || '');
+    const hoverImageProps = hoverImage
+        ? getMediaImage(getThemedValue(hoverImage, globalTheme) || '')
+        : {};
 
     const titleId = useUniqId();
 

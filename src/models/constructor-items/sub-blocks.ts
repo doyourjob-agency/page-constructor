@@ -251,7 +251,7 @@ export interface ImageCardProps
         CardLayoutProps,
         Omit<ContentBlockProps, 'colSizes' | 'centered' | 'controlPosition'> {
     image: ThemeSupporting<ImageProps>;
-    hoverImage: ThemeSupporting<ImageProps>;
+    hoverImage?: ThemeSupporting<ImageProps>;
     enableImageBorderRadius?: boolean;
     margins?: ImageCardMargins;
     direction?: ImageCardDirection;

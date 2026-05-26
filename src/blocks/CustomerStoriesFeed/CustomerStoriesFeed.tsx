@@ -1,9 +1,7 @@
 import React, {useContext} from 'react';
 
-import {CardLayoutBlock, CustomerStoriesPostsContext} from '../..';
+import {CardLayoutBlock, CustomerStoriesPostsContext, ImageCard} from '../..';
 import {InfiniteScroll} from '../../components';
-
-import CustomerStoriesCard from './CustomerStoriesCard/CustomerStoriesCard';
 
 const colSizes = {
     all: 12,
@@ -24,7 +22,7 @@ export const CustomerStoriesFeedBlock = () => {
         <React.Fragment>
             <CardLayoutBlock colSizes={colSizes}>
                 {itemsToShow.map((item) => (
-                    <CustomerStoriesCard key={item.url} {...item} />
+                    <ImageCard key={item.url} {...item} />
                 ))}
             </CardLayoutBlock>
             <InfiniteScroll hasMore={hasMore} onNext={onLoadMore} />
