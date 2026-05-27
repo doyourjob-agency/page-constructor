@@ -841,6 +841,7 @@ interface ContentLayoutBlockParams {
 export interface ContentLayoutBlockProps extends ContentLayoutBlockParams, Animatable {
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
+    tags?: string[];
 }
 
 export interface BannerMinifyButtonProps {

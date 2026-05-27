@@ -42,6 +42,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         animated,
         textContent,
         fileContent,
+        tags,
         size = 'l',
         background,
         unicorn,
@@ -78,6 +79,15 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
                             />
                         ))}
                     </Col>
+                )}
+                {tags && (
+                    <div className={b('tags')}>
+                        {tags.map((item, index) => (
+                            <div key={index} className={b('tag')}>
+                                {item}
+                            </div>
+                        ))}
+                    </div>
                 )}
                 {background && (
                     <div className={b('background')}>

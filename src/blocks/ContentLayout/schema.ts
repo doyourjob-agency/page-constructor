@@ -22,6 +22,12 @@ const ContentLayoutBlockProperties = {
     centered: {
         type: 'boolean',
     },
+    tags: {
+        type: 'array',
+        items: {
+            type: 'string',
+        },
+    },
     theme: {
         type: 'string',
         enum: contentThemes,

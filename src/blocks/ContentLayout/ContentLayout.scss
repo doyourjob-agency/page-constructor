@@ -55,6 +55,24 @@ $block: '.#{$ns}content-layout-block';
         }
     }
 
+    &__tags {
+        margin-top: $indentM;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $indentXXXS;
+    }
+
+    &__tag {
+        @include text-size(body-1);
+        height: 36px;
+        display: flex;
+        align-items: center;
+        padding: 0 $indentXS;
+        border: 1px solid var(--g-color-private-black-100);
+        border-radius: $indentSM;
+        color: var(--g-color-text-primary);
+    }
+
     &__file {
         margin-bottom: $indentXXS;
 
