@@ -6,9 +6,9 @@ import {EventsFeedBlockProps} from '../../models';
 import EventsFeedSection from './EventsFeedSection/EventsFeedSection';
 import {i18n} from './i18n';
 
-export const EventsFeedBlock = ({image, title}: EventsFeedBlockProps) => (
+export const EventsFeedBlock = ({image, title, text}: EventsFeedBlockProps) => (
     <React.Fragment>
-        <FeedHeader image={image} title={title} />
+        <FeedHeader image={image} title={title} text={text} />
         <EventsFeedSection typeKey="upcoming" />
         <EventsFeedSection typeKey="recent" title={i18n('recent_events')} />
     </React.Fragment>

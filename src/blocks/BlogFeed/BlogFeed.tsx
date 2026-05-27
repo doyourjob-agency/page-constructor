@@ -5,9 +5,9 @@ import {BlogFeedBlockProps} from '../../models';
 
 import BlogFeedPosts from './BlogFeedPosts/BlogFeedPosts';
 
-export const BlogFeedBlock = ({image, title}: BlogFeedBlockProps) => (
+export const BlogFeedBlock = ({image, title, text}: BlogFeedBlockProps) => (
     <React.Fragment>
-        <FeedHeader image={image} title={title} />
+        <FeedHeader image={image} title={title} text={text} />
         <BlogFeedPosts />
     </React.Fragment>
 );

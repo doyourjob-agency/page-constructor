@@ -14,12 +14,12 @@ interface FeedHeaderProps extends ControlsProps {
     image?: string;
 }
 
-export const FeedHeader = ({title, image}: FeedHeaderProps) => {
+export const FeedHeader = ({title, text, image}: FeedHeaderProps) => {
     return (
         <div className={b()}>
             <Grid className={b('content')}>
                 {image && <BackgroundImage src={image} className={b('background')} />}
-                <Controls title={title} />
+                <Controls title={title} text={text} />
             </Grid>
         </div>
     );

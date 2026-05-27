@@ -617,6 +617,7 @@ export interface ServicesBlockProps {
 export interface BaseFeedProps {
     image?: string;
     title?: string;
+    text?: string;
 }
 
 export interface EventsFeedBlockProps extends BaseFeedProps {}

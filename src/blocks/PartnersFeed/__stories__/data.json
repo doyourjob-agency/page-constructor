@@ -3,6 +3,7 @@
     "content": {
       "type": "partners-feed-block",
       "title": "Partners",
+      "text": "Text",
       "image": "/story-assets/img-bg_nopadding_4-12_light.png"
     }
   }

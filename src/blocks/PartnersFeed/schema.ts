@@ -9,6 +9,9 @@ export const PartnersFeedBlock = {
             title: {
                 type: 'string',
             },
+            text: {
+                type: 'string',
+            },
             image: {
                 type: 'string',
             },

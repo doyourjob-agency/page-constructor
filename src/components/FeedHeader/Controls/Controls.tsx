@@ -82,15 +82,21 @@ const FilterMemo = React.memo(Filter);
 
 export type ControlsProps = {
     title?: string;
+    text?: string;
 };
 
-export const Controls = ({title}: ControlsProps) => {
+export const Controls = ({title, text}: ControlsProps) => {
     const {filters} = useContext(FeedHeaderFiltersContext);
     const {filter} = useContext(FeedHeaderFilterContext);
 
     return (
         <div className={b()}>
-            <h1 className={b('title')}>{title}</h1>
+            {title || text ? (
+                <div className={b('wrap')}>
+                    {title && <h1 className={b('title')}>{title}</h1>}
+                    {text && <div className={b('text')}>{text}</div>}
+                </div>
+            ) : null}
             <div className={b('filters')}>
                 {filters.map((item) => (
                     <FilterMemo
