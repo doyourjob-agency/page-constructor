@@ -28,17 +28,11 @@ const FeedPartner = ({
         () => ({'background-color': levelColorBackground, color: levelColorText}),
         [levelColorBackground, levelColorText],
     );
+    const backgroundStyles = useMemo(() => ({background: background}), [background]);
     return (
         <RouterLink href={url}>
             <Link href={url} className={b({jumpOnHover, border: 'line'}, className)}>
-                {background && (
-                    <Image
-                        className={b('background-image')}
-                        containerClassName={b('background')}
-                        src={background}
-                        alt="background"
-                    />
-                )}
+                {background && <div className={b('background')} style={backgroundStyles} />}
                 <div className={b('content')}>
                     <div className={b('head')}>
                         {image && <Image className={b('image')} src={image} alt="logo" />}
