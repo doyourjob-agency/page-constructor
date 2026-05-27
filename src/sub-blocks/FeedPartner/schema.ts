@@ -1,45 +1,47 @@
 import {BaseProps} from '../../schema/validators/common';
 
 export const FeedPartner = {
-    type: 'object',
-    additionalProperties: false,
-    properties: {
-        ...BaseProps,
-        url: {
-            type: 'string',
-        },
-        type: {
-            type: 'string',
-        },
-        level: {
-            type: 'string',
-        },
-        levelColorText: {
-            type: 'string',
-        },
-        levelColorBackground: {
-            type: 'string',
-        },
-        background: {
-            type: 'string',
-        },
-        image: {
-            type: 'string',
-        },
-        title: {
-            type: 'string',
-        },
-        subtitle: {
-            type: 'string',
-        },
-        tags: {
-            type: 'array',
-            items: {
+    'feed-partner': {
+        additionalProperties: false,
+        required: ['url'],
+        properties: {
+            ...BaseProps,
+            url: {
                 type: 'string',
             },
-        },
-        jumpOnHover: {
-            type: 'boolean',
+            type: {
+                type: 'string',
+            },
+            level: {
+                type: 'string',
+            },
+            levelColorText: {
+                type: 'string',
+            },
+            levelColorBackground: {
+                type: 'string',
+            },
+            background: {
+                type: 'string',
+            },
+            image: {
+                type: 'string',
+            },
+            title: {
+                type: 'string',
+            },
+            subtitle: {
+                type: 'string',
+            },
+            tags: {
+                type: 'array',
+                items: {
+                    type: 'string',
+                },
+            },
+            jumpOnHover: {
+                type: 'boolean',
+            },
         },
     },
 };

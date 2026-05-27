@@ -72,6 +72,7 @@ import {
     Divider,
     EventPersonCard,
     FeedCard,
+    FeedPartner,
     ImageCard,
     MediaCardBlock,
     NewPostCard,
@@ -161,6 +162,7 @@ export const cardSchemas = {
     ...FeedCard,
     ...EventPersonCard,
     ...AttachmentCard,
+    ...FeedPartner,
     ...CaseStudyCard,
     ...StoryCard,
 };
@@ -241,6 +243,7 @@ export const constructorCardSchemaNames = [
     'quote',
     'basic-card',
     'attachment-card',
+    'feed-partner',
     'layout-item',
     'price-card',
     'image-card',

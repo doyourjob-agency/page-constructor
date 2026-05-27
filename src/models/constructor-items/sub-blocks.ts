@@ -40,6 +40,7 @@ export enum SubBlockType {
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
     AttachmentCard = 'attachment-card',
+    FeedPartner = 'feed-partner',
     CaseStudyCard = 'case-study-card',
     Content = 'content',
     HubspotForm = 'hubspot-form',
@@ -439,6 +440,10 @@ export type AttachmentCardModel = {
     type: SubBlockType.AttachmentCard;
 } & AttachmentCardProps;
 
+export type FeedPartnerModel = {
+    type: SubBlockType.FeedPartner;
+} & FeedPartnerProps;
+
 export type CaseStudyCardModel = {
     type: SubBlockType.CaseStudyCard;
 } & CaseStudyCardProps;
@@ -464,6 +469,7 @@ export type SubBlockModels =
     | FeedCardModel
     | EventPersonCardModel
     | AttachmentCardModel
+    | FeedPartnerModel
     | CaseStudyCardModel
     | StoryCardModel;
 

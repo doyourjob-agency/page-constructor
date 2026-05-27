@@ -79,6 +79,7 @@ import {
     Divider,
     EventPersonCard,
     FeedCard,
+    FeedPartner,
     ImageCard,
     LayoutItem,
     MediaCard,
@@ -171,6 +172,7 @@ export const subBlockMap = {
     [SubBlockType.FeedCard]: FeedCard,
     [SubBlockType.EventPersonCard]: EventPersonCard,
     [SubBlockType.AttachmentCard]: AttachmentCard,
+    [SubBlockType.FeedPartner]: FeedPartner,
     [SubBlockType.CaseStudyCard]: CaseStudyCard,
     [SubBlockType.StoryCard]: StoryCard,
 };

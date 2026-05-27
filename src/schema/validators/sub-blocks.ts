@@ -16,5 +16,6 @@ export * from '../../sub-blocks/NewPostCard/schema';
 export * from '../../sub-blocks/FeedCard/schema';
 export * from '../../sub-blocks/EventPersonCard/schema';
 export * from '../../sub-blocks/AttachmentCard/schema';
+export * from '../../sub-blocks/FeedPartner/schema';
 export * from '../../sub-blocks/CaseStudyCard/schema';
 export * from '../../sub-blocks/StoryCard/schema';
