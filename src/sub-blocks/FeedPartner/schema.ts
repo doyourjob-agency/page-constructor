@@ -8,6 +8,21 @@ export const FeedPartner = {
         url: {
             type: 'string',
         },
+        type: {
+            type: 'string',
+        },
+        level: {
+            type: 'string',
+        },
+        levelColorText: {
+            type: 'string',
+        },
+        levelColorBackground: {
+            type: 'string',
+        },
+        background: {
+            type: 'string',
+        },
         image: {
             type: 'string',
         },
