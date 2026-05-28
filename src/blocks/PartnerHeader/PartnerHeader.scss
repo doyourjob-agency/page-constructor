@@ -4,6 +4,8 @@
 $block: '.#{$ns}partner-header-block';
 
 #{$block} {
+    position: relative;
+
     &__background-image {
         display: block;
         width: 100%;
