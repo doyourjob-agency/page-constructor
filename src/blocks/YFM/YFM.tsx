@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {YFMWrapper} from '../../components';
-import {YFMProps} from '../../models/blocks';
+import {YFMBlockProps} from '../../models';
 import {block, cn} from '../../utils/cn';
 
 import './YFM.scss';
@@ -9,7 +9,7 @@ import './YFM.scss';
 const b = cn('yfm');
 const byfm = block('yfm-block');
 
-export const YFMBlock = (props: YFMProps) => {
+export const YFMBlock = (props: YFMBlockProps) => {
     const {text, textSize} = props;
 
     return (
