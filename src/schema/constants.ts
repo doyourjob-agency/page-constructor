@@ -28,6 +28,7 @@ import {
     HighlightTableBlock,
     IconsBlock,
     InfoBlock,
+    LayoutBlock,
     LinkTableBlock,
     LogoRotatorBlock,
     MapBlock,
@@ -124,6 +125,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsBlock,
     ...ScienceHeaderBlock,
     ...AboutHeaderBlock,
+    ...LayoutBlock,
     ...PartnerHeaderBlock,
     ...SidebarWidgetBlock,
     ...ReportsCardsBlock,
@@ -235,6 +237,7 @@ export const constructorBlockSchemaNames = [
     'partners-feed-block',
     'customer-stories-feed-block',
     'partner-header-block',
+    'layout-block',
 ];
 
 export const constructorCardSchemaNames = [

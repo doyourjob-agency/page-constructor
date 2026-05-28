@@ -52,6 +52,7 @@ export * from '../../blocks/Benchmark/schema';
 export * from '../../blocks/HeaderMinify/schema';
 export * from '../../blocks/ScienceHeader/schema';
 export * from '../../blocks/AboutHeader/schema';
+export * from '../../blocks/Layout/schema';
 export * from '../../blocks/PartnerHeader/schema';
 export * from '../../blocks/SidebarWidget/schema';
 export * from '../../blocks/Cat/schema';

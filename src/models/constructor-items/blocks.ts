@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
 import {ShareOptions} from '@gravity-ui/components';
 import {ButtonSize} from '@gravity-ui/uikit';
@@ -88,6 +88,7 @@ export enum BlockType {
     ReportsBlock = 'reports-block',
     ScienceHeaderBlock = 'science-header-block',
     AboutHeaderBlock = 'about-header-block',
+    LayoutBlock = 'layout-block',
     PartnerHeaderBlock = 'partner-header-block',
     ReportsCardsBlock = 'reports-cards-block',
     ReportsSectionsBlock = 'reports-sections-block',
@@ -964,6 +965,13 @@ export interface AboutHeaderBlockProps {
     logo?: string;
 }
 
+export interface LayoutBlockProps {
+    fullWidth?: boolean;
+    mobileOrder?: string;
+    revertMode?: boolean;
+    children: ReactElement[];
+}
+
 export interface PartnerHeaderBlockProps {
     levelColorText?: string;
     levelColorBackground?: string;
@@ -1135,6 +1143,10 @@ export type AboutHeaderBlockModel = {
     type: BlockType.AboutHeaderBlock;
 } & AboutHeaderBlockProps;
 
+export type LayoutBlockModel = {
+    type: BlockType.LayoutBlock;
+} & LayoutBlockProps;
+
 export type PartnerHeaderBlockModel = {
     type: BlockType.PartnerHeaderBlock;
 } & PartnerHeaderBlockProps;
@@ -1253,6 +1265,7 @@ type BlockModels =
     | ReportsBlockModel
     | ScienceHeaderBlockModel
     | AboutHeaderBlockModel
+    | LayoutBlockModel
     | PartnerHeaderBlockModel
     | ReportsCardsBlockModel
     | ReportsSectionsBlockModel

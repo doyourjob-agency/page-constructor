@@ -621,6 +621,10 @@ export const BlockBaseProps = {
             },
         ],
     },
+    column: {
+        type: 'string',
+        enum: ['left', 'right'],
+    },
 };
 
 export const TitleProps = {

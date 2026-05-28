@@ -1,0 +1,35 @@
+{
+  "default": {
+    "content": {
+      "type": "layout-block",
+      "children": [
+        {
+          "type": "media-block",
+          "column": "left",
+          "mediaOnly": true,
+          "media": {
+            "light": {
+              "image": "/story-assets/img_8-12_white.png"
+            },
+            "dark": {
+              "image": "/story-assets/img_8-12_dark.png"
+            }
+          }
+        },
+        {
+          "type": "media-block",
+          "column": "right",
+          "mediaOnly": true,
+          "media": {
+            "light": {
+              "image": "/story-assets/img_8-12_white.png"
+            },
+            "dark": {
+              "image": "/story-assets/img_8-12_dark.png"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
