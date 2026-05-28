@@ -35,6 +35,7 @@ export {default as ReportsBlock} from './Reports/Reports';
 export {default as ScienceHeaderBlock} from './ScienceHeader/ScienceHeader';
 export {default as AboutHeaderBlock} from './AboutHeader/AboutHeader';
 export {default as LayoutBlock} from './Layout/Layout';
+export {default as YFMBlock} from './YFM/YFM';
 export {default as PartnerHeaderBlock} from './PartnerHeader/PartnerHeader';
 export {default as ReportsCardsBlock} from './ReportsCards/ReportsCards';
 export {default as ReportsSectionsBlock} from './ReportsSections/ReportsSections';

@@ -63,6 +63,7 @@ import {
     TableBlock,
     TabsBlock,
     TabsHighlightTableBlock,
+    YFMBlock,
 } from './validators/blocks';
 import {
     AttachmentCard,
@@ -126,6 +127,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ScienceHeaderBlock,
     ...AboutHeaderBlock,
     ...LayoutBlock,
+    ...YFMBlock,
     ...PartnerHeaderBlock,
     ...SidebarWidgetBlock,
     ...ReportsCardsBlock,

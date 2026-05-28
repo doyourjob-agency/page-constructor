@@ -89,6 +89,7 @@ export enum BlockType {
     ScienceHeaderBlock = 'science-header-block',
     AboutHeaderBlock = 'about-header-block',
     LayoutBlock = 'layout-block',
+    YFMBlock = 'yfm-block',
     PartnerHeaderBlock = 'partner-header-block',
     ReportsCardsBlock = 'reports-cards-block',
     ReportsSectionsBlock = 'reports-sections-block',
@@ -972,6 +973,11 @@ export interface LayoutBlockProps {
     children: ReactElement[];
 }
 
+export interface YFMBlockProps {
+    text: string;
+    textSize?: 'xs' | 's' | 'm' | 'l' | 'xl';
+}
+
 export interface PartnerHeaderBlockProps {
     levelColorText?: string;
     levelColorBackground?: string;
@@ -1147,6 +1153,10 @@ export type LayoutBlockModel = {
     type: BlockType.LayoutBlock;
 } & LayoutBlockProps;
 
+export type YFMBlockModel = {
+    type: BlockType.YFMBlock;
+} & YFMBlockProps;
+
 export type PartnerHeaderBlockModel = {
     type: BlockType.PartnerHeaderBlock;
 } & PartnerHeaderBlockProps;
@@ -1266,6 +1276,7 @@ type BlockModels =
     | ScienceHeaderBlockModel
     | AboutHeaderBlockModel
     | LayoutBlockModel
+    | YFMBlockModel
     | PartnerHeaderBlockModel
     | ReportsCardsBlockModel
     | ReportsSectionsBlockModel

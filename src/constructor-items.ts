@@ -60,6 +60,7 @@ import {
     TableBlock,
     TabsBlock,
     TabsHighlightTableBlock,
+    YFMBlock,
 } from './blocks';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
 import {
@@ -146,6 +147,7 @@ export const blockMap = {
     [BlockType.ScienceSuggestBlock]: ScienceSuggestBlock,
     [BlockType.AboutHeaderBlock]: AboutHeaderBlock,
     [BlockType.LayoutBlock]: LayoutBlock,
+    [BlockType.YFMBlock]: YFMBlock,
     [BlockType.PartnerHeaderBlock]: PartnerHeaderBlock,
     [BlockType.SidebarWidgetBlock]: SidebarWidgetBlock,
     [BlockType.ReportsCardsBlock]: ReportsCardsBlock,

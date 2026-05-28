@@ -613,4 +613,10 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.YFMBlock]: [
+        {
+            fields: ['text'],
+            transformer: yfmTransformer,
+        },
+    ],
 };
