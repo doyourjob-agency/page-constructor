@@ -9,7 +9,7 @@ export const FeedPartner = {
             url: {
                 type: 'string',
             },
-            type: {
+            label: {
                 type: 'string',
             },
             level: {

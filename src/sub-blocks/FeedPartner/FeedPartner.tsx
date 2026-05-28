@@ -12,7 +12,7 @@ const b = block('feed-partner');
 
 const FeedPartner = ({
     url,
-    type,
+    label,
     level,
     levelColorText,
     levelColorBackground,
@@ -43,7 +43,7 @@ const FeedPartner = ({
                         )}
                     </div>
                     <div className={b('wrap')}>
-                        {type && <div className={b('type')}>{type}</div>}
+                        {label && <div className={b('label')}>{label}</div>}
                         {title && <div className={b('title')}>{title}</div>}
                         {subtitle && <div className={b('subtitle')}>{subtitle}</div>}
                     </div>

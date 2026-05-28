@@ -77,7 +77,7 @@ $block: '.#{$ns}feed-partner';
         @include card-hover();
     }
 
-    &__type {
+    &__label {
         @include text-size(body-2);
         color: var(--g-color-text-primary);
         opacity: 0.6;

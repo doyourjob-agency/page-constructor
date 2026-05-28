@@ -239,7 +239,7 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
 }
 
 export interface FeedPartnerProps extends ClassNameProps {
-    type?: string;
+    label?: string;
     level?: string;
     levelColorText?: string;
     levelColorBackground?: string;
