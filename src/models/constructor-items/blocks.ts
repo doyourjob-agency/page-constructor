@@ -88,6 +88,7 @@ export enum BlockType {
     ReportsBlock = 'reports-block',
     ScienceHeaderBlock = 'science-header-block',
     AboutHeaderBlock = 'about-header-block',
+    PartnerHeaderBlock = 'partner-header-block',
     ReportsCardsBlock = 'reports-cards-block',
     ReportsSectionsBlock = 'reports-sections-block',
     FormWallBlock = 'form-wall-block',
@@ -119,6 +120,7 @@ export const HeaderBlockTypes = [
     BlockType.HeaderBlock,
     BlockType.HeaderSliderBlock,
     BlockType.HeaderMinifyBlock,
+    BlockType.PartnerHeaderBlock,
 ];
 
 export interface Childable {
@@ -962,6 +964,16 @@ export interface AboutHeaderBlockProps {
     logo?: string;
 }
 
+export interface PartnerHeaderBlockProps {
+    levelColorText?: string;
+    levelColorBackground?: string;
+    level?: string;
+    label?: string;
+    title?: string;
+    logo?: string;
+    background?: string;
+}
+
 //block models
 export type HeaderBlockModel = {
     type: BlockType.HeaderBlock;
@@ -1123,6 +1135,10 @@ export type AboutHeaderBlockModel = {
     type: BlockType.AboutHeaderBlock;
 } & AboutHeaderBlockProps;
 
+export type PartnerHeaderBlockModel = {
+    type: BlockType.PartnerHeaderBlock;
+} & PartnerHeaderBlockProps;
+
 export type ReportsCardsBlockModel = {
     type: BlockType.ReportsCardsBlock;
 } & ReportsCardsBlockProps;
@@ -1237,6 +1253,7 @@ type BlockModels =
     | ReportsBlockModel
     | ScienceHeaderBlockModel
     | AboutHeaderBlockModel
+    | PartnerHeaderBlockModel
     | ReportsCardsBlockModel
     | ReportsSectionsBlockModel
     | LinkTableBlockModel

@@ -28,6 +28,8 @@ $block: '.#{$ns}feed-partner';
         justify-content: space-between;
         align-items: flex-start;
         min-height: 80px;
+        gap: $indentXS;
+        flex-wrap: wrap;
     }
 
     &__level {
@@ -45,6 +47,7 @@ $block: '.#{$ns}feed-partner';
     &__content {
         position: relative;
         z-index: 1;
+        width: 100%;
         display: flex;
         flex-direction: column;
         padding: 28px $indentM $indentM;

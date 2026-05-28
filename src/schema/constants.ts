@@ -35,6 +35,7 @@ import {
     MediaBlock,
     MiniCaseBlock,
     OnetrustCookieListBlock,
+    PartnerHeaderBlock,
     PartnersFeedBlock,
     PressReleasesBlock,
     PromoFeaturesBlock,
@@ -123,6 +124,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...ReportsBlock,
     ...ScienceHeaderBlock,
     ...AboutHeaderBlock,
+    ...PartnerHeaderBlock,
     ...SidebarWidgetBlock,
     ...ReportsCardsBlock,
     ...ReportsSectionsBlock,
@@ -232,6 +234,7 @@ export const constructorBlockSchemaNames = [
     'onetrust-cookie-list',
     'partners-feed-block',
     'customer-stories-feed-block',
+    'partner-header-block',
 ];
 
 export const constructorCardSchemaNames = [

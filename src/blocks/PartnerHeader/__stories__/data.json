@@ -1,0 +1,14 @@
+{
+  "default": {
+    "content": {
+      "type": "partner-header-block",
+      "levelColorText": "#3170EB",
+      "levelColorBackground": "#DCEFFE",
+      "level": "Ecosystem Partner",
+      "label": "Technology",
+      "title": "Anyscale",
+      "logo": "/story-assets/partner-logo-test.png",
+      "background": "/story-assets/partner-header-bg.png"
+    }
+  }
+}
