@@ -323,18 +323,16 @@ export interface HeaderBlockProps {
 
 export interface HeaderMinifyButtonProps {
     url: string;
-    icon?: string;
     text: string;
+    outline?: boolean;
 }
 
 export interface HeaderMinifyBlockProps {
     title: string;
     description?: string;
-    button?: HeaderMinifyButtonProps;
-    backgroundEffect?: {
-        firstSrc: string;
-        secondSrc: string;
-    };
+    buttons?: HeaderMinifyButtonProps[];
+    video?: string;
+    headerSpace?: boolean;
 }
 
 export interface ExtendedFeaturesItem

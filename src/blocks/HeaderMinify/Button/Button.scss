@@ -7,22 +7,21 @@ $block: '.#{$ns}header-minify-button';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: $indentXS 28px;
+    padding: 0 28px;
     border-radius: $indentXS;
     background: #001a2b;
     color: #ffffff;
     height: 61px;
-    font-size: 24px;
-    line-height: 24px;
+    @include text-size(header-2);
     font-weight: 500;
-    letter-spacing: 0.03em;
+    letter-spacing: 1%;
     text-decoration: none;
     transition: opacity 0.3s ease;
 
-    &__icon {
-        width: $indentSM;
-        height: $indentSM;
-        margin-right: $indentXXXS;
+    &_outline {
+        background: transparent;
+        border: 2px solid #001a2b;
+        color: #001a2b;
     }
 
     @include hover() {

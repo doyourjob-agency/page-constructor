@@ -10,24 +10,24 @@ export const HeaderMinifyProperties = {
         contentType: 'yfm',
         inputType: 'textarea',
     },
-    button: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['text', 'url'],
-        properties: {
-            icon: {type: 'string'},
-            text: {type: 'string'},
-            url: {type: 'string'},
+    buttons: {
+        type: 'array',
+        items: {
+            type: 'object',
+            additionalProperties: false,
+            required: ['text', 'url'],
+            properties: {
+                text: {type: 'string'},
+                url: {type: 'string'},
+                outline: {type: 'boolean'},
+            },
         },
     },
-    backgroundEffect: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['firstSrc', 'secondSrc'],
-        properties: {
-            firstSrc: {type: 'string'},
-            secondSrc: {type: 'string'},
-        },
+    video: {
+        type: 'string',
+    },
+    headerSpace: {
+        type: 'boolean',
     },
 };
 

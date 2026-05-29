@@ -1,6 +1,8 @@
-import React, {useRef} from 'react';
+import React from 'react';
 
-import {BackgroundEffect, HTML, YFMWrapper} from '../../components';
+import {HTML, YFMWrapper} from '../../components';
+import {parseVideoType} from '../../components/Media/Video/utils';
+import {Col, Grid, Row} from '../../grid';
 import {HeaderMinifyBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -10,29 +12,54 @@ import './HeaderMinify.scss';
 
 const b = block('header-minify-block');
 
+const colSizes = {all: 12, md: 8};
+
 const modifiers = {
     constructor: true,
 };
 
 export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
-    const {title, description, button, backgroundEffect} = props;
-
-    const headerRef = useRef<HTMLElement>(null);
+    const {title, description, buttons, video, headerSpace} = props;
 
     return (
-        <header ref={headerRef} className={b()}>
-            {backgroundEffect && backgroundEffect.firstSrc && backgroundEffect.secondSrc && (
-                <BackgroundEffect {...backgroundEffect} attachRef={headerRef} />
+        <header className={b({['header-space']: headerSpace})}>
+            {video && (
+                <video
+                    disablePictureInPicture
+                    playsInline
+                    // @ts-ignore
+                    // eslint-disable-next-line react/no-unknown-property
+                    pip="false"
+                    autoPlay
+                    loop
+                    preload="auto"
+                    muted
+                    className={b('video')}
+                >
+                    <source src={video} type={parseVideoType(video)} />
+                </video>
             )}
-            <h1 className={b('title')}>
-                <HTML>{title}</HTML>
-            </h1>
-            {description && (
-                <div className={b('description')}>
-                    <YFMWrapper content={description} modifiers={modifiers} />
-                </div>
-            )}
-            <div className={b('buttons')}>{button && <Button {...button} />}</div>
+            <Grid>
+                <Row className={b('container')}>
+                    <Col sizes={colSizes}>
+                        <h1 className={b('title')}>
+                            <HTML>{title}</HTML>
+                        </h1>
+                        {description && (
+                            <div className={b('description')}>
+                                <YFMWrapper content={description} modifiers={modifiers} />
+                            </div>
+                        )}
+                        {buttons?.length ? (
+                            <div className={b('buttons')}>
+                                {buttons.map((button, index) => (
+                                    <Button key={index} {...button} />
+                                ))}
+                            </div>
+                        ) : null}
+                    </Col>
+                </Row>
+            </Grid>
         </header>
     );
 };

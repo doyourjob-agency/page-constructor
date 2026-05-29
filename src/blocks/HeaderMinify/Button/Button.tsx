@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ImageBase, RouterLink} from '../../../components';
+import {RouterLink} from '../../../components';
 import {HeaderMinifyButtonProps} from '../../../models';
 import {block} from '../../../utils';
 
@@ -9,14 +9,11 @@ import './Button.scss';
 const b = block('header-minify-button');
 
 export const Button = (props: HeaderMinifyButtonProps) => {
-    const {url, icon, text} = props;
+    const {url, text, outline} = props;
 
     return (
         <RouterLink href={url}>
-            <a href={url} className={b('')}>
-                {icon ? (
-                    <ImageBase className={b('icon')} src={icon} alt="" aria-hidden="true" />
-                ) : null}
+            <a href={url} className={b({outline})}>
                 {text}
             </a>
         </RouterLink>
