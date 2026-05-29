@@ -48,6 +48,7 @@ export * from '../../blocks/PressReleases/schema';
 export * from '../../blocks/HighlightTable/schema';
 export * from '../../blocks/MiniCase/schema';
 export * from '../../blocks/LogoRotator/schema';
+export * from '../../blocks/UnicornCards/schema';
 export * from '../../blocks/Benchmark/schema';
 export * from '../../blocks/HeaderMinify/schema';
 export * from '../../blocks/ScienceHeader/schema';

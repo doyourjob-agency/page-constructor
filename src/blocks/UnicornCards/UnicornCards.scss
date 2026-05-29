@@ -1,0 +1,17 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+$block: '.#{$ns}unicorn-cards-block';
+
+#{$block} {
+    @include animate(#{$block}__root);
+
+    &__title {
+        margin-bottom: $indentL;
+        text-align: center;
+    }
+
+    &__items {
+        row-gap: $indentXS;
+    }
+}

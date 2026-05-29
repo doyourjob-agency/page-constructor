@@ -63,6 +63,7 @@ import {
     TableBlock,
     TabsBlock,
     TabsHighlightTableBlock,
+    UnicornCardsBlock,
     YFMBlock,
 } from './validators/blocks';
 import {
@@ -99,6 +100,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...HeaderMinifyBlock,
     ...BannerBlock,
     ...LogoRotatorBlock,
+    ...UnicornCardsBlock,
     ...CompaniesBlock,
     ...MediaBlock,
     ...MapBlock,
@@ -240,6 +242,7 @@ export const constructorBlockSchemaNames = [
     'customer-stories-feed-block',
     'partner-header-block',
     'layout-block',
+    'unicorn-cards-block',
 ];
 
 export const constructorCardSchemaNames = [

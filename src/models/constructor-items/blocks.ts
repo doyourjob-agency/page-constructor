@@ -62,6 +62,7 @@ export enum BlockType {
     QuestionsBlock = 'questions-block',
     BannerBlock = 'banner-block',
     LogoRotatorBlock = 'logo-rotator-block',
+    UnicornCardsBlock = 'unicorn-cards-block',
     CompaniesBlock = 'companies-block',
     MediaBlock = 'media-block',
     InfoBlock = 'info-block',
@@ -393,6 +394,17 @@ export interface LogoRotatorBlockProps extends Animatable {
     colSizes?: Partial<Record<GridColumnSize, number>>;
     theme?: TextTheme;
     rowMode?: boolean;
+}
+
+export type UnicornCardsItemProps = {
+    title: string;
+    text: string;
+    unicorn?: string;
+};
+
+export interface UnicornCardsBlockProps extends Animatable {
+    title?: TitleItemBaseProps | string;
+    items?: UnicornCardsItemProps[];
 }
 
 export interface AdvantagesBlockProps {
@@ -1019,6 +1031,10 @@ export type LogoRotatorBlockModel = {
     type: BlockType.LogoRotatorBlock;
 } & LogoRotatorBlockProps;
 
+export type UnicornCardsBlockModel = {
+    type: BlockType.UnicornCardsBlock;
+} & UnicornCardsBlockProps;
+
 export type AdvantagesBlockModel = {
     type: BlockType.AdvantagesBlock;
 } & AdvantagesBlockProps;
@@ -1242,6 +1258,7 @@ type BlockModels =
     | QuestionsBlockModel
     | BannerBlockModel
     | LogoRotatorBlockModel
+    | UnicornCardsBlockModel
     | AdvantagesBlockModel
     | BenefitsBlockModel
     | ScrollerBlockModel

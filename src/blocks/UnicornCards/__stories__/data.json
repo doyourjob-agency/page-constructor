@@ -1,0 +1,34 @@
+{
+  "default": {
+    "content": {
+      "type": "unicorn-cards-block",
+      "animated": false,
+      "title": {
+        "text": "From training to inference. On your terms.",
+        "textSize": "m"
+      },
+      "items": [
+        {
+          "title": "Faster time to AI value",
+          "text": "From zero to clusters in minutes, with built-in repeatability and self-service access.",
+          "unicorn": "/story-assets/unicorn.json"
+        },
+        {
+          "title": "Raw power No surprises",
+          "text": "Custom hardware with non-virtualized GPUs & InfiniBand – with industry-leading MTBF/MTTR.",
+          "unicorn": "/story-assets/unicorn.json"
+        },
+        {
+          "title": "Any user Any workload",
+          "text": "Built from the ground-up for AI developers with  built-in MLOps tooling, serverless and managed inference.",
+          "unicorn": "/story-assets/unicorn.json"
+        },
+        {
+          "title": "Elastic at any stage",
+          "text": "From small experiments to global-scale environments with flexible consumption options.",
+          "unicorn": "/story-assets/unicorn.json"
+        }
+      ]
+    }
+  }
+}

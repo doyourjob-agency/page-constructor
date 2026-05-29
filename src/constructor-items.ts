@@ -60,6 +60,7 @@ import {
     TableBlock,
     TabsBlock,
     TabsHighlightTableBlock,
+    UnicornCardsBlock,
     YFMBlock,
 } from './blocks';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
@@ -104,6 +105,7 @@ export const blockMap = {
     [BlockType.QuestionsBlock]: QuestionsBlock,
     [BlockType.BannerBlock]: BannerBlock,
     [BlockType.LogoRotatorBlock]: LogoRotatorBlock,
+    [BlockType.UnicornCardsBlock]: UnicornCardsBlock,
     [BlockType.CompaniesBlock]: CompaniesBlock,
     [BlockType.MediaBlock]: MediaBlock,
     [BlockType.InfoBlock]: InfoBlock,
