@@ -3,6 +3,8 @@ import * as React from 'react';
 import {A11y, Autoplay, Pagination} from 'swiper/modules';
 import {Swiper as SwiperReact, SwiperSlide} from 'swiper/react';
 import type {SwiperProps} from 'swiper/react';
+import type {Swiper} from 'swiper/types';
+import type {SwiperOptions} from 'swiper/types/swiper-options';
 
 import Anchor from '../../components/Anchor/Anchor';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
@@ -85,6 +87,7 @@ export const SliderClient = ({
 
     const isA11yControlHidden = Boolean(autoplay);
     const controlTabIndex = isA11yControlHidden ? -1 : 0;
+    const [enableNextClick, setEnableNextClick] = React.useState(true);
 
     const paginationProps = useSliderPagination({
         enabled: dots,
@@ -138,7 +141,10 @@ export const SliderClient = ({
                             onSlideChangeTransitionStart={onSlideChangeTransitionStart}
                             onSlideChangeTransitionEnd={onSlideChangeTransitionEnd}
                             onActiveIndexChange={onActiveIndexChange}
-                            onBreakpoint={onBreakpoint}
+                            onBreakpoint={(swiper: Swiper, breakpointParams: SwiperOptions) => {
+                                setEnableNextClick(Math.floor(swiper.slidesPerViewDynamic()) === 1);
+                                onBreakpoint?.(swiper, breakpointParams);
+                            }}
                             onLock={() => setIsLocked(true)}
                             onUnlock={() => setIsLocked(false)}
                             onInit={handleSwiperInit}
@@ -152,14 +158,55 @@ export const SliderClient = ({
                         >
                             {React.Children.map(children, (elem, index) => (
                                 <SwiperSlide className={b('slide')} key={index}>
-                                    {({isVisible}) => (
-                                        <div
-                                            className={b('slide-item')}
-                                            aria-hidden={!isA11yControlHidden && !isVisible}
-                                        >
-                                            {elem}
-                                        </div>
-                                    )}
+                                    {({isVisible, isActive, isNext, isPrev}) => {
+                                        const canNavigate =
+                                            enableNextClick && !isActive && (isNext || isPrev);
+
+                                        const navigateAdjacentSlide = () => {
+                                            if (isNext) {
+                                                onNext();
+                                            } else if (isPrev) {
+                                                onPrev();
+                                            }
+                                        };
+
+                                        return (
+                                            <div
+                                                className={b('slide-item')}
+                                                {...(canNavigate
+                                                    ? {
+                                                          role: 'button' as const,
+                                                          tabIndex: controlTabIndex,
+                                                          'aria-label': isNext
+                                                              ? i18n('arrow-right')
+                                                              : i18n('arrow-left'),
+                                                          onClick: (
+                                                              e: React.MouseEvent<HTMLDivElement>,
+                                                          ) => {
+                                                              e.preventDefault();
+                                                              e.stopPropagation();
+                                                              navigateAdjacentSlide();
+                                                          },
+                                                          onKeyDown: (
+                                                              e: React.KeyboardEvent<HTMLDivElement>,
+                                                          ) => {
+                                                              if (
+                                                                  e.key !== 'Enter' &&
+                                                                  e.key !== ' '
+                                                              ) {
+                                                                  return;
+                                                              }
+                                                              e.preventDefault();
+                                                              navigateAdjacentSlide();
+                                                          },
+                                                      }
+                                                    : {})}
+                                                aria-hidden={!isA11yControlHidden && !isVisible}
+                                            >
+                                                {elem}
+                                            </div>
+                                        );
+                                    }}
                                 </SwiperSlide>
                             ))}
                         </SwiperReact>
