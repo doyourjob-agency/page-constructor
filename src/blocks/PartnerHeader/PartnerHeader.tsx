@@ -26,13 +26,14 @@ const PartnerHeaderBlock = ({
     );
     return (
         <div className={b()}>
-            {background && (
-                <Image
-                    src={background}
-                    className={b('background-image')}
-                    containerClassName={b('background')}
-                />
-            )}
+            <div className={b('background-container')}>
+                {background && <Image src={background} className={b('background-image')} />}
+                {logo && (
+                    <div className={b('logo-container')}>
+                        <Image src={logo} className={b('logo')} />
+                    </div>
+                )}
+            </div>
             <Grid>
                 <Row className={b('container')}>
                     <Col className={b('left')} sizes={colSizes}>
@@ -48,7 +49,7 @@ const PartnerHeaderBlock = ({
                     </Col>
                     <Col sizes={colSizes}>
                         <div className={b('right')}>
-                            <Image src={logo} className={b('logo')} />
+                            {logo && <Image src={logo} className={b('logo--bottom')} />}
                         </div>
                     </Col>
                 </Row>
