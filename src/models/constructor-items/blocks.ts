@@ -439,16 +439,14 @@ export interface BenefitsBlockItemData {
 export interface BenefitsBlockItem extends BenefitsBlockItemLabel, BenefitsBlockItemData {}
 
 export interface BenefitsBlockProps extends Themable, Animatable {
-    titleOne?: string;
-    postTitleOne?: string;
-    textOne?: string;
-    titleTwo?: string;
-    postTitleTwo?: string;
-    textTwo?: string;
-    background?: string;
-    cards?: BenefitsBlockCard[];
-    items?: BenefitsBlockItem[];
-    accentColor?: string;
+    title?: string;
+    text?: string;
+    video?: string;
+    items?: {
+        icon?: string;
+        text?: string;
+    }[];
+    itemBackground?: string;
 }
 
 export interface ScrollerBlockProps extends Childable, Animatable {

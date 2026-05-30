@@ -1,109 +1,71 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 
-import {AnimateBlock, HTML, ImageBase} from '../../components';
+import {AnimateBlock, Image} from '../../components';
+import {parseVideoType} from '../../components/Media/Video/utils';
+import {Col, Row} from '../../grid';
 import {BenefitsBlockProps} from '../../models';
 import {block} from '../../utils';
-
-import BenefitsCard from './BenefitsCard/BenefitsCard';
-import BenefitsLabel from './BenefitsLabel/BenefitsLabel';
 
 import './Benefits.scss';
 
 const b = block('benefits-block');
 
+const colSizesLeft = {all: 12, lg: 7, xl: 9};
+const colSizesRight = {all: 12, lg: 5, xl: 3};
+
 export const BenefitsBlock = (props: BenefitsBlockProps) => {
-    const {
-        animated,
-        titleOne,
-        postTitleOne,
-        textOne,
-        titleTwo,
-        postTitleTwo,
-        textTwo,
-        background,
-        cards,
-        items,
-        theme,
-        accentColor,
-    } = props;
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const data = items?.[activeIndex];
-
-    const handleClick = useCallback((index: number) => setActiveIndex(index), []);
+    const {animated, title, text, video, items, itemBackground, theme} = props;
 
     const styles = useMemo<React.CSSProperties>(
         () =>
-            accentColor
+            itemBackground
                 ? ({
-                      ['--local-accent-color']: accentColor,
+                      ['--local-item-bg']: itemBackground,
                   } as React.CSSProperties)
                 : {},
 
-        [accentColor],
+        [itemBackground],
     );
 
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
             <div className={b('root')} style={styles}>
-                <div className={b('background')} style={{background}} />
-                {(titleOne || postTitleOne || textOne) && (
-                    <div className={b('header')}>
-                        {(titleOne || postTitleOne) && (
-                            <div className={b('title')}>
-                                {titleOne}
-                                <span>{postTitleOne}</span>
-                            </div>
-                        )}
-                        {textOne && <HTML className={b('text')}>{textOne}</HTML>}
+                {title || text ? (
+                    <div className={b('head')}>
+                        {title && <h2 className={b('title')}>{title}</h2>}
+                        {text && <div className={b('text')}>{text}</div>}
                     </div>
-                )}
-                {Boolean(cards?.length) && (
-                    <div className={b('cards')}>
-                        {cards?.map((card, index) => (
-                            <BenefitsCard key={index} {...card} />
-                        ))}
-                    </div>
-                )}
-                {(titleTwo || postTitleTwo || textTwo) && (
-                    <div className={b('header')}>
-                        {(titleTwo || postTitleTwo) && (
-                            <div className={b('title')}>
-                                {titleTwo}
-                                <span>{postTitleTwo}</span>
-                            </div>
-                        )}
-                        {textTwo && <HTML className={b('text')}>{textTwo}</HTML>}
-                    </div>
-                )}
-                {Boolean(items?.length) && (
-                    <div className={b('labels')}>
-                        {items?.map((item, index) => (
-                            <BenefitsLabel
-                                key={index}
-                                {...item}
-                                active={index === activeIndex}
-                                index={index}
-                                onClick={handleClick}
-                            />
-                        ))}
-                    </div>
-                )}
-                {data && (
-                    <div className={b('images')}>
-                        {data.images.map((image, index) => (
-                            <div
-                                key={index}
-                                style={{
-                                    gridColumn: `span ${data.columns[index]}`,
-                                    gridRow: `span ${data.rows[index]}`,
-                                }}
+                ) : null}
+                <Row>
+                    <Col sizes={colSizesLeft}>
+                        {video && (
+                            <video
+                                disablePictureInPicture
+                                playsInline
+                                // @ts-ignore
+                                // eslint-disable-next-line react/no-unknown-property
+                                pip="false"
+                                autoPlay
+                                loop
+                                preload="auto"
+                                muted
+                                className={b('video')}
                             >
-                                <ImageBase className={b('image')} src={image} />
-                            </div>
-                        ))}
-                    </div>
-                )}
+                                <source src={video} type={parseVideoType(video)} />
+                            </video>
+                        )}
+                    </Col>
+                    <Col sizes={colSizesRight}>
+                        <div className={b('items')}>
+                            {items?.map((item, index) => (
+                                <div key={index} className={b('item')}>
+                                    <Image className={b('item-image')} src={item.icon} alt="icon" />
+                                    <div className={b('item-text')}>{item.text}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </Col>
+                </Row>
             </div>
         </AnimateBlock>
     );

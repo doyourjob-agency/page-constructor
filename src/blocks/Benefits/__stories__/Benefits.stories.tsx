@@ -2,7 +2,6 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react';
 
-import {yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
 import {BenefitsBlockModel, BenefitsBlockProps} from '../../../models';
 import Benefits from '../Benefits';
@@ -23,10 +22,4 @@ const DefaultTemplate: StoryFn<BenefitsBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 
-const content = data.default.content as BenefitsBlockProps;
-
-Default.args = {
-    ...content,
-    textOne: yfmTransform(content.textOne || ''),
-    textTwo: yfmTransform(content.textTwo || ''),
-} as BenefitsBlockProps;
+Default.args = data.default.content as BenefitsBlockProps;

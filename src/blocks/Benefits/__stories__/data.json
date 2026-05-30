@@ -3,79 +3,26 @@
     "content": {
       "type": "benefits-block",
       "background": "#001A2B",
-      "theme": "dark",
-      "accentColor": "#E0FF4F",
-      "titleOne": "Other clouds were not. built for AI. ",
-      "postTitleOne": "Ours is.",
-      "titleTwo": "Built by builders",
-      "textTwo": "Expert support from real humans.\nGlobal-scale experience. Secure by design.",
-      "cards": [
-        {
-          "icon": "/story-assets/icon_1_dark.svg",
-          "title": "Faster time to AI value",
-          "text": "From zero to large-scale clusters in hours, with built-in repeatability and self-service access."
-        },
-        {
-          "icon": "/story-assets/icon_1_dark.svg",
-          "title": "Compute built to perform",
-          "text": "Custom hardware with non-virtualized GPUs and InfiniBand – with industry-leading MTBF/MTTR."
-        },
-        {
-          "icon": "/story-assets/icon_1_dark.svg",
-          "title": "Dev-first simplicity",
-          "text": "Built from the ground-up for AI developers with  observability, managed K8s, Slurm, & API access."
-        },
-        {
-          "icon": "/story-assets/icon_1_dark.svg",
-          "title": "Elastic at any stage",
-          "text": "From small experiments to global-scale environments  with flexible consumption options, on your own terms."
-        }
-      ],
+      "theme": "light",
+      "title": "Built by builders",
+      "text": "Expert support from real humans at your fingertips. Global-scale experience. Security by design.",
+      "video": "/story-assets/video_8-12_light.mp4",
       "items": [
         {
-          "title": "24/7",
-          "text": "support by default",
-          "columns": [6, 6, 6],
-          "rows": [1, 2, 1],
-          "images": [
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png"
-          ]
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "500+ AI experts at your fingertips"
         },
         {
-          "title": "500+",
-          "text": "AI experts at your fingertips",
-          "columns": [3, 9, 12],
-          "rows": [1, 1, 1],
-          "images": [
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png"
-          ]
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "500+ AI experts at your fingertips"
         },
         {
-          "title": "Free",
-          "text": "white-glove PoC support & resources",
-          "columns": [6, 6, 6],
-          "rows": [2, 1, 1],
-          "images": [
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png"
-          ]
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "500+ AI experts at your fingertips"
         },
         {
-          "title": "???",
-          "text": "Enterprise-grade compliance",
-          "columns": [6, 6, 6, 6],
-          "rows": [1, 1, 1, 1],
-          "images": [
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png",
-            "/story-assets/img_6-12_light.png"
-          ]
+          "icon": "/story-assets/icon_1_light.svg",
+          "text": "500+ AI experts at your fingertips"
         }
       ]
     }

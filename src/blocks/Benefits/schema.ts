@@ -7,57 +7,31 @@ export const BenefitsBlock = {
         properties: {
             ...BaseProps,
             ...AnimatableProps,
-            titleOne: {type: 'string'},
-            postTitleOne: {type: 'string'},
-            textOne: {type: 'string'},
-            titleTwo: {type: 'string'},
-            postTitleTwo: {type: 'string'},
-            textTwo: {type: 'string'},
-            background: {type: 'string'},
-            cards: {
-                type: 'array',
-                items: {
-                    additionalProperties: false,
-                    required: ['icon', 'title', 'text'],
-                    properties: {
-                        icon: {type: 'string'},
-                        title: {type: 'string'},
-                        text: {type: 'string'},
-                    },
-                },
+            theme: ThemeProps,
+            title: {
+                type: 'string',
+            },
+            text: {
+                type: 'string',
+            },
+            video: {
+                type: 'string',
             },
             items: {
                 type: 'array',
                 items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: ['title', 'text'],
+                    required: false,
                     properties: {
-                        title: {type: 'string'},
+                        icon: {type: 'string'},
                         text: {type: 'string'},
-                        images: {
-                            type: 'array',
-                            items: {
-                                type: 'string',
-                            },
-                        },
-                        columns: {
-                            type: 'array',
-                            items: {
-                                type: 'number',
-                            },
-                        },
-                        rows: {
-                            type: 'array',
-                            items: {
-                                type: 'number',
-                            },
-                        },
                     },
                 },
             },
-            theme: ThemeProps,
-            accentColor: {type: 'string'},
+            itemBackground: {
+                type: 'string',
+            },
         },
     },
 };
