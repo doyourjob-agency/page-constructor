@@ -20,11 +20,28 @@ $block: '.#{$ns}story-card';
         border-radius: 40px;
     }
 
-    &__title {
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         margin-top: 14px;
-        margin-bottom: 30px;
         padding-left: 30px;
-        padding-right: 30px;
+        margin-bottom: 30px;
+        gap: $indentXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            flex-direction: column-reverse;
+            padding: 0 30px;
+        }
+    }
+
+    &__title {
+        @include text-size(display-3);
+        font-weight: 600;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-2);
+        }
     }
 
     &__text,
@@ -41,7 +58,7 @@ $block: '.#{$ns}story-card';
         row-gap: $indent4XS;
         display: flex;
         flex-direction: column;
-        min-height: 608px;
+        min-height: 500px;
 
         @media (max-width: map-get($gridBreakpoints, 'lg')) {
             min-height: auto;
@@ -53,6 +70,11 @@ $block: '.#{$ns}story-card';
         padding: 30px;
         background-color: #ffffff;
         flex: 1;
+
+        &_text {
+            background-color: #614efa;
+            color: #ffffff;
+        }
 
         &_centered {
             display: flex;
@@ -74,6 +96,19 @@ $block: '.#{$ns}story-card';
         line-height: 31px;
         letter-spacing: -0.1em;
         font-weight: 700;
+    }
+
+    &__tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #614efa;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 0 $indentXXS;
+        height: $indentM;
+        border-radius: $indentXS;
+        border: 1px solid #614efa;
     }
 
     &__label {

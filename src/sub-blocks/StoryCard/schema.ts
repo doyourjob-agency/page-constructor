@@ -1,4 +1,4 @@
-import {BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
+import {BlockBaseProps} from '../../schema/validators/common';
 
 export const StoryCard = {
     'story-card': {
@@ -6,7 +6,8 @@ export const StoryCard = {
         required: [],
         properties: {
             ...BlockBaseProps,
-            title: BlockHeaderProps.title,
+            title: {type: 'string'},
+            tag: {type: 'string'},
             text: {type: 'string'},
             quote: {type: 'string'},
             logo: {type: 'string'},

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HTML, Image, Title} from '../../components';
+import {HTML, Image} from '../../components';
 import {Col, Row} from '../../grid';
 import {StoryCardProps} from '../../models';
 import {block} from '../../utils';
@@ -16,6 +16,7 @@ const columnSizes = {
 
 const StoryCard: React.FC<StoryCardProps> = ({
     title,
+    tag,
     text,
     quote,
     logo,
@@ -27,21 +28,11 @@ const StoryCard: React.FC<StoryCardProps> = ({
     return (
         <div className={b()}>
             <div className={b('background')} style={{background}} />
-            {title && <Title title={title} className={b('title')} />}
+            <div className={b('head')}>
+                {title && <div className={b('title')}>{title}</div>}
+                {tag && <div className={b('tag')}>{tag}</div>}
+            </div>
             <Row className={b('row')}>
-                <Col className={b('col')} sizes={columnSizes}>
-                    <div className={b('box')}>
-                        <HTML className={b('text')}>{text}</HTML>
-                    </div>
-                </Col>
-                <Col className={b('col')} sizes={columnSizes}>
-                    {data?.map((item, index) => (
-                        <div key={index} className={b('box', {centered: true})}>
-                            <div className={`${b('value')} title-font-family`}>{item.value}</div>
-                            <div className={b('label')}>{item.label}</div>
-                        </div>
-                    ))}
-                </Col>
                 <Col className={b('col')} sizes={columnSizes}>
                     <div className={b('box', {between: true})}>
                         {logo && (
@@ -56,6 +47,19 @@ const StoryCard: React.FC<StoryCardProps> = ({
                                 {autor && <HTML className={b('text')}>{autor}</HTML>}
                             </div>
                         )}
+                    </div>
+                </Col>
+                <Col className={b('col')} sizes={columnSizes}>
+                    {data?.map((item, index) => (
+                        <div key={index} className={b('box', {centered: true})}>
+                            <div className={`${b('value')} title-font-family`}>{item.value}</div>
+                            <div className={b('label')}>{item.label}</div>
+                        </div>
+                    ))}
+                </Col>
+                <Col className={b('col')} sizes={columnSizes}>
+                    <div className={b('box', {text: true})}>
+                        <HTML className={b('text')}>{text}</HTML>
                     </div>
                 </Col>
             </Row>

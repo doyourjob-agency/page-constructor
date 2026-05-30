@@ -364,7 +364,8 @@ export interface EventPersonCardProps {
 }
 
 export interface StoryCardProps {
-    title?: TitleItemBaseProps | string;
+    title?: string;
+    tag?: string;
     text?: string;
     quote?: string;
     logo?: string;
