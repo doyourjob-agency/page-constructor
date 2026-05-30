@@ -6,8 +6,10 @@ $block: '.#{$ns}benefits-block';
 #{$block} {
     --local-item-bg: #fcfcfc;
     color: var(--g-color-text-primary);
+    padding-bottom: $indentL;
 
-    &_theme_dark {
+    &_theme_dark,
+    &_theme_dark &__title {
         color: var(--g-color-text-light-primary);
     }
 
@@ -43,6 +45,7 @@ $block: '.#{$ns}benefits-block';
         @include text-size(display-4);
         margin: 0;
         font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
     }
 
     &__text {
@@ -56,6 +59,7 @@ $block: '.#{$ns}benefits-block';
         width: 100%;
         aspect-ratio: 16 / 9;
         border-radius: $indentSM;
+        object-fit: cover;
     }
 
     &__items {
