@@ -3,56 +3,33 @@
     "content": {
       "type": "benchmark-block",
       "title": "Reliable performance at scale",
+      "text": "Predictable performance. Proven reliability. Lower TCO.",
+      "metricsColor": "#eeeeee",
       "duration": 2000,
-      "data": [
+      "items": [
         {
-          "title": "Shared filesystem",
-          "sizes": {"lg": 8, "all": 12},
-          "items": [
-            {
-              "top": "Write throughput for 2032 GPU cluster³",
-              "value": 442,
-              "init": 0,
-              "postfix": " GiB/s"
-            },
-            {
-              "top": "Read throughput for 2032 GPU cluster³",
-              "value": 535,
-              "init": 0,
-              "postfix": " GiB/s"
-            }
-          ]
+          "text": "better TCO for inference vs. AWS.*",
+          "value": 112,
+          "init": 0,
+          "postfix": "%"
         },
         {
-          "title": "Object Storage",
-          "sizes": {"lg": 4, "all": 12},
-          "items": [
-            {
-              "top": "Write throughput per client⁴",
-              "value": 10,
-              "init": 0,
-              "postfix": " GiB/s"
-            }
-          ]
+          "text": "Mean Time To Resolution.",
+          "value": 12,
+          "init": 0,
+          "postfix": " min"
         },
         {
-          "title": "Cluster reliability",
-          "sizes": {"all": 12},
-          "items": [
-            {
-              "top": "Mean Time Between Failure (MTBF)⁵",
-              "value": 167,
-              "init": 0,
-              "postfix": "K GPU hours",
-              "bottom": "for 3000-GPU cluster"
-            },
-            {
-              "top": "Mean Time To Recovery (MTTR)",
-              "value": 12,
-              "init": 0,
-              "postfix": " minutes"
-            }
-          ]
+          "text": "Mean Time Between Failures for 3,000 GPUs.",
+          "value": 56.6,
+          "init": 0,
+          "postfix": " hrs"
+        },
+        {
+          "text": "better TCO for fine-tuning vs. AWS.*",
+          "value": 43,
+          "init": 0,
+          "postfix": "%"
         }
       ]
     }

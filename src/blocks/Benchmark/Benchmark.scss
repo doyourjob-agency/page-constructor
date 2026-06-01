@@ -9,84 +9,101 @@ $block: '.#{$ns}benchmark-block';
     &__root {
         display: flex;
         flex-direction: column;
+        gap: $indentM;
+    }
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
         align-items: center;
+        text-align: center;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            align-items: initial;
+            text-align: initial;
+        }
     }
 
     &__title {
-        margin-bottom: $indentM;
-        text-align: center;
-        font-size: 48px;
-        line-height: 52px;
-        font-weight: 600;
+        @include text-size(display-4);
+        margin: 0;
+        font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-1);
+        }
     }
 
-    &__content {
-        flex: 1;
-        border: 1px #001a2b solid;
+    &__text {
+        font-size: 24px;
+        line-height: 28px;
+        opacity: 0.6;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(body-3);
+        }
+    }
+
+    &__items {
+        display: flex;
+        background-color: var(--local-items-bg, #eeeeee);
+        padding: $indentL 0;
         border-radius: $indentSM;
-        overflow: hidden;
-    }
 
-    &__wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 0.5px #001a2b solid;
-        margin-top: -0.5px;
-        margin-bottom: -0.5px;
-
-        @include add-specificity(&) {
-            padding-top: $indentM;
-            padding-bottom: $indentSM;
-        }
-    }
-
-    &__wrap-inner {
-        width: 100%;
-        display: flex;
-
-        @media (max-width: map-get($gridBreakpoints, 'lg')) {
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
             flex-direction: column;
-        }
-    }
-
-    &__wrap-title {
-        text-align: center;
-        margin-bottom: $indentL;
-
-        @media (max-width: map-get($gridBreakpoints, 'lg')) {
-            margin-bottom: $indentSM;
+            padding: 0 $indentL;
         }
     }
 
     &__item {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
         text-align: center;
-        padding-left: $indentXXXS;
-        padding-right: $indentXXXS;
+        padding: 0 $indentXS;
 
-        @media (max-width: map-get($gridBreakpoints, 'lg')) {
-            & + & {
-                margin-top: $indentM;
-            }
+        & + & {
+            border-left: 1px solid #001a2b33;
         }
-    }
-
-    &__value {
-        font-size: 64px;
-        line-height: 52px;
-        font-weight: 600;
-        letter-spacing: -0.002em;
-        margin-top: $indentXXS;
-        margin-bottom: $indentXXS;
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
-            font-size: 32px;
-            line-height: 26px;
-        }
-    }
+            padding: $indentSM 0;
 
-    &__label {
-        font-weight: 700;
+            & + & {
+                border-left: none;
+                border-top: 1px solid #001a2b33;
+            }
+        }
+
+        &-value {
+            font-size: 48px;
+            line-height: 52px;
+            font-weight: 600;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                font-size: 40px;
+                line-height: 48px;
+            }
+
+            .odometer {
+                font-family: inherit;
+
+                &-digit {
+                    font-variant-numeric: tabular-nums;
+
+                    &-inner {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        &-text {
+            @include text-size(body-1);
+        }
     }
 }

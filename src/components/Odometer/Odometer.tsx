@@ -15,13 +15,19 @@ const Odometer: React.FC<OdometerProps> = ({initValue, value, duration = 2000, a
     const odometer = useRef<typeof window.Odometer>();
     useEffect(() => {
         if (typeof window === 'undefined' || !animated) return;
+
+        const valueStr = value.toString();
+        const dotIndex = valueStr.indexOf('.');
+        const format =
+            dotIndex === -1 ? '(,ddd)' : `(,ddd).${'d'.repeat(valueStr.length - dotIndex - 1)}`;
+
         odometer.current = new window.Odometer({
             el: ref.current,
             value: initValue || 0,
-            format: '',
+            format,
             duration,
         });
-    }, [duration, initValue, animated]);
+    }, [duration, initValue, animated, value]);
     useEffect(() => {
         if (animated) {
             odometer.current?.update(value);

@@ -1,8 +1,4 @@
-import {
-    AnimatableProps,
-    BlockBaseProps,
-    containerSizesObject,
-} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
 
 export const BenchmarkBlock = {
     'benchmark-block': {
@@ -14,47 +10,30 @@ export const BenchmarkBlock = {
             title: {
                 type: 'string',
             },
+            text: {
+                type: 'string',
+            },
             duration: {
                 type: 'number',
             },
-            data: {
+            items: {
                 type: 'array',
                 items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: ['items'],
+                    required: ['value'],
                     properties: {
-                        title: {
+                        text: {
                             type: 'string',
                         },
-                        sizes: {
-                            type: 'object',
-                            additionalProperties: containerSizesObject,
+                        init: {
+                            type: 'number',
                         },
-                        items: {
-                            type: 'array',
-                            items: {
-                                type: 'object',
-                                additionalProperties: false,
-                                required: ['value'],
-                                properties: {
-                                    top: {
-                                        type: 'string',
-                                    },
-                                    bottom: {
-                                        type: 'string',
-                                    },
-                                    value: {
-                                        type: 'number',
-                                    },
-                                    init: {
-                                        type: 'number',
-                                    },
-                                    postfix: {
-                                        type: 'string',
-                                    },
-                                },
-                            },
+                        postfix: {
+                            type: 'string',
+                        },
+                        value: {
+                            type: 'number',
                         },
                     },
                 },

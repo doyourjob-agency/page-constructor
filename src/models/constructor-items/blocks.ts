@@ -770,17 +770,14 @@ export interface AudioBlockProps {
 
 export interface BenchmarkBlockProps extends Animatable {
     title?: string;
+    text?: string;
     duration?: number;
-    data: {
-        title?: string;
-        sizes?: GridColumnSizesType;
-        items: {
-            top?: string;
-            value: number;
-            init?: number;
-            postfix?: string;
-            bottom?: string;
-        }[];
+    metricsColor?: string;
+    items?: {
+        value: number;
+        text?: string;
+        init?: number;
+        postfix?: string;
     }[];
 }
 
