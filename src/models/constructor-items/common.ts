@@ -267,7 +267,7 @@ export interface MediaComponentVideoIframeProps {
 export interface MediaComponentYoutubeProps {
     youtube: string;
     previewImg?: string;
-    playButtonСorner?: boolean;
+    playButtonCorner?: boolean;
     fullscreen?: boolean;
 }
 

@@ -50,7 +50,7 @@ export const Media = (props: MediaAllProps) => {
         playVideo = true,
         isBackground,
         playButton,
-        playButtonСorner,
+        playButtonCorner,
         customBarControlsClassName,
         qa,
         ratio,
@@ -120,7 +120,7 @@ export const Media = (props: MediaAllProps) => {
                     videoIframe={videoIframe}
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
-                    playButtonСorner={playButtonСorner}
+                    playButtonCorner={playButtonCorner}
                     height={height}
                     fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
@@ -165,7 +165,7 @@ export const Media = (props: MediaAllProps) => {
         customBarControlsClassName,
         ratio,
         youtubeClassName,
-        playButtonСorner,
+        playButtonCorner,
         autoplay,
         margins,
     ]);
