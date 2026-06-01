@@ -4,6 +4,7 @@ export {default as PriceDetailed} from './PriceDetailed/PriceDetailed';
 export {default as MediaCard} from './MediaCard/MediaCard';
 export {default as BannerCard} from './BannerCard/BannerCard';
 export {default as LayoutItem} from './LayoutItem/LayoutItem';
+export {default as NewsCard} from './NewsCard/NewsCard';
 export {default as BackgroundCard} from './BackgroundCard/BackgroundCard';
 export {default as BasicCard} from './BasicCard/BasicCard';
 export {default as Content} from './Content/Content';

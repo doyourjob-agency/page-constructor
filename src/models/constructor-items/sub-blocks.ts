@@ -37,6 +37,7 @@ export enum SubBlockType {
     MediaCard = 'media-card',
     BannerCard = 'banner-card',
     LayoutItem = 'layout-item',
+    NewsCard = 'news-card',
     BackgroundCard = 'background-card',
     BasicCard = 'basic-card',
     AttachmentCard = 'attachment-card',
@@ -238,6 +239,16 @@ export interface LayoutItemProps extends ClassNameProps, CardLayoutProps, Analyt
     paddingBottom?: 's' | 'm' | 'l' | 'xl';
 }
 
+export interface NewsCardProps {
+    image: string;
+    square?: boolean;
+    text?: string;
+    links?: {
+        icon: string;
+        url: string;
+    }[];
+}
+
 export interface FeedPartnerProps extends ClassNameProps {
     label?: string;
     level?: string;
@@ -388,6 +399,10 @@ export type LayoutItemModel = {
     type: SubBlockType.LayoutItem;
 } & LayoutItemProps;
 
+export type NewsCardModel = {
+    type: SubBlockType.NewsCard;
+} & NewsCardProps;
+
 export type BackgroundCardModel = {
     type: SubBlockType.BackgroundCard;
 } & BackgroundCardProps;
@@ -464,6 +479,7 @@ export type SubBlockModels =
     | BasicCardModel
     | PriceCardModel
     | LayoutItemModel
+    | NewsCardModel
     | ImageCardModel
     | PostCardModel
     | NewPostCardModel

@@ -1,0 +1,19 @@
+{
+  "default": {
+    "content": {
+      "image": "/story-assets/img_6-12_light.png",
+      "square": true,
+      "text": "The Nebius Early Talent Program launches this summer, designed to give early-career engineers direct access to real AI infrastructure from day one.",
+      "links": [
+        {
+          "url": "#1",
+          "icon": "/story-assets/icon_1_light.svg"
+        },
+        {
+          "url": "#1",
+          "icon": "/story-assets/icon_1_light.svg"
+        }
+      ]
+    }
+  }
+}

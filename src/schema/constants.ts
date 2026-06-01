@@ -80,6 +80,7 @@ import {
     ImageCard,
     MediaCardBlock,
     NewPostCard,
+    NewsCard,
     PostCard,
     PriceCardBlock,
     PriceDetailedBlock,
@@ -173,6 +174,7 @@ export const cardSchemas = {
     ...FeedPartner,
     ...CaseStudyCard,
     ...StoryCard,
+    ...NewsCard,
 };
 
 export const constructorBlockSchemaNames = [
@@ -265,4 +267,5 @@ export const constructorCardSchemaNames = [
     'event-person-card',
     'case-study-card',
     'story-card',
+    'news-card',
 ];
