@@ -60,6 +60,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     className?: string;
     previewImg?: string;
     playButton?: React.ReactNode;
+    playButtonСorner?: boolean;
     playButtonId?: string;
     height?: number;
     fullscreen?: boolean;
@@ -77,6 +78,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         id,
         previewImg,
         playButton,
+        playButtonСorner,
         playButtonId,
         height,
         fullscreen,
@@ -183,8 +185,16 @@ const VideoBlock = (props: VideoBlockProps) => {
                         onLoad={onImageLoad}
                     />
                     {playButton || (
-                        <button title="Play" id={buttonId} className={b('button')}>
-                            <Icon className={b('icon')} data={PlayFill} size={24} />
+                        <button
+                            title="Play"
+                            id={buttonId}
+                            className={b('button', {corner: playButtonСorner})}
+                        >
+                            <Icon
+                                className={b('icon')}
+                                data={PlayFill}
+                                size={playButtonСorner ? 16 : 24}
+                            />
                         </button>
                     )}
                 </div>
