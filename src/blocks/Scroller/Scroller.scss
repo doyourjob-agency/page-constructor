@@ -32,5 +32,6 @@ $block: '.#{$ns}scroller-block';
         position: relative;
         z-index: 1;
         flex: none;
+        max-width: 100%;
     }
 }
