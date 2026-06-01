@@ -1,8 +1,7 @@
 import React from 'react';
 
-import UnicornScene from 'unicornstudio-react';
-
-import {ConstructorBlock} from '../../models';
+import {UnicornScene} from '..';
+import {Block, ConstructorBlock} from '../../models';
 import {block} from '../../utils';
 
 import './BackgroundUnicorn.scss';
@@ -10,13 +9,19 @@ import './BackgroundUnicorn.scss';
 const b = block('background-unicorn');
 
 const BackgroundUnicorn = (props: ConstructorBlock) => {
-    if (!('blockUnicorn' in props) || typeof props.blockUnicorn !== 'string') {
+    const {blockUnicorn, blockUnicornSdkUrl} = props as Block;
+    if (!blockUnicorn || typeof blockUnicorn !== 'string') {
         return null;
     }
 
     return (
         <div className={b()}>
-            <UnicornScene className={b('item')} jsonFilePath={props.blockUnicorn} width="100%" />
+            <UnicornScene
+                className={b('item')}
+                jsonFilePath={blockUnicorn}
+                sdkUrl={blockUnicornSdkUrl}
+                width="100%"
+            />
         </div>
     );
 };

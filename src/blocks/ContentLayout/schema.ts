@@ -19,6 +19,9 @@ const ContentLayoutBlockProperties = {
     unicorn: {
         type: 'string',
     },
+    unicornSdkUrl: {
+        type: 'string',
+    },
     centered: {
         type: 'boolean',
     },

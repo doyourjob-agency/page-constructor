@@ -581,6 +581,9 @@ export const BlockBaseProps = {
     blockUnicorn: {
         type: 'string',
     },
+    blockUnicornSdkUrl: {
+        type: 'string',
+    },
     blockBackground: {
         oneOf: [
             {

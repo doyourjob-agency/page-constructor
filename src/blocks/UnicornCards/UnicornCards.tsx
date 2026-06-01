@@ -15,7 +15,7 @@ const b = block('unicorn-cards-block');
 const colSizes = {all: 12, xl: 3, lg: 4, md: 6};
 
 export const UnicornCardsBlock = (props: UnicornCardsBlockProps) => {
-    const {animated, title, items} = props;
+    const {animated, title, items, unicornSdkUrl} = props;
 
     const titleProps =
         !title || typeof title === 'string'
@@ -33,7 +33,7 @@ export const UnicornCardsBlock = (props: UnicornCardsBlockProps) => {
                     <Row className={b('items')}>
                         {items?.map((item, index) => (
                             <Col key={index} sizes={colSizes}>
-                                <Item {...item} />
+                                <Item unicornSdkUrl={unicornSdkUrl} {...item} />
                             </Col>
                         ))}
                     </Row>

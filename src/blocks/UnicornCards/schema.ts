@@ -20,6 +20,7 @@ export const UnicornCardsBlock = {
                     },
                 ],
             },
+            unicornSdkUrl: {type: 'string'},
             items: {
                 type: 'array',
                 items: {
@@ -30,6 +31,7 @@ export const UnicornCardsBlock = {
                         title: {type: 'string'},
                         text: {type: 'string'},
                         unicorn: {type: 'string'},
+                        unicornSdkUrl: {type: 'string'},
                     },
                 },
             },

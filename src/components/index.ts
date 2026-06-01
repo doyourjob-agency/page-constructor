@@ -49,6 +49,8 @@ export {default as ReportItem} from './ReportItem/ReportItem';
 export {default as Odometer} from './Odometer/Odometer';
 export {default as BackgroundEffect} from './BackgroundEffect/BackgroundEffect';
 export {default as BackgroundUnicorn} from './BackgroundUnicorn/BackgroundUnicorn';
+export {default as UnicornScene} from './UnicornScene/UnicornScene';
 
 export type {RouterLinkProps} from './RouterLink/RouterLink';
 export type {ImageBaseProps} from './ImageBase/ImageBase';
+export type {UnicornSceneProps} from './UnicornScene/UnicornScene';

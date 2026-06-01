@@ -1,8 +1,6 @@
 import React, {useContext, useMemo} from 'react';
 
-import UnicornScene from 'unicornstudio-react';
-
-import {AnimateBlock, BackgroundImage, FileLink} from '../../components';
+import {AnimateBlock, BackgroundImage, FileLink, UnicornScene} from '../../components';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col} from '../../grid';
@@ -46,6 +44,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         size = 'l',
         background,
         unicorn,
+        unicornSdkUrl,
         centered,
         theme = 'default',
         textWidth = 'm',
@@ -103,6 +102,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
                         <UnicornScene
                             className={b('background-item')}
                             jsonFilePath={unicorn}
+                            sdkUrl={unicornSdkUrl}
                             width="100%"
                         />
                     </div>

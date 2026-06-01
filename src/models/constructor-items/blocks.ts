@@ -157,6 +157,7 @@ export interface BlockBaseProps {
     selectionColor?: string;
     blockBackground?: BlockBackgroundType;
     blockUnicorn?: string;
+    blockUnicornSdkUrl?: string;
     className?: string;
     qa?: string;
     visibilityFilter?: string | string[];
@@ -402,11 +403,13 @@ export type UnicornCardsItemProps = {
     title: string;
     text: string;
     unicorn?: string;
+    unicornSdkUrl?: string;
 };
 
 export interface UnicornCardsBlockProps extends Animatable {
     title?: TitleItemBaseProps | string;
     items?: UnicornCardsItemProps[];
+    unicornSdkUrl?: string;
 }
 
 export interface AdvantagesBlockProps {
@@ -853,6 +856,7 @@ interface ContentLayoutBlockParams {
     size?: ContentSize;
     background?: ThemeSupporting<BackgroundImageProps>;
     unicorn?: string;
+    unicornSdkUrl?: string;
     centered?: boolean;
     theme?: ContentTheme;
     textWidth?: ContentTextSize;

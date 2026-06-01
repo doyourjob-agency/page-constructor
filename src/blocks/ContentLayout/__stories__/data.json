@@ -125,7 +125,7 @@
   "withUnicorn": {
     "content": {
       "type": "content-layout-block",
-      "unicorn": "/story-assets/unicorn.json"
+      "unicorn": "/story-assets/unicorn-new.json"
     }
   },
   "textAlignCenter": {
