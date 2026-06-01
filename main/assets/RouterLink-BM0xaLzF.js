@@ -1,0 +1,1 @@
+import{r,L as s,R as n}from"./iframe-Cw5_S8xU.js";const a=({href:o,children:e})=>{const{Link:t}=r.useContext(s);return t?n.createElement(t,{href:o},e):n.createElement(r.Fragment,null,e)};a.__docgenInfo={description:"",methods:[],displayName:"RouterLink",props:{href:{required:!0,tsType:{name:"string"},description:""}}};export{a as R};
