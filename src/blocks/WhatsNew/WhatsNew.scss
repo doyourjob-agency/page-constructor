@@ -1,0 +1,77 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}whats-new-block';
+
+#{$block} {
+    @include animate(#{$block}__root);
+
+    &__root {
+        display: flex;
+        flex-direction: column;
+        gap: $indentM;
+    }
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__title {
+        @include text-size(display-4);
+        margin: 0;
+        font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-1);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $indentM;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            flex-direction: column;
+            gap: $indentXXS;
+        }
+    }
+
+    &__footnote {
+        font-size: 24px;
+        line-height: 40px;
+        color: var(--g-color-text-primary);
+        font-weight: 500;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(body-3);
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: $indentXXXS;
+    }
+
+    &__link {
+        display: flex;
+        cursor: pointer;
+
+        @include hover() {
+            opacity: 0.8;
+        }
+    }
+
+    &__icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+}

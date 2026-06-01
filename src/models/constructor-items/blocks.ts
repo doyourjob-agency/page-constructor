@@ -48,6 +48,7 @@ import {
     BannerCardProps,
     HubspotFormProps,
     NewPostCardProps,
+    NewsCardProps,
     SubBlock,
     SubBlockModels,
 } from './sub-blocks';
@@ -116,6 +117,7 @@ export enum BlockType {
     OnetrustCookieListBlock = 'onetrust-cookie-list',
     ScienceSuggestBlock = 'science-suggest-block',
     PartnersFeedBlock = 'partners-feed-block',
+    WhatsNewBlock = 'whats-new-block',
 }
 
 export const BlockTypes = Object.values(BlockType);
@@ -449,11 +451,10 @@ export interface BenefitsBlockProps extends Themable, Animatable {
     itemBackground?: string;
 }
 
-export interface ScrollerBlockProps extends Childable, Animatable {
-    title?: string;
-    text?: string;
+export interface ScrollerBlockProps extends Animatable {
     widths?: string[];
     gapLong?: boolean;
+    fullWidth?: boolean;
 }
 
 export interface CompaniesBlockProps extends Animatable {
@@ -778,6 +779,16 @@ export interface BenchmarkBlockProps extends Animatable {
         text?: string;
         init?: number;
         postfix?: string;
+    }[];
+}
+
+export interface WhatsNewBlockProps extends Animatable {
+    title?: string;
+    items: NewsCardProps[];
+    footnote?: string;
+    links?: {
+        icon: string;
+        url: string;
     }[];
 }
 
@@ -1154,6 +1165,10 @@ export type ScienceSuggestBlockModel = {
     type: BlockType.ScienceSuggestBlock;
 } & ScienceSuggestBlockProps;
 
+export type WhatsNewBlockModel = {
+    type: BlockType.WhatsNewBlock;
+} & WhatsNewBlockProps;
+
 export type AboutHeaderBlockModel = {
     type: BlockType.AboutHeaderBlock;
 } & AboutHeaderBlockProps;
@@ -1309,6 +1324,7 @@ type BlockModels =
     | CatBlockModel
     | AudioBlockModel
     | OnetrustCookieListModel
-    | ScienceSuggestBlockModel;
+    | ScienceSuggestBlockModel
+    | WhatsNewBlockModel;
 
 export type Block = BlockModels & BlockBaseProps;

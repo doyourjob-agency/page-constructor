@@ -64,6 +64,7 @@ import {
     TabsBlock,
     TabsHighlightTableBlock,
     UnicornCardsBlock,
+    WhatsNewBlock,
     YFMBlock,
 } from './validators/blocks';
 import {
@@ -152,6 +153,7 @@ export const blockSchemas: Record<BlockType, object> = {
     ...CatBlock,
     ...AudioBlock,
     ...OnetrustCookieListBlock,
+    ...WhatsNewBlock,
     ...ScienceSuggestBlock,
 };
 
@@ -240,6 +242,7 @@ export const constructorBlockSchemaNames = [
     'audio-block',
     'science-suggest-block',
     'onetrust-cookie-list',
+    'whats-new-block',
     'partners-feed-block',
     'customer-stories-feed-block',
     'partner-header-block',

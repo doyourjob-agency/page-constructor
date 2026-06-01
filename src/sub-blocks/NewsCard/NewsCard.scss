@@ -15,6 +15,10 @@ $block: '.#{$ns}news-card';
         max-width: 296px;
     }
 
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        max-width: 272px;
+    }
+
     &_square &__image {
         aspect-ratio: 1 / 1;
     }

@@ -7,12 +7,6 @@ export const ScrollerBlock = {
         properties: {
             ...BaseProps,
             ...AnimatableProps,
-            title: {
-                type: 'string',
-            },
-            text: {
-                type: 'string',
-            },
             widths: {
                 type: 'array',
                 items: {

@@ -61,6 +61,7 @@ import {
     TabsBlock,
     TabsHighlightTableBlock,
     UnicornCardsBlock,
+    WhatsNewBlock,
     YFMBlock,
 } from './blocks';
 import {BlockType, NavigationItemType, SubBlockType} from './models';
@@ -160,6 +161,7 @@ export const blockMap = {
     [BlockType.CatBlock]: CatBlock,
     [BlockType.AudioBlock]: AudioBlock,
     [BlockType.OnetrustCookieListBlock]: OnetrustCookieListBlock,
+    [BlockType.WhatsNewBlock]: WhatsNewBlock,
 };
 
 export const subBlockMap = {
