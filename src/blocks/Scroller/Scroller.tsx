@@ -81,7 +81,7 @@ export const ScrollerBlock = (
         children,
         autoScroll = true,
         autoScrollInterval = 3000,
-        infinite = true,
+        infinite = false,
     } = props;
 
     const childCount = React.Children.count(children);
@@ -130,7 +130,7 @@ export const ScrollerBlock = (
     useEffect(() => {
         const content = contentRef.current;
         if (!content || !infinite || childCount <= 1) {
-            return;
+            return () => {};
         }
 
         const middleCenterIndex = Math.floor(childCount * 1.5);
