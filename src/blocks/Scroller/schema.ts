@@ -1,5 +1,17 @@
 import {AnimatableProps, BaseProps, ChildrenCardsProps} from '../../schema/validators/common';
 
+export const ScrollerControlsProps = {
+    scrollSnapCenter: {
+        type: 'boolean',
+    },
+    autoScroll: {
+        type: 'boolean',
+    },
+    autoScrollInterval: {
+        type: 'number',
+    },
+};
+
 export const ScrollerBlock = {
     'scroller-block': {
         additionalProperties: false,
@@ -19,12 +31,7 @@ export const ScrollerBlock = {
             fullWidth: {
                 type: 'boolean',
             },
-            scrollSnapCenter: {
-                type: 'boolean',
-            },
-            autoScroll: {
-                type: 'boolean',
-            },
+            ...ScrollerControlsProps,
             children: ChildrenCardsProps,
         },
     },

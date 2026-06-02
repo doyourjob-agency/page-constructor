@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import {AnimateBlock} from '../../components';
-import {BREAKPOINTS} from '../../constants';
 import {ScrollerBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -53,9 +52,10 @@ export const ScrollerBlock = (
         fullWidth,
         scrollSnapCenter,
         children,
-        autoScroll,
+        autoScroll = true,
         autoScrollInterval = 3000,
     } = props;
+
     const rootRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [currentElement, setCurrentElement] = useState<number>(0);
@@ -76,12 +76,6 @@ export const ScrollerBlock = (
                 content.style.setProperty('padding-right', `${space}px`);
                 content.style.setProperty('left', `${-space}px`);
                 content.style.setProperty('width', `calc(100% + ${2 * space}px)`);
-            }
-
-            if (scrollSnapCenter && window.innerWidth >= BREAKPOINTS.md) {
-                content.style.setProperty('--scroller-edge-margin', `${content.clientWidth / 3}px`);
-            } else {
-                content.style.removeProperty('--scroller-edge-margin');
             }
         };
 
@@ -112,7 +106,7 @@ export const ScrollerBlock = (
             window.removeEventListener('resize', updateSize);
             content?.removeEventListener('scroll', determineCurrentElement);
         };
-    }, [fullWidth, scrollSnapCenter]);
+    }, [fullWidth]);
 
     useEffect(() => {
         if (autoScroll) {
@@ -152,7 +146,11 @@ export const ScrollerBlock = (
         <AnimateBlock className={b({fullWidth})} animate={animated}>
             <div className={b('root')} ref={rootRef}>
                 <div
-                    className={b('content', {gapLong, fullWidth, scrollSnapCenter})}
+                    className={b('content', {
+                        gapLong,
+                        fullWidth,
+                        'scroll-snap-center': scrollSnapCenter,
+                    })}
                     ref={contentRef}
                 >
                     {React.Children.map(children, (child, index) => (

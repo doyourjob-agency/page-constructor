@@ -10,7 +10,16 @@ import './WhatsNew.scss';
 
 const b = block('whats-new-block');
 
-const WhatsNew: React.FC<WhatsNewBlockProps> = ({title, items, footnote, links, animated}) => {
+const WhatsNew: React.FC<WhatsNewBlockProps> = ({
+    title,
+    items,
+    footnote,
+    links,
+    animated,
+    scrollSnapCenter,
+    autoScroll,
+    autoScrollInterval,
+}) => {
     return (
         <AnimateBlock className={b()} animate={animated}>
             <div className={b('root')}>
@@ -19,7 +28,12 @@ const WhatsNew: React.FC<WhatsNewBlockProps> = ({title, items, footnote, links, 
                         <h2 className={b('title')}>{title}</h2>
                     </div>
                 )}
-                <ScrollerBlock fullWidth scrollSnapCenter autoScroll>
+                <ScrollerBlock
+                    fullWidth
+                    scrollSnapCenter={scrollSnapCenter}
+                    autoScroll={autoScroll}
+                    autoScrollInterval={autoScrollInterval}
+                >
                     {items.map((item, index) => (
                         <NewsCard key={index} {...item} />
                     ))}

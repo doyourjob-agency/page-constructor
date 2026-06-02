@@ -1,0 +1,26 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as WhatsNewStories from './WhatsNew.stories.tsx';
+
+<Meta of={WhatsNewStories} />
+<StoryTemplate>
+## Parameters
+
+`type: 'whats-new-block'`
+
+`title: string` — Block title
+
+`items: NewsCard[]` — News cards in the horizontal scroller
+
+`footnote: string` — Footer note text
+
+`links: {url: string, icon: string}[]` — Social links in the footer
+
+`scrollSnapCenter: boolean` — Center items with scroll snap on scroll
+
+`autoScroll: boolean` — Auto-advance slides and show pagination controls (default true)
+
+`autoScrollInterval: number` — Auto-scroll interval in ms (default 3000)
+
+</StoryTemplate>

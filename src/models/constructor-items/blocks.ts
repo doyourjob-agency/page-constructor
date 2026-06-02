@@ -788,7 +788,9 @@ export interface BenchmarkBlockProps extends Animatable {
     }[];
 }
 
-export interface WhatsNewBlockProps extends Animatable {
+export interface WhatsNewBlockProps
+    extends Animatable,
+        Pick<ScrollerBlockProps, 'scrollSnapCenter' | 'autoScroll' | 'autoScrollInterval'> {
     title?: string;
     items: NewsCardProps[];
     footnote?: string;

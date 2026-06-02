@@ -6,6 +6,7 @@
       "title": "What’s new at Xxxxxx",
       "text": "Stay up to date with our latest stories, events, and insights.",
       "widths": ["240px", "426px", "240px", "240px", "240px"],
+      "scrollSnapCenter": false,
       "children": [
         {
           "type": "media-card",
@@ -58,7 +59,7 @@
       "type": "scroller-block",
       "gapLong": true,
       "scrollSnapCenter": true,
-      "autoScroll": true,
+      "autoScrollInterval": 5000,
       "children": [
         {
           "type": "story-card",

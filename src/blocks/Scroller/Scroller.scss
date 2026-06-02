@@ -27,27 +27,33 @@ $block: '.#{$ns}scroller-block';
             gap: $indentL;
         }
 
-        &_scrollSnapCenter {
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            --scroller-edge-margin: calc(100% / 2.5);
+        }
+
+        #{$block}__item {
+            &:first-child {
+                margin-left: $indentL;
+
+                @media (min-width: map-get($gridBreakpoints, 'md')) {
+                    margin-left: var(--scroller-edge-margin);
+                }
+            }
+
+            &:last-child {
+                margin-right: $indentL;
+
+                @media (min-width: map-get($gridBreakpoints, 'md')) {
+                    margin-right: var(--scroller-edge-margin);
+                }
+            }
+        }
+
+        &_scroll-snap-center {
             scroll-snap-type: x mandatory;
 
             #{$block}__item {
                 scroll-snap-align: center;
-
-                &:first-child {
-                    margin-left: $indentL;
-
-                    @media (min-width: map-get($gridBreakpoints, 'md')) {
-                        margin-left: var(--scroller-edge-margin);
-                    }
-                }
-
-                &:last-child {
-                    margin-right: $indentL;
-
-                    @media (min-width: map-get($gridBreakpoints, 'md')) {
-                        margin-right: var(--scroller-edge-margin);
-                    }
-                }
             }
         }
     }

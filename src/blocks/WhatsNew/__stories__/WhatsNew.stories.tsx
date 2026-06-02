@@ -18,7 +18,13 @@ const DefaultTemplate: StoryFn<WhatsNewBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
+export const AutoScroll = DefaultTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
+} as WhatsNewBlockProps;
+
+AutoScroll.args = {
+    ...data.default.content,
+    autoScrollInterval: 5000,
 } as WhatsNewBlockProps;
