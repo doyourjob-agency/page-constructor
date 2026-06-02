@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import {AnimateBlock} from '../../components';
 import {BREAKPOINTS} from '../../constants';
@@ -12,15 +12,15 @@ const b = block('scroller-block');
 const PlayIcon = () => {
     return (
         <svg
-            width="10"
-            height="11"
-            viewBox="0 0 10 11"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
         >
             <path
-                d="M2.26306 0.210836L8.81342 4.08111C9.79579 4.66154 9.7961 6.08277 8.81398 6.66363L2.26943 10.5343C1.26995 11.1254 0.00671091 10.4055 0.00583857 9.24433L2.32602e-05 1.50339C-0.000849622 0.341466 1.2627 -0.380223 2.26306 0.210836Z"
-                fill="#001A2B"
+                d="M13.765 9.83831L20.3154 13.7086C21.2977 14.289 21.298 15.7102 20.3159 16.2911L13.7714 20.1618C12.7719 20.7529 11.5086 20.033 11.5078 18.8718L11.502 11.1309C11.5011 9.96894 12.7646 9.24725 13.765 9.83831Z"
+                fill="currentColor"
             />
         </svg>
     );
@@ -29,15 +29,15 @@ const PlayIcon = () => {
 const PauseIcon = () => {
     return (
         <svg
-            width="8"
-            height="10"
-            viewBox="0 0 8 10"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
         >
             <path
-                d="M1.5 0C2.32843 0 3 0.671573 3 1.5V8.5C3 9.32843 2.32843 10 1.5 10C0.671573 10 3.2213e-08 9.32843 0 8.5V1.5C0 0.671573 0.671573 0 1.5 0ZM6.5 0C7.32843 0 8 0.671573 8 1.5V8.5C8 9.32843 7.32843 10 6.5 10C5.67157 10 5 9.32843 5 8.5V1.5C5 0.671573 5.67157 0 6.5 0Z"
-                fill="#001A2B"
+                d="M12.5 10C13.3284 10 14 10.6716 14 11.5V18.5C14 19.3284 13.3284 20 12.5 20C11.6716 20 11 19.3284 11 18.5V11.5C11 10.6716 11.6716 10 12.5 10ZM17.5 10C18.3284 10 19 10.6716 19 11.5V18.5C19 19.3284 18.3284 20 17.5 20C16.6716 20 16 19.3284 16 18.5V11.5C16 10.6716 16.6716 10 17.5 10Z"
+                fill="currentColor"
             />
         </svg>
     );
@@ -62,10 +62,10 @@ export const ScrollerBlock = (
     const [isPaused, setIsPaused] = useState<boolean>(true);
 
     useEffect(() => {
-        const updateSize = () => {
-            const content = contentRef.current;
-            const root = rootRef.current;
+        const content = contentRef.current;
+        const root = rootRef.current;
 
+        const updateSize = () => {
             if (!content || !root) {
                 return;
             }
@@ -86,7 +86,6 @@ export const ScrollerBlock = (
         };
 
         const determineCurrentElement = () => {
-            const content = contentRef.current;
             const childCount = content?.children?.length || 0;
 
             if (!content || childCount <= 1) {
@@ -108,18 +107,22 @@ export const ScrollerBlock = (
         updateSize();
         determineCurrentElement();
         window.addEventListener('resize', updateSize, {passive: true});
-        contentRef.current?.addEventListener('scroll', determineCurrentElement, {passive: true});
+        content?.addEventListener('scroll', determineCurrentElement, {passive: true});
         return () => {
             window.removeEventListener('resize', updateSize);
-            contentRef.current?.removeEventListener('scroll', determineCurrentElement);
+            content?.removeEventListener('scroll', determineCurrentElement);
         };
     }, [fullWidth, scrollSnapCenter]);
 
     useEffect(() => {
-        setIsPaused(false);
-    }, []);
+        if (autoScroll) {
+            setIsPaused(false);
+        }
+    }, [autoScroll]);
 
-    const scrollToNext = () => {
+    const childCount = React.Children.count(children);
+
+    const scrollToNext = useCallback(() => {
         const content = contentRef.current;
         if (!content) {
             return;
@@ -129,7 +132,7 @@ export const ScrollerBlock = (
         const nextIndexLeft =
             nextElement.offsetLeft - (content.offsetWidth - nextElement.offsetWidth) / 2;
         content.scrollTo({left: nextIndexLeft, behavior: 'smooth'});
-    };
+    }, [childCount, currentElement]);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout | null = null;
@@ -143,9 +146,7 @@ export const ScrollerBlock = (
                 clearTimeout(timeout);
             }
         };
-    }, [isPaused, currentElement]);
-
-    const childCount = React.Children.count(children);
+    }, [isPaused, currentElement, autoScrollInterval, scrollToNext]);
 
     return (
         <AnimateBlock className={b({fullWidth})} animate={animated}>
@@ -189,9 +190,7 @@ export const ScrollerBlock = (
                         className={b('pagination-button')}
                         onClick={() => setIsPaused(!isPaused)}
                     >
-                        <div className={b('pagination-button-icon')}>
-                            {isPaused ? <PlayIcon /> : <PauseIcon />}
-                        </div>
+                        {isPaused ? <PlayIcon /> : <PauseIcon />}
                     </button>
                 </div>
             )}

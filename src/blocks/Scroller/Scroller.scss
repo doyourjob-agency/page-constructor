@@ -64,6 +64,7 @@ $block: '.#{$ns}scroller-block';
         align-items: center;
         justify-content: center;
         gap: 12px;
+        margin-top: $indentM;
     }
 
     &__pagination {
@@ -78,20 +79,14 @@ $block: '.#{$ns}scroller-block';
     }
 
     &__pagination-button {
+        @include reset-button-style();
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 0;
         border-radius: 9999px;
         background: #f3f4f5;
-        color: #001a2b;
-        cursor: pointer;
         width: 30px;
         height: 30px;
-    }
-
-    &__pagination-button-icon {
-        height: 11px;
     }
 
     &__pip {

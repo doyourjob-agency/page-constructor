@@ -57,6 +57,8 @@
     "content": {
       "type": "scroller-block",
       "gapLong": true,
+      "scrollSnapCenter": true,
+      "autoScroll": true,
       "children": [
         {
           "type": "story-card",
