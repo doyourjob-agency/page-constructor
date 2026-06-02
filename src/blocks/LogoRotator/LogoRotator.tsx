@@ -134,20 +134,39 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                 )}
                 {rowMode ? (
                     <div className={b('row-items')}>
-                        {slots.map((slot, index) => (
-                            <Link
-                                key={index}
-                                href={items[slot].url}
-                                className={b('row-item', {hidden: hidden[index]})}
-                            >
-                                <ImageBase
-                                    src={items[slot].src}
-                                    className={b('image')}
-                                    alt=""
-                                    aria-hidden="true"
-                                />
-                            </Link>
-                        ))}
+                        {slots.map((slot, index) => {
+                            const item = items[slot];
+
+                            if (!item) return null;
+
+                            if (item.url) {
+                                return (
+                                    <Link
+                                        key={index}
+                                        href={item.url}
+                                        className={b('row-item', {hidden: hidden[index]})}
+                                    >
+                                        <ImageBase
+                                            src={item.src}
+                                            className={b('image')}
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </Link>
+                                );
+                            }
+
+                            return (
+                                <div key={index} className={b('row-item', {hidden: hidden[index]})}>
+                                    <ImageBase
+                                        src={item.src}
+                                        className={b('image')}
+                                        alt=""
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 ) : (
                     <Grid className={b('items')}>

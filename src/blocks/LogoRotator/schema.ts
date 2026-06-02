@@ -32,7 +32,7 @@ export const LogoRotatorBlock = {
                 items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: ['url', 'src'],
+                    required: ['src'],
                     properties: {
                         url: {type: 'string'},
                         src: {type: 'string'},

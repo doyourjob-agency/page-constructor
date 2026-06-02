@@ -15,20 +15,27 @@ const defaultColSizes = {all: 3};
 
 type Props = {
     src: string;
-    url: string;
+    url?: string;
     hidden: boolean;
     colSizes: LogoRotatorBlockProps['colSizes'];
 };
 
 export const Item = ({url, src, hidden, colSizes}: Props) => {
-    const renderItem = React.useMemo(
-        () => (
-            <Link href={url} className={b('item', {hidden})}>
+    const renderItem = React.useMemo(() => {
+        if (url) {
+            return (
+                <Link href={url} className={b('item', {hidden})}>
+                    <Image src={src} className={b('image')} alt="" aria-hidden="true" />
+                </Link>
+            );
+        }
+
+        return (
+            <div className={b('item', {hidden})}>
                 <Image src={src} className={b('image')} alt="" aria-hidden="true" />
-            </Link>
-        ),
-        [hidden, src, url],
-    );
+            </div>
+        );
+    }, [hidden, src, url]);
 
     return <Col sizes={colSizes || defaultColSizes}>{renderItem}</Col>;
 };

@@ -392,7 +392,7 @@ export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface LogoRotatorBlockProps extends Animatable {
     title?: TitleItemBaseProps | string;
-    items: {url: string; src: string; isStatic?: boolean}[];
+    items: {url?: string; src: string; isStatic?: boolean}[];
     count: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
     theme?: TextTheme;

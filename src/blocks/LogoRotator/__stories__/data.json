@@ -11,7 +11,6 @@
       "theme": "dark",
       "items": [
         {
-          "url": "#",
           "src": "https://sanalabs.com/img/partners/white/beamery.svg",
           "isStatic": true
         },
@@ -47,7 +46,7 @@
       "title": "Trusted by the entire AI ecosystem",
       "rowMode": true,
       "items": [
-        {"url": "#", "src": "https://sanalabs.com/img/partners/black/beamery.svg"},
+        {"src": "https://sanalabs.com/img/partners/black/beamery.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/black/truecaller.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/black/piab.svg"},
         {"url": "#", "src": "https://sanalabs.com/img/partners/black/veoneer.svg"},
