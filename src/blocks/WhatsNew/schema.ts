@@ -1,4 +1,5 @@
 import {AnimatableProps, BlockBaseProps, BlockHeaderProps} from '../../schema/validators/common';
+import {ScrollerControlsProps} from '../Scroller/schema';
 
 export const WhatsNewBlock = {
     'whats-new-block': {
@@ -8,6 +9,7 @@ export const WhatsNewBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             ...BlockHeaderProps,
+            ...ScrollerControlsProps,
             items: {
                 type: 'array',
                 items: {
