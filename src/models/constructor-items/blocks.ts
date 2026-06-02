@@ -458,6 +458,7 @@ export interface ScrollerBlockProps extends Animatable {
     widths?: string[];
     gapLong?: boolean;
     fullWidth?: boolean;
+    infinite?: boolean;
     scrollSnapCenter?: boolean;
     autoScroll?: boolean;
     autoScrollInterval?: number;
@@ -790,7 +791,10 @@ export interface BenchmarkBlockProps extends Animatable {
 
 export interface WhatsNewBlockProps
     extends Animatable,
-        Pick<ScrollerBlockProps, 'scrollSnapCenter' | 'autoScroll' | 'autoScrollInterval'> {
+        Pick<
+            ScrollerBlockProps,
+            'infinite' | 'scrollSnapCenter' | 'autoScroll' | 'autoScrollInterval'
+        > {
     title?: string;
     items: NewsCardProps[];
     footnote?: string;

@@ -14,6 +14,12 @@ export default {
     args: {
         theme: 'light',
     },
+    argTypes: {
+        infinite: {control: 'boolean'},
+        scrollSnapCenter: {control: 'boolean'},
+        autoScroll: {control: 'boolean'},
+        autoScrollInterval: {control: 'number'},
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<ScrollerBlockModel> = (args) => (
@@ -22,6 +28,7 @@ const DefaultTemplate: StoryFn<ScrollerBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const Story = DefaultTemplate.bind({});
+export const Finite = DefaultTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
@@ -29,4 +36,9 @@ Default.args = {
 
 Story.args = {
     ...data.story.content,
+} as ScrollerBlockProps;
+
+Finite.args = {
+    ...data.story.content,
+    infinite: false,
 } as ScrollerBlockProps;

@@ -81,9 +81,8 @@ export const ScrollerBlock = (
         children,
         autoScroll = true,
         autoScrollInterval = 3000,
+        infinite = true,
     } = props;
-
-    const infinite = true;
 
     const childCount = React.Children.count(children);
 

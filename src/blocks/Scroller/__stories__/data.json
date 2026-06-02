@@ -6,6 +6,7 @@
       "title": "What’s new at Xxxxxx",
       "text": "Stay up to date with our latest stories, events, and insights.",
       "widths": ["240px", "426px", "240px", "240px", "240px"],
+      "infinite": true,
       "scrollSnapCenter": false,
       "children": [
         {
@@ -58,6 +59,7 @@
     "content": {
       "type": "scroller-block",
       "gapLong": true,
+      "infinite": true,
       "scrollSnapCenter": true,
       "autoScrollInterval": 5000,
       "children": [

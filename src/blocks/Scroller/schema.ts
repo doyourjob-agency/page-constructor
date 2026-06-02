@@ -1,6 +1,9 @@
 import {AnimatableProps, BaseProps, ChildrenCardsProps} from '../../schema/validators/common';
 
 export const ScrollerControlsProps = {
+    infinite: {
+        type: 'boolean',
+    },
     scrollSnapCenter: {
         type: 'boolean',
     },

@@ -11,6 +11,12 @@ import data from './data.json';
 export default {
     title: 'Blocks/WhatsNew',
     component: WhatsNew,
+    argTypes: {
+        infinite: {control: 'boolean'},
+        scrollSnapCenter: {control: 'boolean'},
+        autoScroll: {control: 'boolean'},
+        autoScrollInterval: {control: 'number'},
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<WhatsNewBlockModel> = (args) => (
@@ -19,6 +25,7 @@ const DefaultTemplate: StoryFn<WhatsNewBlockModel> = (args) => (
 
 export const Default = DefaultTemplate.bind({});
 export const AutoScroll = DefaultTemplate.bind({});
+export const Finite = DefaultTemplate.bind({});
 
 Default.args = {
     ...data.default.content,
@@ -27,4 +34,9 @@ Default.args = {
 AutoScroll.args = {
     ...data.default.content,
     autoScrollInterval: 5000,
+} as WhatsNewBlockProps;
+
+Finite.args = {
+    ...data.default.content,
+    infinite: false,
 } as WhatsNewBlockProps;

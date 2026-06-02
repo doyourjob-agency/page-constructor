@@ -110,6 +110,7 @@
           ]
         }
       ],
+      "infinite": true,
       "scrollSnapCenter": true,
       "autoScrollInterval": 3000,
       "footnote": "Follow us on social media",
