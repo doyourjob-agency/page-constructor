@@ -16,6 +16,15 @@ export const ScrollerBlock = {
             gapLong: {
                 type: 'boolean',
             },
+            fullWidth: {
+                type: 'boolean',
+            },
+            scrollSnapCenter: {
+                type: 'boolean',
+            },
+            autoScroll: {
+                type: 'boolean',
+            },
             children: ChildrenCardsProps,
         },
     },

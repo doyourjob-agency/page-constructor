@@ -26,6 +26,30 @@ $block: '.#{$ns}scroller-block';
         &_gapLong {
             gap: $indentL;
         }
+
+        &_scrollSnapCenter {
+            scroll-snap-type: x mandatory;
+
+            #{$block}__item {
+                scroll-snap-align: center;
+
+                &:first-child {
+                    margin-left: $indentL;
+
+                    @media (min-width: map-get($gridBreakpoints, 'md')) {
+                        margin-left: var(--scroller-edge-margin);
+                    }
+                }
+
+                &:last-child {
+                    margin-right: $indentL;
+
+                    @media (min-width: map-get($gridBreakpoints, 'md')) {
+                        margin-right: var(--scroller-edge-margin);
+                    }
+                }
+            }
+        }
     }
 
     &__item {
@@ -33,5 +57,73 @@ $block: '.#{$ns}scroller-block';
         z-index: 1;
         flex: none;
         max-width: 100%;
+    }
+
+    &__pagination-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    &__pagination {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        width: fit-content;
+        padding: 12px;
+        border-radius: 9999px;
+        background: #f3f4f5;
+        height: 30px;
+    }
+
+    &__pagination-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 9999px;
+        background: #f3f4f5;
+        color: #001a2b;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+
+    &__pagination-button-icon {
+        height: 11px;
+    }
+
+    &__pip {
+        flex: none;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(0, 26, 43, 0.3);
+        transition: width 0.3s ease, border-radius 0.3s ease;
+
+        &_active {
+            width: 48px;
+            border-radius: 9999px;
+        }
+    }
+
+    &__pip-inner {
+        height: 100%;
+        min-width: 6px;
+        width: 0%;
+        border-radius: 9999px;
+        background-color: transparent;
+        transition: opacity 0.5s ease;
+
+        &_active {
+            width: 100%;
+            background-color: rgba(0, 26, 43);
+        }
+
+        &_paused {
+            width: 0;
+            opacity: 0;
+        }
     }
 }

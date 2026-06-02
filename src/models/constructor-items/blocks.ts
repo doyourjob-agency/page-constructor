@@ -458,6 +458,9 @@ export interface ScrollerBlockProps extends Animatable {
     widths?: string[];
     gapLong?: boolean;
     fullWidth?: boolean;
+    scrollSnapCenter?: boolean;
+    autoScroll?: boolean;   
+    autoScrollInterval?: number;
 }
 
 export interface CompaniesBlockProps extends Animatable {
