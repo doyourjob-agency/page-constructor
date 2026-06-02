@@ -141,7 +141,10 @@ export const ScrollerBlock = (
         const scrollToMiddle = () => {
             const middleChild = getChild(content, middleCenterIndex);
             if (middleChild) {
-                content.scrollTo(middleChild.offsetLeft, 0);
+                content.scrollTo(
+                    middleChild.offsetLeft + content.offsetWidth / 2 - middleChild.offsetWidth / 2,
+                    0,
+                );
             }
         };
 
@@ -223,7 +226,7 @@ export const ScrollerBlock = (
                     className={b('content', {
                         gapLong,
                         fullWidth,
-                        'scroll-snap-center': scrollSnapCenter,
+                        'scroll-snap-center': infinite ? false : scrollSnapCenter,
                     })}
                     ref={contentRef}
                 >
