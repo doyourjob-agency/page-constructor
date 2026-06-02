@@ -31,7 +31,7 @@ const WhatsNew: React.FC<WhatsNewBlockProps> = ({
                 <ScrollerBlock
                     fullWidth
                     scrollSnapCenter={scrollSnapCenter}
-                    autoScroll={autoScroll}
+                    autoScroll={autoScroll ?? true}
                     autoScrollInterval={autoScrollInterval}
                 >
                     {items.map((item, index) => (

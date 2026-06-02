@@ -8,6 +8,33 @@ import './Scroller.scss';
 
 const b = block('scroller-block');
 
+const getChild = (parent: HTMLElement, index: number): HTMLElement | null => {
+    const child = parent.children[index];
+    return child instanceof HTMLElement ? child : null;
+};
+
+const getCenteredChildIndex = (content: HTMLElement): number => {
+    const midLine = content.getBoundingClientRect().left + content.clientWidth / 2;
+
+    for (let i = 0; i < content.children.length; i++) {
+        const rect = content.children[i].getBoundingClientRect();
+        if (rect.left <= midLine && rect.right >= midLine) {
+            return i;
+        }
+    }
+
+    return 0;
+};
+
+const scrollToChild = (
+    content: HTMLElement,
+    child: HTMLElement,
+    behavior: ScrollBehavior = 'smooth',
+) => {
+    const left = child.offsetLeft - (content.offsetWidth - child.offsetWidth) / 2;
+    content.scrollTo({left, behavior});
+};
+
 const PlayIcon = () => {
     return (
         <svg
@@ -56,6 +83,10 @@ export const ScrollerBlock = (
         autoScrollInterval = 3000,
     } = props;
 
+    const infinite = true;
+
+    const childCount = React.Children.count(children);
+
     const rootRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [currentElement, setCurrentElement] = useState<number>(0);
@@ -80,22 +111,11 @@ export const ScrollerBlock = (
         };
 
         const determineCurrentElement = () => {
-            const childCount = content?.children?.length || 0;
-
             if (!content || childCount <= 1) {
                 return;
             }
 
-            const currentMidLine = content.clientWidth / 2;
-
-            [...content.children].find((child, index) => {
-                const childRect = child.getBoundingClientRect();
-                if (currentMidLine > childRect.left && currentMidLine < childRect.right) {
-                    setCurrentElement(index);
-                    return true;
-                }
-                return false;
-            });
+            setCurrentElement(getCenteredChildIndex(content) % childCount);
         };
 
         updateSize();
@@ -106,7 +126,53 @@ export const ScrollerBlock = (
             window.removeEventListener('resize', updateSize);
             content?.removeEventListener('scroll', determineCurrentElement);
         };
-    }, [fullWidth]);
+    }, [fullWidth, childCount, children]);
+
+    useEffect(() => {
+        const content = contentRef.current;
+        if (!content || !infinite || childCount <= 1) {
+            return;
+        }
+
+        const middleCenterIndex = Math.floor(childCount * 1.5);
+        const copyStartIndex = childCount;
+        const endCopyStartIndex = childCount * 2;
+
+        const scrollToMiddle = () => {
+            const middleChild = getChild(content, middleCenterIndex);
+            if (middleChild) {
+                content.scrollTo(middleChild.offsetLeft, 0);
+            }
+        };
+
+        const handleInfiniteScroll = () => {
+            const scrollLeft = content.scrollLeft;
+            const endCopyChild = getChild(content, endCopyStartIndex);
+            const copyStartChild = getChild(content, copyStartIndex);
+
+            if (endCopyChild && scrollLeft > endCopyChild.offsetLeft) {
+                const delta = endCopyChild.offsetLeft - scrollLeft;
+                const resetChild = getChild(content, copyStartIndex);
+                if (resetChild) {
+                    content.scrollTo(resetChild.offsetLeft + delta, 0);
+                }
+            }
+
+            if (copyStartChild && scrollLeft < copyStartChild.offsetLeft - content.clientWidth) {
+                const endChild = getChild(content, endCopyStartIndex);
+                if (endChild) {
+                    content.scrollTo(endChild.offsetLeft - content.clientWidth, 0);
+                }
+            }
+        };
+
+        content.addEventListener('scroll', handleInfiniteScroll, {passive: true});
+        scrollToMiddle();
+
+        return () => {
+            content.removeEventListener('scroll', handleInfiniteScroll);
+        };
+    }, [infinite, childCount]);
 
     useEffect(() => {
         if (autoScroll) {
@@ -114,19 +180,27 @@ export const ScrollerBlock = (
         }
     }, [autoScroll]);
 
-    const childCount = React.Children.count(children);
-
     const scrollToNext = useCallback(() => {
         const content = contentRef.current;
-        if (!content) {
+        if (!content || childCount <= 1) {
             return;
         }
+
+        if (infinite) {
+            const centeredIndex = getCenteredChildIndex(content);
+            const nextElement = getChild(content, centeredIndex + 1);
+            if (nextElement) {
+                scrollToChild(content, nextElement);
+            }
+            return;
+        }
+
         const nextIndex = (currentElement + 1) % childCount;
-        const nextElement = content.children[nextIndex] as HTMLElement;
-        const nextIndexLeft =
-            nextElement.offsetLeft - (content.offsetWidth - nextElement.offsetWidth) / 2;
-        content.scrollTo({left: nextIndexLeft, behavior: 'smooth'});
-    }, [childCount, currentElement]);
+        const nextElement = getChild(content, nextIndex);
+        if (nextElement) {
+            scrollToChild(content, nextElement);
+        }
+    }, [childCount, currentElement, infinite]);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout | null = null;
@@ -153,15 +227,19 @@ export const ScrollerBlock = (
                     })}
                     ref={contentRef}
                 >
-                    {React.Children.map(children, (child, index) => (
-                        <div
-                            key={index}
-                            className={b('item')}
-                            style={{width: widths?.[index] || 'auto'}}
-                        >
-                            {child}
-                        </div>
-                    ))}
+                    {(infinite ? [0, 1, 2] : [0])
+                        .map((mi) =>
+                            React.Children.map(children, (child, index) => (
+                                <div
+                                    key={mi * childCount + index}
+                                    className={b('item')}
+                                    style={{width: widths?.[index] || 'auto'}}
+                                >
+                                    {child}
+                                </div>
+                            )),
+                        )
+                        .flat()}
                 </div>
             </div>
             {autoScroll && childCount > 0 && (
