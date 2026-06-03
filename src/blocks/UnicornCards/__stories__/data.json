@@ -11,22 +11,26 @@
         {
           "title": "Faster time to AI value",
           "text": "From zero to clusters in minutes, with built-in repeatability and self-service access.",
-          "unicorn": "/story-assets/unicorn-new.json"
+          "unicorn": "/story-assets/unicorn-new.json",
+          "previewImage": "/story-assets/img_6-12_light.png"
         },
         {
           "title": "Raw power No surprises",
           "text": "Custom hardware with non-virtualized GPUs & InfiniBand – with industry-leading MTBF/MTTR.",
-          "unicorn": "/story-assets/unicorn-new.json"
+          "unicorn": "/story-assets/unicorn-new.json",
+          "previewImage": "/story-assets/img_6-12_light.png"
         },
         {
           "title": "Any user Any workload",
           "text": "Built from the ground-up for AI developers with  built-in MLOps tooling, serverless and managed inference.",
-          "unicorn": "/story-assets/unicorn-new.json"
+          "unicorn": "/story-assets/unicorn-new.json",
+          "previewImage": "/story-assets/img_6-12_light.png"
         },
         {
           "title": "Elastic at any stage",
           "text": "From small experiments to global-scale environments with flexible consumption options.",
-          "unicorn": "/story-assets/unicorn-new.json"
+          "unicorn": "/story-assets/unicorn-new.json",
+          "previewImage": "/story-assets/img_6-12_light.png"
         }
       ]
     }

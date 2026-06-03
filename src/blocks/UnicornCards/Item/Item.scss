@@ -7,7 +7,7 @@ $block: '.#{$ns}unicorn-cards-item';
     position: relative;
     padding: $indentS $indentSM;
     border-radius: $indentS;
-    min-height: 410px;
+    min-height: 360px;
 
     &__title {
         @include text-size(display-2);
@@ -34,6 +34,15 @@ $block: '.#{$ns}unicorn-cards-item';
 
         &-item {
             height: 100%;
+        }
+
+        #{$block}__preview-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }

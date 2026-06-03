@@ -21,6 +21,7 @@ const BackgroundUnicorn = (props: ConstructorBlock) => {
                 jsonFilePath={blockUnicorn}
                 sdkUrl={blockUnicornSdkUrl}
                 width="100%"
+                play={true}
             />
         </div>
     );

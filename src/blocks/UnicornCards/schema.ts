@@ -32,6 +32,7 @@ export const UnicornCardsBlock = {
                         text: {type: 'string'},
                         unicorn: {type: 'string'},
                         unicornSdkUrl: {type: 'string'},
+                        previewImage: {type: 'string'},
                     },
                 },
             },

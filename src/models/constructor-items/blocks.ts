@@ -404,6 +404,7 @@ export type UnicornCardsItemProps = {
     text: string;
     unicorn?: string;
     unicornSdkUrl?: string;
+    previewImage?: string;
 };
 
 export interface UnicornCardsBlockProps extends Animatable {
