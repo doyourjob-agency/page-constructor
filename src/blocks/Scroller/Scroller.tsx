@@ -204,9 +204,57 @@ export const ScrollerBlock = (
         }
     }, [childCount, currentElement, infinite]);
 
+    const scrollToIndex = useCallback(
+        (targetIndex: number) => {
+            if (autoScroll) {
+                setIsPaused(true);
+            }
+
+            const content = contentRef.current;
+            if (!content || childCount <= 1 || targetIndex < 0 || targetIndex >= childCount) {
+                return;
+            }
+
+            if (!infinite) {
+                const child = getChild(content, targetIndex);
+                if (child) {
+                    scrollToChild(content, child);
+                }
+                return;
+            }
+
+            const centeredIndex = getCenteredChildIndex(content);
+            const currentCopy = Math.floor(centeredIndex / childCount);
+            const logicalIndex = centeredIndex % childCount;
+            const middleCopy = 1;
+
+            const scrollToTargetInMiddleCopy = () => {
+                const targetChild = getChild(content, childCount + targetIndex);
+                if (targetChild) {
+                    scrollToChild(content, targetChild);
+                }
+            };
+
+            if (currentCopy !== middleCopy) {
+                const middleChild = getChild(content, childCount + logicalIndex);
+                if (middleChild) {
+                    const left =
+                        middleChild.offsetLeft -
+                        (content.offsetWidth - middleChild.offsetWidth) / 2;
+                    content.scrollTo({left, behavior: 'auto'});
+                }
+                requestAnimationFrame(scrollToTargetInMiddleCopy);
+                return;
+            }
+
+            scrollToTargetInMiddleCopy();
+        },
+        [autoScroll, childCount, infinite],
+    );
+
     useEffect(() => {
         let timeout: NodeJS.Timeout | null = null;
-        if (!isPaused) {
+        if (autoScroll && !isPaused) {
             timeout = setTimeout(() => {
                 scrollToNext();
             }, autoScrollInterval);
@@ -216,7 +264,7 @@ export const ScrollerBlock = (
                 clearTimeout(timeout);
             }
         };
-    }, [isPaused, currentElement, autoScrollInterval, scrollToNext]);
+    }, [autoScroll, isPaused, currentElement, autoScrollInterval, scrollToNext]);
 
     return (
         <AnimateBlock className={b({fullWidth})} animate={animated}>
@@ -231,45 +279,71 @@ export const ScrollerBlock = (
                 >
                     {(infinite ? [0, 1, 2] : [0])
                         .map((mi) =>
-                            React.Children.map(children, (child, index) => (
-                                <div
-                                    key={mi * childCount + index}
-                                    className={b('item')}
-                                    style={{width: widths?.[index] || 'auto'}}
-                                >
-                                    {child}
-                                </div>
-                            )),
+                            React.Children.map(children, (child, index) => {
+                                const physicalIndex = mi * childCount + index;
+
+                                return (
+                                    <div
+                                        key={physicalIndex}
+                                        role="button"
+                                        tabIndex={0}
+                                        className={b('item')}
+                                        style={{width: widths?.[index] || 'auto'}}
+                                        onClick={() => scrollToIndex(index)}
+                                        onKeyDown={(event) => {
+                                            if (event.key === 'Enter' || event.key === ' ') {
+                                                event.preventDefault();
+                                                scrollToIndex(index);
+                                            }
+                                        }}
+                                    >
+                                        {child}
+                                    </div>
+                                );
+                            }),
                         )
                         .flat()}
                 </div>
             </div>
-            {autoScroll && childCount > 0 && (
+            {childCount > 0 && (
                 <div className={b('pagination-container')}>
                     <div className={b('pagination')}>
                         {Array.from({length: childCount}, (_, index) => (
                             <div
                                 key={index}
+                                role="button"
+                                tabIndex={0}
                                 className={b('pip', {active: index === currentElement})}
+                                onClick={() => scrollToIndex(index)}
+                                onKeyDown={(event) => {
+                                    if (event.key === 'Enter' || event.key === ' ') {
+                                        event.preventDefault();
+                                        scrollToIndex(index);
+                                    }
+                                }}
                             >
-                                <div
-                                    style={{
-                                        transition: `width ${autoScrollInterval}ms, opacity 0.5s ease`,
-                                    }}
-                                    className={b('pip-inner', {
-                                        active: index === currentElement,
-                                        paused: isPaused,
-                                    })}
-                                />
+                                {autoScroll && (
+                                    <div
+                                        style={{
+                                            transition: `width ${autoScrollInterval}ms, opacity 0.5s ease`,
+                                        }}
+                                        className={b('pip-inner', {
+                                            active: index === currentElement,
+                                            paused: isPaused,
+                                        })}
+                                    />
+                                )}
                             </div>
                         ))}
                     </div>
-                    <button
-                        className={b('pagination-button')}
-                        onClick={() => setIsPaused(!isPaused)}
-                    >
-                        {isPaused ? <PlayIcon /> : <PauseIcon />}
-                    </button>
+                    {autoScroll && (
+                        <button
+                            className={b('pagination-button')}
+                            onClick={() => setIsPaused(!isPaused)}
+                        >
+                            {isPaused ? <PlayIcon /> : <PauseIcon />}
+                        </button>
+                    )}
                 </div>
             )}
         </AnimateBlock>
