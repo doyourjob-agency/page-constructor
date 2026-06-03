@@ -29,8 +29,16 @@ const StoryCard: React.FC<StoryCardProps> = ({
         <div className={b()}>
             <div className={b('background')} style={{background}} />
             <div className={b('head')}>
-                {title && <div className={b('title')}>{title}</div>}
-                {tag && <div className={b('tag')}>{tag}</div>}
+                {title && (
+                    <div className={b('title')}>
+                        <HTML>{title}</HTML>
+                    </div>
+                )}
+                {tag && (
+                    <div className={b('tag')}>
+                        <HTML>{tag}</HTML>
+                    </div>
+                )}
             </div>
             <Row className={b('row')}>
                 <Col className={b('col')} sizes={columnSizes}>
