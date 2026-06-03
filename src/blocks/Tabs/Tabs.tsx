@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useEffect, useRef, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
@@ -97,9 +97,17 @@ export const TabsBlock = ({
         />
     );
 
+    const mediaContentSizes = useMemo(() => {
+        if (activeTabData?.contentColumns) {
+            return {all: 12, md: 12 - activeTabData.contentColumns};
+        }
+
+        return {all: 12, md: 8};
+    }, [activeTabData]);
+
     const mediaContent = showMedia && (
         <Col
-            sizes={{all: 12, md: 8}}
+            sizes={mediaContentSizes}
             orders={{
                 all: GridColumnOrderClasses.Last,
                 md: GridColumnOrderClasses.First,

@@ -48,6 +48,7 @@ export const OnlyMedia = DefaultTemplate.bind({});
 export const OnlyText = DefaultTemplate.bind({});
 export const TabsButtonsColSizes = ButtonsColSizesTemplate.bind({});
 export const Centered = DefaultTemplate.bind({});
+export const ContentColumns = DefaultTemplate.bind({});
 export const Direction = DirectionTemplate.bind({});
 export const Caption = DefaultTemplate.bind({});
 export const MediaBorder = DefaultTemplate.bind({});
@@ -112,6 +113,14 @@ Centered.args = {
     ...DefaultArgs,
     description: yfmTransform(data.description),
     centered: true,
+} as TabsBlockModel;
+
+ContentColumns.args = {
+    ...DefaultArgs,
+    items: DefaultArgs.items.map((item) => ({
+        ...item,
+        contentColumns: 6,
+    })),
 } as TabsBlockModel;
 
 Direction.args = {...DefaultArgs} as TabsBlockModel;

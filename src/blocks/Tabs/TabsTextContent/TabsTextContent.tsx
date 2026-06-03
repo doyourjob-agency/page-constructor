@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import {Col} from '../../../grid';
 import {ImageDeviceProps, ImageObjectProps, TabsBlockItem, TabsBlockProps} from '../../../models';
@@ -25,14 +25,23 @@ export const TabsTextContent = ({
     imageProps,
     isReverse,
 }: TextContentProps) => {
+    const {media, title, text, additionalInfo, link, links, buttons, list, contentColumns} =
+        data || {};
+
+    const sizes = useMemo(() => {
+        if (contentColumns) {
+            return {all: 12, md: contentColumns};
+        }
+
+        return {all: 12, md: showMedia ? 4 : 8};
+    }, [contentColumns, showMedia]);
+
     if (!data) {
         return null;
     }
 
-    const {media, title, text, additionalInfo, link, links, buttons, list} = data;
-
     return (
-        <Col sizes={{all: 12, md: showMedia ? 4 : 8}} className={b({centered: centered})}>
+        <Col sizes={sizes} className={b({centered: centered})}>
             <div
                 className={b('wrapper', {
                     reverse: isReverse,

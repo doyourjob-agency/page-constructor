@@ -597,6 +597,7 @@ export interface TabsBlockItem
     image?: ThemedImage;
     caption?: string;
     media?: ThemedMediaProps;
+    contentColumns?: number;
 }
 
 export interface TabsBlockProps extends Animatable {
