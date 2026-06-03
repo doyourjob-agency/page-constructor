@@ -18,9 +18,9 @@ const UnicornScene = (props: UnicornSceneProps & {play?: boolean}) => {
 
     const syncPausedState = useCallback(() => {
         if (sceneRef.current) {
-            sceneRef.current.paused = !play;
+            sceneRef.current.paused = !play || !inView;
         }
-    }, [play]);
+    }, [play, inView]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -48,7 +48,7 @@ const UnicornScene = (props: UnicornSceneProps & {play?: boolean}) => {
 
         const timer = setTimeout(syncPausedState, 100);
         return () => clearTimeout(timer);
-    }, [syncPausedState, inView]);
+    }, [syncPausedState]);
 
     const handleLoad = () => {
         syncPausedState();
@@ -59,16 +59,14 @@ const UnicornScene = (props: UnicornSceneProps & {play?: boolean}) => {
 
     return (
         <div ref={containerRef} style={{width: '100%', height: '100%'}}>
-            {inView && (
-                <UnicornSceneLib
-                    {...rest}
-                    sdkUrl={sdkUrl}
-                    paused={!play}
-                    lazyLoad={false}
-                    sceneRef={sceneRef as unknown as UnicornSceneProps['sceneRef']}
-                    onLoad={handleLoad}
-                />
-            )}
+            <UnicornSceneLib
+                {...rest}
+                sdkUrl={sdkUrl}
+                paused={!play || !inView}
+                lazyLoad={false}
+                sceneRef={sceneRef as unknown as UnicornSceneProps['sceneRef']}
+                onLoad={handleLoad}
+            />
         </div>
     );
 };
