@@ -45,8 +45,8 @@ export const MediaBlockBaseProps = {
     mediaOnly: {
         type: 'boolean',
     },
-    imageWidthAuto: {
-        type: 'boolean',
+    imageMaxWidth: {
+        type: 'number',
     },
     /**
      * @deprecated use border='none' or border='line' instead

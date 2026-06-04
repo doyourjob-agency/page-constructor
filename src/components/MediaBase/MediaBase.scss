@@ -13,14 +13,6 @@ $block: '.#{$ns}media-base';
             width: 100%;
         }
 
-        &_imageWidthAuto {
-            @media (min-width: map-get($gridBreakpoints, 'md')) {
-                img {
-                    width: auto;
-                }
-            }
-        }
-
         img,
         video,
         iframe,

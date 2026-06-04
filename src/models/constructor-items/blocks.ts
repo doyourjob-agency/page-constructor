@@ -479,7 +479,7 @@ export interface MediaBaseBlockProps extends Animatable, MediaContentProps {
     largeMedia?: boolean;
     smallMedia?: boolean;
     mediaOnly?: boolean;
-    imageWidthAuto?: boolean;
+    imageMaxWidth?: number;
     mediaOnlyColSizes?: GridColumnSizesType;
 }
 
