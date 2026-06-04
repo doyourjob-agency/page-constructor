@@ -11,6 +11,10 @@ import data from './data.json';
 export default {
     title: 'Blocks/LogoRotator',
     component: LogoRotator,
+    argTypes: {
+        minRotateCount: {control: 'number'},
+        maxRotateCount: {control: 'number'},
+    },
 } as Meta;
 
 const DefaultTemplate: StoryFn<LogoRotatorBlockModel> = (args) => (

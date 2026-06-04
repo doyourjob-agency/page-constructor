@@ -394,6 +394,8 @@ export interface LogoRotatorBlockProps extends Animatable {
     title?: TitleItemBaseProps | string;
     items: {url?: string; src: string; isStatic?: boolean}[];
     count: number;
+    minRotateCount?: number;
+    maxRotateCount?: number;
     colSizes?: Partial<Record<GridColumnSize, number>>;
     theme?: TextTheme;
     rowMode?: boolean;

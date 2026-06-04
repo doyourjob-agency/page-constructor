@@ -43,6 +43,12 @@ export const LogoRotatorBlock = {
             count: {
                 type: 'number',
             },
+            minRotateCount: {
+                type: 'number',
+            },
+            maxRotateCount: {
+                type: 'number',
+            },
             colSizes: {
                 type: 'object',
                 additionalProperties: containerSizesObject,

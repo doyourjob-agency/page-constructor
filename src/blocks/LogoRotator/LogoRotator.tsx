@@ -14,8 +14,32 @@ import './LogoRotator.scss';
 
 const b = block('logo-rotator-block');
 
+const DEFAULT_MIN_ROTATE_COUNT = 2;
+const DEFAULT_MAX_ROTATE_COUNT = 4;
+
+const pickRandomSlots = (slotIndices: number[], count: number) => {
+    const shuffled = [...slotIndices];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled.slice(0, count);
+};
+
 export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
-    const {animated, title, theme, items, count, colSizes, rowMode} = props;
+    const {
+        animated,
+        title,
+        theme,
+        items,
+        count,
+        minRotateCount = DEFAULT_MIN_ROTATE_COUNT,
+        maxRotateCount = DEFAULT_MAX_ROTATE_COUNT,
+        colSizes,
+        rowMode,
+    } = props;
 
     // Индексы логотипов, которые участвуют в ротации (не статичные)
     const rotatableIndices = useMemo(
@@ -49,6 +73,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
 
     const [hidden, setHidden] = useState(() => Array(count).fill(false));
     const nextIndexRef = useRef(count - 1);
+    const isHoveredRef = useRef(false);
 
     // Держим актуальные slots в ref, чтобы не пересоздавать интервал при каждом изменении
     const slotsRef = useRef(slots);
@@ -60,6 +85,8 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         let timeout: NodeJS.Timeout | null = null;
 
         const interval = setInterval(() => {
+            if (isHoveredRef.current) return;
+
             // Выбираем только не-статичные слоты для замены
             const rotatableSlotIndices = slotsRef.current
                 .map((itemIdx, slotIdx) => (items[itemIdx]?.isStatic ? -1 : slotIdx))
@@ -67,32 +94,44 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
 
             if (rotatableSlotIndices.length === 0) return;
 
-            const slotIndex =
-                rotatableSlotIndices[Math.floor(Math.random() * rotatableSlotIndices.length)];
+            const rotateMin = Math.min(minRotateCount, maxRotateCount);
+            const rotateMax = Math.max(minRotateCount, maxRotateCount);
+            const rotateCount = rotateMin + Math.floor(Math.random() * (rotateMax - rotateMin + 1));
+            const slotIndices = pickRandomSlots(
+                rotatableSlotIndices,
+                Math.min(rotateCount, rotatableSlotIndices.length),
+            );
 
             setHidden((prev) => {
                 const next = [...prev];
-                next[slotIndex] = true;
+                slotIndices.forEach((slotIndex) => {
+                    next[slotIndex] = true;
+                });
                 return next;
             });
 
             timeout = setTimeout(() => {
                 setSlots((prevSlots) => {
                     const newSlots = [...prevSlots];
-                    // Доступные для показа — только ротируемые, не отображаемые сейчас
-                    const available = rotatableIndices.filter((i) => !newSlots.includes(i));
+                    let available = rotatableIndices.filter((i) => !newSlots.includes(i));
 
-                    if (available.length > 0) {
+                    slotIndices.forEach((slotIndex) => {
+                        if (available.length === 0) return;
+
                         const newValue = available[nextIndexRef.current % available.length];
                         nextIndexRef.current++;
                         newSlots[slotIndex] = newValue;
-                    }
+                        available = available.filter((i) => i !== newValue);
+                    });
+
                     return newSlots;
                 });
 
                 setHidden((prev) => {
                     const next = [...prev];
-                    next[slotIndex] = false;
+                    slotIndices.forEach((slotIndex) => {
+                        next[slotIndex] = false;
+                    });
                     return next;
                 });
             }, 500);
@@ -104,7 +143,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                 clearTimeout(timeout);
             }
         };
-    }, [count, items, rotatableIndices]);
+    }, [count, items, maxRotateCount, minRotateCount, rotatableIndices]);
 
     const renderItems = useMemo(
         () =>
@@ -128,7 +167,15 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
 
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
-            <div className={b('root')}>
+            <div
+                className={b('root')}
+                onMouseEnter={() => {
+                    isHoveredRef.current = true;
+                }}
+                onMouseLeave={() => {
+                    isHoveredRef.current = false;
+                }}
+            >
                 {hasTitle && (
                     <Title title={titleProps} className={b('title')} colSizes={{all: 12}} />
                 )}

@@ -17,6 +17,12 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `count: number` — Rendering amount of items.
 
+`minRotateCount?: number` — Minimum number of logos to rotate per tick (default: `2`).
+
+`maxRotateCount?: number` — Maximum number of logos to rotate per tick (default: `4`). Each tick picks a random count between `minRotateCount` and `maxRotateCount` (inclusive).
+
+Rotation pauses while the pointer is over the block.
+
 `colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
 
 `rowMode?: boolean` — Rendering in row.
