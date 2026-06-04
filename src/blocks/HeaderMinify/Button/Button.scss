@@ -7,24 +7,26 @@ $block: '.#{$ns}header-minify-button';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 28px;
+    padding: 0 $indentSM;
     border-radius: $indentXS;
     background: #001a2b;
     color: #ffffff;
-    height: 61px;
-    @include text-size(header-2);
+    height: 44px;
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 1%;
     text-decoration: none;
     transition: opacity 0.3s ease;
 
     &_outline {
-        background: transparent;
-        border: 2px solid #001a2b;
+        background: rgba(5, 43, 66, 0.05);
         color: #001a2b;
     }
 
     @include hover() {
         opacity: 0.8;
+    }
+
+    @media (max-width: map-get($gridBreakpoints, 'sm')) {
+        padding: 0 $indentS;
     }
 }

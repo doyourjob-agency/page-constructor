@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HTML, YFMWrapper} from '../../components';
+import {HTML} from '../../components';
 import {parseVideoType} from '../../components/Media/Video/utils';
 import {Col, Grid, Row} from '../../grid';
 import {HeaderMinifyBlockProps} from '../../models';
@@ -12,11 +12,7 @@ import './HeaderMinify.scss';
 
 const b = block('header-minify-block');
 
-const colSizes = {all: 12, md: 8};
-
-const modifiers = {
-    constructor: true,
-};
+const colSizes = {all: 12, md: 9};
 
 export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
     const {title, description, buttons, video, headerSpace} = props;
@@ -45,11 +41,7 @@ export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
                         <h1 className={b('title')}>
                             <HTML>{title}</HTML>
                         </h1>
-                        {description && (
-                            <div className={b('description')}>
-                                <YFMWrapper content={description} modifiers={modifiers} />
-                            </div>
-                        )}
+                        {description && <HTML className={b('description')}>{description}</HTML>}
                         {buttons?.length ? (
                             <div className={b('buttons')}>
                                 {buttons.map((button, index) => (

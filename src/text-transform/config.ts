@@ -468,7 +468,7 @@ export const config: BlocksConfig = {
     ],
     [BlockType.HeaderMinifyBlock]: [
         {
-            fields: ['description'],
+            fields: ['title', 'description'],
             transformer: yfmTransformer,
         },
     ],

@@ -29,24 +29,33 @@ $backgroundWidth: 1440px;
     }
 
     &__title {
-        @include text-size(display-4);
+        font-size: 94px;
+        line-height: 80%;
+        font-weight: 700;
+        letter-spacing: -2%;
         margin: 0;
         position: relative;
-        margin-bottom: $indentSM;
+        margin-bottom: $indentM;
 
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
-            @include text-size(display-2);
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: $indentXS;
         }
     }
 
     &__description {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 600;
         position: relative;
         margin-bottom: $indentM;
-        opacity: 0.8;
 
-        .yfm {
-            @include text-size(header-2);
-            font-weight: 500;
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
+            font-size: 17px;
+            line-height: 24px;
+            font-weight: 400;
+            margin-bottom: $indentXS;
         }
     }
 

@@ -2,8 +2,8 @@
   "default": {
     "content": {
       "type": "header-minify-block",
-      "title": "Supercomputer performance. Cloud flexibility.",
-      "description": "Build faster on the ultimate AI cloud, engineered from silicon to API.",
+      "title": "The ultimate AI cloud",
+      "description": "Build and scale AI models faster — without waiting for GPUs or fighting infrastructure. Endless performance. Limitless possibilities.",
       "buttons": [
         {
           "text": "Start building now",
