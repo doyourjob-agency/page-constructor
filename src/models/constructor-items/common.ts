@@ -262,10 +262,12 @@ export interface MediaComponentVideoProps extends AnalyticsEventsBase {
 
 export interface MediaComponentVideoIframeProps {
     videoIframe: string;
+    aspectRatio?: number;
 }
 
 export interface MediaComponentYoutubeProps {
     youtube: string;
+    aspectRatio?: number;
     previewImg?: string;
     playButtonCorner?: boolean;
     fullscreen?: boolean;

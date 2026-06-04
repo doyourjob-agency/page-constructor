@@ -122,6 +122,7 @@ export const Media = (props: MediaAllProps) => {
                     previewImg={previewImg}
                     playButtonCorner={playButtonCorner}
                     height={height}
+                    ratio={ratio}
                     fullscreen={fullscreen}
                     analyticsEvents={analyticsEvents}
                     autoplay={autoplay}

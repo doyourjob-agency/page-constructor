@@ -47,7 +47,13 @@ function getYoutubeVideoSrc(stream?: string, record?: string) {
     return src;
 }
 
-export function getHeight(width: number): number {
+export function getHeight(width: number, ratio?: number | 'auto'): number {
+    if (ratio === 'auto') {
+        return (width / 16) * 9;
+    }
+    if (ratio) {
+        return width / ratio;
+    }
     return (width / 16) * 9;
 }
 
@@ -63,6 +69,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     playButtonCorner?: boolean;
     playButtonId?: string;
     height?: number;
+    ratio?: number | 'auto';
     fullscreen?: boolean;
     autoplay?: boolean;
     onImageLoad?: () => void;
@@ -81,6 +88,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         playButtonCorner,
         playButtonId,
         height,
+        ratio,
         fullscreen,
         analyticsEvents,
         autoplay,
@@ -132,7 +140,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     useEffect(() => {
         const updateSize = debounce(() => {
             setCurrentHeight(
-                ref.current ? Math.round(getHeight(ref.current.offsetWidth)) : undefined,
+                ref.current ? Math.round(getHeight(ref.current.offsetWidth, ratio)) : undefined,
             );
         }, 100);
 
@@ -141,7 +149,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         return () => {
             window.removeEventListener('resize', updateSize);
         };
-    }, [height]);
+    }, [height, ratio]);
 
     const iframeContent = useMemo(() => {
         return (
