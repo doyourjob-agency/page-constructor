@@ -90,6 +90,8 @@ export const ScrollerBlock = (
     const contentRef = useRef<HTMLDivElement>(null);
     const [currentElement, setCurrentElement] = useState<number>(0);
     const [isPaused, setIsPaused] = useState<boolean>(true);
+    const [scrollInProgress, setScrollInProgress] = useState<boolean>(false);
+    const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         const content = contentRef.current;
@@ -166,6 +168,13 @@ export const ScrollerBlock = (
                     content.scrollTo(endChild.offsetLeft - content.clientWidth, 0);
                 }
             }
+            setScrollInProgress(true);
+            if (scrollIntervalRef.current) {
+                clearTimeout(scrollIntervalRef.current);
+            }
+            scrollIntervalRef.current = setTimeout(() => {
+                setScrollInProgress(false);
+            }, 200);
         };
 
         content.addEventListener('scroll', handleInfiniteScroll, {passive: true});
@@ -273,7 +282,7 @@ export const ScrollerBlock = (
                     className={b('content', {
                         gapLong,
                         fullWidth,
-                        'scroll-snap-center': infinite ? false : scrollSnapCenter,
+                        'scroll-snap-center': infinite ? !scrollInProgress : scrollSnapCenter,
                     })}
                     ref={contentRef}
                 >

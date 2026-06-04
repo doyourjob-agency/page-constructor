@@ -51,6 +51,7 @@ $block: '.#{$ns}scroller-block';
 
         &_scroll-snap-center {
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
 
             #{$block}__item {
                 scroll-snap-align: center;
