@@ -14,8 +14,10 @@ $block: '.#{$ns}media-base';
         }
 
         &_imageWidthAuto {
-            img {
-                width: auto;
+            @media (min-width: map-get($gridBreakpoints, 'md')) {
+                img {
+                    width: auto;
+                }
             }
         }
 
