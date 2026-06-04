@@ -28,6 +28,7 @@ export const MediaBase = (props: MediaBaseProps) => {
         mobileDirection = 'content-media',
         animated,
         mediaOnly,
+        imageWidthAuto,
         onScroll,
         mediaOnlyColSizes = {all: 12, md: 8},
         ...mediaContentProps
@@ -84,7 +85,7 @@ export const MediaBase = (props: MediaBaseProps) => {
                         </Col>
                         {card ? (
                             <Col sizes={mediaSizes}>
-                                <div className={b('card')}>{card}</div>
+                                <div className={b('card', {imageWidthAuto})}>{card}</div>
                             </Col>
                         ) : null}
                     </Row>

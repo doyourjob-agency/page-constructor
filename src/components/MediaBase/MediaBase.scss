@@ -13,6 +13,12 @@ $block: '.#{$ns}media-base';
             width: 100%;
         }
 
+        &_imageWidthAuto {
+            img {
+                width: auto;
+            }
+        }
+
         img,
         video,
         iframe,
