@@ -13,7 +13,9 @@ $block: '.#{$ns}benefits-block';
         color: var(--g-color-text-light-primary);
     }
 
-    @include animate(#{$block}__root);
+    @include animate(#{$block}__head);
+    @include animate(#{$block}__video);
+    @include animate-slides(#{$block}__item);
 
     &__root {
         position: relative;

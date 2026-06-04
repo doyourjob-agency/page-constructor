@@ -21,5 +21,10 @@ const DefaultTemplate: StoryFn<BenefitsBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-
 Default.args = data.default.content as BenefitsBlockProps;
+
+export const Animated = DefaultTemplate.bind({});
+Animated.args = {
+    ...data.default.content,
+    animated: true,
+} as BenefitsBlockProps;
