@@ -101,7 +101,7 @@ export const ScrollerBlock = (
             }
 
             if (fullWidth) {
-                const space = (window.innerWidth - root.clientWidth) / 2;
+                const space = (document.documentElement.clientWidth - root.clientWidth) / 2;
                 content.style.setProperty('padding-left', `${space}px`);
                 content.style.setProperty('padding-right', `${space}px`);
                 content.style.setProperty('left', `${-space}px`);
