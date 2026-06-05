@@ -13,7 +13,6 @@ export default {
     component: WhatsNew,
     argTypes: {
         infinite: {control: 'boolean'},
-        scrollSnapCenter: {control: 'boolean'},
         autoScroll: {control: 'boolean'},
         autoScrollInterval: {control: 'number'},
     },

@@ -4,9 +4,6 @@ export const ScrollerControlsProps = {
     infinite: {
         type: 'boolean',
     },
-    scrollSnapCenter: {
-        type: 'boolean',
-    },
     autoScroll: {
         type: 'boolean',
     },

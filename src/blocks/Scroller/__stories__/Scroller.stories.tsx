@@ -16,7 +16,6 @@ export default {
     },
     argTypes: {
         infinite: {control: 'boolean'},
-        scrollSnapCenter: {control: 'boolean'},
         autoScroll: {control: 'boolean'},
         autoScrollInterval: {control: 'number'},
     },

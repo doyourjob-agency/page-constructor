@@ -17,7 +17,6 @@ const WhatsNew: React.FC<WhatsNewBlockProps> = ({
     links,
     animated,
     infinite,
-    scrollSnapCenter,
     autoScroll,
     autoScrollInterval,
 }) => {
@@ -32,7 +31,6 @@ const WhatsNew: React.FC<WhatsNewBlockProps> = ({
                 <ScrollerBlock
                     fullWidth
                     infinite={infinite}
-                    scrollSnapCenter={scrollSnapCenter}
                     autoScroll={autoScroll ?? true}
                     autoScrollInterval={autoScrollInterval}
                 >

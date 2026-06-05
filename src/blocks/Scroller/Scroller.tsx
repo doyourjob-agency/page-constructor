@@ -35,6 +35,103 @@ const scrollToChild = (
     content.scrollTo({left, behavior});
 };
 
+const MIDDLE_COPY = 1;
+
+const normalizeToMiddleCopy = (content: HTMLElement, childCount: number): boolean => {
+    const centeredIndex = getCenteredChildIndex(content);
+    const logicalIndex = centeredIndex % childCount;
+    const currentCopy = Math.floor(centeredIndex / childCount);
+
+    if (currentCopy === MIDDLE_COPY) {
+        return false;
+    }
+
+    const middleChild = getChild(content, childCount + logicalIndex);
+    if (middleChild) {
+        scrollToChild(content, middleChild, 'auto');
+    }
+
+    return true;
+};
+
+const getTargetPhysicalIndex = (
+    centeredPhysicalIndex: number,
+    targetLogicalIndex: number,
+    childCount: number,
+    preferForward: boolean,
+): number => {
+    const currentLogical = centeredPhysicalIndex % childCount;
+    const forwardSteps = (targetLogicalIndex - currentLogical + childCount) % childCount;
+    const backwardSteps = (currentLogical - targetLogicalIndex + childCount) % childCount;
+
+    if (preferForward || forwardSteps <= backwardSteps) {
+        if (forwardSteps === 0) {
+            return MIDDLE_COPY * childCount + targetLogicalIndex;
+        }
+
+        return centeredPhysicalIndex + forwardSteps;
+    }
+
+    if (backwardSteps === 0) {
+        return MIDDLE_COPY * childCount + targetLogicalIndex;
+    }
+
+    return centeredPhysicalIndex - backwardSteps;
+};
+
+const SCROLL_IDLE_MS = 200;
+const NORMALIZE_BEFORE_SNAP_MS = 100;
+
+const scrollToMiddleCopyIndex = (
+    content: HTMLElement,
+    targetLogicalIndex: number,
+    childCount: number,
+) => {
+    const runScroll = () => {
+        const targetChild = getChild(content, childCount + targetLogicalIndex);
+
+        if (targetChild) {
+            scrollToChild(content, targetChild);
+        }
+    };
+
+    if (normalizeToMiddleCopy(content, childCount)) {
+        requestAnimationFrame(runScroll);
+        return;
+    }
+
+    runScroll();
+};
+
+const scrollToLogicalIndex = (
+    content: HTMLElement,
+    targetLogicalIndex: number,
+    childCount: number,
+    preferForward: boolean,
+) => {
+    const runScroll = () => {
+        const centeredIndex = getCenteredChildIndex(content);
+        const targetPhysical = getTargetPhysicalIndex(
+            centeredIndex,
+            targetLogicalIndex,
+            childCount,
+            preferForward,
+        );
+        const targetChild = getChild(content, targetPhysical);
+
+        if (targetChild) {
+            scrollToChild(content, targetChild);
+        }
+    };
+
+    if (normalizeToMiddleCopy(content, childCount)) {
+        requestAnimationFrame(runScroll);
+        return;
+    }
+
+    runScroll();
+};
+
 const PlayIcon = () => {
     return (
         <svg
@@ -77,7 +174,6 @@ export const ScrollerBlock = (
         widths,
         gapLong,
         fullWidth,
-        scrollSnapCenter,
         children,
         autoScroll = true,
         autoScrollInterval = 3000,
@@ -91,7 +187,10 @@ export const ScrollerBlock = (
     const [currentElement, setCurrentElement] = useState<number>(0);
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [scrollInProgress, setScrollInProgress] = useState<boolean>(false);
-    const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+    const scrollIdleTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const normalizeSettleTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const scrollInProgressRef = useRef<boolean>(false);
+    const isNormalizingRef = useRef<boolean>(false);
 
     useEffect(() => {
         const content = contentRef.current;
@@ -150,6 +249,17 @@ export const ScrollerBlock = (
         };
 
         const handleInfiniteScroll = () => {
+            if (isNormalizingRef.current) {
+                return;
+            }
+
+            const wasNotInProgress = !scrollInProgressRef.current;
+            if (wasNotInProgress) {
+                isNormalizingRef.current = true;
+                normalizeToMiddleCopy(content, childCount);
+                isNormalizingRef.current = false;
+            }
+
             const scrollLeft = content.scrollLeft;
             const endCopyChild = getChild(content, endCopyStartIndex);
             const copyStartChild = getChild(content, copyStartIndex);
@@ -168,13 +278,24 @@ export const ScrollerBlock = (
                     content.scrollTo(endChild.offsetLeft - content.clientWidth, 0);
                 }
             }
+
+            scrollInProgressRef.current = true;
             setScrollInProgress(true);
-            if (scrollIntervalRef.current) {
-                clearTimeout(scrollIntervalRef.current);
+            if (scrollIdleTimeoutRef.current) {
+                clearTimeout(scrollIdleTimeoutRef.current);
             }
-            scrollIntervalRef.current = setTimeout(() => {
-                setScrollInProgress(false);
-            }, 200);
+            if (normalizeSettleTimeoutRef.current) {
+                clearTimeout(normalizeSettleTimeoutRef.current);
+            }
+            scrollIdleTimeoutRef.current = setTimeout(() => {
+                isNormalizingRef.current = true;
+                normalizeToMiddleCopy(content, childCount);
+                isNormalizingRef.current = false;
+                normalizeSettleTimeoutRef.current = setTimeout(() => {
+                    scrollInProgressRef.current = false;
+                    setScrollInProgress(false);
+                }, NORMALIZE_BEFORE_SNAP_MS);
+            }, SCROLL_IDLE_MS);
         };
 
         content.addEventListener('scroll', handleInfiniteScroll, {passive: true});
@@ -182,6 +303,12 @@ export const ScrollerBlock = (
 
         return () => {
             content.removeEventListener('scroll', handleInfiniteScroll);
+            if (scrollIdleTimeoutRef.current) {
+                clearTimeout(scrollIdleTimeoutRef.current);
+            }
+            if (normalizeSettleTimeoutRef.current) {
+                clearTimeout(normalizeSettleTimeoutRef.current);
+            }
         };
     }, [infinite, childCount]);
 
@@ -198,11 +325,8 @@ export const ScrollerBlock = (
         }
 
         if (infinite) {
-            const centeredIndex = getCenteredChildIndex(content);
-            const nextElement = getChild(content, centeredIndex + 1);
-            if (nextElement) {
-                scrollToChild(content, nextElement);
-            }
+            const nextLogical = ((getCenteredChildIndex(content) % childCount) + 1) % childCount;
+            scrollToLogicalIndex(content, nextLogical, childCount, true);
             return;
         }
 
@@ -213,7 +337,7 @@ export const ScrollerBlock = (
         }
     }, [childCount, currentElement, infinite]);
 
-    const scrollToIndex = useCallback(
+    const scrollToPaginationIndex = useCallback(
         (targetIndex: number) => {
             if (autoScroll) {
                 setIsPaused(true);
@@ -232,31 +356,33 @@ export const ScrollerBlock = (
                 return;
             }
 
-            const centeredIndex = getCenteredChildIndex(content);
-            const currentCopy = Math.floor(centeredIndex / childCount);
-            const logicalIndex = centeredIndex % childCount;
-            const middleCopy = 1;
+            scrollToMiddleCopyIndex(content, targetIndex, childCount);
+        },
+        [autoScroll, childCount, infinite],
+    );
 
-            const scrollToTargetInMiddleCopy = () => {
-                const targetChild = getChild(content, childCount + targetIndex);
-                if (targetChild) {
-                    scrollToChild(content, targetChild);
-                }
-            };
+    const scrollToItemIndex = useCallback(
+        (targetIndex: number) => {
+            if (autoScroll) {
+                setIsPaused(true);
+            }
 
-            if (currentCopy !== middleCopy) {
-                const middleChild = getChild(content, childCount + logicalIndex);
-                if (middleChild) {
-                    const left =
-                        middleChild.offsetLeft -
-                        (content.offsetWidth - middleChild.offsetWidth) / 2;
-                    content.scrollTo({left, behavior: 'auto'});
-                }
-                requestAnimationFrame(scrollToTargetInMiddleCopy);
+            const content = contentRef.current;
+            if (!content || childCount <= 1 || targetIndex < 0 || targetIndex >= childCount) {
                 return;
             }
 
-            scrollToTargetInMiddleCopy();
+            if (!infinite) {
+                const child = getChild(content, targetIndex);
+                if (child) {
+                    scrollToChild(content, child);
+                }
+                return;
+            }
+
+            const logicalIndex = getCenteredChildIndex(content) % childCount;
+            const isNext = targetIndex === (logicalIndex + 1) % childCount;
+            scrollToLogicalIndex(content, targetIndex, childCount, isNext);
         },
         [autoScroll, childCount, infinite],
     );
@@ -282,7 +408,7 @@ export const ScrollerBlock = (
                     className={b('content', {
                         gapLong,
                         fullWidth,
-                        'scroll-snap-center': infinite ? !scrollInProgress : scrollSnapCenter,
+                        'scroll-snap-center': infinite ? !scrollInProgress : true,
                     })}
                     ref={contentRef}
                 >
@@ -298,11 +424,11 @@ export const ScrollerBlock = (
                                         tabIndex={0}
                                         className={b('item')}
                                         style={{width: widths?.[index] || 'auto'}}
-                                        onClick={() => scrollToIndex(index)}
+                                        onClick={() => scrollToItemIndex(index)}
                                         onKeyDown={(event) => {
                                             if (event.key === 'Enter' || event.key === ' ') {
                                                 event.preventDefault();
-                                                scrollToIndex(index);
+                                                scrollToItemIndex(index);
                                             }
                                         }}
                                     >
@@ -323,11 +449,11 @@ export const ScrollerBlock = (
                                 role="button"
                                 tabIndex={0}
                                 className={b('pip', {active: index === currentElement})}
-                                onClick={() => scrollToIndex(index)}
+                                onClick={() => scrollToPaginationIndex(index)}
                                 onKeyDown={(event) => {
                                     if (event.key === 'Enter' || event.key === ' ') {
                                         event.preventDefault();
-                                        scrollToIndex(index);
+                                        scrollToPaginationIndex(index);
                                     }
                                 }}
                             >
