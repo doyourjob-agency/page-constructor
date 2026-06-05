@@ -30,9 +30,16 @@ const MiniCaseCardAuthor: React.FC<MiniCaseCardAuthorProps> = ({
             {avatar && <Image src={avatar} className={b('author-avatar')} />}
             {(author || position) && (
                 <div className={b('author-text')}>
-                    {author && <span className={b('author-name')}>{author}</span>}
-                    {author && position && <br />}
-                    {position && <span className={b('author-position')}>{position}</span>}
+                    {author && (
+                        <span className={b('author-name')}>
+                            <HTML>{author}</HTML>
+                        </span>
+                    )}
+                    {position && (
+                        <span className={b('author-position')}>
+                            <HTML>{position}</HTML>
+                        </span>
+                    )}
                 </div>
             )}
         </div>
