@@ -8,6 +8,109 @@ import './MiniCaseCard.scss';
 
 const b = block('mini-case-card');
 
+interface MiniCaseCardAuthorProps {
+    showQuote: boolean;
+    avatar?: string;
+    author?: string;
+    position?: string;
+}
+
+const MiniCaseCardAuthor: React.FC<MiniCaseCardAuthorProps> = ({
+    showQuote,
+    avatar,
+    author,
+    position,
+}) => {
+    if (!showQuote || !(avatar || author || position)) {
+        return null;
+    }
+
+    return (
+        <div className={b('author')}>
+            {avatar && <Image src={avatar} className={b('author-avatar')} />}
+            {(author || position) && (
+                <div className={b('author-text')}>
+                    {author && <span className={b('author-name')}>{author}</span>}
+                    {author && position && <br />}
+                    {position && <span className={b('author-position')}>{position}</span>}
+                </div>
+            )}
+        </div>
+    );
+};
+
+interface MiniCaseCardTagsProps {
+    tagUsecase?: string[];
+    tagIndustry?: string[];
+}
+
+const MiniCaseCardTags: React.FC<MiniCaseCardTagsProps> = ({tagUsecase, tagIndustry}) => {
+    if (!tagUsecase?.length && !tagIndustry?.length) {
+        return null;
+    }
+
+    return (
+        <div className={b('tags')}>
+            {tagUsecase?.map((tag, index) => (
+                <div key={`usecase-${index}`} className={b('tag', {usecase: true})}>
+                    <HTML>{tag}</HTML>
+                </div>
+            ))}
+            {tagIndustry?.map((tag, index) => (
+                <div key={`industry-${index}`} className={b('tag', {industry: true})}>
+                    <HTML>{tag}</HTML>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+interface MiniCaseCardHeadProps {
+    title?: string;
+    shouldShowStory: boolean;
+    showQuote: boolean;
+    text?: string;
+    quote?: string;
+    avatar?: string;
+    author?: string;
+    position?: string;
+}
+
+const MiniCaseCardHead: React.FC<MiniCaseCardHeadProps> = ({
+    title,
+    shouldShowStory,
+    showQuote,
+    text,
+    quote,
+    avatar,
+    author,
+    position,
+}) => {
+    const shouldShowQuote = showQuote && Boolean(quote || avatar || author || position);
+
+    if (!title && !shouldShowStory && !shouldShowQuote) {
+        return null;
+    }
+
+    return (
+        <div className={b('head')}>
+            {title && (
+                <div className={b('title')}>
+                    <HTML>{title}</HTML>
+                </div>
+            )}
+            {shouldShowStory && <HTML className={b('text')}>{text}</HTML>}
+            {showQuote && quote && <HTML className={b('quote')}>{quote}</HTML>}
+            <MiniCaseCardAuthor
+                showQuote={showQuote}
+                avatar={avatar}
+                author={author}
+                position={position}
+            />
+        </div>
+    );
+};
+
 const MiniCaseCard: React.FC<MiniCaseCardProps> = ({
     title,
     showStory = true,
@@ -25,7 +128,7 @@ const MiniCaseCard: React.FC<MiniCaseCardProps> = ({
     backgroundData,
 }) => {
     const shouldShowStory = showStory && Boolean(text);
-    const shouldShowQuote = showQuote && Boolean(quote || avatar || author || position);
+
     return (
         <div className={b()} style={background ? {background} : undefined}>
             <div className={b('lhs')}>
@@ -35,52 +138,18 @@ const MiniCaseCard: React.FC<MiniCaseCardProps> = ({
                             <Image src={logo} className={b('logo')} />
                         </div>
                     )}
-                    {(title || shouldShowStory || shouldShowQuote) && (
-                        <div className={b('head')}>
-                            {title && (
-                                <div className={b('title')}>
-                                    <HTML>{title}</HTML>
-                                </div>
-                            )}
-                            {shouldShowStory && <HTML className={b('text')}>{text}</HTML>}
-                            {showQuote && quote && <HTML className={b('quote')}>{quote}</HTML>}
-                            {showQuote && (avatar || author || position) && (
-                                <div className={b('author')}>
-                                    {avatar && (
-                                        <Image src={avatar} className={b('author-avatar')} />
-                                    )}
-                                    {(author || position) && (
-                                        <div className={b('author-text')}>
-                                            {author && (
-                                                <span className={b('author-name')}>{author}</span>
-                                            )}
-                                            {author && position && <br />}
-                                            {position && (
-                                                <span className={b('author-position')}>
-                                                    {position}
-                                                </span>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    )}
+                    <MiniCaseCardHead
+                        title={title}
+                        shouldShowStory={shouldShowStory}
+                        showQuote={showQuote}
+                        text={text}
+                        quote={quote}
+                        avatar={avatar}
+                        author={author}
+                        position={position}
+                    />
                 </div>
-                {(tagUsecase?.length || tagIndustry?.length) && (
-                    <div className={b('tags')}>
-                        {tagUsecase?.map((tag, index) => (
-                            <div key={`usecase-${index}`} className={b('tag', {usecase: true})}>
-                                <HTML>{tag}</HTML>
-                            </div>
-                        ))}
-                        {tagIndustry?.map((tag, index) => (
-                            <div key={`industry-${index}`} className={b('tag', {industry: true})}>
-                                <HTML>{tag}</HTML>
-                            </div>
-                        ))}
-                    </div>
-                )}
+                <MiniCaseCardTags tagUsecase={tagUsecase} tagIndustry={tagIndustry} />
             </div>
             <div className={b('rhs')}>
                 {data?.map((item, index) => (

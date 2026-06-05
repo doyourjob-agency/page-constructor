@@ -80,6 +80,7 @@ import {
     FeedPartner,
     ImageCard,
     MediaCardBlock,
+    MiniCaseCard,
     NewPostCard,
     NewsCard,
     PostCard,
@@ -87,7 +88,6 @@ import {
     PriceDetailedBlock,
     Quote,
     StoryCard,
-    MiniCaseCard,
 } from './validators/sub-blocks';
 
 export const blockSchemas: Record<BlockType, object> = {

@@ -88,6 +88,7 @@ import {
     ImageCard,
     LayoutItem,
     MediaCard,
+    MiniCaseCard,
     NewPostCard,
     NewsCard,
     PostCard,
@@ -95,7 +96,6 @@ import {
     PriceDetailed,
     Quote,
     StoryCard,
-    MiniCaseCard,
 } from './sub-blocks';
 
 export const blockMap = {
