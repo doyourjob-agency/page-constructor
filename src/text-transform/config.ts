@@ -586,6 +586,17 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [SubBlockType.MiniCaseCard]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+        {
+            fields: ['text', 'quote', 'author', 'position'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
     [BlockType.AdvantagesBlock]: {
         fields: ['title'],

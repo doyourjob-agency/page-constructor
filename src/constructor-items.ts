@@ -95,6 +95,7 @@ import {
     PriceDetailed,
     Quote,
     StoryCard,
+    MiniCaseCard,
 } from './sub-blocks';
 
 export const blockMap = {
@@ -187,6 +188,7 @@ export const subBlockMap = {
     [SubBlockType.FeedPartner]: FeedPartner,
     [SubBlockType.CaseStudyCard]: CaseStudyCard,
     [SubBlockType.StoryCard]: StoryCard,
+    [SubBlockType.MiniCaseCard]: MiniCaseCard,
 };
 
 export const navItemMap = {

@@ -1,0 +1,168 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins';
+
+$block: '.#{$ns}mini-case-card';
+$tag-usecase-color: #614efa;
+$tag-industry-color: #3a8ef5;
+$lhs-max-width: 660px;
+$rhs-card-min-width: 400px;
+
+#{$block} {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $indentM;
+    padding: $indentL + $indent4XS;
+    border-radius: $indentS * 2;
+
+    @media (max-width: map-get($gridBreakpoints, 'md')) {
+        flex-direction: column;
+        padding: $indentL $indentXS;
+        border-radius: $indentM;
+    }
+
+    &__lhs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $indentSM;
+        align-self: stretch;
+        justify-content: space-between;
+        max-width: $lhs-max-width;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            align-self: auto;
+            max-width: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $indentSM;
+    }
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $indentXS;
+    }
+
+    &__tags {
+        display: flex;
+        flex-direction: row;
+        gap: $indentXXXS;
+    }
+
+    &__tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $indent4XS $indentXXS $indent4XS + 1px;
+        border-radius: $indentXXS;
+        border: 1px solid;
+
+        &_usecase {
+            color: $tag-usecase-color;
+            border-color: $tag-usecase-color;
+        }
+
+        &_industry {
+            color: $tag-industry-color;
+            border-color: $tag-industry-color;
+        }
+    }
+
+    &__tag,
+    &__author-name,
+    &__author-position {
+        @include text-size(body-1);
+        line-height: $indentXS + $navigationIconIndent;
+    }
+
+    &__title {
+        @include text-size(display-3);
+        font-weight: var(--g-text-accent-font-weight);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-2);
+        }
+    }
+
+    &__text,
+    &__quote,
+    &__label {
+        @include text-size(body-2);
+    }
+
+    &__rhs {
+        display: flex;
+        flex-direction: column;
+        gap: $indent4XS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            align-self: stretch;
+        }
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: $indentSM + $navigationIconIndent;
+        padding: $indentSM + $navigationIconIndent;
+        color: var(--g-color-text-light-primary);
+        min-width: $rhs-card-min-width;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            min-width: 100%;
+        }
+    }
+
+    &__value {
+        font-size: $indentS * 2;
+        line-height: $indentL;
+        letter-spacing: 0;
+        font-weight: var(--g-text-display-font-weight);
+        text-transform: uppercase;
+    }
+
+    &__author {
+        display: flex;
+        flex-direction: row;
+        gap: $indentXS;
+    }
+
+    &__author-avatar {
+        display: block;
+        flex-shrink: 0;
+        width: $indentXL;
+        height: $indentXL;
+        border-radius: $indentXXS;
+        object-fit: cover;
+    }
+
+    &__author-name {
+        font-weight: var(--g-text-accent-font-weight);
+    }
+
+    &__wrap-logo {
+        display: flex;
+        align-items: center;
+        max-height: $indentM;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            max-height: $indentL + $navigationIconIndent;
+        }
+    }
+
+    &__logo {
+        display: block;
+        max-height: 100%;
+    }
+}

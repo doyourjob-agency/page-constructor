@@ -20,3 +20,4 @@ export * from '../../sub-blocks/AttachmentCard/schema';
 export * from '../../sub-blocks/FeedPartner/schema';
 export * from '../../sub-blocks/CaseStudyCard/schema';
 export * from '../../sub-blocks/StoryCard/schema';
+export * from '../../sub-blocks/MiniCaseCard/schema';

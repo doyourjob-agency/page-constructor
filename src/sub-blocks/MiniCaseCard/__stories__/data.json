@@ -1,0 +1,87 @@
+{
+  "default": {
+    "content": {
+      "type": "mini-case-card",
+      "title": "Very long and complex title",
+      "tagUsecase": ["Financial Services"],
+      "tagIndustry": ["Inference", "Training"],
+      "text": "Synergy blockchain neural diffusion prompt vectors hallucinate embeddings RAG-first MLOps GPU serverless copilot transformer-scale fine-tune paradigm shift unlock enterprise responsible explainable edge",
+      "quote": "Agentic LLM multimodal foundation RAG pipeline hallucination-free copilot MLOps orchestrate proprietary datasets transformer inference GPU-accelerated serverless deploy fine-tuned paradigm-shifting generative synergize",
+      "logo": "/story-assets/icon_2_light.svg",
+      "avatar": "/story-assets/img_6-12_light.png",
+      "author": "John Doe",
+      "position": "Founder and CEO of AI GmbH N.V. Inc.",
+      "data": [
+        {
+          "value": "80%",
+          "label": "Latency vector interventions"
+        },
+        {
+          "value": "Millions",
+          "label": "Data dependent inference"
+        },
+        {
+          "value": "1.2M",
+          "label": "Uptime pipeline embeddings"
+        }
+      ],
+      "background": "#E0E4FF",
+      "backgroundData": "#614EFA"
+    }
+  },
+  "onlyText": {
+    "content": {
+      "type": "mini-case-card",
+      "title": "Very long and complex title",
+      "tagUsecase": ["Financial Services"],
+      "tagIndustry": ["Inference", "Training"],
+      "text": "Synergy blockchain neural diffusion prompt vectors hallucinate embeddings RAG-first MLOps GPU serverless copilot transformer-scale fine-tune paradigm shift unlock enterprise responsible explainable edge",
+      "logo": "/story-assets/icon_2_light.svg",
+      "data": [
+        {
+          "value": "80%",
+          "label": "Latency vector interventions"
+        },
+        {
+          "value": "Millions",
+          "label": "Data dependent inference"
+        },
+        {
+          "value": "1.2M",
+          "label": "Uptime pipeline embeddings"
+        }
+      ],
+      "background": "#E0E4FF",
+      "backgroundData": "#614EFA"
+    }
+  },
+  "onlyQuoteAndAuthor": {
+    "content": {
+      "type": "mini-case-card",
+      "title": "Very long and complex title",
+      "tagUsecase": ["Financial Services"],
+      "tagIndustry": ["Inference", "Training"],
+      "quote": "Agentic LLM multimodal foundation RAG pipeline hallucination-free copilot MLOps orchestrate proprietary datasets transformer inference GPU-accelerated serverless deploy fine-tuned paradigm-shifting generative synergize",
+      "logo": "/story-assets/icon_2_light.svg",
+      "avatar": "/story-assets/img_6-12_light.png",
+      "author": "John Doe",
+      "position": "Founder and CEO of AI GmbH N.V. Inc.",
+      "data": [
+        {
+          "value": "80%",
+          "label": "Latency vector interventions"
+        },
+        {
+          "value": "Millions",
+          "label": "Data dependent inference"
+        },
+        {
+          "value": "1.2M",
+          "label": "Uptime pipeline embeddings"
+        }
+      ],
+      "background": "#E0E4FF",
+      "backgroundData": "#614EFA"
+    }
+  }
+}

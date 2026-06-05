@@ -1,0 +1,40 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+import {StoryTemplate} from '../../../demo/StoryTemplate.mdx';
+import * as MiniCaseCardStories from './MiniCaseCard.stories.tsx';
+
+<Meta of={MiniCaseCardStories} />
+<StoryTemplate>
+## Parameters
+
+`type: "mini-case-card"`
+
+`title?: Title | string` — Title.
+
+`tagUsecase?: string[]` — Usecase tags.
+
+`tagIndustry?: string[]` — Industry tags.
+
+`showStory?: boolean` — Show story text.
+
+`showQuote?: boolean` — Show quote and author.
+
+`text?: string` — Left text.
+
+`quote?: string` — Quote.
+
+`logo?: string` — Left logo.
+
+`avatar?: string` — Quote author avatar.
+
+`author?: string` — Quote author name.
+
+`position?: string` — Quote author position.
+
+`background?: string` — Whole card background.
+
+`backgroundData?: string` — RHS data cards background.
+
+`data?: {value: string; label?: string}[]` — RHS data elements.
+
+</StoryTemplate>
