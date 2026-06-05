@@ -4,7 +4,9 @@ import {Link} from '@gravity-ui/uikit';
 
 import {ImageBase, Title} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import {BREAKPOINTS} from '../../constants';
 import {Grid, Row} from '../../grid';
+import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
 import {LogoRotatorBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
@@ -16,6 +18,27 @@ const b = block('logo-rotator-block');
 
 const DEFAULT_MIN_ROTATE_COUNT = 2;
 const DEFAULT_MAX_ROTATE_COUNT = 4;
+
+const getInitialSlots = (items: LogoRotatorBlockProps['items'], count: number) => {
+    const staticIdxList = items.map((item, i) => (item.isStatic ? i : -1)).filter((i) => i !== -1);
+
+    const rotatableIdxList = items
+        .map((item, i) => (item.isStatic ? -1 : i))
+        .filter((i) => i !== -1);
+
+    const initial: number[] = [];
+    let rotatablePointer = 0;
+
+    for (let slot = 0; slot < count; slot++) {
+        if (slot < staticIdxList.length) {
+            initial.push(staticIdxList[slot]);
+        } else {
+            initial.push(rotatableIdxList[rotatablePointer++] ?? 0);
+        }
+    }
+
+    return initial;
+};
 
 const pickRandomSlots = (slotIndices: number[], count: number) => {
     const shuffled = [...slotIndices];
@@ -35,11 +58,15 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         theme,
         items,
         count,
+        desktopCount,
         minRotateCount = DEFAULT_MIN_ROTATE_COUNT,
         maxRotateCount = DEFAULT_MAX_ROTATE_COUNT,
         colSizes,
         rowMode,
     } = props;
+    const breakpoint = useWindowBreakpoint();
+    const activeCount =
+        desktopCount !== undefined && breakpoint >= BREAKPOINTS.md ? desktopCount : count;
 
     // Индексы логотипов, которые участвуют в ротации (не статичные)
     const rotatableIndices = useMemo(
@@ -48,31 +75,10 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     );
 
     // Инициализация слотов: статичные вставляются в начало, остальные по порядку
-    const [slots, setSlots] = useState(() => {
-        const staticIdxList = items
-            .map((item, i) => (item.isStatic ? i : -1))
-            .filter((i) => i !== -1);
+    const [slots, setSlots] = useState(() => getInitialSlots(items, activeCount));
 
-        const rotatableIdxList = items
-            .map((item, i) => (item.isStatic ? -1 : i))
-            .filter((i) => i !== -1);
-
-        const initial: number[] = [];
-        let rotatablePointer = 0;
-
-        for (let slot = 0; slot < count; slot++) {
-            if (slot < staticIdxList.length) {
-                initial.push(staticIdxList[slot]);
-            } else {
-                initial.push(rotatableIdxList[rotatablePointer++] ?? 0);
-            }
-        }
-
-        return initial;
-    });
-
-    const [hidden, setHidden] = useState(() => Array(count).fill(false));
-    const nextIndexRef = useRef(count - 1);
+    const [hidden, setHidden] = useState(() => Array(activeCount).fill(false));
+    const nextIndexRef = useRef(activeCount - 1);
     const isHoveredRef = useRef(false);
 
     // Держим актуальные slots в ref, чтобы не пересоздавать интервал при каждом изменении
@@ -80,6 +86,12 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     useEffect(() => {
         slotsRef.current = slots;
     }, [slots]);
+
+    useEffect(() => {
+        setSlots(getInitialSlots(items, activeCount));
+        setHidden(Array(activeCount).fill(false));
+        nextIndexRef.current = activeCount - 1;
+    }, [activeCount, items]);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout | null = null;
@@ -143,7 +155,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                 clearTimeout(timeout);
             }
         };
-    }, [count, items, maxRotateCount, minRotateCount, rotatableIndices]);
+    }, [activeCount, items, maxRotateCount, minRotateCount, rotatableIndices]);
 
     const renderItems = useMemo(
         () =>

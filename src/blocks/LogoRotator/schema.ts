@@ -43,6 +43,9 @@ export const LogoRotatorBlock = {
             count: {
                 type: 'number',
             },
+            desktopCount: {
+                type: 'number',
+            },
             minRotateCount: {
                 type: 'number',
             },

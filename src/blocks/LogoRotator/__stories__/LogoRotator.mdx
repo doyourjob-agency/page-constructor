@@ -15,7 +15,9 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `items: {url?: string; src: string; isStatic?: boolean}[]` — Items for slots.
 
-`count: number` — Rendering amount of items.
+`count: number` — Rendering amount of items for mobile and as the default when `desktopCount` is not set.
+
+`desktopCount?: number` — Rendering amount of items for desktop viewports (`md` and wider).
 
 `minRotateCount?: number` — Minimum number of logos to rotate per tick (default: `2`).
 
@@ -26,6 +28,5 @@ Rotation pauses while the pointer is over the block.
 `colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
 
 `rowMode?: boolean` — Rendering in row.
-
 
 </StoryTemplate>
