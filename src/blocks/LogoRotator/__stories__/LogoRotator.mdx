@@ -19,11 +19,13 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `desktopCount?: number` — Rendering amount of items for desktop viewports (`md` and wider).
 
-`minRotateCount?: number` — Minimum number of logos to rotate per tick (default: `2`).
+`minRotateCount?: number` — Minimum amount of non-static visible logos rotated per batch.
 
-`maxRotateCount?: number` — Maximum number of logos to rotate per tick (default: `4`). Each tick picks a random count between `minRotateCount` and `maxRotateCount` (inclusive).
+`maxRotateCount?: number` — Maximum amount of non-static visible logos rotated per batch.
 
-Rotation pauses while the pointer is over the block.
+`swapAnimation?: 'fade' | 'morph'` — Logo swap animation. Defaults to `fade`, which fades the old logo out before fading the new logo in; `morph` enables the layered morph-like transition.
+
+Every 2s the block picks a random batch of non-static visible logos between `minRotateCount` and `maxRotateCount`. Hovering a logo pauses only that logo, and selected slots switch using `swapAnimation`.
 
 `colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
 

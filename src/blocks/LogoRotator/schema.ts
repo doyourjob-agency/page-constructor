@@ -52,6 +52,10 @@ export const LogoRotatorBlock = {
             maxRotateCount: {
                 type: 'number',
             },
+            swapAnimation: {
+                type: 'string',
+                enum: ['fade', 'morph'],
+            },
             colSizes: {
                 type: 'object',
                 additionalProperties: containerSizesObject,

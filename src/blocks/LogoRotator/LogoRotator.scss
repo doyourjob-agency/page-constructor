@@ -27,18 +27,52 @@ $block: '.#{$ns}logo-rotator-block';
     }
 
     &__item {
+        position: relative;
         display: block;
         height: 100px;
-        transition: opacity 0.5s ease 0.1s;
-        opacity: 1;
-
-        &_hidden {
-            opacity: 0;
-        }
+        overflow: hidden;
 
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             height: 80px;
         }
+    }
+
+    &__item-link,
+    &__row-item-link {
+        display: block;
+        height: 100%;
+    }
+
+    &__logo-layer {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__item_swapping &__logo-layer,
+    &__row-item_swapping &__logo-layer {
+        position: absolute;
+        inset: 0;
+    }
+
+    &__logo-layer_from {
+        pointer-events: none;
+    }
+
+    &__logo-layer_fade-from {
+        animation: logo-rotator-fade-out 0.5s ease 0.1s both;
+    }
+
+    &__logo-layer_fade-to {
+        animation: logo-rotator-fade-in 0.5s ease 0.6s both;
+    }
+
+    &__logo-layer_morph-from {
+        animation: logo-rotator-morph-out 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    &__logo-layer_morph-to {
+        animation: logo-rotator-morph-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     &__image {
@@ -57,15 +91,71 @@ $block: '.#{$ns}logo-rotator-block';
     }
 
     &__row-item {
+        position: relative;
         display: block;
         height: 36px;
         min-width: 160px;
         flex: 1;
-        transition: opacity 0.5s ease 0.1s;
-        opacity: 1;
+        overflow: hidden;
+    }
+}
 
-        &_hidden {
-            opacity: 0;
+@keyframes logo-rotator-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes logo-rotator-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes logo-rotator-morph-out {
+    from {
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0) scaleX(1);
+        opacity: 1;
+    }
+
+    to {
+        clip-path: inset(0 100% 0 0);
+        transform: translateX(-8%) scaleX(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes logo-rotator-morph-in {
+    from {
+        clip-path: inset(0 0 0 100%);
+        transform: translateX(8%) scaleX(0.9);
+        opacity: 0;
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+        transform: translateX(0) scaleX(1);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #{$block} {
+        &__logo-layer_fade-from,
+        &__logo-layer_fade-to,
+        &__logo-layer_morph-from,
+        &__logo-layer_morph-to {
+            animation-duration: 1ms;
+            animation-delay: 0ms;
         }
     }
 }

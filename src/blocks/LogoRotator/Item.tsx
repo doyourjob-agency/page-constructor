@@ -7,6 +7,9 @@ import {Col} from '../../grid';
 import {LogoRotatorBlockProps} from '../../models';
 import {block} from '../../utils';
 
+import {getLayerModifiers} from './utils';
+import type {LogoRotatorLayer, LogoRotatorSwapAnimation} from './utils';
+
 import './LogoRotator.scss';
 
 const b = block('logo-rotator-block');
@@ -16,28 +19,62 @@ const defaultColSizes = {all: 3};
 type Props = {
     src: string;
     url?: string;
-    hidden: boolean;
+    previousSrc?: string;
+    previousUrl?: string;
+    swapAnimation: LogoRotatorSwapAnimation;
     colSizes: LogoRotatorBlockProps['colSizes'];
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 };
 
-export const Item = ({url, src, hidden, colSizes}: Props) => {
-    const renderItem = React.useMemo(() => {
-        if (url) {
+const getLayerClassName = (
+    layer: LogoRotatorLayer,
+    swapAnimation: LogoRotatorSwapAnimation,
+    link = false,
+) =>
+    `${link ? `${b('item-link')} ` : ''}${b(
+        'logo-layer',
+        getLayerModifiers(layer, swapAnimation),
+    )}`;
+
+export const Item = ({
+    url,
+    src,
+    previousSrc,
+    previousUrl,
+    swapAnimation,
+    colSizes,
+    onMouseEnter,
+    onMouseLeave,
+}: Props) => {
+    const renderLayer = (layerSrc: string, layer: LogoRotatorLayer, layerUrl?: string) => {
+        const image = <Image src={layerSrc} className={b('image')} alt="" aria-hidden="true" />;
+
+        if (layerUrl) {
             return (
-                <Link href={url} className={b('item', {hidden})}>
-                    <Image src={src} className={b('image')} alt="" aria-hidden="true" />
+                <Link href={layerUrl} className={getLayerClassName(layer, swapAnimation, true)}>
+                    {image}
                 </Link>
             );
         }
 
-        return (
-            <div className={b('item', {hidden})}>
-                <Image src={src} className={b('image')} alt="" aria-hidden="true" />
-            </div>
-        );
-    }, [hidden, src, url]);
+        return <div className={getLayerClassName(layer, swapAnimation)}>{image}</div>;
+    };
 
-    return <Col sizes={colSizes || defaultColSizes}>{renderItem}</Col>;
+    const isSwapping = Boolean(previousSrc);
+
+    return (
+        <Col sizes={colSizes || defaultColSizes}>
+            <div
+                className={b('item', {swapping: isSwapping})}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+            >
+                {previousSrc && renderLayer(previousSrc, 'from', previousUrl)}
+                {renderLayer(src, previousSrc ? 'to' : 'current', url)}
+            </div>
+        </Col>
+    );
 };
 
 export default React.memo(Item);

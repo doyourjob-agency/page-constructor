@@ -397,6 +397,7 @@ export interface LogoRotatorBlockProps extends Animatable {
     desktopCount?: number;
     minRotateCount?: number;
     maxRotateCount?: number;
+    swapAnimation?: 'fade' | 'morph';
     colSizes?: Partial<Record<GridColumnSize, number>>;
     theme?: TextTheme;
     rowMode?: boolean;

@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
@@ -11,6 +11,13 @@ import {LogoRotatorBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
+import {
+    DEFAULT_SWAP_ANIMATION,
+    SWAP_ANIMATION_DURATIONS,
+    getInitialSlots,
+    getLayerModifiers,
+} from './utils';
+import type {LogoRotatorLayer} from './utils';
 
 import './LogoRotator.scss';
 
@@ -19,26 +26,13 @@ const b = block('logo-rotator-block');
 const DEFAULT_MIN_ROTATE_COUNT = 2;
 const DEFAULT_MAX_ROTATE_COUNT = 4;
 
-const getInitialSlots = (items: LogoRotatorBlockProps['items'], count: number) => {
-    const staticIdxList = items.map((item, i) => (item.isStatic ? i : -1)).filter((i) => i !== -1);
-
-    const rotatableIdxList = items
-        .map((item, i) => (item.isStatic ? -1 : i))
-        .filter((i) => i !== -1);
-
-    const initial: number[] = [];
-    let rotatablePointer = 0;
-
-    for (let slot = 0; slot < count; slot++) {
-        if (slot < staticIdxList.length) {
-            initial.push(staticIdxList[slot]);
-        } else {
-            initial.push(rotatableIdxList[rotatablePointer++] ?? 0);
-        }
-    }
-
-    return initial;
+type SlotTransition = {
+    from: number;
+    to: number;
 };
+
+const emptyTransitions = (count: number) =>
+    Array<SlotTransition | undefined>(count).fill(undefined);
 
 const pickRandomSlots = (slotIndices: number[], count: number) => {
     const shuffled = [...slotIndices];
@@ -61,6 +55,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         desktopCount,
         minRotateCount = DEFAULT_MIN_ROTATE_COUNT,
         maxRotateCount = DEFAULT_MAX_ROTATE_COUNT,
+        swapAnimation = DEFAULT_SWAP_ANIMATION,
         colSizes,
         rowMode,
     } = props;
@@ -77,9 +72,9 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     // Инициализация слотов: статичные вставляются в начало, остальные по порядку
     const [slots, setSlots] = useState(() => getInitialSlots(items, activeCount));
 
-    const [hidden, setHidden] = useState(() => Array(activeCount).fill(false));
+    const [transitions, setTransitions] = useState(() => emptyTransitions(activeCount));
     const nextIndexRef = useRef(activeCount - 1);
-    const isHoveredRef = useRef(false);
+    const hoveredSlotIndicesRef = useRef(new Set<number>());
 
     // Держим актуальные slots в ref, чтобы не пересоздавать интервал при каждом изменении
     const slotsRef = useRef(slots);
@@ -88,20 +83,36 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     }, [slots]);
 
     useEffect(() => {
-        setSlots(getInitialSlots(items, activeCount));
-        setHidden(Array(activeCount).fill(false));
+        const initialSlots = getInitialSlots(items, activeCount);
+
+        slotsRef.current = initialSlots;
+        setSlots(initialSlots);
+        setTransitions(emptyTransitions(activeCount));
         nextIndexRef.current = activeCount - 1;
+        hoveredSlotIndicesRef.current.clear();
     }, [activeCount, items]);
+
+    const handleSlotMouseEnter = useCallback((slotIndex: number) => {
+        hoveredSlotIndicesRef.current.add(slotIndex);
+    }, []);
+
+    const handleSlotMouseLeave = useCallback((slotIndex: number) => {
+        hoveredSlotIndicesRef.current.delete(slotIndex);
+    }, []);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout | null = null;
 
         const interval = setInterval(() => {
-            if (isHoveredRef.current) return;
+            const currentSlots = slotsRef.current;
 
-            // Выбираем только не-статичные слоты для замены
-            const rotatableSlotIndices = slotsRef.current
-                .map((itemIdx, slotIdx) => (items[itemIdx]?.isStatic ? -1 : slotIdx))
+            // Выбираем только не-статичные слоты, на которые не наведен указатель
+            const rotatableSlotIndices = currentSlots
+                .map((itemIdx, slotIdx) =>
+                    items[itemIdx]?.isStatic || hoveredSlotIndicesRef.current.has(slotIdx)
+                        ? -1
+                        : slotIdx,
+                )
                 .filter((i) => i !== -1);
 
             if (rotatableSlotIndices.length === 0) return;
@@ -114,10 +125,43 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                 Math.min(rotateCount, rotatableSlotIndices.length),
             );
 
-            setHidden((prev) => {
+            let available = rotatableIndices.filter((i) => !currentSlots.includes(i));
+            const blockedTargetSrcs = new Set<string>();
+            const nextTransitions: Array<{slotIndex: number} & SlotTransition> = [];
+
+            slotIndices.forEach((slotIndex) => {
+                if (available.length === 0) return;
+
+                const currentItemIndex = currentSlots[slotIndex];
+                const currentSrc = items[currentItemIndex]?.src;
+                const slotAvailable = available.filter((i) => {
+                    const src = items[i]?.src;
+
+                    return src !== currentSrc && !blockedTargetSrcs.has(src);
+                });
+
+                if (slotAvailable.length === 0) return;
+
+                const newValue = slotAvailable[nextIndexRef.current % slotAvailable.length];
+
+                nextIndexRef.current++;
+                available = available.filter((i) => i !== newValue);
+
+                const newSrc = items[newValue]?.src;
+
+                if (newSrc) {
+                    blockedTargetSrcs.add(newSrc);
+                }
+
+                nextTransitions.push({slotIndex, from: currentItemIndex, to: newValue});
+            });
+
+            if (nextTransitions.length === 0) return;
+
+            setTransitions((prev) => {
                 const next = [...prev];
-                slotIndices.forEach((slotIndex) => {
-                    next[slotIndex] = true;
+                nextTransitions.forEach(({slotIndex, from, to}) => {
+                    next[slotIndex] = {from, to};
                 });
                 return next;
             });
@@ -125,28 +169,20 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
             timeout = setTimeout(() => {
                 setSlots((prevSlots) => {
                     const newSlots = [...prevSlots];
-                    let available = rotatableIndices.filter((i) => !newSlots.includes(i));
-
-                    slotIndices.forEach((slotIndex) => {
-                        if (available.length === 0) return;
-
-                        const newValue = available[nextIndexRef.current % available.length];
-                        nextIndexRef.current++;
-                        newSlots[slotIndex] = newValue;
-                        available = available.filter((i) => i !== newValue);
+                    nextTransitions.forEach(({slotIndex, to}) => {
+                        newSlots[slotIndex] = to;
                     });
-
                     return newSlots;
                 });
 
-                setHidden((prev) => {
+                setTransitions((prev) => {
                     const next = [...prev];
-                    slotIndices.forEach((slotIndex) => {
-                        next[slotIndex] = false;
+                    nextTransitions.forEach(({slotIndex}) => {
+                        next[slotIndex] = undefined;
                     });
                     return next;
                 });
-            }, 500);
+            }, SWAP_ANIMATION_DURATIONS[swapAnimation]);
         }, 2000);
 
         return () => {
@@ -155,20 +191,38 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                 clearTimeout(timeout);
             }
         };
-    }, [activeCount, items, maxRotateCount, minRotateCount, rotatableIndices]);
+    }, [activeCount, items, maxRotateCount, minRotateCount, rotatableIndices, swapAnimation]);
 
     const renderItems = useMemo(
         () =>
-            slots.map((slot, index) => (
-                <Item
-                    key={index}
-                    colSizes={colSizes}
-                    url={items[slot].url}
-                    src={items[slot].src}
-                    hidden={hidden[index]}
-                />
-            )),
-        [colSizes, hidden, items, slots],
+            slots.map((slot, index) => {
+                const transition = transitions[index];
+                const item = items[transition?.to ?? slot];
+                const previousItem = transition ? items[transition.from] : undefined;
+
+                return (
+                    <Item
+                        key={index}
+                        colSizes={colSizes}
+                        url={item.url}
+                        src={item.src}
+                        previousUrl={previousItem?.url}
+                        previousSrc={previousItem?.src}
+                        swapAnimation={swapAnimation}
+                        onMouseEnter={() => handleSlotMouseEnter(index)}
+                        onMouseLeave={() => handleSlotMouseLeave(index)}
+                    />
+                );
+            }),
+        [
+            colSizes,
+            handleSlotMouseEnter,
+            handleSlotMouseLeave,
+            items,
+            slots,
+            swapAnimation,
+            transitions,
+        ],
     );
 
     const titleProps =
@@ -179,50 +233,71 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
 
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
-            <div
-                className={b('root')}
-                onMouseEnter={() => {
-                    isHoveredRef.current = true;
-                }}
-                onMouseLeave={() => {
-                    isHoveredRef.current = false;
-                }}
-            >
+            <div className={b('root')}>
                 {hasTitle && (
                     <Title title={titleProps} className={b('title')} colSizes={{all: 12}} />
                 )}
                 {rowMode ? (
                     <div className={b('row-items')}>
                         {slots.map((slot, index) => {
-                            const item = items[slot];
+                            const transition = transitions[index];
+                            const item = items[transition?.to ?? slot];
+                            const previousItem = transition ? items[transition.from] : undefined;
 
-                            if (!item) return null;
+                            if (item === undefined) return null;
 
-                            if (item.url) {
+                            const renderRowLayer = (
+                                layerItem: typeof item,
+                                layer: LogoRotatorLayer,
+                            ) => {
+                                const layerClassName = b(
+                                    'logo-layer',
+                                    getLayerModifiers(layer, swapAnimation),
+                                );
+
+                                if (layerItem.url) {
+                                    return (
+                                        <Link
+                                            href={layerItem.url}
+                                            className={`${b('row-item-link')} ${layerClassName}`}
+                                        >
+                                            <ImageBase
+                                                src={layerItem.src}
+                                                className={b('image')}
+                                                alt=""
+                                                aria-hidden="true"
+                                            />
+                                        </Link>
+                                    );
+                                }
+
                                 return (
-                                    <Link
-                                        key={index}
-                                        href={item.url}
-                                        className={b('row-item', {hidden: hidden[index]})}
-                                    >
+                                    <div className={layerClassName}>
                                         <ImageBase
-                                            src={item.src}
+                                            src={layerItem.src}
                                             className={b('image')}
                                             alt=""
                                             aria-hidden="true"
                                         />
-                                    </Link>
+                                    </div>
                                 );
-                            }
+                            };
+
+                            const content = (
+                                <React.Fragment>
+                                    {previousItem && renderRowLayer(previousItem, 'from')}
+                                    {renderRowLayer(item, previousItem ? 'to' : 'current')}
+                                </React.Fragment>
+                            );
 
                             return (
-                                <div key={index} className={b('row-item', {hidden: hidden[index]})}>
-                                    <ImageBase
-                                        src={item.src}
-                                        className={b('image')}
-                                        alt=""
-                                        aria-hidden="true"
-                                    />
+                                <div
+                                    key={index}
+                                    className={b('row-item', {swapping: Boolean(previousItem)})}
+                                    onMouseEnter={() => handleSlotMouseEnter(index)}
+                                    onMouseLeave={() => handleSlotMouseLeave(index)}
+                                >
+                                    {content}
                                 </div>
                             );
                         })}

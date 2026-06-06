@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {render, screen, waitFor} from '@testing-library/react';
+import {act, fireEvent, render, screen, waitFor} from '@testing-library/react';
 
 import {LogoRotatorBlockProps} from '../../../models';
 import LogoRotator from '../LogoRotator';
@@ -25,7 +25,16 @@ const setWindowWidth = (width: number) => {
 
 const getLogoItems = () => screen.getAllByRole('img', {hidden: true});
 
+/* eslint-disable testing-library/no-node-access */
+const getLayerClassCount = (className: string) => document.querySelectorAll(`.${className}`).length;
+/* eslint-enable testing-library/no-node-access */
+
 describe('LogoRotator', () => {
+    afterEach(() => {
+        jest.useRealTimers();
+        jest.restoreAllMocks();
+    });
+
     test('renders count items by default', async () => {
         setWindowWidth(360);
 
@@ -51,5 +60,197 @@ describe('LogoRotator', () => {
 
         expect(schema.properties.desktopCount).toEqual({type: 'number'});
         expect(schema.required).not.toContain('desktopCount');
+    });
+
+    test('allows swapAnimation in schema without requiring it', () => {
+        const schema = LogoRotatorBlockSchema['logo-rotator-block'];
+
+        expect(schema.properties.swapAnimation).toEqual({
+            type: 'string',
+            enum: ['fade', 'morph'],
+        });
+        expect(schema.required).not.toContain('swapAnimation');
+    });
+
+    test('keeps default fade layers for the sequential fade-out and fade-in duration', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({count: 4, minRotateCount: 2, maxRotateCount: 2});
+
+        act(() => {
+            jest.advanceTimersByTime(1999);
+        });
+
+        expect(getLogoItems()).toHaveLength(4);
+
+        act(() => {
+            jest.advanceTimersByTime(1);
+        });
+
+        expect(getLogoItems()).toHaveLength(6);
+
+        act(() => {
+            jest.advanceTimersByTime(600);
+        });
+
+        expect(getLogoItems()).toHaveLength(6);
+
+        act(() => {
+            jest.advanceTimersByTime(499);
+        });
+
+        expect(getLogoItems()).toHaveLength(6);
+
+        act(() => {
+            jest.advanceTimersByTime(1);
+        });
+
+        expect(getLogoItems()).toHaveLength(4);
+    });
+
+    test('keeps morph layers on the shorter morph duration', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({
+            count: 4,
+            minRotateCount: 2,
+            maxRotateCount: 2,
+            swapAnimation: 'morph',
+        });
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        expect(getLogoItems()).toHaveLength(6);
+
+        act(() => {
+            jest.advanceTimersByTime(500);
+        });
+
+        expect(getLogoItems()).toHaveLength(4);
+    });
+
+    test('renders outgoing and incoming logo layers during rotation', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({count: 1});
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        const transitionSrcs = getLogoItems().map((image) => image.getAttribute('src'));
+
+        expect(transitionSrcs).toEqual(['/logo-0.svg', '/logo-1.svg']);
+
+        act(() => {
+            jest.advanceTimersByTime(1100);
+        });
+
+        expect(getLogoItems()).toHaveLength(1);
+        expect(getLogoItems()[0]).toHaveAttribute('src', '/logo-1.svg');
+    });
+
+    test('uses fade swap animation by default', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({count: 1});
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_fade-from')).toBe(1);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_fade-to')).toBe(1);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_morph-from')).toBe(0);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_morph-to')).toBe(0);
+    });
+
+    test('uses morph swap animation when selected', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({count: 1, swapAnimation: 'morph'});
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_morph-from')).toBe(1);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_morph-to')).toBe(1);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_fade-from')).toBe(0);
+        expect(getLayerClassCount('pc-logo-rotator-block__logo-layer_fade-to')).toBe(0);
+    });
+
+    test('skips duplicate logo assets when choosing the incoming layer', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({
+            count: 1,
+            items: [{src: '/logo-0.svg'}, {src: '/logo-0.svg'}, {src: '/logo-1.svg'}],
+        });
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        expect(getLogoItems().map((image) => image.getAttribute('src'))).toEqual([
+            '/logo-0.svg',
+            '/logo-1.svg',
+        ]);
+    });
+
+    test('allows hidden logos that duplicate another visible logo', () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator({
+            count: 2,
+            items: [
+                {src: '/logo-0.svg'},
+                {src: '/logo-1.svg', isStatic: true},
+                {src: '/logo-2.svg'},
+                {src: '/logo-1.svg'},
+            ],
+        });
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+
+        expect(getLogoItems().map((image) => image.getAttribute('src'))).toEqual([
+            '/logo-1.svg',
+            '/logo-0.svg',
+            '/logo-1.svg',
+        ]);
+    });
+
+    test('keeps non-hovered logos rotating while the hovered logo is paused', async () => {
+        jest.useFakeTimers();
+        jest.spyOn(Math, 'random').mockReturnValue(0);
+
+        renderLogoRotator();
+
+        const initialSrcs = getLogoItems().map((image) => image.getAttribute('src'));
+        const hoveredLogo = getLogoItems()[0];
+
+        expect(hoveredLogo).not.toBeNull();
+
+        fireEvent.mouseEnter(hoveredLogo);
+
+        act(() => {
+            jest.advanceTimersByTime(2500);
+        });
+
+        const nextSrcs = getLogoItems().map((image) => image.getAttribute('src'));
+
+        expect(nextSrcs[0]).toBe(initialSrcs[0]);
+        expect(nextSrcs.slice(1)).not.toEqual(initialSrcs.slice(1));
     });
 });
