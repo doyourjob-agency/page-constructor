@@ -393,8 +393,8 @@ export interface BannerBlockProps extends BannerCardProps, Animatable {}
 export interface LogoRotatorBlockProps extends Animatable {
     title?: TitleItemBaseProps | string;
     items: {url?: string; src: string; isStatic?: boolean}[];
-    count: number;
-    desktopCount?: number;
+    countMobile: number;
+    countDesktop?: number;
     minRotateCount?: number;
     maxRotateCount?: number;
     swapAnimation?: 'fade' | 'morph';

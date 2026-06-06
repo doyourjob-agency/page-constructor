@@ -51,8 +51,8 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         title,
         theme,
         items,
-        count,
-        desktopCount,
+        countMobile,
+        countDesktop,
         minRotateCount = DEFAULT_MIN_ROTATE_COUNT,
         maxRotateCount = DEFAULT_MAX_ROTATE_COUNT,
         swapAnimation = DEFAULT_SWAP_ANIMATION,
@@ -61,7 +61,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     } = props;
     const breakpoint = useWindowBreakpoint();
     const activeCount =
-        desktopCount !== undefined && breakpoint >= BREAKPOINTS.md ? desktopCount : count;
+        countDesktop !== undefined && breakpoint >= BREAKPOINTS.md ? countDesktop : countMobile;
 
     // Индексы логотипов, которые участвуют в ротации (не статичные)
     const rotatableIndices = useMemo(

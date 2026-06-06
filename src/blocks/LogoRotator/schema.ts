@@ -9,7 +9,7 @@ import {
 export const LogoRotatorBlock = {
     'logo-rotator-block': {
         additionalProperties: false,
-        required: ['items', 'count'],
+        required: ['items', 'countMobile'],
         properties: {
             ...BaseProps,
             ...AnimatableProps,
@@ -40,10 +40,10 @@ export const LogoRotatorBlock = {
                     },
                 },
             },
-            count: {
+            countMobile: {
                 type: 'number',
             },
-            desktopCount: {
+            countDesktop: {
                 type: 'number',
             },
             minRotateCount: {

@@ -12,7 +12,13 @@ const items = Array.from({length: 8}, (_, index) => ({
 
 const renderLogoRotator = (props: Partial<LogoRotatorBlockProps> = {}) =>
     render(
-        <LogoRotator items={items} count={3} minRotateCount={1} maxRotateCount={1} {...props} />,
+        <LogoRotator
+            items={items}
+            countMobile={3}
+            minRotateCount={1}
+            maxRotateCount={1}
+            {...props}
+        />,
     );
 
 const setWindowWidth = (width: number) => {
@@ -35,31 +41,36 @@ describe('LogoRotator', () => {
         jest.restoreAllMocks();
     });
 
-    test('renders count items by default', async () => {
+    test('renders countMobile items by default', async () => {
         setWindowWidth(360);
 
-        renderLogoRotator({desktopCount: 5});
+        renderLogoRotator({countDesktop: 5});
 
         await waitFor(() => {
             expect(getLogoItems()).toHaveLength(3);
         });
     });
 
-    test('renders desktopCount items on desktop', async () => {
+    test('renders countDesktop items on desktop', async () => {
         setWindowWidth(1280);
 
-        renderLogoRotator({desktopCount: 5});
+        renderLogoRotator({countDesktop: 5});
 
         await waitFor(() => {
             expect(getLogoItems()).toHaveLength(5);
         });
     });
 
-    test('allows desktopCount in schema without requiring it', () => {
+    test('allows countDesktop in schema without requiring it', () => {
         const schema = LogoRotatorBlockSchema['logo-rotator-block'];
 
-        expect(schema.properties.desktopCount).toEqual({type: 'number'});
-        expect(schema.required).not.toContain('desktopCount');
+        expect(schema.properties.countMobile).toEqual({type: 'number'});
+        expect(schema.properties.countDesktop).toEqual({type: 'number'});
+        expect(schema.properties).not.toHaveProperty('count');
+        expect(schema.properties).not.toHaveProperty('desktopCount');
+        expect(schema.required).toContain('countMobile');
+        expect(schema.required).not.toContain('count');
+        expect(schema.required).not.toContain('countDesktop');
     });
 
     test('allows swapAnimation in schema without requiring it', () => {
@@ -76,7 +87,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: 4, minRotateCount: 2, maxRotateCount: 2});
+        renderLogoRotator({countMobile: 4, minRotateCount: 2, maxRotateCount: 2});
 
         act(() => {
             jest.advanceTimersByTime(1999);
@@ -114,7 +125,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: 4,
+            countMobile: 4,
             minRotateCount: 2,
             maxRotateCount: 2,
             swapAnimation: 'morph',
@@ -137,7 +148,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: 1});
+        renderLogoRotator({countMobile: 1});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -159,7 +170,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: 1});
+        renderLogoRotator({countMobile: 1});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -175,7 +186,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: 1, swapAnimation: 'morph'});
+        renderLogoRotator({countMobile: 1, swapAnimation: 'morph'});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -192,7 +203,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: 1,
+            countMobile: 1,
             items: [{src: '/logo-0.svg'}, {src: '/logo-0.svg'}, {src: '/logo-1.svg'}],
         });
 
@@ -211,7 +222,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: 2,
+            countMobile: 2,
             items: [
                 {src: '/logo-0.svg'},
                 {src: '/logo-1.svg', isStatic: true},
