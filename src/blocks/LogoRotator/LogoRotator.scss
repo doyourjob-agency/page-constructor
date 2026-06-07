@@ -8,6 +8,12 @@ $block: '.#{$ns}logo-rotator-block';
 
     &__row {
         justify-content: center;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            > .col {
+                max-width: 50%;
+            }
+        }
     }
 
     &_theme_dark &__title {
