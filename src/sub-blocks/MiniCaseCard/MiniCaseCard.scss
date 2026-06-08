@@ -55,6 +55,10 @@ $rhs-card-min-width: 400px;
         display: flex;
         flex-flow: row wrap;
         gap: $indentXXXS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            flex-wrap: wrap;
+        }
     }
 
     &__tag {
