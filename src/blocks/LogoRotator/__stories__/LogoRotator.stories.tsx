@@ -12,8 +12,7 @@ export default {
     title: 'Blocks/LogoRotator',
     component: LogoRotator,
     argTypes: {
-        countMobile: {control: 'number'},
-        countDesktop: {control: 'number'},
+        count: {control: 'object'},
         minRotateCount: {control: 'number'},
         maxRotateCount: {control: 'number'},
     },

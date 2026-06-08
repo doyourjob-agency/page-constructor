@@ -5,7 +5,7 @@ import {Link} from '@gravity-ui/uikit';
 import {ImageBase} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BREAKPOINTS} from '../../constants';
-import {Grid, Row} from '../../grid';
+import {Grid, GridColumnSize, Row} from '../../grid';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
 import {LogoRotatorBlockProps} from '../../models';
 import {block} from '../../utils';
@@ -26,6 +26,14 @@ const b = block('logo-rotator-block');
 const DEFAULT_MIN_ROTATE_COUNT = 2;
 const DEFAULT_MAX_ROTATE_COUNT = 4;
 
+const countBreakpoints: Array<[GridColumnSize, number]> = [
+    [GridColumnSize.All, BREAKPOINTS.xs],
+    [GridColumnSize.Sm, BREAKPOINTS.sm],
+    [GridColumnSize.Md, BREAKPOINTS.md],
+    [GridColumnSize.Lg, BREAKPOINTS.lg],
+    [GridColumnSize.Xl, BREAKPOINTS.xl],
+];
+
 type SlotTransition = {
     from: number;
     to: number;
@@ -45,6 +53,20 @@ const pickRandomSlots = (slotIndices: number[], count: number) => {
     return shuffled.slice(0, count);
 };
 
+const getActiveCount = (count: LogoRotatorBlockProps['count'], breakpoint: number) => {
+    let result = count.all;
+
+    countBreakpoints.forEach(([size, minWidth]) => {
+        const breakpointCount = count[size];
+
+        if (breakpoint >= minWidth && breakpointCount !== undefined) {
+            result = breakpointCount;
+        }
+    });
+
+    return result;
+};
+
 export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     const {
         animated,
@@ -52,8 +74,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         text,
         theme,
         items,
-        countMobile,
-        countDesktop,
+        count,
         minRotateCount = DEFAULT_MIN_ROTATE_COUNT,
         maxRotateCount = DEFAULT_MAX_ROTATE_COUNT,
         swapAnimation = DEFAULT_SWAP_ANIMATION,
@@ -61,8 +82,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         rowMode,
     } = props;
     const breakpoint = useWindowBreakpoint();
-    const activeCount =
-        countDesktop !== undefined && breakpoint >= BREAKPOINTS.md ? countDesktop : countMobile;
+    const activeCount = getActiveCount(count, breakpoint);
 
     // Индексы логотипов, которые участвуют в ротации (не статичные)
     const rotatableIndices = useMemo(

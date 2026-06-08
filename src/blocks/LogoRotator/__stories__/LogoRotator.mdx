@@ -15,9 +15,19 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `items: {url?: string; src: string; isStatic?: boolean}[]` — Items for slots.
 
-`countMobile: number` — Rendering amount of items for mobile and as the default when `countDesktop` is not set.
+`count: {all: number; sm?: number; md?: number; lg?: number; xl?: number}` — Rendering amount of items by viewport breakpoint. Missing breakpoints use the nearest configured smaller breakpoint.
 
-`countDesktop?: number` — Rendering amount of items for desktop viewports (`md` and wider).
+For balanced rows, choose values divisible by the column count, for example 10 for 2 columns, 12 for 3 columns, 20 for 4 or 5 columns, or 21 for 7 columns.
+
+Example:
+
+```yaml
+count:
+    all: 10 # 2 columns
+    md: 12 # 3 columns
+    lg: 20 # 4 or 5 columns
+    xl: 21 # 7 columns
+```
 
 `minRotateCount?: number` — Minimum amount of non-static visible logos rotated per batch.
 
