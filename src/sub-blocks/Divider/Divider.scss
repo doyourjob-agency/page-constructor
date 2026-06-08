@@ -1,8 +1,11 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 $block: '.#{$ns}divider-block';
 
 #{$block} {
+    @include visibility-classes();
+
     &_size {
         &_xxs {
             padding-top: $indentXXS;

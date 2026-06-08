@@ -8,6 +8,10 @@ export const Divider = {
             border: {
                 type: 'boolean',
             },
+            visibility: {
+                type: 'string',
+                enum: ['mobile', 'desktop'],
+            },
             size: dividerEnum,
         },
     },

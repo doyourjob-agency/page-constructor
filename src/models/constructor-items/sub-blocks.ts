@@ -3,7 +3,7 @@ import {ThemeSupporting} from '../../utils';
 import {HubspotEventData, HubspotEventHandlers} from '../../utils/hubspot';
 import {AnalyticsEventsBase} from '../common';
 
-import {ContentBlockProps} from './blocks';
+import {ContentBlockProps, VisibilityPreset} from './blocks';
 import {
     AuthorItem,
     ButtonProps,
@@ -81,6 +81,7 @@ export const SubBlockTypes = Object.values(SubBlockType);
 export interface DividerProps {
     size?: DividerSize;
     border?: boolean;
+    visibility?: VisibilityPreset;
 }
 
 export interface HubspotFormProps extends HubspotEventHandlers, AnalyticsEventsBase {
