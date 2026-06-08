@@ -102,9 +102,9 @@ const MiniCaseCardHead: React.FC<MiniCaseCardHeadProps> = ({
     return (
         <div className={b('head')}>
             {title && (
-                <div className={b('title')}>
+                <h2 className={`${b('title')} title-font-family`}>
                     <HTML>{title}</HTML>
-                </div>
+                </h2>
             )}
             {shouldShowStory && <HTML className={b('text')}>{text}</HTML>}
             {showQuote && quote && <HTML className={b('quote')}>{quote}</HTML>}
@@ -165,8 +165,10 @@ const MiniCaseCard: React.FC<MiniCaseCardProps> = ({
                         className={b('box')}
                         style={backgroundData ? {background: backgroundData} : undefined}
                     >
-                        <div className={`${b('value')} title-font-family`}>{item.value}</div>
-                        <div className={b('label')}>{item.label}</div>
+                        <div className={b('inner-container')}>
+                            <div className={`${b('value')} title-font-family`}>{item.value}</div>
+                            <div className={b('label')}>{item.label}</div>
+                        </div>
                     </div>
                 ))}
             </div>
