@@ -155,14 +155,14 @@ $backgroundWidth: 1440px;
         position: relative;
         margin-bottom: $indentM;
 
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            font-size: 72px;
+        }
+
         @media (max-width: map-get($gridBreakpoints, 'sm')) {
             font-size: 36px;
             line-height: 40px;
             margin-bottom: $indentXS;
-        }
-
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            font-size: 72px;
         }
     }
 
