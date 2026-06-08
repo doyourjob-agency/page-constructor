@@ -53,7 +53,7 @@ $rhs-card-min-width: 400px;
 
     &__tags {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         gap: $indentXXXS;
     }
 
