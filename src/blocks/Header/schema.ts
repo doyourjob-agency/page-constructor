@@ -150,6 +150,8 @@ export const HeaderProperties = {
         type: 'string',
         enum: ['default', 'dark'],
     },
+    unicorn: {type: 'string'},
+    unicornSdkUrl: {type: 'string'},
     breadcrumbs: {
         type: 'object',
         additionalProperties: false,

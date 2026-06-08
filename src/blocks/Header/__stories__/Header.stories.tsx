@@ -215,6 +215,7 @@ export const Breadcrumbs = BreadCrumbsTemplate.bind({});
 export const MediaViewFit = FitTemplate.bind({});
 export const WithStock = StockTemplate.bind({});
 export const WithBackgroundEffect = DefaultTemplate.bind({});
+export const WithUnicorn = DefaultTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -267,4 +268,9 @@ WithStock.args = {
 WithBackgroundEffect.args = {
     ...DefaultArgs,
     ...data.backgroundEffect.content,
+} as HeaderBlockProps;
+
+WithUnicorn.args = {
+    ...DefaultArgs,
+    ...data.unicorn.content,
 } as HeaderBlockProps;

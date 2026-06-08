@@ -2,7 +2,7 @@ import React, {useContext, useMemo, useRef} from 'react';
 
 import {useUniqId} from '@gravity-ui/uikit';
 
-import {BackgroundEffect, HTML, Media} from '../../components';
+import {BackgroundEffect, HTML, Media, UnicornScene} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
 import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
@@ -101,6 +101,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         backgroundEffect,
         headerSpace,
         backLink,
+        unicorn,
+        unicornSdkUrl,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -125,6 +127,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
     const titleId = useUniqId();
     const headerRef = useRef<HTMLElement>(null);
+    const hasBackground = Boolean(backgroundThemed || backgroundEffect);
     const backButtonItem = useMemo(() => {
         if (backLink) {
             return {link: backLink.url, text: backLink.title};
@@ -141,6 +144,7 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             className={b(
                 {
                     ['has-media']: hasRightSideImage,
+                    ['has-background']: hasBackground,
                     ['full-width']: fullWidth,
                     ['media-view']: mediaView,
                     ['controls-view']: textTheme,
@@ -153,6 +157,11 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
             {backgroundThemed && <Background background={backgroundThemed} isMobile={isMobile} />}
             {backgroundEffect && backgroundEffect.firstSrc && backgroundEffect.secondSrc && (
                 <BackgroundEffect {...backgroundEffect} attachRef={headerRef} />
+            )}
+            {unicorn && (
+                <div className={b('background', {unicorn: true})}>
+                    <UnicornScene jsonFilePath={unicorn} sdkUrl={unicornSdkUrl} />
+                </div>
             )}
             <Grid containerClass={b('container-fluid')}>
                 <Breadcrumbs breadcrumbs={breadcrumbs} theme={textTheme} />

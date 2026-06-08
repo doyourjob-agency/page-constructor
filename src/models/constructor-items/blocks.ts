@@ -308,6 +308,8 @@ export interface HeaderBlockProps {
     mediaView?: MediaView;
     background?: ThemedHeaderBlockBackground;
     theme?: 'light' | 'dark';
+    unicorn?: string;
+    unicornSdkUrl?: string;
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
     verticalOffsetTop?: 's' | 'm' | 'l' | 'xl';
     verticalOffsetBottom?: 's' | 'm' | 'l' | 'xl';

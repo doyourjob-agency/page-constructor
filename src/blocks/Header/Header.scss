@@ -228,6 +228,23 @@ $backgroundWidth: 1440px;
                 object-fit: cover;
             }
         }
+
+        &#{$block}__background_unicorn {
+            z-index: 5;
+
+            #{$block}_has-background & {
+                @media (max-width: map-get($gridBreakpoints, 'md')) {
+                    display: none;
+                }
+            }
+
+            #{$block}_full-width & {
+                width: 100%;
+                left: 0;
+                transform: none;
+                max-width: none;
+            }
+        }
     }
 
     &__background_full-width {

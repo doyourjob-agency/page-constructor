@@ -243,5 +243,15 @@
         "secondSrc": "/story-assets/video_8-12_dark.mp4"
       }
     }
+  },
+  "unicorn": {
+    "content": {
+      "type": "header-block",
+      "title": "Header with Unicorn",
+      "unicorn": "/story-assets/unicorn-new.json",
+      "background": {
+        "image": "/story-assets/header-bg-img_light.png"
+      }
+    }
   }
 }
