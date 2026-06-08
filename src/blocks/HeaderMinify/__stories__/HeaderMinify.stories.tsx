@@ -24,5 +24,10 @@ const DefaultTemplate: StoryFn<HeaderMinifyBlockModel> = (args) => (
 );
 
 export const Default = DefaultTemplate.bind({});
-
 Default.args = {...DefaultArgs} as HeaderMinifyBlockProps;
+
+export const WithOffsetsAndImage = DefaultTemplate.bind({});
+WithOffsetsAndImage.args = {
+    ...data.withOffsetsAndImage.content,
+    description: yfmTransform(data.withOffsetsAndImage.content.description),
+} as HeaderMinifyBlockProps;

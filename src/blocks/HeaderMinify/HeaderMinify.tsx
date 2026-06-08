@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HTML} from '../../components';
+import {HTML, Image} from '../../components';
 import {parseVideoType} from '../../components/Media/Video/utils';
 import {Col, Grid, Row} from '../../grid';
 import {HeaderMinifyBlockProps} from '../../models';
@@ -15,10 +15,28 @@ const b = block('header-minify-block');
 const colSizes = {all: 12, md: 9};
 
 export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
-    const {title, description, buttons, video, headerSpace} = props;
+    const {
+        title,
+        description,
+        buttons,
+        image,
+        video,
+        headerSpace,
+        verticalOffset,
+        verticalOffsetTop,
+        verticalOffsetBottom,
+    } = props;
 
     return (
-        <header className={b({['header-space']: headerSpace})}>
+        <header
+            className={b({
+                ['header-space']: headerSpace,
+                'vertical-offset': verticalOffset,
+                'vertical-offset-top': verticalOffsetTop,
+                'vertical-offset-bottom': verticalOffsetBottom,
+                'has-video': Boolean(video),
+            })}
+        >
             {video && (
                 <video
                     disablePictureInPicture
@@ -34,6 +52,13 @@ export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
                 >
                     <source src={video} type={parseVideoType(video)} />
                 </video>
+            )}
+            {image && (
+                <Image
+                    containerClassName={b('image-container')}
+                    className={b('image')}
+                    src={image}
+                />
             )}
             <Grid>
                 <Row className={b('container')}>

@@ -23,11 +23,26 @@ export const HeaderMinifyProperties = {
             },
         },
     },
+    image: {
+        type: 'string',
+    },
     video: {
         type: 'string',
     },
     headerSpace: {
         type: 'boolean',
+    },
+    verticalOffset: {
+        type: 'string',
+        enum: ['0', 's', 'm', 'l', 'xl'],
+    },
+    verticalOffsetTop: {
+        type: 'string',
+        enum: ['0', 's', 'm', 'l', 'xl'],
+    },
+    verticalOffsetBottom: {
+        type: 'string',
+        enum: ['0', 's', 'm', 'l', 'xl'],
     },
 };
 

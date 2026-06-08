@@ -18,5 +18,23 @@
       "video": "/story-assets/video_8-12_light.mp4",
       "headerSpace": true
     }
+  },
+  "withOffsetsAndImage": {
+    "content": {
+      "type": "header-minify-block",
+      "title": "Header with image and offsets",
+      "description": "This is an example showing the new vertical offsets and background image.",
+      "image": "/story-assets/img_6-12_light.png",
+      "video": "/story-assets/video_8-12_light.mp4",
+      "verticalOffset": "l",
+      "verticalOffsetTop": "xl",
+      "verticalOffsetBottom": "s",
+      "buttons": [
+        {
+          "text": "Get started",
+          "url": "https://example.com"
+        }
+      ]
+    }
   }
 }

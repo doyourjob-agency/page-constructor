@@ -21,11 +21,129 @@ $backgroundWidth: 1440px;
         object-fit: cover;
         width: 100%;
         height: 100%;
+        display: none;
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            display: block;
+        }
+    }
+
+    &__image-container {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        & > div {
+            height: 100%;
+            width: 100%;
+        }
+
+        @media (min-width: map-get($gridBreakpoints, 'md')) {
+            #{$block}_has-video & {
+                display: none;
+            }
+        }
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
     }
 
     &__container {
         padding-top: 150px;
         padding-bottom: 168px;
+
+        #{$block}_vertical-offset_0 & {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        #{$block}_vertical-offset_s & {
+            padding-top: $indentXL;
+            padding-bottom: $indentXL;
+        }
+
+        #{$block}_vertical-offset_m & {
+            padding-top: $indentXXL;
+            padding-bottom: $indentXXL;
+        }
+
+        #{$block}_vertical-offset_l & {
+            padding-top: $indentXXXL;
+            padding-bottom: $indentXXXL;
+        }
+
+        #{$block}_vertical-offset_xl & {
+            padding-top: $indent4XL;
+            padding-bottom: $indent4XL;
+        }
+
+        #{$block}_vertical-offset-top_0 & {
+            padding-top: 0;
+        }
+
+        #{$block}_vertical-offset-top_s & {
+            padding-top: $indentXL;
+        }
+
+        #{$block}_vertical-offset-top_m & {
+            padding-top: $indentXXL;
+        }
+
+        #{$block}_vertical-offset-top_l & {
+            padding-top: $indentXXXL;
+        }
+
+        #{$block}_vertical-offset-top_xl & {
+            padding-top: $indent4XL;
+        }
+
+        #{$block}_vertical-offset-bottom_0 & {
+            padding-bottom: 0;
+        }
+
+        #{$block}_vertical-offset-bottom_s & {
+            padding-bottom: $indentXL;
+        }
+
+        #{$block}_vertical-offset-bottom_m & {
+            padding-bottom: $indentXXL;
+        }
+
+        #{$block}_vertical-offset-bottom_l & {
+            padding-bottom: $indentXXXL;
+        }
+
+        #{$block}_vertical-offset-bottom_xl & {
+            padding-bottom: $indent4XL;
+        }
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            #{$block}_vertical-offset_s &,
+            #{$block}_vertical-offset_m &,
+            #{$block}_vertical-offset_l &,
+            #{$block}_vertical-offset_xl & {
+                padding-top: $indentXXL;
+                padding-bottom: $indentXXL;
+            }
+
+            #{$block}_vertical-offset-top_s &,
+            #{$block}_vertical-offset-top_m &,
+            #{$block}_vertical-offset-top_l &,
+            #{$block}_vertical-offset-top_xl & {
+                padding-top: $indentXXL;
+            }
+
+            #{$block}_vertical-offset-bottom_s &,
+            #{$block}_vertical-offset-bottom_m &,
+            #{$block}_vertical-offset-bottom_l &,
+            #{$block}_vertical-offset-bottom_xl & {
+                padding-bottom: $indentXXL;
+            }
+        }
     }
 
     &__title {
