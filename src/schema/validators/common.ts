@@ -734,6 +734,9 @@ export const MediaProps = {
     previewImg: {
         type: 'string',
     },
+    previewVideo: {
+        type: 'string',
+    },
     dataLens: DataLensProps,
     fullscreen: {
         type: 'boolean',

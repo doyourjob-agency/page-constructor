@@ -17,11 +17,13 @@
       "media": {
         "dark": {
           "youtube": "https://youtu.be/0Qd3T6skprA",
-          "previewImg": "/story-assets/video_8-12_dark.png"
+          "previewImg": "/story-assets/video_8-12_dark.png",
+          "previewVideo": "/story-assets/video_8-12_dark.mp4"
         },
         "light": {
           "youtube": "https://youtu.be/0Qd3T6skprA",
-          "previewImg": "/story-assets/video_8-12_white.png"
+          "previewImg": "/story-assets/video_8-12_white.png",
+          "previewVideo": "/story-assets/video_8-12_light.mp4"
         }
       },
       "fullscreen": true

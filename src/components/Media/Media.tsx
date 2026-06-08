@@ -26,6 +26,7 @@ export interface MediaAllProps
     youtubeClassName?: string;
     autoplay?: boolean;
     onImageLoad?: () => void;
+    previewVideo?: string;
 }
 
 export const Media = (props: MediaAllProps) => {
@@ -39,6 +40,7 @@ export const Media = (props: MediaAllProps) => {
         color,
         height,
         previewImg,
+        previewVideo,
         parallax = false,
         fullscreen,
         analyticsEvents,
@@ -120,6 +122,7 @@ export const Media = (props: MediaAllProps) => {
                     videoIframe={videoIframe}
                     attributes={{color: 'white', rel: '0'}}
                     previewImg={previewImg}
+                    previewVideo={previewVideo}
                     playButtonCorner={playButtonCorner}
                     height={height}
                     ratio={ratio}
@@ -162,6 +165,7 @@ export const Media = (props: MediaAllProps) => {
         analyticsEvents,
         playVideo,
         previewImg,
+        previewVideo,
         playButton,
         customBarControlsClassName,
         ratio,

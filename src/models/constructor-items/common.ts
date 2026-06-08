@@ -269,6 +269,7 @@ export interface MediaComponentYoutubeProps {
     youtube: string;
     aspectRatio?: number;
     previewImg?: string;
+    previewVideo?: string;
     playButtonCorner?: boolean;
     fullscreen?: boolean;
 }

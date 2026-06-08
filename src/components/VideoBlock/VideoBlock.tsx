@@ -65,6 +65,7 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     attributes?: Record<string, string>;
     className?: string;
     previewImg?: string;
+    previewVideo?: string;
     playButton?: React.ReactNode;
     playButtonCorner?: boolean;
     playButtonId?: string;
@@ -84,6 +85,7 @@ const VideoBlock = (props: VideoBlockProps) => {
         className,
         id,
         previewImg,
+        previewVideo,
         playButton,
         playButtonCorner,
         playButtonId,
@@ -104,6 +106,7 @@ const VideoBlock = (props: VideoBlockProps) => {
     const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
+    const [isHovered, setIsHovered] = useState(false);
 
     const iframeSrc = useMemo(() => {
         if (src && isPlaying) {
@@ -134,6 +137,14 @@ const VideoBlock = (props: VideoBlockProps) => {
 
         setTimeout(() => setHidePreview(true), AUTOPLAY_DELAY);
     }, [handleAnalytics, analyticsEvents]);
+
+    const onMouseEnter = useCallback(() => {
+        setIsHovered(true);
+    }, []);
+
+    const onMouseLeave = useCallback(() => {
+        setIsHovered(false);
+    }, []);
 
     const {onKeyDown: onPreviewKeyDown} = useActionHandlers(onPreviewClick);
 
@@ -182,16 +193,29 @@ const VideoBlock = (props: VideoBlockProps) => {
                     className={b('preview')}
                     onClick={onPreviewClick}
                     onKeyDown={onPreviewKeyDown}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
                     role="button"
                     tabIndex={0}
                     aria-labelledby={playButton ? playButtonId : buttonId}
                 >
-                    <Image
-                        src={previewImg}
-                        className={b('image')}
-                        containerClassName={b('image-wrapper')}
-                        onLoad={onImageLoad}
-                    />
+                    {isHovered && previewVideo ? (
+                        <video
+                            src={previewVideo}
+                            className={b('video')}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                        />
+                    ) : (
+                        <Image
+                            src={previewImg}
+                            className={b('image')}
+                            containerClassName={b('image-wrapper')}
+                            onLoad={onImageLoad}
+                        />
+                    )}
                     {playButton || (
                         <button
                             title="Play"
