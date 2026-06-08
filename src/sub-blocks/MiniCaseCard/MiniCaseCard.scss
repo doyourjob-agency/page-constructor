@@ -99,6 +99,12 @@ $rhs-card-min-width: 400px;
         @include text-size(body-2);
     }
 
+    &__label {
+        p {
+            margin: 0;
+        }
+    }
+
     &__rhs {
         display: flex;
         flex-direction: column;
