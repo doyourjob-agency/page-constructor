@@ -2,20 +2,21 @@ import {
     AnimatableProps,
     BaseProps,
     ThemeProps,
-    containerSizesArray,
     containerSizesObject,
 } from '../../schema/validators/common';
 
-const countByBreakpointProperties = containerSizesArray.reduce<Record<string, {type: 'number'}>>(
-    (acc, size) => ({...acc, [size]: {type: 'number'}}),
+const countColumns = ['2', '3', '4', '5', '6', '7'];
+
+const countByColumnsProperties = countColumns.reduce<Record<string, {type: 'number'}>>(
+    (acc, columns) => ({...acc, [columns]: {type: 'number'}}),
     {},
 );
 
-const countByBreakpoint = {
+const countByColumns = {
     type: 'object',
     additionalProperties: false,
-    required: ['all'],
-    properties: countByBreakpointProperties,
+    required: countColumns,
+    properties: countByColumnsProperties,
 };
 
 export const LogoRotatorBlock = {
@@ -45,7 +46,7 @@ export const LogoRotatorBlock = {
                     },
                 },
             },
-            count: countByBreakpoint,
+            count: countByColumns,
             minRotateCount: {
                 type: 'number',
             },

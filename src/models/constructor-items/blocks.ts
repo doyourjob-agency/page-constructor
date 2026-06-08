@@ -396,11 +396,15 @@ export interface QuestionBlockItemProps extends QuestionItem {
 
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
+export type LogoRotatorColumnCount = '2' | '3' | '4' | '5' | '6' | '7';
+
+export type LogoRotatorCountConfig = Record<LogoRotatorColumnCount, number>;
+
 export interface LogoRotatorBlockProps extends Animatable {
     title?: string;
     text?: string;
     items: {url?: string; src: string; isStatic?: boolean}[];
-    count: Partial<Record<GridColumnSize, number>> & {all: number};
+    count: LogoRotatorCountConfig;
     minRotateCount?: number;
     maxRotateCount?: number;
     swapAnimation?: 'fade' | 'morph';

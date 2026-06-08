@@ -1,21 +1,23 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {RefObject, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
 import {ImageBase} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BREAKPOINTS} from '../../constants';
-import {Grid, GridColumnSize, Row} from '../../grid';
+import {Grid, Row} from '../../grid';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
-import {LogoRotatorBlockProps} from '../../models';
+import {LogoRotatorBlockProps, LogoRotatorColumnCount} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
 import {
     DEFAULT_SWAP_ANIMATION,
     SWAP_ANIMATION_DURATIONS,
+    getActiveBreakpointValue,
     getInitialSlots,
     getLayerModifiers,
+    getLogoRotatorColSizes,
 } from './utils';
 import type {LogoRotatorLayer} from './utils';
 
@@ -25,14 +27,10 @@ const b = block('logo-rotator-block');
 
 const DEFAULT_MIN_ROTATE_COUNT = 2;
 const DEFAULT_MAX_ROTATE_COUNT = 4;
-
-const countBreakpoints: Array<[GridColumnSize, number]> = [
-    [GridColumnSize.All, BREAKPOINTS.xs],
-    [GridColumnSize.Sm, BREAKPOINTS.sm],
-    [GridColumnSize.Md, BREAKPOINTS.md],
-    [GridColumnSize.Lg, BREAKPOINTS.lg],
-    [GridColumnSize.Xl, BREAKPOINTS.xl],
-];
+const GRID_COLUMNS_COUNT = 12;
+const MIN_COLUMN_COUNT = 2;
+const MAX_COLUMN_COUNT = 7;
+const ROW_MODE_ITEM_MIN_WIDTH = 160;
 
 type SlotTransition = {
     from: number;
@@ -53,18 +51,87 @@ const pickRandomSlots = (slotIndices: number[], count: number) => {
     return shuffled.slice(0, count);
 };
 
-const getActiveCount = (count: LogoRotatorBlockProps['count'], breakpoint: number) => {
-    let result = count.all;
+const getFiniteCssValue = (value: string) => {
+    const result = Number.parseFloat(value);
 
-    countBreakpoints.forEach(([size, minWidth]) => {
-        const breakpointCount = count[size];
+    return Number.isFinite(result) ? result : 0;
+};
 
-        if (breakpoint >= minWidth && breakpointCount !== undefined) {
-            result = breakpointCount;
+const getSupportedColumnCount = (columns: number) => {
+    const columnCount = Math.min(Math.max(Math.floor(columns), MIN_COLUMN_COUNT), MAX_COLUMN_COUNT);
+
+    return String(columnCount) as LogoRotatorColumnCount;
+};
+
+const getActiveGridColumnCount = (
+    colSizes: LogoRotatorBlockProps['colSizes'],
+    breakpoint: number,
+) => {
+    const activeColSize = getActiveBreakpointValue(getLogoRotatorColSizes(colSizes), breakpoint);
+
+    return getSupportedColumnCount(GRID_COLUMNS_COUNT / activeColSize);
+};
+
+const getRowModeColumnCount = (width: number, gap: number) => {
+    const columns = Math.floor((width + gap) / (ROW_MODE_ITEM_MIN_WIDTH + gap));
+
+    return getSupportedColumnCount(columns);
+};
+
+const getActiveCount = (
+    count: LogoRotatorBlockProps['count'],
+    columnCount: LogoRotatorColumnCount,
+) => count[columnCount];
+
+const noop = () => {};
+
+const useRowModeColumnCount = (
+    rowMode: LogoRotatorBlockProps['rowMode'],
+    breakpoint: number,
+    rowItemsRef: RefObject<HTMLDivElement>,
+) => {
+    const [columnCount, setColumnCount] = useState<LogoRotatorColumnCount>(
+        getSupportedColumnCount(MIN_COLUMN_COUNT),
+    );
+
+    useEffect(() => {
+        if (!rowMode) {
+            setColumnCount(getSupportedColumnCount(MIN_COLUMN_COUNT));
+            return noop;
         }
-    });
 
-    return result;
+        const rowItems = rowItemsRef.current;
+
+        if (!rowItems) return noop;
+
+        const updateColumnCount = (width: number) => {
+            const nextColumnCount =
+                breakpoint <= BREAKPOINTS.md
+                    ? getSupportedColumnCount(MIN_COLUMN_COUNT)
+                    : getRowModeColumnCount(
+                          width,
+                          getFiniteCssValue(window.getComputedStyle(rowItems).columnGap),
+                      );
+
+            setColumnCount((currentColumnCount) =>
+                currentColumnCount === nextColumnCount ? currentColumnCount : nextColumnCount,
+            );
+        };
+
+        updateColumnCount(rowItems.clientWidth);
+
+        if (typeof ResizeObserver === 'undefined') return noop;
+
+        const observer = new ResizeObserver(([entry]) => {
+            updateColumnCount(entry.contentRect.width);
+        });
+
+        observer.observe(rowItems);
+
+        return () => observer.disconnect();
+    }, [breakpoint, rowItemsRef, rowMode]);
+
+    return columnCount;
 };
 
 export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
@@ -82,7 +149,13 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         rowMode,
     } = props;
     const breakpoint = useWindowBreakpoint();
-    const activeCount = getActiveCount(count, breakpoint);
+    const rowItemsRef = useRef<HTMLDivElement>(null);
+    const rowModeColumnCount = useRowModeColumnCount(rowMode, breakpoint, rowItemsRef);
+    const gridColumnCount = useMemo(
+        () => getActiveGridColumnCount(colSizes, breakpoint),
+        [breakpoint, colSizes],
+    );
+    const activeCount = getActiveCount(count, rowMode ? rowModeColumnCount : gridColumnCount);
 
     // Индексы логотипов, которые участвуют в ротации (не статичные)
     const rotatableIndices = useMemo(
@@ -256,7 +329,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
                     </div>
                 ) : null}
                 {rowMode ? (
-                    <div className={b('row-items')}>
+                    <div className={b('row-items')} ref={rowItemsRef}>
                         {slots.map((slot, index) => {
                             const transition = transitions[index];
                             const item = items[transition?.to ?? slot];

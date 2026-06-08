@@ -2,7 +2,7 @@ import React from 'react';
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react';
 
-import {LogoRotatorBlockProps} from '../../../models';
+import {LogoRotatorBlockProps, LogoRotatorColumnCount} from '../../../models';
 import LogoRotator from '../LogoRotator';
 import {LogoRotatorBlock as LogoRotatorBlockSchema} from '../schema';
 
@@ -10,11 +10,24 @@ const items = Array.from({length: 8}, (_, index) => ({
     src: `/logo-${index}.svg`,
 }));
 
+const countByColumns = (
+    defaultCount: number,
+    overrides: Partial<Record<LogoRotatorColumnCount, number>> = {},
+): LogoRotatorBlockProps['count'] => ({
+    2: defaultCount,
+    3: defaultCount,
+    4: defaultCount,
+    5: defaultCount,
+    6: defaultCount,
+    7: defaultCount,
+    ...overrides,
+});
+
 const renderLogoRotator = (props: Partial<LogoRotatorBlockProps> = {}) =>
     render(
         <LogoRotator
             items={items}
-            count={{all: 3}}
+            count={countByColumns(3)}
             minRotateCount={1}
             maxRotateCount={1}
             {...props}
@@ -36,55 +49,103 @@ const getLayerClassCount = (className: string) => document.querySelectorAll(`.${
 const getGridClassCount = (className: string) => document.querySelectorAll(`.${className}`).length;
 /* eslint-enable testing-library/no-node-access */
 
+const mockRowModeWidth = (width: number) => {
+    const originalResizeObserver = window.ResizeObserver;
+
+    class ResizeObserverMock {
+        private callback: ResizeObserverCallback;
+
+        constructor(callback: ResizeObserverCallback) {
+            this.callback = callback;
+        }
+
+        observe() {
+            this.callback(
+                [{contentRect: {width}} as ResizeObserverEntry],
+                this as unknown as ResizeObserver,
+            );
+        }
+
+        disconnect() {}
+    }
+
+    Object.defineProperty(window, 'ResizeObserver', {
+        configurable: true,
+        writable: true,
+        value: ResizeObserverMock,
+    });
+
+    return () => {
+        Object.defineProperty(window, 'ResizeObserver', {
+            configurable: true,
+            writable: true,
+            value: originalResizeObserver,
+        });
+    };
+};
+
 describe('LogoRotator', () => {
     afterEach(() => {
         jest.useRealTimers();
         jest.restoreAllMocks();
     });
 
-    test('renders count.all items by default', async () => {
+    test('renders count for active grid columns by default', async () => {
         setWindowWidth(360);
 
-        renderLogoRotator({count: {all: 3, md: 5}});
+        renderLogoRotator({count: countByColumns(1, {4: 3})});
 
         await waitFor(() => {
             expect(getLogoItems()).toHaveLength(3);
         });
     });
 
-    test('renders the active breakpoint count on desktop', async () => {
+    test('uses count for active grid column count', async () => {
         setWindowWidth(1280);
 
-        renderLogoRotator({count: {all: 10, sm: 10, md: 12, lg: 20, xl: 21}});
+        renderLogoRotator({
+            colSizes: {all: 6, md: 3, xl: 2},
+            count: countByColumns(1, {6: 18}),
+        });
 
         await waitFor(() => {
-            expect(getLogoItems()).toHaveLength(21);
+            expect(getLogoItems()).toHaveLength(18);
         });
     });
 
-    test('falls back to the nearest lower configured breakpoint count', async () => {
-        setWindowWidth(1120);
+    test('uses count for measured row mode columns', async () => {
+        const restoreResizeObserver = mockRowModeWidth(800);
 
-        renderLogoRotator({count: {all: 10, md: 12, xl: 21}});
+        try {
+            setWindowWidth(1280);
 
-        await waitFor(() => {
-            expect(getLogoItems()).toHaveLength(12);
-        });
+            renderLogoRotator({
+                rowMode: true,
+                count: countByColumns(1, {5: 20, 6: 18, 7: 21}),
+            });
+
+            await waitFor(() => {
+                expect(getLogoItems()).toHaveLength(20);
+            });
+        } finally {
+            restoreResizeObserver();
+        }
     });
 
-    test('requires count breakpoint map in schema', () => {
+    test('requires count by columns in schema', () => {
         const schema = LogoRotatorBlockSchema['logo-rotator-block'];
 
         expect(schema.properties.count).toEqual({
             type: 'object',
             additionalProperties: false,
-            required: ['all'],
+            required: ['2', '3', '4', '5', '6', '7'],
             properties: {
-                sm: {type: 'number'},
-                md: {type: 'number'},
-                lg: {type: 'number'},
-                xl: {type: 'number'},
-                all: {type: 'number'},
+                2: {type: 'number'},
+                3: {type: 'number'},
+                4: {type: 'number'},
+                5: {type: 'number'},
+                6: {type: 'number'},
+                7: {type: 'number'},
             },
         });
         expect(schema.properties).not.toHaveProperty('countMobile');
@@ -125,7 +186,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: {all: 4}, minRotateCount: 2, maxRotateCount: 2});
+        renderLogoRotator({count: countByColumns(4), minRotateCount: 2, maxRotateCount: 2});
 
         act(() => {
             jest.advanceTimersByTime(1999);
@@ -163,7 +224,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: {all: 4},
+            count: countByColumns(4),
             minRotateCount: 2,
             maxRotateCount: 2,
             swapAnimation: 'morph',
@@ -186,7 +247,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: {all: 1}});
+        renderLogoRotator({count: countByColumns(1)});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -208,7 +269,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: {all: 1}});
+        renderLogoRotator({count: countByColumns(1)});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -224,7 +285,7 @@ describe('LogoRotator', () => {
         jest.useFakeTimers();
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
-        renderLogoRotator({count: {all: 1}, swapAnimation: 'morph'});
+        renderLogoRotator({count: countByColumns(1), swapAnimation: 'morph'});
 
         act(() => {
             jest.advanceTimersByTime(2000);
@@ -241,7 +302,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: {all: 1},
+            count: countByColumns(1),
             items: [{src: '/logo-0.svg'}, {src: '/logo-0.svg'}, {src: '/logo-1.svg'}],
         });
 
@@ -260,7 +321,7 @@ describe('LogoRotator', () => {
         jest.spyOn(Math, 'random').mockReturnValue(0);
 
         renderLogoRotator({
-            count: {all: 2},
+            count: countByColumns(2),
             items: [
                 {src: '/logo-0.svg'},
                 {src: '/logo-1.svg', isStatic: true},

@@ -11,11 +11,13 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `animated?: bool` — Enables/disables animation for the block (enabled by default).
 
-`title?: Title | string` — Title
+`title?: string` — Title
+
+`text?: string` — Description text
 
 `items: {url?: string; src: string; isStatic?: boolean}[]` — Items for slots.
 
-`count: {all: number; sm?: number; md?: number; lg?: number; xl?: number}` — Rendering amount of items by viewport breakpoint. Missing breakpoints use the nearest configured smaller breakpoint.
+`count: {'2': number; '3': number; '4': number; '5': number; '6': number; '7': number}` — Rendering amount of items by active column count.
 
 For balanced rows, choose values divisible by the column count, for example 10 for 2 columns, 12 for 3 columns, 20 for 4 or 5 columns, or 21 for 7 columns.
 
@@ -23,10 +25,12 @@ Example:
 
 ```yaml
 count:
-    all: 10 # 2 columns
-    md: 12 # 3 columns
-    lg: 20 # 4 or 5 columns
-    xl: 21 # 7 columns
+    2: 10
+    3: 12
+    4: 20
+    5: 20
+    6: 18
+    7: 21
 ```
 
 `minRotateCount?: number` — Minimum amount of non-static visible logos rotated per batch.
