@@ -460,12 +460,7 @@ export const config: BlocksConfig = {
             parser: parsePriceDetailedBlock,
         },
     ],
-    [BlockType.HeaderBlock]: [
-        {
-            fields: ['description'],
-            transformer: yfmTransformer,
-        },
-    ],
+    [BlockType.HeaderBlock]: [...blockHeaderTransformer],
     [BlockType.HeaderMinifyBlock]: [
         {
             fields: ['title', 'description'],

@@ -4,9 +4,9 @@ import {
     BlockBaseProps,
     ButtonBlock,
     MediaProps,
+    TitleProps,
     VideoProps,
     mediaView,
-    titleTextSize,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
@@ -24,12 +24,17 @@ export const HeaderBackgroundProps = {
 
 export const HeaderProperties = {
     title: {
-        type: 'string',
-        contentType: 'text',
-    },
-    titleSize: {
-        type: 'string',
-        enum: titleTextSize,
+        oneOf: [
+            {
+                type: 'string',
+                contentType: 'text',
+                optionName: 'text',
+            },
+            {
+                ...TitleProps,
+                optionName: 'options',
+            },
+        ],
     },
     switchingTitle: {
         type: 'object',

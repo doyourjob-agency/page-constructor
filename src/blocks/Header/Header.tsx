@@ -4,11 +4,17 @@ import {useUniqId} from '@gravity-ui/uikit';
 
 import {BackgroundEffect, HTML, Media, UnicornScene} from '../../components';
 import {getMediaImage} from '../../components/Media/Image/utils';
+import TitleItem from '../../components/Title/TitleItem';
 import {HeaderContext} from '../../context/headerContext';
 import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
-import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
+import {
+    ClassNameProps,
+    HeaderBlockBackground,
+    HeaderBlockProps,
+    TitleItemProps,
+} from '../../models';
 import {block, getHeaderTag, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
@@ -73,7 +79,6 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
-        titleSize = 'l',
         switchingTitle,
         topTags,
         bottomTags,
@@ -139,6 +144,25 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         return undefined;
     }, [backButton, backLink, breadcrumbs, verticalOffset]);
 
+    const {
+        text,
+        textSize = 'l',
+        ...titleItemProps
+    } = useMemo(
+        () =>
+            !title || typeof title === 'string'
+                ? ({text: title, textSize: 'l'} as TitleItemProps)
+                : {textSize: 'l', ...title},
+        [title],
+    );
+
+    const titlePrefix = (
+        <React.Fragment>
+            <HeaderTag tag={blockTag} />
+            {status}
+        </React.Fragment>
+    );
+
     return (
         <header
             ref={headerRef}
@@ -192,28 +216,33 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 <HTML>{overtitle}</HTML>
                                             </div>
                                         )}
-                                        {React.createElement(
-                                            getHeaderTag(titleSize),
-                                            {
-                                                className: b('title', {
-                                                    'pre-wrap': Boolean(switchingTitle),
-                                                    size: titleSize,
-                                                }),
-                                                id: titleId,
-                                            },
-                                            <HeaderTag tag={blockTag} />,
-                                            status,
-                                            switchingTitle ? (
-                                                <SwitchingTitle {...switchingTitle} />
-                                            ) : (
-                                                <React.Fragment>
-                                                    {renderTitle ? (
-                                                        renderTitle(title)
-                                                    ) : (
-                                                        <HTML>{title}</HTML>
-                                                    )}
-                                                </React.Fragment>
-                                            ),
+                                        {switchingTitle || renderTitle ? (
+                                            React.createElement(
+                                                getHeaderTag(textSize),
+                                                {
+                                                    className: b('title', {
+                                                        'pre-wrap': Boolean(switchingTitle),
+                                                        size: textSize,
+                                                    }),
+                                                    id: titleId,
+                                                },
+                                                titlePrefix,
+                                                switchingTitle ? (
+                                                    <SwitchingTitle {...switchingTitle} />
+                                                ) : (
+                                                    renderTitle?.(text)
+                                                ),
+                                            )
+                                        ) : (
+                                            <TitleItem
+                                                text={text}
+                                                textSize={textSize}
+                                                resetMargin
+                                                className={b('title')}
+                                                id={titleId}
+                                                prefix={titlePrefix}
+                                                {...titleItemProps}
+                                            />
                                         )}
                                         <HeaderDescription
                                             className={b('description', {theme: textTheme})}

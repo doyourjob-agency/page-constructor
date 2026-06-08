@@ -9,6 +9,7 @@ import {
     HeaderBlockModel,
     HeaderBlockProps,
     HeaderStockType,
+    TitleItemProps,
     TitleTextSize,
 } from '../../../models';
 import Header from '../Header';
@@ -213,12 +214,16 @@ const StockTemplate: StoryFn<HeaderBlockModel> = (args) => (
 
 const TitleFontSizesTemplate: StoryFn<HeaderBlockModel> = (args) => (
     <Fragment>
-        {titleFontSizes.map((titleSize) => (
+        {titleFontSizes.map((textSize) => (
             <DefaultTemplate
-                key={titleSize}
+                key={textSize}
                 {...args}
-                title={getTitleFontSizeTitle(titleSize.toUpperCase())}
-                titleSize={titleSize}
+                title={
+                    {
+                        text: getTitleFontSizeTitle(textSize.toUpperCase()),
+                        textSize,
+                    } as TitleItemProps
+                }
             />
         ))}
     </Fragment>

@@ -30,7 +30,9 @@ export function getArrowSize(size: TitleTextSize, isMobile: boolean) {
 
 export interface TitleItemFullProps extends TitleItemProps, QAProps {
     className?: string;
+    id?: string;
     onClick?: () => void;
+    prefix?: ReactNode;
     resetMargin?: boolean;
 }
 
@@ -49,6 +51,8 @@ const TitleItem = (props: TitleItemFullProps) => {
         qa,
         resetMargin = true,
         urlTitle,
+        id,
+        prefix,
     } = props;
 
     const {hostname} = useContext(LocationContext);
@@ -109,7 +113,9 @@ const TitleItem = (props: TitleItemFullProps) => {
                 {
                     className: b({size: textSize, justify, 'reset-margin': resetMargin}, className),
                     'data-qa': `${qa}-header`,
+                    id,
                 },
+                prefix,
                 content,
             )}
         </Fragment>
