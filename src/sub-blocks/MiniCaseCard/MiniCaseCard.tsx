@@ -167,7 +167,9 @@ const MiniCaseCard: React.FC<MiniCaseCardProps> = ({
                     >
                         <div className={b('inner-container')}>
                             <div className={`${b('value')} title-font-family`}>{item.value}</div>
-                            <div className={b('label')}>{item.label}</div>
+                            <div className={b('label')}>
+                                <HTML>{item.label}</HTML>
+                            </div>
                         </div>
                     </div>
                 ))}

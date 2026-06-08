@@ -591,6 +591,11 @@ export const config: BlocksConfig = {
             fields: ['text', 'quote', 'author', 'position'],
             transformer: yfmTransformer,
         },
+        {
+            fields: ['data'],
+            transformer: yfmTransformer,
+            parser: createItemsParser(['label']),
+        },
     ],
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
     [BlockType.AdvantagesBlock]: {

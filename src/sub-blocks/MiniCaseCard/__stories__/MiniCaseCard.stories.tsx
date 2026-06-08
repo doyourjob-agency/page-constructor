@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Meta, StoryFn} from '@storybook/react-vite';
 
+import {yfmTransform} from '../../../../.storybook/utils';
 import {ScrollerBlock} from '../../../blocks';
 import {MiniCaseCardModel, MiniCaseCardProps} from '../../../models';
 import MiniCaseCard from '../MiniCaseCard';
@@ -40,31 +41,43 @@ const withColors = (content: MiniCaseCardProps): MiniCaseCardProps => ({
     backgroundData: '#614EFA',
 });
 
+const withTransformedContent = (content: MiniCaseCardProps): MiniCaseCardProps => ({
+    ...withColors(content),
+    text: content.text && yfmTransform(content.text),
+    quote: content.quote && yfmTransform(content.quote),
+    author: content.author && yfmTransform(content.author),
+    position: content.position && yfmTransform(content.position),
+    data: content.data?.map((item) => ({
+        ...item,
+        label: item.label && yfmTransform(item.label),
+    })),
+});
+
 export const OnlyText = DefaultTemplate.bind({});
 export const OnlyQuoteAndAuthor = DefaultTemplate.bind({});
 export const Both = DefaultTemplate.bind({});
 export const BothWithScroller = ScrollerTemplate.bind({});
 
 OnlyText.args = {
-    ...withColors(data.default.content),
+    ...withTransformedContent(data.default.content),
     showStory: true,
     showQuote: false,
 } as MiniCaseCardProps;
 
 OnlyQuoteAndAuthor.args = {
-    ...withColors(data.default.content),
+    ...withTransformedContent(data.default.content),
     showStory: false,
     showQuote: true,
 } as MiniCaseCardProps;
 
 Both.args = {
-    ...withColors(data.default.content),
+    ...withTransformedContent(data.default.content),
     showStory: true,
     showQuote: true,
 } as MiniCaseCardProps;
 
 BothWithScroller.args = {
-    ...withColors(data.default.content),
+    ...withTransformedContent(data.default.content),
     showStory: true,
     showQuote: true,
 } as MiniCaseCardProps;
