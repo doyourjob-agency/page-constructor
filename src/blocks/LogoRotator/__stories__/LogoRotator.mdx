@@ -27,7 +27,7 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 Every 2s the block picks a random batch of non-static visible logos between `minRotateCount` and `maxRotateCount`. Hovering a logo pauses only that logo, and selected slots switch using `swapAnimation`.
 
-On mobile viewports, grid logo cells are capped at half the row width so wider `colSizes` values still keep at least two logos per row.
+On mobile viewports, `all` and `sm` grid sizes above 6 are capped to 6, and row mode logo cells use half-row sizing so wider configurations still keep at least two logos per row.
 
 `colSizes?: Object` — Sizes of item, more info [here](?path=/docs/documentation-types--docs#colsizes).
 

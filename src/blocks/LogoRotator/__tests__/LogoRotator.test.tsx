@@ -33,6 +33,7 @@ const getLogoItems = () => screen.getAllByRole('img', {hidden: true});
 
 /* eslint-disable testing-library/no-node-access */
 const getLayerClassCount = (className: string) => document.querySelectorAll(`.${className}`).length;
+const getGridClassCount = (className: string) => document.querySelectorAll(`.${className}`).length;
 /* eslint-enable testing-library/no-node-access */
 
 describe('LogoRotator', () => {
@@ -81,6 +82,22 @@ describe('LogoRotator', () => {
             enum: ['fade', 'morph'],
         });
         expect(schema.required).not.toContain('swapAnimation');
+    });
+
+    test('caps mobile colSizes to keep at least two logos per row', async () => {
+        setWindowWidth(320);
+
+        renderLogoRotator({colSizes: {all: 12, sm: 12, md: 3}});
+
+        await waitFor(() => {
+            expect(getLogoItems()).toHaveLength(3);
+        });
+
+        expect(getGridClassCount('col-6')).toBe(3);
+        expect(getGridClassCount('col-sm-6')).toBe(3);
+        expect(getGridClassCount('col-12')).toBe(0);
+        expect(getGridClassCount('col-sm-12')).toBe(0);
+        expect(getGridClassCount('col-md-3')).toBe(3);
     });
 
     test('keeps default fade layers for the sequential fade-out and fade-in duration', () => {

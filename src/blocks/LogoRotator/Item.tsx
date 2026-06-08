@@ -3,7 +3,8 @@ import React from 'react';
 import {Link} from '@gravity-ui/uikit';
 
 import {Image} from '../../components';
-import {Col} from '../../grid';
+import {Col, GridColumnSize} from '../../grid';
+import type {GridColumnSizesType} from '../../grid';
 import {LogoRotatorBlockProps} from '../../models';
 import {block} from '../../utils';
 
@@ -14,7 +15,8 @@ import './LogoRotator.scss';
 
 const b = block('logo-rotator-block');
 
-const defaultColSizes = {all: 3};
+const defaultColSizes: GridColumnSizesType = {all: 3};
+const maxMobileColSize = 6;
 
 type Props = {
     src: string;
@@ -36,6 +38,20 @@ const getLayerClassName = (
         'logo-layer',
         getLayerModifiers(layer, swapAnimation),
     )}`;
+
+const getColSizes = (colSizes: LogoRotatorBlockProps['colSizes']): GridColumnSizesType => {
+    const sizes: GridColumnSizesType = {...(colSizes || defaultColSizes)};
+
+    [GridColumnSize.All, GridColumnSize.Sm].forEach((size) => {
+        const colSize = sizes[size];
+
+        if (colSize !== undefined) {
+            sizes[size] = Math.min(colSize, maxMobileColSize);
+        }
+    });
+
+    return sizes;
+};
 
 export const Item = ({
     url,
@@ -64,7 +80,7 @@ export const Item = ({
     const isSwapping = Boolean(previousSrc);
 
     return (
-        <Col sizes={colSizes || defaultColSizes}>
+        <Col sizes={getColSizes(colSizes)}>
             <div
                 className={b('item', {swapping: isSwapping})}
                 onMouseEnter={onMouseEnter}

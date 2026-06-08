@@ -138,6 +138,12 @@ $block: '.#{$ns}logo-rotator-block';
         min-width: 160px;
         flex: 1;
         overflow: hidden;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            min-width: 0;
+            max-width: calc(50% - #{$indentXXXS});
+            flex: 0 0 calc(50% - #{$indentXXXS});
+        }
     }
 }
 
