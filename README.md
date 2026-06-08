@@ -14,6 +14,18 @@ For the format of input data and list of available blocks, see the [documentatio
 npm install @doyourjob/gravity-ui-page-constructor
 ```
 
+## Release patch
+
+Run from a clean branch with an upstream configured:
+
+```shell
+pnpm bump-patch-release
+```
+
+The script fetches the upstream remote, refuses to continue if upstream has commits missing
+locally, bumps the package patch version, commits `chore: release vX.Y.Z`, creates the
+`vX.Y.Z` tag, then pushes the commit and tag.
+
 ## Required dependencies
 
 Please note that to start using the package, your project must also have the following installed: `@diplodoc/transform`, `@gravity-ui/uikit`, `react`. Check out the `peerDependencies` section of `package.json` for accurate information.
