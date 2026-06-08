@@ -2,12 +2,12 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {Link} from '@gravity-ui/uikit';
 
-import {ImageBase, Title} from '../../components';
+import {ImageBase} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
 import {BREAKPOINTS} from '../../constants';
 import {Grid, Row} from '../../grid';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
-import {LogoRotatorBlockProps, TitleItemProps} from '../../models';
+import {LogoRotatorBlockProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
@@ -49,6 +49,7 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
     const {
         animated,
         title,
+        text,
         theme,
         items,
         countMobile,
@@ -225,18 +226,15 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         ],
     );
 
-    const titleProps =
-        !title || typeof title === 'string'
-            ? ({text: title, textSize: 'l'} as TitleItemProps)
-            : title;
-    const hasTitle = Boolean(title);
-
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
             <div className={b('root')}>
-                {hasTitle && (
-                    <Title title={titleProps} className={b('title')} colSizes={{all: 12}} />
-                )}
+                {title || text ? (
+                    <div className={b('head')}>
+                        {title && <h2 className={b('title')}>{title}</h2>}
+                        {text && <div className={b('text')}>{text}</div>}
+                    </div>
+                ) : null}
                 {rowMode ? (
                     <div className={b('row-items')}>
                         {slots.map((slot, index) => {

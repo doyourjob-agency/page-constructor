@@ -6,6 +6,46 @@ $block: '.#{$ns}logo-rotator-block';
 #{$block} {
     @include animate(#{$block}__root);
 
+    &__root {
+        display: flex;
+        flex-direction: column;
+        gap: $indentL;
+    }
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        gap: $indentXS;
+        align-items: center;
+        text-align: center;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            align-items: initial;
+            text-align: initial;
+        }
+    }
+
+    &__title {
+        @include text-size(display-4);
+        margin: 0;
+        font-weight: var(--g-text-accent-font-weight);
+        color: var(--g-color-text-primary);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-1);
+        }
+    }
+
+    &__text {
+        font-size: 24px;
+        line-height: 28px;
+        opacity: 0.6;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(body-3);
+        }
+    }
+
     &__row {
         justify-content: center;
 
@@ -17,12 +57,7 @@ $block: '.#{$ns}logo-rotator-block';
     }
 
     &_theme_dark &__title {
-        --pc-text-header-color: #ffffff;
-    }
-
-    &__title {
-        margin-bottom: $indentL;
-        text-align: center;
+        color: #ffffff;
     }
 
     &__items {

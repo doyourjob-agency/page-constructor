@@ -41,6 +41,11 @@ $block: '.#{$ns}benefits-block';
         gap: $indentXS;
         align-items: center;
         text-align: center;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            align-items: initial;
+            text-align: initial;
+        }
     }
 
     &__title {
@@ -48,6 +53,10 @@ $block: '.#{$ns}benefits-block';
         margin: 0;
         font-weight: var(--g-text-accent-font-weight);
         color: var(--g-color-text-primary);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(display-1);
+        }
     }
 
     &__text {
@@ -55,6 +64,10 @@ $block: '.#{$ns}benefits-block';
         line-height: 28px;
         opacity: 0.6;
         max-width: 600px;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            @include text-size(body-3);
+        }
     }
 
     &__video {
@@ -68,6 +81,10 @@ $block: '.#{$ns}benefits-block';
         display: flex;
         flex-direction: column;
         gap: $indent4XS;
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            margin-top: $indentXS;
+        }
     }
 
     &__item {
@@ -76,6 +93,10 @@ $block: '.#{$ns}benefits-block';
         padding: 35px $indentM 35px $indentSM;
         border-radius: $indentSM;
         background: var(--local-item-bg);
+
+        @media (max-width: map-get($gridBreakpoints, 'md')) {
+            padding: $indentSM;
+        }
 
         &-image {
             display: block;
@@ -87,6 +108,10 @@ $block: '.#{$ns}benefits-block';
             font-size: 24px;
             line-height: 28px;
             opacity: 0.8;
+
+            @media (max-width: map-get($gridBreakpoints, 'md')) {
+                @include text-size(body-3);
+            }
         }
     }
 }

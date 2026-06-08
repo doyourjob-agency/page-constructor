@@ -4,10 +4,7 @@
       "type": "logo-rotator-block",
       "animated": false,
       "blockBackground": "black",
-      "title": {
-        "text": "Trusted by the entire AI ecosystem",
-        "textSize": "m"
-      },
+      "title": "Trusted by the entire AI ecosystem",
       "theme": "dark",
       "items": [
         {

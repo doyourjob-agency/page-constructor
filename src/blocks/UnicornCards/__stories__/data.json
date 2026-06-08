@@ -3,10 +3,7 @@
     "content": {
       "type": "unicorn-cards-block",
       "animated": false,
-      "title": {
-        "text": "From training to inference. On your terms.",
-        "textSize": "m"
-      },
+      "title": "From training to inference. On your terms.",
       "items": [
         {
           "title": "Faster time to AI value",

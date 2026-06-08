@@ -397,7 +397,8 @@ export interface QuestionBlockItemProps extends QuestionItem {
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
 export interface LogoRotatorBlockProps extends Animatable {
-    title?: TitleItemBaseProps | string;
+    title?: string;
+    text?: string;
     items: {url?: string; src: string; isStatic?: boolean}[];
     countMobile: number;
     countDesktop?: number;
@@ -418,7 +419,8 @@ export type UnicornCardsItemProps = {
 };
 
 export interface UnicornCardsBlockProps extends Animatable {
-    title?: TitleItemBaseProps | string;
+    title?: string;
+    text?: string;
     items?: UnicornCardsItemProps[];
     unicornSdkUrl?: string;
 }
