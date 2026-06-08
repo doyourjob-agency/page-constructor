@@ -60,7 +60,7 @@ const getFiniteCssValue = (value: string) => {
 const getSupportedColumnCount = (columns: number) => {
     const columnCount = Math.min(Math.max(Math.floor(columns), MIN_COLUMN_COUNT), MAX_COLUMN_COUNT);
 
-    return String(columnCount) as LogoRotatorColumnCount;
+    return `c${columnCount}` as LogoRotatorColumnCount;
 };
 
 const getActiveGridColumnCount = (

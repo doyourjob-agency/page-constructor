@@ -5,7 +5,7 @@ import {
     containerSizesObject,
 } from '../../schema/validators/common';
 
-const countColumns = ['2', '3', '4', '5', '6', '7'];
+const countColumns = ['c2', 'c3', 'c4', 'c5', 'c6', 'c7'];
 
 const countByColumnsProperties = countColumns.reduce<Record<string, {type: 'number'}>>(
     (acc, columns) => ({...acc, [columns]: {type: 'number'}}),

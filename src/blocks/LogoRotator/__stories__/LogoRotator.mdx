@@ -17,7 +17,7 @@ import * as LogoRotatorStories from './LogoRotator.stories.tsx';
 
 `items: {url?: string; src: string; isStatic?: boolean}[]` — Items for slots.
 
-`count: {'2': number; '3': number; '4': number; '5': number; '6': number; '7': number}` — Rendering amount of items by active column count.
+`count: {c2: number; c3: number; c4: number; c5: number; c6: number; c7: number}` — Rendering amount of items by active column count.
 
 For balanced rows, choose values divisible by the column count, for example 10 for 2 columns, 12 for 3 columns, 20 for 4 or 5 columns, or 21 for 7 columns.
 
@@ -25,12 +25,12 @@ Example:
 
 ```yaml
 count:
-    2: 10
-    3: 12
-    4: 20
-    5: 20
-    6: 18
-    7: 21
+    c2: 10
+    c3: 12
+    c4: 20
+    c5: 20
+    c6: 18
+    c7: 21
 ```
 
 `minRotateCount?: number` — Minimum amount of non-static visible logos rotated per batch.

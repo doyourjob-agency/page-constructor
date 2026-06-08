@@ -397,7 +397,7 @@ export interface QuestionBlockItemProps extends QuestionItem {
 
 export interface BannerBlockProps extends BannerCardProps, Animatable {}
 
-export type LogoRotatorColumnCount = '2' | '3' | '4' | '5' | '6' | '7';
+export type LogoRotatorColumnCount = 'c2' | 'c3' | 'c4' | 'c5' | 'c6' | 'c7';
 
 export type LogoRotatorCountConfig = Record<LogoRotatorColumnCount, number>;
 

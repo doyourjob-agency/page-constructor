@@ -14,12 +14,12 @@ const countByColumns = (
     defaultCount: number,
     overrides: Partial<Record<LogoRotatorColumnCount, number>> = {},
 ): LogoRotatorBlockProps['count'] => ({
-    2: defaultCount,
-    3: defaultCount,
-    4: defaultCount,
-    5: defaultCount,
-    6: defaultCount,
-    7: defaultCount,
+    c2: defaultCount,
+    c3: defaultCount,
+    c4: defaultCount,
+    c5: defaultCount,
+    c6: defaultCount,
+    c7: defaultCount,
     ...overrides,
 });
 
@@ -93,7 +93,7 @@ describe('LogoRotator', () => {
     test('renders count for active grid columns by default', async () => {
         setWindowWidth(360);
 
-        renderLogoRotator({count: countByColumns(1, {4: 3})});
+        renderLogoRotator({count: countByColumns(1, {c4: 3})});
 
         await waitFor(() => {
             expect(getLogoItems()).toHaveLength(3);
@@ -105,7 +105,7 @@ describe('LogoRotator', () => {
 
         renderLogoRotator({
             colSizes: {all: 6, md: 3, xl: 2},
-            count: countByColumns(1, {6: 18}),
+            count: countByColumns(1, {c6: 18}),
         });
 
         await waitFor(() => {
@@ -121,7 +121,7 @@ describe('LogoRotator', () => {
 
             renderLogoRotator({
                 rowMode: true,
-                count: countByColumns(1, {5: 20, 6: 18, 7: 21}),
+                count: countByColumns(1, {c5: 20, c6: 18, c7: 21}),
             });
 
             await waitFor(() => {
@@ -138,14 +138,14 @@ describe('LogoRotator', () => {
         expect(schema.properties.count).toEqual({
             type: 'object',
             additionalProperties: false,
-            required: ['2', '3', '4', '5', '6', '7'],
+            required: ['c2', 'c3', 'c4', 'c5', 'c6', 'c7'],
             properties: {
-                2: {type: 'number'},
-                3: {type: 'number'},
-                4: {type: 'number'},
-                5: {type: 'number'},
-                6: {type: 'number'},
-                7: {type: 'number'},
+                c2: {type: 'number'},
+                c3: {type: 'number'},
+                c4: {type: 'number'},
+                c5: {type: 'number'},
+                c6: {type: 'number'},
+                c7: {type: 'number'},
             },
         });
         expect(schema.properties).not.toHaveProperty('countMobile');
