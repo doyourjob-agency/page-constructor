@@ -27,8 +27,8 @@
       "image": "/story-assets/img_6-12_light.png",
       "video": "/story-assets/video_8-12_light.mp4",
       "verticalOffset": "l",
-      "verticalOffsetTop": "xl",
-      "verticalOffsetBottom": "s",
+      "verticalOffsetTop": "xxl",
+      "verticalOffsetBottom": "xxl",
       "buttons": [
         {
           "text": "Get started",

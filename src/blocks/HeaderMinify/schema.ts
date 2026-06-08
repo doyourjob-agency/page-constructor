@@ -34,15 +34,15 @@ export const HeaderMinifyProperties = {
     },
     verticalOffset: {
         type: 'string',
-        enum: ['0', 's', 'm', 'l', 'xl'],
+        enum: ['0', 's', 'm', 'l', 'xl', 'xxl'],
     },
     verticalOffsetTop: {
         type: 'string',
-        enum: ['0', 's', 'm', 'l', 'xl'],
+        enum: ['0', 's', 'm', 'l', 'xl', 'xxl'],
     },
     verticalOffsetBottom: {
         type: 'string',
-        enum: ['0', 's', 'm', 'l', 'xl'],
+        enum: ['0', 's', 'm', 'l', 'xl', 'xxl'],
     },
 };
 

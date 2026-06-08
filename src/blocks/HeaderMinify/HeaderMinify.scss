@@ -3,6 +3,7 @@
 
 $block: '.#{$ns}header-minify-block';
 $backgroundWidth: 1440px;
+$verticalOffsetXXL: 192px;
 
 #{$block} {
     position: relative;
@@ -81,6 +82,11 @@ $backgroundWidth: 1440px;
             padding-bottom: $indent4XL;
         }
 
+        #{$block}_vertical-offset_xxl & {
+            padding-top: $verticalOffsetXXL;
+            padding-bottom: $verticalOffsetXXL;
+        }
+
         #{$block}_vertical-offset-top_0 & {
             padding-top: 0;
         }
@@ -99,6 +105,10 @@ $backgroundWidth: 1440px;
 
         #{$block}_vertical-offset-top_xl & {
             padding-top: $indent4XL;
+        }
+
+        #{$block}_vertical-offset-top_xxl & {
+            padding-top: $verticalOffsetXXL;
         }
 
         #{$block}_vertical-offset-bottom_0 & {
@@ -121,11 +131,16 @@ $backgroundWidth: 1440px;
             padding-bottom: $indent4XL;
         }
 
+        #{$block}_vertical-offset-bottom_xxl & {
+            padding-bottom: $verticalOffsetXXL;
+        }
+
         @media (max-width: map-get($gridBreakpoints, 'md')) {
             #{$block}_vertical-offset_s &,
             #{$block}_vertical-offset_m &,
             #{$block}_vertical-offset_l &,
-            #{$block}_vertical-offset_xl & {
+            #{$block}_vertical-offset_xl &,
+            #{$block}_vertical-offset_xxl & {
                 padding-top: $indentXXL;
                 padding-bottom: $indentXXL;
             }
@@ -133,14 +148,16 @@ $backgroundWidth: 1440px;
             #{$block}_vertical-offset-top_s &,
             #{$block}_vertical-offset-top_m &,
             #{$block}_vertical-offset-top_l &,
-            #{$block}_vertical-offset-top_xl & {
+            #{$block}_vertical-offset-top_xl &,
+            #{$block}_vertical-offset-top_xxl & {
                 padding-top: $indentXXL;
             }
 
             #{$block}_vertical-offset-bottom_s &,
             #{$block}_vertical-offset-bottom_m &,
             #{$block}_vertical-offset-bottom_l &,
-            #{$block}_vertical-offset-bottom_xl & {
+            #{$block}_vertical-offset-bottom_xl &,
+            #{$block}_vertical-offset-bottom_xxl & {
                 padding-bottom: $indentXXL;
             }
         }

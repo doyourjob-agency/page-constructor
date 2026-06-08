@@ -340,9 +340,9 @@ export interface HeaderMinifyBlockProps {
     image?: string;
     video?: string;
     headerSpace?: boolean;
-    verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
-    verticalOffsetTop?: '0' | 's' | 'm' | 'l' | 'xl';
-    verticalOffsetBottom?: '0' | 's' | 'm' | 'l' | 'xl';
+    verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+    verticalOffsetTop?: '0' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+    verticalOffsetBottom?: '0' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 }
 
 export interface ExtendedFeaturesItem
