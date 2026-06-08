@@ -9,7 +9,7 @@ import {MobileContext} from '../../context/mobileContext';
 import {useTheme} from '../../context/theme';
 import {Col, Grid, Row} from '../../grid';
 import {ClassNameProps, HeaderBlockBackground, HeaderBlockProps} from '../../models';
-import {block, getThemedValue} from '../../utils';
+import {block, getHeaderTag, getThemedValue} from '../../utils';
 
 import BackButton from './BackButton/BackButton';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
@@ -73,6 +73,7 @@ const FullWidthBackground = ({background}: FullWidthBackgroundProps) => (
 export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>) => {
     const {
         title,
+        titleSize = 'l',
         switchingTitle,
         topTags,
         bottomTags,
@@ -191,15 +192,18 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                 <HTML>{overtitle}</HTML>
                                             </div>
                                         )}
-                                        <h1
-                                            className={b('title', {
-                                                'pre-wrap': Boolean(switchingTitle),
-                                            })}
-                                            id={titleId}
-                                        >
-                                            <HeaderTag tag={blockTag} />
-                                            {status}
-                                            {switchingTitle ? (
+                                        {React.createElement(
+                                            getHeaderTag(titleSize),
+                                            {
+                                                className: b('title', {
+                                                    'pre-wrap': Boolean(switchingTitle),
+                                                    size: titleSize,
+                                                }),
+                                                id: titleId,
+                                            },
+                                            <HeaderTag tag={blockTag} />,
+                                            status,
+                                            switchingTitle ? (
                                                 <SwitchingTitle {...switchingTitle} />
                                             ) : (
                                                 <React.Fragment>
@@ -209,8 +213,8 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                                                         <HTML>{title}</HTML>
                                                     )}
                                                 </React.Fragment>
-                                            )}
-                                        </h1>
+                                            ),
+                                        )}
                                         <HeaderDescription
                                             className={b('description', {theme: textTheme})}
                                             description={description}

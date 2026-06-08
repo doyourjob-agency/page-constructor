@@ -286,6 +286,7 @@ export type HeaderButtonType = Pick<
 
 export interface HeaderBlockProps {
     title: string;
+    titleSize?: TitleTextSize;
     switchingTitle?: SwitchingTitleProps;
     topTags?: HeaderTag[];
     bottomTags?: HeaderTag[];

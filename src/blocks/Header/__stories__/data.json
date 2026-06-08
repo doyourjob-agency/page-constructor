@@ -236,6 +236,9 @@
   "size": {
     "title": "Header size {{size}}"
   },
+  "titleFontSizes": {
+    "title": "Title size {{size}}"
+  },
   "backgroundEffect": {
     "content": {
       "backgroundEffect": {

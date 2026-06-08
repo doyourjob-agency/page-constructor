@@ -6,6 +6,7 @@ import {
     MediaProps,
     VideoProps,
     mediaView,
+    titleTextSize,
     withTheme,
 } from '../../schema/validators/common';
 import {filteredArray} from '../../schema/validators/utils';
@@ -25,6 +26,10 @@ export const HeaderProperties = {
     title: {
         type: 'string',
         contentType: 'text',
+    },
+    titleSize: {
+        type: 'string',
+        enum: titleTextSize,
     },
     switchingTitle: {
         type: 'object',

@@ -4,7 +4,13 @@ import {Meta, StoryFn} from '@storybook/react-vite';
 
 import {argHeaderContext, argHeaderStockContext, yfmTransform} from '../../../../.storybook/utils';
 import {PageConstructor} from '../../../containers/PageConstructor';
-import {ButtonProps, HeaderBlockModel, HeaderBlockProps, HeaderStockType} from '../../../models';
+import {
+    ButtonProps,
+    HeaderBlockModel,
+    HeaderBlockProps,
+    HeaderStockType,
+    TitleTextSize,
+} from '../../../models';
 import Header from '../Header';
 
 import data from './data.json';
@@ -16,6 +22,9 @@ const getImageTitle = (text: string) => data.image.title.replace('{{text}}', tex
 const getVerticalOffsetTitle = (offset: string) =>
     data.verticalOffset.title.replace('{{offset}}', offset);
 const getBreadcrumbsTitle = (theme: string) => data.breadcrumbs.title.replace('{{theme}}', theme);
+const getTitleFontSizeTitle = (size: string) => data.titleFontSizes.title.replace('{{size}}', size);
+
+const titleFontSizes: TitleTextSize[] = ['xl', 'l', 'm', 's', 'xs'];
 
 export default {
     title: 'Blocks/Header',
@@ -202,6 +211,19 @@ const StockTemplate: StoryFn<HeaderBlockModel> = (args) => (
     </Fragment>
 );
 
+const TitleFontSizesTemplate: StoryFn<HeaderBlockModel> = (args) => (
+    <Fragment>
+        {titleFontSizes.map((titleSize) => (
+            <DefaultTemplate
+                key={titleSize}
+                {...args}
+                title={getTitleFontSizeTitle(titleSize.toUpperCase())}
+                titleSize={titleSize}
+            />
+        ))}
+    </Fragment>
+);
+
 export const Default = DefaultTemplate.bind({});
 export const SwitchingTitle = DefaultTemplate.bind({});
 export const Size = SizeTemplate.bind({});
@@ -216,6 +238,7 @@ export const MediaViewFit = FitTemplate.bind({});
 export const WithStock = StockTemplate.bind({});
 export const WithBackgroundEffect = DefaultTemplate.bind({});
 export const WithUnicorn = DefaultTemplate.bind({});
+export const TitleFontSizes = TitleFontSizesTemplate.bind({});
 
 Default.args = {...DefaultArgs} as HeaderBlockProps;
 
@@ -274,3 +297,6 @@ WithUnicorn.args = {
     ...DefaultArgs,
     ...data.unicorn.content,
 } as HeaderBlockProps;
+
+TitleFontSizes.args = {...DefaultArgs} as HeaderBlockPropsNoTitle;
+TitleFontSizes.storyName = 'Title font sizes';
