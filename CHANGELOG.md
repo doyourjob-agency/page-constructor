@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Bug Fixes
+
+* **HeaderMinify:** show keyboard focus on buttons.
+
 ## [5.31.151](https://github.com/doyourjob-agency/page-constructor/compare/v5.31.150...v5.31.151) (2026-02-03)
 
 ### Features

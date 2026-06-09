@@ -17,6 +17,8 @@ $block: '.#{$ns}header-minify-button';
     text-decoration: none;
     transition: opacity 0.3s ease;
 
+    @include focusable(4px);
+
     &_outline {
         background: rgba(5, 43, 66, 0.05);
         color: #001a2b;
