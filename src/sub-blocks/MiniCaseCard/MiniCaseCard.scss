@@ -132,7 +132,7 @@ $rhs-card-min-width: 400px;
     }
 
     &__inner-container {
-        min-height: $indentS * 4;
+        min-height: 88px;
         display: flex;
         flex-direction: column;
         justify-content: center;
