@@ -76,11 +76,20 @@ $rhs-card-min-width: 400px;
         }
     }
 
-    &__tag,
-    &__author-name,
-    &__author-position {
+    &__tag {
         @include text-size(body-1);
         line-height: $indentXS + $navigationIconIndent;
+    }
+
+    &__author-name,
+    &__author-position {
+        @include text-size(body-2);
+    }
+
+    &__author-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &__title {
