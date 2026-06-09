@@ -8,7 +8,7 @@ $verticalOffsetXXL: 192px;
 #{$block} {
     position: relative;
     z-index: 1;
-    color: #001a2b;
+    color: var(--g-color-base-brand);
 
     &_header-space {
         padding-top: var(--header-height);
