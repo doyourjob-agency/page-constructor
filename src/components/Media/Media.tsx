@@ -53,6 +53,7 @@ export const Media = (props: MediaAllProps) => {
         isBackground,
         playButton,
         playButtonCorner,
+        playButtonText,
         customBarControlsClassName,
         qa,
         ratio,
@@ -124,6 +125,7 @@ export const Media = (props: MediaAllProps) => {
                     previewImg={previewImg}
                     previewVideo={previewVideo}
                     playButtonCorner={playButtonCorner}
+                    playButtonText={playButtonText}
                     height={height}
                     ratio={ratio}
                     fullscreen={fullscreen}
@@ -171,6 +173,7 @@ export const Media = (props: MediaAllProps) => {
         ratio,
         youtubeClassName,
         playButtonCorner,
+        playButtonText,
         autoplay,
         margins,
     ]);

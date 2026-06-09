@@ -9,6 +9,7 @@
       "previewImg": "/story-assets/video_8-12_dark.png",
       "playButton": null,
       "playButtonCorner": false,
+      "playButtonText": "Text",
       "className": "",
       "stream": "",
       "id": ""
