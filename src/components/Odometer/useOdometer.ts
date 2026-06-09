@@ -49,6 +49,7 @@ export const useOdometer = () => {
                 }
                 .odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-minimal .odometer-digit .odometer-value {
                 display: block;
+                text-align: center;
                 -webkit-transform: translateZ(0);
                 }
                 .odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-minimal .odometer-digit .odometer-value.odometer-last-value {
