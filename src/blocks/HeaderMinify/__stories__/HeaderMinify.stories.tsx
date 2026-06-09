@@ -31,3 +31,9 @@ WithOffsetsAndImage.args = {
     ...data.withOffsetsAndImage.content,
     description: yfmTransform(data.withOffsetsAndImage.content.description),
 } as HeaderMinifyBlockProps;
+
+export const WithColSizes = DefaultTemplate.bind({});
+WithColSizes.args = {
+    ...data.withColSizes.content,
+    description: yfmTransform(data.withColSizes.content.description),
+} as HeaderMinifyBlockProps;

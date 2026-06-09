@@ -12,7 +12,7 @@ import './HeaderMinify.scss';
 
 const b = block('header-minify-block');
 
-const colSizes = {all: 12, md: 9};
+const DEFAULT_COL_SIZES = {all: 12, md: 9};
 
 export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
     const {
@@ -25,6 +25,7 @@ export const HeaderMinifyBlock = (props: HeaderMinifyBlockProps) => {
         verticalOffset,
         verticalOffsetTop,
         verticalOffsetBottom,
+        colSizes = DEFAULT_COL_SIZES,
     } = props;
 
     return (

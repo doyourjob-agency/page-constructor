@@ -337,6 +337,7 @@ export interface HeaderMinifyBlockProps {
     title: string;
     description?: string;
     buttons?: HeaderMinifyButtonProps[];
+    colSizes?: GridColumnSizesType;
     image?: string;
     video?: string;
     headerSpace?: boolean;

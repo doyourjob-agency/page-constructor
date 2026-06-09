@@ -1,4 +1,4 @@
-import {BlockBaseProps} from '../../schema/validators/common';
+import {BlockBaseProps, containerSizesObject} from '../../schema/validators/common';
 
 export const HeaderMinifyProperties = {
     title: {
@@ -10,6 +10,7 @@ export const HeaderMinifyProperties = {
         contentType: 'yfm',
         inputType: 'textarea',
     },
+    colSizes: containerSizesObject,
     buttons: {
         type: 'array',
         items: {

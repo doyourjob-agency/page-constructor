@@ -36,5 +36,22 @@
         }
       ]
     }
+  },
+  "withColSizes": {
+    "content": {
+      "type": "header-minify-block",
+      "title": "Header with custom column sizes",
+      "description": "This is an example showing the custom column sizes (colSizes: {all: 12, md: 6}).",
+      "colSizes": {
+        "all": 12,
+        "md": 6
+      },
+      "buttons": [
+        {
+          "text": "Get started",
+          "url": "https://example.com"
+        }
+      ]
+    }
   }
 }
