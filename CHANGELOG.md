@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Features
+
+* **Header:** add adaptive Unicorn fallback image support with forced mobile image mode.
+
 ### Bug Fixes
 
 * **HeaderMinify:** show keyboard focus on buttons.

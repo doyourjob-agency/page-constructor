@@ -25,6 +25,7 @@ import HeaderStock from './HeaderStock/HeaderStock';
 import HeaderTag from './HeaderTag/HeaderTag';
 import HeaderTags from './HeaderTags/HeaderTags';
 import SwitchingTitle from './SwitchingTitle/SwitchingTtitle';
+import {useAdaptiveUnicornBackground} from './useAdaptiveUnicornBackground';
 import {getImageSize, getTitleSizes, titleWithImageSizes} from './utils';
 
 import './Header.scss';
@@ -109,6 +110,9 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
         backLink,
         unicorn,
         unicornSdkUrl,
+        unicornFallbackImage,
+        unicornFallbackImageMobile,
+        forceMobileImage = true,
     } = props;
     const isMobile = useContext(MobileContext);
     const {backButton, blockTag} = useContext(HeaderContext);
@@ -131,6 +135,26 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
     const imageThemed = useMemo(() => image && getThemedValue(image, theme), [image, theme]);
     const videoThemed = useMemo(() => video && getThemedValue(video, theme), [theme, video]);
     const fullWidth = backgroundThemed?.fullWidth || backgroundThemed?.fullWidthMedia;
+    const fallbackImage = isMobile
+        ? unicornFallbackImageMobile || unicornFallbackImage
+        : unicornFallbackImage || unicornFallbackImageMobile;
+    const forceFallbackOnMobile = isMobile && forceMobileImage && Boolean(fallbackImage);
+    const {
+        backgroundRef,
+        handleFallbackImageLoad,
+        handleFallbackTransitionEnd,
+        handleSceneLoad,
+        isFallbackVisible,
+        shouldMountScene,
+        shouldPlayScene,
+        showFallback,
+    } = useAdaptiveUnicornBackground({
+        enabled: Boolean(unicorn) && !forceFallbackOnMobile,
+        fallbackAvailable: Boolean(fallbackImage),
+    });
+    const showFallbackImage = forceFallbackOnMobile || showFallback;
+    const isFallbackImageVisible = forceFallbackOnMobile || isFallbackVisible;
+    const shouldRenderScene = !forceFallbackOnMobile && shouldMountScene;
     const titleId = useUniqId();
     const headerRef = useRef<HTMLElement>(null);
     const hasBackground = Boolean(backgroundThemed || backgroundEffect);
@@ -184,8 +208,41 @@ export const HeaderBlock = (props: React.PropsWithChildren<HeaderBlockFullProps>
                 <BackgroundEffect {...backgroundEffect} attachRef={headerRef} />
             )}
             {unicorn && (
-                <div className={b('background', {unicorn: true})}>
-                    <UnicornScene jsonFilePath={unicorn} sdkUrl={unicornSdkUrl} />
+                <div
+                    ref={backgroundRef}
+                    className={b('background', {
+                        unicorn: true,
+                        'unicorn-fallback': showFallbackImage,
+                    })}
+                >
+                    {showFallbackImage && fallbackImage && (
+                        <picture
+                            className={b('fallback', {visible: isFallbackImageVisible})}
+                            onTransitionEnd={handleFallbackTransitionEnd}
+                        >
+                            {unicornFallbackImageMobile && (
+                                <source
+                                    media="(max-width: 768px)"
+                                    srcSet={unicornFallbackImageMobile}
+                                />
+                            )}
+                            <img
+                                alt=""
+                                aria-hidden="true"
+                                className={b('fallback-image')}
+                                onLoad={handleFallbackImageLoad}
+                                src={fallbackImage}
+                            />
+                        </picture>
+                    )}
+                    {shouldRenderScene && (
+                        <UnicornScene
+                            jsonFilePath={unicorn}
+                            onLoad={handleSceneLoad}
+                            play={shouldPlayScene}
+                            sdkUrl={unicornSdkUrl}
+                        />
+                    )}
                 </div>
             )}
             <Grid containerClass={b('container-fluid')}>

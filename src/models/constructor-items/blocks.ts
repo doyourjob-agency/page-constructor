@@ -310,6 +310,9 @@ export interface HeaderBlockProps {
     theme?: 'light' | 'dark';
     unicorn?: string;
     unicornSdkUrl?: string;
+    unicornFallbackImage?: string;
+    unicornFallbackImageMobile?: string;
+    forceMobileImage?: boolean;
     verticalOffset?: '0' | 's' | 'm' | 'l' | 'xl';
     verticalOffsetTop?: 's' | 'm' | 'l' | 'xl';
     verticalOffsetBottom?: 's' | 'm' | 'l' | 'xl';

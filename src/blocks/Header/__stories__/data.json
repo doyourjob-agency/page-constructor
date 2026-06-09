@@ -252,6 +252,9 @@
       "type": "header-block",
       "title": "Header with Unicorn",
       "unicorn": "/story-assets/unicorn-new.json",
+      "unicornFallbackImage": "/story-assets/header-bg-img_light.png",
+      "unicornFallbackImageMobile": "/story-assets/img-bg_nopadding_4-12_light.png",
+      "forceMobileImage": true,
       "background": {
         "image": "/story-assets/header-bg-img_light.png"
       }

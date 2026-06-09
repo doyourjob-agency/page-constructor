@@ -162,6 +162,9 @@ export const HeaderProperties = {
     },
     unicorn: {type: 'string'},
     unicornSdkUrl: {type: 'string'},
+    unicornFallbackImage: {type: 'string'},
+    unicornFallbackImageMobile: {type: 'string'},
+    forceMobileImage: {type: 'boolean'},
     breadcrumbs: {
         type: 'object',
         additionalProperties: false,
