@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {PlayFill} from '@gravity-ui/icons';
-import {Icon, useActionHandlers, useUniqId} from '@gravity-ui/uikit';
+import {Icon, useUniqId} from '@gravity-ui/uikit';
 import debounce from 'lodash/debounce';
 
 import {useAnalytics} from '../../hooks/useAnalytics';
@@ -75,6 +75,8 @@ export interface VideoBlockProps extends AnalyticsEventsBase {
     fullscreen?: boolean;
     autoplay?: boolean;
     onImageLoad?: () => void;
+    /** Название видео — используется как title для iframe и aria-label для кнопки воспроизведения */
+    title?: string;
 }
 
 const VideoBlock = (props: VideoBlockProps) => {
@@ -97,15 +99,17 @@ const VideoBlock = (props: VideoBlockProps) => {
         analyticsEvents,
         autoplay,
         onImageLoad,
+        title,
     } = props;
     const handleAnalytics = useAnalytics(DefaultEventNames.VideoPreview);
 
     const src = videoIframe ? videoIframe : getYoutubeVideoSrc(stream, record);
-    const ref = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    // Отдельный ref для iframe чтобы управлять фокусом
+    const iframeRef = useRef<HTMLIFrameElement>(null);
     const [hidePreview, setHidePreview] = useState(false);
     const [currentHeight, setCurrentHeight] = useState(height || undefined);
     const fullId = useUniqId();
-    const buttonId = useUniqId();
 
     const [isPlaying, setIsPlaying] = useState(!previewImg);
     const [isHovered, setIsHovered] = useState(false);
@@ -137,7 +141,12 @@ const VideoBlock = (props: VideoBlockProps) => {
 
         setIsPlaying(true);
 
-        setTimeout(() => setHidePreview(true), AUTOPLAY_DELAY);
+        setTimeout(() => {
+            setHidePreview(true);
+            // Перемещаем фокус на iframe после скрытия превью,
+            // чтобы пользователь клавиатуры/скринридера не терял ориентацию
+            iframeRef.current?.focus();
+        }, AUTOPLAY_DELAY);
     }, [handleAnalytics, analyticsEvents]);
 
     const onMouseEnter = useCallback(() => {
@@ -148,12 +157,12 @@ const VideoBlock = (props: VideoBlockProps) => {
         setIsHovered(false);
     }, []);
 
-    const {onKeyDown: onPreviewKeyDown} = useActionHandlers(onPreviewClick);
-
     useEffect(() => {
         const updateSize = debounce(() => {
             setCurrentHeight(
-                ref.current ? Math.round(getHeight(ref.current.offsetWidth, ratio)) : undefined,
+                containerRef.current
+                    ? Math.round(getHeight(containerRef.current.offsetWidth, ratio))
+                    : undefined,
             );
         }, 100);
 
@@ -164,20 +173,33 @@ const VideoBlock = (props: VideoBlockProps) => {
         };
     }, [height, ratio]);
 
+    // Осмысленный title для iframe: если передан title пропс — используем его,
+    // иначе fallback на i18n-строку
+    const iframeTitle = title ? `${i18n('iframe-title')}: ${title}` : i18n('iframe-title');
+
+    // Пока показывается превью — iframe скрыт от вспомогательных технологий
+    // и не попадает в порядок фокуса
+    const isPreviewVisible = Boolean(previewImg) && !hidePreview && !fullscreen;
+
     const iframeContent = useMemo(() => {
         return (
             <iframe
+                ref={iframeRef}
                 id={id || fullId}
                 src={iframeSrc}
                 width="100%"
                 height="100%"
-                title={i18n('iframe-title')}
+                title={iframeTitle}
                 frameBorder="0"
                 allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
                 loading="lazy"
+                // Скрываем от AT и убираем из tab-порядка пока активно превью
+                aria-hidden={isPreviewVisible || undefined}
+                tabIndex={isPreviewVisible ? -1 : 0}
             />
         );
-    }, [fullId, id, iframeSrc]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fullId, id, iframeSrc, iframeTitle, isPreviewVisible]);
 
     useEffect(() => {
         setHidePreview(false);
@@ -187,21 +209,34 @@ const VideoBlock = (props: VideoBlockProps) => {
         return null;
     }
 
+    // aria-label для кнопки воспроизведения:
+    // приоритет — playButtonText, затем title видео, затем дефолтная i18n-строка
+    const playButtonAriaLabel =
+        playButtonText || title
+            ? [playButtonText || 'Play', title].filter(Boolean).join(': ')
+            : 'Play';
+
     return (
-        <div className={b(null, className)} style={{height: currentHeight}} ref={ref}>
+        <div className={b(null, className)} style={{height: currentHeight}} ref={containerRef}>
             {iframeContent}
             {previewImg && !hidePreview && !fullscreen && (
-                <div
+                // Используем настоящий <button> вместо <div role="button">:
+                // — нативно фокусируется по Tab
+                // — активируется Enter/Space без дополнительного onKeyDown
+                // — корректно объявляется скринридерами
+                <button
                     className={b('preview')}
                     onClick={onPreviewClick}
-                    onKeyDown={onPreviewKeyDown}
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
-                    role="button"
-                    tabIndex={0}
-                    aria-labelledby={playButton ? playButtonId : buttonId}
+                    aria-label={playButtonAriaLabel}
+                    // Если передан внешний playButton с собственным id — используем его,
+                    // иначе aria-label на самой кнопке достаточно
+                    id={playButton ? playButtonId : undefined}
+                    type="button"
                 >
                     {isHovered && previewVideo ? (
+                        // Декоративное превью-видео скрыто от AT
                         <video
                             src={previewVideo}
                             className={b('video')}
@@ -209,6 +244,7 @@ const VideoBlock = (props: VideoBlockProps) => {
                             muted
                             loop
                             playsInline
+                            aria-hidden="true"
                         />
                     ) : (
                         <Image
@@ -219,16 +255,17 @@ const VideoBlock = (props: VideoBlockProps) => {
                         />
                     )}
                     {playButton || (
-                        <button
-                            title="Play"
-                            id={buttonId}
+                        // Декоративный элемент кнопки скрыт от AT —
+                        // вся доступная информация уже есть в aria-label родительской кнопки
+                        <span
                             className={b('button', {
                                 corner: playButtonCorner,
                                 text: Boolean(playButtonText),
                             })}
+                            aria-hidden="true"
                         >
                             {playButtonText ? (
-                                <div className={b('button-text')}>{playButtonText}</div>
+                                <span className={b('button-text')}>{playButtonText}</span>
                             ) : (
                                 <Icon
                                     className={b('icon')}
@@ -236,9 +273,9 @@ const VideoBlock = (props: VideoBlockProps) => {
                                     size={playButtonCorner ? 16 : 24}
                                 />
                             )}
-                        </button>
+                        </span>
                     )}
-                </div>
+                </button>
             )}
         </div>
     );

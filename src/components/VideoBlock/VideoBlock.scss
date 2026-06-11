@@ -7,6 +7,9 @@ $block: '.#{$ns}VideoBlock';
     position: relative;
 
     &__preview {
+        @include reset-button-style();
+        @include focusable(-1px);
+        border-radius: inherit;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -31,9 +34,6 @@ $block: '.#{$ns}VideoBlock';
     }
 
     &__button {
-        @include reset-button-style();
-        @include focusable();
-
         display: flex;
         justify-content: center;
         align-items: center;
