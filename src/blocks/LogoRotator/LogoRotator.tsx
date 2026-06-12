@@ -4,10 +4,11 @@ import {Link} from '@gravity-ui/uikit';
 
 import {ImageBase} from '../../components';
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import TitleItem from '../../components/Title/TitleItem';
 import {BREAKPOINTS} from '../../constants';
 import {Grid, Row} from '../../grid';
 import useWindowBreakpoint from '../../hooks/useWindowBreakpoint';
-import {LogoRotatorBlockProps, LogoRotatorColumnCount} from '../../models';
+import {LogoRotatorBlockProps, LogoRotatorColumnCount, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item';
@@ -319,12 +320,17 @@ export const LogoRotatorBlock = (props: LogoRotatorBlockProps) => {
         ],
     );
 
+    const titleProps =
+        !title || typeof title === 'string'
+            ? ({text: title, textSize: 'l'} as TitleItemProps)
+            : title;
+
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
             <div className={b('root')}>
                 {title || text ? (
                     <div className={b('head')}>
-                        {title && <h2 className={b('title')}>{title}</h2>}
+                        <TitleItem {...titleProps} />
                         {text && <div className={b('text')}>{text}</div>}
                     </div>
                 ) : null}

@@ -2,8 +2,9 @@ import React, {useMemo} from 'react';
 
 import {AnimateBlock, Image} from '../../components';
 import {parseVideoType} from '../../components/Media/Video/utils';
+import TitleItem from '../../components/Title/TitleItem';
 import {Col, Row} from '../../grid';
-import {BenefitsBlockProps} from '../../models';
+import {BenefitsBlockProps, TitleItemProps} from '../../models';
 import {block} from '../../utils';
 
 import './Benefits.scss';
@@ -27,12 +28,16 @@ export const BenefitsBlock = (props: BenefitsBlockProps) => {
         [itemBackground],
     );
 
+    const titleProps =
+        !title || typeof title === 'string'
+            ? ({text: title, textSize: 'l'} as TitleItemProps)
+            : title;
     return (
         <AnimateBlock className={b({theme})} animate={animated}>
             <div className={b('root')} style={styles}>
                 {title || text ? (
                     <div className={b('head')}>
-                        {title && <h2 className={b('title')}>{title}</h2>}
+                        <TitleItem {...titleProps} />
                         {text && <div className={b('text')}>{text}</div>}
                     </div>
                 ) : null}

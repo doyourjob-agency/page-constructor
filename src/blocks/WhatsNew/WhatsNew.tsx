@@ -1,7 +1,8 @@
 import React from 'react';
 
 import {AnimateBlock, Image} from '../../components';
-import {WhatsNewBlockProps} from '../../models';
+import TitleItem from '../../components/Title/TitleItem';
+import {TitleItemProps, WhatsNewBlockProps} from '../../models';
 import NewsCard from '../../sub-blocks/NewsCard/NewsCard';
 import {block} from '../../utils';
 import ScrollerBlock from '../Scroller/Scroller';
@@ -20,12 +21,17 @@ const WhatsNew: React.FC<WhatsNewBlockProps> = ({
     autoScroll,
     autoScrollInterval,
 }) => {
+    const titleProps =
+        !title || typeof title === 'string'
+            ? ({text: title, textSize: 'l'} as TitleItemProps)
+            : title;
+
     return (
         <AnimateBlock className={b()} animate={animated}>
             <div className={b('root')}>
                 {title && (
                     <div className={b('head')}>
-                        <h2 className={b('title')}>{title}</h2>
+                        <TitleItem {...titleProps} />
                     </div>
                 )}
                 <ScrollerBlock

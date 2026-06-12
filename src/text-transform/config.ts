@@ -598,10 +598,17 @@ export const config: BlocksConfig = {
         },
     ],
     [BlockType.MiniCaseBlock]: blockHeaderTransformer,
-    [BlockType.BenefitsBlock]: {
-        fields: ['textOne', 'textTwo'],
-        transformer: yfmTransformer,
-    },
+    [BlockType.BenefitsBlock]: [
+        {
+            fields: ['title'],
+            transformer: typografTransformer,
+            parser: parseTitle,
+        },
+        {
+            fields: ['textOne', 'textTwo'],
+            transformer: yfmTransformer,
+        },
+    ],
     [BlockType.ScienceFeedBlock]: [
         {
             fields: ['text'],
@@ -626,4 +633,24 @@ export const config: BlocksConfig = {
             transformer: yfmTransformer,
         },
     ],
+    [BlockType.BenchmarkBlock]: {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
+    [BlockType.LogoRotatorBlock]: {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
+    [BlockType.UnicornCardsBlock]: {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
+    [BlockType.WhatsNewBlock]: {
+        fields: ['title'],
+        transformer: typografTransformer,
+        parser: parseTitle,
+    },
 };

@@ -1,4 +1,4 @@
-import {AnimatableProps, BlockBaseProps} from '../../schema/validators/common';
+import {AnimatableProps, BlockBaseProps, TitleProps} from '../../schema/validators/common';
 
 export const BenchmarkBlock = {
     'benchmark-block': {
@@ -8,7 +8,17 @@ export const BenchmarkBlock = {
             ...BlockBaseProps,
             ...AnimatableProps,
             title: {
-                type: 'string',
+                oneOf: [
+                    {
+                        type: 'string',
+                        contentType: 'text',
+                        optionName: 'text',
+                    },
+                    {
+                        ...TitleProps,
+                        optionName: 'options',
+                    },
+                ],
             },
             text: {
                 type: 'string',

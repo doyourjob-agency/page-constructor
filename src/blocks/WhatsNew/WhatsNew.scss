@@ -20,17 +20,6 @@ $block: '.#{$ns}whats-new-block';
         text-align: center;
     }
 
-    &__title {
-        @include text-size(display-4);
-        margin: 0;
-        font-weight: var(--g-text-accent-font-weight);
-        color: var(--g-color-text-primary);
-
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            @include text-size(display-1);
-        }
-    }
-
     &__footer {
         display: flex;
         justify-content: space-between;

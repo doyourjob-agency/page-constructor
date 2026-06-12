@@ -25,23 +25,11 @@ $block: '.#{$ns}unicorn-cards-block';
         }
     }
 
-    &__title {
-        @include text-size(display-4);
-        margin: 0;
-        font-weight: var(--g-text-accent-font-weight);
-        color: var(--g-color-text-primary);
-
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
-            @include text-size(display-1);
-        }
-    }
-
     &__text {
-        font-size: 24px;
-        line-height: 28px;
+        @include text-size(header-2);
         opacity: 0.6;
 
-        @media (max-width: map-get($gridBreakpoints, 'md')) {
+        @media (max-width: map-get($gridBreakpoints, 'sm')) {
             @include text-size(body-3);
         }
     }

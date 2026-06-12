@@ -53,8 +53,9 @@ const QA_ATTRIBUTES_KEYS = ['container', 'content', 'wrapper', 'image', 'button'
 export function getHeaderTag(size: TitleTextSize) {
     switch (size) {
         case 'xl':
-        case 'l':
             return 'h1';
+        case 'l':
+            return 'h2';
         case 's':
             return 'h3';
         case 'xs':

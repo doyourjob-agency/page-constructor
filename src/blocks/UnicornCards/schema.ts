@@ -1,4 +1,4 @@
-import {AnimatableProps, BaseProps} from '../../schema/validators/common';
+import {AnimatableProps, BaseProps, TitleProps} from '../../schema/validators/common';
 
 export const UnicornCardsBlock = {
     'unicorn-cards-block': {
@@ -7,7 +7,19 @@ export const UnicornCardsBlock = {
         properties: {
             ...BaseProps,
             ...AnimatableProps,
-            title: {type: 'string'},
+            title: {
+                oneOf: [
+                    {
+                        type: 'string',
+                        contentType: 'text',
+                        optionName: 'text',
+                    },
+                    {
+                        ...TitleProps,
+                        optionName: 'options',
+                    },
+                ],
+            },
             text: {type: 'string'},
             unicornSdkUrl: {type: 'string'},
             items: {

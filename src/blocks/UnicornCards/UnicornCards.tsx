@@ -1,8 +1,9 @@
 import React from 'react';
 
 import AnimateBlock from '../../components/AnimateBlock/AnimateBlock';
+import TitleItem from '../../components/Title/TitleItem';
 import {Col, Grid, Row} from '../../grid';
-import {UnicornCardsBlockProps} from '../../models';
+import {TitleItemProps, UnicornCardsBlockProps} from '../../models';
 import {block} from '../../utils';
 
 import Item from './Item/Item';
@@ -16,12 +17,17 @@ const colSizes = {all: 12, xl: 3, lg: 4, md: 6};
 export const UnicornCardsBlock = (props: UnicornCardsBlockProps) => {
     const {animated, title, text, items, unicornSdkUrl} = props;
 
+    const titleProps =
+        !title || typeof title === 'string'
+            ? ({text: title, textSize: 'l'} as TitleItemProps)
+            : title;
+
     return (
         <AnimateBlock className={b()} animate={animated}>
             <div className={b('root')}>
                 {title || text ? (
                     <div className={b('head')}>
-                        {title && <h2 className={b('title')}>{title}</h2>}
+                        <TitleItem {...titleProps} />
                         {text && <div className={b('text')}>{text}</div>}
                     </div>
                 ) : null}

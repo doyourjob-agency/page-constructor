@@ -2,6 +2,7 @@ import {
     AnimatableProps,
     BaseProps,
     ThemeProps,
+    TitleProps,
     containerSizesObject,
 } from '../../schema/validators/common';
 
@@ -27,7 +28,17 @@ export const LogoRotatorBlock = {
             ...BaseProps,
             ...AnimatableProps,
             title: {
-                type: 'string',
+                oneOf: [
+                    {
+                        type: 'string',
+                        contentType: 'text',
+                        optionName: 'text',
+                    },
+                    {
+                        ...TitleProps,
+                        optionName: 'options',
+                    },
+                ],
             },
             text: {
                 type: 'string',
