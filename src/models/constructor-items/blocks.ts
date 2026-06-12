@@ -76,7 +76,6 @@ export enum BlockType {
     IconsBlock = 'icons-block',
     CardLayoutBlock = 'card-layout-block',
     ContentLayoutBlock = 'content-layout-block',
-    BannerMinifyBlock = 'banner-minify-block',
     ShareBlock = 'share-block',
     MapBlock = 'map-block',
     FilterBlock = 'filter-block',
@@ -882,19 +881,6 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams, Anima
     tags?: string[];
 }
 
-export interface BannerMinifyButtonProps {
-    url: string;
-    text: string;
-    theme: 'outline' | 'normal';
-}
-
-export interface BannerMinifyBlockProps extends Animatable {
-    title?: string;
-    text?: string;
-    buttons?: BannerMinifyButtonProps[];
-    theme?: ContentTheme;
-}
-
 export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;
 
 export interface ContentItemProps {
@@ -1143,10 +1129,6 @@ export type ContentLayoutBlockModel = {
     type: BlockType.ContentLayoutBlock;
 } & ContentLayoutBlockProps;
 
-export type BannerMinifyBlockModel = {
-    type: BlockType.BannerMinifyBlock;
-} & BannerMinifyBlockProps;
-
 export type ShareBLockModel = {
     type: BlockType.ShareBlock;
 } & ShareBlockProps;
@@ -1301,7 +1283,6 @@ type BlockModels =
     | HeaderSliderBlockModel
     | CardLayoutBlockModel
     | ContentLayoutBlockModel
-    | BannerMinifyBlockModel
     | ShareBLockModel
     | FilterBlockModel
     | FilterCardLayoutBlockModel
