@@ -1,6 +1,5 @@
 import {
     AboutHeaderBlock,
-    AdvantagesBlock,
     AudioBlock,
     BannerBlock,
     BannerMinifyBlock,
@@ -102,7 +101,6 @@ export const blockMap = {
     [BlockType.SliderBlock]: SliderBlock,
     [BlockType.ExtendedFeaturesBlock]: ExtendedFeaturesBlock,
     [BlockType.PromoFeaturesBlock]: PromoFeaturesBlock,
-    [BlockType.AdvantagesBlock]: AdvantagesBlock,
     [BlockType.BenefitsBlock]: BenefitsBlock,
     [BlockType.ScrollerBlock]: ScrollerBlock,
     [BlockType.QuestionsBlock]: QuestionsBlock,

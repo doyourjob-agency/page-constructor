@@ -10,7 +10,6 @@ export * from './Icons/schema';
 export * from './Info/schema';
 export * from './Media/schema';
 export * from './PromoFeaturesBlock/schema';
-export * from './Advantages/schema';
 export * from './Benefits/schema';
 export * from './Scroller/schema';
 export * from './Questions/schema';

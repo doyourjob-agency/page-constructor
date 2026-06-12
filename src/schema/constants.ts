@@ -2,7 +2,6 @@ import {BlockType} from '../models';
 
 import {
     AboutHeaderBlock,
-    AdvantagesBlock,
     AudioBlock,
     BannerBlock,
     BannerCard,
@@ -94,7 +93,6 @@ export const blockSchemas: Record<BlockType, object> = {
     ...Divider,
     ...ExtendedFeaturesBlock,
     ...PromoFeaturesBlock,
-    ...AdvantagesBlock,
     ...BenefitsBlock,
     ...ScrollerBlock,
     ...SliderBlock,

@@ -54,7 +54,6 @@ import {
 } from './sub-blocks';
 
 export enum BlockType {
-    AdvantagesBlock = 'advantages-block',
     BenefitsBlock = 'benefits-block',
     ScrollerBlock = 'scroller-block',
     PromoFeaturesBlock = 'promo-features-block',
@@ -430,18 +429,6 @@ export interface UnicornCardsBlockProps extends Animatable {
     text?: string;
     items?: UnicornCardsItemProps[];
     unicornSdkUrl?: string;
-}
-
-export interface AdvantagesBlockProps {
-    title?: string;
-    link?: Pick<LinkProps, 'text' | 'url'>;
-    logo?: string;
-    items?: {
-        image?: string;
-        title: string;
-        description: string;
-        url: string;
-    }[];
 }
 
 export interface BenefitsBlockCard {
@@ -1072,10 +1059,6 @@ export type UnicornCardsBlockModel = {
     type: BlockType.UnicornCardsBlock;
 } & UnicornCardsBlockProps;
 
-export type AdvantagesBlockModel = {
-    type: BlockType.AdvantagesBlock;
-} & AdvantagesBlockProps;
-
 export type BenefitsBlockModel = {
     type: BlockType.BenefitsBlock;
 } & BenefitsBlockProps;
@@ -1300,7 +1283,6 @@ type BlockModels =
     | BannerBlockModel
     | LogoRotatorBlockModel
     | UnicornCardsBlockModel
-    | AdvantagesBlockModel
     | BenefitsBlockModel
     | ScrollerBlockModel
     | CompaniesBlockModel
