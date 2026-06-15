@@ -1,20 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {MediaComponentIframeProps} from '../../../models';
 import {block} from '../../../utils';
 
 import {i18n} from './i18n';
+import {getIframeHeight} from './utils';
 
 import './Iframe.scss';
 
 const b = block('media-component-iframe');
 
+const getViewportWidth = () => (typeof window === 'undefined' ? 0 : window.innerWidth);
+
 const Iframe = (props: MediaComponentIframeProps) => {
     const {iframe, margins = true} = props;
-    const {height = 400, src, width, name, title} = iframe;
+    const {height, src, width, name, title} = iframe;
+    const shouldTrackViewportWidth = typeof height === 'object';
+    const [viewportWidth, setViewportWidth] = useState(() =>
+        shouldTrackViewportWidth ? getViewportWidth() : 0,
+    );
+    const resolvedHeight = getIframeHeight(height, viewportWidth);
+
+    useEffect(() => {
+        if (!shouldTrackViewportWidth) {
+            return undefined;
+        }
+
+        const handleResize = () => setViewportWidth(getViewportWidth());
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [shouldTrackViewportWidth]);
 
     return iframe ? (
-        <div className={b({margins})} style={{height}}>
+        <div className={b({margins})} style={{height: resolvedHeight}}>
             <iframe
                 className={b('item')}
                 loading="lazy"
@@ -22,7 +43,7 @@ const Iframe = (props: MediaComponentIframeProps) => {
                 frameBorder={0}
                 src={src}
                 width={width}
-                height={height}
+                height={resolvedHeight}
                 name={name}
                 /* 
                   1. allow: дает права на камеру, микрофон, полноэкранный режим 

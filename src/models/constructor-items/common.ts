@@ -355,10 +355,12 @@ export interface DataLensObjectProps {
     theme: 'dark' | 'light';
 }
 
+export type ResponsiveIframeHeight = Partial<Record<'all' | 'sm' | 'md' | 'lg' | 'xl', number>>;
+
 export interface IframeProps {
     src: string;
     width?: number;
-    height?: number;
+    height?: number | ResponsiveIframeHeight;
     title?: string;
     name?: string;
 }

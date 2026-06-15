@@ -186,6 +186,13 @@ const IframeTemplate: StoryFn<MediaBlockModel> = (args) => (
                     description: undefined,
                     title: data.iframe.withoutMargins.mediaOnlyTitle,
                 },
+                {
+                    ...args,
+                    ...data.iframe.responsiveHeight.content,
+                    mediaOnly: true,
+                    description: undefined,
+                    title: data.iframe.responsiveHeight.title,
+                },
             ],
         }}
     />

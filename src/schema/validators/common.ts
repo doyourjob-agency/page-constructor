@@ -697,7 +697,34 @@ const IframeProps = {
             type: 'string',
         },
         height: {
-            type: 'number',
+            oneOf: [
+                {
+                    type: 'number',
+                    optionName: 'constant',
+                },
+                {
+                    type: 'object',
+                    additionalProperties: false,
+                    optionName: 'responsive',
+                    properties: {
+                        all: {
+                            type: 'number',
+                        },
+                        sm: {
+                            type: 'number',
+                        },
+                        md: {
+                            type: 'number',
+                        },
+                        lg: {
+                            type: 'number',
+                        },
+                        xl: {
+                            type: 'number',
+                        },
+                    },
+                },
+            ],
         },
         width: {
             type: 'number',

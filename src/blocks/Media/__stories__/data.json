@@ -319,6 +319,30 @@
           }
         }
       }
+    },
+    "responsiveHeight": {
+      "title": "Media Iframe with responsive height",
+      "content": {
+        "media": {
+          "light": {
+            "iframe": {
+              "src": "https://www.google.com/maps/embed/",
+              "name": "iframe",
+              "height": {
+                "all": 560,
+                "md": 400
+              }
+            },
+            "margins": false
+          },
+          "dark": {
+            "dataLens": {
+              "id": "m2bzon9y39lck",
+              "theme": "dark"
+            }
+          }
+        }
+      }
     }
   },
   "size": {
