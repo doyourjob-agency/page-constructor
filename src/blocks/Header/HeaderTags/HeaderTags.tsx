@@ -35,27 +35,27 @@ export const HeaderTags = ({theme, tags, sizes, className}: HeaderTagsProps) => 
     if (!tags?.length) return null;
     return (
         <Col className={b({theme}, className)} sizes={sizes}>
-            {tags.map((tag) => (
+            {tags.map(({url, backgroundColor, textColor, text, target, icon, border = true}) => (
                 <ButtonKit
-                    view="outlined"
+                    view={border ? 'outlined' : 'normal'}
                     size="l"
-                    href={tag.url}
-                    className={b('tag', {disable: !tag.url, opHover: Boolean(tag.backgroundColor)})}
+                    href={url}
+                    className={b('tag', {disable: !url, opHover: Boolean(backgroundColor)})}
                     style={
                         {
-                            ...(tag.backgroundColor && {
-                                '--_--background-color': tag.backgroundColor,
-                                '--_--background-color-hover': tag.backgroundColor,
+                            ...(backgroundColor && {
+                                '--_--background-color': backgroundColor,
+                                '--_--background-color-hover': backgroundColor,
                             }),
-                            ...(tag.textColor && {color: tag.textColor}),
+                            ...(textColor && {color: textColor}),
                         } as React.CSSProperties
                     }
-                    {...(tag.url ? {} : {tabIndex: -1})}
-                    key={tag.text}
-                    target={tag.target}
+                    {...(url ? {} : {tabIndex: -1})}
+                    key={text}
+                    target={target}
                 >
-                    {getIcon(tag.icon)}
-                    {tag.text}
+                    {getIcon(icon)}
+                    {text}
                 </ButtonKit>
             ))}
         </Col>

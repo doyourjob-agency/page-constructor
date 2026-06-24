@@ -246,6 +246,7 @@ export type HeaderTag = {
     target?: string;
     textColor?: string;
     backgroundColor?: string;
+    border?: boolean;
 };
 
 export enum HeaderStockType {
