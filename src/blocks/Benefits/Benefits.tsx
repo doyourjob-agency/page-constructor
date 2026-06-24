@@ -37,7 +37,7 @@ export const BenefitsBlock = (props: BenefitsBlockProps) => {
             <div className={b('root')} style={styles}>
                 {title || text ? (
                     <div className={b('head')}>
-                        <TitleItem {...titleProps} />
+                        <TitleItem {...titleProps} className={b('title')} />
                         {text && <div className={b('text')}>{text}</div>}
                     </div>
                 ) : null}

@@ -648,6 +648,9 @@ export const TitleProps = {
             type: 'string',
             enum: ['s', 'm', 'l'],
         },
+        gramatika: {
+            type: 'boolean',
+        },
         centered: {
             type: 'boolean',
         },

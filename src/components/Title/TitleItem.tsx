@@ -51,6 +51,7 @@ const TitleItem = (props: TitleItemFullProps) => {
         qa,
         resetMargin = true,
         urlTitle,
+        gramatika,
         id,
         prefix,
     } = props;
@@ -111,7 +112,10 @@ const TitleItem = (props: TitleItemFullProps) => {
             {React.createElement(
                 getHeaderTag(textSize),
                 {
-                    className: b({size: textSize, justify, 'reset-margin': resetMargin}, className),
+                    className: `${b(
+                        {size: textSize, justify, 'reset-margin': resetMargin},
+                        className,
+                    )} ${gramatika ? 'title-gramatika' : ''}`,
                     'data-qa': `${qa}-header`,
                     id,
                 },

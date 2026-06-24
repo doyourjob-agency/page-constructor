@@ -48,7 +48,7 @@ const Benchmark: React.FC<BenchmarkBlockProps> = ({
                 <div className={b('items')}>
                     {items?.map((item, index) => (
                         <div key={index} className={b('item')}>
-                            <div className={b('item-value')}>
+                            <div className={b('item-value', 'title-gramatika')}>
                                 <Odometer
                                     value={item.value}
                                     initValue={item.init}
