@@ -1,0 +1,1 @@
+import{R as n,N as t}from"./iframe-BP5o7V_t.js";import{g as u}from"./common-FI-6Q2HG.js";function r(){const e=n.useRef();return e.current===void 0&&(e.current=u()),e.current}function i(){return`${t}${n.useId()}`}const c=typeof n.useId=="function"?i:r;export{c as u};
