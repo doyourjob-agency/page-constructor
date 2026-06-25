@@ -1,0 +1,1 @@
+import{j as s,T as r,k as a,P as e,C as o,l as x}from"./iframe-g6lj5ymj.js";const i=({children:t})=>s.jsxs(s.Fragment,{children:[s.jsx(r,{}),s.jsx(a,{}),t,s.jsx(e,{}),s.jsx(o,{}),s.jsx(x,{})]});export{i as S};
