@@ -17,7 +17,16 @@
       "title": "Lorem Ipsum is",
       "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "tags": ["Conference", "Conference", "Conference", "Conference", "Conference"],
-      "image": "/story-assets/icon_1_light.svg"
+      "image": {
+        "src": "/story-assets/icon_1_light.svg",
+        "width": 80,
+        "height": 40,
+        "vertical": "center"
+      },
+      "levelColorBackground": "#DCEFFE",
+      "levelColorText": "#3170EB",
+      "level": "Ecosystem",
+      "type": "Technology"
     },
     {
       "url": "#1",

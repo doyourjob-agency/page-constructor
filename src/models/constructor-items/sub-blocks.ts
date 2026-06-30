@@ -258,7 +258,14 @@ export interface FeedPartnerProps extends ClassNameProps {
     levelColorBackground?: string;
     background?: string;
     url: string;
-    image?: string;
+    image?:
+        | string
+        | {
+              src: string;
+              width?: number;
+              height?: number;
+              vertical?: 'center' | 'bottom' | 'top';
+          };
     title?: string;
     subtitle?: string;
     tags?: string[];

@@ -40,8 +40,16 @@ $block: '.#{$ns}feed-partner';
         color: var(--g-color-base-brand);
     }
 
+    &__container-image {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+
     &__image {
         display: block;
+        object-fit: contain;
     }
 
     &__content {

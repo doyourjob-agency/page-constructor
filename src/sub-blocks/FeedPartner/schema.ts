@@ -25,7 +25,31 @@ export const FeedPartner = {
                 type: 'string',
             },
             image: {
-                type: 'string',
+                oneOf: [
+                    {
+                        type: 'string',
+                    },
+                    {
+                        type: 'object',
+                        additionalProperties: false,
+                        required: ['src'],
+                        properties: {
+                            src: {
+                                type: 'string',
+                            },
+                            width: {
+                                type: 'number',
+                            },
+                            height: {
+                                type: 'number',
+                            },
+                            vertical: {
+                                type: 'string',
+                                enum: ['center', 'bottom', 'top'],
+                            },
+                        },
+                    },
+                ],
             },
             title: {
                 type: 'string',
