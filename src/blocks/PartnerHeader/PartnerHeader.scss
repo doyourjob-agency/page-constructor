@@ -100,6 +100,9 @@ $block: '.#{$ns}partner-header-block';
         &--bottom {
             @media (min-width: map-get($gridBreakpoints, 'md')) {
                 display: none;
+
+                width: 250px;
+                height: 130px;
             }
         }
     }
