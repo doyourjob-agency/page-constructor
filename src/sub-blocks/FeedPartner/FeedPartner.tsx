@@ -19,6 +19,8 @@ const FeedPartner = ({
     background,
     image,
     imageScale,
+    imageWidth,
+    imageHeight,
     title,
     subtitle,
     className,
@@ -32,9 +34,13 @@ const FeedPartner = ({
     const backgroundStyles = useMemo(() => ({background: background}), [background]);
     const styles = useMemo(() => {
         const style = {} as React.CSSProperties;
-        if (imageScale) style.width = `${imageScale}%`;
+        if (imageScale) {
+            const scale = imageScale / 100;
+            if (imageWidth) style.width = `${imageWidth * scale}px`;
+            if (imageHeight) style.height = `${imageHeight * scale}px`;
+        }
         return style;
-    }, [imageScale]);
+    }, [imageHeight, imageScale, imageWidth]);
     return (
         <RouterLink href={url}>
             <Link href={url} className={b({jumpOnHover, border: 'line'}, className)}>

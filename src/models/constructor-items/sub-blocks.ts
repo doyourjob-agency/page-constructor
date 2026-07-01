@@ -260,6 +260,8 @@ export interface FeedPartnerProps extends ClassNameProps {
     url: string;
     image?: string;
     imageScale?: number;
+    imageWidth?: number;
+    imageHeight?: number;
     title?: string;
     subtitle?: string;
     tags?: string[];
