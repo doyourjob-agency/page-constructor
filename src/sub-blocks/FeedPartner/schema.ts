@@ -25,31 +25,12 @@ export const FeedPartner = {
                 type: 'string',
             },
             image: {
-                oneOf: [
-                    {
-                        type: 'string',
-                    },
-                    {
-                        type: 'object',
-                        additionalProperties: false,
-                        required: ['src'],
-                        properties: {
-                            src: {
-                                type: 'string',
-                            },
-                            width: {
-                                type: 'number',
-                            },
-                            height: {
-                                type: 'number',
-                            },
-                            vertical: {
-                                type: 'string',
-                                enum: ['center', 'bottom', 'top'],
-                            },
-                        },
-                    },
-                ],
+                type: 'string',
+            },
+            imageScale: {
+                type: 'number',
+                minimum: 0,
+                maximum: 1,
             },
             title: {
                 type: 'string',

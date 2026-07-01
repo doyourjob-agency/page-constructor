@@ -18,6 +18,7 @@ const FeedPartner = ({
     levelColorBackground,
     background,
     image,
+    imageScale,
     title,
     subtitle,
     className,
@@ -29,31 +30,11 @@ const FeedPartner = ({
         [levelColorBackground, levelColorText],
     );
     const backgroundStyles = useMemo(() => ({background: background}), [background]);
-    const imageData = useMemo(() => {
-        if (!image) return {};
-        if (typeof image === 'string') {
-            return {src: image};
-        }
+    const styles = useMemo(() => {
         const style = {} as React.CSSProperties;
-        if (image.width) style.width = `${image.width}px`;
-        if (image.height) style.height = `${image.height}px`;
-        if (image.vertical) {
-            switch (image.vertical) {
-                case 'center': {
-                    style.alignSelf = 'center';
-                    break;
-                }
-                case 'bottom': {
-                    style.alignSelf = 'flex-end';
-                    break;
-                }
-                case 'top':
-                default:
-                    style.alignSelf = 'flex-start';
-            }
-        }
-        return {src: image.src, style};
-    }, [image]);
+        if (imageScale) style.width = `${imageScale * 100}%`;
+        return style;
+    }, [imageScale]);
     return (
         <RouterLink href={url}>
             <Link href={url} className={b({jumpOnHover, border: 'line'}, className)}>
@@ -64,7 +45,8 @@ const FeedPartner = ({
                             <Image
                                 className={b('image')}
                                 containerClassName={b('container-image')}
-                                {...imageData}
+                                src={image}
+                                style={styles}
                                 alt="logo"
                             />
                         )}

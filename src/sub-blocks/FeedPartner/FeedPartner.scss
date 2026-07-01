@@ -27,7 +27,7 @@ $block: '.#{$ns}feed-partner';
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        min-height: 80px;
+        height: 80px;
         gap: $indentXS;
         flex-wrap: wrap;
     }
@@ -50,6 +50,8 @@ $block: '.#{$ns}feed-partner';
     &__image {
         display: block;
         object-fit: contain;
+        max-width: 90%;
+        max-height: 90%;
     }
 
     &__content {

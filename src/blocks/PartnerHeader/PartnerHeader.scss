@@ -94,6 +94,8 @@ $block: '.#{$ns}partner-header-block';
 
     &__logo {
         display: block;
+        width: 250px;
+        height: 130px;
 
         &--bottom {
             @media (min-width: map-get($gridBreakpoints, 'md')) {
