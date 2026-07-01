@@ -6,6 +6,7 @@
       "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "tags": ["Conference"],
       "image": "/story-assets/icon_1_light.svg",
+      "imageScale": 200,
       "background": "linear-gradient(180deg, #F8FCFF 0%, #F1F8FF 23.56%, #DBEEFE 100%)",
       "levelColorBackground": "#DCEFFE",
       "levelColorText": "#3170EB",

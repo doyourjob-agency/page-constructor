@@ -31,14 +31,6 @@ export const FeedPartner = {
                 type: 'number',
                 minimum: 0,
             },
-            imageWidth: {
-                type: 'number',
-                minimum: 0,
-            },
-            imageHeight: {
-                type: 'number',
-                minimum: 0,
-            },
             title: {
                 type: 'string',
             },
