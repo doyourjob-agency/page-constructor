@@ -34,7 +34,7 @@ $block: '.#{$ns}feed-partner';
 
     &__level {
         padding: $indent4XS $indentXXS;
-        border-radius: $indentXS;
+        border-radius: $indentXXS;
         @include text-size(body-2);
         background-color: var(--g-color-base-background);
         color: var(--g-color-base-brand);
