@@ -31,6 +31,12 @@ const ContentLayoutBlockProperties = {
             type: 'string',
         },
     },
+    topTags: {
+        type: 'array',
+        items: {
+            type: 'string',
+        },
+    },
     theme: {
         type: 'string',
         enum: contentThemes,

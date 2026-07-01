@@ -880,6 +880,7 @@ export interface ContentLayoutBlockProps extends ContentLayoutBlockParams, Anima
     textContent: ContentBlockProps;
     fileContent?: FileLinkProps[];
     tags?: string[];
+    topTags?: string[];
 }
 
 export type SVGIcon = React.FC<React.SVGProps<SVGSVGElement>>;

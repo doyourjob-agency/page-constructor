@@ -41,6 +41,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         textContent,
         fileContent,
         tags,
+        topTags,
         size = 'l',
         background,
         unicorn,
@@ -57,6 +58,15 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
     return (
         <AnimateBlock className={b({size, theme})} animate={animated}>
             <div className={b('root', {background: Boolean(background) || Boolean(unicorn)})}>
+                {topTags && (
+                    <div className={b('tags')}>
+                        {topTags.map((item, index) => (
+                            <div key={index} className={b('tag')}>
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                )}
                 <Content
                     className={b('content')}
                     {...textContent}
