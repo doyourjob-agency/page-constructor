@@ -30,7 +30,7 @@ export const FeedPartner = {
             imageScale: {
                 type: 'number',
                 minimum: 0,
-                maximum: 1,
+                maximum: 100,
             },
             title: {
                 type: 'string',

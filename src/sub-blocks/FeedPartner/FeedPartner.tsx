@@ -32,7 +32,7 @@ const FeedPartner = ({
     const backgroundStyles = useMemo(() => ({background: background}), [background]);
     const styles = useMemo(() => {
         const style = {} as React.CSSProperties;
-        if (imageScale) style.width = `${imageScale * 100}%`;
+        if (imageScale) style.width = `${imageScale}%`;
         return style;
     }, [imageScale]);
     return (
