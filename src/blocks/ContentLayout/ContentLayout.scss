@@ -60,6 +60,11 @@ $block: '.#{$ns}content-layout-block';
         display: flex;
         flex-wrap: wrap;
         gap: $indentXXXS;
+
+        &_top {
+            margin-bottom: $indentM;
+            margin-top: 0;
+        }
     }
 
     &__tag {

@@ -59,7 +59,7 @@ export const ContentLayoutBlock = (props: ContentLayoutBlockProps) => {
         <AnimateBlock className={b({size, theme})} animate={animated}>
             <div className={b('root', {background: Boolean(background) || Boolean(unicorn)})}>
                 {topTags && (
-                    <div className={b('tags')}>
+                    <div className={b('tags', {top: true})}>
                         {topTags.map((item, index) => (
                             <div key={index} className={b('tag')}>
                                 {item}
