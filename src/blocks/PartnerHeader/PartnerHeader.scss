@@ -98,11 +98,10 @@ $block: '.#{$ns}partner-header-block';
         height: 130px;
 
         &--bottom {
+            width: 250px;
+            height: 130px;
             @media (min-width: map-get($gridBreakpoints, 'md')) {
                 display: none;
-
-                width: 250px;
-                height: 130px;
             }
         }
     }
